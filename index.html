@@ -1,26 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Profe Civilizado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-	  body {
-      background-color: lightblue;
+    :root{
+      --bg: #e9f3ff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #2563eb;
+      --primary-contrast: #ffffff;
+      --card: #ffffff;
+      --nav-bg: #0f172a;
+      --nav-link: #e2e8f0;
+      --nav-link-hover: #ffffff;
+      --ring: rgba(37,99,235,.25);
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(180deg, #dbeafe 0%, var(--bg) 100%);
+      line-height: 1.5;
+    }
+
+    /* NAVBAR */
+    nav{
+      background: var(--nav-bg);
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(15,23,42,.25);
+    }
+    .nav-inner{
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand{
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: .2px;
+      text-decoration: none;
+    }
+    .links a{
+      color: var(--nav-link);
+      text-decoration: none;
+      margin-left: 14px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: background .2s, color .2s, transform .08s;
+    }
+    .links a:hover{
+      color: var(--nav-link-hover);
+      background: rgba(255,255,255,.08);
+    }
+    .links a:active{ transform: translateY(1px); }
+
+    /* HERO */
+    .hero{
+      max-width: 980px;
+      margin: 40px auto 0;
+      padding: 28px 20px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero h1{
+      margin: 0 0 12px;
+      font-size: clamp(28px, 3.2vw + 8px, 44px);
+      line-height: 1.1;
+      letter-spacing: .2px;
+    }
+    .hero p{
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: clamp(16px, 1.2vw + 8px, 18px);
+    }
+    .btns{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display: inline-block;
+      background: var(--primary);
+      color: var(--primary-contrast);
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px var(--ring);
+      transition: transform .08s, box-shadow .2s, background .2s;
+    }
+    .btn:hover{ box-shadow: 0 10px 28px var(--ring); }
+    .btn:active{ transform: translateY(1px); }
+    .btn.sec{
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    /* CARD PERFIL */
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .avatar{
+      width: 110px;
+      height: 110px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    }
+    .meta h2{
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+    .meta p{ margin: 0; color: var(--muted); }
+
+    /* CONTENIDO */
+    .content{
+      max-width: 980px;
+      margin: 20px auto 60px;
+      padding: 0 20px;
+    }
+    .panel{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .panel h3{
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    .panel p{ margin: 6px 0; }
+
+    /* FOOTER */
+    footer{
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 20px 40px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px){
+      .hero{ grid-template-columns: 1fr; }
+      .card{ grid-template-columns: 1fr; text-align: center; }
+      .avatar{ margin: 0 auto; }
+      .links a{ margin-left: 8px; }
     }
   </style>
 </head>
 <body>
-  <h1>¡Bienvenidas y bienvenidos, estudiantes de PRSI!</h1>
-  <p>Esta web ha sido creada en GitHub Pages.</p>
-  <p>El autor de esta web es Salva Castillo.</p>
-  <p><img src="img/imagen-salva.jpeg" alt="Imagen Salva" width="200"></p>
+  <!-- NAV -->
   <nav>
-    <a href="index.html">Inicio</a> |
-    <a href="contacto.html">Contacto</a> |
-    <a href="sobre-mi.html">Sobre mí</a>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Profe Civilizado</a>
+      <div class="links">
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
   </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>¡Bienvenidas y bienvenidos, estudiantes de PRSI!</h1>
+      <p>Esta web ha sido creada con <strong>GitHub Pages</strong>. Aquí encontrarás recursos, prácticas y avisos del curso.</p>
+      <div class="btns">
+        <a class="btn" href="sobre-mi.html">Conocer al profe</a>
+        <a class="btn sec" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+
+    <div class="card" aria-label="Tarjeta de presentación">
+      <img class="avatar" src="img/imagen-salva.jpg" alt="Retrato de Salva Castillo" />
+      <div class="meta">
+        <h2>Salva Castillo</h2>
+        <p>Profesor de Programación, Redes y Sistemas Informáticos I.</p>
+        <p>Creador de esta web y responsable del material.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <div class="panel">
+      <h3>Últimas novedades</h3>
+      <p>✔️ Publicada la guía: <em>Cómo crear tu primera web con GitHub Pages</em>.</p>
+      <p>✔️ Ejemplo base de proyecto: <code>index.html</code> + carpeta <code>img/</code>.</p>
+      <p>📌 Próximo: añadir ejemplos de CSS y una práctica con entregable.</p>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
+  </footer>
+
+  <script>
+    // Año dinámico en el pie
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
-
-
