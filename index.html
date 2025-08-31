@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Recursos, prácticas y avisos del curso PRSI. Web creada con GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Profe Civilizado</a>
+      <div class="links" role="navigation" aria-label="Navegación principal">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>¡Bienvenidas y bienvenidos, estudiantes de PRSI!</h1>
+      <p>Esta web ha sido creada con <strong>GitHub Pages</strong>. Aquí encontrarás recursos, prácticas y avisos del curso.</p>
+      <div class="btns">
+        <a class="btn" href="sobre-mi.html">Conocer al profe</a>
+        <a class="btn sec" href="#recursos">Ver recursos</a>
+      </div>
+    </div>
+
+    <div class="card" aria-label="Tarjeta de presentación">
+      <img class="avatar" src="img/imagen-salva.jpeg" alt="Imagen de Salva Castillo" />
+      <div class="meta">
+        <h2>Salva Castillo</h2>
+        <p>Profesor de Secundaria y Bachillerato · Colegio El Valle Alicante</p>
+        <p>Creador de esta web y responsable del material.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <!-- Avisos -->
+    <section class="panel" aria-labelledby="tit-avisos">
+      <h3 id="tit-avisos">Últimas novedades</h3>
+      <ul class="checks">
+        <li>✔️ Publicada la guía: <em>Cómo crear tu primera web con GitHub Pages</em>.</li>
+        <li>✔️ Ejemplo base de proyecto: <code>index.html</code> + carpeta <code>img/</code>.</li>
+        <li>📌 Próximo: añadir ejemplos de CSS y una práctica con entregable.</li>
+      </ul>
+      <details class="tip">
+        <summary>Tip: cómo entregar prácticas con GitHub (clic)</summary>
+        Sube tu proyecto a un repositorio, activa GitHub Pages en <em>Settings → Pages</em> y comparte la URL. Punto extra si incluyes un README con instrucciones.
+      </details>
+    </section>
+
+    <!-- Recursos -->
+    <section id="recursos" class="panel" aria-labelledby="tit-recursos">
+      <h3 id="tit-recursos">Recursos del curso</h3>
+      <div class="grid">
+        <article class="resource">
+          <h4>Guía GitHub Pages</h4>
+          <p>Paso a paso para publicar tu web estática.</p>
+          <a class="btn small" href="#" aria-disabled="true" title="Próximamente">PDF (próximamente)</a>
+        </article>
+        <article class="resource">
+          <h4>Plantilla index.html</h4>
+          <p>Base minimal para empezar sin dolor.</p>
+          <a class="btn small" href="index.html" download>Descargar</a>
+        </article>
+        <article class="resource">
+          <h4>CSS de ejemplo</h4>
+          <p>Variables, tarjetas, botones y grid.</p>
+          <a class="btn small" href="assets/style.css" download>Descargar</a>
+        </article>
+        <article class="resource">
+          <h4>Checklist entrega</h4>
+          <p>Cositas que mirará el profe (sí, yo).</p>
+          <a class="btn small" href="#" aria-disabled="true" title="Próximamente">Ver</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Prácticas -->
+    <section class="panel" aria-labelledby="tit-practicas">
+      <h3 id="tit-practicas">Prácticas destacadas</h3>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h4>PR01 · Publica tu web</h4>
+            <p>Crea un repo, sube tu <code>index.html</code> y activa Pages. Incluye un README con capturas.</p>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h4>PR02 · Estilos y accesibilidad</h4>
+            <p>Aplica variables CSS, contrasta colores y añade etiquetas <em>aria</em> donde proceda.</p>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h4>PR03 · Página “Sobre mí”</h4>
+            <p>Incluye foto, intereses y un párrafo sobre buenas prácticas en la red.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="panel" aria-labelledby="tit-faq">
+      <h3 id="tit-faq">FAQ rápidas</h3>
+      <details>
+        <summary>¿Por qué GitHub Pages y no Google Sites o WordPress?</summary>
+        Control total del código, versión gratuita, y aprendes HTML/CSS real. Menos magia negra, más cerebro.
+      </details>
+      <details>
+        <summary>¿Cómo actualizo la web?</summary>
+        Haz un commit al repo. GitHub Pages reconstruye y publica solo.
+      </details>
+      <details>
+        <summary>¿Puedo usar un formulario?</summary>
+        Sí: integra Google Forms (ver <a href="contacto.html">Contacto</a>).
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
+  </footer>
+</body>
+</html>
