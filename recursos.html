@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Recursos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Recursos interactivos de Matemáticas y Programación." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Profe Civilizado</a>
+      <div class="links">
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="recursos.html" class="active">Recursos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <section class="panel">
+      <h3>Teorema de Pitágoras (GeoGebra)</h3>
+      <p>Explora visualmente el Teorema de Pitágoras con este applet interactivo:</p>
+      <iframe 
+        src="https://www.geogebra.org/material/iframe/id/hqfjmn2p/width/800/height/600/border/888888/rc/false/ai/false/sdz/true" 
+        width="100%" height="500" style="border:0;" allowfullscreen>
+      </iframe>
+    </section>
+
+    <section class="panel">
+      <h3>Calculadora de Pitágoras en Python</h3>
+      <p>Descarga y ejecuta esta aplicación hecha en Python (Tkinter) para resolver triángulos rectángulos:</p>
+      <a class="btn" href="apps/pitagoras.py" download>⬇️ Descargar pitagoras.py</a>
+      <p class="muted">Requiere tener instalado <strong>Python 3</strong> en tu ordenador.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
+  </footer>
+</body>
+</html>
