@@ -261,7 +261,6 @@
                 `);
                 statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
                 modeSel.disabled = false;
-                if (polyBtn) polyBtn.disabled = false;
               }catch(e){
                 statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
                 console.error(e);
@@ -307,6 +306,8 @@
   
             const polyBtn = document.getElementById("poly-run");
             const polyOut = document.getElementById("poly-out");
+
+            polyBtn.disabled = false;
             
             polyBtn.addEventListener("click", async () => {
               try {
@@ -338,6 +339,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
