@@ -21,3 +21,85 @@
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 })();
+
+/* ============================
+   FACTORIZADOR DE POLINOMIOS
+   ============================ */
+
+const superIndices = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"};
+const expSuper = n => n.toString().split("").map(c => superIndices[c]).join("");
+
+const gcd = (a,b) => b === 0 ? a : gcd(b, a % b);
+
+// Mostrar polinomio
+function mostrarPolinomio(coefs){
+  let grado = coefs.length - 1;
+  let partes = [];
+
+  coefs.forEach((c,i)=>{
+    if(c === 0) return;
+    let exp = grado - i;
+    let signo = c > 0 && partes.length ? " + " : c < 0 ? " - " : "";
+    let val = Math.abs(c);
+    let coef = (val === 1 && exp > 0) ? "" : val;
+
+    let term;
+    if(exp > 1) term = `${coef}x${expSuper(exp)}`;
+    else if(exp === 1) term = `${coef}x`;
+    else term = `${coef}`;
+
+    partes.push(signo + term);
+  });
+
+  return partes.length ? partes.join("") : "0";
+}
+
+// Crear inputs
+document.getElementById("btn-crear-pol").addEventListener("click", () => {
+  const grado = parseInt(document.getElementById("grado-pol").value);
+  const cont = document.getElementById("coeficientes-pol");
+  const bloque = document.getElementById("bloque-factorizar-pol");
+  cont.innerHTML = "";
+  bloque.classList.add("hidden");
+
+  if(isNaN(grado) || grado < 1) return;
+
+  for(let i = grado; i >= 0; i--){
+    cont.innerHTML += `
+      <div class="form-row">
+        <label>Coef. x${expSuper(i)}</label>
+        <input class="coef-pol" type="number" value="0">
+      </div>`;
+  }
+  bloque.classList.remove("hidden");
+});
+
+// Factorizar
+document.getElementById("btn-factorizar-pol").addEventListener("click", () => {
+  const salida = document.getElementById("salida-pol");
+  salida.textContent = "";
+  salida.classList.remove("hidden");
+
+  const coefs = [...document.querySelectorAll(".coef-pol")]
+                  .map(i => parseInt(i.value));
+
+  let pasos = [];
+  pasos.push("Polinomio leído:");
+  pasos.push(mostrarPolinomio(coefs));
+  pasos.push("");
+
+  let m = Math.abs(coefs[0]);
+  for(let i = 1; i < coefs.length; i++){
+    m = gcd(m, Math.abs(coefs[i]));
+  }
+
+  if(m > 1){
+    const nuevo = coefs.map(c => c / m);
+    pasos.push(`Factor común: ${m}`);
+    pasos.push(`${m}·(${mostrarPolinomio(nuevo)})`);
+  } else {
+    pasos.push("No se puede extraer factor común.");
+  }
+
+  salida.textContent = pasos.join("\n");
+});
