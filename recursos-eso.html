@@ -137,6 +137,98 @@ def cateto_faltante(cat: float, hip: float) -> float:
     if hip <= cat:
         raise ValueError("La hipotenusa debe ser mayor que el cateto.")
     return math.sqrt(hip*hip - cat*cat)
+
+from math import gcd
+
+super_indices = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"}
+def exp_super(n): return "".join(super_indices[c] for c in str(n))
+
+def limpiar_coeficientes(coefs):
+    while len(coefs) > 1 and coefs[0] == 0:
+        coefs = coefs[1:]
+    return coefs
+
+def mostrar_polinomio(coefs):
+    grado = len(coefs) - 1
+    partes = []
+    for i, c in enumerate(coefs):
+        if c == 0: continue
+        exp = grado - i
+        signo = " + " if c > 0 and partes else " - " if c < 0 else ""
+        val = abs(c)
+        coef = "" if val == 1 and exp > 0 else str(val)
+        if exp > 1: term = f"{coef}x{exp_super(exp)}"
+        elif exp == 1: term = f"{coef}x"
+        else: term = f"{coef}"
+        partes.append(signo + term)
+    return "".join(partes) if partes else "0"
+
+def factor_lineal(r):
+    return "(x)" if r == 0 else f"(x - {r})"
+
+def factor_comun(coefs, pasos):
+    m = abs(coefs[0])
+    for c in coefs[1:]:
+        m = gcd(m, abs(c))
+    if m == 1: m = None
+
+    k = 0
+    while len(coefs) > k+1 and coefs[-1-k] == 0:
+        k += 1
+
+    if not m and k == 0:
+        pasos.append("No se puede extraer factor común.")
+        return None, coefs
+
+    nuevos = coefs[:]
+    if m: nuevos = [c//m for c in nuevos]
+    if k: nuevos = nuevos[:-k]
+
+    fc = ""
+    if m: fc += str(m)
+    if k == 1: fc += "x"
+    elif k > 1: fc += f"x{exp_super(k)}"
+
+    pasos.append(f"Factor común: {fc}")
+    pasos.append(f"{fc}·({mostrar_polinomio(nuevos)})")
+    return fc, nuevos
+
+def factorizar_web(coefs):
+    pasos, factores, soluciones = [], [], []
+    coefs = limpiar_coeficientes(coefs)
+
+    salida = []
+    salida.append("Polinomio:")
+    salida.append(mostrar_polinomio(coefs))
+    salida.append("")
+
+    fc, actual = factor_comun(coefs, pasos)
+    if fc: factores.append(fc)
+
+    if len(actual) == 2:
+        a, b = actual
+        r = -b // a
+        pasos.append("Ecuación de primer grado:")
+        pasos.append(f"x = {r}")
+        factores.append(factor_lineal(r))
+        soluciones.append(r)
+    else:
+        factores.append(f"({mostrar_polinomio(actual)})")
+
+    salida.append("PASOS:")
+    salida.extend(pasos)
+    salida.append("")
+    salida.append("DESCOMPOSICIÓN:")
+    salida.append(" · ".join(factores))
+
+    if soluciones:
+        salida.append("")
+        salida.append("SOLUCIONES:")
+        for s in soluciones:
+            salida.append(f"x = {s}")
+
+    return "\n".join(salida)
+
               `);
               statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
               modeSel.disabled = false;
@@ -183,6 +275,66 @@ def cateto_faltante(cat: float, hip: float) -> float:
             }catch(e){ out(e.message || String(e)); }
           });
         </script>
+        <script>
+        const degInput = document.getElementById("poly-degree");
+        const coefBox  = document.getElementById("poly-coefs");
+        const polyBtn  = document.getElementById("poly-run");
+        const polyOut  = document.getElementById("poly-out");
+        
+        function rebuildCoefInputs() {
+          coefBox.innerHTML = "";
+          const g = parseInt(degInput.value);
+          for (let e = g; e >= 0; e--) {
+            const row = document.createElement("div");
+            row.className = "form-row";
+            row.innerHTML = `
+              <label>Coef. x${e}:</label>
+              <input type="number" data-exp="${e}" value="0">
+            `;
+            coefBox.appendChild(row);
+          }
+        }
+        rebuildCoefInputs();
+        degInput.addEventListener("change", rebuildCoefInputs);
+        
+        function showPoly(msg){
+          polyOut.textContent = msg;
+          polyOut.classList.remove("hidden");
+        }
+        
+        polyBtn.addEventListener("click", async () => {
+          const inputs = coefBox.querySelectorAll("input");
+          const coefs = Array.from(inputs).map(i => parseInt(i.value || 0));
+        
+          try{
+            pyodide.globals.set("COEFS", coefs);
+            const result = await pyodide.runPythonAsync(`factorizar_web(COEFS)`);
+            showPoly(result);
+          }catch(e){
+            showPoly(e.message || String(e));
+          }
+        });
+        </script>
+      </details>
+      
+      <!-- 3) Factorizador de polinomios (Pyodide) -->
+      <details class="details-block" id="poly-py">
+        <summary>🧮 Factorizador de polinomios (Python paso a paso)</summary>
+        <div class="spacer"></div>
+      
+        <div class="form-row">
+          <label for="poly-degree">Grado:</label>
+          <input id="poly-degree" type="number" min="0" max="5" value="2">
+        </div>
+      
+        <div id="poly-coefs"></div>
+      
+        <div class="form-row">
+          <span></span>
+          <button class="btn" id="poly-run">Factorizar (Python)</button>
+        </div>
+      
+        <div id="poly-out" class="result hidden"></div>
       </details>
     </section>
   </main>
@@ -192,3 +344,4 @@ def cateto_faltante(cat: float, hip: float) -> float:
   </footer>
 </body>
 </html>
+
