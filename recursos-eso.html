@@ -82,6 +82,50 @@
 <div id="py-out" class="result hidden"></div>
 
 <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+const catBlock = document.getElementById("py-catetos");
+const hipBlock = document.getElementById("py-hip");
+const btnCat   = document.getElementById("py-run-catetos");
+const btnHip   = document.getElementById("py-run-hip");
+
+modeSel.addEventListener("change", () => {
+  outEl.classList.add("hidden");
+  hide("py-catetos");
+  hide("py-hip");
+
+  if (modeSel.value === "catetos") {
+    show("py-catetos");
+  }
+  if (modeSel.value === "hip") {
+    show("py-hip");
+  }
+});
+
+btnCat.addEventListener("click", async () => {
+  const a = parseFloat(document.getElementById("py-a").value);
+  const b = parseFloat(document.getElementById("py-b").value);
+  if (a <= 0 || b <= 0) {
+    out("Introduce catetos positivos.");
+    return;
+  }
+  pyodide.globals.set("a", a);
+  pyodide.globals.set("b", b);
+  const r = await pyodide.runPythonAsync("hipotenusa(a,b)");
+  out("Hipotenusa = " + r.toFixed(2));
+});
+
+btnHip.addEventListener("click", async () => {
+  const c = parseFloat(document.getElementById("py-cat").value);
+  const h = parseFloat(document.getElementById("py-hipo").value);
+  if (c <= 0 || h <= 0 || h <= c) {
+    out("La hipotenusa debe ser mayor que el cateto.");
+    return;
+  }
+  pyodide.globals.set("c", c);
+  pyodide.globals.set("h", h);
+  const r = await pyodide.runPythonAsync("cateto_faltante(c,h)");
+  out("Cateto faltante = " + r.toFixed(2));
+});
+
 <script>
 let pyodide;
 const statusEl = document.getElementById("py-status");
@@ -119,12 +163,32 @@ def factorizar_web(coefs):
     r.append("Polinomio:")
     r.append(mostrar(coefs))
     r.append("")
+
+    # grado 1
     if len(coefs)==2:
-        a,b=coefs; x=-b//a
+        a,b=coefs
+        x=-b//a
         r.append("x = "+str(x))
-    else:
-        r.append("No se puede factorizar más.")
+        return "\\n".join(r)
+
+    # grado 2 (ax²+bx+c)
+    if len(coefs)==3:
+        a,b,c=coefs
+        disc=b*b-4*a*c
+        r.append(f"Discriminante = {disc}")
+        if disc<0:
+            r.append("No se puede factorizar en ℝ.")
+        else:
+            from math import sqrt
+            x1=(-b+sqrt(disc))/(2*a)
+            x2=(-b-sqrt(disc))/(2*a)
+            r.append(f"x₁ = {x1}")
+            r.append(f"x₂ = {x2}")
+        return "\\n".join(r)
+
+    r.append("No se puede factorizar más.")
     return "\\n".join(r)
+
 `);
   statusEl.textContent="Python listo";
   modeSel.disabled=false;
@@ -179,3 +243,4 @@ btn.addEventListener("click", async ()=>{
 </footer>
 </body>
 </html>
+
