@@ -1,4 +1,4 @@
-o<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -7,146 +7,135 @@ o<!DOCTYPE html>
   <meta name="description" content="Recursos interactivos de Matemáticas y Programación." />
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/main.js"></script>
+
   <style>
     .details-block { margin: 10px 0; }
     .details-block summary { font-weight: 600; cursor: pointer; }
-    .form-row{display:grid;grid-template-columns:160px 1fr;gap:10px;align-items:center;margin:8px 0}
-    .result{font-weight:700;text-align:center;padding:10px;border:1px solid rgba(37,99,235,.25);border-radius:12px;background:rgba(37,99,235,.06)}
+    .form-row{
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:10px;
+      align-items:center;
+      margin:8px 0
+    }
+    .result{
+      font-weight:700;
+      padding:10px;
+      border:1px solid rgba(37,99,235,.25);
+      border-radius:12px;
+      background:rgba(37,99,235,.06);
+      white-space:pre-wrap
+    }
     .hidden{display:none}
-    .embed-wrap{overflow:hidden;border-radius:12px;box-shadow:var(--shadow);background:var(--card)}
+    .embed-wrap{
+      overflow:hidden;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      background:var(--card)
+    }
     .spacer{height:6px}
     .muted{color:var(--muted)}
     .status{font-size:14px;margin:8px 0}
-    @media (max-width: 600px){ .form-row{ grid-template-columns: 1fr; } }
+    @media (max-width: 600px){
+      .form-row{ grid-template-columns: 1fr; }
+    }
   </style>
 </head>
+
 <body>
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="brand">Profe Civilizado</a>
-      <div class="links" role="navigation" aria-label="Navegación principal">
-        <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="recursos-eso.html" class="active">Recursos ESO</a>
-        <a href="recursos-bachillerato.html">Recursos Bachillerato</a>
-        <a href="contacto.html">Contacto</a>
-      </div>
-      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Profe Civilizado</a>
+    <div class="links">
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="recursos-eso.html" class="active">Recursos ESO</a>
+      <a href="recursos-bachillerato.html">Recursos Bachillerato</a>
+      <a href="contacto.html">Contacto</a>
     </div>
-  </nav>
+    <button id="themeToggle" class="toggle">🌓</button>
+  </div>
+</nav>
 
-  <!-- CONTENIDO -->
-  <main class="content">
-    <section class="panel">
-      <h3>Recursos interactivos</h3>
-      <p class="muted">Despliega lo que necesites. Compacto, claro y listo para clase.</p>
+<main class="content">
+<section class="panel">
 
-      <!-- 1) GeoGebra -->
-      <details class="details-block" id="ggb">
-        <summary>📐 Applet GeoGebra: Lugares geométricos de un triángulo</summary>
-        <div class="spacer"></div>
-        <div class="embed-wrap">
-          <iframe
-            src="https://www.geogebra.org/material/iframe/id/hqfjmn2p/width/800/height/600/border/888888/rc/false/ai/false/sdz/true"
-            width="100%" height="500" style="border:0;" allowfullscreen loading="lazy">
-          </iframe>
-        </div>
-      </details>
+<h3>Recursos interactivos</h3>
+<p class="muted">Despliega lo que necesites. Compacto, claro y listo para clase.</p>
 
-      <!-- 2) Calculadora en PYTHON con Pyodide -->
-      <details class="details-block" id="calc-py" open>
-        <summary>🐍 Calculadora de Pitágoras (Python en el navegador con Pyodide)</summary>
-        <div class="spacer"></div>
+<!-- 1) GeoGebra -->
+<details class="details-block">
+  <summary>📐 Applet GeoGebra: Lugares geométricos de un triángulo</summary>
+  <div class="spacer"></div>
+  <div class="embed-wrap">
+    <iframe
+      src="https://www.geogebra.org/material/iframe/id/hqfjmn2p/width/800/height/600"
+      width="100%" height="500" style="border:0;" allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+</details>
 
-        <p class="status" id="py-status">Cargando motor de Python… (primera vez puede tardar unos segundos)</p>
+<!-- 2) Pitágoras -->
+<details class="details-block" open>
+  <summary>🐍 Calculadora de Pitágoras (Python en el navegador)</summary>
 
-        <div class="form-row">
-          <label for="py-mode">¿Qué datos tienes?</label>
-          <select id="py-mode" disabled>
-            <option value="">Selecciona una opción</option>
-            <option value="catetos">Dos catetos</option>
-            <option value="cateto_hip">Un cateto y la hipotenusa</option>
-          </select>
-        </div>
+  <p class="status" id="py-status">Cargando motor de Python…</p>
 
-        <div id="py-catetos" class="hidden">
-          <div class="form-row">
-            <label for="py-a">Cateto a:</label>
-            <input id="py-a" type="number" step="any" min="0" placeholder="Ej. 3" />
-          </div>
-          <div class="form-row">
-            <label for="py-b">Cateto b:</label>
-            <input id="py-b" type="number" step="any" min="0" placeholder="Ej. 4" />
-          </div>
-          <div class="form-row">
-            <span></span>
-            <button class="btn" id="py-run-catetos" disabled>Calcular (Python)</button>
-          </div>
-        </div>
+  <div class="form-row">
+    <label>Cateto a:</label>
+    <input id="py-a" type="number" min="0">
+  </div>
+  <div class="form-row">
+    <label>Cateto b:</label>
+    <input id="py-b" type="number" min="0">
+  </div>
+  <div class="form-row">
+    <span></span>
+    <button id="btn-pitagoras" class="btn">Calcular</button>
+  </div>
 
-        <div id="py-hip" class="hidden">
-          <div class="form-row">
-            <label for="py-cat">Cateto conocido:</label>
-            <input id="py-cat" type="number" step="any" min="0" placeholder="Ej. 5" />
-          </div>
-          <div class="form-row">
-            <label for="py-hipo">Hipotenusa:</label>
-            <input id="py-hipo" type="number" step="any" min="0" placeholder="Ej. 13" />
-          </div>
-          <div class="form-row">
-            <span></span>
-            <button class="btn" id="py-run-hip" disabled>Calcular (Python)</button>
-          </div>
-        </div>
+  <div id="py-out" class="result hidden"></div>
+</details>
 
-        <div id="py-out" class="result hidden" role="status" aria-live="polite"></div>
+<!-- 3) FACTORIZACIÓN -->
+<details class="details-block">
+  <summary>🧮 Factorización de polinomios (Python paso a paso)</summary>
 
-        <!-- 3) FACTORIZACIÓN DE POLINOMIOS -->
-        <details class="details-block">
-          <summary>🧮 Factorización de polinomios (Python paso a paso)</summary>
-          <div class="spacer"></div>
-        
-          <div class="form-row">
-            <label>Grado:</label>
-            <input id="fact-grado" type="number" min="0" placeholder="Ej. 1">
-          </div>
-        
-          <div class="form-row">
-            <label>Coeficientes:</label>
-            <input id="fact-coefs" type="text" placeholder="Ej. 3, 6   (para 3x + 6)">
-          </div>
-        
-          <div class="form-row">
-            <span></span>
-            <button class="btn" id="fact-run">Factorizar</button>
-          </div>
-        
-          <pre id="fact-out" class="result hidden"></pre>
-        </details>
-        
-        <!-- Pyodide desde CDN -->
-        <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
-        <script>
-          // Estado UI
-          const statusEl = document.getElementById('py-status');
-          const modeSel  = document.getElementById('py-mode');
-          const blocCat  = document.getElementById('py-catetos');
-          const blocHip  = document.getElementById('py-hip');
-          const btnCat   = document.getElementById('py-run-catetos');
-          const btnHip   = document.getElementById('py-run-hip');
-          const outEl    = document.getElementById('py-out');
+  <div class="form-row">
+    <label>Grado:</label>
+    <input id="fact-grado" type="number" min="0" placeholder="Ej. 1">
+  </div>
 
-          function show(el){ el.classList.remove('hidden'); }
-          function hide(el){ el.classList.add('hidden'); }
-          function out(msg){ outEl.textContent = msg; show(outEl); }
+  <div class="form-row">
+    <label>Coeficientes:</label>
+    <input id="fact-coefs" type="text" placeholder="Ej. 3, 6  (para 3x + 6)">
+  </div>
 
-          // Inicializa Pyodide una vez
-          let pyodide;
-          (async () => {
-            try{
-              pyodide = await loadPyodide();
-              await pyodide.runPythonAsync(`
+  <div class="form-row">
+    <span></span>
+    <button id="fact-run" class="btn">Factorizar</button>
+  </div>
+
+  <pre id="fact-out" class="result hidden"></pre>
+</details>
+
+</section>
+</main>
+
+<footer>
+© <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
+</footer>
+
+<!-- PYODIDE -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+<script>
+let pyodide;
+
+(async () => {
+  pyodide = await loadPyodide();
+
+  await pyodide.runPythonAsync(`
 import math
 from math import gcd
 
@@ -178,9 +167,6 @@ def mostrar_polinomio(coefs):
         partes.append(signo + term)
     return "".join(partes) if partes else "0"
 
-def mostrar_parentesis(coefs):
-    return "(" + mostrar_polinomio(coefs) + ")"
-
 def factor_lineal(r):
     if r == 0:
         return "(x)"
@@ -192,58 +178,31 @@ def factor_comun(coefs, salida):
         m = gcd(m, abs(c))
     if m == 1:
         m = None
-
-    k = 0
-    while len(coefs) > k + 1 and coefs[-1 - k] == 0:
-        k += 1
-
-    if not m and k == 0:
+    if not m:
         salida.append("No se puede extraer factor común.\n")
         return None, coefs
-
-    nuevos = coefs[:]
-    if m:
-        nuevos = [c // m for c in nuevos]
-    if k:
-        nuevos = nuevos[:-k]
-
-    if nuevos == [1] or nuevos == [-1]:
-        salida.append("No se puede extraer factor común.\n")
-        return None, coefs
-
-    fc = ""
-    if m:
-        fc += str(m)
-    if k == 1:
-        fc += "x"
-    elif k > 1:
-        fc += f"x{exp_super(k)}"
-
-    salida.append(f"Factor común: {fc}")
-    salida.append(f"{fc}·{mostrar_parentesis(nuevos)}\n")
-    return fc, nuevos
+    nuevos = [c // m for c in coefs]
+    salida.append(f"Factor común: {m}")
+    salida.append(f"{m}·({mostrar_polinomio(nuevos)})\n")
+    return m, nuevos
 
 def factorizar_web(grado, coefs):
     salida = []
     salida.append("=== FACTORIZACIÓN PASO A PASO ===\n")
-
     coefs = limpiar_coeficientes(coefs)
 
     salida.append("Polinomio:")
     salida.append(mostrar_polinomio(coefs))
     salida.append("")
 
-    if grado == 0 or len(coefs) == 1:
+    if len(coefs) <= 1:
         salida.append("No se puede factorizar más.")
-        salida.append("\nFin de la factorización.")
-        return "\n".join(salida)
+        return "\\n".join(salida)
 
     factores = []
-    soluciones = []
-
     fc, actual = factor_comun(coefs, salida)
     if fc:
-        factores.append(fc)
+        factores.append(str(fc))
 
     if len(actual) == 2:
         a, b = actual
@@ -253,89 +212,54 @@ def factorizar_web(grado, coefs):
         r = -b // a
         salida.append(f"x = {r}\n")
         factores.append(factor_lineal(r))
-        soluciones.append(r)
-    else:
-        salida.append("No se puede factorizar más.\n")
-        factores.append(mostrar_parentesis(actual))
 
     salida.append("Descomposición:")
     salida.append(" · ".join(factores))
-
-    if soluciones:
-        salida.append("\nCeros del polinomio (si P(x)=0):")
-        for s in soluciones:
-            salida.append(f"x = {s}")
-
     salida.append("\nFin de la factorización.")
-    return "\n".join(salida)
+    return "\\n".join(salida)
 
-def hipotenusa(a: float, b: float) -> float:
-    if a <= 0 or b <= 0:
-        raise ValueError("Los catetos deben ser positivos.")
+def hipotenusa(a, b):
     return math.sqrt(a*a + b*b)
+  `);
 
-def cateto_faltante(cat: float, hip: float) -> float:
-    if cat <= 0 or hip <= 0:
-        raise ValueError("Valores positivos, por favor.")
-    if hip <= cat:
-        raise ValueError("La hipotenusa debe ser mayor que el cateto.")
-    return math.sqrt(hip*hip - cat*cat)
-              `);
-              statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
-              modeSel.disabled = false;
-            }catch(e){
-              statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
-              console.error(e);
-            }finally{
-              btnCat.disabled = false;
-              btnHip.disabled = false;
-            }
-          })();
+  document.getElementById("py-status").textContent =
+    "Python cargado. ¡Listo para calcular! 💪";
+})();
 
-          // Cambio de modo
-          modeSel.addEventListener('change', () => {
-            hide(outEl);
-            if (modeSel.value === 'catetos'){ show(blocCat); hide(blocHip); }
-            else if (modeSel.value === 'cateto_hip'){ show(blocHip); hide(blocCat); }
-            else { hide(blocCat); hide(blocHip); }
-          });
+// Pitágoras
+document.getElementById("btn-pitagoras").onclick = async () => {
+  const a = parseFloat(py-a.value);
+  const b = parseFloat(py-b.value);
+  const out = document.getElementById("py-out");
+  if (isNaN(a) || isNaN(b)) {
+    out.textContent = "Introduce valores numéricos válidos.";
+    out.classList.remove("hidden");
+    return;
+  }
+  const c = await pyodide.runPythonAsync(`hipotenusa(${a}, ${b})`);
+  out.textContent = "Hipotenusa = " + c.toFixed(2);
+  out.classList.remove("hidden");
+};
 
-          // Botón: dos catetos
-          btnCat.addEventListener('click', async () => {
-            const a = parseFloat(document.getElementById('py-a').value);
-            const b = parseFloat(document.getElementById('py-b').value);
-            if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0){ out('Introduce valores numéricos positivos en ambos catetos.'); return; }
-            try{
-              pyodide.globals.set('a', a);
-              pyodide.globals.set('b', b);
-              const c = await pyodide.runPythonAsync(`hipotenusa(a, b)`);
-              out(`Hipotenusa: ${c.toFixed(2)}`);
-            }catch(e){ out(e.message || String(e)); }
-          });
+// Factorización
+document.getElementById("fact-run").onclick = async () => {
+  const grado = parseInt(fact-grado.value);
+  const raw = fact-coefs.value;
+  const out = document.getElementById("fact-out");
 
-          // Botón: un cateto + hipotenusa
-          btnHip.addEventListener('click', async () => {
-            const cat = parseFloat(document.getElementById('py-cat').value);
-            const hip = parseFloat(document.getElementById('py-hipo').value);
-            if (isNaN(cat) || isNaN(hip) || cat <= 0 || hip <= 0){ out('Introduce valores numéricos positivos en cateto e hipotenusa.'); return; }
-            try{
-              pyodide.globals.set('cat', cat);
-              pyodide.globals.set('hip', hip);
-              const falt = await pyodide.runPythonAsync(`cateto_faltante(cat, hip)`);
-              out(`Cateto faltante: ${falt.toFixed(2)}`);
-            }catch(e){ out(e.message || String(e)); }
-          });
-        </script>
-      </details>
-    </section>
-  </main>
+  try {
+    const coefs = raw.split(",").map(x => parseInt(x.trim()));
+    pyodide.globals.set("g", grado);
+    pyodide.globals.set("c", coefs);
+    const res = await pyodide.runPythonAsync(`factorizar_web(g, c)`);
+    out.textContent = res;
+    out.classList.remove("hidden");
+  } catch {
+    out.textContent = "Revisa los datos introducidos.";
+    out.classList.remove("hidden");
+  }
+};
+</script>
 
-  <footer>
-    © <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
-  </footer>
 </body>
 </html>
-
-
-
-
