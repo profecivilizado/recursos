@@ -264,8 +264,8 @@ def cateto_faltante(cat: float, hip: float) -> float:
               statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
               console.error(e);
             }finally{
-              btnCat.disabled = false;
-              btnHip.disabled = false;
+              if (btnCat) btnCat.disabled = false;
+              if (btnHip) btnHip.disabled = false;
             }
           })();
 
@@ -314,8 +314,11 @@ def cateto_faltante(cat: float, hip: float) -> float:
               const coefs = txt.split(",").map(x => parseInt(x.trim()));
           
               pyodide.globals.set("coefs", coefs);
-              const res = await pyodide.runPythonAsync(`factorizar_web(coefs)`);
-          
+              const res = await pyodide.runPythonAsync(`
+              import js
+              js.Object.fromEntries(factorizar_web(coefs).items())
+              `);
+
               polyOut.textContent =
                 "PASOS:\n" + res.pasos +
                 "\n\nFACTORIZACIÓN:\n" + res.factores;
@@ -335,6 +338,7 @@ def cateto_faltante(cat: float, hip: float) -> float:
   </footer>
 </body>
 </html>
+
 
 
 
