@@ -11,7 +11,7 @@
     .details-block { margin: 10px 0; }
     .details-block summary { font-weight: 600; cursor: pointer; }
     .form-row{display:grid;grid-template-columns:160px 1fr;gap:10px;align-items:center;margin:8px 0}
-    .result{font-weight:700;text-align:left;padding:10px;border:1px solid rgba(37,99,235,.25);border-radius:12px;background:rgba(37,99,235,.06);white-space:pre-wrap}
+    .result{font-weight:700;text-align:center;padding:10px;border:1px solid rgba(37,99,235,.25);border-radius:12px;background:rgba(37,99,235,.06)}
     .hidden{display:none}
     .embed-wrap{overflow:hidden;border-radius:12px;box-shadow:var(--shadow);background:var(--card)}
     .spacer{height:6px}
@@ -20,227 +20,175 @@
     @media (max-width: 600px){ .form-row{ grid-template-columns: 1fr; } }
   </style>
 </head>
-
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="brand">Profe Civilizado</a>
-    <div class="links">
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="recursos-eso.html" class="active">Recursos ESO</a>
-      <a href="recursos-bachillerato.html">Recursos Bachillerato</a>
-      <a href="contacto.html">Contacto</a>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Profe Civilizado</a>
+      <div class="links" role="navigation" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="recursos-eso.html">Recursos ESO</a>
+        <a href="recursos-bachillerato.html" class="active">Recursos Bachillerato</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
     </div>
-    <button id="themeToggle" class="toggle">🌓</button>
-  </div>
-</nav>
+  </nav>
 
-<main class="content">
-<section class="panel">
+  <!-- CONTENIDO -->
+  <main class="content">
+    <section class="panel">
+      <h3>Recursos interactivos</h3>
+      <p class="muted">Despliega lo que necesites. Compacto, claro y listo para clase.</p>
 
-<h3>Recursos interactivos</h3>
-<p class="muted">Despliega lo que necesites. Compacto, claro y listo para clase.</p>
+      <!-- 1) GeoGebra -->
+      <details class="details-block" id="ggb">
+        <summary>📐 Applet GeoGebra: Lugares geométricos de un triángulo</summary>
+        <div class="spacer"></div>
+        <div class="embed-wrap">
+          <iframe
+            src="https://www.geogebra.org/material/iframe/id/hqfjmn2p/width/800/height/600/border/888888/rc/false/ai/false/sdz/true"
+            width="100%" height="500" style="border:0;" allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </details>
 
-<!-- 1) GEOGEBRA -->
-<details class="details-block">
-  <summary>📐 Applet GeoGebra</summary>
-  <div class="spacer"></div>
-  <div class="embed-wrap">
-    <iframe src="https://www.geogebra.org/material/iframe/id/hqfjmn2p"
-      width="100%" height="500" style="border:0;"></iframe>
-  </div>
-</details>
+      <!-- 2) Calculadora en PYTHON con Pyodide -->
+      <details class="details-block" id="calc-py" open>
+        <summary>🐍 Calculadora de Pitágoras (Python en el navegador con Pyodide)</summary>
+        <div class="spacer"></div>
 
-<!-- 2) PITÁGORAS -->
-<details class="details-block" open>
-<summary>🐍 Pitágoras (Python en el navegador)</summary>
+        <p class="status" id="py-status">Cargando motor de Python… (primera vez puede tardar unos segundos)</p>
 
-<p class="status" id="py-status">Cargando Python…</p>
+        <div class="form-row">
+          <label for="py-mode">¿Qué datos tienes?</label>
+          <select id="py-mode" disabled>
+            <option value="">Selecciona una opción</option>
+            <option value="catetos">Dos catetos</option>
+            <option value="cateto_hip">Un cateto y la hipotenusa</option>
+          </select>
+        </div>
 
-<div class="form-row">
-  <label>¿Qué datos tienes?</label>
-  <select id="py-mode" disabled>
-    <option value="">Selecciona</option>
-    <option value="catetos">Dos catetos</option>
-    <option value="hip">Cateto + hipotenusa</option>
-  </select>
-</div>
+        <div id="py-catetos" class="hidden">
+          <div class="form-row">
+            <label for="py-a">Cateto a:</label>
+            <input id="py-a" type="number" step="any" min="0" placeholder="Ej. 3" />
+          </div>
+          <div class="form-row">
+            <label for="py-b">Cateto b:</label>
+            <input id="py-b" type="number" step="any" min="0" placeholder="Ej. 4" />
+          </div>
+          <div class="form-row">
+            <span></span>
+            <button class="btn" id="py-run-catetos" disabled>Calcular (Python)</button>
+          </div>
+        </div>
 
-<div id="py-catetos" class="hidden">
-  <div class="form-row"><label>Cateto a</label><input id="py-a" type="number"></div>
-  <div class="form-row"><label>Cateto b</label><input id="py-b" type="number"></div>
-  <button class="btn" id="py-run-catetos" disabled>Calcular</button>
-</div>
+        <div id="py-hip" class="hidden">
+          <div class="form-row">
+            <label for="py-cat">Cateto conocido:</label>
+            <input id="py-cat" type="number" step="any" min="0" placeholder="Ej. 5" />
+          </div>
+          <div class="form-row">
+            <label for="py-hipo">Hipotenusa:</label>
+            <input id="py-hipo" type="number" step="any" min="0" placeholder="Ej. 13" />
+          </div>
+          <div class="form-row">
+            <span></span>
+            <button class="btn" id="py-run-hip" disabled>Calcular (Python)</button>
+          </div>
+        </div>
 
-<div id="py-hip" class="hidden">
-  <div class="form-row"><label>Cateto</label><input id="py-cat" type="number"></div>
-  <div class="form-row"><label>Hipotenusa</label><input id="py-hipo" type="number"></div>
-  <button class="btn" id="py-run-hip" disabled>Calcular</button>
-</div>
+        <div id="py-out" class="result hidden" role="status" aria-live="polite"></div>
 
-<div id="py-out" class="result hidden"></div>
+        <!-- Pyodide desde CDN -->
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+        <script>
+          // Estado UI
+          const statusEl = document.getElementById('py-status');
+          const modeSel  = document.getElementById('py-mode');
+          const blocCat  = document.getElementById('py-catetos');
+          const blocHip  = document.getElementById('py-hip');
+          const btnCat   = document.getElementById('py-run-catetos');
+          const btnHip   = document.getElementById('py-run-hip');
+          const outEl    = document.getElementById('py-out');
 
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
-const catBlock = document.getElementById("py-catetos");
-const hipBlock = document.getElementById("py-hip");
-const btnCat   = document.getElementById("py-run-catetos");
-const btnHip   = document.getElementById("py-run-hip");
+          function show(el){ el.classList.remove('hidden'); }
+          function hide(el){ el.classList.add('hidden'); }
+          function out(msg){ outEl.textContent = msg; show(outEl); }
 
-modeSel.addEventListener("change", () => {
-  outEl.classList.add("hidden");
-  hide("py-catetos");
-  hide("py-hip");
-
-  if (modeSel.value === "catetos") {
-    show("py-catetos");
-  }
-  if (modeSel.value === "hip") {
-    show("py-hip");
-  }
-});
-
-btnCat.addEventListener("click", async () => {
-  const a = parseFloat(document.getElementById("py-a").value);
-  const b = parseFloat(document.getElementById("py-b").value);
-  if (a <= 0 || b <= 0) {
-    out("Introduce catetos positivos.");
-    return;
-  }
-  pyodide.globals.set("a", a);
-  pyodide.globals.set("b", b);
-  const r = await pyodide.runPythonAsync("hipotenusa(a,b)");
-  out("Hipotenusa = " + r.toFixed(2));
-});
-
-btnHip.addEventListener("click", async () => {
-  const c = parseFloat(document.getElementById("py-cat").value);
-  const h = parseFloat(document.getElementById("py-hipo").value);
-  if (c <= 0 || h <= 0 || h <= c) {
-    out("La hipotenusa debe ser mayor que el cateto.");
-    return;
-  }
-  pyodide.globals.set("c", c);
-  pyodide.globals.set("h", h);
-  const r = await pyodide.runPythonAsync("cateto_faltante(c,h)");
-  out("Cateto faltante = " + r.toFixed(2));
-});
-
-<script>
-let pyodide;
-const statusEl = document.getElementById("py-status");
-const modeSel  = document.getElementById("py-mode");
-const outEl    = document.getElementById("py-out");
-
-function show(id){ document.getElementById(id).classList.remove("hidden"); }
-function hide(id){ document.getElementById(id).classList.add("hidden"); }
-function out(msg){ outEl.textContent = msg; outEl.classList.remove("hidden"); }
-
-(async () => {
-  pyodide = await loadPyodide();
-  await pyodide.runPythonAsync(`
+          // Inicializa Pyodide una vez
+          let pyodide;
+          (async () => {
+            try{
+              pyodide = await loadPyodide();
+              await pyodide.runPythonAsync(`
 import math
-from math import gcd
 
-def hipotenusa(a,b): return math.sqrt(a*a+b*b)
-def cateto_faltante(c,h): return math.sqrt(h*h-c*c)
+def hipotenusa(a: float, b: float) -> float:
+    if a <= 0 or b <= 0:
+        raise ValueError("Los catetos deben ser positivos.")
+    return math.sqrt(a*a + b*b)
 
-super = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"}
-def exp(n): return "".join(super[c] for c in str(n))
+def cateto_faltante(cat: float, hip: float) -> float:
+    if cat <= 0 or hip <= 0:
+        raise ValueError("Valores positivos, por favor.")
+    if hip <= cat:
+        raise ValueError("La hipotenusa debe ser mayor que el cateto.")
+    return math.sqrt(hip*hip - cat*cat)
+              `);
+              statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
+              modeSel.disabled = false;
+            }catch(e){
+              statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
+              console.error(e);
+            }finally{
+              btnCat.disabled = false;
+              btnHip.disabled = false;
+            }
+          })();
 
-def mostrar(coefs):
-    g=len(coefs)-1; s=""
-    for i,c in enumerate(coefs):
-        if c==0: continue
-        e=g-i; sign=" + " if c>0 and s else " - " if c<0 else ""
-        v=abs(c); k="" if v==1 and e>0 else str(v)
-        t=k if e==0 else f"{k}x" if e==1 else f"{k}x{exp(e)}"
-        s+=sign+t
-    return s or "0"
+          // Cambio de modo
+          modeSel.addEventListener('change', () => {
+            hide(outEl);
+            if (modeSel.value === 'catetos'){ show(blocCat); hide(blocHip); }
+            else if (modeSel.value === 'cateto_hip'){ show(blocHip); hide(blocCat); }
+            else { hide(blocCat); hide(blocHip); }
+          });
 
-def factorizar_web(coefs):
-    r=[]
-    r.append("Polinomio:")
-    r.append(mostrar(coefs))
-    r.append("")
+          // Botón: dos catetos
+          btnCat.addEventListener('click', async () => {
+            const a = parseFloat(document.getElementById('py-a').value);
+            const b = parseFloat(document.getElementById('py-b').value);
+            if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0){ out('Introduce valores numéricos positivos en ambos catetos.'); return; }
+            try{
+              pyodide.globals.set('a', a);
+              pyodide.globals.set('b', b);
+              const c = await pyodide.runPythonAsync(`hipotenusa(a, b)`);
+              out(`Hipotenusa: ${c.toFixed(2)}`);
+            }catch(e){ out(e.message || String(e)); }
+          });
 
-    # grado 1
-    if len(coefs)==2:
-        a,b=coefs
-        x=-b//a
-        r.append("x = "+str(x))
-        return "\\n".join(r)
+          // Botón: un cateto + hipotenusa
+          btnHip.addEventListener('click', async () => {
+            const cat = parseFloat(document.getElementById('py-cat').value);
+            const hip = parseFloat(document.getElementById('py-hipo').value);
+            if (isNaN(cat) || isNaN(hip) || cat <= 0 || hip <= 0){ out('Introduce valores numéricos positivos en cateto e hipotenusa.'); return; }
+            try{
+              pyodide.globals.set('cat', cat);
+              pyodide.globals.set('hip', hip);
+              const falt = await pyodide.runPythonAsync(`cateto_faltante(cat, hip)`);
+              out(`Cateto faltante: ${falt.toFixed(2)}`);
+            }catch(e){ out(e.message || String(e)); }
+          });
+        </script>
+      </details>
+    </section>
+  </main>
 
-    # grado 2 (ax²+bx+c)
-    if len(coefs)==3:
-        a,b,c=coefs
-        disc=b*b-4*a*c
-        r.append(f"Discriminante = {disc}")
-        if disc<0:
-            r.append("No se puede factorizar en ℝ.")
-        else:
-            from math import sqrt
-            x1=(-b+sqrt(disc))/(2*a)
-            x2=(-b-sqrt(disc))/(2*a)
-            r.append(f"x₁ = {x1}")
-            r.append(f"x₂ = {x2}")
-        return "\\n".join(r)
-
-    r.append("No se puede factorizar más.")
-    return "\\n".join(r)
-
-`);
-  statusEl.textContent="Python listo";
-  modeSel.disabled=false;
-})();
-</script>
-</details>
-
-<!-- 3) FACTORIZADOR -->
-<details class="details-block">
-<summary>🧮 Factorizador de polinomios</summary>
-
-<div class="form-row">
-  <label>Grado</label>
-  <input id="poly-degree" type="number" value="2" min="0" max="5">
-</div>
-
-<div id="poly-coefs"></div>
-<button class="btn" id="poly-run">Factorizar</button>
-<div id="poly-out" class="result hidden"></div>
-
-<script>
-const deg = document.getElementById("poly-degree");
-const box = document.getElementById("poly-coefs");
-const btn = document.getElementById("poly-run");
-const outp= document.getElementById("poly-out");
-
-function rebuild(){
-  box.innerHTML="";
-  for(let e=deg.value;e>=0;e--){
-    box.innerHTML+=`<div class="form-row"><label>x${e}</label><input type="number" value="0"></div>`;
-  }
-}
-rebuild();
-deg.addEventListener("change",rebuild);
-
-btn.addEventListener("click", async ()=>{
-  const vals=[...box.querySelectorAll("input")].map(i=>parseInt(i.value||0));
-  pyodide.globals.set("C",vals);
-  const r=await pyodide.runPythonAsync("factorizar_web(C)");
-  outp.textContent=r;
-  outp.classList.remove("hidden");
-});
-</script>
-
-</details>
-
-</section>
-</main>
-
-<footer>
-© Profe Civilizado — Hecho con HTML & CSS
-</footer>
+  <footer>
+    © <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
+  </footer>
 </body>
 </html>
-
