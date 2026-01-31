@@ -146,7 +146,7 @@
           let pyodide;
           (async () => {
             try{
-              pyodide = await loadPyodide();
+              pyodide = await window.loadPyodide();
               await pyodide.runPythonAsync(`
 import math
 from math import gcd
@@ -260,6 +260,7 @@ def cateto_faltante(cat: float, hip: float) -> float:
               `);
               statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
               modeSel.disabled = false;
+              if (polyBtn) polyBtn.disabled = false;
             }catch(e){
               statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
               console.error(e);
@@ -306,8 +307,6 @@ def cateto_faltante(cat: float, hip: float) -> float:
           const polyBtn = document.getElementById("poly-run");
           const polyOut = document.getElementById("poly-out");
           
-          polyBtn.disabled = false;
-          
           polyBtn.addEventListener("click", async () => {
             try {
               const txt = document.getElementById("poly-coefs").value;
@@ -338,6 +337,7 @@ def cateto_faltante(cat: float, hip: float) -> float:
   </footer>
 </body>
 </html>
+
 
 
 
