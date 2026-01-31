@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Recursos Bachillerato</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Recursos interactivos de Matemáticas y Programación." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+  <style>
+    .details-block { margin: 10px 0; }
+    .details-block summary { font-weight: 600; cursor: pointer; }
+    .form-row{display:grid;grid-template-columns:160px 1fr;gap:10px;align-items:center;margin:8px 0}
+    .result{font-weight:700;text-align:center;padding:10px;border:1px solid rgba(37,99,235,.25);border-radius:12px;background:rgba(37,99,235,.06)}
+    .hidden{display:none}
+    .embed-wrap{overflow:hidden;border-radius:12px;box-shadow:var(--shadow);background:var(--card)}
+    .spacer{height:6px}
+    .muted{color:var(--muted)}
+    .status{font-size:14px;margin:8px 0}
+    @media (max-width: 600px){ .form-row{ grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Profe Civilizado</a>
+      <div class="links" role="navigation" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="recursos.html" class="active">Recursos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <section class="panel">
+      <h3>Recursos interactivos</h3>
+      <p class="muted">Despliega lo que necesites. Compacto, claro y listo para clase.</p>
+
+      <!-- 1) GeoGebra -->
+      <details class="details-block" id="ggb">
+        <summary>📐 Applet GeoGebra: Lugares geométricos de un triángulo</summary>
+        <div class="spacer"></div>
+        <div class="embed-wrap">
+          <iframe
+            src="https://www.geogebra.org/material/iframe/id/hqfjmn2p/width/800/height/600/border/888888/rc/false/ai/false/sdz/true"
+            width="100%" height="500" style="border:0;" allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </details>
+
+      <!-- 2) Calculadora en PYTHON con Pyodide -->
+      <details class="details-block" id="calc-py" open>
+        <summary>🐍 Calculadora de Pitágoras (Python en el navegador con Pyodide)</summary>
+        <div class="spacer"></div>
+
+        <p class="status" id="py-status">Cargando motor de Python… (primera vez puede tardar unos segundos)</p>
+
+        <div class="form-row">
+          <label for="py-mode">¿Qué datos tienes?</label>
+          <select id="py-mode" disabled>
+            <option value="">Selecciona una opción</option>
+            <option value="catetos">Dos catetos</option>
+            <option value="cateto_hip">Un cateto y la hipotenusa</option>
+          </select>
+        </div>
+
+        <div id="py-catetos" class="hidden">
+          <div class="form-row">
+            <label for="py-a">Cateto a:</label>
+            <input id="py-a" type="number" step="any" min="0" placeholder="Ej. 3" />
+          </div>
+          <div class="form-row">
+            <label for="py-b">Cateto b:</label>
+            <input id="py-b" type="number" step="any" min="0" placeholder="Ej. 4" />
+          </div>
+          <div class="form-row">
+            <span></span>
+            <button class="btn" id="py-run-catetos" disabled>Calcular (Python)</button>
+          </div>
+        </div>
+
+        <div id="py-hip" class="hidden">
+          <div class="form-row">
+            <label for="py-cat">Cateto conocido:</label>
+            <input id="py-cat" type="number" step="any" min="0" placeholder="Ej. 5" />
+          </div>
+          <div class="form-row">
+            <label for="py-hipo">Hipotenusa:</label>
+            <input id="py-hipo" type="number" step="any" min="0" placeholder="Ej. 13" />
+          </div>
+          <div class="form-row">
+            <span></span>
+            <button class="btn" id="py-run-hip" disabled>Calcular (Python)</button>
+          </div>
+        </div>
+
+        <div id="py-out" class="result hidden" role="status" aria-live="polite"></div>
+
+        <!-- Pyodide desde CDN -->
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+        <script>
+          // Estado UI
+          const statusEl = document.getElementById('py-status');
+          const modeSel  = document.getElementById('py-mode');
+          const blocCat  = document.getElementById('py-catetos');
+          const blocHip  = document.getElementById('py-hip');
+          const btnCat   = document.getElementById('py-run-catetos');
+          const btnHip   = document.getElementById('py-run-hip');
+          const outEl    = document.getElementById('py-out');
+
+          function show(el){ el.classList.remove('hidden'); }
+          function hide(el){ el.classList.add('hidden'); }
+          function out(msg){ outEl.textContent = msg; show(outEl); }
+
+          // Inicializa Pyodide una vez
+          let pyodide;
+          (async () => {
+            try{
+              pyodide = await loadPyodide();
+              await pyodide.runPythonAsync(`
+import math
+
+def hipotenusa(a: float, b: float) -> float:
+    if a <= 0 or b <= 0:
+        raise ValueError("Los catetos deben ser positivos.")
+    return math.sqrt(a*a + b*b)
+
+def cateto_faltante(cat: float, hip: float) -> float:
+    if cat <= 0 or hip <= 0:
+        raise ValueError("Valores positivos, por favor.")
+    if hip <= cat:
+        raise ValueError("La hipotenusa debe ser mayor que el cateto.")
+    return math.sqrt(hip*hip - cat*cat)
+              `);
+              statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
+              modeSel.disabled = false;
+            }catch(e){
+              statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
+              console.error(e);
+            }finally{
+              btnCat.disabled = false;
+              btnHip.disabled = false;
+            }
+          })();
+
+          // Cambio de modo
+          modeSel.addEventListener('change', () => {
+            hide(outEl);
+            if (modeSel.value === 'catetos'){ show(blocCat); hide(blocHip); }
+            else if (modeSel.value === 'cateto_hip'){ show(blocHip); hide(blocCat); }
+            else { hide(blocCat); hide(blocHip); }
+          });
+
+          // Botón: dos catetos
+          btnCat.addEventListener('click', async () => {
+            const a = parseFloat(document.getElementById('py-a').value);
+            const b = parseFloat(document.getElementById('py-b').value);
+            if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0){ out('Introduce valores numéricos positivos en ambos catetos.'); return; }
+            try{
+              pyodide.globals.set('a', a);
+              pyodide.globals.set('b', b);
+              const c = await pyodide.runPythonAsync(`hipotenusa(a, b)`);
+              out(`Hipotenusa: ${c.toFixed(2)}`);
+            }catch(e){ out(e.message || String(e)); }
+          });
+
+          // Botón: un cateto + hipotenusa
+          btnHip.addEventListener('click', async () => {
+            const cat = parseFloat(document.getElementById('py-cat').value);
+            const hip = parseFloat(document.getElementById('py-hipo').value);
+            if (isNaN(cat) || isNaN(hip) || cat <= 0 || hip <= 0){ out('Introduce valores numéricos positivos en cateto e hipotenusa.'); return; }
+            try{
+              pyodide.globals.set('cat', cat);
+              pyodide.globals.set('hip', hip);
+              const falt = await pyodide.runPythonAsync(`cateto_faltante(cat, hip)`);
+              out(`Cateto faltante: ${falt.toFixed(2)}`);
+            }catch(e){ out(e.message || String(e)); }
+          });
+        </script>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Profe Civilizado — Hecho con HTML & CSS
+  </footer>
+</body>
+</html>
