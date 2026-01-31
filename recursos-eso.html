@@ -129,205 +129,206 @@
         <!-- Pyodide desde CDN -->
         <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
         <script>
-          // Estado UI
-          const statusEl = document.getElementById('py-status');
-          const modeSel  = document.getElementById('py-mode');
-          const blocCat  = document.getElementById('py-catetos');
-          const blocHip  = document.getElementById('py-hip');
-          const btnCat   = document.getElementById('py-run-catetos');
-          const btnHip   = document.getElementById('py-run-hip');
-          const outEl    = document.getElementById('py-out');
-
-          function show(el){ el.classList.remove('hidden'); }
-          function hide(el){ el.classList.add('hidden'); }
-          function out(msg){ outEl.textContent = msg; show(outEl); }
-
-          // Inicializa Pyodide una vez
-          let pyodide;
-          (async () => {
-            try{
-              pyodide = await window.loadPyodide();
-              await pyodide.runPythonAsync(`
-import math
-from math import gcd
-
-super_indices = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"}
-def exp_super(n):
-    return "".join(super_indices[c] for c in str(n))
-
-def limpiar_coeficientes(coefs):
-    while len(coefs) > 1 and coefs[0] == 0:
-        coefs = coefs[1:]
-    return coefs
-
-def mostrar_polinomio(coefs):
-    grado = len(coefs) - 1
-    partes = []
-    for i, c in enumerate(coefs):
-        if c == 0:
-            continue
-        exp = grado - i
-        signo = " + " if c > 0 and partes else " - " if c < 0 else ""
-        valor = abs(c)
-        coef = "" if valor == 1 and exp > 0 else str(valor)
-        if exp > 1:
-            term = f"{coef}x{exp_super(exp)}"
-        elif exp == 1:
-            term = f"{coef}x"
-        else:
-            term = f"{coef}"
-        partes.append(signo + term)
-    return "".join(partes) if partes else "0"
-
-def mostrar_parentesis(coefs):
-    return "(" + mostrar_polinomio(coefs) + ")"
-
-def factor_lineal(r):
-    if r == 0:
-        return "(x)"
-    return f"(x + {abs(r)})" if r < 0 else f"(x - {r})"
-
-def factor_comun(coefs, pasos):
-    m = abs(coefs[0])
-    for c in coefs[1:]:
-        m = gcd(m, abs(c))
-    if m == 1:
-        m = None
-
-    k = 0
-    while len(coefs) > k + 1 and coefs[-1 - k] == 0:
-        k += 1
-
-    if not m and k == 0:
-        pasos.append("No se puede extraer factor común.")
-        return None, coefs
-
-    nuevos = coefs[:]
-    if m:
-        nuevos = [c // m for c in nuevos]
-    if k:
-        nuevos = nuevos[:-k]
-
-    fc = ""
-    if m:
-        fc += str(m)
-    if k == 1:
-        fc += "x"
-    elif k > 1:
-        fc += f"x{exp_super(k)}"
-
-    pasos.append(f"Factor común: {fc}")
-    pasos.append(f"{fc}·{mostrar_parentesis(nuevos)}")
-    return fc, nuevos
-
-def factorizar_web(coefs):
-    pasos = []
-    factores = []
-
-    coefs = limpiar_coeficientes(coefs)
-    pasos.append("Polinomio:")
-    pasos.append(mostrar_polinomio(coefs))
-
-    fc, actual = factor_comun(coefs, pasos)
-    if fc:
-        factores.append(fc)
-
-    if len(actual) == 2:
-        a, b = actual
-        r = -b // a
-        pasos.append(f"x = {r}")
-        factores.append(factor_lineal(r))
-    else:
-        pasos.append("No se puede factorizar más.")
-        factores.append(mostrar_parentesis(actual))
-
-    return {
-        "pasos": "\n".join(pasos),
-        "factores": " · ".join(factores)
-    }
-
-def hipotenusa(a: float, b: float) -> float:
-    if a <= 0 or b <= 0:
-        raise ValueError("Los catetos deben ser positivos.")
-    return math.sqrt(a*a + b*b)
-
-def cateto_faltante(cat: float, hip: float) -> float:
-    if cat <= 0 or hip <= 0:
-        raise ValueError("Valores positivos, por favor.")
-    if hip <= cat:
-        raise ValueError("La hipotenusa debe ser mayor que el cateto.")
-    return math.sqrt(hip*hip - cat*cat)
-              `);
-              statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
-              modeSel.disabled = false;
-              if (polyBtn) polyBtn.disabled = false;
-            }catch(e){
-              statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
-              console.error(e);
-            }finally{
-              if (btnCat) btnCat.disabled = false;
-              if (btnHip) btnHip.disabled = false;
-            }
-          })();
-
-          // Cambio de modo
-          modeSel.addEventListener('change', () => {
-            hide(outEl);
-            if (modeSel.value === 'catetos'){ show(blocCat); hide(blocHip); }
-            else if (modeSel.value === 'cateto_hip'){ show(blocHip); hide(blocCat); }
-            else { hide(blocCat); hide(blocHip); }
-          });
-
-          // Botón: dos catetos
-          btnCat.addEventListener('click', async () => {
-            const a = parseFloat(document.getElementById('py-a').value);
-            const b = parseFloat(document.getElementById('py-b').value);
-            if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0){ out('Introduce valores numéricos positivos en ambos catetos.'); return; }
-            try{
-              pyodide.globals.set('a', a);
-              pyodide.globals.set('b', b);
-              const c = await pyodide.runPythonAsync(`hipotenusa(a, b)`);
-              out(`Hipotenusa: ${c.toFixed(2)}`);
-            }catch(e){ out(e.message || String(e)); }
-          });
-
-          // Botón: un cateto + hipotenusa
-          btnHip.addEventListener('click', async () => {
-            const cat = parseFloat(document.getElementById('py-cat').value);
-            const hip = parseFloat(document.getElementById('py-hipo').value);
-            if (isNaN(cat) || isNaN(hip) || cat <= 0 || hip <= 0){ out('Introduce valores numéricos positivos en cateto e hipotenusa.'); return; }
-            try{
-              pyodide.globals.set('cat', cat);
-              pyodide.globals.set('hip', hip);
-              const falt = await pyodide.runPythonAsync(`cateto_faltante(cat, hip)`);
-              out(`Cateto faltante: ${falt.toFixed(2)}`);
-            }catch(e){ out(e.message || String(e)); }
-          });
-
-          const polyBtn = document.getElementById("poly-run");
-          const polyOut = document.getElementById("poly-out");
-          
-          polyBtn.addEventListener("click", async () => {
-            try {
-              const txt = document.getElementById("poly-coefs").value;
-              const coefs = txt.split(",").map(x => parseInt(x.trim()));
-          
-              pyodide.globals.set("coefs", coefs);
-              const res = await pyodide.runPythonAsync(`
-              import js
-              js.Object.fromEntries(factorizar_web(coefs).items())
-              `);
-
-              polyOut.textContent =
-                "PASOS:\n" + res.pasos +
-                "\n\nFACTORIZACIÓN:\n" + res.factores;
-          
-              polyOut.classList.remove("hidden");
-            } catch (e) {
-              polyOut.textContent = "Error en los coeficientes introducidos.";
-              polyOut.classList.remove("hidden");
-            }
-          });
+          document.addEventListener("DOMContentLoaded", () => {
+            // Estado UI
+            const statusEl = document.getElementById('py-status');
+            const modeSel  = document.getElementById('py-mode');
+            const blocCat  = document.getElementById('py-catetos');
+            const blocHip  = document.getElementById('py-hip');
+            const btnCat   = document.getElementById('py-run-catetos');
+            const btnHip   = document.getElementById('py-run-hip');
+            const outEl    = document.getElementById('py-out');
+  
+            function show(el){ el.classList.remove('hidden'); }
+            function hide(el){ el.classList.add('hidden'); }
+            function out(msg){ outEl.textContent = msg; show(outEl); }
+  
+            // Inicializa Pyodide una vez
+            let pyodide;
+            (async () => {
+              try{
+                pyodide = await window.loadPyodide();
+                await pyodide.runPythonAsync(`
+  import math
+  from math import gcd
+  
+  super_indices = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"}
+  def exp_super(n):
+      return "".join(super_indices[c] for c in str(n))
+  
+  def limpiar_coeficientes(coefs):
+      while len(coefs) > 1 and coefs[0] == 0:
+          coefs = coefs[1:]
+      return coefs
+  
+  def mostrar_polinomio(coefs):
+      grado = len(coefs) - 1
+      partes = []
+      for i, c in enumerate(coefs):
+          if c == 0:
+              continue
+          exp = grado - i
+          signo = " + " if c > 0 and partes else " - " if c < 0 else ""
+          valor = abs(c)
+          coef = "" if valor == 1 and exp > 0 else str(valor)
+          if exp > 1:
+              term = f"{coef}x{exp_super(exp)}"
+          elif exp == 1:
+              term = f"{coef}x"
+          else:
+              term = f"{coef}"
+          partes.append(signo + term)
+      return "".join(partes) if partes else "0"
+  
+  def mostrar_parentesis(coefs):
+      return "(" + mostrar_polinomio(coefs) + ")"
+  
+  def factor_lineal(r):
+      if r == 0:
+          return "(x)"
+      return f"(x + {abs(r)})" if r < 0 else f"(x - {r})"
+  
+  def factor_comun(coefs, pasos):
+      m = abs(coefs[0])
+      for c in coefs[1:]:
+          m = gcd(m, abs(c))
+      if m == 1:
+          m = None
+  
+      k = 0
+      while len(coefs) > k + 1 and coefs[-1 - k] == 0:
+          k += 1
+  
+      if not m and k == 0:
+          pasos.append("No se puede extraer factor común.")
+          return None, coefs
+  
+      nuevos = coefs[:]
+      if m:
+          nuevos = [c // m for c in nuevos]
+      if k:
+          nuevos = nuevos[:-k]
+  
+      fc = ""
+      if m:
+          fc += str(m)
+      if k == 1:
+          fc += "x"
+      elif k > 1:
+          fc += f"x{exp_super(k)}"
+  
+      pasos.append(f"Factor común: {fc}")
+      pasos.append(f"{fc}·{mostrar_parentesis(nuevos)}")
+      return fc, nuevos
+  
+  def factorizar_web(coefs):
+      pasos = []
+      factores = []
+  
+      coefs = limpiar_coeficientes(coefs)
+      pasos.append("Polinomio:")
+      pasos.append(mostrar_polinomio(coefs))
+  
+      fc, actual = factor_comun(coefs, pasos)
+      if fc:
+          factores.append(fc)
+  
+      if len(actual) == 2:
+          a, b = actual
+          r = -b // a
+          pasos.append(f"x = {r}")
+          factores.append(factor_lineal(r))
+      else:
+          pasos.append("No se puede factorizar más.")
+          factores.append(mostrar_parentesis(actual))
+  
+      return {
+          "pasos": "\n".join(pasos),
+          "factores": " · ".join(factores)
+      }
+  
+  def hipotenusa(a: float, b: float) -> float:
+      if a <= 0 or b <= 0:
+          raise ValueError("Los catetos deben ser positivos.")
+      return math.sqrt(a*a + b*b)
+  
+  def cateto_faltante(cat: float, hip: float) -> float:
+      if cat <= 0 or hip <= 0:
+          raise ValueError("Valores positivos, por favor.")
+      if hip <= cat:
+          raise ValueError("La hipotenusa debe ser mayor que el cateto.")
+      return math.sqrt(hip*hip - cat*cat)
+                `);
+                statusEl.textContent = "Python cargado. ¡Listo para calcular! 💪";
+                modeSel.disabled = false;
+                if (polyBtn) polyBtn.disabled = false;
+              }catch(e){
+                statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
+                console.error(e);
+              }finally{
+                if (btnCat) btnCat.disabled = false;
+                if (btnHip) btnHip.disabled = false;
+              }
+            })();
+  
+            // Cambio de modo
+            modeSel.addEventListener('change', () => {
+              hide(outEl);
+              if (modeSel.value === 'catetos'){ show(blocCat); hide(blocHip); }
+              else if (modeSel.value === 'cateto_hip'){ show(blocHip); hide(blocCat); }
+              else { hide(blocCat); hide(blocHip); }
+            });
+  
+            // Botón: dos catetos
+            btnCat.addEventListener('click', async () => {
+              const a = parseFloat(document.getElementById('py-a').value);
+              const b = parseFloat(document.getElementById('py-b').value);
+              if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0){ out('Introduce valores numéricos positivos en ambos catetos.'); return; }
+              try{
+                pyodide.globals.set('a', a);
+                pyodide.globals.set('b', b);
+                const c = await pyodide.runPythonAsync(`hipotenusa(a, b)`);
+                out(`Hipotenusa: ${c.toFixed(2)}`);
+              }catch(e){ out(e.message || String(e)); }
+            });
+  
+            // Botón: un cateto + hipotenusa
+            btnHip.addEventListener('click', async () => {
+              const cat = parseFloat(document.getElementById('py-cat').value);
+              const hip = parseFloat(document.getElementById('py-hipo').value);
+              if (isNaN(cat) || isNaN(hip) || cat <= 0 || hip <= 0){ out('Introduce valores numéricos positivos en cateto e hipotenusa.'); return; }
+              try{
+                pyodide.globals.set('cat', cat);
+                pyodide.globals.set('hip', hip);
+                const falt = await pyodide.runPythonAsync(`cateto_faltante(cat, hip)`);
+                out(`Cateto faltante: ${falt.toFixed(2)}`);
+              }catch(e){ out(e.message || String(e)); }
+            });
+  
+            const polyBtn = document.getElementById("poly-run");
+            const polyOut = document.getElementById("poly-out");
+            
+            polyBtn.addEventListener("click", async () => {
+              try {
+                const txt = document.getElementById("poly-coefs").value;
+                const coefs = txt.split(",").map(x => parseInt(x.trim()));
+            
+                pyodide.globals.set("coefs", coefs);
+                const res = await pyodide.runPythonAsync(`
+                import js
+                js.Object.fromEntries(factorizar_web(coefs).items())
+                `);
+  
+                polyOut.textContent =
+                  "PASOS:\n" + res.pasos +
+                  "\n\nFACTORIZACIÓN:\n" + res.factores;
+            
+                polyOut.classList.remove("hidden");
+              } catch (e) {
+                polyOut.textContent = "Error en los coeficientes introducidos.";
+                polyOut.classList.remove("hidden");
+              }
+            });
       </script>
     </section>
   </main>
@@ -337,6 +338,7 @@ def cateto_faltante(cat: float, hip: float) -> float:
   </footer>
 </body>
 </html>
+
 
 
 
