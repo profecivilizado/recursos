@@ -102,6 +102,29 @@ o<!DOCTYPE html>
 
         <div id="py-out" class="result hidden" role="status" aria-live="polite"></div>
 
+        <!-- 3) FACTORIZACIÓN DE POLINOMIOS -->
+        <details class="details-block">
+          <summary>🧮 Factorización de polinomios (Python paso a paso)</summary>
+          <div class="spacer"></div>
+        
+          <div class="form-row">
+            <label>Grado:</label>
+            <input id="fact-grado" type="number" min="0" placeholder="Ej. 1">
+          </div>
+        
+          <div class="form-row">
+            <label>Coeficientes:</label>
+            <input id="fact-coefs" type="text" placeholder="Ej. 3, 6   (para 3x + 6)">
+          </div>
+        
+          <div class="form-row">
+            <span></span>
+            <button class="btn" id="fact-run">Factorizar</button>
+          </div>
+        
+          <pre id="fact-out" class="result hidden"></pre>
+        </details>
+        
         <!-- Pyodide desde CDN -->
         <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
         <script>
@@ -125,6 +148,126 @@ o<!DOCTYPE html>
               pyodide = await loadPyodide();
               await pyodide.runPythonAsync(`
 import math
+from math import gcd
+
+super_indices = {"0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹"}
+def exp_super(n):
+    return "".join(super_indices[c] for c in str(n))
+
+def limpiar_coeficientes(coefs):
+    while len(coefs) > 1 and coefs[0] == 0:
+        coefs = coefs[1:]
+    return coefs
+
+def mostrar_polinomio(coefs):
+    grado = len(coefs) - 1
+    partes = []
+    for i, c in enumerate(coefs):
+        if c == 0:
+            continue
+        exp = grado - i
+        signo = " + " if c > 0 and partes else " - " if c < 0 else ""
+        valor = abs(c)
+        coef = "" if valor == 1 and exp > 0 else str(valor)
+        if exp > 1:
+            term = f"{coef}x{exp_super(exp)}"
+        elif exp == 1:
+            term = f"{coef}x"
+        else:
+            term = f"{coef}"
+        partes.append(signo + term)
+    return "".join(partes) if partes else "0"
+
+def mostrar_parentesis(coefs):
+    return "(" + mostrar_polinomio(coefs) + ")"
+
+def factor_lineal(r):
+    if r == 0:
+        return "(x)"
+    return f"(x + {abs(r)})" if r < 0 else f"(x - {r})"
+
+def factor_comun(coefs, salida):
+    m = abs(coefs[0])
+    for c in coefs[1:]:
+        m = gcd(m, abs(c))
+    if m == 1:
+        m = None
+
+    k = 0
+    while len(coefs) > k + 1 and coefs[-1 - k] == 0:
+        k += 1
+
+    if not m and k == 0:
+        salida.append("No se puede extraer factor común.\n")
+        return None, coefs
+
+    nuevos = coefs[:]
+    if m:
+        nuevos = [c // m for c in nuevos]
+    if k:
+        nuevos = nuevos[:-k]
+
+    if nuevos == [1] or nuevos == [-1]:
+        salida.append("No se puede extraer factor común.\n")
+        return None, coefs
+
+    fc = ""
+    if m:
+        fc += str(m)
+    if k == 1:
+        fc += "x"
+    elif k > 1:
+        fc += f"x{exp_super(k)}"
+
+    salida.append(f"Factor común: {fc}")
+    salida.append(f"{fc}·{mostrar_parentesis(nuevos)}\n")
+    return fc, nuevos
+
+def factorizar_web(grado, coefs):
+    salida = []
+    salida.append("=== FACTORIZACIÓN PASO A PASO ===\n")
+
+    coefs = limpiar_coeficientes(coefs)
+
+    salida.append("Polinomio:")
+    salida.append(mostrar_polinomio(coefs))
+    salida.append("")
+
+    if grado == 0 or len(coefs) == 1:
+        salida.append("No se puede factorizar más.")
+        salida.append("\nFin de la factorización.")
+        return "\n".join(salida)
+
+    factores = []
+    soluciones = []
+
+    fc, actual = factor_comun(coefs, salida)
+    if fc:
+        factores.append(fc)
+
+    if len(actual) == 2:
+        a, b = actual
+        salida.append("Si igualamos el polinomio a 0:")
+        salida.append(f"{a}x + {b} = 0")
+        salida.append(f"{a}x = {-b}")
+        r = -b // a
+        salida.append(f"x = {r}\n")
+        factores.append(factor_lineal(r))
+        soluciones.append(r)
+    else:
+        salida.append("No se puede factorizar más.\n")
+        factores.append(mostrar_parentesis(actual))
+
+    salida.append("Descomposición:")
+    salida.append(" · ".join(factores))
+
+    if soluciones:
+        salida.append("\nCeros del polinomio (si P(x)=0):")
+        for s in soluciones:
+            salida.append(f"x = {s}")
+
+    salida.append("\nFin de la factorización.")
+    return "\n".join(salida)
 
 def hipotenusa(a: float, b: float) -> float:
     if a <= 0 or b <= 0:
@@ -192,6 +335,7 @@ def cateto_faltante(cat: float, hip: float) -> float:
   </footer>
 </body>
 </html>
+
 
 
 
