@@ -147,7 +147,10 @@
             let pyodide;
             (async () => {
               try{
-                pyodide = await window.loadPyodide();
+                pyodide = await window.loadPyodide({
+                  indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/"
+                });
+
                 await pyodide.runPythonAsync(`
   import math
   from math import gcd
@@ -339,6 +342,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
