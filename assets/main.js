@@ -1,3 +1,5 @@
+console.log("main.js cargado");
+
 // Tema oscuro con persistencia
 (function themeInit(){
   const key = "pc-theme";
@@ -111,3 +113,4 @@
     });
   
   });
+
