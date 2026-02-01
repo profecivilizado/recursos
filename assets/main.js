@@ -89,7 +89,10 @@ console.log("main.js cargado");
       salida.classList.remove("hidden");
   
       const coefs = [...document.querySelectorAll(".coef-pol")]
-                      .map(i => parseInt(i.value));
+                .map(i => {
+                  const v = parseInt(i.value);
+                  return isNaN(v) ? 0 : v;
+                });
   
       let pasos = [];
       pasos.push("Polinomio leído:");
@@ -135,5 +138,6 @@ console.log("main.js cargado");
     });
   
   });
+
 
 
