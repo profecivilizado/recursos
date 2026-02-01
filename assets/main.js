@@ -28,9 +28,6 @@ console.log("main.js cargado");
 /* ============================
    FACTORIZADOR DE POLINOMIOS
    ============================ */
-  
-  document.addEventListener("DOMContentLoaded", () => {
-  
     const btnCrear = document.getElementById("btn-crear-pol");
     const btnFact  = document.getElementById("btn-factorizar-pol");
   
@@ -145,9 +142,9 @@ console.log("main.js cargado");
 
   
       salida.textContent = pasos.join("\n");
-    });
   
   });
+
 
 
 
