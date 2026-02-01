@@ -68,9 +68,6 @@ console.log("main.js cargado");
       }
       return coefs;
     }
-
-      return partes.length ? partes.join("") : "0";
-    }
   
     btnCrear.addEventListener("click", () => {
       const grado = parseInt(document.getElementById("grado-pol").value);
@@ -98,13 +95,12 @@ console.log("main.js cargado");
       salida.textContent = "";
       salida.classList.remove("hidden");
   
-      const coefs = [...document.querySelectorAll(".coef-pol")]
+      let coefs = [...document.querySelectorAll(".coef-pol")]
         .map(i => {
           const v = parseInt(i.value);
           return isNaN(v) ? 0 : v;
         });
       
-            
       coefs = limpiarCoeficientes(coefs);
 
   
@@ -152,6 +148,7 @@ console.log("main.js cargado");
     });
   
   });
+
 
 
 
