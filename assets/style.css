@@ -90,7 +90,7 @@ nav{
 .hero{
   max-width: 980px;
   margin: 40px auto 0;
-  padding: 28px 20px;
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
@@ -228,9 +228,3 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   line-height: 1.4;
   color: var(--text);
 }
-
-body{
-  background: red !important;
-}
-
-
