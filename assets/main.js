@@ -98,12 +98,13 @@ console.log("main.js cargado");
       salida.textContent = "";
       salida.classList.remove("hidden");
   
-      let coefs = [...document.querySelectorAll(".coef-pol")]
+      const coefs = [...document.querySelectorAll(".coef-pol")]
         .map(i => {
           const v = parseInt(i.value);
           return isNaN(v) ? 0 : v;
         });
       
+            
       coefs = limpiarCoeficientes(coefs);
 
   
@@ -151,6 +152,7 @@ console.log("main.js cargado");
     });
   
   });
+
 
 
 
