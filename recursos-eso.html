@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Profe Civilizado · Recursos ESO</title>
+  <title>Profe Civilizado · Recursos Bachillerato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Recursos interactivos de Matemáticas y Programación." />
   <link rel="stylesheet" href="assets/style.css" />
@@ -40,7 +40,7 @@
   <main class="content">
     <section class="panel">
       <h3>Recursos interactivos</h3>
-      <p class="muted">Aquí encontrarás diferentes recursos que serán útiles para tu aprendizaje científico.</p>
+      <p class="muted">Despliega lo que necesites. Compacto, claro y listo para clase.</p>
 
       <!-- 1) GeoGebra -->
       <details class="details-block" id="ggb">
@@ -184,30 +184,6 @@ def cateto_faltante(cat: float, hip: float) -> float:
           });
         </script>
       </details>
-      <!-- 3) Factorizador de polinomios -->
-      <details class="details-block" id="factor-pol">
-        <summary>🧮 Factorizador de polinomios (paso a paso)</summary>
-        <div class="spacer"></div>
-      
-        <div class="form-row">
-          <label for="grado-pol">Grado del polinomio</label>
-          <input id="grado-pol" type="number" min="1" placeholder="Ej. 2">
-        </div>
-      
-        <div class="form-row">
-          <span></span>
-          <button class="btn" id="btn-crear-pol">Introducir coeficientes</button>
-        </div>
-      
-        <div id="coeficientes-pol"></div>
-      
-        <div class="form-row hidden" id="bloque-factorizar-pol">
-          <span></span>
-          <button class="btn" id="btn-factorizar-pol">Factorizar</button>
-        </div>
-      
-        <pre id="salida-pol" class="result hidden"></pre>
-      </details>
     </section>
   </main>
 
@@ -216,6 +192,3 @@ def cateto_faltante(cat: float, hip: float) -> float:
   </footer>
 </body>
 </html>
-
-
-
