@@ -96,21 +96,44 @@ console.log("main.js cargado");
       pasos.push(mostrarPolinomio(coefs));
       pasos.push("");
   
+      // 1) Factor numérico
       let m = Math.abs(coefs[0]);
       for (let i = 1; i < coefs.length; i++) {
         m = gcd(m, Math.abs(coefs[i]));
       }
-  
-      if (m > 1) {
-        const nuevo = coefs.map(c => c / m);
-        pasos.push(`Factor común: ${m}`);
-        pasos.push(`${m}·(${mostrarPolinomio(nuevo)})`);
-      } else {
-        pasos.push("No se puede extraer factor común.");
+      if (m === 1) m = null;
+      
+      // 2) Potencia común de x (ceros finales)
+      let k = 0;
+      while (coefs.length > k + 1 && coefs[coefs.length - 1 - k] === 0) {
+        k++;
       }
+      
+      // 3) Si no hay factor común
+      if (!m && k === 0) {
+        pasos.push("No se puede extraer factor común.");
+        salida.textContent = pasos.join("\n");
+        return;
+      }
+      
+      // 4) Nuevo polinomio
+      let nuevo = [...coefs];
+      if (m) nuevo = nuevo.map(c => c / m);
+      if (k) nuevo = nuevo.slice(0, -k);
+      
+      // 5) Construir factor común
+      let fc = "";
+      if (m) fc += m;
+      if (k === 1) fc += "x";
+      else if (k > 1) fc += `x${expSuper(k)}`;
+      
+      pasos.push(`Factor común: ${fc}`);
+      pasos.push(`${fc}·(${mostrarPolinomio(nuevo)})`);
+
   
       salida.textContent = pasos.join("\n");
     });
   
   });
+
 
