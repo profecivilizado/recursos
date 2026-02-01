@@ -212,4 +212,10 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   .links a{ margin-left: 8px; }
 }
 
+.hero{
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
