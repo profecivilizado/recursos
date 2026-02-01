@@ -92,7 +92,7 @@ nav{
   margin: 40px auto 0;
   padding: 28px 20px;
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
   align-items: center;
 }
@@ -218,4 +218,20 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   margin-right: auto;
 }
 
+
+.quote-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.quote-card p{
+  margin: 0;
+  font-size: 1.25rem;   /* tamaño mayor */
+  font-weight: 700;     /* negrita */
+  font-style: italic;   /* cursiva */
+  line-height: 1.4;
+  color: var(--text);
+}
 
