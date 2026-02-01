@@ -43,22 +43,31 @@ console.log("main.js cargado");
     function mostrarPolinomio(coefs){
       let grado = coefs.length - 1;
       let partes = [];
-  
+    
       coefs.forEach((c,i)=>{
         if(c === 0) return;
         let exp = grado - i;
         let signo = c > 0 && partes.length ? " + " : c < 0 ? " - " : "";
         let val = Math.abs(c);
         let coef = (val === 1 && exp > 0) ? "" : val;
-  
+    
         let term;
         if(exp > 1) term = `${coef}x${expSuper(exp)}`;
         else if(exp === 1) term = `${coef}x`;
         else term = `${coef}`;
-  
+    
         partes.push(signo + term);
       });
-  
+    
+      return partes.length ? partes.join("") : "0";
+    }
+    
+    function limpiarCoeficientes(coefs) {
+      while (coefs.length > 1 && coefs[0] === 0) {
+        coefs.shift();
+      }
+      return coefs;
+    }
       return partes.length ? partes.join("") : "0";
     }
   
@@ -138,6 +147,7 @@ console.log("main.js cargado");
     });
   
   });
+
 
 
 
