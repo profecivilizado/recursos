@@ -229,4 +229,8 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   color: var(--text);
 }
 
+body{
+  background: red !important;
+}
+
 
