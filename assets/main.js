@@ -68,6 +68,7 @@ console.log("main.js cargado");
       }
       return coefs;
     }
+
       return partes.length ? partes.join("") : "0";
     }
   
@@ -147,6 +148,7 @@ console.log("main.js cargado");
     });
   
   });
+
 
 
 
