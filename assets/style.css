@@ -238,7 +238,7 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   border-radius: 12px;
   box-shadow: var(--shadow);
   background: var(--card);
-  padding: 12px 0;
+  padding: 0;
 }
 
 /* Centrado y limpieza del iframe */
@@ -252,25 +252,18 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
 
 /* Ajuste específico del simulador */
 #rayos-opticos iframe{
-  height: 520px;
+  height: 900px;
 }
 
 /* Responsive */
 @media (max-width: 800px){
   #rayos-opticos iframe{
-    height: 420px;
+    height: 650px;
   }
 }
 
 @media (max-width: 600px){
   #rayos-opticos iframe{
-    height: 360px;
-  }
-}
-
-
-@media (max-width: 600px){
-  #rayos-opticos iframe{
-    height: 360px;
+    height: 480px;
   }
 }
