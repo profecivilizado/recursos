@@ -228,3 +228,45 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   line-height: 1.4;
   color: var(--text);
 }
+
+
+
+/* GeoGebra embeds */
+.embed-wrap,
+.iframe-wrap{
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  background: var(--card);
+  padding: 10px 0;
+}
+
+.embed-wrap iframe,
+.iframe-wrap iframe{
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 0 auto;
+}
+
+/* Ajuste específico para el simulador de rayos ópticos */
+#rayos-opticos .embed-wrap{
+  padding: 12px 0;
+}
+
+#rayos-opticos iframe{
+  height: 520px;
+}
+
+/* Móvil */
+@media (max-width: 800px){
+  #rayos-opticos iframe{
+    height: 420px;
+  }
+}
+
+@media (max-width: 600px){
+  #rayos-opticos iframe{
+    height: 360px;
+  }
+}
