@@ -230,17 +230,18 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
 }
 
 
+/* ===== GeoGebra embeds (AJUSTE FINO) ===== */
 
-/* GeoGebra embeds */
 .embed-wrap,
 .iframe-wrap{
   overflow: hidden;
   border-radius: 12px;
   box-shadow: var(--shadow);
   background: var(--card);
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
+/* Centrado y limpieza del iframe */
 .embed-wrap iframe,
 .iframe-wrap iframe{
   display: block;
@@ -249,21 +250,24 @@ footer{ text-align: center; color: var(--muted); padding: 28px 20px 40px; }
   margin: 0 auto;
 }
 
-/* Ajuste específico para el simulador de rayos ópticos */
-#rayos-opticos .embed-wrap{
-  padding: 12px 0;
-}
-
+/* Ajuste específico del simulador */
 #rayos-opticos iframe{
   height: 520px;
 }
 
-/* Móvil */
+/* Responsive */
 @media (max-width: 800px){
   #rayos-opticos iframe{
     height: 420px;
   }
 }
+
+@media (max-width: 600px){
+  #rayos-opticos iframe{
+    height: 360px;
+  }
+}
+
 
 @media (max-width: 600px){
   #rayos-opticos iframe{
