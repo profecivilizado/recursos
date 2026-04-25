@@ -11,6 +11,7 @@
   --ring: rgba(37,99,235,.25);
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
   --radius: 18px;
+  --page-width: 1100px;
 }
 
 /* Dark theme */
