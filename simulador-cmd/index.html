@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador CMD | Profe Civilizado</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #eef2f7;
+      font-family: Arial, sans-serif;
+    }
+
+    .terminal {
+      background: #0c0c0c;
+      color: #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    }
+
+    .titlebar {
+      background: #252525;
+      color: white;
+      padding: 12px 16px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .terminal-body {
+      height: 460px;
+      overflow-y: auto;
+      padding: 18px;
+      font: 14px/1.5 Consolas, "Courier New", monospace;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .input-line {
+      display: flex;
+      align-items: baseline;
+    }
+
+    #prompt {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    #command {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font: inherit;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .output { margin: 0 0 12px; }
+    .muted { color: #a8b0b8; }
+
+    button {
+      background: #414141;
+      color: white;
+      border: 1px solid #666;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #555; }
+
+    @media (max-width: 600px) {
+      body { padding: 5px; }
+      .terminal-body { padding: 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="terminal">
+  <div class="titlebar">
+    <span>⌨ Símbolo del sistema — Simulador educativo</span>
+    <button type="button" id="clearButton">Limpiar</button>
+  </div>
+
+  <div class="terminal-body" id="screen" aria-label="Consola CMD">
+    <div class="output">Microsoft Windows [Versión simulada]
+(c) Profe Civilizado. Simulador educativo.
+
+Escribe HELP para consultar los comandos disponibles.
+Red ficticia: las respuestas no proceden de Internet.</div>
+
+    <div class="input-line">
+      <span id="prompt">C:\Users\Alumno&gt;</span>
+      <input id="command" type="text"
+             autocomplete="off" spellcheck="false"
+             aria-label="Escribir comando">
+    </div>
+  </div>
+</div>
+
+<script>
+  const screen = document.getElementById("screen");
+  const commandInput = document.getElementById("command");
+  const inputLine = document.querySelector(".input-line");
+
+  const network = {
+    ip: "192.168.1.25",
+    mask: "255.255.255.0",
+    gateway: "192.168.1.1",
+    dns: "192.168.1.1",
+    dns2: "1.1.1.1",
+    mac: "3C-52-82-A1-B4-09"
+  };
+
+  const history = [];
+  let historyIndex = 0;
+
+  function print(text) {
+    const block = document.createElement("div");
+    block.className = "output";
+    block.textContent = text;
+    screen.insertBefore(block, inputLine);
+    screen.scrollTop = screen.scrollHeight;
+  }
+
+  function clearScreen() {
+    screen.querySelectorAll(".output").forEach(el => el.remove());
+    commandInput.focus();
+  }
+
+  function ipconfig() {
+    return `Configuración IP de Windows
+
+   Nombre de host . . . . . . . . . : EQUIPO-ALUMNO
+   DHCP habilitado . . . . . . . . : sí
+
+Adaptador de LAN inalámbrica Wi-Fi:
+
+   Descripción . . . . . . . . . . : Adaptador Wi-Fi simulado
+   Dirección física. . . . . . . . : ${network.mac}
+   DHCP habilitado . . . . . . . . : sí
+   Dirección IPv4 . . . . . . . . : ${network.ip}
+   Máscara de subred . . . . . . . : ${network.mask}
+   Puerta de enlace predeterminada : ${network.gateway}
+   Servidor DHCP . . . . . . . . . : ${network.gateway}
+   Servidores DNS . . . . . . . . : ${network.dns}
+                                     ${network.dns2}`;
+  }
+
+  function ping(target) {
+    if (!target) {
+      return "Uso: ping <dirección IP o dominio>";
+    }
+
+    const t = target.toLowerCase();
+
+    if (t === network.gateway) {
+      return `Haciendo ping a ${target} con 32 bytes de datos:
+
+Respuesta desde ${target}: bytes=32 tiempo=1ms TTL=64
+Respuesta desde ${target}: bytes=32 tiempo=2ms TTL=64
+Respuesta desde ${target}: bytes=32 tiempo=1ms TTL=64
+Respuesta desde ${target}: bytes=32 tiempo=2ms TTL=64
+
+Estadísticas de ping para ${target}:
+    Paquetes: enviados = 4, recibidos = 4, perdidos = 0
+    (0% perdidos)
+
+Tiempos aproximados de ida y vuelta en milisegundos:
+    Mínimo = 1ms, Máximo = 2ms, Media = 1ms`;
+    }
+
+    if (["www.google.es", "google.es", "8.8.8.8"].includes(t)) {
+      return `Haciendo ping a ${target} [203.0.113.10]
+con 32 bytes de datos:
+
+Respuesta desde 203.0.113.10: bytes=32 tiempo=18ms TTL=115
+Respuesta desde 203.0.113.10: bytes=32 tiempo=20ms TTL=115
+Respuesta desde 203.0.113.10: bytes=32 tiempo=19ms TTL=115
+Respuesta desde 203.0.113.10: bytes=32 tiempo=21ms TTL=115
+
+Estadísticas de ping para 203.0.113.10:
+    Paquetes: enviados = 4, recibidos = 4, perdidos = 0
+    (0% perdidos)
+
+Nota: dirección y tiempos simulados.`;
+    }
+
+    return `Haciendo ping a ${target} con 32 bytes de datos:
+
+Tiempo de espera agotado para esta solicitud.
+Tiempo de espera agotado para esta solicitud.
+Tiempo de espera agotado para esta solicitud.
+Tiempo de espera agotado para esta solicitud.
+
+Paquetes: enviados = 4, recibidos = 0, perdidos = 4
+(100% perdidos)
+
+Nota: destino no disponible en esta simulación.`;
+  }
+
+  function tracert(target) {
+    if (!target) {
+      return "Uso: tracert <dirección IP o dominio>";
+    }
+
+    if (target.toLowerCase() === network.gateway) {
+      return `Traza a ${target} sobre un máximo de 30 saltos:
+
+  1    <1 ms    <1 ms    <1 ms  ${network.gateway}
+
+Traza completa.`;
+    }
+
+    if (["www.google.es", "google.es", "8.8.8.8"].includes(target.toLowerCase())) {
+      return `Traza a ${target} [203.0.113.10]
+sobre un máximo de 30 saltos:
+
+  1     1 ms     1 ms     2 ms  192.168.1.1
+  2     4 ms     5 ms     4 ms  10.0.0.1
+  3     8 ms     9 ms     8 ms  198.51.100.1
+  4    12 ms    13 ms    12 ms  198.51.100.2
+  5    16 ms    17 ms    16 ms  203.0.113.1
+  6    19 ms    20 ms    19 ms  203.0.113.10
+
+Traza completa.
+
+Nota: ruta completamente ficticia para uso educativo.`;
+    }
+
+    return `No se puede encontrar una ruta simulada para ${target}.
+Prueba con www.google.es o ${network.gateway}.`;
+  }
+
+  function execute(raw) {
+    const parts = raw.trim().split(/\s+/);
+    const cmd = (parts[0] || "").toLowerCase();
+    const arg = parts.slice(1).join(" ");
+
+    switch (cmd) {
+      case "":
+        return "";
+      case "help":
+        return `Comandos disponibles:
+
+IPCONFIG /ALL    Muestra la configuración de red
+IPCONFIG         Muestra IP, máscara y puerta de enlace
+PING <destino>   Comprueba la comunicación con un destino
+TRACERT <destino> Muestra los saltos de una ruta
+GETMAC           Muestra la dirección MAC
+CLS              Limpia la pantalla
+HELP             Muestra esta ayuda
+
+Ejemplos:
+  ipconfig /all
+  ping 192.168.1.1
+  tracert www.google.es`;
+      case "ipconfig":
+        if (arg.toLowerCase() === "/all") return ipconfig();
+        if (!arg) {
+          return `Adaptador de LAN inalámbrica Wi-Fi:
+
+   Dirección IPv4 . . . . . . . . : ${network.ip}
+   Máscara de subred . . . . . . . : ${network.mask}
+   Puerta de enlace predeterminada : ${network.gateway}`;
+        }
+        return "Parámetro no reconocido. Prueba con ipconfig /all.";
+      case "ping":
+        return ping(arg);
+      case "tracert":
+        return tracert(arg);
+      case "getmac":
+        return `Nombre de conexión    Dirección física
+===================   =================
+Wi-Fi                 ${network.mac}`;
+      case "cls":
+        clearScreen();
+        return null;
+      default:
+        return `'${parts[0]}' no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.`;
+    }
+  }
+
+  commandInput.addEventListener("keydown", event => {
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      if (historyIndex > 0) {
+        historyIndex--;
+        commandInput.value = history[historyIndex];
+      }
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (historyIndex < history.length - 1) {
+        historyIndex++;
+        commandInput.value = history[historyIndex];
+      } else {
+        historyIndex = history.length;
+        commandInput.value = "";
+      }
+      return;
+    }
+
+    if (event.key !== "Enter") return;
+
+    const raw = commandInput.value.trim();
+    print("C:\\Users\\Alumno>" + raw);
+
+    if (raw) {
+      history.push(raw);
+      historyIndex = history.length;
+    }
+
+    commandInput.value = "";
+    const result = execute(raw);
+
+    if (result) print(result);
+
+    screen.scrollTop = screen.scrollHeight;
+  });
+
+  document.getElementById("clearButton")
+    .addEventListener("click", clearScreen);
+
+  screen.addEventListener("click", () => commandInput.focus());
+  commandInput.focus();
+</script>
+
+</body>
+</html>
