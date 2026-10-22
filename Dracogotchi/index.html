@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#2B2A5C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dracogotchi">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<title>Dracogotchi</title>
+<style>
+:root{
+  --noche:#2B2A5C; --cueva:#463C78; --cueva-2:#383063; --brasa:#F4A259;
+  --luna:#F3EEFB; --tinta:#1B1940; --alerta:#FF8A7A;
+  --cuerpo:#8CC084; --panza:#F6E7B8; --acento:#E3A74F;
+  font-family: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--noche);color:var(--luna);overscroll-behavior:none}
+body{
+  min-height:100vh; min-height:100dvh;
+  background:
+    radial-gradient(120% 60% at 50% 34%, rgba(244,162,89,.26), transparent 62%),
+    linear-gradient(180deg,var(--noche),var(--cueva));
+  background-attachment:fixed;
+  -webkit-user-select:none; user-select:none;
+}
+input,textarea{-webkit-user-select:text;user-select:text}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--brasa);outline-offset:2px}
+
+#app{
+  max-width:520px;margin:0 auto;min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;
+  padding:max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+}
+.cab{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cab h1{margin:0;font-size:22px;font-weight:700;letter-spacing:.2px}
+.cab p{margin:2px 0 0;font-size:14px;opacity:.75}
+.icono{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);font-size:20px;display:grid;place-items:center}
+
+#escena{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:300px;position:relative}
+.burbuja{
+  background:var(--luna);color:var(--tinta);padding:11px 15px;border-radius:18px;
+  max-width:92%;font-size:16px;line-height:1.35;text-align:center;position:relative;
+  min-height:44px;display:flex;align-items:center;justify-content:center;
+  transition:opacity .5s;
+}
+.burbuja::after{content:"";position:absolute;left:50%;bottom:-9px;margin-left:-9px;border:9px solid transparent;border-bottom:0;border-top-color:var(--luna)}
+.burbuja.tenue{opacity:.0}
+#escenario{position:relative;width:min(72vw,300px);cursor:pointer;touch-action:manipulation}
+#escenario svg{width:100%;height:auto;display:block;overflow:visible}
+.suelo{width:62%;height:16px;margin:-6px auto 0;border-radius:50%;background:rgba(10,8,30,.35);filter:blur(4px)}
+
+.corazon{position:absolute;pointer-events:none;font-size:26px;animation:sube 1.3s ease-out forwards}
+@keyframes sube{0%{transform:translateY(0) scale(.7);opacity:0}15%{opacity:1}100%{transform:translateY(-110px) scale(1.15);opacity:0}}
+
+/* Dragón */
+.respira{animation:respira 4.2s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes respira{0%,100%{transform:scale(1,1)}50%{transform:scale(1.015,1.03)}}
+.ojo{animation:parpadeo 5.5s infinite;transform-box:fill-box;transform-origin:50% 50%}
+@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.08)}}
+.rebota{animation:rebota .5s ease-out 2}
+@keyframes rebota{0%,100%{transform:translateY(0)}40%{transform:translateY(-14px)}}
+.ala,.cresta,.aura{display:none}
+.lv3 .ala{display:inline}
+.lv4 .cresta{display:inline}
+.lv6 .aura{display:inline}
+.boca>g,.cejas,.ojos-c,.zzz,.ojos-a{display:none}
+.m-feliz .b-feliz,.m-normal .b-normal,.m-triste .b-triste,.m-dormido .b-dormido,.m-comiendo .b-comiendo{display:inline}
+.m-feliz .ojos-a,.m-normal .ojos-a,.m-triste .ojos-a,.m-comiendo .ojos-a{display:inline}
+.m-dormido .ojos-c,.m-dormido .zzz{display:inline}
+.m-triste .cejas{display:inline}
+.m-dormido .respira{animation-duration:6s}
+.zzz text{font-size:22px;font-weight:700;fill:var(--luna);animation:zzz 3s ease-in-out infinite}
+.zzz text:nth-child(2){animation-delay:.8s}
+@keyframes zzz{0%,100%{opacity:.2}50%{opacity:1}}
+.p-fuego{--cuerpo:#E8704B;--panza:#F9D59B;--acento:#8C2F1B}
+.p-agua{--cuerpo:#4BA3E8;--panza:#D3ECFB;--acento:#1F5FA8}
+.p-aire{--cuerpo:#9AD1D4;--panza:#F2FBFB;--acento:#4F8A8E}
+.p-tierra{--cuerpo:#B08B5A;--panza:#EBD9B8;--acento:#6B4F2A}
+.p-rayo{--cuerpo:#F2C94C;--panza:#FFF3C4;--acento:#A8740A}
+.huevo-vista .sacude{animation:sacude .5s ease-in-out}
+@keyframes sacude{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+
+/* Controles */
+.panel{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;padding-top:8px}
+.medidores{display:flex;justify-content:space-between;gap:6px}
+.medidor{display:grid;justify-items:center;gap:5px;font-size:12px;flex:1;min-width:0}
+.anillo{
+  --v:100;--c:#fff;width:50px;height:50px;border-radius:50%;
+  background:conic-gradient(var(--c) calc(var(--v) * 1%), rgba(255,255,255,.16) 0);
+  display:grid;place-items:center;
+}
+.anillo span{width:40px;height:40px;border-radius:50%;background:var(--cueva-2);display:grid;place-items:center;font-size:18px}
+.medidor.bajo .anillo{--c:var(--alerta)}
+.acciones{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.accion{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:22px;
+  min-height:66px;display:grid;place-items:center;align-content:center;gap:3px;padding:8px 2px;font-size:12px;white-space:nowrap;
+  transition:transform .12s,background .12s;
+}
+.accion b{font-size:22px;font-weight:400;line-height:1}
+.accion:active{transform:scale(.95);background:rgba(255,255,255,.18)}
+.accion:disabled{opacity:.35}
+.hablar{display:flex;gap:8px}
+.hablar input{flex:1;min-width:0;font-size:16px;padding:12px 16px;border-radius:26px;border:1px solid rgba(255,255,255,.22);background:rgba(10,8,30,.32);color:var(--luna)}
+.hablar input::placeholder{color:rgba(243,238,251,.55)}
+.hablar input:disabled{opacity:.5}
+.primario{background:var(--brasa);color:var(--tinta);border:0;border-radius:26px;padding:0 18px;font-weight:700;min-height:46px}
+.primario:disabled{opacity:.45}
+.suave{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:10px 14px}
+.peligro{background:rgba(255,138,122,.16);border:1px solid rgba(255,138,122,.5);border-radius:16px;padding:10px 14px;color:#FFD2CB}
+
+/* Pantallas de inicio */
+.tarjeta{display:grid;gap:12px;padding:6px 2px}
+.tarjeta p{margin:0;font-size:16px;line-height:1.4;text-align:center}
+.tarjeta label{display:grid;gap:6px;font-size:14px;opacity:.9}
+.tarjeta input,.hoja input[type=text],.hoja input[type=number],.hoja textarea,.hoja select{
+  font-size:16px;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(10,8,30,.35);color:var(--luna);width:100%;font-family:inherit
+}
+.nota{font-size:13px;opacity:.7;text-align:center}
+
+/* Hojas */
+.hoja{position:fixed;inset:0;display:none;align-items:flex-end;justify-content:center;background:rgba(10,8,30,.6);z-index:10}
+.hoja.abierta{display:flex}
+.hoja>div{background:var(--cueva-2);width:min(520px,100%);max-height:88vh;max-height:88dvh;overflow:auto;border-radius:24px 24px 0 0;padding:20px 18px max(20px,env(safe-area-inset-bottom));display:grid;gap:14px}
+.hoja h2{margin:0;font-size:19px}
+.hoja h3{margin:0;font-size:15px;opacity:.85}
+.hoja p{margin:0;line-height:1.4}
+.fila{display:flex;gap:10px;flex-wrap:wrap}
+.fila>*{flex:1}
+.poderes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.poderes button{font-size:30px;padding:12px 0;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.poderes span{display:block;font-size:12px;margin-top:2px}
+.lista{display:grid;gap:6px}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;background:rgba(255,255,255,.07);border-radius:12px;padding:8px 12px;font-size:15px}
+.item button{background:none;border:0;font-size:18px;padding:4px 8px;opacity:.8}
+.charla{display:grid;gap:8px;max-height:46vh;overflow:auto}
+.msg{max-width:86%;padding:9px 13px;border-radius:16px;font-size:15px;line-height:1.35}
+.msg.d{background:var(--luna);color:var(--tinta);justify-self:start}
+.msg.y{background:var(--brasa);color:var(--tinta);justify-self:end}
+.pista{font-size:17px;text-align:center;min-height:26px}
+
+/* Candado */
+#candado{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:24px;
+  background:radial-gradient(120% 60% at 50% 34%, rgba(244,162,89,.22), transparent 62%),linear-gradient(180deg,var(--noche),var(--cueva))}
+#candado.abierto{display:flex}
+#candado form{display:grid;gap:14px;width:min(360px,100%);text-align:center}
+#candado h2{margin:0;font-size:24px}
+#candado p{margin:0;line-height:1.4;opacity:.85}
+#candado input{font-size:16px;padding:14px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.25);background:rgba(10,8,30,.4);color:var(--luna);text-align:center;-webkit-user-select:text;user-select:text}
+#candado .error{min-height:20px;color:var(--alerta);font-size:14px}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div id="candado" role="dialog" aria-modal="true" aria-label="Código de acceso">
+  <form id="fCandado" autocomplete="off">
+    <h2>Dracogotchi</h2>
+    <p>Esta app es privada. Escribe el código para entrar.</p>
+    <input id="iCandado" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Código de acceso" enterkeyhint="go">
+    <div class="error" id="eCandado" role="alert"></div>
+    <button class="primario" style="min-height:50px;font-size:17px">Entrar</button>
+  </form>
+</div>
+
+<div id="app">
+  <header class="cab">
+    <div>
+      <h1 id="tNombre">Dracogotchi</h1>
+      <p id="tNivel"></p>
+    </div>
+    <button class="icono" id="bAjustes" aria-label="Ajustes" hidden>⚙️</button>
+  </header>
+
+  <main id="escena">
+    <div id="burbuja" class="burbuja" role="status" aria-live="polite" hidden></div>
+    <div id="escenario" role="img" aria-label="Tu dragón"></div>
+    <div class="suelo" aria-hidden="true"></div>
+  </main>
+
+  <section id="vHuevo" class="panel" hidden>
+    <div class="tarjeta">
+      <p id="pHuevo">Has encontrado un huevo misterioso. Abrázalo para que eclosione.</p>
+      <button class="primario" id="bHuevo" style="min-height:52px;font-size:17px">🤗 Abrazar el huevo</button>
+      <p class="nota">Todo se guarda en este dispositivo y funciona sin conexión.</p>
+    </div>
+  </section>
+
+  <section id="vNombres" class="panel" hidden>
+    <form class="tarjeta" id="fNombres" autocomplete="off">
+      <p>¡El huevo se ha abierto! Antes de nada, presentaos.</p>
+      <label>Nombre del dragón
+        <input id="iNombreDragon" type="text" maxlength="20" required enterkeyhint="next">
+      </label>
+      <label>Tu nombre
+        <input id="iNombreDueno" type="text" maxlength="20" required enterkeyhint="done">
+      </label>
+      <button class="primario" style="min-height:52px;font-size:17px">Empezar</button>
+    </form>
+  </section>
+
+  <section id="vJuego" class="panel" hidden>
+    <div class="medidores" id="medidores"></div>
+    <div class="acciones">
+      <button class="accion" data-a="comer"><b>🍖</b>Comer</button>
+      <button class="accion" data-a="abrazar"><b>🤗</b>Abrazar</button>
+      <button class="accion" data-a="banar"><b>🛁</b>Bañar</button>
+      <button class="accion" data-a="jugar"><b>🎲</b>Jugar</button>
+      <button class="accion" data-a="dormir" id="bDormir"><b>🌙</b>Dormir</button>
+    </div>
+    <form class="hablar" id="fHablar" autocomplete="off">
+      <input id="iHablar" type="text" maxlength="120" enterkeyhint="send" placeholder="Dile algo a tu dragón…" aria-label="Mensaje para tu dragón">
+      <button class="primario" id="bEnviar">Hablar</button>
+      <button type="button" class="icono" id="bCharla" aria-label="Ver conversación">📜</button>
+    </form>
+  </section>
+</div>
+
+<!-- Hojas -->
+<div class="hoja" id="hCharla" aria-modal="true" role="dialog" aria-label="Conversación">
+  <div>
+    <h2>Conversación</h2>
+    <div class="charla" id="listaCharla"></div>
+    <button class="suave" data-cerrar>Cerrar</button>
+  </div>
+</div>
+
+<div class="hoja" id="hPoder" aria-modal="true" role="dialog" aria-label="Elegir poder">
+  <div>
+    <h2>¡Nivel 5! Elige un poder elemental</h2>
+    <p>Cambia el color de tu dragón y le da una ventaja distinta en los combates (llegarán en una próxima versión).</p>
+    <div class="poderes" id="listaPoderes"></div>
+  </div>
+</div>
+
+<div class="hoja" id="hJuego" aria-modal="true" role="dialog" aria-label="Minijuego">
+  <div>
+    <h2>Adivina el número</h2>
+    <p>Estoy pensando en un número del 1 al 100.</p>
+    <div class="pista" id="pistaJuego" aria-live="polite"></div>
+    <form class="fila" id="fJuego" autocomplete="off">
+      <input id="iJuego" type="number" inputmode="numeric" min="1" max="100" placeholder="Tu número">
+      <button class="primario">Probar</button>
+    </form>
+    <button class="suave" id="bSalirJuego">Dejar de jugar</button>
+  </div>
+</div>
+
+<div class="hoja" id="hAjustes" aria-modal="true" role="dialog" aria-label="Ajustes">
+  <div>
+    <h2>Ajustes</h2>
+    <label class="fila" style="display:grid;gap:6px">Mensajes espontáneos
+      <select id="sFrecuencia">
+        <option value="frecuente">Frecuentes (cada minuto, más o menos)</option>
+        <option value="normal">Normal (cada 1 a 3 minutos)</option>
+        <option value="tranquilo">Tranquilos (cada 5 a 10 minutos)</option>
+        <option value="silencio">Ninguno</option>
+      </select>
+    </label>
+    <p class="nota" style="text-align:left">Los mensajes aparecen mientras la app está abierta. Si no quieres hablar, simplemente no respondas.</p>
+
+    <h3>Lo que recuerda tu dragón</h3>
+    <div class="lista" id="listaMemoria"></div>
+
+    <h3>Nombres</h3>
+    <div class="fila">
+      <input id="aNombreDragon" type="text" maxlength="20" aria-label="Nombre del dragón">
+      <input id="aNombreDueno" type="text" maxlength="20" aria-label="Tu nombre">
+    </div>
+    <button class="suave" id="bGuardarNombres">Guardar nombres</button>
+
+    <h3>Copia de seguridad</h3>
+    <p class="nota" style="text-align:left">El iPhone y el iPad no comparten la partida. Copia el texto de aquí y pégalo en el otro dispositivo para llevarte a tu dragón.</p>
+    <textarea id="tCopia" rows="4" aria-label="Copia de seguridad"></textarea>
+    <div class="fila">
+      <button class="suave" id="bCopiar">Generar y copiar</button>
+      <button class="suave" id="bRestaurar">Restaurar desde el texto</button>
+    </div>
+    <p class="nota" id="notaCopia"></p>
+
+    <button class="peligro" id="bReiniciar">Buscar un huevo nuevo (borra este dragón)</button>
+    <button class="primario" data-cerrar style="min-height:50px">Cerrar</button>
+  </div>
+</div>
+
+<script src="acceso.js"></script>
+<script>
+(() => {
+'use strict';
+
+/* ===== Constantes ===== */
+const CLAVE = 'dracogotchi.v1';
+const NIVELES = [5, 15, 30, 50, 100];
+const TASAS = { saciedad: 12, carino: 8, diversion: 10, higiene: 6 }; // puntos que baja por hora
+const SUELO = 5, SUELO_SALUD = 10; // en esta versión el dragón no muere
+const MEDIDORES = [
+  ['saciedad', '🍖', 'Comida', '#F4A259'],
+  ['carino', '💗', 'Cariño', '#F28FAD'],
+  ['diversion', '🎈', 'Diversión', '#6EC6E6'],
+  ['higiene', '🧼', 'Higiene', '#8BD3C7'],
+  ['salud', '✨', 'Salud', '#B9E36B'],
+];
+const PODERES = {
+  fuego: { emoji: '🔥', nombre: 'Fuego' },
+  agua: { emoji: '💧', nombre: 'Agua' },
+  aire: { emoji: '🌪️', nombre: 'Aire' },
+  tierra: { emoji: '🪨', nombre: 'Tierra' },
+  rayo: { emoji: '⚡', nombre: 'Rayo' },
+};
+const INTERVALOS = { frecuente: [30, 60], normal: [60, 180], tranquilo: [300, 600], silencio: null };
+
+/* ===== Textos ===== */
+const NECESIDADES = {
+  saciedad: ['Me ruge la tripa. ¿Hay algo de comer?', 'Tengo hambre. Con un poco de comida soy tuyo para siempre.', 'Mi estómago acaba de hacer un ruido de dragón.', 'Estoy flojito de energía. ¿Me das de comer?'],
+  carino: ['Me siento un poco solo. ¿Me das un abrazo?', 'Echo de menos tus caricias.', '¿Te acuerdas de mí? Aquí estoy, esperando un mimo.', 'Un abrazo y se me pasa todo.'],
+  diversion: ['Me aburro… ¿jugamos a adivinar el número?', 'Necesito jugar un rato, ¡por favor!', 'Estoy tan aburrido que he contado las piedras de la cueva dos veces.', '¿Un juego? Cualquiera sirve.'],
+  higiene: ['Creo que huelo a cueva. ¿Un bañito?', 'Estoy un poco sucio. ¿Me lavas?', 'Tengo barro hasta en las orejas.', 'Un baño me vendría de maravilla.'],
+  salud: ['No me encuentro muy bien…', 'Estoy flojo. Cuídame un poco, anda.', 'Me duele todo un poquito. Descanso y mimos, por favor.'],
+};
+const VARIOS = [
+  'Estoy aquí, {o}. Si quieres charlar, me encanta.',
+  '¿Sabías que los dragones también tenemos días tontos?',
+  'Hoy he contado mis escamas. Me faltan tres… o eso creo.',
+  'Me gusta cuando abres la app. Se enciende la cueva.',
+  'Si me cuentas algo que te gusta, lo guardo. Soy bueno recordando.',
+  'Estaba mirando la luna. Se parece a un huevo gigante.',
+  '¿Jugamos a adivinar el número?',
+  'Me pregunto qué estarás haciendo ahora mismo, {o}.',
+  'Cuando estoy contento me salen chispitas por la nariz. Pero solo un poco.',
+  'Acabo de soñar con montañas de comida. Qué despertar más cruel.',
+];
+const CHISTES = [
+  '¿Qué hace un dragón en la biblioteca? Leer en voz alta… con cuidado de no quemar las páginas.',
+  '¿Cómo se despiden los dragones? ¡Hasta la lumbre!',
+  '¿Qué le dice un huevo a otro? Nada, los huevos se rompen cuando se cuentan secretos.',
+  '¿Por qué los dragones no juegan al escondite? Porque siempre les delata el humo.',
+];
+const SALUDOS = ['¡Hola, {o}! Qué alegría verte.', '¡Hola! Justo estaba pensando en ti.', '¡Eh, {o}! Te estaba esperando.'];
+const QUIERO = ['Yo también te quiero, {o}. Me da calorcito en las escamas.', 'Eso me ha derretido el corazón de dragón.', '¡Y yo a ti! Tanto que casi echo fuego de la emoción.'];
+const GRACIAS = ['¡De nada!', 'Para eso estamos, {o}.', 'A ti por cuidarme.'];
+const CURIOSO = ['Mmm, cuéntame más.', 'Eso me suena interesante. Lo voy a pensar.', '¿Y qué pasó después?', 'Soy un dragón sencillo y entiendo frases cortas, pero te escucho con atención.', 'Vaya. Anotado en mi cabeza de dragón.'];
+
+/* ===== Utilidades ===== */
+const $ = (s, r = document) => r.querySelector(s);
+const elige = a => a[Math.floor(Math.random() * a.length)];
+const rand = (a, b) => a + Math.random() * (b - a);
+const clamp = (v, a = 0, b = 100) => Math.max(a, Math.min(b, v));
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+const limpia = s => s.trim().replace(/[.!?¡¿\s]+$/g, '').replace(/^[¡¿\s]+/g, '');
+const calcNivel = e => 1 + NIVELES.filter(x => e >= x).length;
+const SVGNS = 'http://www.w3.org/2000/svg';
+
+function humano(min) {
+  if (min < 1) return 'un momento';
+  if (min < 60) return `${Math.round(min)} min`;
+  const h = min / 60;
+  if (h < 24) { const hh = Math.floor(h), mm = Math.round((h - hh) * 60); return mm ? `${hh} h ${mm} min` : `${hh} h`; }
+  const d = Math.floor(h / 24);
+  return d === 1 ? '1 día' : `${d} días`;
+}
+
+/* ===== Estado ===== */
+let S = null;
+let almacenOk = true;
+
+function nuevoEstado() {
+  const ahora = Date.now();
+  return {
+    v: 1, fase: 'huevo', abrazos: 0, nombre: '', dueno: '',
+    stats: { saciedad: 100, carino: 100, diversion: 100, higiene: 100, salud: 100 },
+    evolucion: 0, nivel: 1, poder: null, estableMin: 0,
+    durmiendo: false, dormidoDesde: null,
+    ultimoTick: ahora, ultimaVisita: ahora,
+    memoria: { gustos: [], disgustos: [], notas: [] },
+    charla: [], ajustes: { frecuencia: 'normal' },
+  };
+}
+
+function fusionar(guardado) {
+  const base = nuevoEstado();
+  const s = Object.assign(base, guardado || {});
+  s.stats = Object.assign(base.stats, (guardado && guardado.stats) || {});
+  s.memoria = Object.assign(base.memoria, (guardado && guardado.memoria) || {});
+  s.ajustes = Object.assign(base.ajustes, (guardado && guardado.ajustes) || {});
+  if (!Array.isArray(s.charla)) s.charla = [];
+  return s;
+}
+
+function leer() {
+  try { const t = localStorage.getItem(CLAVE); return t ? JSON.parse(t) : null; }
+  catch (e) { almacenOk = false; return null; }
+}
+function guardar() {
+  try { localStorage.setItem(CLAVE, JSON.stringify(S)); }
+  catch (e) { almacenOk = false; }
+}
+
+/* ===== Simulación del paso del tiempo ===== */
+function simular(s, ahora) {
+  let min = (ahora - s.ultimoTick) / 60000;
+  if (!(min > 0)) { s.ultimoTick = ahora; return { min: 0, subio: false }; }
+  const nivelAntes = s.nivel;
+  min = Math.min(min, 60 * 24 * 14);
+  let resto = min;
+  while (resto > 0) {
+    const dt = Math.min(10, resto);
+    resto -= dt;
+    if (s.durmiendo) continue;
+    for (const k in TASAS) s.stats[k] = Math.max(SUELO, s.stats[k] - TASAS[k] * dt / 60);
+    const todos = Object.keys(TASAS).every(k => s.stats[k] > 70);
+    const alguno = Object.keys(TASAS).some(k => s.stats[k] < 30);
+    if (todos) {
+      s.estableMin += dt;
+      s.stats.salud = Math.min(100, s.stats.salud + 6 * dt / 60);
+      while (s.estableMin >= 20) { s.estableMin -= 20; s.evolucion += 5; }
+    } else {
+      s.estableMin = 0;
+      if (alguno) s.stats.salud = Math.max(SUELO_SALUD, s.stats.salud - 4 * dt / 60);
+    }
+  }
+  s.nivel = calcNivel(s.evolucion);
+  s.ultimoTick = ahora;
+  return { min, subio: s.nivel > nivelAntes };
+}
+
+const promedio = () => (S.stats.saciedad + S.stats.carino + S.stats.diversion + S.stats.higiene) / 4;
+function peorStat() {
+  return Object.keys(S.stats).map(k => [k, S.stats[k]]).sort((a, b) => a[1] - b[1])[0];
+}
+function animo() {
+  if (S.durmiendo) return 'dormido';
+  const m = promedio();
+  return m >= 70 ? 'feliz' : m >= 40 ? 'normal' : 'triste';
+}
+function nombreMostrar() {
+  const p = S.poder ? ' ' + PODERES[S.poder].emoji : '';
+  return `${S.nivel >= 6 ? 'Super' : ''}${S.nombre}${p}`;
+}
+
+/* ===== Dibujo (SVG) ===== */
+const SVG_DRAGON = `
+<svg viewBox="0 0 220 240" xmlns="${SVGNS}" id="dragon" class="m-normal">
+  <circle class="aura" cx="110" cy="130" r="104" fill="none" stroke="var(--acento)" stroke-width="3" stroke-dasharray="2 9" opacity=".7"/>
+  <g class="respira">
+    <path d="M150 196 C196 200 208 152 186 128 C196 160 178 180 148 176 Z" fill="var(--cuerpo)"/>
+    <path d="M186 128 L200 114 L198 140 Z" fill="var(--acento)"/>
+    <g class="ala" fill="var(--acento)" opacity=".92">
+      <path d="M62 132 C18 104 14 152 32 164 C40 152 52 150 66 154 Z"/>
+      <path d="M158 132 C202 104 206 152 188 164 C180 152 168 150 154 154 Z"/>
+    </g>
+    <ellipse cx="80" cy="214" rx="21" ry="10" fill="var(--cuerpo)" stroke="rgba(0,0,0,.12)"/>
+    <ellipse cx="140" cy="214" rx="21" ry="10" fill="var(--cuerpo)" stroke="rgba(0,0,0,.12)"/>
+    <ellipse cx="110" cy="160" rx="56" ry="58" fill="var(--cuerpo)"/>
+    <ellipse cx="110" cy="172" rx="34" ry="40" fill="var(--panza)"/>
+    <ellipse cx="60" cy="168" rx="11" ry="16" fill="var(--cuerpo)" transform="rotate(14 60 168)"/>
+    <ellipse cx="160" cy="168" rx="11" ry="16" fill="var(--cuerpo)" transform="rotate(-14 160 168)"/>
+    <path d="M80 64 L66 28 L98 54 Z" fill="var(--acento)"/>
+    <path d="M140 64 L154 28 L122 54 Z" fill="var(--acento)"/>
+    <path class="cresta" d="M98 52 L110 30 L122 52 Z" fill="var(--acento)"/>
+    <ellipse cx="110" cy="96" rx="52" ry="46" fill="var(--cuerpo)"/>
+    <circle cx="76" cy="110" r="8" fill="#FF8FA3" opacity=".45"/>
+    <circle cx="144" cy="110" r="8" fill="#FF8FA3" opacity=".45"/>
+    <g class="ojos-a">
+      <ellipse class="ojo" cx="89" cy="94" rx="9" ry="11" fill="#fff"/>
+      <circle class="ojo" cx="91" cy="96" r="5.5" fill="#1B1940"/>
+      <ellipse class="ojo" cx="131" cy="94" rx="9" ry="11" fill="#fff"/>
+      <circle class="ojo" cx="129" cy="96" r="5.5" fill="#1B1940"/>
+      <circle cx="93" cy="93" r="1.8" fill="#fff"/><circle cx="131" cy="93" r="1.8" fill="#fff"/>
+    </g>
+    <g class="ojos-c" fill="none" stroke="#1B1940" stroke-width="3.5" stroke-linecap="round">
+      <path d="M79 96 Q89 104 99 96"/><path d="M121 96 Q131 104 141 96"/>
+    </g>
+    <g class="cejas" fill="none" stroke="#1B1940" stroke-width="3" stroke-linecap="round">
+      <path d="M79 80 L99 86"/><path d="M141 80 L121 86"/>
+    </g>
+    <circle cx="103" cy="108" r="1.7" fill="rgba(0,0,0,.35)"/><circle cx="117" cy="108" r="1.7" fill="rgba(0,0,0,.35)"/>
+    <g class="boca" fill="none" stroke="#1B1940" stroke-width="3.2" stroke-linecap="round">
+      <g class="b-feliz"><path d="M94 116 Q110 134 126 116"/></g>
+      <g class="b-normal"><path d="M99 121 L121 121"/></g>
+      <g class="b-triste"><path d="M97 127 Q110 114 123 127"/></g>
+      <g class="b-dormido"><path d="M104 121 Q110 125 116 121"/></g>
+      <g class="b-comiendo"><ellipse cx="110" cy="122" rx="9" ry="7" fill="#7A2E3B"/></g>
+    </g>
+    <g class="zzz"><text x="150" y="62">z</text><text x="166" y="42">Z</text></g>
+  </g>
+</svg>`;
+
+const SVG_HUEVO = `
+<svg viewBox="0 0 200 240" xmlns="${SVGNS}" id="huevo">
+  <g class="respira">
+    <ellipse cx="100" cy="132" rx="70" ry="92" fill="#ECE6F8"/>
+    <circle cx="70" cy="96" r="11" fill="#B9A7E8"/><circle cx="128" cy="76" r="8" fill="#B9A7E8"/>
+    <circle cx="136" cy="140" r="13" fill="#B9A7E8"/><circle cx="82" cy="170" r="9" fill="#B9A7E8"/>
+    <circle cx="104" cy="118" r="5" fill="#B9A7E8"/>
+    <g fill="none" stroke="#5A4B8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path class="gr gr1" d="M96 50 L108 70 L94 82"/>
+      <path class="gr gr2" d="M94 82 L110 96 L98 112"/>
+      <path class="gr gr3" d="M60 120 L78 128 L72 146"/>
+      <path class="gr gr4" d="M140 108 L124 122 L134 138"/>
+    </g>
+  </g>
+</svg>`;
+
+/* ===== Interfaz ===== */
+let dragonSVG = null;
+let temporizadorBurbuja = null, temporizadorMensajes = null;
+
+function pintarEscenario() {
+  const e = $('#escenario');
+  const quiero = S.fase === 'activo' || S.fase === 'nombrar' ? 'dragon' : 'huevo';
+  if (!e.firstElementChild || e.firstElementChild.id !== quiero) {
+    e.innerHTML = quiero === 'dragon' ? SVG_DRAGON : SVG_HUEVO;
+  }
+  const svg = e.firstElementChild;
+  if (quiero === 'huevo') {
+    for (let i = 1; i <= 4; i++) {
+      const g = svg.querySelector('.gr' + i);
+      if (g) g.style.display = S.abrazos >= i ? 'inline' : 'none';
+    }
+    $('#escenario').setAttribute('aria-label', 'Un huevo misterioso');
+    dragonSVG = null;
+    return;
+  }
+  dragonSVG = svg;
+  const a = animo();
+  const cls = ['m-' + a];
+  if (S.poder) cls.push('p-' + S.poder);
+  if (S.nivel >= 3) cls.push('lv3');
+  if (S.nivel >= 4) cls.push('lv4');
+  if (S.nivel >= 6) cls.push('lv6');
+  svg.setAttribute('class', cls.join(' '));
+  $('#escenario').setAttribute('aria-label', `${nombreMostrar() || 'Tu dragón'}, ${a}`);
+}
+
+function pintarMedidores() {
+  const cont = $('#medidores');
+  if (!cont.children.length) {
+    for (const [k, emoji, etiqueta, color] of MEDIDORES) {
+      const m = document.createElement('div');
+      m.className = 'medidor'; m.dataset.k = k;
+      m.innerHTML = `<div class="anillo" style="--c:${color}"><span>${emoji}</span></div><div>${etiqueta}</div>`;
+      cont.appendChild(m);
+    }
+  }
+  for (const m of cont.children) {
+    const v = Math.round(S.stats[m.dataset.k]);
+    m.querySelector('.anillo').style.setProperty('--v', v);
+    m.classList.toggle('bajo', v < 30);
+    m.setAttribute('aria-label', `${m.lastChild.textContent}: ${v} de 100`);
+    m.setAttribute('role', 'img');
+  }
+}
+
+function pintarVistas() {
+  const f = S.fase;
+  $('#vHuevo').hidden = f !== 'huevo';
+  $('#vNombres').hidden = f !== 'nombrar';
+  $('#vJuego').hidden = f !== 'activo';
+  $('#bAjustes').hidden = f === 'huevo';
+  $('#escena').classList.toggle('huevo-vista', f === 'huevo');
+  if (f === 'huevo') {
+    $('#tNombre').textContent = 'Dracogotchi';
+    $('#tNivel').textContent = S.abrazos ? `Abrazos: ${S.abrazos} de 5` : 'Un huevo te espera';
+    $('#pHuevo').textContent = S.abrazos ? `Sigues abrazando el huevo (${S.abrazos} de 5).` : 'Has encontrado un huevo misterioso. Abrázalo para que eclosione.';
+    $('#burbuja').hidden = true;
+  } else if (f === 'nombrar') {
+    $('#tNombre').textContent = 'Dracogotchi';
+    $('#tNivel').textContent = '¡Ha nacido!';
+    $('#burbuja').hidden = true;
+  } else {
+    $('#tNombre').textContent = nombreMostrar();
+    $('#tNivel').textContent = `Nivel ${S.nivel} · ${S.dueno ? 'cuidador: ' + S.dueno : ''}`;
+  }
+  const dorm = !!S.durmiendo;
+  $('#bDormir').innerHTML = dorm ? '<b>☀️</b>Despertar' : '<b>🌙</b>Dormir';
+  document.querySelectorAll('.accion').forEach(b => { if (b.dataset.a !== 'dormir') b.disabled = dorm; });
+  $('#iHablar').disabled = dorm; $('#bEnviar').disabled = dorm;
+  $('#iHablar').placeholder = dorm ? 'Está dormido… shhh' : 'Dile algo a tu dragón…';
+}
+
+function pintarTodo() {
+  pintarEscenario();
+  if (S.fase === 'activo') pintarMedidores();
+  pintarVistas();
+}
+
+/* ===== Habla del dragón ===== */
+function fmt(t) { return t.replace(/\{o\}/g, S.dueno || 'amigo').replace(/\{n\}/g, S.nombre || 'dragón'); }
+
+function decir(texto, opciones = {}) {
+  texto = fmt(texto);
+  const b = $('#burbuja');
+  b.textContent = texto;
+  b.hidden = false;
+  b.classList.remove('tenue');
+  clearTimeout(temporizadorBurbuja);
+  if (!S.durmiendo && !opciones.fija) {
+    temporizadorBurbuja = setTimeout(() => b.classList.add('tenue'), 14000);
+  }
+  if (!opciones.sinRegistro) {
+    S.charla.push({ de: 'd', t: texto, ts: Date.now() });
+    if (S.charla.length > 60) S.charla.splice(0, S.charla.length - 60);
+    guardar();
+  }
+}
+
+function saludoHora() {
+  const h = new Date().getHours();
+  if (h >= 6 && h < 13) return '¡Buenos días, {o}! ¿Has dormido bien?';
+  if (h >= 13 && h < 21) return 'Buenas tardes, {o}. ¿Qué tal el día?';
+  return 'Es tarde, {o}. Me encanta que te quedes un ratito conmigo.';
+}
+
+function mensajeAleatorio() {
+  const [k, v] = peorStat();
+  if (v < 45 && Math.random() < 0.7) return elige(NECESIDADES[k]);
+  const r = Math.random();
+  const m = S.memoria;
+  if (r < 0.28 && m.gustos.length) return `Me acuerdo de que te ${elige(m.gustos)}. ¡Cuéntame más!`;
+  if (r < 0.42 && m.notas.length) return `Sigo pensando en lo que me dijiste: «${elige(m.notas)}»`;
+  if (r < 0.5 && m.disgustos.length) return `Tranquilo, {o}: no he olvidado que no te ${elige(m.disgustos)}.`;
+  if (r < 0.62) return saludoHora();
+  return elige(VARIOS);
+}
+
+function bienvenida(min) {
+  const t = humano(min);
+  const [k, v] = peorStat();
+  if (v < 35) return `{o}, ¡por fin! Han pasado ${t}. ${elige(NECESIDADES[k])}`;
+  return `¡Has vuelto, {o}! Han pasado ${t}. Te echaba de menos.`;
+}
+
+function programarMensajes() {
+  clearTimeout(temporizadorMensajes);
+  const rango = INTERVALOS[S.ajustes.frecuencia];
+  if (!rango || S.fase !== 'activo') return;
+  temporizadorMensajes = setTimeout(() => {
+    const modal = document.querySelector('.hoja.abierta');
+    if (S.fase === 'activo' && !S.durmiendo && !document.hidden && !modal) decir(mensajeAleatorio());
+    programarMensajes();
+  }, rand(rango[0], rango[1]) * 1000);
+}
+
+/* ===== Conversación y memoria ===== */
+function guardarUnico(lista, valor, max) {
+  const v = valor.slice(0, 60);
+  if (!v || lista.some(x => x.toLowerCase() === v.toLowerCase())) return;
+  lista.push(v);
+  if (lista.length > max) lista.shift();
+}
+
+function responder(texto) {
+  const n = norm(texto);
+  let m, resp;
+  if ((m = texto.match(/\bno me (gusta|gustan)\s+(.{2,60})/i))) {
+    const e = `${m[1].toLowerCase()} ${limpia(m[2])}`; guardarUnico(S.memoria.disgustos, e, 10);
+    resp = `Vale, tomo nota: no te ${e}.`;
+  } else if ((m = texto.match(/\bme (gusta|gustan|encanta|encantan)\s+(.{2,60})/i))) {
+    const verbo = /n$/i.test(m[1]) ? 'gustan' : 'gusta';
+    const e = `${verbo} ${limpia(m[2])}`; guardarUnico(S.memoria.gustos, e, 10);
+    resp = elige([`¡Qué bien! Voy a recordar que te ${e}.`, `Anotado: te ${e}. Me encanta conocerte mejor.`]);
+  } else if (/\b(te quiero|eres genial|eres el mejor|eres un amor|eres lo mejor)\b/.test(n)) {
+    S.stats.carino = clamp(S.stats.carino + 6); resp = elige(QUIERO);
+  } else if (/\b(buenas noches|a dormir|me voy a dormir)\b/.test(n)) {
+    resp = '¡Buenas noches, {o}! Si quieres que yo también duerma, pulsa el botón de la luna.';
+  } else if (/\b(hola|buenas|hey|ey|buenos dias|buenas tardes)\b/.test(n)) {
+    resp = elige(SALUDOS);
+  } else if (/\b(gracias|muchas gracias)\b/.test(n)) {
+    resp = elige(GRACIAS);
+  } else if (/como (estas|te encuentras|te sientes)|que tal/.test(n)) {
+    const [k, v] = peorStat();
+    resp = v < 45 ? `Pues… ${elige(NECESIDADES[k]).toLowerCase()}` : promedio() >= 70 ? 'Estoy genial, {o}. Con la tripa llena y el corazón contento.' : 'Estoy bien, aunque un poco de mimo no me vendría mal.';
+  } else if (/como te llamas|cual es tu nombre|quien eres/.test(n)) {
+    resp = 'Me llamo {n}, y soy tu dragón. ¡Encantado!';
+  } else if (/como me llamo|cual es mi nombre|sabes quien soy/.test(n)) {
+    resp = 'Te llamas {o}. ¡Claro que me acuerdo!';
+  } else if (/chiste|cuentame algo gracioso|hazme reir/.test(n)) {
+    resp = elige(CHISTES);
+  } else if (/que te he dicho|que recuerdas|que sabes de mi/.test(n)) {
+    const g = S.memoria.gustos, d = S.memoria.disgustos;
+    if (!g.length && !d.length) resp = 'Todavía no sé mucho de ti. Prueba a decirme «me gusta…» y lo guardo.';
+    else resp = [...g.map(x => `Te ${x}.`), ...d.map(x => `No te ${x}.`)].join(' ');
+  } else if (/\b(adios|hasta luego|me voy|chao)\b/.test(n)) {
+    resp = 'Hasta luego, {o}. Aquí estaré, vigilando la cueva.';
+  } else {
+    if (texto.length >= 12 && !/[?¿]/.test(texto)) {
+      S.memoria.notas.push(texto.slice(0, 80));
+      if (S.memoria.notas.length > 8) S.memoria.notas.shift();
+    }
+    resp = elige(CURIOSO);
+  }
+  return resp;
+}
+
+function enviarMensaje(texto) {
+  texto = texto.trim();
+  if (!texto || S.durmiendo) return;
+  S.charla.push({ de: 'y', t: texto, ts: Date.now() });
+  const resp = responder(texto);
+  decir(resp);
+  pintarMedidores();
+  pintarEscenario();
+  guardar();
+}
+
+/* ===== Acciones ===== */
+function corazones(emoji = '💗') {
+  const e = $('#escenario');
+  for (let i = 0; i < 3; i++) {
+    const c = document.createElement('span');
+    c.className = 'corazon'; c.textContent = emoji;
+    c.style.left = (30 + Math.random() * 40) + '%'; c.style.top = (10 + Math.random() * 30) + '%';
+    c.style.animationDelay = (i * 0.15) + 's';
+    e.appendChild(c);
+    setTimeout(() => c.remove(), 1700);
+  }
+}
+function rebotar() {
+  if (!dragonSVG) return;
+  dragonSVG.classList.remove('rebota'); void dragonSVG.getBoundingClientRect(); dragonSVG.classList.add('rebota');
+  setTimeout(() => dragonSVG && dragonSVG.classList.remove('rebota'), 1100);
+}
+function comiendo() {
+  if (!dragonSVG) return;
+  dragonSVG.classList.remove('m-feliz', 'm-normal', 'm-triste'); dragonSVG.classList.add('m-comiendo');
+  rebotar();
+  setTimeout(pintarEscenario, 1100);
+}
+function subirNivel() {
+  const n = S.nivel;
+  decir(`¡He subido al nivel ${n}! Gracias por cuidarme tan bien, {o}.`);
+  if (n >= 5 && !S.poder) abrirHoja('hPoder');
+}
+
+function accion(a) {
+  if (S.fase !== 'activo') return;
+  const st = S.stats;
+  if (a === 'dormir') return alternarSueno();
+  if (S.durmiendo) return;
+  if (a === 'comer') {
+    if (st.saciedad >= 100) decir('Estoy lleno, ¡no me cabe ni una miga!');
+    else { st.saciedad = clamp(st.saciedad + 12); comiendo(); decir(elige(['¡Ñam! Qué rico.', 'Mmm, justo lo que necesitaba.', '¡Qué bueno! Gracias, {o}.'])); }
+  } else if (a === 'abrazar') {
+    if (st.carino >= 100) decir('Ya me siento más querido que nunca.');
+    else { st.carino = clamp(st.carino + 10); corazones(); rebotar(); decir(elige(['Qué abrazo tan calentito.', 'Me encanta estar contigo, {o}.', 'Mmmh, otro más, por favor.'])); }
+  } else if (a === 'banar') {
+    if (st.higiene >= 100) decir('Ya estoy reluciente. Más limpio y me quedo sin escamas.');
+    else { st.higiene = clamp(st.higiene + 15); corazones('💦'); rebotar(); decir(elige(['¡Qué fresquito! Huelo a montaña recién lavada.', 'Chapoteo, chapoteo… ¡gracias!'])); }
+  } else if (a === 'jugar') {
+    return abrirJuego();
+  }
+  pintarMedidores(); pintarEscenario(); guardar();
+}
+
+function alternarSueno() {
+  const ahora = Date.now();
+  if (!S.durmiendo) {
+    simular(S, ahora);
+    S.durmiendo = true; S.dormidoDesde = ahora;
+    pintarTodo(); decir('Zzz… buenas noches, {o}.', { fija: true });
+  } else {
+    const dur = (ahora - (S.dormidoDesde || ahora)) / 1000;
+    S.ultimoTick = ahora; // el sueño pausa los medidores
+    S.durmiendo = false; S.dormidoDesde = null;
+    pintarTodo();
+    decir(dur < 60 ? 'Vaya siesta exprés…' : dur < 3600 ? '¡Ya estoy despierto! Gracias por dejarme descansar.' : '¡Qué bien he dormido! Ya estoy listo para jugar.');
+  }
+  guardar(); programarMensajes();
+}
+
+/* Minijuego */
+let juego = null;
+function abrirJuego() {
+  juego = { numero: 1 + Math.floor(Math.random() * 100), intentos: 0 };
+  $('#pistaJuego').textContent = '';
+  $('#iJuego').value = '';
+  abrirHoja('hJuego');
+  setTimeout(() => $('#iJuego').focus(), 100);
+}
+function probarNumero(valor) {
+  if (!juego) return;
+  const n = parseInt(valor, 10);
+  const pista = $('#pistaJuego');
+  if (!(n >= 1 && n <= 100)) { pista.textContent = 'Escribe un número del 1 al 100.'; return; }
+  juego.intentos++;
+  if (n === juego.numero) {
+    const i = juego.intentos;
+    const puntos = i === 1 ? 10 : i === 2 ? 8 : i === 3 ? 6 : i === 4 ? 4 : i === 5 ? 2 : i <= 10 ? 1 : 0;
+    const lleno = S.stats.diversion >= 100;
+    S.stats.diversion = clamp(S.stats.diversion + puntos + 5);
+    juego = null; cerrarHojas(); pintarTodo(); guardar();
+    decir(lleno ? `¡Correcto, era ${n}! Aunque ya estaba a tope de diversión.` : `¡Correcto, era ${n}! Lo has sacado en ${i} intento${i > 1 ? 's' : ''}. ¡Me lo he pasado genial!`);
+    corazones('🎉'); rebotar();
+  } else {
+    pista.textContent = n < juego.numero ? '📈 Es más alto' : '📉 Es más bajo';
+    $('#iJuego').value = ''; $('#iJuego').focus();
+  }
+}
+
+/* Hojas */
+function abrirHoja(id) { document.getElementById(id).classList.add('abierta'); }
+function cerrarHojas() { document.querySelectorAll('.hoja.abierta').forEach(h => h.classList.remove('abierta')); }
+
+function pintarCharla() {
+  const l = $('#listaCharla'); l.textContent = '';
+  if (!S.charla.length) { const p = document.createElement('p'); p.className = 'nota'; p.textContent = 'Aún no habéis hablado.'; l.appendChild(p); }
+  for (const m of S.charla) { const d = document.createElement('div'); d.className = 'msg ' + m.de; d.textContent = m.t; l.appendChild(d); }
+  l.scrollTop = l.scrollHeight;
+}
+
+function pintarMemoria() {
+  const l = $('#listaMemoria'); l.textContent = '';
+  const grupos = [['gustos', t => `Le ${t}`], ['disgustos', t => `No le ${t}`], ['notas', t => `Le dijiste: ${t}`]];
+  let alguno = false;
+  for (const [k, texto] of grupos) {
+    S.memoria[k].forEach((t, i) => {
+      alguno = true;
+      const it = document.createElement('div'); it.className = 'item';
+      const s = document.createElement('span'); s.textContent = texto(t);
+      const b = document.createElement('button'); b.textContent = '✕'; b.setAttribute('aria-label', 'Olvidar esto');
+      b.addEventListener('click', () => { S.memoria[k].splice(i, 1); guardar(); pintarMemoria(); });
+      it.append(s, b); l.appendChild(it);
+    });
+  }
+  if (!alguno) { const p = document.createElement('p'); p.className = 'nota'; p.style.textAlign = 'left'; p.textContent = 'Todavía no recuerda nada. Dile cosas como «me gusta el chocolate».'; l.appendChild(p); }
+}
+
+function abrirAjustes() {
+  $('#sFrecuencia').value = S.ajustes.frecuencia;
+  $('#aNombreDragon').value = S.nombre; $('#aNombreDueno').value = S.dueno;
+  $('#tCopia').value = ''; $('#notaCopia').textContent = almacenOk ? '' : 'Este navegador no deja guardar datos: tu dragón se perderá al cerrar.';
+  pintarMemoria(); abrirHoja('hAjustes');
+}
+
+/* ===== Bucle de tiempo ===== */
+function tick() {
+  if (!S || S.fase !== 'activo') return;
+  const ahora = Date.now();
+  const r = simular(S, ahora);
+  S.ultimaVisita = ahora;
+  pintarTodo();
+  if (r.subio) subirNivel();
+  guardar();
+}
+
+/* ===== Arranque y eventos ===== */
+function iniciar() {
+  S = fusionar(leer());
+  const ahora = Date.now();
+  const ausente = (ahora - (S.ultimaVisita || ahora)) / 60000;
+  if (S.fase === 'activo') {
+    const r = simular(S, ahora);
+    S.ultimaVisita = ahora;
+    S.nivel = calcNivel(S.evolucion);
+    pintarTodo();
+    if (ausente >= 20 && !S.durmiendo) setTimeout(() => decir(bienvenida(ausente)), 500);
+    else if (S.durmiendo) decir('Zzz…', { fija: true, sinRegistro: true });
+    else decir(saludoHora(), { sinRegistro: true });
+    if (r.subio) setTimeout(subirNivel, 1600);
+    else if (S.nivel >= 5 && !S.poder) setTimeout(() => abrirHoja('hPoder'), 1200);
+  } else pintarTodo();
+  guardar();
+  programarMensajes();
+
+  // Poderes
+  const lp = $('#listaPoderes');
+  for (const [k, p] of Object.entries(PODERES)) {
+    const b = document.createElement('button');
+    b.innerHTML = `${p.emoji}<span>${p.nombre}</span>`;
+    b.addEventListener('click', () => {
+      S.poder = k; cerrarHojas(); pintarTodo(); guardar();
+      decir(`¡Ahora tengo el poder de ${p.nombre.toLowerCase()} ${p.emoji}!`); corazones(p.emoji);
+    });
+    lp.appendChild(b);
+  }
+
+  // Huevo
+  $('#bHuevo').addEventListener('click', () => {
+    S.abrazos++;
+    const h = $('#escenario').firstElementChild;
+    if (h) { h.classList.remove('sacude'); void h.getBoundingClientRect(); h.classList.add('sacude'); }
+    if (S.abrazos >= 5) { S.fase = 'nombrar'; pintarTodo(); }
+    else pintarTodo();
+    guardar();
+  });
+  $('#escenario').addEventListener('click', () => {
+    if (S.fase === 'huevo') return $('#bHuevo').click();
+    if (S.fase !== 'activo') return;
+    if (S.durmiendo) { decir('Zzz…', { fija: true, sinRegistro: true }); return; }
+    S.stats.carino = clamp(S.stats.carino + 1);
+    corazones(); rebotar(); pintarMedidores(); guardar();
+  });
+
+  // Nombres
+  $('#fNombres').addEventListener('submit', e => {
+    e.preventDefault();
+    const n = $('#iNombreDragon').value.trim(), d = $('#iNombreDueno').value.trim();
+    if (!n || !d) return;
+    const ahora2 = Date.now();
+    Object.assign(S, { nombre: n, dueno: d, fase: 'activo', ultimoTick: ahora2, ultimaVisita: ahora2 });
+    pintarTodo(); guardar();
+    decir(`¡Hola, ${d}! Me llamo ${n}. Cuídame bien y nos haremos grandes amigos.`);
+    programarMensajes();
+  });
+
+  // Acciones
+  document.querySelectorAll('.accion').forEach(b => b.addEventListener('click', () => accion(b.dataset.a)));
+  $('#fHablar').addEventListener('submit', e => { e.preventDefault(); const i = $('#iHablar'); enviarMensaje(i.value); i.value = ''; });
+  $('#bCharla').addEventListener('click', () => { pintarCharla(); abrirHoja('hCharla'); });
+  $('#fJuego').addEventListener('submit', e => { e.preventDefault(); probarNumero($('#iJuego').value); });
+  $('#bSalirJuego').addEventListener('click', () => { juego = null; cerrarHojas(); });
+  $('#bAjustes').addEventListener('click', abrirAjustes);
+  document.querySelectorAll('[data-cerrar]').forEach(b => b.addEventListener('click', cerrarHojas));
+  document.querySelectorAll('.hoja').forEach(h => h.addEventListener('click', e => {
+    if (e.target === h && h.id !== 'hPoder') { if (h.id === 'hJuego') juego = null; cerrarHojas(); }
+  }));
+
+  // Ajustes
+  $('#sFrecuencia').addEventListener('change', e => { S.ajustes.frecuencia = e.target.value; guardar(); programarMensajes(); });
+  $('#bGuardarNombres').addEventListener('click', () => {
+    const n = $('#aNombreDragon').value.trim(), d = $('#aNombreDueno').value.trim();
+    if (n) S.nombre = n; if (d) S.dueno = d;
+    guardar(); pintarTodo(); $('#notaCopia').textContent = 'Nombres guardados.';
+  });
+  $('#bCopiar').addEventListener('click', async () => {
+    const t = $('#tCopia'); t.value = JSON.stringify(S); t.select();
+    let ok = false;
+    try { await navigator.clipboard.writeText(t.value); ok = true; } catch (e) { try { ok = document.execCommand('copy'); } catch (e2) {} }
+    $('#notaCopia').textContent = ok ? 'Copiado. Pégalo en el otro dispositivo con «Restaurar».' : 'Selecciona el texto y cópialo a mano.';
+  });
+  $('#bRestaurar').addEventListener('click', () => {
+    try {
+      const o = JSON.parse($('#tCopia').value);
+      if (!o || o.v !== 1 || !o.stats || !o.fase) throw new Error('formato');
+      S = fusionar(o); S.ultimoTick = Math.min(S.ultimoTick || Date.now(), Date.now());
+      guardar(); cerrarHojas(); pintarTodo(); programarMensajes(); tick();
+      decir('¡Ya estoy aquí! Qué viaje tan raro.');
+    } catch (e) { $('#notaCopia').textContent = 'Ese texto no es una copia válida.'; }
+  });
+  $('#bReiniciar').addEventListener('click', () => {
+    if (!confirm('¿Seguro? Se borrará tu dragón y todo lo que recuerda.')) return;
+    S = nuevoEstado(); guardar(); cerrarHojas(); pintarTodo();
+  });
+
+  // Tiempo
+  setInterval(tick, 20000);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { if (S.fase === 'activo') { S.ultimaVisita = Date.now(); guardar(); } return; }
+    if (S.fase !== 'activo') return;
+    const min = (Date.now() - S.ultimaVisita) / 60000;
+    tick();
+    if (min >= 20 && !S.durmiendo) decir(bienvenida(min));
+  });
+  window.addEventListener('pagehide', () => { if (S.fase === 'activo') { S.ultimaVisita = Date.now(); guardar(); } });
+
+  // Almacenamiento persistente y modo sin conexión
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+}
+
+/* ===== Código de acceso =====
+   La huella del código está en acceso.js. Una vez correcto, este dispositivo lo recuerda
+   (hasta que cambies el código). Es una barrera para curiosos, no una caja fuerte. */
+async function huella(codigo) {
+  const enc = new TextEncoder();
+  const clave = await crypto.subtle.importKey('raw', enc.encode(codigo.trim().toLowerCase()), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt: enc.encode('dracogotchi-v1'), iterations: 150000, hash: 'SHA-256' }, clave, 256);
+  return Array.from(new Uint8Array(bits)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function pedirCodigo() {
+  return new Promise(resolve => {
+    const caja = $('#candado'), f = $('#fCandado'), inp = $('#iCandado'), err = $('#eCandado');
+    caja.classList.add('abierto');
+    setTimeout(() => inp.focus(), 100);
+    let ocupado = false, fallos = 0;
+    f.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (ocupado) return;
+      ocupado = true; err.textContent = '';
+      try {
+        const h = await huella(inp.value);
+        if (h === window.DG_HASH) {
+          try { localStorage.setItem(CLAVE + '.acceso', h); } catch (x) {}
+          caja.classList.remove('abierto'); inp.value = ''; resolve();
+          return;
+        }
+        fallos++;
+        err.textContent = 'Código incorrecto.';
+        inp.value = '';
+        if (fallos >= 3) await new Promise(r => setTimeout(r, Math.min(fallos, 8) * 1000));
+      } catch (x) {
+        err.textContent = 'Este navegador no puede comprobar el código. Abre la app desde Safari con la dirección https.';
+      }
+      ocupado = false;
+    });
+  });
+}
+
+async function acceso() {
+  const esperado = window.DG_HASH;
+  if (!esperado) return;
+  let guardado = null;
+  try { guardado = localStorage.getItem(CLAVE + '.acceso'); } catch (x) {}
+  if (guardado === esperado) return;
+  await pedirCodigo();
+}
+
+window.Dracogotchi = { get estado() { return S; }, simular, responder, enviarMensaje, accion, tick, mensajeAleatorio, bienvenida, calcNivel };
+acceso().then(iniciar);
+})();
+</script>
+</body>
+</html>
