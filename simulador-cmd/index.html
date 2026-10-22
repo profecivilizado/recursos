@@ -136,24 +136,64 @@ Red ficticia: las respuestas no proceden de Internet.</div>
     commandInput.focus();
   }
 
+  
   function ipconfig() {
     return `Configuración IP de Windows
-
-   Nombre de host . . . . . . . . . : EQUIPO-ALUMNO
-   DHCP habilitado . . . . . . . . : sí
-
-Adaptador de LAN inalámbrica Wi-Fi:
-
-   Descripción . . . . . . . . . . : Adaptador Wi-Fi simulado
-   Dirección física. . . . . . . . : ${network.mac}
-   DHCP habilitado . . . . . . . . : sí
-   Dirección IPv4 . . . . . . . . : ${network.ip}
-   Máscara de subred . . . . . . . : ${network.mask}
-   Puerta de enlace predeterminada : ${network.gateway}
-   Servidor DHCP . . . . . . . . . : ${network.gateway}
-   Servidores DNS . . . . . . . . : ${network.dns}
-                                     ${network.dns2}`;
+  
+     Nombre de host. . . . . . . . . : EQUIPO-ALUMNO
+     Sufijo DNS principal  . . . . . :
+     Tipo de nodo. . . . . . . . . . : híbrido
+     Enrutamiento IP habilitado. . . : no
+     Proxy WINS habilitado . . . . . : no
+  
+  Adaptador de LAN inalámbrica Conexión de área local* 3:
+  
+     Estado de los medios. . . . . . : medios desconectados
+     Sufijo DNS específico para la conexión. . :
+     Descripción . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter #3
+     Dirección física. . . . . . . . : 92-52-82-A1-B4-09
+     DHCP habilitado . . . . . . . . : sí
+     Configuración automática habilitada . . : sí
+  
+  Adaptador de LAN inalámbrica Conexión de área local* 4:
+  
+     Estado de los medios. . . . . . : medios desconectados
+     Sufijo DNS específico para la conexión. . :
+     Descripción . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter #4
+     Dirección física. . . . . . . . : D2-52-82-A1-B4-09
+     DHCP habilitado . . . . . . . . : no
+     Configuración automática habilitada . . : sí
+  
+  Adaptador de LAN inalámbrica Wi-Fi:
+  
+     Sufijo DNS específico para la conexión. . :
+     Descripción . . . . . . . . . . : Realtek RTL8822CE 802.11ac PCIe Adapter
+     Dirección física. . . . . . . . : ${network.mac}
+     DHCP habilitado . . . . . . . . : sí
+     Configuración automática habilitada . . : sí
+     Vínculo: dirección IPv6 local. . : fe80::54fb:4510:d0b7:b94%18(Preferido)
+     Dirección IPv4. . . . . . . . . : ${network.ip}(Preferido)
+     Máscara de subred . . . . . . . : ${network.mask}
+     Concesión obtenida. . . . . . . : jueves, 22 de octubre de 2026 08:15:00
+     La concesión expira . . . . . . : viernes, 23 de octubre de 2026 08:15:00
+     Puerta de enlace predeterminada : ${network.gateway}
+     Servidor DHCP . . . . . . . . . : ${network.gateway}
+     IAID DHCPv6 . . . . . . . . . . : 277876492
+     DUID de cliente DHCPv6. . . . . : 00-01-00-01-2E-6A-7C-41-3C-52-82-A1-B4-09
+     Servidores DNS. . . . . . . . . : ${network.dns}
+                                       ${network.dns2}
+     NetBIOS sobre TCP/IP. . . . . . : habilitado
+  
+  Adaptador de Ethernet Conexión de red Bluetooth:
+  
+     Estado de los medios. . . . . . : medios desconectados
+     Sufijo DNS específico para la conexión. . :
+     Descripción . . . . . . . . . . : Bluetooth Device (Personal Area Network)
+     Dirección física. . . . . . . . : 3C-52-82-A1-B4-10
+     DHCP habilitado . . . . . . . . : sí
+     Configuración automática habilitada . . : sí`;
   }
+
 
   function ping(target) {
     if (!target) {
