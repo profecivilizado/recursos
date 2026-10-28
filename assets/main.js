@@ -17,6 +17,24 @@
   });
 })();
 
+// Simuladores incrustados: la altura del iframe se ajusta a su contenido
+(function autoHeight(){
+  document.querySelectorAll("iframe[data-autoheight]").forEach((frame) => {
+    const fit = () => {
+      try {
+        const body = frame.contentDocument && frame.contentDocument.body;
+        if (!body) return;
+        const h = Math.ceil(body.getBoundingClientRect().height);
+        if (h > 0) frame.style.height = h + "px";
+      } catch (e) {}
+    };
+    frame.addEventListener("load", () => {
+      fit();
+      try { new ResizeObserver(fit).observe(frame.contentDocument.body); } catch (e) {}
+    });
+  });
+})();
+
 // Año dinámico en el pie
 (function yearInit(){
   const y = document.getElementById("y");

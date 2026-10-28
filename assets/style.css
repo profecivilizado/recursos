@@ -230,6 +230,9 @@ a.card:hover { text-decoration: none; transform: scale(1.02); }
 
 .embed-wrap { border-radius: var(--r-md); overflow: hidden; background: var(--card); }
 .embed-wrap iframe { display: block; width: 100%; height: 560px; border: 0; }
+/* Simuladores propios: main.js ajusta la altura al contenido */
+.embed-wrap iframe[data-autoheight] { height: 900px; }
+.open-full { justify-self: start; font-size: 15px; }
 
 /* Formularios (calculadora) */
 .form-row { display: grid; grid-template-columns: 180px 1fr; gap: 12px; align-items: center; }
