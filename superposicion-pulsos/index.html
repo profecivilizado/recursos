@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Superposición de pulsos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cuaderno de laboratorio. La cuerda en papel milimetrado arriba; mandos debajo; teoría al final. */
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8;
+  --grid-minor:rgba(43,97,170,.07); --grid-major:rgba(43,97,170,.18);
+  --p1:#1f55d6; --p2:#0b9a68; --res:#df4a1c; --res-fill:rgba(223,74,28,.13);
+  --chip-ok:#e7f6ee; --chip-ok-ink:#0b6b48; --chip-warn:#fdeee7; --chip-warn-ink:#a3360f; --chip-n:#eef1f6;
+  --btn:#eef2f8; --btn-hover:#e2e8f2;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+    --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+    --p1:#6e9dff; --p2:#3fd09a; --res:#ff7c4f; --res-fill:rgba(255,124,79,.16);
+    --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+    --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+  --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+  --p1:#6e9dff; --p2:#3fd09a; --res:#ff7c4f; --res-fill:rgba(255,124,79,.16);
+  --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+  --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1100px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px;text-wrap:balance}
+h1 .eq{font:600 .5em var(--f-mono);color:var(--res);letter-spacing:0;white-space:nowrap;margin-left:.4em;vertical-align:middle}
+header p{margin:0;color:var(--muted);max-width:62ch}
+h2{font:700 15px/1.2 var(--f-display);letter-spacing:.02em;margin:0;text-transform:uppercase}
+
+.sim{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.sim:fullscreen{border-radius:0;padding:24px;align-content:center;overflow:auto}
+#canvasWrap{position:relative;min-width:0}
+canvas{display:block;width:100%;touch-action:pan-y;cursor:ew-resize;border-radius:8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:26px;height:0;border-top:3px solid currentColor;display:inline-block}
+.sw.d{border-top-style:dashed;border-top-width:2px}
+
+.transport{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:8px 12px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--p1);outline-offset:2px}
+button.play{background:var(--ink);color:var(--paper);border-color:var(--ink);min-width:104px;font-weight:700}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.scrub{flex:1 1 240px;display:flex;align-items:center;gap:10px;min-width:0}
+.scrub input{flex:1;min-width:0}
+.tval{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+input[type=range]{accent-color:var(--ink);height:24px}
+
+.readouts{display:grid;grid-template-columns:auto 1fr 1.6fr;gap:10px}
+@media (max-width:760px){.readouts{grid-template-columns:1fr}}
+.ro{border-top:1px solid var(--line);padding-top:10px;min-width:0}
+.ro .k{font:600 11px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ro .v{font:15px/1.4 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font:700 14px var(--f-body);background:var(--chip-n)}
+.chip.ok{background:var(--chip-ok);color:var(--chip-ok-ink)}
+.chip.warn{background:var(--chip-warn);color:var(--chip-warn-ink)}
+.c1{color:var(--p1);font-weight:600}.c2{color:var(--p2);font-weight:600}.cr{color:var(--res);font-weight:600}
+
+.presets{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.presets .lab{font-size:14px;color:var(--muted);margin-right:4px}
+
+.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.controls{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.card h2{display:flex;align-items:center;gap:10px}
+.card h2 .sw{width:30px}
+.field{display:grid;gap:2px}
+.field .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px}
+.field output{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.note{font-size:13px;color:var(--muted);margin:0}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0}
+.check{display:flex;align-items:center;gap:9px;font-size:15px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--ink)}
+
+.theory{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:6px}
+@media (max-width:860px){.theory{grid-template-columns:1fr}}
+.theory section{display:grid;gap:10px;align-content:start;min-width:0}
+.theory p,.theory li{margin:0;max-width:62ch}
+.theory ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.big-eq{font:600 22px var(--f-mono);color:var(--res)}
+kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 5px;background:var(--btn)}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Ondas · Principio de superposición</div>
+    <h1>Superposición de pulsos <span class="eq">y = y₁ + y₂</span></h1>
+    <p>Dos pulsos rectangulares viajan por la misma cuerda en sentidos opuestos. Mueve el tiempo, arrastra la sonda sobre la cuerda y comprueba que el desplazamiento es la suma algebraica de los dos.</p>
+  </header>
+
+  <div class="sim" id="sim">
+    <div class="legend" aria-hidden="true">
+      <span class="c1"><i class="sw d"></i>Pulso 1 (→)</span>
+      <span class="c2"><i class="sw d"></i>Pulso 2 (←)</span>
+      <span class="cr"><i class="sw"></i>Cuerda: y = y₁ + y₂</span>
+      <span>│ sonda (arrástrala)</span>
+    </div>
+    <div id="canvasWrap"><canvas id="cv" aria-label="Cuerda con dos pulsos rectangulares y su suma"></canvas></div>
+
+    <div class="transport">
+      <button id="bReset" title="Volver al inicio (R)">⏮ Inicio</button>
+      <button id="bBack" title="Retroceder 1 cm (←)">◀ Paso</button>
+      <button id="bPlay" class="play" title="Reproducir / pausar (espacio)">▶ Iniciar</button>
+      <button id="bFwd" title="Avanzar 1 cm (→)">Paso ▶</button>
+      <button id="bSlow" aria-pressed="false" title="Velocidad ×0,25">🐢 Cámara lenta</button>
+      <button id="bMeet" title="Saltar al instante en que los centros coinciden">Ir al solape total</button>
+      <div class="scrub">
+        <input type="range" id="scrub" min="0" max="60" step="0.1" value="0" aria-label="Tiempo">
+        <span class="tval" id="tval">t = 0,00 s</span>
+      </div>
+      <button id="bFull" title="Pantalla completa para proyectar">⛶</button>
+    </div>
+
+    <div class="readouts">
+      <div class="ro"><div class="k">Estado</div><div class="v"><span class="chip" id="state">Se acercan</span></div></div>
+      <div class="ro"><div class="k">Desplazamiento máximo |y|</div><div class="v" id="maxv"></div></div>
+      <div class="ro"><div class="k">Sonda</div><div class="v" id="probe"></div></div>
+    </div>
+  </div>
+
+  <div class="presets">
+    <span class="lab">Situaciones:</span>
+    <button data-preset="0">Dos pulsos positivos (fig. 14.17)</button>
+    <button data-preset="1">Positivo y negativo iguales (fig. 14.19)</button>
+    <button data-preset="2">Dos pulsos idénticos</button>
+    <button data-preset="3">Positivo y negativo distintos</button>
+  </div>
+
+  <div class="controls">
+    <div class="card">
+      <h2 class="c1"><i class="sw"></i>Pulso 1 · hacia la derecha</h2>
+      <div class="field"><div class="top"><label for="A1">Amplitud</label><output id="oA1"></output></div>
+        <input type="range" id="A1" min="-5" max="5" step="0.5" value="3"></div>
+      <div class="field"><div class="top"><label for="w1">Anchura</label><output id="ow1"></output></div>
+        <input type="range" id="w1" min="2" max="30" step="1" value="16"></div>
+      <div class="row"><button data-flip="1">Invertir (↑↓)</button></div>
+    </div>
+    <div class="card">
+      <h2 class="c2"><i class="sw"></i>Pulso 2 · hacia la izquierda</h2>
+      <div class="field"><div class="top"><label for="A2">Amplitud</label><output id="oA2"></output></div>
+        <input type="range" id="A2" min="-5" max="5" step="0.5" value="2"></div>
+      <div class="field"><div class="top"><label for="w2">Anchura</label><output id="ow2"></output></div>
+        <input type="range" id="w2" min="2" max="30" step="1" value="10"></div>
+      <div class="row"><button data-flip="2">Invertir (↑↓)</button></div>
+    </div>
+    <div class="card">
+      <h2>Cuerda y vista</h2>
+      <div class="field"><div class="top"><label for="v">Velocidad de la onda</label><output id="ov"></output></div>
+        <input type="range" id="v" min="2" max="30" step="1" value="10">
+        <p class="note">Los dos pulsos van a la misma velocidad: depende de la cuerda, no del pulso.</p></div>
+      <div class="seg" role="group" aria-label="Vista">
+        <button id="vOver" aria-pressed="true">Superpuesta</button>
+        <button id="vSep" aria-pressed="false">Por separado</button>
+      </div>
+      <label class="check"><input type="checkbox" id="showInd" checked> Mostrar pulsos individuales</label>
+      <label class="check"><input type="checkbox" id="showRes" checked> Mostrar resultante (desmárcalo para predecir)</label>
+    </div>
+  </div>
+
+  <div class="theory">
+    <section>
+      <h2>El principio</h2>
+      <p>Cuando dos o más ondas del mismo tipo llegan a un punto al mismo tiempo, el desplazamiento del medio en ese punto es la <b>suma algebraica</b> de los desplazamientos individuales:</p>
+      <p class="big-eq">y = y₁ + y₂</p>
+      <p>«Algebraica» quiere decir que se respetan los signos: si un pulso está hacia arriba y el otro hacia abajo, el resultado es la diferencia. Si son iguales y opuestos, la cuerda queda plana un instante.</p>
+      <p>Después del encuentro cada pulso sigue exactamente igual que antes: se atraviesan sin «recordar» lo ocurrido. Dos bolas que chocan, en cambio, rebotan.</p>
+      <p class="note">Atajos: <kbd>espacio</kbd> iniciar/pausar · <kbd>←</kbd> <kbd>→</kbd> paso a paso · <kbd>R</kbd> inicio. Pulsa o arrastra sobre la cuerda para mover la sonda.</p>
+    </section>
+    <section>
+      <h2>Para la clase</h2>
+      <ol>
+        <li>Elige «Positivo y negativo iguales», desmarca la resultante y deja la sonda en x = 50 cm. Antes de avanzar, predice y en el solape total. Después compruébalo.</li>
+        <li>Pon el pulso 1 en +3 cm y el pulso 2 en −1 cm. ¿Cuál es el desplazamiento máximo durante el encuentro? ¿Y si inviertes el pulso 2?</li>
+        <li>En la vista «Por separado», para el tiempo cuando los pulsos se solapen en parte (como en la fig. 14.18). Calcula y en cada región a, b, c… y comprueba con la sonda.</li>
+        <li>Cambia la velocidad de la onda. ¿Cambia la forma de la cuerda en el solape total? ¿Qué cambia entonces?</li>
+      </ol>
+    </section>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const X0 = 0, X1 = 100;             // cuerda de 0 a 100 cm
+const C1_0 = 20, C2_0 = 80;         // centros iniciales
+const SMAX = C2_0 - C1_0;           // distancia recorrida al final (se intercambian)
+const PRESETS = [
+  { A1: 3, w1: 16, A2: 2, w2: 10 },
+  { A1: 3, w1: 14, A2: -3, w2: 14 },
+  { A1: 2.5, w1: 14, A2: 2.5, w2: 14 },
+  { A1: 4, w1: 20, A2: -2, w2: 10 },
+];
+const st = { A1: 3, w1: 16, A2: 2, w2: 10, v: 10, s: 0, playing: false, slow: false, view: 'over', showInd: true, showRes: true, probe: 50, peak: 0 };
+
+const fmt = (n, d = 1) => (n < 0 ? '−' : '') + Math.abs(n).toFixed(d).replace('.', ',');
+const sgn = (n, d = 1) => (n > 0 ? '+' : n < 0 ? '−' : '') + Math.abs(n).toFixed(d).replace('.', ',');
+const c1 = () => C1_0 + st.s, c2 = () => C2_0 - st.s;
+const y1 = x => Math.abs(x - c1()) < st.w1 / 2 ? st.A1 : 0;
+const y2 = x => Math.abs(x - c2()) < st.w2 / 2 ? st.A2 : 0;
+const yr = x => y1(x) + y2(x);
+
+function edges() {
+  return [c1() - st.w1 / 2, c1() + st.w1 / 2, c2() - st.w2 / 2, c2() + st.w2 / 2];
+}
+function segments(fn) {
+  const b = [X0, X1, ...edges().filter(x => x > X0 && x < X1)].sort((a, c) => a - c);
+  const out = [];
+  for (let i = 0; i < b.length - 1; i++) if (b[i + 1] - b[i] > 1e-9) out.push({ x0: b[i], x1: b[i + 1], y: fn((b[i] + b[i + 1]) / 2) });
+  return out;
+}
+const maxNow = () => Math.max(0, ...segments(yr).map(s => Math.abs(s.y)));
+
+/* ---------- Dibujo ---------- */
+const cv = $('cv'), ctx = cv.getContext('2d');
+let W = 0, H = 0, dirty = true;
+function resize() {
+  W = $('canvasWrap').clientWidth;
+  let h = st.view === 'over' ? Math.min(440, Math.max(250, W * 0.42)) : Math.min(660, Math.max(420, W * 0.66));
+  if (document.fullscreenElement) h = Math.max(h, Math.min(window.innerHeight - 260, W * (st.view === 'over' ? 0.5 : 0.75)));
+  H = Math.round(h);
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  dirty = true;
+}
+new ResizeObserver(resize).observe($('canvasWrap'));
+
+function lanes() {
+  const top = 34, bottom = H - 30;
+  if (st.view === 'over') return [{ top, bottom, R: 11, ticks: [-10, -5, 0, 5, 10], name: 'y / cm', kind: 'over' }];
+  const gap = 18, avail = bottom - top - 2 * gap, u = avail / 3.6;
+  const h1 = u, h3 = 1.6 * u;
+  return [
+    { top, bottom: top + h1, R: 5.5, ticks: [-5, 0, 5], name: 'y₁', kind: 'p1' },
+    { top: top + h1 + gap, bottom: top + 2 * h1 + gap, R: 5.5, ticks: [-5, 0, 5], name: 'y₂', kind: 'p2' },
+    { top: top + 2 * h1 + 2 * gap, bottom, R: 11, ticks: [-10, -5, 0, 5, 10], name: 'y', kind: 'res' },
+  ];
+}
+
+function draw() {
+  const css = getComputedStyle(document.documentElement);
+  const C = k => css.getPropertyValue(k).trim();
+  const col = { ink: C('--ink'), muted: C('--muted'), minor: C('--grid-minor'), major: C('--grid-major'), p1: C('--p1'), p2: C('--p2'), res: C('--res'), fill: C('--res-fill'), panel: C('--panel'), line: C('--line') };
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = col.panel; ctx.fillRect(0, 0, W, H);
+  const L = 48, R = W - 14;
+  const X = x => L + (x - X0) / (X1 - X0) * (R - L);
+  const LS = lanes();
+  const mono = (sz, wt = 400) => `${wt} ${sz}px "JetBrains Mono", ui-monospace, monospace`;
+
+  // papel milimetrado
+  const pxPerCm = (R - L) / (X1 - X0);
+  for (const ln of LS) {
+    const Y = y => ln.top + (ln.R - y) / (2 * ln.R) * (ln.bottom - ln.top);
+    ctx.lineWidth = 1;
+    if (pxPerCm >= 5) {
+      ctx.strokeStyle = col.minor; ctx.beginPath();
+      for (let x = X0; x <= X1; x++) { if (x % 10) { ctx.moveTo(X(x) + .5, ln.top); ctx.lineTo(X(x) + .5, ln.bottom); } }
+      for (let y = -Math.floor(ln.R); y <= ln.R; y++) { if (y % 5) { ctx.moveTo(L, Math.round(Y(y)) + .5); ctx.lineTo(R, Math.round(Y(y)) + .5); } }
+      ctx.stroke();
+    }
+    ctx.strokeStyle = col.major; ctx.beginPath();
+    for (let x = X0; x <= X1; x += 10) { ctx.moveTo(Math.round(X(x)) + .5, ln.top); ctx.lineTo(Math.round(X(x)) + .5, ln.bottom); }
+    for (const t of ln.ticks) { ctx.moveTo(L, Math.round(Y(t)) + .5); ctx.lineTo(R, Math.round(Y(t)) + .5); }
+    ctx.stroke();
+    // eje y
+    ctx.fillStyle = col.muted; ctx.font = mono(11); ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (const t of ln.ticks) ctx.fillText(fmt(t, 0), L - 6, Y(t));
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.font = mono(12, 600);
+    ctx.fillStyle = ln.kind === 'p1' ? col.p1 : ln.kind === 'p2' ? col.p2 : ln.kind === 'res' ? col.res : col.muted;
+    ctx.fillText(ln.name, L + 6, ln.top + 4);
+    // cuerda en reposo
+    ctx.strokeStyle = col.muted; ctx.globalAlpha = .55; ctx.setLineDash([2, 4]);
+    ctx.beginPath(); ctx.moveTo(L, Y(0)); ctx.lineTo(R, Y(0)); ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    ln.Y = Y;
+  }
+  // eje x
+  const last = LS[LS.length - 1];
+  ctx.fillStyle = col.muted; ctx.font = mono(11); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  for (let x = X0; x <= X1; x += 10) if (pxPerCm * 10 > 26 || x % 20 === 0) ctx.fillText(x, X(x), last.bottom + 6);
+  ctx.textAlign = 'right'; ctx.fillText('x / cm', R, last.bottom + 18 > H - 12 ? last.bottom + 6 : last.bottom + 18);
+
+  const path = (segs, Y) => {
+    ctx.beginPath();
+    segs.forEach((s, i) => { if (i === 0) ctx.moveTo(X(s.x0), Y(s.y)); else ctx.lineTo(X(s.x0), Y(s.y)); ctx.lineTo(X(s.x1), Y(s.y)); });
+  };
+  const stroke = (fn, Y, color, w, dash) => {
+    ctx.save(); ctx.beginPath(); ctx.rect(L, 0, R - L, H); ctx.clip();
+    path(segments(fn), Y); ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineJoin = 'miter'; ctx.setLineDash(dash || []); ctx.stroke();
+    ctx.restore();
+  };
+  const fill = (fn, Y) => {
+    ctx.save(); const segs = segments(fn); path(segs, Y); ctx.lineTo(X(X1), Y(0)); ctx.lineTo(X(X0), Y(0)); ctx.closePath();
+    ctx.fillStyle = col.fill; ctx.fill(); ctx.restore();
+  };
+  const arrow = (cx, y, dir, color) => {
+    if (cx < X0 || cx > X1) return;
+    const x = X(cx), len = 30;
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(x - dir * len / 2, y); ctx.lineTo(x + dir * len / 2 - dir * 7, y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x + dir * len / 2, y); ctx.lineTo(x + dir * len / 2 - dir * 9, y - 5); ctx.lineTo(x + dir * len / 2 - dir * 9, y + 5); ctx.closePath(); ctx.fill();
+  };
+
+  if (st.view === 'over') {
+    const ln = LS[0];
+    if (st.showRes) fill(yr, ln.Y);
+    if (st.showRes) stroke(yr, ln.Y, col.res, 3.5);
+    if (st.showInd) { stroke(y1, ln.Y, col.p1, 2, [7, 5]); stroke(y2, ln.Y, col.p2, 2, [7, 5]); }
+    arrow(c1(), 17, 1, col.p1); arrow(c2(), 17, -1, col.p2);
+  } else {
+    const [a, b, c] = LS;
+    // regiones a, b, c… como en la fig. 14.18
+    const bp = [...new Set(edges().filter(x => x > X0 && x < X1).map(x => +x.toFixed(4)))].sort((p, q) => p - q);
+    ctx.strokeStyle = col.muted; ctx.globalAlpha = .5; ctx.setLineDash([3, 4]); ctx.lineWidth = 1;
+    ctx.beginPath(); for (const x of bp) { ctx.moveTo(Math.round(X(x)) + .5, a.top - 4); ctx.lineTo(Math.round(X(x)) + .5, c.bottom); } ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    ctx.fillStyle = col.ink; ctx.font = mono(13, 600); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (let i = 0; i < bp.length - 1; i++) if (X(bp[i + 1]) - X(bp[i]) > 13) ctx.fillText(String.fromCharCode(97 + i), (X(bp[i]) + X(bp[i + 1])) / 2, a.top - 14);
+    stroke(y1, a.Y, col.p1, 3); stroke(y2, b.Y, col.p2, 3);
+    if (st.showRes) { fill(yr, c.Y); stroke(yr, c.Y, col.res, 3.5); }
+    if (st.showInd) { stroke(y1, c.Y, col.p1, 1.5, [6, 5]); stroke(y2, c.Y, col.p2, 1.5, [6, 5]); }
+    arrow(c1(), a.top + 12, 1, col.p1); arrow(c2(), b.top + 12, -1, col.p2);
+  }
+
+  // sonda
+  const px = X(st.probe);
+  ctx.strokeStyle = col.ink; ctx.lineWidth = 1.5; ctx.globalAlpha = .7;
+  ctx.beginPath(); ctx.moveTo(px, LS[0].top - (st.view === 'over' ? 0 : 4)); ctx.lineTo(px, last.bottom); ctx.stroke(); ctx.globalAlpha = 1;
+  ctx.fillStyle = col.ink; ctx.beginPath(); ctx.moveTo(px, last.bottom - 1); ctx.lineTo(px - 6, last.bottom + 8); ctx.lineTo(px + 6, last.bottom + 8); ctx.closePath(); ctx.fill();
+  const dot = (y, Y, color) => { ctx.beginPath(); ctx.arc(px, Y(y), 5, 0, 7); ctx.fillStyle = color; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = col.panel; ctx.stroke(); };
+  const p = st.probe;
+  if (st.view === 'over') {
+    if (st.showInd) { dot(y1(p), LS[0].Y, col.p1); dot(y2(p), LS[0].Y, col.p2); }
+    if (st.showRes) dot(yr(p), LS[0].Y, col.res);
+  } else {
+    dot(y1(p), LS[0].Y, col.p1); dot(y2(p), LS[1].Y, col.p2); if (st.showRes) dot(yr(p), LS[2].Y, col.res);
+  }
+}
+
+/* ---------- Lecturas ---------- */
+function readouts() {
+  $('tval').textContent = `t = ${fmt(st.s / st.v, 2)} s`;
+  $('scrub').value = st.s;
+  const d = Math.abs(c1() - c2()), overlap = d < (st.w1 + st.w2) / 2 - 1e-9;
+  const m = maxNow(); st.peak = Math.max(st.peak, m);
+  const chip = $('state'); let cls = '', txt;
+  if (!overlap) txt = st.s < SMAX / 2 ? 'Se acercan' : 'Se alejan: siguen igual que antes';
+  else if ((st.A1 || st.A2) && m < 1e-9) { txt = 'Cancelación total: la cuerda está plana'; cls = 'warn'; }
+  else {
+    const kind = st.A1 * st.A2 > 0 ? 'interferencia constructiva' : st.A1 * st.A2 < 0 ? 'interferencia destructiva' : 'solapándose';
+    txt = (d < 0.05 ? 'Solape total · ' : 'Solapándose · ') + kind;
+    cls = st.A1 * st.A2 > 0 ? 'ok' : st.A1 * st.A2 < 0 ? 'warn' : '';
+  }
+  chip.textContent = txt.charAt(0).toUpperCase() + txt.slice(1); chip.className = 'chip ' + cls;
+  $('maxv').innerHTML = st.showRes
+    ? `ahora <span class="cr">${fmt(m)} cm</span> · máximo alcanzado ${fmt(st.peak)} cm`
+    : `oculto (modo predicción)`;
+  const p = st.probe, a = y1(p), b = y2(p);
+  $('probe').innerHTML = `x = ${fmt(p)} cm → y = <span class="c1">(${sgn(a)})</span> + <span class="c2">(${sgn(b)})</span> = ` +
+    (st.showRes ? `<span class="cr">${sgn(a + b)} cm</span>` : `<span class="cr">?</span>`);
+}
+
+/* ---------- Controles ---------- */
+function syncInputs() {
+  for (const k of ['A1', 'w1', 'A2', 'w2', 'v']) $(k).value = st[k];
+  $('oA1').textContent = sgn(st.A1) + ' cm'; $('oA2').textContent = sgn(st.A2) + ' cm';
+  $('ow1').textContent = fmt(st.w1, 0) + ' cm'; $('ow2').textContent = fmt(st.w2, 0) + ' cm';
+  $('ov').textContent = fmt(st.v, 0) + ' cm/s';
+  $('bPlay').textContent = st.playing ? '⏸ Pausa' : st.s >= SMAX ? '↺ Repetir' : st.s > 0 ? '▶ Seguir' : '▶ Iniciar';
+  $('bSlow').setAttribute('aria-pressed', st.slow);
+  $('vOver').setAttribute('aria-pressed', st.view === 'over'); $('vSep').setAttribute('aria-pressed', st.view === 'sep');
+  $('showInd').checked = st.showInd; $('showRes').checked = st.showRes;
+  dirty = true;
+}
+const setS = s => { st.s = Math.min(SMAX, Math.max(0, s)); dirty = true; };
+const pause = () => { st.playing = false; syncInputs(); };
+const peakReset = () => { st.peak = 0; };
+
+for (const k of ['A1', 'w1', 'A2', 'w2']) $(k).addEventListener('input', e => { st[k] = +e.target.value; peakReset(); syncInputs(); });
+$('v').addEventListener('input', e => { st.v = +e.target.value; syncInputs(); });
+document.querySelectorAll('[data-flip]').forEach(b => b.addEventListener('click', () => { const k = 'A' + b.dataset.flip; st[k] = -st[k] || 0; peakReset(); syncInputs(); }));
+document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => {
+  Object.assign(st, PRESETS[+b.dataset.preset]); st.s = 0; st.playing = false; st.probe = 50; peakReset(); syncInputs();
+}));
+$('bPlay').addEventListener('click', () => {
+  if (st.s >= SMAX) { st.s = 0; peakReset(); }
+  st.playing = !st.playing; syncInputs();
+});
+$('bReset').addEventListener('click', () => { st.playing = false; setS(0); peakReset(); syncInputs(); });
+$('bBack').addEventListener('click', () => { pause(); setS(st.s - 1); });
+$('bFwd').addEventListener('click', () => { pause(); setS(st.s + 1); });
+$('bMeet').addEventListener('click', () => { pause(); setS(SMAX / 2); });
+$('bSlow').addEventListener('click', () => { st.slow = !st.slow; syncInputs(); });
+$('scrub').addEventListener('input', e => { st.playing = false; setS(+e.target.value); syncInputs(); });
+$('vOver').addEventListener('click', () => { st.view = 'over'; syncInputs(); resize(); });
+$('vSep').addEventListener('click', () => { st.view = 'sep'; syncInputs(); resize(); });
+$('showInd').addEventListener('change', e => { st.showInd = e.target.checked; dirty = true; });
+$('showRes').addEventListener('change', e => { st.showRes = e.target.checked; dirty = true; });
+
+// sonda: pulsar o arrastrar sobre la cuerda
+let dragging = false;
+const probeFrom = e => {
+  const r = cv.getBoundingClientRect(), L = 48, R = r.width - 14;
+  st.probe = Math.round(Math.min(X1, Math.max(X0, (e.clientX - r.left - L) / (R - L) * (X1 - X0))) * 2) / 2;
+  dirty = true;
+};
+cv.addEventListener('pointerdown', e => { dragging = true; cv.setPointerCapture(e.pointerId); probeFrom(e); });
+cv.addEventListener('pointermove', e => { if (dragging) probeFrom(e); });
+cv.addEventListener('pointerup', () => { dragging = false; });
+cv.addEventListener('pointercancel', () => { dragging = false; });
+
+// teclado
+document.addEventListener('keydown', e => {
+  if (e.target.closest && e.target.closest('input,button,textarea,select')) return;
+  if (e.key === ' ') { e.preventDefault(); $('bPlay').click(); }
+  else if (e.key === 'ArrowRight') { e.preventDefault(); $('bFwd').click(); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); $('bBack').click(); }
+  else if (e.key === 'r' || e.key === 'R') $('bReset').click();
+});
+
+// pantalla completa (para proyectar)
+if (!document.fullscreenEnabled) $('bFull').hidden = true;
+$('bFull').addEventListener('click', () => {
+  const p = document.fullscreenElement ? document.exitFullscreen() : $('sim').requestFullscreen();
+  if (p && p.catch) p.catch(() => { $('bFull').hidden = true; });
+});
+document.addEventListener('fullscreenchange', resize);
+
+// redibujar al cambiar de tema
+const mq = window.matchMedia('(prefers-color-scheme: dark)');
+mq.addEventListener && mq.addEventListener('change', () => { dirty = true; });
+new MutationObserver(() => { dirty = true; }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+let lastT = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
+  if (st.playing) {
+    st.s += st.v * dt * (st.slow ? 0.25 : 1);
+    if (st.s >= SMAX) { st.s = SMAX; st.playing = false; syncInputs(); }
+    dirty = true;
+  }
+  if (dirty && W > 0) { draw(); readouts(); dirty = false; }
+  requestAnimationFrame(frame);
+}
+syncInputs(); resize(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>

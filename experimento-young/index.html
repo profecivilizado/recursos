@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Experimento de Young</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cuaderno de laboratorio. Esquema del montaje arriba, la pantalla tal como se ve y su gráfica de intensidad debajo; mandos; teoría. */
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8;
+  --grid-minor:rgba(43,97,170,.07); --grid-major:rgba(43,97,170,.18);
+  --p1:#1f55d6; --p2:#0b9a68; --res:#df4a1c; --res-soft:rgba(223,74,28,.14);
+  --chip-ok:#e7f6ee; --chip-ok-ink:#0b6b48; --chip-warn:#fdeee7; --chip-warn-ink:#a3360f; --chip-n:#eef1f6;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --dark-room:#05070c;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+    --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+    --p1:#6e9dff; --p2:#3fd09a; --res:#ff7c4f; --res-soft:rgba(255,124,79,.16);
+    --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+    --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+  --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+  --p1:#6e9dff; --p2:#3fd09a; --res:#ff7c4f; --res-soft:rgba(255,124,79,.16);
+  --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+  --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1100px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px;text-wrap:balance}
+h1 .eq{font:600 .48em var(--f-mono);color:var(--res);letter-spacing:0;white-space:nowrap;margin-left:.4em;vertical-align:middle}
+header p{margin:0;color:var(--muted);max-width:64ch}
+h2{font:700 15px/1.2 var(--f-display);letter-spacing:.02em;margin:0;text-transform:uppercase}
+h3{font:700 13px/1.2 var(--f-mono);letter-spacing:.07em;margin:0;text-transform:uppercase;color:var(--muted)}
+
+.sim{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.sim:fullscreen{border-radius:0;padding:24px;align-content:center;overflow:auto}
+.cw{position:relative;min-width:0}
+canvas{display:block;width:100%;border-radius:8px}
+#diag{touch-action:none;cursor:ns-resize}
+#strip,#graph{touch-action:pan-y;cursor:ew-resize}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bar .grow{flex:1}
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:8px 12px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,input:focus-visible{outline:2px solid var(--p1);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0;white-space:nowrap}
+input[type=range]{accent-color:var(--ink);height:24px;width:100%}
+input[type=range]:disabled{opacity:.4}
+
+.readouts{display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:10px}
+@media (max-width:760px){.readouts{grid-template-columns:1fr}}
+.ro{border-top:1px solid var(--line);padding-top:10px;min-width:0}
+.ro.wide{grid-column:1/-1}
+.ro .k{font:600 11px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ro .v{font:15px/1.45 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ro .v.big{font-size:20px;font-weight:600}
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font:700 14px var(--f-body);background:var(--chip-n)}
+.chip.ok{background:var(--chip-ok);color:var(--chip-ok-ink)}
+.chip.warn{background:var(--chip-warn);color:var(--chip-warn-ink)}
+.c1{color:var(--p1);font-weight:600}.c2{color:var(--p2);font-weight:600}.cr{color:var(--res);font-weight:600}
+
+.controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.controls{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.field{display:grid;gap:2px}
+.field .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px}
+.field output{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:6px}
+.swatch{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid var(--line)}
+#lam{background:linear-gradient(90deg,#7600ed,#2800ff,#00a6ff,#00ff5e,#c8ff00,#ffbf00,#ff2a00,#c80000);border-radius:999px;height:8px;appearance:none;-webkit-appearance:none;margin:10px 0}
+#lam::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--panel);border:3px solid var(--ink);cursor:pointer}
+#lam::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--panel);border:3px solid var(--ink);cursor:pointer}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.note{font-size:13px;color:var(--muted);margin:0}
+.check{display:flex;align-items:center;gap:9px;font-size:15px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--ink)}
+.challenge input[type=number]{font:inherit;width:120px;padding:8px 10px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.fb{font-size:14px;margin:0}
+
+.theory{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:6px}
+@media (max-width:860px){.theory{grid-template-columns:1fr}}
+.theory section{display:grid;gap:10px;align-content:start;min-width:0}
+.theory p,.theory li{margin:0;max-width:62ch}
+.theory ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.conds{display:grid;gap:6px;font:15px/1.4 var(--f-mono)}
+.conds div{display:flex;flex-wrap:wrap;gap:4px 12px}
+.conds b{font-family:var(--f-body)}
+.big-eq{font:600 22px var(--f-mono);color:var(--res)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Ondas · Interferencia de la luz</div>
+    <h1>Experimento de Young <span class="eq">s = λD/d</span></h1>
+    <p>La luz de un láser pasa por dos rendijas muy juntas y forma franjas en una pantalla lejana. Mueve el punto P por la pantalla y mira cómo cambia la diferencia de camino d sin θ.</p>
+  </header>
+
+  <div class="sim" id="sim">
+    <h3>Esquema del montaje (vista superior, no a escala)</h3>
+    <div class="cw" id="diagWrap"><canvas id="diag" aria-label="Esquema del experimento de la doble rendija"></canvas></div>
+    <h3>Lo que se ve en la pantalla</h3>
+    <div class="cw" id="stripWrap"><canvas id="strip" aria-label="Franjas de interferencia en la pantalla"></canvas></div>
+    <div class="cw" id="graphWrap"><canvas id="graph" aria-label="Intensidad frente a la posición en la pantalla"></canvas></div>
+    <div class="bar">
+      <button id="bPrev">◀ Máximo anterior</button>
+      <button id="bCenter">P al centro</button>
+      <button id="bNext">Máximo siguiente ▶</button>
+      <button id="bMin">P al mínimo más cercano</button>
+      <span class="grow"></span>
+      <div class="seg" role="group" aria-label="Zona visible de la pantalla">
+        <button data-zoom="10">±10 mm</button><button data-zoom="25">±25 mm</button><button data-zoom="50">±50 mm</button>
+      </div>
+      <button id="bFull" title="Pantalla completa para proyectar">⛶</button>
+    </div>
+    <div class="readouts">
+      <div class="ro"><div class="k">Separación entre franjas</div><div class="v big cr" id="sOut"></div></div>
+      <div class="ro"><div class="k">Posición de P</div><div class="v" id="pOut"></div></div>
+      <div class="ro"><div class="k">Diferencia de camino en P</div><div class="v" id="dOut"></div></div>
+      <div class="ro wide"><div class="k">En P</div><div class="v"><span class="chip" id="verdict"></span> <span id="why"></span></div></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="card">
+      <h2>Luz</h2>
+      <div class="field"><div class="top"><label for="lam">Longitud de onda λ</label><output id="oLam"></output></div>
+        <input type="range" id="lam" min="380" max="750" step="1" value="650"></div>
+      <div class="row">
+        <button data-wl="650">Rojo 650 nm</button><button data-wl="532">Verde 532 nm</button><button data-wl="405">Violeta 405 nm</button>
+        <button id="bWhite" aria-pressed="false">Luz blanca</button>
+      </div>
+      <p class="note" id="whiteNote" hidden>Con luz blanca cada color forma su propio patrón. Las lecturas usan λ = 550 nm.</p>
+    </div>
+    <div class="card">
+      <h2>Rendijas y pantalla</h2>
+      <div class="field"><div class="top"><label for="dd">Separación entre rendijas d</label><output id="oD"></output></div>
+        <input type="range" id="dd" min="0.10" max="1.00" step="0.01" value="0.25"></div>
+      <div class="field"><div class="top"><label for="DD">Distancia a la pantalla D</label><output id="oDD"></output></div>
+        <input type="range" id="DD" min="0.5" max="5" step="0.1" value="2"></div>
+      <label class="check"><input type="checkbox" id="env"> Tener en cuenta la anchura de cada rendija</label>
+      <div class="field"><div class="top"><label for="bw">Anchura de cada rendija b</label><output id="oB"></output></div>
+        <input type="range" id="bw" min="0.02" max="0.20" step="0.01" value="0.06" disabled></div>
+    </div>
+    <div class="card challenge">
+      <h2>Reto: λ desconocida</h2>
+      <p class="note">Se elige un láser al azar y se oculta su longitud de onda. Mide la separación entre franjas moviendo P de un máximo a otro y calcula λ = s·d/D.</p>
+      <div class="row"><button id="bChal">Empezar reto</button><button id="bReveal" disabled>Mostrar solución</button></div>
+      <div class="row" style="align-items:center">
+        <label for="guess">Tu λ:</label><input type="number" id="guess" min="300" max="800" step="1" placeholder="nm" disabled>
+        <button id="bCheck" disabled>Comprobar</button>
+      </div>
+      <p class="fb" id="fb" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="theory">
+    <section>
+      <h2>Por qué aparecen franjas</h2>
+      <p>Las dos rendijas se iluminan con la misma onda plana, así que actúan como dos fuentes coherentes en fase. Las ondas que llegan a P desde S₁ y S₂ han recorrido caminos distintos. Como D es mucho mayor que d, los dos rayos son casi paralelos y la diferencia de camino es S₂P − S₁P = d sin θ.</p>
+      <div class="conds">
+        <div><b class="cr">Franja brillante</b> d sin θ = nλ</div>
+        <div><b>Franja oscura</b> d sin θ = (n + ½)λ</div>
+      </div>
+      <p>Para ángulos pequeños, sin θ ≈ tan θ = y/D, y los máximos están en y = nλD/d. Dos máximos consecutivos están separados</p>
+      <p class="big-eq">s = λD/d</p>
+      <p class="note">Thomas Young hizo el experimento en 1801. Fue una prueba fuerte de que la luz es una onda.</p>
+    </section>
+    <section>
+      <h2>Para la clase</h2>
+      <ol>
+        <li>Con el láser rojo, lleva P al máximo n = 5 con «Máximo siguiente». Divide su posición entre 5 y compara con s = λD/d.</li>
+        <li>Antes de tocar nada, predice qué pasa con s si cambias a violeta, si duplicas D y si duplicas d. Compruébalo.</li>
+        <li>Haz el reto de λ desconocida. ¿Por qué conviene medir varias franjas en lugar de una sola?</li>
+        <li>Activa la luz blanca. ¿Por qué la franja central es blanca y los bordes de las demás salen de colores? ¿Qué color queda más cerca del centro?</li>
+        <li>Marca «Tener en cuenta la anchura de cada rendija». ¿Por qué ya no todas las franjas brillan igual?</li>
+      </ol>
+    </section>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const st = { lam: 650, white: false, d: 0.25, D: 2, env: false, b: 0.06, zoom: 25, y: 0, chal: false, secret: 0 };
+const fmt = (n, k = 1) => (n < 0 ? '−' : '') + Math.abs(n).toFixed(k).replace('.', ',');
+const lamEff = () => st.chal ? st.secret : st.white ? 550 : st.lam;
+
+/* ---------- Física ---------- */
+function intensity(ymm, lam) {
+  const s = Math.sin(Math.atan(ymm / 1000 / st.D));
+  const beta = Math.PI * st.d * 1e-3 * s / (lam * 1e-9);
+  let I = Math.cos(beta) ** 2;
+  if (st.env) { const a = Math.PI * st.b * 1e-3 * s / (lam * 1e-9); if (Math.abs(a) > 1e-9) I *= (Math.sin(a) / a) ** 2; }
+  return I;
+}
+const spacing = lam => lam * st.D / st.d * 1e-3; // mm
+function wlRGB(w) {
+  let r = 0, g = 0, b = 0;
+  if (w >= 380 && w < 440) { r = -(w - 440) / 60; b = 1; }
+  else if (w < 490) { g = (w - 440) / 50; b = 1; }
+  else if (w < 510) { g = 1; b = -(w - 510) / 20; }
+  else if (w < 580) { r = (w - 510) / 70; g = 1; }
+  else if (w < 645) { r = 1; g = -(w - 645) / 65; }
+  else if (w <= 780) { r = 1; }
+  const f = w < 420 ? .3 + .7 * (w - 380) / 40 : w > 700 ? .3 + .7 * (780 - w) / 80 : 1;
+  return [r * f, g * f, b * f];
+}
+const css = c => `rgb(${c.map(v => Math.round(255 * Math.pow(Math.max(0, Math.min(1, v)), .8))).join(',')})`;
+const WHITE = []; for (let w = 400; w <= 700; w += 10) WHITE.push([w, wlRGB(w)]);
+const WN = WHITE.reduce((a, [, c]) => [a[0] + c[0], a[1] + c[1], a[2] + c[2]], [0, 0, 0]);
+function colourAt(ymm) {
+  if (!st.white) { const c = wlRGB(lamEff()), I = intensity(ymm, lamEff()); return [c[0] * I, c[1] * I, c[2] * I]; }
+  let r = 0, g = 0, b = 0;
+  for (const [w, c] of WHITE) { const I = intensity(ymm, w); r += c[0] * I; g += c[1] * I; b += c[2] * I; }
+  return [r / WN[0], g / WN[1], b / WN[2]];
+}
+
+/* ---------- Lienzos ---------- */
+const dc = $('diag'), dx = dc.getContext('2d'), sc = $('strip'), sx = sc.getContext('2d'), gc = $('graph'), gx = gc.getContext('2d');
+let DW = 0, DH = 0, SW = 0, SH = 0, GW = 0, GH = 0, dirty = true, stripImg = null, stripKey = '';
+const PL = 14, PR = 14; // márgenes laterales de pantalla y gráfica
+function fit(c, ctx, w, h) { const dpr = devicePixelRatio || 1; c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); c.style.height = h + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+function resize() {
+  DW = $('diagWrap').clientWidth; DH = Math.round(Math.max(240, Math.min(320, DW * .32)));
+  SW = $('stripWrap').clientWidth; SH = 96;
+  GW = $('graphWrap').clientWidth; GH = Math.round(Math.max(150, Math.min(200, GW * .2)));
+  fit(dc, dx, DW, DH); fit(sc, sx, SW, SH); fit(gc, gx, GW, GH); stripKey = ''; dirty = true;
+}
+new ResizeObserver(resize).observe($('diagWrap'));
+function tokens() {
+  const c = getComputedStyle(document.documentElement), C = k => c.getPropertyValue(k).trim();
+  return { ink: C('--ink'), muted: C('--muted'), line: C('--line'), major: C('--grid-major'), minor: C('--grid-minor'), p1: C('--p1'), p2: C('--p2'), res: C('--res'), soft: C('--res-soft'), panel: C('--panel'), room: C('--dark-room') };
+}
+const mono = (sz, wt = 400) => `${wt} ${sz}px "JetBrains Mono", ui-monospace, monospace`;
+const SX = y => PL + (y + st.zoom) / (2 * st.zoom) * (SW - PL - PR);     // mm → px (pantalla y gráfica)
+const SY = px => (px - PL) / (SW - PL - PR) * 2 * st.zoom - st.zoom;
+
+function drawDiagram(C) {
+  const W = DW, H = DH, cy = H / 2 - 6, lam = lamEff();
+  dx.clearRect(0, 0, W, H); dx.fillStyle = C.panel; dx.fillRect(0, 0, W, H);
+  const xb = Math.round(W * .3), xs = W - 64, half = H / 2 - 30;
+  const dd = 30 + st.d * 90, g = st.env ? 3 + st.b * 25 : 4;
+  const s1 = { x: xb, y: cy - dd / 2 }, s2 = { x: xb, y: cy + dd / 2 };
+  const lc = st.white ? C.ink : css(wlRGB(lam));
+  // láser
+  dx.fillStyle = C.ink; dx.fillRect(14, cy - 16, 66, 32);
+  dx.fillStyle = C.panel; dx.font = mono(11, 600); dx.textAlign = 'center'; dx.textBaseline = 'middle';
+  dx.fillText(st.white ? 'LÁMPARA' : 'LÁSER', 47, cy);
+  dx.fillStyle = C.muted; dx.font = mono(11); dx.textBaseline = 'top';
+  dx.fillText(st.chal ? 'λ = ?' : st.white ? 'luz blanca' : `λ = ${lam} nm`, 47, cy + 22);
+  // frentes de onda planos
+  dx.strokeStyle = st.white ? C.muted : lc; dx.lineWidth = 2;
+  for (let x = 92; x < xb - 6; x += 11) { dx.beginPath(); dx.moveTo(x, cy - dd / 2 - 18); dx.lineTo(x, cy + dd / 2 + 18); dx.stroke(); }
+  // barrera con dos rendijas
+  dx.strokeStyle = C.ink; dx.lineWidth = 5; dx.beginPath();
+  dx.moveTo(xb, 10); dx.lineTo(xb, s1.y - g);
+  dx.moveTo(xb, s1.y + g); dx.lineTo(xb, s2.y - g);
+  dx.moveTo(xb, s2.y + g); dx.lineTo(xb, H - 26); dx.stroke();
+  dx.fillStyle = C.ink; dx.font = mono(12, 600); dx.textAlign = 'left'; dx.textBaseline = 'middle';
+  dx.fillText('S₁', xb + 8, s1.y - 10); dx.fillText('S₂', xb + 8, s2.y + 12);
+  // cota d
+  dx.strokeStyle = C.muted; dx.lineWidth = 1.2; dx.beginPath();
+  dx.moveTo(xb - 16, s1.y); dx.lineTo(xb - 16, s2.y); dx.moveTo(xb - 21, s1.y); dx.lineTo(xb - 11, s1.y); dx.moveTo(xb - 21, s2.y); dx.lineTo(xb - 11, s2.y); dx.stroke();
+  dx.fillStyle = C.muted; dx.font = mono(12, 600); dx.textAlign = 'right'; dx.fillText('d', xb - 24, cy);
+  // pantalla (franjas en vertical)
+  for (let py = cy - half; py <= cy + half; py += 1) {
+    const ymm = (cy - py) / half * st.zoom; dx.fillStyle = css(colourAt(ymm)); dx.fillRect(xs, py, 14, 1.2);
+  }
+  dx.strokeStyle = C.ink; dx.lineWidth = 1; dx.strokeRect(xs - .5, cy - half - .5, 15, 2 * half + 1);
+  dx.fillStyle = C.muted; dx.font = mono(11); dx.textAlign = 'center'; dx.textBaseline = 'bottom'; dx.fillText('pantalla', xs + 7, cy - half - 4);
+  // cota D
+  const yD = H - 12; dx.strokeStyle = C.muted; dx.lineWidth = 1.2; dx.beginPath();
+  dx.moveTo(xb, yD); dx.lineTo(xs, yD); dx.moveTo(xb, yD - 5); dx.lineTo(xb, yD + 5); dx.moveTo(xs, yD - 5); dx.lineTo(xs, yD + 5); dx.stroke();
+  const dl = `D = ${fmt(st.D, 2)} m`; dx.font = mono(12, 600); const tw = dx.measureText(dl).width;
+  dx.fillStyle = C.panel; dx.fillRect((xb + xs) / 2 - tw / 2 - 6, yD - 9, tw + 12, 18);
+  dx.fillStyle = C.muted; dx.textBaseline = 'middle'; dx.fillText(dl, (xb + xs) / 2, yD);
+  // P, O y rayos
+  const py = cy - Math.max(-1, Math.min(1, st.y / st.zoom)) * half, P = { x: xs, y: py }, M = { x: xb, y: cy };
+  dx.setLineDash([4, 5]); dx.strokeStyle = C.muted; dx.lineWidth = 1.2;
+  dx.beginPath(); dx.moveTo(M.x, M.y); dx.lineTo(xs, cy); dx.stroke();
+  dx.strokeStyle = C.ink; dx.beginPath(); dx.moveTo(M.x, M.y); dx.lineTo(P.x, P.y); dx.stroke(); dx.setLineDash([]);
+  const ray = (s, col) => { dx.strokeStyle = col; dx.lineWidth = 2.2; dx.beginPath(); dx.moveTo(s.x, s.y); dx.lineTo(P.x, P.y); dx.stroke(); };
+  ray(s1, C.p1); ray(s2, C.p2);
+  // ángulo θ
+  const ang = Math.atan2(P.y - M.y, P.x - M.x);
+  if (Math.abs(ang) > 0.01) {
+    dx.strokeStyle = C.ink; dx.lineWidth = 1.4; dx.beginPath(); dx.arc(M.x, M.y, 60, Math.min(0, ang), Math.max(0, ang)); dx.stroke();
+    dx.fillStyle = C.ink; dx.font = mono(13, 600); dx.textAlign = 'left'; dx.textBaseline = 'middle';
+    dx.fillText('θ', M.x + 66, M.y + ang * 30);
+  }
+  // diferencia de camino: pie de la perpendicular desde la rendija más cercana
+  if (Math.abs(st.y) > 1e-6) {
+    const near = st.y > 0 ? s1 : s2, far = st.y > 0 ? s2 : s1;
+    const ux = P.x - far.x, uy = P.y - far.y, L = Math.hypot(ux, uy), ex = ux / L, ey = uy / L;
+    const t = (near.x - far.x) * ex + (near.y - far.y) * ey, F = { x: far.x + ex * t, y: far.y + ey * t };
+    dx.setLineDash([3, 3]); dx.strokeStyle = C.muted; dx.lineWidth = 1.2; dx.beginPath(); dx.moveTo(near.x, near.y); dx.lineTo(F.x, F.y); dx.stroke(); dx.setLineDash([]);
+    dx.strokeStyle = C.res; dx.lineWidth = 5; dx.lineCap = 'round'; dx.beginPath(); dx.moveTo(far.x, far.y); dx.lineTo(F.x, F.y); dx.stroke(); dx.lineCap = 'butt';
+    dx.fillStyle = C.res; dx.font = mono(12, 600); dx.textAlign = 'right'; dx.textBaseline = 'middle';
+    const ly = far.y + (st.y > 0 ? 20 : -20), lw = dx.measureText('d sin θ').width;
+    dx.fillStyle = C.panel; dx.fillRect(xb - 16 - lw, ly - 9, lw + 8, 18);
+    dx.fillStyle = C.res; dx.fillText('d sin θ', xb - 12, ly);
+  }
+  // marcas O y P
+  dx.fillStyle = C.ink; dx.font = mono(12, 600); dx.textAlign = 'left'; dx.textBaseline = 'middle';
+  dx.fillText('O', xs + 20, cy);
+  dx.beginPath(); dx.arc(P.x, P.y, 6, 0, 7); dx.fillStyle = C.res; dx.fill(); dx.lineWidth = 2; dx.strokeStyle = C.panel; dx.stroke();
+  dx.fillStyle = C.res; dx.fillText('P', xs + 20, Math.abs(py - cy) < 14 ? py - 14 : py);
+}
+
+function drawStrip(C) {
+  const W = SW, H = SH, top = 26, h = H - top - 6;
+  sx.clearRect(0, 0, W, H); sx.fillStyle = C.panel; sx.fillRect(0, 0, W, H);
+  // franjas (con supermuestreo para evitar moiré)
+  const key = [W, st.lam, st.white, st.d, st.D, st.env, st.b, st.zoom, st.chal, st.secret].join();
+  if (key !== stripKey) {
+    const dpr = devicePixelRatio || 1, n = Math.round((W - PL - PR) * dpr);
+    stripImg = document.createElement('canvas'); stripImg.width = n; stripImg.height = 1;
+    const c = stripImg.getContext('2d'), im = c.createImageData(n, 1);
+    for (let i = 0; i < n; i++) {
+      let r = 0, g = 0, b = 0;
+      for (let k = 0; k < 4; k++) { const y = -st.zoom + (i + (k + .5) / 4) / n * 2 * st.zoom, cc = colourAt(y); r += cc[0]; g += cc[1]; b += cc[2]; }
+      const gm = v => Math.round(255 * Math.pow(Math.max(0, Math.min(1, v / 4)), .8));
+      im.data[i * 4] = gm(r); im.data[i * 4 + 1] = gm(g); im.data[i * 4 + 2] = gm(b); im.data[i * 4 + 3] = 255;
+    }
+    c.putImageData(im, 0, 0); stripKey = key;
+  }
+  sx.fillStyle = C.room; sx.fillRect(PL, top, W - PL - PR, h);
+  sx.imageSmoothingEnabled = false; sx.drawImage(stripImg, PL, top, W - PL - PR, h);
+  // regla en mm
+  const pxmm = (W - PL - PR) / (2 * st.zoom), lab = st.zoom === 10 ? 2 : st.zoom === 25 ? 5 : 10;
+  sx.strokeStyle = C.muted; sx.lineWidth = 1; sx.beginPath();
+  for (let m = -st.zoom; m <= st.zoom; m++) {
+    if (pxmm < 3 && m % 5) continue;
+    const x = Math.round(SX(m)) + .5, len = m % lab === 0 ? 9 : m % 5 === 0 ? 6 : 3;
+    sx.moveTo(x, top - 1); sx.lineTo(x, top - 1 - len);
+  }
+  sx.stroke();
+  sx.fillStyle = C.muted; sx.font = mono(10); sx.textAlign = 'center'; sx.textBaseline = 'bottom';
+  for (let m = -st.zoom; m <= st.zoom; m += lab) sx.fillText(m === 0 ? '0' : fmt(m, 0), SX(m), top - 11);
+  sx.textAlign = 'right'; sx.textBaseline = 'top';
+  // P
+  const x = SX(st.y);
+  sx.strokeStyle = '#fff'; sx.lineWidth = 3; sx.beginPath(); sx.moveTo(x, top); sx.lineTo(x, top + h); sx.stroke();
+  sx.strokeStyle = C.res; sx.lineWidth = 1.5; sx.beginPath(); sx.moveTo(x, top); sx.lineTo(x, top + h); sx.stroke();
+}
+
+function drawGraph(C) {
+  const W = GW, H = GH, top = 18, bot = H - 22, L = PL, R = W - PR;
+  gx.clearRect(0, 0, W, H); gx.fillStyle = C.panel; gx.fillRect(0, 0, W, H);
+  const Y = I => bot - I * (bot - top);
+  gx.strokeStyle = C.major; gx.lineWidth = 1; gx.beginPath();
+  for (const I of [0, .5, 1]) { gx.moveTo(L, Math.round(Y(I)) + .5); gx.lineTo(R, Math.round(Y(I)) + .5); }
+  gx.stroke();
+  const curve = (lam, col, w, fill, envOnly) => {
+    gx.beginPath();
+    for (let i = 0; i <= 900; i++) {
+      const y = -st.zoom + i / 900 * 2 * st.zoom; let I;
+      if (envOnly) { const s = Math.sin(Math.atan(y / 1000 / st.D)), a = Math.PI * st.b * 1e-3 * s / (lam * 1e-9); I = Math.abs(a) < 1e-9 ? 1 : (Math.sin(a) / a) ** 2; }
+      else I = intensity(y, lam);
+      i ? gx.lineTo(SX(y), Y(I)) : gx.moveTo(SX(y), Y(I));
+    }
+    if (fill) { gx.lineTo(R, Y(0)); gx.lineTo(L, Y(0)); gx.closePath(); gx.fillStyle = fill; gx.fill(); }
+    else { gx.strokeStyle = col; gx.lineWidth = w; gx.setLineDash(envOnly ? [5, 4] : []); gx.stroke(); gx.setLineDash([]); }
+  };
+  if (st.white) { for (const w of [450, 550, 650]) curve(w, css(wlRGB(w)), 1.8); }
+  else {
+    const c = wlRGB(lamEff());
+    curve(lamEff(), null, 0, `rgba(${c.map(v => Math.round(255 * v)).join(',')},.28)`);
+    curve(lamEff(), C.ink, 1.8);
+    if (st.env) curve(lamEff(), C.muted, 1.2, null, true);
+  }
+  // órdenes de los máximos
+  const lam = lamEff(), s = spacing(lam), pxs = s / (2 * st.zoom) * (R - L);
+  if (!st.chal && pxs > 26) {
+    gx.font = mono(10, 600); gx.fillStyle = C.muted; gx.textAlign = 'center'; gx.textBaseline = 'top';
+    for (let n = -60; n <= 60; n++) {
+      const sn = n * lam * 1e-9 / (st.d * 1e-3); if (Math.abs(sn) >= 1) continue;
+      const y = st.D * Math.tan(Math.asin(sn)) * 1000; if (Math.abs(y) > st.zoom) continue;
+      gx.fillText(n === 0 ? 'n = 0' : String(n).replace('-', '−'), SX(y), bot + 5);
+    }
+  }
+  gx.fillStyle = C.muted; gx.font = mono(10); gx.textAlign = 'left'; gx.textBaseline = 'top'; gx.fillText('I / I máx', L + 2, 2);
+  const x = SX(st.y); gx.strokeStyle = C.res; gx.lineWidth = 1.5; gx.beginPath(); gx.moveTo(x, top - 4); gx.lineTo(x, bot); gx.stroke();
+  gx.beginPath(); gx.arc(x, Y(intensity(st.y, lam)), 4.5, 0, 7); gx.fillStyle = C.res; gx.fill();
+}
+
+function readouts() {
+  const lam = lamEff(), s = spacing(lam), th = Math.atan(st.y / 1000 / st.D), ds = st.d * 1e-3 * Math.sin(th) * 1e9, m = ds / lam;
+  $('sOut').textContent = st.chal ? 's = ? (mídela)' : `s = λD/d = ${fmt(s, 2)} mm`;
+  $('pOut').innerHTML = `y = ${fmt(st.y, 2)} mm · θ = ${fmt(th * 180 / Math.PI, 3)}°`;
+  $('dOut').innerHTML = st.chal ? 'd sin θ = ? (oculto durante el reto)' : `d sin θ = ${fmt(ds, 0)} nm = <span class="cr">${fmt(m, 2)}λ</span>`;
+  const v = $('verdict'), why = $('why'), nI = Math.round(m), nH = Math.floor(m), I = intensity(st.y, lam);
+  if (Math.abs(m - nI) < .05) {
+    v.textContent = `Franja brillante · n = ${String(nI).replace('-', '−')}`; v.className = 'chip ok';
+    why.textContent = st.chal ? 'Las ondas llegan en fase.' : `d sin θ = ${String(nI).replace('-', '−')}λ: las ondas de S₁ y S₂ llegan en fase.` + (st.env && I < .3 ? ' La anchura de las rendijas la apaga casi del todo.' : '');
+  } else if (Math.abs(m - nH - .5) < .05) {
+    v.textContent = 'Franja oscura'; v.className = 'chip warn';
+    why.textContent = st.chal ? 'Las ondas llegan en oposición.' : `d sin θ = (${String(nH).replace('-', '−')} + ½)λ: las ondas llegan en oposición y se anulan.`;
+  } else { v.textContent = 'Entre franjas'; v.className = 'chip'; why.textContent = `Intensidad relativa ${fmt(I * 100, 0)} %.`; }
+}
+
+function draw() {
+  if (!DW || !SW || !GW) return;
+  const C = tokens(); drawDiagram(C); drawStrip(C); drawGraph(C); readouts(); dirty = false;
+}
+
+/* ---------- Controles ---------- */
+function sync() {
+  $('lam').value = st.lam; $('dd').value = st.d; $('DD').value = st.D; $('bw').value = st.b; $('env').checked = st.env; $('bw').disabled = !st.env;
+  const c = st.chal ? null : wlRGB(st.lam);
+  $('oLam').innerHTML = st.chal ? '? nm' : `<i class="swatch" style="background:${css(c)}"></i>${st.lam} nm`;
+  $('lam').disabled = st.chal || st.white;
+  $('oD').textContent = fmt(st.d, 2) + ' mm'; $('oDD').textContent = fmt(st.D, 1) + ' m'; $('oB').textContent = fmt(st.b, 2) + ' mm';
+  $('bWhite').setAttribute('aria-pressed', st.white); $('whiteNote').hidden = !st.white;
+  document.querySelectorAll('[data-wl]').forEach(b => b.disabled = st.chal);
+  $('bWhite').disabled = st.chal;
+  document.querySelectorAll('[data-zoom]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.zoom === st.zoom));
+  dirty = true;
+}
+const clampY = () => { st.y = Math.max(-st.zoom, Math.min(st.zoom, st.y)); };
+$('lam').addEventListener('input', e => { st.lam = +e.target.value; sync(); });
+document.querySelectorAll('[data-wl]').forEach(b => b.addEventListener('click', () => { st.lam = +b.dataset.wl; st.white = false; sync(); }));
+$('bWhite').addEventListener('click', () => { st.white = !st.white; sync(); });
+$('dd').addEventListener('input', e => { st.d = +e.target.value; sync(); });
+$('DD').addEventListener('input', e => { st.D = +e.target.value; sync(); });
+$('bw').addEventListener('input', e => { st.b = +e.target.value; sync(); });
+$('env').addEventListener('change', e => { st.env = e.target.checked; sync(); });
+document.querySelectorAll('[data-zoom]').forEach(b => b.addEventListener('click', () => { st.zoom = +b.dataset.zoom; clampY(); sync(); }));
+
+const yOfMax = n => { const s = n * lamEff() * 1e-9 / (st.d * 1e-3); return Math.abs(s) < 1 ? st.D * Math.tan(Math.asin(s)) * 1000 : null; };
+const mAt = y => st.d * 1e-3 * Math.sin(Math.atan(y / 1000 / st.D)) / (lamEff() * 1e-9);
+function jump(dir) {
+  const m = mAt(st.y), n = dir > 0 ? Math.floor(m + 1e-6) + 1 : Math.ceil(m - 1e-6) - 1, y = yOfMax(n);
+  if (y != null && Math.abs(y) <= st.zoom + 1e-9) { st.y = y; dirty = true; }
+}
+$('bNext').addEventListener('click', () => jump(1));
+$('bPrev').addEventListener('click', () => jump(-1));
+$('bCenter').addEventListener('click', () => { st.y = 0; dirty = true; });
+$('bMin').addEventListener('click', () => {
+  const m = mAt(st.y), k = Math.round(m - .5) + .5, s = k * lamEff() * 1e-9 / (st.d * 1e-3);
+  if (Math.abs(s) < 1) { const y = st.D * Math.tan(Math.asin(s)) * 1000; if (Math.abs(y) <= st.zoom) { st.y = y; dirty = true; } }
+});
+
+// arrastrar P
+const dragOn = (el, fn) => {
+  let on = false;
+  el.addEventListener('pointerdown', e => { on = true; el.setPointerCapture(e.pointerId); fn(e); });
+  el.addEventListener('pointermove', e => { if (on) fn(e); });
+  el.addEventListener('pointerup', () => { on = false; }); el.addEventListener('pointercancel', () => { on = false; });
+};
+const fromX = e => { const r = e.currentTarget.getBoundingClientRect(); st.y = SY(e.clientX - r.left); clampY(); dirty = true; };
+dragOn(sc, fromX); dragOn(gc, fromX);
+dragOn(dc, e => { const r = dc.getBoundingClientRect(), cy = DH / 2 - 6, half = DH / 2 - 30; st.y = (cy - (e.clientY - r.top)) / half * st.zoom; clampY(); dirty = true; });
+
+// reto
+$('bChal').addEventListener('click', () => {
+  const opts = [445, 473, 488, 520, 543, 561, 594, 612, 633, 671, 690];
+  st.secret = opts[Math.floor(Math.random() * opts.length)]; st.chal = true; st.white = false; st.y = 0; st.env = false;
+  $('guess').disabled = false; $('bCheck').disabled = false; $('bReveal').disabled = false; $('guess').value = '';
+  $('bChal').textContent = 'Otro láser'; $('fb').textContent = 'Reto en marcha. Usa los botones de máximos y la regla de la pantalla.'; sync();
+});
+$('bCheck').addEventListener('click', () => {
+  const g = +$('guess').value; if (!g) { $('fb').textContent = 'Escribe tu resultado en nanómetros.'; return; }
+  const err = Math.abs(g - st.secret) / st.secret * 100;
+  $('fb').textContent = err <= 3 ? `¡Correcto! Error del ${fmt(err, 1)} %.` : err <= 10 ? `Cerca (error del ${fmt(err, 0)} %). Mide más franjas para afinar.` : `Todavía no (error del ${fmt(err, 0)} %). Revisa unidades: d en metros, s en metros.`;
+});
+$('bReveal').addEventListener('click', () => {
+  $('fb').textContent = `La longitud de onda era ${st.secret} nm (s = ${fmt(spacing(st.secret), 2)} mm).`;
+  st.lam = st.secret; st.chal = false; $('guess').disabled = true; $('bCheck').disabled = true; $('bReveal').disabled = true; $('bChal').textContent = 'Empezar reto'; sync();
+});
+
+if (!document.fullscreenEnabled) $('bFull').hidden = true;
+$('bFull').addEventListener('click', () => {
+  const p = document.fullscreenElement ? document.exitFullscreen() : $('sim').requestFullscreen();
+  if (p && p.catch) p.catch(() => { $('bFull').hidden = true; });
+});
+document.addEventListener('fullscreenchange', resize);
+const mq = matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener && mq.addEventListener('change', () => { dirty = true; });
+new MutationObserver(() => { dirty = true; }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+st.y = yOfMax(2) ?? 0;
+function frame() { if (dirty) draw(); requestAnimationFrame(frame); }
+sync(); resize(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>

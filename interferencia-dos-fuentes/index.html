@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Interferencia de dos fuentes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cuaderno de laboratorio. La cubeta de ondas arriba; lecturas del punto P y gráfica y–t; mandos; teoría. */
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8;
+  --grid-minor:rgba(43,97,170,.07); --grid-major:rgba(43,97,170,.18);
+  --p1:#1f55d6; --p2:#0b9a68; --res:#df4a1c;
+  --chip-ok:#e7f6ee; --chip-ok-ink:#0b6b48; --chip-warn:#fdeee7; --chip-warn-ink:#a3360f; --chip-n:#eef1f6;
+  --btn:#eef2f8; --btn-hover:#e2e8f2;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+    --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+    --p1:#6e9dff; --p2:#3fd09a; --res:#ff7c4f;
+    --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+    --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+  --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+  --p1:#6e9dff; --p2:#3fd09a; --res:#ff7c4f;
+  --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+  --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1100px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px;text-wrap:balance}
+h1 .eq{font:600 .48em var(--f-mono);color:var(--res);letter-spacing:0;white-space:nowrap;margin-left:.4em;vertical-align:middle}
+header p{margin:0;color:var(--muted);max-width:64ch}
+h2{font:700 15px/1.2 var(--f-display);letter-spacing:.02em;margin:0;text-transform:uppercase}
+
+.sim{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.sim:fullscreen{border-radius:0;padding:24px;align-content:center;overflow:auto}
+#fieldWrap,#ytWrap{position:relative;min-width:0}
+canvas{display:block;width:100%;border-radius:8px}
+#field{touch-action:none;cursor:crosshair}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:26px;height:0;border-top:3px solid currentColor;display:inline-block}
+.sw.d{border-top-style:dashed;border-top-width:2px}
+
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bar .grow{flex:1}
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:8px 12px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--p1);outline-offset:2px}
+button.play{background:var(--ink);color:var(--paper);border-color:var(--ink);min-width:104px;font-weight:700}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0;white-space:nowrap}
+input[type=range]{accent-color:var(--ink);height:24px;width:100%}
+
+.readouts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:760px){.readouts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ro{border-top:1px solid var(--line);padding-top:10px;min-width:0}
+.ro.wide{grid-column:1/-1}
+.ro .k{font:600 11px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ro .v{font:15px/1.4 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ro .v.big{font-size:20px;font-weight:600}
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font:700 14px var(--f-body);background:var(--chip-n)}
+.chip.ok{background:var(--chip-ok);color:var(--chip-ok-ink)}
+.chip.warn{background:var(--chip-warn);color:var(--chip-warn-ink)}
+.c1{color:var(--p1);font-weight:600}.c2{color:var(--p2);font-weight:600}.cr{color:var(--res);font-weight:600}
+
+.lower{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px}
+@media (max-width:860px){.lower{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.field{display:grid;gap:2px}
+.field .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px}
+.field output{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted);margin:0}
+.check{display:flex;align-items:center;gap:9px;font-size:15px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--ink)}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+
+.theory{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:6px}
+@media (max-width:860px){.theory{grid-template-columns:1fr}}
+.theory section{display:grid;gap:10px;align-content:start;min-width:0}
+.theory p,.theory li{margin:0;max-width:62ch}
+.theory ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.conds{display:grid;gap:6px;font:15px/1.4 var(--f-mono)}
+.conds div{display:flex;flex-wrap:wrap;gap:4px 12px}
+.conds b{font-family:var(--f-body)}
+kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 5px;background:var(--btn)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Ondas · Interferencia</div>
+    <h1>Interferencia de dos fuentes <span class="eq">Δr = nλ</span></h1>
+    <p>Dos fuentes coherentes emiten ondas circulares. Arrastra el punto P y compara las distancias S₁P y S₂P: la diferencia de camino decide si en P hay interferencia constructiva o destructiva.</p>
+  </header>
+
+  <div class="sim" id="sim">
+    <div class="legend" aria-hidden="true" id="legend">
+      <span class="c1">● S₁</span><span class="c2">● S₂</span>
+      <span class="cr"><i class="sw"></i>Antinodal (constructiva)</span>
+      <span><i class="sw d"></i>Nodal (destructiva)</span>
+      <span>◎ P (arrástralo)</span>
+    </div>
+    <div id="fieldWrap"><canvas id="field" aria-label="Cubeta de ondas con dos fuentes"></canvas></div>
+    <div class="bar">
+      <button id="bPlay" class="play">⏸ Pausa</button>
+      <button id="bSlow" aria-pressed="false">🐢 Cámara lenta</button>
+      <div class="seg" role="group" aria-label="Representación">
+        <button data-mode="waves" aria-pressed="true">Ondas</button>
+        <button data-mode="fronts" aria-pressed="false">Crestas y valles</button>
+        <button data-mode="amp" aria-pressed="false">Amplitud</button>
+      </div>
+      <span class="grow"></span>
+      <button id="bFull" title="Pantalla completa para proyectar">⛶</button>
+    </div>
+    <div class="readouts">
+      <div class="ro"><div class="k">S₁P</div><div class="v big c1" id="r1"></div></div>
+      <div class="ro"><div class="k">S₂P</div><div class="v big c2" id="r2"></div></div>
+      <div class="ro"><div class="k">Diferencia de camino Δr</div><div class="v big" id="dr"></div></div>
+      <div class="ro"><div class="k">Amplitud en P</div><div class="v big cr" id="amp"></div></div>
+      <div class="ro wide"><div class="k">Resultado en P</div><div class="v"><span class="chip" id="verdict"></span> <span id="why"></span></div></div>
+    </div>
+  </div>
+
+  <div class="lower">
+    <div class="card">
+      <h2>Desplazamiento en P frente al tiempo</h2>
+      <div id="ytWrap"><canvas id="yt" aria-label="Gráfica desplazamiento-tiempo en P"></canvas></div>
+      <p class="note"><span class="c1">— — onda de S₁</span> · <span class="c2">— — onda de S₂</span> · <span class="cr">——— suma en P</span>. Compara con la figura 14.32: en fase se refuerzan, en oposición se anulan.</p>
+    </div>
+    <div class="card">
+      <h2>Fuentes</h2>
+      <div class="field"><div class="top"><label for="lam">Longitud de onda λ</label><output id="oLam"></output></div>
+        <input type="range" id="lam" min="1" max="6" step="0.1" value="3"></div>
+      <div class="field"><div class="top"><label for="sep">Separación entre fuentes d</label><output id="oSep"></output></div>
+        <input type="range" id="sep" min="2" max="14" step="0.5" value="8"></div>
+      <div class="seg" role="group" aria-label="Fase de las fuentes">
+        <button data-phase="0" aria-pressed="true">En fase</button>
+        <button data-phase="1" aria-pressed="false">En oposición de fase</button>
+      </div>
+      <label class="check"><input type="checkbox" id="lines" checked> Líneas nodales y antinodales</label>
+      <div class="presets">
+        <button id="pEx">Ejemplo resuelto</button>
+        <button id="pAxis">P en el eje central</button>
+        <button id="pNear">d = λ</button>
+        <button id="pFar">d = 4λ</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="theory">
+    <section>
+      <h2>Condiciones de interferencia</h2>
+      <p>Si las dos fuentes están en fase y emiten la misma longitud de onda (fuentes coherentes), lo que ocurre en un punto P depende solo de la diferencia de camino Δr = |S₂P − S₁P|.</p>
+      <div class="conds">
+        <div><b class="cr">Constructiva</b> Δr = nλ &nbsp;(n = 0, 1, 2…)</div>
+        <div><b>Destructiva</b> Δr = (n + ½)λ</div>
+      </div>
+      <p>Uniendo todos los puntos con la misma Δr se obtienen hipérbolas: las líneas antinodales (máxima amplitud, 2A) y las nodales (amplitud cero). Si las fuentes están en oposición de fase, las condiciones se intercambian.</p>
+      <p class="note">Ejemplo resuelto: dos fuentes en fase emiten ondas de λ = 3,0 m. P está a 12,0 m de una y a 16,5 m de la otra. Δr = 16,5 − 12,0 = 4,5 m = 1,5λ, luego en P la interferencia es destructiva. Pulsa «Ejemplo resuelto» para verlo.</p>
+      <p class="note">Atajos: <kbd>espacio</kbd> pausa · pulsa o arrastra en la cubeta para mover P.</p>
+    </section>
+    <section>
+      <h2>Para la clase</h2>
+      <ol>
+        <li>Carga el ejemplo resuelto. Antes de mirar las lecturas, calcula Δr y decide el tipo de interferencia. Comprueba con la gráfica y–t.</li>
+        <li>Mueve P a lo largo de una línea nodal. ¿Qué valor de Δr se mantiene constante? ¿Cuánto vale la amplitud?</li>
+        <li>Aumenta d sin cambiar λ. ¿Qué les pasa a las líneas antinodales? ¿Cuántas hay con d = 4λ? Justifica por qué Δr no puede superar d.</li>
+        <li>Cambia a «En oposición de fase». ¿Qué pasa en el eje central? Escribe las nuevas condiciones de interferencia.</li>
+      </ol>
+    </section>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const WX0 = 0, WX1 = 36, WY0 = -12, WY1 = 12;  // cubeta en metros
+const SX = 4;                                    // x de las fuentes
+const T = 1.6;                                   // periodo de la animación (s)
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const st = { lam: 3, d: 8, anti: false, mode: 'waves', lines: true, playing: !reduce, slow: false, t: 0, P: { x: 0, y: 0 } };
+const fmt = (n, k = 1) => (n < 0 ? '−' : '') + Math.abs(n).toFixed(k).replace('.', ',');
+const S1 = () => ({ x: SX, y: st.d / 2 }), S2 = () => ({ x: SX, y: -st.d / 2 });
+const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+const phi = () => st.anti ? Math.PI : 0;
+
+function placeExample() {
+  // P a 12,0 m de S₁ y 16,5 m de S₂ (ejemplo del libro)
+  const r1 = 12, r2 = 16.5, c = st.d;
+  const a = (r1 * r1 - r2 * r2 + c * c) / (2 * c), h = Math.sqrt(Math.max(0, r1 * r1 - a * a));
+  st.P = { x: SX + h, y: S1().y - a }; // eje S₁→S₂ apunta hacia −y
+}
+
+/* ---------- Lienzos ---------- */
+const cv = $('field'), ctx = cv.getContext('2d');
+const yt = $('yt'), yctx = yt.getContext('2d');
+let W = 0, H = 0, YW = 0, YH = 0, sc = 1, ox = 0, oy = 0;
+let off = document.createElement('canvas'), octx = off.getContext('2d'), img = null, KR1 = null, KR2 = null, gridDirty = true, ampDirty = true;
+const X = x => ox + (x - WX0) * sc, Y = y => oy + (WY1 - y) * sc;
+const toWorld = (px, py) => ({ x: WX0 + (px - ox) / sc, y: WY1 - (py - oy) / sc });
+
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  W = $('fieldWrap').clientWidth;
+  H = Math.round(Math.min(W * (WY1 - WY0) / (WX1 - WX0), document.fullscreenElement ? window.innerHeight - 260 : 620));
+  sc = Math.min(W / (WX1 - WX0), H / (WY1 - WY0)); ox = (W - (WX1 - WX0) * sc) / 2; oy = (H - (WY1 - WY0) * sc) / 2;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  YW = $('ytWrap').clientWidth; YH = Math.round(Math.max(170, Math.min(240, YW * 0.38)));
+  yt.width = Math.round(YW * dpr); yt.height = Math.round(YH * dpr); yt.style.height = YH + 'px'; yctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  gridDirty = true;
+}
+new ResizeObserver(resize).observe($('fieldWrap'));
+new ResizeObserver(resize).observe($('ytWrap'));
+
+function buildGrid() {
+  const fw = (WX1 - WX0) * sc, fh = (WY1 - WY0) * sc;
+  const cols = Math.max(60, Math.round(fw / 2.5)), rows = Math.max(40, Math.round(fh / 2.5));
+  off.width = cols; off.height = rows; img = octx.createImageData(cols, rows);
+  KR1 = new Float32Array(cols * rows); KR2 = new Float32Array(cols * rows);
+  const k = 2 * Math.PI / st.lam, s1 = S1(), s2 = S2();
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const x = WX0 + (i + .5) / cols * (WX1 - WX0), y = WY1 - (j + .5) / rows * (WY1 - WY0);
+    KR1[j * cols + i] = k * Math.hypot(x - s1.x, y - s1.y);
+    KR2[j * cols + i] = k * Math.hypot(x - s2.x, y - s2.y);
+  }
+  gridDirty = false; ampDirty = true;
+}
+// Paletas fijas (es una imagen de agua: se ve igual en tema claro y oscuro)
+const lerp = (a, b, t) => a + (b - a) * t;
+function ramp(stops, n) {
+  const out = new Uint32Array(n);
+  for (let i = 0; i < n; i++) {
+    const t = i / (n - 1) * (stops.length - 1), k = Math.min(stops.length - 2, Math.floor(t)), f = t - k, a = stops[k], b = stops[k + 1];
+    const r = lerp(a[0], b[0], f) | 0, g = lerp(a[1], b[1], f) | 0, bl = lerp(a[2], b[2], f) | 0;
+    out[i] = (255 << 24) | (bl << 16) | (g << 8) | r;
+  }
+  return out;
+}
+const LUT_W = ramp([[6, 18, 48], [24, 72, 140], [70, 140, 210], [190, 225, 250], [255, 255, 255]], 256);
+const LUT_A = ramp([[6, 10, 24], [20, 40, 90], [40, 110, 190], [140, 200, 245], [255, 250, 235]], 256);
+
+function paintWaves(wt) {
+  const d = new Uint32Array(img.data.buffer), p = phi();
+  for (let i = 0; i < d.length; i++) {
+    const v = Math.cos(wt - KR1[i]) + Math.cos(wt - KR2[i] + p);   // −2 … 2
+    d[i] = LUT_W[Math.max(0, Math.min(255, ((v + 2) * 63.75) | 0))];
+  }
+  octx.putImageData(img, 0, 0);
+}
+function paintAmp() {
+  const d = new Uint32Array(img.data.buffer), p = phi();
+  for (let i = 0; i < d.length; i++) {
+    const a = Math.abs(2 * Math.cos((KR2[i] - KR1[i] - p) / 2)); // 0 … 2
+    d[i] = LUT_A[Math.min(255, (a * 127.5) | 0)];
+  }
+  octx.putImageData(img, 0, 0); ampDirty = false;
+}
+
+function tokens() {
+  const css = getComputedStyle(document.documentElement), C = k => css.getPropertyValue(k).trim();
+  return { ink: C('--ink'), muted: C('--muted'), minor: C('--grid-minor'), major: C('--grid-major'), p1: C('--p1'), p2: C('--p2'), res: C('--res'), panel: C('--panel'), paper: C('--paper') };
+}
+const mono = (sz, wt = 400) => `${wt} ${sz}px "JetBrains Mono", ui-monospace, monospace`;
+
+function hyperbola(delta) { // puntos con r₂ − r₁ = delta
+  const c = st.d / 2, a = delta / 2, pts = [];
+  if (Math.abs(a) >= c) return pts;
+  const b = Math.sqrt(c * c - a * a);
+  if (Math.abs(a) < 1e-9) { pts.push({ x: WX0 - 5, y: 0 }, { x: WX1 + 5, y: 0 }); return pts; }
+  const tmax = Math.asinh(60 / b);
+  for (let i = -200; i <= 200; i++) {
+    const t = i / 200 * tmax, u = -a * Math.cosh(t), v = b * Math.sinh(t);
+    pts.push({ x: SX + v, y: -u }); // eje S₁→S₂ = (0, −1); M en (SX, 0)
+  }
+  return pts;
+}
+
+function draw() {
+  if (gridDirty) buildGrid();
+  const C = tokens(), wt = 2 * Math.PI * st.t / T, s1 = S1(), s2 = S2(), P = st.P;
+  ctx.clearRect(0, 0, W, H);
+  const fx = X(WX0), fy = Y(WY1), fw = (WX1 - WX0) * sc, fh = (WY1 - WY0) * sc;
+  ctx.save(); ctx.beginPath(); ctx.rect(fx, fy, fw, fh); ctx.clip();
+  const onDark = st.mode !== 'fronts';
+  if (st.mode === 'fronts') {
+    ctx.fillStyle = C.panel; ctx.fillRect(fx, fy, fw, fh);
+    ctx.lineWidth = 1; ctx.strokeStyle = C.minor; ctx.beginPath();
+    for (let x = WX0; x <= WX1; x++) { ctx.moveTo(X(x) + .5, fy); ctx.lineTo(X(x) + .5, fy + fh); }
+    for (let y = WY0; y <= WY1; y++) { ctx.moveTo(fx, Y(y) + .5); ctx.lineTo(fx + fw, Y(y) + .5); }
+    ctx.stroke();
+    ctx.strokeStyle = C.major; ctx.beginPath();
+    for (let x = WX0; x <= WX1; x += 5) { ctx.moveTo(X(x) + .5, fy); ctx.lineTo(X(x) + .5, fy + fh); }
+    for (let y = -10; y <= 10; y += 5) { ctx.moveTo(fx, Y(y) + .5); ctx.lineTo(fx + fw, Y(y) + .5); }
+    ctx.stroke();
+    // crestas (continuas) y valles (discontinuos), como la fig. 14.30
+    const frac = ((wt / (2 * Math.PI)) % 1 + 1) % 1, rmax = 48;
+    const rings = (s, col, shift) => {
+      ctx.strokeStyle = col;
+      for (let j = 0; ; j++) {
+        const rc = (frac + shift + j) * st.lam, rt = rc + st.lam / 2;
+        if (rc > rmax) break;
+        ctx.lineWidth = 1.8; ctx.setLineDash([]); ctx.beginPath(); ctx.arc(X(s.x), Y(s.y), rc * sc, 0, 7); ctx.stroke();
+        ctx.lineWidth = 1.2; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.arc(X(s.x), Y(s.y), rt * sc, 0, 7); ctx.stroke();
+      }
+      ctx.setLineDash([]);
+    };
+    rings(s1, C.p1, 0); rings(s2, C.p2, st.anti ? 0.5 : 0);
+  } else {
+    if (st.mode === 'waves') paintWaves(wt); else if (ampDirty) paintAmp();
+    ctx.imageSmoothingEnabled = true; ctx.drawImage(off, fx, fy, fw, fh);
+  }
+  // líneas nodales y antinodales
+  if (st.lines) {
+    const mmax = Math.floor(2 * st.d / st.lam + 1e-9);
+    for (let m = -mmax; m <= mmax; m++) {
+      const delta = m * st.lam / 2; if (Math.abs(delta) >= st.d) continue;
+      const anti = (Math.abs(m) % 2 === 0) !== st.anti; // antinodal = constructiva
+      const pts = hyperbola(delta); if (!pts.length) continue;
+      ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(X(p.x), Y(p.y)) : ctx.moveTo(X(p.x), Y(p.y)));
+      if (anti) { ctx.strokeStyle = C.res; ctx.lineWidth = 2.2; ctx.setLineDash([]); }
+      else { ctx.strokeStyle = onDark ? 'rgba(255,255,255,.9)' : C.ink; ctx.lineWidth = 1.4; ctx.setLineDash([6, 5]); }
+      ctx.stroke(); ctx.setLineDash([]);
+      // etiqueta en el borde derecho
+      const v = WX1 - 1.2 - SX, c = st.d / 2, a = delta / 2, b = Math.sqrt(c * c - a * a);
+      const yy = Math.abs(a) < 1e-9 ? 0 : a * Math.cosh(Math.asinh(v / b));
+      const k = Math.abs(m) / 2, txt = 'Δr = ' + (k === 0 ? '0' : (k === 1 ? '' : fmt(k, Number.isInteger(k) ? 0 : 1))) + (k ? 'λ' : '');
+      ctx.font = mono(11, 600); ctx.textBaseline = 'middle';
+      const tw = ctx.measureText(txt).width;
+      let lx, ly; // centro de la etiqueta en píxeles
+      if (yy > WY0 + .6 && yy < WY1 - .6) { lx = X(WX1) - tw / 2 - 6; ly = Y(yy); }
+      else { // sale por arriba o por abajo
+        const yb = Math.sign(a) * (WY1 - .7), xb = SX + b * Math.sinh(Math.acosh(Math.max(1, yb / a)));
+        if (xb < WX1 - 1) { lx = Math.min(X(xb) + tw / 2 + 8, X(WX1) - tw / 2 - 6); ly = Y(yb); }
+      }
+      if (lx != null) {
+        ctx.textAlign = 'center';
+        ctx.fillStyle = onDark ? 'rgba(6,14,34,.72)' : C.panel; ctx.fillRect(lx - tw / 2 - 4, ly - 9, tw + 8, 18);
+        ctx.fillStyle = anti ? C.res : (onDark ? '#fff' : C.ink); ctx.fillText(txt, lx, ly);
+      }
+    }
+  }
+  ctx.restore();
+  // borde de la cubeta
+  ctx.strokeStyle = C.major; ctx.lineWidth = 1; ctx.strokeRect(fx + .5, fy + .5, fw - 1, fh - 1);
+  // segmentos S₁P y S₂P
+  const seg = (s, col, lab, side) => {
+    ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(X(s.x), Y(s.y)); ctx.lineTo(X(P.x), Y(P.y)); ctx.stroke();
+    const mx = (X(s.x) + X(P.x)) / 2, my = (Y(s.y) + Y(P.y)) / 2;
+    const txt = `${lab} = ${fmt(dist(s, P))} m`; ctx.font = mono(12, 600);
+    const tw = ctx.measureText(txt).width;
+    const lx = Math.max(fx + 4, Math.min(fx + fw - tw - 12, mx - tw / 2 - 4)), ly = my + side * 14 - 10;
+    ctx.fillStyle = onDark ? 'rgba(6,14,34,.8)' : C.panel; ctx.fillRect(lx, ly, tw + 8, 20);
+    ctx.fillStyle = onDark ? '#fff' : col; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, lx + 4, ly + 10);
+  };
+  seg(s1, C.p1, 'S₁P', -1); seg(s2, C.p2, 'S₂P', 1);
+  // fuentes
+  const src = (s, col, lab, dy) => {
+    ctx.beginPath(); ctx.arc(X(s.x), Y(s.y), 7, 0, 7); ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke();
+    ctx.font = mono(13, 600); ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = onDark ? '#fff' : col; ctx.fillText(lab, X(s.x) - 12, Y(s.y) + dy);
+  };
+  src(s1, C.p1, 'S₁', 0); src(s2, C.p2, 'S₂', 0);
+  // punto P
+  ctx.beginPath(); ctx.arc(X(P.x), Y(P.y), 9, 0, 7); ctx.lineWidth = 3; ctx.strokeStyle = onDark ? '#fff' : C.ink; ctx.stroke();
+  ctx.beginPath(); ctx.arc(X(P.x), Y(P.y), 3.5, 0, 7); ctx.fillStyle = C.res; ctx.fill();
+  ctx.font = mono(14, 600); ctx.fillStyle = onDark ? '#fff' : C.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+  ctx.fillText('P', X(P.x) + 11, Y(P.y) - 6);
+  // escala
+  ctx.font = mono(11); ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillStyle = onDark ? '#fff' : C.muted;
+  const bx = fx + 10, by = fy + fh - 10;
+  ctx.fillRect(bx, by - 3, 5 * sc, 3); ctx.fillText('5 m', bx, by - 6);
+
+  drawYT(C, wt);
+}
+
+function drawYT(C, wt) {
+  const L = 34, R = YW - 8, top = 10, bot = YH - 22, mid = (top + bot) / 2, A = (bot - top) / 2 / 2.3;
+  yctx.clearRect(0, 0, YW, YH); yctx.fillStyle = C.panel; yctx.fillRect(0, 0, YW, YH);
+  yctx.strokeStyle = C.major; yctx.lineWidth = 1; yctx.beginPath();
+  for (const k of [-2, -1, 0, 1, 2]) { yctx.moveTo(L, Math.round(mid - k * A) + .5); yctx.lineTo(R, Math.round(mid - k * A) + .5); }
+  yctx.stroke();
+  yctx.font = mono(11); yctx.fillStyle = C.muted; yctx.textAlign = 'right'; yctx.textBaseline = 'middle';
+  [['2A', 2], ['A', 1], ['0', 0], ['−A', -1], ['−2A', -2]].forEach(([s, k]) => yctx.fillText(s, L - 5, mid - k * A));
+  yctx.textAlign = 'right'; yctx.textBaseline = 'top'; yctx.fillText('tiempo →', R, bot + 5);
+  const k = 2 * Math.PI / st.lam, r1 = dist(S1(), st.P), r2 = dist(S2(), st.P), p = phi();
+  const span = 2 * 2 * Math.PI; // dos periodos visibles, desplazándose
+  const curve = (f, col, w, dash) => {
+    yctx.beginPath();
+    for (let i = 0; i <= 240; i++) { const x = L + i / 240 * (R - L), ph = wt - span + i / 240 * span; const y = mid - f(ph) * A; i ? yctx.lineTo(x, y) : yctx.moveTo(x, y); }
+    yctx.strokeStyle = col; yctx.lineWidth = w; yctx.setLineDash(dash || []); yctx.stroke(); yctx.setLineDash([]);
+  };
+  curve(ph => Math.cos(ph - k * r1), C.p1, 1.8, [6, 4]);
+  curve(ph => Math.cos(ph - k * r2 + p), C.p2, 1.8, [6, 4]);
+  curve(ph => Math.cos(ph - k * r1) + Math.cos(ph - k * r2 + p), C.res, 3);
+}
+
+function readouts() {
+  const r1 = dist(S1(), st.P), r2 = dist(S2(), st.P), dr = Math.abs(r2 - r1), m = dr / st.lam;
+  const ampl = Math.abs(2 * Math.cos((2 * Math.PI / st.lam * (r2 - r1) - phi()) / 2));
+  $('r1').textContent = fmt(r1, 2) + ' m'; $('r2').textContent = fmt(r2, 2) + ' m';
+  $('dr').textContent = `${fmt(dr, 2)} m = ${fmt(m, 2)}λ`;
+  $('amp').textContent = `${fmt(ampl, 2)} A`;
+  const nI = Math.round(m), nH = Math.floor(m);
+  const isInt = Math.abs(m - nI) < 0.04, isHalf = Math.abs(m - nH - 0.5) < 0.04;
+  const v = $('verdict'), why = $('why');
+  const cons = st.anti ? isHalf : isInt, dest = st.anti ? isInt : isHalf;
+  const ph = st.anti ? ' (fuentes en oposición: condiciones intercambiadas)' : '';
+  if (cons) { v.textContent = 'Interferencia constructiva'; v.className = 'chip ok'; why.textContent = (isInt ? `Δr = ${nI}λ, un número entero de λ` : `Δr = (${nH} + ½)λ`) + ph + ' → amplitud máxima, 2A.'; }
+  else if (dest) { v.textContent = 'Interferencia destructiva'; v.className = 'chip warn'; why.textContent = (isHalf ? `Δr = (${nH} + ½)λ, un número semientero de λ` : `Δr = ${nI}λ`) + ph + ' → las ondas se anulan.'; }
+  else { v.textContent = 'Situación intermedia'; v.className = 'chip'; why.textContent = `Δr = ${fmt(m, 2)}λ no es entero ni semientero: la amplitud está entre 0 y 2A.`; }
+}
+
+/* ---------- Controles ---------- */
+function sync() {
+  $('lam').value = st.lam; $('sep').value = st.d;
+  $('oLam').textContent = fmt(st.lam) + ' m'; $('oSep').textContent = `${fmt(st.d)} m = ${fmt(st.d / st.lam, 2)}λ`;
+  $('bPlay').textContent = st.playing ? '⏸ Pausa' : '▶ Reproducir';
+  $('bSlow').setAttribute('aria-pressed', st.slow);
+  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === st.mode));
+  document.querySelectorAll('[data-phase]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.phase === '1') === st.anti));
+  $('lines').checked = st.lines;
+}
+const geom = () => { gridDirty = true; sync(); };
+const clampP = () => { st.P.x = Math.min(WX1 - .3, Math.max(WX0 + .3, st.P.x)); st.P.y = Math.min(WY1 - .3, Math.max(WY0 + .3, st.P.y)); };
+$('lam').addEventListener('input', e => { st.lam = +e.target.value; geom(); });
+$('sep').addEventListener('input', e => { st.d = +e.target.value; geom(); });
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => { st.mode = b.dataset.mode; ampDirty = true; sync(); }));
+document.querySelectorAll('[data-phase]').forEach(b => b.addEventListener('click', () => { st.anti = b.dataset.phase === '1'; ampDirty = true; sync(); }));
+$('lines').addEventListener('change', e => { st.lines = e.target.checked; });
+$('bPlay').addEventListener('click', () => { st.playing = !st.playing; sync(); });
+$('bSlow').addEventListener('click', () => { st.slow = !st.slow; sync(); });
+$('pEx').addEventListener('click', () => { st.lam = 3; st.d = 8; st.anti = false; placeExample(); geom(); });
+$('pAxis').addEventListener('click', () => { st.P = { x: 24, y: 0 }; sync(); });
+$('pNear').addEventListener('click', () => { st.d = Math.round(st.lam * 2) / 2; geom(); });
+$('pFar').addEventListener('click', () => { st.d = Math.min(14, Math.round(st.lam * 4 * 2) / 2); geom(); });
+
+let drag = false;
+const setP = e => { const r = cv.getBoundingClientRect(); st.P = toWorld(e.clientX - r.left, e.clientY - r.top); clampP(); };
+cv.addEventListener('pointerdown', e => { drag = true; cv.setPointerCapture(e.pointerId); setP(e); });
+cv.addEventListener('pointermove', e => { if (drag) setP(e); });
+cv.addEventListener('pointerup', () => { drag = false; });
+cv.addEventListener('pointercancel', () => { drag = false; });
+document.addEventListener('keydown', e => {
+  if (e.target.closest && e.target.closest('input,button,textarea,select')) return;
+  if (e.key === ' ') { e.preventDefault(); $('bPlay').click(); }
+});
+if (!document.fullscreenEnabled) $('bFull').hidden = true;
+$('bFull').addEventListener('click', () => {
+  const p = document.fullscreenElement ? document.exitFullscreen() : $('sim').requestFullscreen();
+  if (p && p.catch) p.catch(() => { $('bFull').hidden = true; });
+});
+document.addEventListener('fullscreenchange', resize);
+
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  if (st.playing) st.t += dt * (st.slow ? 0.25 : 1);
+  if (W > 0 && YW > 0) { draw(); readouts(); }
+  requestAnimationFrame(frame);
+}
+placeExample(); sync(); resize(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>
