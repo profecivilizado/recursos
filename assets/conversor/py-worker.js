@@ -8,16 +8,16 @@ let readyPromise = null;
 
 async function init(base) {
   py = await loadPyodide({ indexURL: PYODIDE });
-  await py.loadPackage(["micropip", "Pillow", "lxml"]);
+  // Las dependencias se cargan desde Pyodide (rápido); de PyPI solo los tres paquetes puros
+  await py.loadPackage(["micropip", "Pillow", "lxml", "cryptography", "typing-extensions", "charset-normalizer"]);
   await py.runPythonAsync(`
 import micropip
-await micropip.install(["python-docx==1.2.0", "pdfminer.six==20260107"])
-await micropip.install("pdfplumber==0.11.10", deps=False)
+await micropip.install(["python-docx==1.2.0", "pdfminer.six==20260107", "pdfplumber==0.11.10"], deps=False)
 `);
   py.FS.mkdirTree("/conversor");
   py.FS.mkdirTree("/work");
   for (const name of ["conversor.py", "puente.py"]) {
-    const r = await fetch(base + name, { cache: "no-cache" });
+    const r = await fetch(base + name + "?v=3", { cache: "no-cache" });
     if (!r.ok) throw new Error("No se pudo descargar " + name);
     py.FS.writeFile("/conversor/" + name, new Uint8Array(await r.arrayBuffer()));
   }

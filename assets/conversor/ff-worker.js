@@ -7,7 +7,6 @@ let loading = null;
 async function toBlobURL(url, type, onProgress) {
   const r = await fetch(url);
   if (!r.ok) throw new Error("No se pudo descargar el motor de vídeo (" + r.status + ")");
-  const total = Number(r.headers.get("content-length")) || 0;
   const reader = r.body.getReader();
   const chunks = [];
   let got = 0;
@@ -16,7 +15,7 @@ async function toBlobURL(url, type, onProgress) {
     if (done) break;
     chunks.push(value);
     got += value.length;
-    if (onProgress && total) onProgress(got / total);
+    if (onProgress) onProgress(got);
   }
   return URL.createObjectURL(new Blob(chunks, { type }));
 }
@@ -24,7 +23,7 @@ async function toBlobURL(url, type, onProgress) {
 async function load() {
   const coreURL = await toBlobURL(CORE + "ffmpeg-core.js", "text/javascript");
   const wasmURL = await toBlobURL(CORE + "ffmpeg-core.wasm", "application/wasm",
-    (p) => self.postMessage({ type: "download", progress: p }));
+    (bytes) => self.postMessage({ type: "download", bytes }));
   importScripts(coreURL);
   core = await self.createFFmpegCore({
     mainScriptUrlOrBlob: coreURL + "#" + btoa(JSON.stringify({ wasmURL })),

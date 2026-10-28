@@ -5,8 +5,8 @@
   <title>Profe Civilizado · Otros recursos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Herramientas para estudiantes: conversor de archivos que funciona en el navegador." />
-  <link rel="stylesheet" href="assets/style.css" />
-  <script defer src="assets/main.js"></script>
+  <link rel="stylesheet" href="assets/style.css?v=3" />
+  <script defer src="assets/main.js?v=3"></script>
 </head>
 <body>
   <nav class="nav" aria-label="Navegación principal">
@@ -66,19 +66,18 @@
               <a id="cv-download" class="btn" href="#">Descargar</a>
             </div>
 
-            <dl class="cv-engines">
-              <div><dt>Imágenes y PDF</dt><dd data-state="ready">listo</dd></div>
-              <div><dt>Python (Word, TIFF, ICO, PNG)</dt><dd id="cv-engine-py">sin cargar</dd></div>
-              <div><dt>Vídeo y audio</dt><dd id="cv-engine-ff">se descarga al elegir un vídeo o audio</dd></div>
-            </dl>
-            <p class="cv-note">Versión web de <a href="assets/conversor/conversor.py" download>conversor.py</a>. DOCX → PDF solo está en la app de escritorio. Con vídeos largos el navegador puede ir lento: funciona mejor con clips cortos.</p>
+            <div id="cv-wait" class="cv-wait" role="status" aria-live="polite" hidden>
+              <span class="cv-spinner" aria-hidden="true"></span>
+              <div><strong>Espera mientras se carga Python…</strong><span>Solo tarda la primera vez. Después irá mucho más rápido.</span></div>
+            </div>
+            <p class="cv-note">Versión web de <a href="assets/conversor/conversor.py" download>conversor.py</a>. Con vídeos largos el navegador puede ir lento: funciona mejor con clips cortos.</p>
           </div>
         </details>
       </div>
     </section>
 
     <script type="module">
-      import { init } from "./assets/conversor/conversor.js";
+      import { init } from "./assets/conversor/conversor.js?v=3";
       init();
     </script>
   </main>

@@ -153,7 +153,7 @@ const engines = {
 function pyReady() {
   const e = engines.py;
   if (!e.ready) {
-    e.worker = makeWorker(BASE + "py-worker.js");
+    e.worker = makeWorker(BASE + "py-worker.js?v=3");
     e.state = "loading";
     renderEngines();
     e.ready = e.worker.call({ cmd: "init", base: BASE })
@@ -165,8 +165,8 @@ function pyReady() {
 function ffReady() {
   const e = engines.ff;
   if (!e.ready) {
-    e.worker = makeWorker(BASE + "ff-worker.js", (m) => {
-      if (m.type === "download") setProgress(m.progress, `Descargando el motor de vídeo… ${Math.round(m.progress * 100)} %`);
+    e.worker = makeWorker(BASE + "ff-worker.js?v=3", (m) => {
+      if (m.type === "download") setProgress(Math.min(1, m.bytes / 32e6), `Descargando el motor de vídeo (solo la primera vez)… ${Math.round(m.bytes / 1e6)} de 32 MB`);
       if (m.type === "progress") setProgress(Math.max(0, Math.min(1, m.progress)), `Procesando… ${Math.round(Math.max(0, Math.min(1, m.progress)) * 100)} %`);
     });
     e.state = "loading";
@@ -179,8 +179,12 @@ function ffReady() {
 }
 
 async function runPython(file, { label, func, value, pages, stemName }) {
-  status("Preparando el motor de Python…");
-  await pyReady();
+  if (engines.py.state !== "ready") {
+    setProgress(null);
+    status("");
+    $("#cv-wait").hidden = false;
+    try { await pyReady(); } finally { $("#cv-wait").hidden = true; }
+  }
   status("Procesando con Python…");
   const data = await file.arrayBuffer();
   const transfer = [data, ...(pages || [])];
@@ -280,6 +284,34 @@ async function loadPdfLib(file) {
   return PDFDocument.load(await file.arrayBuffer(), { ignoreEncryption: true });
 }
 const pdfBlob = (bytes) => new Blob([bytes], { type: "application/pdf" });
+
+// ------------------------------------------------------------------ Word → PDF
+let docxPromise = null;
+function docxPreview() {
+  docxPromise = docxPromise || loadScript("https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js")
+    .then(() => loadScript("https://cdn.jsdelivr.net/npm/docx-preview@0.3.5/dist/docx-preview.min.js"))
+    .then(() => window.docx);
+  return docxPromise;
+}
+async function docxToPdf(file) {
+  status("Preparando el documento…");
+  const lib = await docxPreview();
+  const frame = document.createElement("iframe");
+  frame.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden";
+  document.body.appendChild(frame);
+  const doc = frame.contentDocument;
+  doc.open();
+  doc.write(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>${splitName(file.name)[0]}</title>
+    <style>@page{margin:0}html,body{margin:0;background:#fff}.docx-wrapper{padding:0!important;background:#fff!important}
+    .docx-wrapper>section.docx{margin:0!important;box-shadow:none!important;page-break-after:always}</style></head><body></body></html>`);
+  doc.close();
+  await lib.renderAsync(await file.arrayBuffer(), doc.body, doc.head, { inWrapper: true, breakPages: true, ignoreLastRenderedPageBreak: true });
+  await new Promise((r) => setTimeout(r, 300));
+  frame.contentWindow.focus();
+  frame.contentWindow.print();
+  setTimeout(() => frame.remove(), 60000);
+  return { printed: true };
+}
 
 // ------------------------------------------------------------------ acciones
 // Igual que actions_for() de conversor.py. Cada acción: {label, run, ask?, engine}
@@ -448,7 +480,7 @@ function actionsFor(file) {
     } });
   } else if (ext === ".docx") {
     acts.push({ label: "DOCX → TXT", engine: "py", run: () => runPython(file, { label: "DOCX → TXT" }) });
-    acts.push({ label: "DOCX → PDF", disabled: "Solo en la app de escritorio (necesita LibreOffice)." });
+    acts.push({ label: "DOCX → PDF", hint: "Se abre el cuadro de imprimir: elige «Guardar como PDF».", run: () => docxToPdf(file) });
   } else if (ext === ".txt") {
     acts.push({ label: "TXT → DOCX", engine: "py", run: () => runPython(file, { label: "TXT → DOCX" }) });
   } else if (VID.includes(ext)) {
@@ -499,12 +531,7 @@ function setProgress(p, text) {
   if (p != null) bar.value = p;
   if (text) status(text);
 }
-function renderEngines() {
-  const label = { idle: "sin cargar", loading: "cargando…", ready: "listo", error: "no disponible" };
-  const py = $("#cv-engine-py"), ff = $("#cv-engine-ff");
-  if (py) { py.textContent = label[engines.py.state]; py.dataset.state = engines.py.state; }
-  if (ff) { ff.textContent = engines.ff.state === "idle" ? "se descarga al elegir un vídeo o audio" : label[engines.ff.state]; ff.dataset.state = engines.ff.state; }
-}
+function renderEngines() { /* el estado se muestra con el aviso grande */ }
 
 function chooseFile(file) {
   if (!file || busy) return;
@@ -596,8 +623,8 @@ async function execute(a, value) {
   const t0 = performance.now();
   try {
     const r = await a.run(value);
-    showResult(r, ((performance.now() - t0) / 1000));
-    status("");
+    if (r && r.printed) status("En el cuadro de imprimir, elige «Guardar como PDF».");
+    else { showResult(r, ((performance.now() - t0) / 1000)); status(""); }
   } catch (err) {
     console.error(err);
     status("No se pudo completar: " + (err.message || err), "error");
