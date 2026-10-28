@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Otros recursos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Herramientas para estudiantes: conversor de archivos que funciona en el navegador." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="wrap">
+      <a class="brand" href="index.html">Profe Civilizado</a>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="recursos-eso.html">Recursos ESO</a></li>
+        <li><a href="recursos-bachillerato.html">Recursos Bachillerato</a></li>
+        <li><a href="otros-recursos.html" aria-current="page">Otros recursos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Otros recursos</p>
+        <h1>Herramientas.</h1>
+        <p class="lead">Utilidades para el día a día, que funcionan directamente en tu navegador.</p>
+      </div>
+    </section>
+
+    <section class="alt" style="padding-top:56px">
+      <div class="wrap resources">
+        <details class="resource" id="conversor" open>
+          <summary><span class="r-title"><span class="tag">Utilidad · Python + navegador</span><h3>Conversor de archivos</h3></span></summary>
+          <div class="resource-body">
+            <p class="muted">Convierte, comprime, recorta y une imágenes, PDF, documentos, vídeos y audios. Todo se procesa en tu dispositivo: tus archivos no se suben a ningún sitio.</p>
+
+            <div id="cv-drop" class="cv-drop" role="button" tabindex="0" aria-label="Elegir un archivo">
+              <strong>Arrastra un archivo aquí</strong>
+              <span>o haz clic para elegirlo</span>
+            </div>
+            <input id="cv-input" type="file" hidden>
+
+            <div id="cv-file" class="cv-file" hidden>
+              <span id="cv-file-name" class="cv-file-name"></span>
+              <span id="cv-file-size" class="muted"></span>
+            </div>
+
+            <div id="cv-actions" class="cv-actions"></div>
+            <div id="cv-ask" class="cv-ask" hidden></div>
+
+            <progress id="cv-progress" class="cv-progress" max="1" value="0" hidden></progress>
+            <p id="cv-status" class="cv-status" role="status" aria-live="polite" hidden></p>
+
+            <div id="cv-result" class="cv-result" hidden>
+              <div class="cv-result-text">
+                <span class="tag">Listo</span>
+                <strong id="cv-result-name"></strong>
+                <span id="cv-result-size" class="muted"></span>
+              </div>
+              <a id="cv-download" class="btn" href="#">Descargar</a>
+            </div>
+
+            <dl class="cv-engines">
+              <div><dt>Imágenes y PDF</dt><dd data-state="ready">listo</dd></div>
+              <div><dt>Python (Word, TIFF, ICO, PNG)</dt><dd id="cv-engine-py">sin cargar</dd></div>
+              <div><dt>Vídeo y audio</dt><dd id="cv-engine-ff">se descarga al elegir un vídeo o audio</dd></div>
+            </dl>
+            <p class="cv-note">Versión web de <a href="assets/conversor/conversor.py" download>conversor.py</a>. DOCX → PDF solo está en la app de escritorio. Con vídeos largos el navegador puede ir lento: funciona mejor con clips cortos.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <script type="module">
+      import { init } from "./assets/conversor/conversor.js";
+      init();
+    </script>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y"></span> Profe Civilizado</span>
+      <span>Hecho con HTML &amp; CSS</span>
+    </div>
+  </footer>
+</body>
+</html>

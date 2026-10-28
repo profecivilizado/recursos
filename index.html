@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Recursos para estudiantes de ESO y Bachillerato. Web creada con GitHub Pages." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="wrap">
+      <a class="brand" href="index.html">Profe Civilizado</a>
+      <ul class="menu">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="recursos-eso.html">Recursos ESO</a></li>
+        <li><a href="recursos-bachillerato.html">Recursos Bachillerato</a></li>
+        <li><a href="otros-recursos.html">Otros recursos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="levels"><span class="chip">ESO</span><span class="chip">Bachillerato</span></div>
+        <h1>¡Bienvenidas y bienvenidos!</h1>
+        <p class="lead">Recursos que pueden seros de utilidad durante el curso, reunidos en un solo sitio.</p>
+        <div class="ctas">
+          <a class="btn" href="recursos-eso.html">Ver Recursos ESO</a>
+          <a class="btn" href="recursos-bachillerato.html">Ver Recursos Bachillerato</a>
+        </div>
+        <div class="ctas">
+          <a class="btn btn-link" href="sobre-mi.html">Conocer al Profe Civilizado</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap about">
+        <div class="avatar"><img src="img/imagen-salva.jpeg" alt="Imagen de Salva Castillo" onerror="this.remove()"><span aria-hidden="true">SC</span></div>
+        <div class="about-text">
+          <p class="eyebrow">El profe</p>
+          <h2>Salva Castillo.</h2>
+          <p><strong>Profesor de Secundaria y Bachillerato</strong> en el Colegio El Valle Alicante. Creador de esta web y responsable del material.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Últimas novedades</p>
+          <h2>Lo último que he compartido.</h2>
+        </div>
+        <div class="grid-3">
+          <a class="card" href="recursos-bachillerato.html#rayos-opticos">
+            <span class="tag">Bachillerato · Física</span>
+            <h3>Simulador de rayos ópticos</h3>
+            <p class="grow">Applet de GeoGebra para Óptica Geométrica.</p>
+            <span class="go">Abrir ›</span>
+          </a>
+          <a class="card" href="recursos-eso.html#ggb">
+            <span class="tag">ESO · Matemáticas</span>
+            <h3>Lugares geométricos de un triángulo</h3>
+            <p class="grow">Applet de GeoGebra con los puntos notables del triángulo.</p>
+            <span class="go">Abrir ›</span>
+          </a>
+          <a class="card" href="recursos-eso.html#calc-py">
+            <span class="tag">ESO · Matemáticas</span>
+            <h3>Calculadora pitagórica</h3>
+            <p class="grow">Calcula la hipotenusa o el cateto que falta, con Python.</p>
+            <span class="go">Abrir ›</span>
+          </a>
+        </div>
+        <p class="note">Nuevos recursos se acercan.</p>
+      </div>
+    </section>
+
+    <section class="alt" id="recursos">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Recursos del curso</p>
+          <h2>Tus herramientas de clase.</h2>
+        </div>
+        <div class="grid-4">
+          <a class="card" href="index.html">
+            <span class="app-icon" style="background:#7719aa">N</span>
+            <h3>Guía OneNote</h3>
+            <p class="grow">Dispondrán de un OneNote con todos los apuntes de la asignatura.</p>
+            <span class="go">OneNote ›</span>
+          </a>
+          <a class="card" href="index.html">
+            <span class="app-icon" style="background:#5059c9">T</span>
+            <h3>Prácticas en Teams</h3>
+            <p class="grow">Todas las prácticas aparecerán en el Teams de la asignatura.</p>
+            <span class="go">Microsoft Teams ›</span>
+          </a>
+          <a class="card" href="index.html">
+            <span class="app-icon" style="background:#0364b8">O</span>
+            <h3>Carpeta en OneDrive</h3>
+            <p class="grow">Aquí tendrán diferentes utilidades para el curso.</p>
+            <span class="go">OneDrive ›</span>
+          </a>
+          <div class="card soon" title="Próximamente">
+            <span class="app-icon" style="background:var(--muted)">+</span>
+            <h3>Nuevos recursos</h3>
+            <p class="grow">Nuevos materiales y web se compartirán a lo largo del curso.</p>
+            <span class="go">Próximamente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">PRSI</p>
+          <h2>Prácticas destacadas.</h2>
+          <p>Del hardware a la programación, en el orden en que las trabajamos.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card practice"><div class="meta"><span class="area">Hardware</span><span class="num">1</span></div><h3>Componentes de un PC</h3><p>Conoce los componentes de un PC y la compatibilidad entre ellos.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Hardware</span><span class="num">2</span></div><h3>Desmontar un PC</h3><p>Desmonta un PC real y diseña uno virtual.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Redes</span><span class="num">3</span></div><h3>Configuración de un router</h3><p>Aprende a configurar tu router para crear subredes y añadir protección y seguridad.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Web</span><span class="num">4</span></div><h3>Creación de una página web</h3><p>Podrás crear tu propia página web personalizada y gratuita usando GitHub Pages.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Excel</span><span class="num">5</span></div><h3>Calculadoras de Excel</h3><p>Aprende a crear calculadoras para fórmulas específicas en función de ciertos parámetros.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Excel</span><span class="num">6</span></div><h3>Bases de datos y cálculos con Excel</h3><p>Aprende a crear bases de datos organizadas que te permitan gestionar las cuentas de un negocio.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Python</span><span class="num">7</span></div><h3>Generador de contraseñas</h3><p>Aprende a crear un generador de contraseñas seguras con Python.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Python</span><span class="num">8</span></div><h3>Calculadora completa</h3><p>Diseña una calculadora completa con fórmulas usando Python.</p></article>
+          <article class="card practice"><div class="meta"><span class="area">Python + IA</span><span class="num">9</span></div><h3>Diseña tu propio programa</h3><p>Usando Python y la IA, podrás diseñar tu propio programa donde tu imaginación es el límite.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">FAQ rápidas</p>
+          <h2>Cómo está hecha esta web.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>¿Por qué GitHub Pages y no Google Sites o WordPress?</summary>
+            <p>Control total del código, versión gratuita, y aprendes HTML/CSS real. Menos magia negra, más cerebro.</p>
+          </details>
+          <details>
+            <summary>¿Cómo actualizo la web?</summary>
+            <p>Haz un commit al repo. GitHub Pages reconstruye y publica solo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y"></span> Profe Civilizado</span>
+      <span>Hecho con HTML &amp; CSS</span>
+    </div>
+  </footer>
+</body>
+</html>

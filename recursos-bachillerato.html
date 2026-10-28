@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Recursos Bachillerato</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Recursos interactivos de Matemáticas, Física y Programación." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="wrap">
+      <a class="brand" href="index.html">Profe Civilizado</a>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
+        <li><a href="recursos-eso.html">Recursos ESO</a></li>
+        <li><a href="recursos-bachillerato.html" aria-current="page">Recursos Bachillerato</a></li>
+        <li><a href="otros-recursos.html">Otros recursos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Recursos Bachillerato</p>
+        <h1>Recursos interactivos.</h1>
+        <p class="lead">Despliega lo que necesites.</p>
+      </div>
+    </section>
+
+    <section class="alt" style="padding-top:56px">
+      <div class="wrap resources">
+        <details class="resource" id="rayos-opticos">
+          <summary><span class="r-title"><span class="tag">Física · Applet GeoGebra</span><h3>Simulador de rayos ópticos</h3></span></summary>
+          <div class="resource-body">
+            <div class="embed-wrap">
+              <iframe
+                src="https://www.geogebra.org/material/iframe/id/ay6bu6jz/width/1400/height/900/border/888888/rc/false/ai/false/sdz/true/ml/false/mb/false"
+                title="Simulador de rayos ópticos" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </details>
+
+        <details class="resource" id="simulador-cmd">
+          <summary><span class="r-title"><span class="tag">Redes · Simulador</span><h3>Simulador de CMD: redes y conectividad</h3></span></summary>
+          <div class="resource-body">
+            <p class="muted">Practica los comandos de diagnóstico de red de Windows. Escribe HELP para consultar los comandos disponibles. Los resultados corresponden a una red ficticia.</p>
+            <div class="embed-wrap">
+              <iframe src="simulador-cmd/index.html" title="Simulador educativo de CMD" loading="lazy"></iframe>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y"></span> Profe Civilizado</span>
+      <span>Hecho con HTML &amp; CSS</span>
+    </div>
+  </footer>
+</body>
+</html>

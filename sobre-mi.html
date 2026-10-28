@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profe Civilizado · Sobre mí</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Conoce a Salva Castillo, profesor y creador de Profe Civilizado." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/main.js"></script>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="wrap">
+      <a class="brand" href="index.html">Profe Civilizado</a>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre-mi.html" aria-current="page">Sobre mí</a></li>
+        <li><a href="recursos-eso.html">Recursos ESO</a></li>
+        <li><a href="recursos-bachillerato.html">Recursos Bachillerato</a></li>
+        <li><a href="otros-recursos.html">Otros recursos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <button id="themeToggle" class="toggle" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap about">
+        <div class="avatar"><img src="img/imagen-salva.jpeg" alt="Imagen de Salva Castillo" onerror="this.remove()"><span aria-hidden="true">SC</span></div>
+        <div class="about-text">
+          <p class="eyebrow">Sobre mí</p>
+          <h1>Salva Castillo.</h1>
+          <p>Ingeniero civil especializado en transportes y servicios urbanos. <strong>Doctor en Didáctica de las Matemáticas.</strong> Profesor de Matemáticas, FyQ, TIC y Programación.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap">
+        <p class="quote">«Como ingeniero construí un puente, lo crucé y me convertí en profesor.»</p>
+        <div class="tags">
+          <span>IB · PAI · PD</span><span>Mates</span><span>FYQ</span><span>TIC</span>
+          <span>PRSI</span><span>Geogebra</span><span>Sketchup</span><span>Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid-3" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="card">
+          <p class="eyebrow">En clase</p>
+          <ul class="checks">
+            <li>Pensamiento crítico y empatía.</li>
+            <li>Aprendizaje mediante la abstracción reflexiva.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Lo que encontrarás aquí</p>
+          <p style="font-size:19px">Recursos útiles para el aprendizaje de asignaturas como Matemáticas, Física y Química, Tecnología y Programación.</p>
+          <a class="btn btn-link" href="index.html#recursos" style="justify-content:flex-start;padding-left:0">Ver los recursos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y"></span> Profe Civilizado</span>
+      <span>Hecho con HTML &amp; CSS</span>
+    </div>
+  </footer>
+</body>
+</html>
