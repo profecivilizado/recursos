@@ -54,40 +54,21 @@
               <button type="button" data-mode="hip" aria-pressed="false">Tengo un cateto y la hipotenusa</button>
             </div>
 
-            <div class="pt-grid">
-              <div class="pt-inputs">
-                <label class="pt-field"><span id="pt-l1">Cateto a</span>
-                  <input id="pt-x" type="number" inputmode="decimal" step="any" min="0" value="3"></label>
-                <label class="pt-field"><span id="pt-l2">Cateto b</span>
-                  <input id="pt-y" type="number" inputmode="decimal" step="any" min="0" value="4"></label>
-                <div class="pt-result" role="status" aria-live="polite">
-                  <p class="pt-big" id="pt-big"></p>
-                  <p class="pt-steps" id="pt-steps"></p>
-                </div>
+            <div class="pt-inputs">
+              <label class="pt-field"><span id="pt-l1">Cateto a</span>
+                <input id="pt-x" type="number" inputmode="decimal" step="any" min="0" value="3"></label>
+              <label class="pt-field"><span id="pt-l2">Cateto b</span>
+                <input id="pt-y" type="number" inputmode="decimal" step="any" min="0" value="4"></label>
+              <div class="pt-result" role="status" aria-live="polite">
+                <p class="pt-big" id="pt-big"></p>
+                <p class="pt-steps" id="pt-steps"></p>
               </div>
-              <svg class="pt-fig" id="pt-fig" viewBox="0 0 340 230" role="img" aria-label="Triángulo rectángulo con sus lados"></svg>
             </div>
-
-            <details class="pt-code">
-              <summary>Ver cómo se calcula en Python</summary>
-<pre><code>import math
-
-def hipotenusa(a, b):
-    return math.sqrt(a**2 + b**2)
-
-def cateto(c, a):
-    if c &lt;= a:
-        raise ValueError("La hipotenusa debe ser mayor que el cateto.")
-    return math.sqrt(c**2 - a**2)
-
-print(hipotenusa(3, 4))   # 5.0
-print(cateto(13, 5))      # 12.0</code></pre>
-            </details>
 
             <script>
             (function () {
               const $ = (id) => document.getElementById(id);
-              const x = $("pt-x"), y = $("pt-y"), big = $("pt-big"), steps = $("pt-steps"), fig = $("pt-fig");
+              const x = $("pt-x"), y = $("pt-y"), big = $("pt-big"), steps = $("pt-steps");
               let mode = "catetos";
 
               // 2,5 en vez de 2.5; sin decimales innecesarios
@@ -104,24 +85,6 @@ print(cateto(13, 5))      # 12.0</code></pre>
                 update();
               }
 
-              function draw(a, b, c, unknown) {
-                const k = Math.min(240 / b, 160 / a);
-                const C = [78, 196], B = [78 + b * k, 196], A = [78, 196 - a * k];
-                const side = (p, q, key, label, dx, dy) => {
-                  const u = key === unknown;
-                  const mx = (p[0] + q[0]) / 2 + dx, my = (p[1] + q[1]) / 2 + dy;
-                  return `<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="pt-side${u ? " pt-unknown" : ""}"/>` +
-                         `<text x="${mx}" y="${my}" class="pt-lab${u ? " pt-unknown" : ""}" text-anchor="middle">${label}</text>`;
-                };
-                const n = [a * k, b * k], L = Math.hypot(n[0], n[1]);
-                fig.innerHTML =
-                  `<polygon points="${C} ${B} ${A}" class="pt-fill"/>` +
-                  `<path d="M${C[0] + 16},${C[1]} V${C[1] - 16} H${C[0]}" class="pt-right"/>` +
-                  side(C, A, "a", `a = ${f(a)}`, -10, 4).replace('text-anchor="middle"', 'text-anchor="end"') +
-                  side(C, B, "b", `b = ${f(b)}`, 0, 24) +
-                  side(A, B, "c", `c = ${unknown === "c" && !isFinite(c) ? "?" : f(c)}`, n[0] / L * 18, -n[1] / L * 18 + 4);
-              }
-
               function update() {
                 const p = num(x), q = num(y);
                 if (!(p > 0) || !(q > 0)) {
@@ -132,7 +95,6 @@ print(cateto(13, 5))      # 12.0</code></pre>
                   const c = Math.sqrt(p * p + q * q);
                   big.innerHTML = `Hipotenusa <b>c = ${f(c)}</b>`; big.className = "pt-big";
                   steps.textContent = `c = √(a² + b²) = √(${f(p)}² + ${f(q)}²) = √${f(p * p + q * q)} ${eq(c)} ${f(c)}`;
-                  draw(p, q, c, "c");
                 } else {
                   if (q <= p) {
                     big.textContent = "La hipotenusa tiene que ser mayor que el cateto: es el lado más largo.";
@@ -141,7 +103,6 @@ print(cateto(13, 5))      # 12.0</code></pre>
                   const b = Math.sqrt(q * q - p * p);
                   big.innerHTML = `Cateto <b>b = ${f(b)}</b>`; big.className = "pt-big";
                   steps.textContent = `b = √(c² − a²) = √(${f(q)}² − ${f(p)}²) = √${f(q * q - p * p)} ${eq(b)} ${f(b)}`;
-                  draw(p, b, q, "b");
                 }
               }
 
