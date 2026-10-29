@@ -346,3 +346,46 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   border: 3px solid var(--line); border-top-color: var(--accent); animation: cv-spin .9s linear infinite;
 }
 @keyframes cv-spin { to { transform: rotate(360deg); } }
+
+/* ---------- 15. Calculadora de Pitágoras (Recursos ESO) ---------- */
+.pt-seg {
+  display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px;
+  background: var(--bg-alt); justify-self: start; max-width: 100%;
+}
+.pt-seg button {
+  font: inherit; font-size: 15px; border: 0; border-radius: 999px; padding: 8px 16px;
+  background: transparent; color: var(--fg); cursor: pointer;
+}
+.pt-seg button[aria-pressed="true"] { background: var(--card); box-shadow: 0 1px 4px rgba(0,0,0,.12); font-weight: 600; }
+.alt .pt-seg button[aria-pressed="true"] { background: var(--accent); color: #fff; box-shadow: none; }
+.pt-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px; align-items: center; }
+.pt-inputs { display: grid; gap: 14px; min-width: 0; }
+.pt-field { display: grid; gap: 6px; font-weight: 500; }
+.pt-field input {
+  font: inherit; font-size: 22px; font-variant-numeric: tabular-nums; width: 100%;
+  padding: 12px 16px; border-radius: var(--r-sm); border: 1px solid var(--line);
+  background: var(--bg-alt); color: var(--fg);
+}
+.pt-field input:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+.pt-result { padding: 18px 20px; border-radius: var(--r-md); background: var(--bg-alt); display: grid; gap: 6px; }
+.pt-big { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.02em; }
+.pt-big b { color: var(--accent); font-variant-numeric: tabular-nums; }
+.pt-big.pt-msg { font-size: 17px; font-weight: 500; color: var(--tag); }
+.pt-steps { margin: 0; color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.pt-fig { width: 100%; height: auto; max-height: 280px; }
+.pt-fill { fill: var(--bg-alt); stroke: none; }
+.pt-side { stroke: var(--fg); stroke-width: 3; stroke-linecap: round; }
+.pt-side.pt-unknown { stroke: var(--accent); stroke-width: 4; }
+.pt-right { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.pt-lab { font: 600 15px var(--font); fill: var(--fg); }
+.pt-lab.pt-unknown { fill: var(--accent); }
+.pt-code summary { cursor: pointer; color: var(--accent); font-size: 15px; }
+.pt-code pre {
+  margin: 10px 0 0; padding: 16px; border-radius: var(--r-md); background: var(--bg-alt);
+  overflow-x: auto; font: 14px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (max-width: 600px) {
+  .pt-grid { grid-template-columns: 1fr; } .pt-fig { order: -1; }
+  .pt-seg { display: grid; width: 100%; border-radius: var(--r-md); }
+  .pt-seg button { border-radius: var(--r-sm); }
+}

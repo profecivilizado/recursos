@@ -47,132 +47,110 @@
         </details>
 
         <details class="resource" id="calc-py" open>
-          <summary><span class="r-title"><span class="tag">Matemáticas · Python</span><h3>Calculadora de Pitágoras</h3></span></summary>
+          <summary><span class="r-title"><span class="tag">Matemáticas · Calculadora</span><h3>Calculadora de Pitágoras</h3></span></summary>
           <div class="resource-body">
-        <p class="status" id="py-status">Cargando motor de Python… (primera vez puede tardar unos segundos)</p>
+            <div class="pt-seg" role="group" aria-label="¿Qué datos tienes?">
+              <button type="button" data-mode="catetos" aria-pressed="true">Tengo los dos catetos</button>
+              <button type="button" data-mode="hip" aria-pressed="false">Tengo un cateto y la hipotenusa</button>
+            </div>
 
-        <div class="form-row">
-          <label for="py-mode">¿Qué datos tienes?</label>
-          <select id="py-mode" disabled>
-            <option value="">Selecciona una opción</option>
-            <option value="catetos">Dos catetos</option>
-            <option value="cateto_hip">Un cateto y la hipotenusa</option>
-          </select>
-        </div>
+            <div class="pt-grid">
+              <div class="pt-inputs">
+                <label class="pt-field"><span id="pt-l1">Cateto a</span>
+                  <input id="pt-x" type="number" inputmode="decimal" step="any" min="0" value="3"></label>
+                <label class="pt-field"><span id="pt-l2">Cateto b</span>
+                  <input id="pt-y" type="number" inputmode="decimal" step="any" min="0" value="4"></label>
+                <div class="pt-result" role="status" aria-live="polite">
+                  <p class="pt-big" id="pt-big"></p>
+                  <p class="pt-steps" id="pt-steps"></p>
+                </div>
+              </div>
+              <svg class="pt-fig" id="pt-fig" viewBox="0 0 340 230" role="img" aria-label="Triángulo rectángulo con sus lados"></svg>
+            </div>
 
-        <div id="py-catetos" class="hidden stack">
-          <div class="form-row">
-            <label for="py-a">Cateto a:</label>
-            <input id="py-a" type="number" step="any" min="0" placeholder="Ej. 3" />
-          </div>
-          <div class="form-row">
-            <label for="py-b">Cateto b:</label>
-            <input id="py-b" type="number" step="any" min="0" placeholder="Ej. 4" />
-          </div>
-          <div class="form-row">
-            <span></span>
-            <button class="btn" id="py-run-catetos" disabled>Calcular (Python)</button>
-          </div>
-        </div>
+            <details class="pt-code">
+              <summary>Ver cómo se calcula en Python</summary>
+<pre><code>import math
 
-        <div id="py-hip" class="hidden stack">
-          <div class="form-row">
-            <label for="py-cat">Cateto conocido:</label>
-            <input id="py-cat" type="number" step="any" min="0" placeholder="Ej. 5" />
-          </div>
-          <div class="form-row">
-            <label for="py-hipo">Hipotenusa:</label>
-            <input id="py-hipo" type="number" step="any" min="0" placeholder="Ej. 13" />
-          </div>
-          <div class="form-row">
-            <span></span>
-            <button class="btn" id="py-run-hip" disabled>Calcular (Python)</button>
-          </div>
-        </div>
+def hipotenusa(a, b):
+    return math.sqrt(a**2 + b**2)
 
-        <div id="py-out" class="result hidden" role="status" aria-live="polite"></div>
-
-        <!-- Pyodide desde CDN -->
-        <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
-        <script>
-          // Estado UI
-          const statusEl = document.getElementById('py-status');
-          const modeSel  = document.getElementById('py-mode');
-          const blocCat  = document.getElementById('py-catetos');
-          const blocHip  = document.getElementById('py-hip');
-          const btnCat   = document.getElementById('py-run-catetos');
-          const btnHip   = document.getElementById('py-run-hip');
-          const outEl    = document.getElementById('py-out');
-
-          function show(el){ el.classList.remove('hidden'); }
-          function hide(el){ el.classList.add('hidden'); }
-          function out(msg){ outEl.textContent = msg; show(outEl); }
-
-          // Inicializa Pyodide una vez
-          let pyodide;
-          (async () => {
-            try{
-              pyodide = await loadPyodide();
-              await pyodide.runPythonAsync(`
-import math
-
-def hipotenusa(a: float, b: float) -> float:
-    if a <= 0 or b <= 0:
-        raise ValueError("Los catetos deben ser positivos.")
-    return math.sqrt(a*a + b*b)
-
-def cateto_faltante(cat: float, hip: float) -> float:
-    if cat <= 0 or hip <= 0:
-        raise ValueError("Valores positivos, por favor.")
-    if hip <= cat:
+def cateto(c, a):
+    if c &lt;= a:
         raise ValueError("La hipotenusa debe ser mayor que el cateto.")
-    return math.sqrt(hip*hip - cat*cat)
-              `);
-              statusEl.textContent = "Python cargado. ¡Listo para calcular!";
-              modeSel.disabled = false;
-            }catch(e){
-              statusEl.textContent = "Error al cargar Python en el navegador. Revisa tu conexión.";
-              console.error(e);
-            }finally{
-              btnCat.disabled = false;
-              btnHip.disabled = false;
-            }
-          })();
+    return math.sqrt(c**2 - a**2)
 
-          // Cambio de modo
-          modeSel.addEventListener('change', () => {
-            hide(outEl);
-            if (modeSel.value === 'catetos'){ show(blocCat); hide(blocHip); }
-            else if (modeSel.value === 'cateto_hip'){ show(blocHip); hide(blocCat); }
-            else { hide(blocCat); hide(blocHip); }
-          });
+print(hipotenusa(3, 4))   # 5.0
+print(cateto(13, 5))      # 12.0</code></pre>
+            </details>
 
-          // Botón: dos catetos
-          btnCat.addEventListener('click', async () => {
-            const a = parseFloat(document.getElementById('py-a').value);
-            const b = parseFloat(document.getElementById('py-b').value);
-            if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0){ out('Introduce valores numéricos positivos en ambos catetos.'); return; }
-            try{
-              pyodide.globals.set('a', a);
-              pyodide.globals.set('b', b);
-              const c = await pyodide.runPythonAsync(`hipotenusa(a, b)`);
-              out(`Hipotenusa: ${c.toFixed(2)}`);
-            }catch(e){ out(e.message || String(e)); }
-          });
+            <script>
+            (function () {
+              const $ = (id) => document.getElementById(id);
+              const x = $("pt-x"), y = $("pt-y"), big = $("pt-big"), steps = $("pt-steps"), fig = $("pt-fig");
+              let mode = "catetos";
 
-          // Botón: un cateto + hipotenusa
-          btnHip.addEventListener('click', async () => {
-            const cat = parseFloat(document.getElementById('py-cat').value);
-            const hip = parseFloat(document.getElementById('py-hipo').value);
-            if (isNaN(cat) || isNaN(hip) || cat <= 0 || hip <= 0){ out('Introduce valores numéricos positivos en cateto e hipotenusa.'); return; }
-            try{
-              pyodide.globals.set('cat', cat);
-              pyodide.globals.set('hip', hip);
-              const falt = await pyodide.runPythonAsync(`cateto_faltante(cat, hip)`);
-              out(`Cateto faltante: ${falt.toFixed(2)}`);
-            }catch(e){ out(e.message || String(e)); }
-          });
-        </script>
+              // 2,5 en vez de 2.5; sin decimales innecesarios
+              const f = (n) => (Math.round(n * 100) / 100).toLocaleString("es-ES", { maximumFractionDigits: 2 });
+              const eq = (n) => (Math.abs(n * 100 - Math.round(n * 100)) < 1e-6 ? "=" : "≈");
+              const num = (el) => parseFloat(String(el.value).replace(",", "."));
+
+              function setMode(m) {
+                mode = m;
+                document.querySelectorAll("#calc-py [data-mode]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === m));
+                $("pt-l1").textContent = m === "catetos" ? "Cateto a" : "Cateto conocido a";
+                $("pt-l2").textContent = m === "catetos" ? "Cateto b" : "Hipotenusa c";
+                if (m === "catetos") { x.value = 3; y.value = 4; } else { x.value = 5; y.value = 13; }
+                update();
+              }
+
+              function draw(a, b, c, unknown) {
+                const k = Math.min(240 / b, 160 / a);
+                const C = [78, 196], B = [78 + b * k, 196], A = [78, 196 - a * k];
+                const side = (p, q, key, label, dx, dy) => {
+                  const u = key === unknown;
+                  const mx = (p[0] + q[0]) / 2 + dx, my = (p[1] + q[1]) / 2 + dy;
+                  return `<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="pt-side${u ? " pt-unknown" : ""}"/>` +
+                         `<text x="${mx}" y="${my}" class="pt-lab${u ? " pt-unknown" : ""}" text-anchor="middle">${label}</text>`;
+                };
+                const n = [a * k, b * k], L = Math.hypot(n[0], n[1]);
+                fig.innerHTML =
+                  `<polygon points="${C} ${B} ${A}" class="pt-fill"/>` +
+                  `<path d="M${C[0] + 16},${C[1]} V${C[1] - 16} H${C[0]}" class="pt-right"/>` +
+                  side(C, A, "a", `a = ${f(a)}`, -10, 4).replace('text-anchor="middle"', 'text-anchor="end"') +
+                  side(C, B, "b", `b = ${f(b)}`, 0, 24) +
+                  side(A, B, "c", `c = ${unknown === "c" && !isFinite(c) ? "?" : f(c)}`, n[0] / L * 18, -n[1] / L * 18 + 4);
+              }
+
+              function update() {
+                const p = num(x), q = num(y);
+                if (!(p > 0) || !(q > 0)) {
+                  big.textContent = "Escribe dos números positivos.";
+                  big.className = "pt-big pt-msg"; steps.textContent = ""; return;
+                }
+                if (mode === "catetos") {
+                  const c = Math.sqrt(p * p + q * q);
+                  big.innerHTML = `Hipotenusa <b>c = ${f(c)}</b>`; big.className = "pt-big";
+                  steps.textContent = `c = √(a² + b²) = √(${f(p)}² + ${f(q)}²) = √${f(p * p + q * q)} ${eq(c)} ${f(c)}`;
+                  draw(p, q, c, "c");
+                } else {
+                  if (q <= p) {
+                    big.textContent = "La hipotenusa tiene que ser mayor que el cateto: es el lado más largo.";
+                    big.className = "pt-big pt-msg"; steps.textContent = ""; return;
+                  }
+                  const b = Math.sqrt(q * q - p * p);
+                  big.innerHTML = `Cateto <b>b = ${f(b)}</b>`; big.className = "pt-big";
+                  steps.textContent = `b = √(c² − a²) = √(${f(q)}² − ${f(p)}²) = √${f(q * q - p * p)} ${eq(b)} ${f(b)}`;
+                  draw(p, b, q, "b");
+                }
+              }
+
+              document.querySelectorAll("#calc-py [data-mode]").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
+              x.addEventListener("input", update);
+              y.addEventListener("input", update);
+              update();
+            })();
+            </script>
           </div>
         </details>
       </div>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Dinámica en el plano</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cuaderno de laboratorio. Diagrama de fuerzas y resultado a la izquierda (fijo), planteamiento del problema a la derecha. */
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8; --surface:#e6ebf3; --hatch:#b9c3d3;
+  --fP:#c0262d; --fN:#1f55d6; --fR:#a15c07; --fF1:#0b8a5c; --fF2:#7b3fc4; --fF3:#0b7f99; --mov:#15203a;
+  --chip-ok:#e7f6ee; --chip-ok-ink:#0b6b48; --chip-warn:#fdeee7; --chip-warn-ink:#a3360f; --chip-n:#eef1f6;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --accent:#df4a1c;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --surface:#1f2a3c; --hatch:#3a4862;
+    --fP:#ff6b6b; --fN:#6e9dff; --fR:#f0a54a; --fF1:#3fd09a; --fF2:#c49bff; --fF3:#4fd3ef; --mov:#e7ecf5;
+    --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+    --btn:#1d2738; --btn-hover:#253148; --accent:#ff7c4f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --surface:#1f2a3c; --hatch:#3a4862;
+  --fP:#ff6b6b; --fN:#6e9dff; --fR:#f0a54a; --fF1:#3fd09a; --fF2:#c49bff; --fF3:#4fd3ef; --mov:#e7ecf5;
+  --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+  --btn:#1d2738; --btn-hover:#253148; --accent:#ff7c4f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1200px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px;text-wrap:balance}
+h1 .eq{font:600 .48em var(--f-mono);color:var(--accent);letter-spacing:0;white-space:nowrap;margin-left:.4em;vertical-align:middle}
+header p{margin:0;color:var(--muted);max-width:70ch}
+h2{font:700 14px/1.2 var(--f-display);letter-spacing:.04em;margin:0;text-transform:uppercase}
+
+.main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:980px){.main{grid-template-columns:1fr}}
+.left{display:grid;gap:14px;position:sticky;top:12px;min-width:0}
+@media (max-width:980px){.left{position:static}}
+.right{display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+#diagram svg{display:block;width:100%;height:auto;max-height:560px}
+.toggles{display:flex;flex-wrap:wrap;gap:6px 18px}
+.check{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--ink)}
+
+.result-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.big{font:700 clamp(22px,3vw,30px)/1.15 var(--f-mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font:700 14px var(--f-body);background:var(--chip-n)}
+.chip.ok{background:var(--chip-ok);color:var(--chip-ok-ink)}
+.chip.warn{background:var(--chip-warn);color:var(--chip-warn-ink)}
+.msg{margin:0;font-size:15px}
+.err{background:var(--chip-warn);color:var(--chip-warn-ink);padding:10px 12px;border-radius:10px;font-size:15px}
+.roots{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spacing:.04em;text-transform:uppercase}
+.steps ol{margin:10px 0 0;padding-left:1.4em;display:grid;gap:10px}
+.steps li{max-width:70ch}
+.f{font:14.5px/1.6 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.f .u{color:var(--accent);font-weight:600}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{padding:6px 8px;border-top:1px solid var(--line);text-align:left}
+th{font:600 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.insight{border-left:3px solid var(--accent);padding:4px 0 4px 12px;margin:0;font-size:15px}
+
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--fN);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media (max-width:520px){.grid2{grid-template-columns:1fr}}
+.inp{display:grid;gap:4px;font-size:14px;min-width:0}
+.inp .lab{display:flex;justify-content:space-between;gap:6px}
+.inp input[type=number],.inp select,.frow input,.frow select{font:15px var(--f-mono);width:100%;padding:8px 10px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:0}
+.inp input:disabled{background:var(--chip-warn);color:var(--chip-warn-ink);border-color:transparent;font-weight:600}
+.unit{color:var(--muted);font-family:var(--f-mono);font-size:13px}
+input[type=range]{accent-color:var(--ink);width:100%}
+.radios{display:grid;gap:6px}
+.radios label{display:flex;gap:9px;align-items:flex-start;font-size:15px;cursor:pointer}
+.radios input{margin-top:4px;accent-color:var(--ink)}
+.unks{display:flex;flex-wrap:wrap;gap:8px}
+.unks label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px;background:var(--btn)}
+.unks input{accent-color:var(--accent)}
+.unks label:has(input:checked){background:var(--chip-warn);color:var(--chip-warn-ink);border-color:transparent;font-weight:700}
+.frow{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:8px}
+.frow .top{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.frow .name{font:700 15px var(--f-mono)}
+.frow .fields{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px}
+@media (max-width:520px){.frow .fields{grid-template-columns:1fr 1fr}}
+.frow .q{display:flex;flex-wrap:wrap;gap:6px}
+.frow .q button{font-size:13px;padding:5px 9px}
+.note{font-size:13px;color:var(--muted);margin:0}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+.presets button{font-size:13px}
+kbd{font:12px var(--f-mono)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Dinámica · Leyes de Newton</div>
+    <h1>Dinámica en el plano <span class="eq">ΣF = m·a</span></h1>
+    <p>Plantea cualquier situación de un bloque sobre una superficie horizontal o inclinada: con o sin rozamiento, subiendo, bajando, a punto de moverse o partiendo del reposo, y con las fuerzas que quieras. Marca qué quieres averiguar y obtendrás el diagrama de fuerzas, su descomposición y la resolución paso a paso.</p>
+  </header>
+
+  <div class="main">
+    <div class="left">
+      <div class="card">
+        <div id="diagram" aria-label="Diagrama de fuerzas"></div>
+        <div class="toggles">
+          <label class="check"><input type="checkbox" id="tComp" checked> Descomposición en ejes</label>
+          <label class="check"><input type="checkbox" id="tAxes" checked> Ejes x e y</label>
+          <label class="check"><input type="checkbox" id="tVals" checked> Valores en las flechas</label>
+          <label class="check"><input type="checkbox" id="tAng" checked> Ángulos</label>
+        </div>
+        <p class="note">Las flechas están a escala entre sí. Las componentes se dibujan discontinuas.</p>
+      </div>
+      <div class="card" id="result"></div>
+    </div>
+
+    <div class="right">
+      <div class="card">
+        <h2>Problemas tipo</h2>
+        <div class="presets" id="presets"></div>
+      </div>
+
+      <div class="card">
+        <h2>1 · Superficie y cuerpo</h2>
+        <div class="seg" role="group" aria-label="Superficie">
+          <button id="sH" aria-pressed="false">Horizontal</button>
+          <button id="sI" aria-pressed="true">Plano inclinado</button>
+        </div>
+        <div class="grid2">
+          <div class="inp" id="thBox"><span class="lab"><label for="th">Ángulo del plano θ</label><span class="unit">°</span></span>
+            <input type="number" id="th" min="0" max="89.9" step="1"><input type="range" id="thR" min="0" max="85" step="1" aria-label="Ángulo del plano"></div>
+          <div class="inp"><span class="lab"><label for="m">Masa m</label><span class="unit">kg</span></span><input type="number" id="m" min="0" step="0.1"></div>
+          <div class="inp"><span class="lab"><label for="g">Gravedad g</label><span class="unit">m/s²</span></span>
+            <select id="g"><option value="9.8">9,8</option><option value="9.81">9,81</option><option value="10">10</option></select></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2 · Rozamiento</h2>
+        <label class="check"><input type="checkbox" id="fric"> Hay rozamiento</label>
+        <div class="inp" id="muBox"><span class="lab"><label for="mu">Coeficiente de rozamiento μ</label></span><input type="number" id="mu" min="0" step="0.01"></div>
+      </div>
+
+      <div class="card">
+        <h2>3 · Situación</h2>
+        <div class="radios" id="sits"></div>
+        <div class="inp" id="aBox"><span class="lab"><label for="a">Aceleración a, en el sentido del movimiento</label><span class="unit">m/s²</span></span>
+          <input type="number" id="a" step="0.1"><span class="note">Pon 0 si va a velocidad constante y un valor negativo si va frenando.</span></div>
+      </div>
+
+      <div class="card">
+        <h2>4 · Fuerzas aplicadas</h2>
+        <p class="note" id="angHelp"></p>
+        <div id="forces" class="radios"></div>
+        <div><button id="addF">+ Añadir fuerza</button></div>
+      </div>
+
+      <div class="card">
+        <h2>5 · ¿Qué quieres calcular?</h2>
+        <div class="unks" id="unks"></div>
+        <p class="note" id="unkNote"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const D2R = Math.PI / 180, R2D = 180 / Math.PI;
+const SUB = ['₁', '₂', '₃'];
+const FCOL = ['--fF1', '--fF2', '--fF3'];
+const fmt = (n, d = 2) => { if (!isFinite(n)) return '—'; const r = Math.abs(n) < 0.5 * Math.pow(10, -d) ? 0 : n; return (r < 0 ? '−' : '') + Math.abs(r).toFixed(d).replace('.', ','); };
+const fa = n => fmt(n, 1); // ángulos
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+const st = {
+  incl: true, th: 30, m: 8, g: 9.8, fric: true, mu: 0.25, sit: 'up', a: 1,
+  forces: [{ F: 80, ang: 0, ref: 'p' }], unk: 'F0', root: 0,
+  show: { comp: true, axes: true, vals: true, ang: true },
+};
+
+/* =====================================================================
+   Física
+   x: paralelo a la superficie, positivo hacia arriba del plano (o a la derecha)
+   y: perpendicular, positivo hacia fuera de la superficie
+   Ángulo de una fuerza: medido desde +x hacia +y (respecto al plano)
+   o desde la horizontal hacia arriba (respecto a la horizontal).
+   ===================================================================== */
+const thetaOf = v => v.incl ? v.th : 0;
+const alphaOf = (v, f) => (v.incl && f.ref === 'h') ? f.ang - v.th : f.ang; // grados, respecto al plano
+const dirOf = sit => (sit === 'up' || sit === 'limUp') ? 1 : -1;
+
+function analyze(v) {
+  const th = thetaOf(v) * D2R, P = v.m * v.g, Px = P * Math.sin(th), Py = P * Math.cos(th);
+  const Fs = v.forces.map((f, i) => { const al = alphaOf(v, f) * D2R; return { i, F: f.F, al, x: f.F * Math.cos(al), y: f.F * Math.sin(al) }; });
+  const SFx = Fs.reduce((s, f) => s + f.x, 0), SFy = Fs.reduce((s, f) => s + f.y, 0);
+  const N = Py - SFy;
+  if (v.sit === 'check') {
+    const D = SFx - Px, Frmax = v.fric ? v.mu * N : 0;
+    if (Math.abs(D) <= Frmax + 1e-9) return { th, P, Px, Py, Fs, SFx, SFy, N, D, Frmax, moves: false, dir: D > 0 ? 1 : D < 0 ? -1 : 1, a: 0, Fr: Math.abs(D), frX: -D, resid: 0 };
+    const dir = Math.sign(D), a = (Math.abs(D) - Frmax) / v.m;
+    return { th, P, Px, Py, Fs, SFx, SFy, N, D, Frmax, moves: true, dir, a, Fr: Frmax, frX: -dir * Frmax, resid: 0 };
+  }
+  const dir = dirOf(v.sit), a = v.sit.startsWith('lim') ? 0 : v.a, Fr = v.fric ? v.mu * N : 0;
+  const resid = SFx - Px - dir * Fr - v.m * dir * a;
+  return { th, P, Px, Py, Fs, SFx, SFy, N, dir, a, Fr, frX: -dir * Fr, resid };
+}
+
+const clone = v => ({ ...v, forces: v.forces.map(f => ({ ...f })) });
+function setU(v, key, u) {
+  const w = clone(v);
+  if (key === 'a' || key === 'm' || key === 'th' || key === 'mu') w[key] = u;
+  else if (key[0] === 'F') w.forces[+key.slice(1)].F = u;
+  else if (key.startsWith('al')) w.forces[+key.slice(2)].ang = u;
+  return w;
+}
+const LINEAR = k => k === 'a' || k === 'm' || k === 'mu' || k[0] === 'F';
+
+function problems(w, A, key) {
+  const e = [];
+  if (w.m <= 0) e.push(key === 'm' ? 'La masa saldría cero o negativa: con esos datos la situación es imposible.' : 'La masa tiene que ser mayor que 0.');
+  if (A.N < -1e-6) e.push(`La normal saldría negativa (N = ${fmt(A.N)} N): las fuerzas aplicadas despegarían el cuerpo de la superficie.`);
+  if (w.fric && w.mu < -1e-9) e.push(key === 'mu' ? 'μ saldría negativo: el rozamiento tendría que empujar a favor del movimiento. Revisa el sentido del movimiento o los datos.' : 'μ no puede ser negativo.');
+  w.forces.forEach((f, i) => { if (f.F < -1e-9) e.push(key === 'F' + i ? `F${SUB[i]} saldría negativa: la fuerza tendría que apuntar en sentido contrario.` : `F${SUB[i]} no puede ser negativa (cambia su ángulo para invertirla).`); });
+  if (w.incl && (w.th < 0 || w.th >= 90)) e.push('El ángulo del plano tiene que estar entre 0° y 90°.');
+  return e;
+}
+
+function solve() {
+  const v = clone(st);
+  if (v.sit === 'check') {
+    const A = analyze(v), errs = problems(v, A, null);
+    return { kind: 'check', v, A, errs };
+  }
+  const key = st.unk;
+  if (LINEAR(key)) {
+    const r0 = analyze(setU(v, key, 0)).resid, r1 = analyze(setU(v, key, 1)).resid, k = r1 - r0;
+    if (Math.abs(k) < 1e-9 * (1 + Math.abs(r0))) {
+      const any = Math.abs(r0) < 1e-6;
+      return { kind: any ? 'any' : 'none', v, key, A: analyze(v), errs: [] };
+    }
+    const u = -r0 / k, w = setU(v, key, u), A = analyze(w);
+    return { kind: 'ok', v: w, key, u, A, errs: problems(w, A, key), roots: [u] };
+  }
+  // θ o ángulo de una fuerza: barrido + bisección
+  const [lo, hi] = key === 'th' ? [0, 89.9] : [-180, 180];
+  const f = u => analyze(setU(v, key, u)).resid, n = 3600, roots = [];
+  let pu = lo, pf = f(lo);
+  if (Math.abs(pf) < 1e-9) roots.push(lo);
+  for (let i = 1; i <= n; i++) {
+    const u = lo + (hi - lo) * i / n, fu = f(u);
+    if (Math.abs(fu) < 1e-9) roots.push(u);
+    else if (pf * fu < 0 && Math.abs(pf) > 1e-9) {
+      let a = pu, b = u, fa_ = pf;
+      for (let k = 0; k < 70; k++) { const c = (a + b) / 2, fc = f(c); if (fa_ * fc <= 0) b = c; else { a = c; fa_ = fc; } }
+      roots.push((a + b) / 2);
+    }
+    pu = u; pf = fu;
+  }
+  const uniq = [];
+  for (const r of roots) if (!uniq.some(q => Math.abs(q - r) < 0.05)) uniq.push(r);
+  const valid = uniq.filter(r => { const w = setU(v, key, r); return problems(w, analyze(w), key).length === 0; });
+  if (!valid.length) {
+    const w = uniq.length ? setU(v, key, uniq[0]) : v;
+    return { kind: 'none', v: w, key, A: analyze(w), errs: uniq.length ? problems(w, analyze(w), key) : [], scanned: true };
+  }
+  const idx = Math.min(st.root, valid.length - 1), u = valid[idx], w = setU(v, key, u);
+  return { kind: 'ok', v: w, key, u, A: analyze(w), errs: [], roots: valid, idx };
+}
+
+/* =====================================================================
+   Diagrama (SVG)
+   ===================================================================== */
+const css = name => `var(${name})`;
+function diagram(res) {
+  const v = res.v, A = res.A, th = A.th, ct = Math.cos(th), sn = Math.sin(th);
+  const u = [ct, -sn], n = [-sn, -ct];              // ejes en pantalla (y hacia abajo)
+  const add = (p, q, k = 1) => [p[0] + q[0] * k, p[1] + q[1] * k];
+  const bb = { x0: 1e9, y0: 1e9, x1: -1e9, y1: -1e9 }, grow = (x, y) => { bb.x0 = Math.min(bb.x0, x); bb.y0 = Math.min(bb.y0, y); bb.x1 = Math.max(bb.x1, x); bb.y1 = Math.max(bb.y1, y); };
+  const out = [], top = [];
+  const bw = 96, bh = 62;
+  // superficie
+  const Lh = v.incl ? Math.min(620, 430 / Math.max(Math.sin(th), 0.25)) : 640;
+  const O = [0, 0], Ctop = add(O, u, Lh), B = [Ctop[0], 0];
+  if (v.incl && th > 1e-6) {
+    out.push(`<polygon points="${O} ${B} ${Ctop}" fill="${css('--surface')}" stroke="${css('--muted')}" stroke-width="1.5"/>`);
+    grow(...O); grow(...B); grow(...Ctop);
+  } else {
+    out.push(`<rect x="${O[0]}" y="0" width="${Lh}" height="26" fill="${css('--surface')}"/><line x1="${O[0]}" y1="0" x2="${Lh}" y2="0" stroke="${css('--muted')}" stroke-width="2"/>`);
+    for (let x = 10; x < Lh; x += 18) out.push(`<line x1="${x}" y1="4" x2="${x - 12}" y2="24" stroke="${css('--hatch')}" stroke-width="1.2"/>`);
+    grow(0, 0); grow(Lh, 26);
+  }
+  const contact = add(O, u, Lh * (v.incl ? 0.56 : 0.5)), c = add(contact, n, bh / 2);
+  // fuerzas en ejes del plano → pantalla
+  const vec = (fx, fy) => add(u.map(k => k * fx), n.map(k => k * fy)); // sin origen
+  const list = [];
+  list.push({ key: 'P', name: 'P', col: '--fP', fx: -A.Px, fy: -A.Py, mag: A.P, from: c });
+  if (A.N > 1e-9) list.push({ key: 'N', name: 'N', col: '--fN', fx: 0, fy: A.N, mag: A.N, from: c });
+  if (v.fric && Math.abs(A.frX) > 1e-9) list.push({ key: 'R', name: v.sit === 'check' && !A.moves ? 'Fr (estático)' : 'Fr', col: '--fR', fx: A.frX, fy: 0, mag: Math.abs(A.frX), from: add(contact, u, Math.sign(A.frX) * bw / 2) });
+  A.Fs.forEach(f => { if (f.F > 1e-9) list.push({ key: 'F' + f.i, name: 'F' + SUB[f.i], col: FCOL[f.i], fx: f.x, fy: f.y, mag: f.F, from: c, f }); });
+  const maxM = Math.max(...list.map(f => f.mag), 1e-9), K = 175 / maxM, len = m => m < 1e-9 ? 0 : Math.max(16, m * K);
+  // ejes
+  if (st.show.axes) {
+    const s = v.sit === 'check' ? 1 : A.dir, L = 250;
+    const ax0 = add(c, u, -L), ax1 = add(c, u, L), ay0 = add(c, n, -L * .55), ay1 = add(c, n, L * .9);
+    out.push(`<line x1="${ax0[0]}" y1="${ax0[1]}" x2="${ax1[0]}" y2="${ax1[1]}" stroke="${css('--muted')}" stroke-width="1" stroke-dasharray="2 5"/>`);
+    out.push(`<line x1="${ay0[0]}" y1="${ay0[1]}" x2="${ay1[0]}" y2="${ay1[1]}" stroke="${css('--muted')}" stroke-width="1" stroke-dasharray="2 5"/>`);
+    const xl = add(c, u, s * (L + 14)), yl = add(c, n, L * .9 + 14);
+    top.push(text(xl, 'x (+)', '--muted', 13, 'middle', 600), text(yl, 'y (+)', '--muted', 13, 'middle', 600));
+    grow(...ax0); grow(...ax1); grow(...ay1); grow(...xl); grow(...yl);
+  }
+  // bloque
+  out.push(`<g transform="translate(${c[0]},${c[1]}) rotate(${-th * R2D})"><rect x="${-bw / 2}" y="${-bh / 2}" width="${bw}" height="${bh}" rx="6" fill="${css('--panel')}" stroke="${css('--ink')}" stroke-width="2"/></g>`);
+  top.push(text([O[0] + 4, 46], `m = ${fmt(v.m, v.m % 1 ? 2 : 0)} kg · g = ${fmt(v.g, 2)} m/s²`, '--muted', 13, 'start', 600));
+  for (const k of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) { const p = add(add(c, u, k[0] * bw / 2), n, k[1] * bh / 2); grow(...p); }
+  // ángulo θ en la base y entre P y la perpendicular
+  if (v.incl && th > 1e-6 && st.show.ang) {
+    out.push(`<path d="${arc(O, 62, 0, th)}" fill="none" stroke="${css('--ink')}" stroke-width="1.5"/>`);
+    top.push(text([O[0] + 80 * Math.cos(th / 2), O[1] - 80 * Math.sin(th / 2) + 5], `θ = ${fa(v.th)}°`, '--ink', 14, 'start', 600));
+  }
+  // componentes (debajo de las flechas)
+  const comps = [];
+  if (st.show.comp) {
+    for (const f of list) {
+      if (f.key === 'N' || f.key === 'R') continue;
+      const L = len(f.mag), dx = f.fx / f.mag * L, dy = f.fy / f.mag * L;
+      if (Math.abs(dx) < 2 || Math.abs(dy) < 2) continue; // ya está sobre un eje
+      const px = add(f.from, vec(dx, 0)), py = add(f.from, vec(0, dy)), tip = add(f.from, vec(dx, dy));
+      out.push(`<line x1="${px[0]}" y1="${px[1]}" x2="${tip[0]}" y2="${tip[1]}" stroke="${css(f.col)}" stroke-width="1" stroke-dasharray="2 4" opacity=".7"/>`);
+      out.push(`<line x1="${py[0]}" y1="${py[1]}" x2="${tip[0]}" y2="${tip[1]}" stroke="${css(f.col)}" stroke-width="1" stroke-dasharray="2 4" opacity=".7"/>`);
+      const nm = f.key === 'P' ? 'P' : 'F' + SUB[f.f.i];
+      comps.push(arrow(f.from, px, f.col, { dash: true, w: 2.2, label: `${nm}x${st.show.vals ? ' = ' + fmt(Math.abs(f.fx)) + ' N' : ''}`, grow }));
+      comps.push(arrow(f.from, py, f.col, { dash: true, w: 2.2, label: `${nm}y${st.show.vals ? ' = ' + fmt(Math.abs(f.fy)) + ' N' : ''}`, grow }));
+    }
+  }
+  out.push(...comps);
+  // flechas de fuerzas
+  for (const f of list) {
+    const L = len(f.mag), end = add(f.from, vec(f.fx / f.mag * L, f.fy / f.mag * L));
+    out.push(arrow(f.from, end, f.col, { w: 3.4, label: f.name + (st.show.vals ? ` = ${fmt(f.mag)} N` : ''), bold: true, grow }));
+  }
+  // ángulos de las fuerzas y θ junto al peso
+  if (st.show.ang) {
+    if (v.incl && th > 1e-6 && st.show.comp) {
+      const r = 46, a1 = -Math.PI / 2, a2 = th - Math.PI / 2;
+      out.push(`<path d="${arc(c, r, a1, a2)}" fill="none" stroke="${css('--fP')}" stroke-width="1.4"/>`);
+      top.push(text([c[0] + (r + 12) * Math.cos((a1 + a2) / 2), c[1] - (r + 12) * Math.sin((a1 + a2) / 2) + 4], 'θ', '--fP', 13, 'middle', 700));
+    }
+    A.Fs.forEach(f => {
+      if (f.F < 1e-9) return;
+      const fv = v.forces[f.i], refA = (v.incl && fv.ref === 'h') ? 0 : th, fA = th + f.al;
+      let d = ((fA - refA) * R2D) % 360; if (d > 180) d -= 360; if (d < -180) d += 360;
+      if (Math.abs(d) < 0.5 || Math.abs(Math.abs(d) - 180) < 0.5) return;
+      const r = 70 + f.i * 14, lo = Math.min(refA, refA + d * D2R), hi = Math.max(refA, refA + d * D2R);
+      if (fv.ref === 'h' && v.incl) { const h1 = add(c, [1, 0], r + 22); out.push(`<line x1="${c[0]}" y1="${c[1]}" x2="${h1[0]}" y2="${h1[1]}" stroke="${css(FCOL[f.i])}" stroke-width="1" stroke-dasharray="4 4"/>`); }
+      out.push(`<path d="${arc(c, r, lo, hi)}" fill="none" stroke="${css(FCOL[f.i])}" stroke-width="1.4"/>`);
+      const mid = (lo + hi) / 2;
+      top.push(text([c[0] + (r + 14) * Math.cos(mid), c[1] - (r + 14) * Math.sin(mid) + 4], `${fa(Math.abs(fv.ang))}°`, FCOL[f.i], 12, Math.cos(mid) >= 0 ? 'start' : 'end', 700));
+    });
+  }
+  // movimiento: v y a dentro de la superficie, bajo el bloque
+  const moving = v.sit === 'up' || v.sit === 'down' || (v.sit === 'check' && A.moves);
+  const s = v.sit === 'check' ? A.dir : A.dir;
+  const base = add(add(contact, u, 135), n, -30);
+  if (v.sit === 'up' || v.sit === 'down') {
+    const p0 = add(base, u, -s * 40), p1 = add(base, u, s * 40);
+    out.push(arrow(p0, p1, '--mov', { w: 2.4, label: 'v', grow, labelSide: -1 }));
+  } else if (v.sit.startsWith('lim')) {
+    const p0 = add(base, u, -s * 40), p1 = add(base, u, s * 40);
+    out.push(arrow(p0, p1, '--mov', { w: 2, dash: true, label: 'tiende a moverse', grow, labelSide: -1 }));
+  } else if (v.sit === 'check' && !A.moves) {
+    top.push(text(add(base, n, -6), 'en reposo', '--muted', 13, 'middle', 600));
+  }
+  const accel = v.sit === 'check' ? (A.moves ? A.a : 0) : A.a;
+  if (Math.abs(accel) > 1e-9 && (moving)) {
+    const b2 = add(add(contact, u, 135), n, -66), sa = s * Math.sign(accel), p0 = add(b2, u, -sa * 40), p1 = add(b2, u, sa * 40);
+    out.push(arrow(p0, p1, '--accent', { w: 2.4, label: `a = ${fmt(Math.abs(accel))} m/s²`, grow, labelSide: -1 }));
+  }
+  out.push(...top);
+  const pad = 26, W = bb.x1 - bb.x0 + 2 * pad, H = bb.y1 - bb.y0 + 2 * pad;
+  return `<svg viewBox="${bb.x0 - pad} ${bb.y0 - pad} ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img">${out.join('')}</svg>`;
+
+  function text(p, t, col, size, anchor, wt) {
+    const w = t.length * size * 0.62;
+    grow(anchor === 'end' ? p[0] - w : anchor === 'middle' ? p[0] - w / 2 : p[0], p[1] - size);
+    grow(anchor === 'end' ? p[0] : anchor === 'middle' ? p[0] + w / 2 : p[0] + w, p[1] + 4);
+    return `<text x="${p[0]}" y="${p[1]}" text-anchor="${anchor}" font-family="JetBrains Mono, monospace" font-size="${size}" font-weight="${wt || 400}" fill="${css(col)}" stroke="${css('--panel')}" stroke-width="4" paint-order="stroke" stroke-linejoin="round">${esc(t)}</text>`;
+  }
+  function arrow(p0, p1, col, o) {
+    const dx = p1[0] - p0[0], dy = p1[1] - p0[1], L = Math.hypot(dx, dy); if (L < 1) return '';
+    const ux = dx / L, uy = dy / L, hl = Math.min(13, L * .45), hw = 6.5;
+    const b = [p1[0] - ux * hl, p1[1] - uy * hl];
+    o.grow(...p0); o.grow(...p1);
+    let svg = `<line x1="${p0[0]}" y1="${p0[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${css(col)}" stroke-width="${o.w}" ${o.dash ? 'stroke-dasharray="7 5"' : ''} stroke-linecap="round"/>`;
+    svg += `<polygon points="${p1} ${b[0] - uy * hw},${b[1] + ux * hw} ${b[0] + uy * hw},${b[1] - ux * hw}" fill="${css(col)}" ${o.dash ? 'opacity=".85"' : ''}/>`;
+    if (o.label) {
+      let lp, anchor;
+      if (o.labelSide) { lp = [(p0[0] + p1[0]) / 2 - n[0] * 16, (p0[1] + p1[1]) / 2 - n[1] * 16 + 5]; anchor = 'middle'; }
+      else { lp = [p1[0] + ux * 12, p1[1] + uy * 12 + 5]; anchor = ux > 0.35 ? 'start' : ux < -0.35 ? 'end' : 'middle'; if (anchor === 'middle') lp[1] += uy > 0 ? 10 : -4; }
+      top.push(text(lp, o.label, col, o.bold ? 14 : 12, anchor, o.bold ? 700 : 600));
+    }
+    return svg;
+  }
+  function arc(p, r, a1, a2) {
+    const x1 = p[0] + r * Math.cos(a1), y1 = p[1] - r * Math.sin(a1), x2 = p[0] + r * Math.cos(a2), y2 = p[1] - r * Math.sin(a2);
+    grow(x1, y1); grow(x2, y2);
+    return `M${x1},${y1} A${r},${r} 0 ${Math.abs(a2 - a1) > Math.PI ? 1 : 0} 0 ${x2},${y2}`;
+  }
+}
+
+/* =====================================================================
+   Resolución explicada
+   ===================================================================== */
+const UNAME = { a: 'a', m: 'm', th: 'θ', mu: 'μ' };
+const uName = k => UNAME[k] || (k[0] === 'F' ? 'F' + SUB[+k.slice(1)] : 'ángulo de F' + SUB[+k.slice(2)]);
+const uUnit = k => k === 'a' ? 'm/s²' : k === 'm' ? 'kg' : k === 'mu' ? '' : k[0] === 'F' ? 'N' : '°';
+const uVal = (k, v) => k === 'a' ? v.a : k === 'm' ? v.m : k === 'th' ? v.th : k === 'mu' ? v.mu : k[0] === 'F' ? v.forces[+k.slice(1)].F : v.forces[+k.slice(2)].ang;
+const uFmt = (k, x) => (k === 'th' || k.startsWith('al')) ? fa(x) : k === 'mu' ? fmt(x, 3) : fmt(x);
+const words = v => v.incl ? { up: 'hacia arriba del plano', down: 'hacia abajo del plano' } : { up: 'hacia la derecha', down: 'hacia la izquierda' };
+
+function explain(res) {
+  const v = res.v, A = res.A, W = words(v), L = [], s = v.sit === 'check' ? 1 : A.dir;
+  const posWord = s > 0 ? W.up : W.down;
+  const unk = res.key, U = k => unk === k ? ' class="u"' : '';
+  // 1. ejes
+  L.push(`<b>Ejes.</b> x paralelo a la superficie, positivo ${v.sit === 'check' ? W.up : posWord}${v.sit === 'check' ? '' : ' (el sentido del movimiento)'}; y perpendicular, positivo hacia fuera de la superficie.`);
+  // 2. peso
+  let p = `<b>Peso.</b> <span class="f">P = m·g = ${fmt(v.m)} · ${fmt(v.g, 2)} = ${fmt(A.P)} N</span>`;
+  if (v.incl) p += `<br>Se descompone en los ejes del plano:<br><span class="f">Px = P·sen θ = ${fmt(A.P)} · sen ${fa(v.th)}° = ${fmt(A.Px)} N</span> (${W.down})<br><span class="f">Py = P·cos θ = ${fmt(A.P)} · cos ${fa(v.th)}° = ${fmt(A.Py)} N</span> (contra la superficie)`;
+  L.push(p);
+  // 3. fuerzas aplicadas
+  A.Fs.forEach(f => {
+    const fv = v.forces[f.i], nm = 'F' + SUB[f.i], al = f.al * R2D;
+    let t = `<b>${nm} = <span${U('F' + f.i)}>${fmt(f.F)}</span> N.</b> `;
+    const alN = ((al % 360) + 540) % 360 - 180;
+    if (Math.abs(alN) < 1e-6) t += `Es paralela a la superficie, ${W.up}: <span class="f">${nm}x = ${fmt(f.F)} N, ${nm}y = 0</span>`;
+    else if (Math.abs(Math.abs(alN) - 180) < 1e-6) t += `Es paralela a la superficie, ${W.down}: <span class="f">${nm}x = ${fmt(f.F)} N, ${nm}y = 0</span>`;
+    else {
+      const refTxt = (v.incl && fv.ref === 'h') ? `Forma ${fa(fv.ang)}° con la horizontal, así que con el plano forma <span class="f">α${SUB[f.i]} = ${fa(fv.ang)}° − ${fa(v.th)}° = ${fa(al)}°</span>.` : `Forma <span class="f">α${SUB[f.i]} = ${fa(al)}°</span> con ${v.incl ? 'el plano' : 'la horizontal'}.`;
+      t += refTxt + `<br><span class="f">${nm}x = ${nm}·cos α${SUB[f.i]} = ${fmt(f.F)} · cos ${fa(al)}° = ${fmt(f.x)} N</span><br><span class="f">${nm}y = ${nm}·sen α${SUB[f.i]} = ${fmt(f.F)} · sen ${fa(al)}° = ${fmt(f.y)} N</span>`;
+    }
+    L.push(t);
+  });
+  // 4. eje y
+  const yTerms = A.Fs.filter(f => Math.abs(f.y) > 1e-9);
+  const PyName = v.incl ? 'Py' : 'P';
+  let ey = `<b>Eje y</b> (no hay movimiento perpendicular, ΣFy = 0):<br><span class="f">N ${yTerms.map(f => (f.y >= 0 ? '+ ' : '− ') + 'F' + SUB[f.i] + 'y').join(' ')} − ${PyName} = 0 → N = ${PyName}${yTerms.map(f => (f.y >= 0 ? ' − ' : ' + ') + 'F' + SUB[f.i] + 'y').join('')} = ${fmt(A.N)} N</span>`;
+  if (yTerms.length) ey += `<br>Las fuerzas aplicadas cambian la normal: ya no es igual a ${PyName}.`;
+  L.push(ey);
+  // 5. rozamiento
+  if (v.fric) {
+    if (v.sit === 'check') L.push(`<b>Rozamiento estático máximo.</b> <span class="f">Fr,máx = μ·N = ${fmt(v.mu, 3)} · ${fmt(A.N)} = ${fmt(A.Frmax)} N</span>`);
+    else {
+      const kind = v.sit.startsWith('lim') ? 'Al estar a punto de moverse, el rozamiento estático alcanza su valor máximo' : 'Rozamiento dinámico';
+      L.push(`<b>Rozamiento.</b> ${kind}, en contra del ${v.sit.startsWith('lim') ? 'movimiento que iba a empezar' : 'movimiento'} (${A.dir > 0 ? W.down : W.up}):<br><span class="f">Fr = μ·N = <span${U('mu')}>${fmt(v.mu, 3)}</span> · ${fmt(A.N)} = ${fmt(A.Fr)} N</span>`);
+    }
+  }
+  // 6. eje x
+  if (v.sit === 'check') {
+    const terms = xTerms(v, A, 1, false);
+    L.push(`<b>¿Hacia dónde empujan las fuerzas?</b> Sin contar el rozamiento:<br><span class="f">ΣFx = ${terms.sym || '0'} = ${terms.num || '0'} = ${fmt(A.D)} N</span>`);
+    if (!A.moves) L.push(`<b>Conclusión.</b> ${Math.abs(A.D) < 1e-9 ? 'Las fuerzas ya se equilibran solas' : `<span class="f">|ΣFx| = ${fmt(Math.abs(A.D))} N ≤ Fr,máx = ${fmt(A.Frmax)} N</span>: el rozamiento estático puede compensarlas`}. El cuerpo <b>se queda en reposo</b> y el rozamiento vale exactamente ${fmt(Math.abs(A.D))} N${Math.abs(A.D) > 1e-9 ? `, ${A.D > 0 ? W.down : W.up}` : ''}.`);
+    else L.push(`<b>Conclusión.</b> ${v.fric ? `<span class="f">|ΣFx| = ${fmt(Math.abs(A.D))} N > Fr,máx = ${fmt(A.Frmax)} N</span>: el rozamiento no puede impedirlo.` : 'No hay rozamiento que lo frene.'} El cuerpo <b>se mueve ${A.dir > 0 ? W.up : W.down}</b>:<br><span class="f">a = (|ΣFx| − Fr)/m = (${fmt(Math.abs(A.D))} − ${fmt(A.Frmax)}) / ${fmt(v.m)} = ${fmt(A.a)} m/s²</span>`);
+    return L;
+  }
+  const t = xTerms(v, A, A.dir, true, unk);
+  const rhs = v.sit.startsWith('lim') ? '0' : 'm·a';
+  L.push(`<b>Eje x</b> (2.ª ley de Newton, ΣFx = ${rhs}):<br><span class="f">${t.sym || '0'} = ${rhs}</span>`);
+  if (res.kind === 'ok') {
+    const val = `<span class="u">${uName(unk)} = ${uFmt(unk, res.u)}${uUnit(unk) ? ' ' + uUnit(unk) : ''}</span>`;
+    const rhsNum = v.sit.startsWith('lim') ? '0' : `${fmt(v.m)} · ${fmt(A.a)}`;
+    let d = '';
+    if (unk === 'a') d = `<span class="f">${t.num} = ${fmt(v.m)} · a → a = ${fmt(t.sum)} / ${fmt(v.m)} → ${val}</span>`;
+    else if (unk === 'mu') { const rest = t.sum + A.Fr; d = `<span class="f">${t.numNoFr} − μ · ${fmt(A.N)} = ${rhsNum} → μ = (${fmt(rest)} − ${v.sit.startsWith('lim') ? '0' : fmt(v.m * A.a)}) / ${fmt(A.N)} → ${val}</span>`; }
+    else d = `Con los demás datos, la única incógnita es ${uName(unk)}. Resolviendo la ecuación: <span class="f">${val}</span>`;
+    L.push(`<b>Despejamos.</b> ${d}`);
+    L.push(`<b>Comprobación.</b> <span class="f">${t.numFinal} = ${fmt(t.sum)} N</span> y <span class="f">${rhs} = ${v.sit.startsWith('lim') ? '0' : `${fmt(v.m)} · ${fmt(A.a)} = ${fmt(v.m * A.a)}`} N</span> ✔`);
+  }
+  return L;
+}
+// términos de ΣFx en el eje elegido (s = +1 hacia arriba, −1 hacia abajo)
+function xTerms(v, A, s, withFr, unk) {
+  const T = [];
+  A.Fs.forEach(f => { if (Math.abs(f.x) > 1e-9) T.push({ name: 'F' + SUB[f.i] + (Math.abs(Math.sin(f.al)) > 1e-9 ? 'x' : ''), val: s * f.x }); });
+  if (v.incl && A.Px > 1e-9) T.push({ name: 'Px', val: -s * A.Px });
+  const noFr = T.slice();
+  if (withFr && v.fric && A.Fr > 1e-9) T.push({ name: 'Fr', val: -A.Fr });
+  const sym = arr => arr.map((t, i) => (t.val < 0 ? (i ? ' − ' : '−') : (i ? ' + ' : '')) + t.name).join('');
+  const num = arr => arr.map((t, i) => (t.val < 0 ? (i ? ' − ' : '−') : (i ? ' + ' : '')) + fmt(Math.abs(t.val))).join('');
+  return { sym: sym(T), num: num(T), numFinal: num(T), numNoFr: num(noFr) || '0', sum: T.reduce((a, t) => a + t.val, 0) };
+}
+
+function insights(res) {
+  const v = res.v, out = [];
+  const noF = v.forces.every(f => f.F < 1e-9);
+  if (res.kind === 'ok' && noF) {
+    if (res.key === 'th' && v.fric && v.sit === 'limDown') out.push(`Fíjate: tan θ = μ (tan ${fa(v.th)}° = ${fmt(Math.tan(v.th * D2R), 3)}). El ángulo máximo no depende de la masa.`);
+    if (res.key === 'mu' && v.sit === 'down' && Math.abs(v.a) < 1e-9) out.push(`Fíjate: si baja a velocidad constante, μ = tan θ = ${fmt(Math.tan(v.th * D2R), 3)}. No depende de la masa.`);
+    if (res.key === 'a' && v.incl && !v.fric) out.push(`Fíjate: sin rozamiento ni otras fuerzas, a = g·sen θ = ${fmt(v.g * Math.sin(v.th * D2R))} m/s². La masa no influye.`);
+    if (res.key === 'a' && v.fric && v.incl) out.push('Con solo el peso y el rozamiento, la masa se simplifica: todos los cuerpos con el mismo μ tienen la misma aceleración.');
+  }
+  if (res.kind === 'ok' && res.key === 'a' && res.u < -1e-9) out.push(`La aceleración sale negativa: el cuerpo va frenando mientras se mueve ${v.sit === 'up' ? words(v).up : words(v).down}.`);
+  return out.filter(Boolean);
+}
+
+/* =====================================================================
+   Interfaz
+   ===================================================================== */
+function sitOptions() {
+  const W = st.incl ? ['Sube por el plano', 'Baja por el plano', 'En reposo, a punto de subir', 'En reposo, a punto de bajar']
+    : ['Se mueve hacia la derecha', 'Se mueve hacia la izquierda', 'En reposo, a punto de moverse a la derecha', 'En reposo, a punto de moverse a la izquierda'];
+  const o = [['up', W[0]], ['down', W[1]]];
+  if (st.fric) o.push(['limUp', W[2] + ' (rozamiento estático máximo)'], ['limDown', W[3] + ' (rozamiento estático máximo)']);
+  o.push(['check', 'Parte del reposo: ¿se mueve? ¿hacia dónde? ¿con qué aceleración?']);
+  return o;
+}
+function unkOptions() {
+  if (st.sit === 'check') return [];
+  const o = [];
+  if (!st.sit.startsWith('lim')) o.push(['a', 'aceleración a']);
+  o.push(['m', 'masa m']);
+  if (st.incl) o.push(['th', 'ángulo θ']);
+  if (st.fric) o.push(['mu', 'rozamiento μ']);
+  st.forces.forEach((f, i) => { o.push(['F' + i, 'F' + SUB[i]]); o.push(['al' + i, 'ángulo de F' + SUB[i]]); });
+  return o;
+}
+function buildStatic() {
+  // situaciones
+  if (!sitOptions().some(([k]) => k === st.sit)) st.sit = 'up';
+  $('sits').innerHTML = sitOptions().map(([k, t]) => `<label><input type="radio" name="sit" value="${k}" ${k === st.sit ? 'checked' : ''}><span>${t}</span></label>`).join('');
+  $('sits').querySelectorAll('input').forEach(r => r.addEventListener('change', () => { st.sit = r.value; st.root = 0; buildStatic(); render(); }));
+  // incógnitas
+  const U = unkOptions();
+  if (U.length && !U.some(([k]) => k === st.unk)) st.unk = U[0][0];
+  $('unks').innerHTML = U.map(([k, t]) => `<label><input type="radio" name="unk" value="${k}" ${k === st.unk ? 'checked' : ''}>${t}</label>`).join('');
+  $('unks').querySelectorAll('input').forEach(r => r.addEventListener('change', () => { st.unk = r.value; st.root = 0; buildStatic(); render(); }));
+  $('unkNote').textContent = st.sit === 'check' ? 'En esta situación no hay incógnita que elegir: se calcula si el cuerpo se mueve y con qué aceleración.' : 'El dato que elijas se calcula y su casilla queda marcada con «?».';
+  // fuerzas
+  $('angHelp').innerHTML = st.incl
+    ? 'Ángulo: 0° = paralela al plano hacia arriba, 180° = hacia abajo; los ángulos positivos se separan de la superficie. También puedes medirlo respecto a la horizontal.'
+    : 'Ángulo respecto a la horizontal: 0° = hacia la derecha, 180° = hacia la izquierda; positivo hacia arriba, negativo empujando contra el suelo.';
+  $('forces').innerHTML = st.forces.map((f, i) => `
+    <div class="frow" style="border-left:4px solid var(${FCOL[i]})">
+      <div class="top"><span class="name" style="color:var(${FCOL[i]})">F${SUB[i]}</span><button data-del="${i}" aria-label="Quitar F${SUB[i]}">Quitar</button></div>
+      <div class="fields">
+        <label class="inp"><span class="lab">Módulo<span class="unit">N</span></span><input type="number" min="0" step="1" data-k="F" data-i="${i}"></label>
+        <label class="inp"><span class="lab">Ángulo<span class="unit">°</span></span><input type="number" step="1" min="-180" max="180" data-k="ang" data-i="${i}"></label>
+        ${st.incl ? `<label class="inp"><span class="lab">medido respecto</span><select data-k="ref" data-i="${i}"><option value="p">al plano</option><option value="h">a la horizontal</option></select></label>` : '<span></span>'}
+      </div>
+      <div class="q">${st.incl
+        ? `<button data-q="0,p" data-i="${i}">∥ hacia arriba</button><button data-q="180,p" data-i="${i}">∥ hacia abajo</button><button data-q="0,h" data-i="${i}">horizontal →</button><button data-q="180,h" data-i="${i}">horizontal ←</button><button data-q="30,p" data-i="${i}">30° sobre el plano</button>`
+        : `<button data-q="0,p" data-i="${i}">→</button><button data-q="180,p" data-i="${i}">←</button><button data-q="30,p" data-i="${i}">30° hacia arriba</button><button data-q="-30,p" data-i="${i}">30° hacia abajo</button>`}</div>
+    </div>`).join('') || '<p class="note">No hay fuerzas aplicadas: solo actúan el peso, la normal y, si lo hay, el rozamiento.</p>';
+  $('forces').querySelectorAll('input,select').forEach(el => {
+    const i = +el.dataset.i, k = el.dataset.k;
+    el.value = st.forces[i][k];
+    el.addEventListener('input', () => { st.forces[i][k] = k === 'ref' ? el.value : parseFloat(el.value.replace(',', '.')) || 0; render(); });
+  });
+  $('forces').querySelectorAll('[data-q]').forEach(b => b.addEventListener('click', () => { const [a, r] = b.dataset.q.split(','), i = +b.dataset.i; st.forces[i].ang = +a; st.forces[i].ref = r; buildStatic(); render(); }));
+  $('forces').querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', () => { st.forces.splice(+b.dataset.del, 1); buildStatic(); render(); }));
+  $('addF').disabled = st.forces.length >= 3;
+  // superficie y otros
+  $('sH').setAttribute('aria-pressed', !st.incl); $('sI').setAttribute('aria-pressed', st.incl); $('thBox').hidden = !st.incl;
+  $('fric').checked = st.fric; $('muBox').hidden = !st.fric;
+  $('aBox').hidden = !(st.sit === 'up' || st.sit === 'down');
+  $('g').value = String(st.g);
+  syncInputs();
+}
+function syncInputs() {
+  const set = (id, val, k) => { const el = $(id); if (st.unk === k && st.sit !== 'check') { el.disabled = true; el.value = ''; el.placeholder = '?'; } else { el.disabled = false; el.placeholder = ''; if (document.activeElement !== el) el.value = +val.toFixed(4); } };
+  set('th', st.th, 'th'); $('thR').value = st.th; $('thR').disabled = st.unk === 'th' && st.sit !== 'check';
+  set('m', st.m, 'm'); set('mu', st.mu, 'mu'); set('a', st.a, 'a');
+  $('forces').querySelectorAll('input[data-k]').forEach(el => {
+    const i = +el.dataset.i, k = el.dataset.k, key = (k === 'F' ? 'F' : 'al') + i;
+    if (st.unk === key && st.sit !== 'check') { el.disabled = true; el.value = ''; el.placeholder = '?'; }
+    else { el.disabled = false; el.placeholder = ''; if (document.activeElement !== el) el.value = st.forces[i][k]; }
+  });
+}
+
+function render() {
+  syncInputs();
+  const res = solve();
+  $('diagram').innerHTML = diagram(res);
+  const R = $('result'), v = res.v, A = res.A;
+  let h = '<h2>Resultado</h2>';
+  if (res.kind === 'check') {
+    if (res.errs.length) h += res.errs.map(e => `<div class="err">${e}</div>`).join('');
+    else if (A.moves) h += `<div class="result-head"><span class="chip warn">Se mueve ${A.dir > 0 ? words(v).up : words(v).down}</span><span class="big">a = ${fmt(A.a)} m/s²</span></div>`;
+    else h += `<div class="result-head"><span class="chip ok">Se queda en reposo</span><span class="big">Fr = ${fmt(Math.abs(A.D))} N</span></div>${v.fric ? `<p class="msg">El rozamiento estático necesario (${fmt(Math.abs(A.D))} N) no supera el máximo posible (${fmt(A.Frmax)} N).</p>` : ''}`;
+  } else if (res.kind === 'any') {
+    h += `<div class="result-head"><span class="chip ok">Cualquier valor sirve</span></div><p class="msg">${uName(res.key)} se simplifica en la ecuación: la situación se cumple para cualquier valor. ${res.key === 'm' ? 'La masa no influye en este caso.' : ''}</p>`;
+  } else if (res.kind === 'none') {
+    h += `<div class="result-head"><span class="chip warn">Sin solución</span></div>`;
+    h += res.errs.length ? res.errs.map(e => `<div class="err">${e}</div>`).join('') : `<div class="err">Con estos datos no existe ningún valor de ${uName(res.key)}${res.key === 'th' ? ' entre 0° y 90°' : ''} que cumpla la situación. ${res.key === 'th' && st.sit === 'limDown' ? '' : 'Revisa el sentido del movimiento o los datos.'}</div>`;
+  } else {
+    h += res.errs.length ? `<div class="result-head"><span class="chip warn">Sin solución válida</span></div>`
+      : `<div class="result-head"><span class="big">${uName(res.key)} = ${uFmt(res.key, res.u)}${uUnit(res.key) ? ' ' + uUnit(res.key) : ''}</span></div>`;
+    if (res.roots && res.roots.length > 1) h += `<div class="roots">Hay ${res.roots.length} soluciones: ${res.roots.map((r, i) => `<button data-root="${i}" aria-pressed="${i === res.idx}">${uName(res.key)} = ${uFmt(res.key, r)}${uUnit(res.key)}</button>`).join('')}</div>`;
+    if (res.errs.length) h += res.errs.map(e => `<div class="err">${e}</div>`).join('');
+  }
+  const ins = insights(res); if (ins.length) h += ins.map(t => `<p class="insight">${t}</p>`).join('');
+  const valid = (res.kind === 'ok' && !res.errs.length) || (res.kind === 'check' && !res.errs.length);
+  if (valid) {
+    h += `<details class="steps" open><summary>Resolución paso a paso</summary><ol>${explain(res).map(l => `<li>${l}</li>`).join('')}</ol></details>`;
+    const rows = [['--fP', 'Peso P', A.P, v.incl ? `Px = ${fmt(A.Px)} · Py = ${fmt(A.Py)}` : ''], ['--fN', 'Normal N', A.N, '']];
+    if (v.fric) rows.push(['--fR', v.sit === 'check' && !A.moves ? 'Rozamiento (estático)' : 'Rozamiento Fr', Math.abs(A.frX), v.sit === 'check' ? `máximo posible ${fmt(A.Frmax)}` : '']);
+    A.Fs.forEach(f => rows.push([FCOL[f.i], 'F' + SUB[f.i], f.F, `x = ${fmt(f.x)} · y = ${fmt(f.y)}`]));
+    h += `<div class="tbl"><table><thead><tr><th>Fuerza</th><th style="text-align:right">Módulo (N)</th><th>Componentes (N)</th></tr></thead><tbody>${rows.map(r => `<tr><td><span class="dot" style="background:var(${r[0]})"></span>${r[1]}</td><td class="n">${fmt(r[2])}</td><td class="n" style="text-align:left">${r[3]}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  R.innerHTML = h;
+  R.querySelectorAll('[data-root]').forEach(b => b.addEventListener('click', () => { st.root = +b.dataset.root; render(); }));
+}
+
+/* ---------- eventos ---------- */
+const num = el => { const x = parseFloat(String(el.value).replace(',', '.')); return isFinite(x) ? x : 0; };
+$('sH').addEventListener('click', () => { st.incl = false; if (st.unk === 'th') st.unk = 'a'; buildStatic(); render(); });
+$('sI').addEventListener('click', () => { st.incl = true; if (!st.th) st.th = 30; buildStatic(); render(); });
+$('th').addEventListener('input', e => { st.th = Math.min(89.9, Math.max(0, num(e.target))); $('thR').value = st.th; render(); });
+$('thR').addEventListener('input', e => { st.th = +e.target.value; $('th').value = st.th; render(); });
+$('m').addEventListener('input', e => { st.m = num(e.target); render(); });
+$('mu').addEventListener('input', e => { st.mu = num(e.target); render(); });
+$('a').addEventListener('input', e => { st.a = num(e.target); render(); });
+$('g').addEventListener('change', e => { st.g = +e.target.value; render(); });
+$('fric').addEventListener('change', e => { st.fric = e.target.checked; buildStatic(); render(); });
+$('addF').addEventListener('click', () => { if (st.forces.length < 3) { st.forces.push({ F: 20, ang: 0, ref: 'p' }); buildStatic(); render(); } });
+[['tComp', 'comp'], ['tAxes', 'axes'], ['tVals', 'vals'], ['tAng', 'ang']].forEach(([id, k]) => $(id).addEventListener('change', e => { st.show[k] = e.target.checked; render(); }));
+
+const PRESETS = [
+  ['Arrastre horizontal con rozamiento', { incl: false, th: 0, m: 10, fric: true, mu: 0.2, sit: 'up', a: 0, forces: [{ F: 50, ang: 0, ref: 'p' }], unk: 'a' }],
+  ['Tirando con un ángulo', { incl: false, th: 0, m: 6, fric: true, mu: 0.3, sit: 'up', a: 0, forces: [{ F: 40, ang: 30, ref: 'p' }], unk: 'a' }],
+  ['Baja sin rozamiento', { incl: true, th: 30, m: 5, fric: false, mu: 0, sit: 'down', a: 0, forces: [], unk: 'a' }],
+  ['Baja con rozamiento', { incl: true, th: 40, m: 3, fric: true, mu: 0.3, sit: 'down', a: 0, forces: [], unk: 'a' }],
+  ['Lanzado hacia arriba (frena)', { incl: true, th: 30, m: 2, fric: true, mu: 0.2, sit: 'up', a: 0, forces: [], unk: 'a' }],
+  ['Velocidad constante: halla μ', { incl: true, th: 25, m: 4, fric: true, mu: 0.3, sit: 'down', a: 0, forces: [], unk: 'mu' }],
+  ['Fuerza para subirlo acelerando', { incl: true, th: 30, m: 8, fric: true, mu: 0.25, sit: 'up', a: 1, forces: [{ F: 80, ang: 0, ref: 'p' }], unk: 'F0' }],
+  ['Ángulo máximo sin deslizar', { incl: true, th: 20, m: 3, fric: true, mu: 0.4, sit: 'limDown', a: 0, forces: [], unk: 'th' }],
+  ['Empuje horizontal para que no baje', { incl: true, th: 35, m: 10, fric: true, mu: 0.2, sit: 'limDown', a: 0, forces: [{ F: 30, ang: 0, ref: 'h' }], unk: 'F0' }],
+  ['¿Se mueve? Parte del reposo', { incl: true, th: 20, m: 2, fric: true, mu: 0.5, sit: 'check', a: 0, forces: [], unk: 'a' }],
+  ['Halla la masa', { incl: true, th: 25, m: 5, fric: true, mu: 0.15, sit: 'up', a: 0.8, forces: [{ F: 60, ang: 0, ref: 'p' }], unk: 'm' }],
+];
+$('presets').innerHTML = PRESETS.map(([t], i) => `<button data-p="${i}">${t}</button>`).join('');
+$('presets').querySelectorAll('[data-p]').forEach(b => b.addEventListener('click', () => {
+  const p = PRESETS[+b.dataset.p][1];
+  Object.assign(st, JSON.parse(JSON.stringify(p)), { g: st.g, root: 0 });
+  buildStatic(); render();
+}));
+
+buildStatic(); render();
+</script>
+</body>
+</html>
