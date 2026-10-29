@@ -107,7 +107,7 @@ input[type=range]{accent-color:var(--ink);height:24px}
 .row{display:flex;gap:8px;flex-wrap:wrap}
 .note{font-size:13px;color:var(--muted);margin:0}
 .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
-.seg button{flex:1;border:0;border-radius:0}
+.seg button{flex:1;border:0;border-radius:0;padding-inline:8px}
 .check{display:flex;align-items:center;gap:9px;font-size:15px;cursor:pointer}
 .check input{width:18px;height:18px;accent-color:var(--ink)}
 
@@ -126,7 +126,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
   <header>
     <div class="eyebrow">Ondas · Principio de superposición</div>
     <h1>Superposición de pulsos <span class="eq">y = y₁ + y₂</span></h1>
-    <p>Dos pulsos rectangulares viajan por la misma cuerda en sentidos opuestos. Mueve el tiempo, arrastra la sonda sobre la cuerda y comprueba que el desplazamiento es la suma algebraica de los dos.</p>
+    <p>Dos pulsos viajan por la misma cuerda en sentidos opuestos. Arriba los ves como rectángulos, como en el libro; abajo, los mismos pulsos con forma de onda. Mueve el tiempo, arrastra la sonda y comprueba que en los dos casos el desplazamiento es la suma algebraica.</p>
   </header>
 
   <div class="sim" id="sim">
@@ -136,7 +136,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <span class="cr"><i class="sw"></i>Cuerda: y = y₁ + y₂</span>
       <span>│ sonda (arrástrala)</span>
     </div>
-    <div id="canvasWrap"><canvas id="cv" aria-label="Cuerda con dos pulsos rectangulares y su suma"></canvas></div>
+    <div id="canvasWrap"><canvas id="cv" aria-label="Cuerda con dos pulsos, como rectángulos y como onda, y su suma"></canvas></div>
 
     <div class="transport">
       <button id="bReset" title="Volver al inicio (R)">⏮ Inicio</button>
@@ -190,9 +190,15 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
         <input type="range" id="v" min="2" max="30" step="1" value="10">
         <p class="note">Los dos pulsos van a la misma velocidad: depende de la cuerda, no del pulso.</p></div>
       <div class="seg" role="group" aria-label="Vista">
-        <button id="vOver" aria-pressed="true">Superpuesta</button>
+        <button id="vBoth" aria-pressed="true">Rectángulos y ondas</button>
+        <button id="vOver" aria-pressed="false">Solo rectángulos</button>
         <button id="vSep" aria-pressed="false">Por separado</button>
       </div>
+      <div class="field" id="shapeBox"><div class="top"><span>Forma de la onda</span></div>
+        <div class="seg" role="group" aria-label="Forma de la onda">
+          <button data-shape="sin" aria-pressed="true">Media onda</button>
+          <button data-shape="gauss" aria-pressed="false">Campana</button>
+        </div></div>
       <label class="check"><input type="checkbox" id="showInd" checked> Mostrar pulsos individuales</label>
       <label class="check"><input type="checkbox" id="showRes" checked> Mostrar resultante (desmárcalo para predecir)</label>
     </div>
@@ -205,6 +211,9 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <p class="big-eq">y = y₁ + y₂</p>
       <p>«Algebraica» quiere decir que se respetan los signos: si un pulso está hacia arriba y el otro hacia abajo, el resultado es la diferencia. Si son iguales y opuestos, la cuerda queda plana un instante.</p>
       <p>Después del encuentro cada pulso sigue exactamente igual que antes: se atraviesan sin «recordar» lo ocurrido. Dos bolas que chocan, en cambio, rebotan.</p>
+      <h2>Rectángulo y onda</h2>
+      <p>El rectángulo es una idealización: hace que la suma sea fácil, porque cada pulso tiene la misma altura en todo su ancho y la cuerda queda dividida en tramos. Un pulso real en una cuerda tiene una forma suave, como en la franja de abajo.</p>
+      <p>La regla es la misma en los dos casos: en cada punto de la cuerda se suman los dos desplazamientos. Con la forma de onda, la suma cambia punto a punto, y solo se llega a A₁ + A₂ cuando coinciden las crestas.</p>
       <p class="note">Atajos: <kbd>espacio</kbd> iniciar/pausar · <kbd>←</kbd> <kbd>→</kbd> paso a paso · <kbd>R</kbd> inicio. Pulsa o arrastra sobre la cuerda para mover la sonda.</p>
     </section>
     <section>
@@ -214,6 +223,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
         <li>Pon el pulso 1 en +3 cm y el pulso 2 en −1 cm. ¿Cuál es el desplazamiento máximo durante el encuentro? ¿Y si inviertes el pulso 2?</li>
         <li>En la vista «Por separado», para el tiempo cuando los pulsos se solapen en parte (como en la fig. 14.18). Calcula y en cada región a, b, c… y comprueba con la sonda.</li>
         <li>Cambia la velocidad de la onda. ¿Cambia la forma de la cuerda en el solape total? ¿Qué cambia entonces?</li>
+        <li>Con «Dos pulsos idénticos», avanza paso a paso y compara las dos franjas. ¿Cuándo alcanza cada una su desplazamiento máximo? ¿Por qué la onda tarda más que los rectángulos en llegar a 2A?</li>
       </ol>
     </section>
   </div>
@@ -231,7 +241,7 @@ const PRESETS = [
   { A1: 2.5, w1: 14, A2: 2.5, w2: 14 },
   { A1: 4, w1: 20, A2: -2, w2: 10 },
 ];
-const st = { A1: 3, w1: 16, A2: 2, w2: 10, v: 10, s: 0, playing: false, slow: false, view: 'over', showInd: true, showRes: true, probe: 50, peak: 0 };
+const st = { A1: 3, w1: 16, A2: 2, w2: 10, v: 10, s: 0, playing: false, slow: false, view: 'both', shape: 'sin', showInd: true, showRes: true, probe: 50, peak: 0, peakW: 0 };
 
 const fmt = (n, d = 1) => (n < 0 ? '−' : '') + Math.abs(n).toFixed(d).replace('.', ',');
 const sgn = (n, d = 1) => (n > 0 ? '+' : n < 0 ? '−' : '') + Math.abs(n).toFixed(d).replace('.', ',');
@@ -251,12 +261,24 @@ function segments(fn) {
 }
 const maxNow = () => Math.max(0, ...segments(yr).map(s => Math.abs(s.y)));
 
+// Los mismos pulsos con forma de onda (misma amplitud, misma anchura)
+function bump(x, c, w) {
+  const u = (x - c) / w;
+  if (st.shape === 'sin') return Math.abs(u) < 0.5 ? Math.cos(Math.PI * u) : 0;
+  return Math.exp(-8 * u * u);
+}
+const s1 = x => st.A1 * bump(x, c1(), st.w1);
+const s2 = x => st.A2 * bump(x, c2(), st.w2);
+const sr = x => s1(x) + s2(x);
+const XS = Array.from({ length: 401 }, (_, i) => X0 + i * (X1 - X0) / 400);
+const maxWave = () => { let m = 0; for (const x of XS) m = Math.max(m, Math.abs(sr(x))); for (const x of [c1(), c2()]) if (x >= X0 && x <= X1) m = Math.max(m, Math.abs(sr(x))); return m; };
+
 /* ---------- Dibujo ---------- */
 const cv = $('cv'), ctx = cv.getContext('2d');
 let W = 0, H = 0, dirty = true;
 function resize() {
   W = $('canvasWrap').clientWidth;
-  let h = st.view === 'over' ? Math.min(440, Math.max(250, W * 0.42)) : Math.min(660, Math.max(420, W * 0.66));
+  let h = st.view === 'over' ? Math.min(440, Math.max(250, W * 0.42)) : st.view === 'both' ? Math.min(720, Math.max(470, W * 0.68)) : Math.min(660, Math.max(420, W * 0.66));
   if (document.fullscreenElement) h = Math.max(h, Math.min(window.innerHeight - 260, W * (st.view === 'over' ? 0.5 : 0.75)));
   H = Math.round(h);
   const dpr = window.devicePixelRatio || 1;
@@ -268,7 +290,14 @@ new ResizeObserver(resize).observe($('canvasWrap'));
 
 function lanes() {
   const top = 34, bottom = H - 30;
-  if (st.view === 'over') return [{ top, bottom, R: 11, ticks: [-10, -5, 0, 5, 10], name: 'y / cm', kind: 'over' }];
+  if (st.view === 'over') return [{ top, bottom, R: 11, ticks: [-10, -5, 0, 5, 10], name: 'y / cm', kind: 'rect' }];
+  if (st.view === 'both') {
+    const gap = 40, h = (bottom - top - gap) / 2;
+    return [
+      { top, bottom: top + h, R: 11, ticks: [-10, -5, 0, 5, 10], name: 'Como rectángulos (idealización) · y / cm', kind: 'rect' },
+      { top: top + h + gap, bottom, R: 11, ticks: [-10, -5, 0, 5, 10], name: 'Como onda · y / cm', kind: 'wave' },
+    ];
+  }
   const gap = 18, avail = bottom - top - 2 * gap, u = avail / 3.6;
   const h1 = u, h3 = 1.6 * u;
   return [
@@ -308,7 +337,7 @@ function draw() {
     ctx.fillStyle = col.muted; ctx.font = mono(11); ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
     for (const t of ln.ticks) ctx.fillText(fmt(t, 0), L - 6, Y(t));
     ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.font = mono(12, 600);
-    ctx.fillStyle = ln.kind === 'p1' ? col.p1 : ln.kind === 'p2' ? col.p2 : ln.kind === 'res' ? col.res : col.muted;
+    ctx.fillStyle = ln.kind === 'p1' ? col.p1 : ln.kind === 'p2' ? col.p2 : ln.kind === 'res' ? col.res : st.view === 'both' ? col.ink : col.muted;
     ctx.fillText(ln.name, L + 6, ln.top + 4);
     // cuerda en reposo
     ctx.strokeStyle = col.muted; ctx.globalAlpha = .55; ctx.setLineDash([2, 4]);
@@ -322,17 +351,19 @@ function draw() {
   for (let x = X0; x <= X1; x += 10) if (pxPerCm * 10 > 26 || x % 20 === 0) ctx.fillText(x, X(x), last.bottom + 6);
   ctx.textAlign = 'right'; ctx.fillText('x / cm', R, last.bottom + 18 > H - 12 ? last.bottom + 6 : last.bottom + 18);
 
-  const path = (segs, Y) => {
+  const SMOOTH = new Set([s1, s2, sr]);
+  const path = (fn, Y) => {
     ctx.beginPath();
-    segs.forEach((s, i) => { if (i === 0) ctx.moveTo(X(s.x0), Y(s.y)); else ctx.lineTo(X(s.x0), Y(s.y)); ctx.lineTo(X(s.x1), Y(s.y)); });
+    if (SMOOTH.has(fn)) { XS.forEach((x, i) => i ? ctx.lineTo(X(x), Y(fn(x))) : ctx.moveTo(X(x), Y(fn(x)))); return; }
+    segments(fn).forEach((s, i) => { if (i === 0) ctx.moveTo(X(s.x0), Y(s.y)); else ctx.lineTo(X(s.x0), Y(s.y)); ctx.lineTo(X(s.x1), Y(s.y)); });
   };
   const stroke = (fn, Y, color, w, dash) => {
     ctx.save(); ctx.beginPath(); ctx.rect(L, 0, R - L, H); ctx.clip();
-    path(segments(fn), Y); ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineJoin = 'miter'; ctx.setLineDash(dash || []); ctx.stroke();
+    path(fn, Y); ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineJoin = SMOOTH.has(fn) ? 'round' : 'miter'; ctx.setLineDash(dash || []); ctx.stroke();
     ctx.restore();
   };
   const fill = (fn, Y) => {
-    ctx.save(); const segs = segments(fn); path(segs, Y); ctx.lineTo(X(X1), Y(0)); ctx.lineTo(X(X0), Y(0)); ctx.closePath();
+    ctx.save(); path(fn, Y); ctx.lineTo(X(X1), Y(0)); ctx.lineTo(X(X0), Y(0)); ctx.closePath();
     ctx.fillStyle = col.fill; ctx.fill(); ctx.restore();
   };
   const arrow = (cx, y, dir, color) => {
@@ -343,12 +374,13 @@ function draw() {
     ctx.beginPath(); ctx.moveTo(x + dir * len / 2, y); ctx.lineTo(x + dir * len / 2 - dir * 9, y - 5); ctx.lineTo(x + dir * len / 2 - dir * 9, y + 5); ctx.closePath(); ctx.fill();
   };
 
-  if (st.view === 'over') {
-    const ln = LS[0];
-    if (st.showRes) fill(yr, ln.Y);
-    if (st.showRes) stroke(yr, ln.Y, col.res, 3.5);
-    if (st.showInd) { stroke(y1, ln.Y, col.p1, 2, [7, 5]); stroke(y2, ln.Y, col.p2, 2, [7, 5]); }
-    arrow(c1(), 17, 1, col.p1); arrow(c2(), 17, -1, col.p2);
+  if (st.view !== 'sep') {
+    for (const ln of LS) {
+      const [f1, f2, fr] = ln.kind === 'wave' ? [s1, s2, sr] : [y1, y2, yr];
+      if (st.showRes) { fill(fr, ln.Y); stroke(fr, ln.Y, col.res, 3.5); }
+      if (st.showInd) { stroke(f1, ln.Y, col.p1, 2, [7, 5]); stroke(f2, ln.Y, col.p2, 2, [7, 5]); }
+      arrow(c1(), ln.top - 16, 1, col.p1); arrow(c2(), ln.top - 16, -1, col.p2);
+    }
   } else {
     const [a, b, c] = LS;
     // regiones a, b, c… como en la fig. 14.18
@@ -367,13 +399,16 @@ function draw() {
   // sonda
   const px = X(st.probe);
   ctx.strokeStyle = col.ink; ctx.lineWidth = 1.5; ctx.globalAlpha = .7;
-  ctx.beginPath(); ctx.moveTo(px, LS[0].top - (st.view === 'over' ? 0 : 4)); ctx.lineTo(px, last.bottom); ctx.stroke(); ctx.globalAlpha = 1;
+  ctx.beginPath(); ctx.moveTo(px, LS[0].top - (st.view === 'sep' ? 4 : 0)); ctx.lineTo(px, last.bottom); ctx.stroke(); ctx.globalAlpha = 1;
   ctx.fillStyle = col.ink; ctx.beginPath(); ctx.moveTo(px, last.bottom - 1); ctx.lineTo(px - 6, last.bottom + 8); ctx.lineTo(px + 6, last.bottom + 8); ctx.closePath(); ctx.fill();
   const dot = (y, Y, color) => { ctx.beginPath(); ctx.arc(px, Y(y), 5, 0, 7); ctx.fillStyle = color; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = col.panel; ctx.stroke(); };
   const p = st.probe;
-  if (st.view === 'over') {
-    if (st.showInd) { dot(y1(p), LS[0].Y, col.p1); dot(y2(p), LS[0].Y, col.p2); }
-    if (st.showRes) dot(yr(p), LS[0].Y, col.res);
+  if (st.view !== 'sep') {
+    for (const ln of LS) {
+      const [f1, f2, fr] = ln.kind === 'wave' ? [s1, s2, sr] : [y1, y2, yr];
+      if (st.showInd) { dot(f1(p), ln.Y, col.p1); dot(f2(p), ln.Y, col.p2); }
+      if (st.showRes) dot(fr(p), ln.Y, col.res);
+    }
   } else {
     dot(y1(p), LS[0].Y, col.p1); dot(y2(p), LS[1].Y, col.p2); if (st.showRes) dot(yr(p), LS[2].Y, col.res);
   }
@@ -394,12 +429,16 @@ function readouts() {
     cls = st.A1 * st.A2 > 0 ? 'ok' : st.A1 * st.A2 < 0 ? 'warn' : '';
   }
   chip.textContent = txt.charAt(0).toUpperCase() + txt.slice(1); chip.className = 'chip ' + cls;
-  $('maxv').innerHTML = st.showRes
-    ? `ahora <span class="cr">${fmt(m)} cm</span> · máximo alcanzado ${fmt(st.peak)} cm`
-    : `oculto (modo predicción)`;
-  const p = st.probe, a = y1(p), b = y2(p);
-  $('probe').innerHTML = `x = ${fmt(p)} cm → y = <span class="c1">(${sgn(a)})</span> + <span class="c2">(${sgn(b)})</span> = ` +
-    (st.showRes ? `<span class="cr">${sgn(a + b)} cm</span>` : `<span class="cr">?</span>`);
+  const mw = maxWave(); st.peakW = Math.max(st.peakW, mw);
+  const both = st.view === 'both';
+  $('maxv').innerHTML = !st.showRes ? `oculto (modo predicción)`
+    : both ? `rectángulos: ahora <span class="cr">${fmt(m)} cm</span> · máx. ${fmt(st.peak)} cm<br>onda: ahora <span class="cr">${fmt(mw)} cm</span> · máx. ${fmt(st.peakW)} cm`
+    : `ahora <span class="cr">${fmt(m)} cm</span> · máximo alcanzado ${fmt(st.peak)} cm`;
+  const p = st.probe;
+  const line = (f1, f2) => { const a = f1(p), b = f2(p); return `y = <span class="c1">(${sgn(a)})</span> + <span class="c2">(${sgn(b)})</span> = ` + (st.showRes ? `<span class="cr">${sgn(a + b)} cm</span>` : `<span class="cr">?</span>`); };
+  $('probe').innerHTML = both
+    ? `x = ${fmt(p)} cm<br>rectángulos: ${line(y1, y2)}<br>onda: ${line(s1, s2)}`
+    : `x = ${fmt(p)} cm → ${line(y1, y2)}`;
 }
 
 /* ---------- Controles ---------- */
@@ -410,13 +449,15 @@ function syncInputs() {
   $('ov').textContent = fmt(st.v, 0) + ' cm/s';
   $('bPlay').textContent = st.playing ? '⏸ Pausa' : st.s >= SMAX ? '↺ Repetir' : st.s > 0 ? '▶ Seguir' : '▶ Iniciar';
   $('bSlow').setAttribute('aria-pressed', st.slow);
-  $('vOver').setAttribute('aria-pressed', st.view === 'over'); $('vSep').setAttribute('aria-pressed', st.view === 'sep');
+  $('vBoth').setAttribute('aria-pressed', st.view === 'both'); $('vOver').setAttribute('aria-pressed', st.view === 'over'); $('vSep').setAttribute('aria-pressed', st.view === 'sep');
+  $('shapeBox').hidden = st.view !== 'both';
+  document.querySelectorAll('[data-shape]').forEach(b => b.setAttribute('aria-pressed', b.dataset.shape === st.shape));
   $('showInd').checked = st.showInd; $('showRes').checked = st.showRes;
   dirty = true;
 }
 const setS = s => { st.s = Math.min(SMAX, Math.max(0, s)); dirty = true; };
 const pause = () => { st.playing = false; syncInputs(); };
-const peakReset = () => { st.peak = 0; };
+const peakReset = () => { st.peak = 0; st.peakW = 0; };
 
 for (const k of ['A1', 'w1', 'A2', 'w2']) $(k).addEventListener('input', e => { st[k] = +e.target.value; peakReset(); syncInputs(); });
 $('v').addEventListener('input', e => { st.v = +e.target.value; syncInputs(); });
@@ -434,7 +475,9 @@ $('bFwd').addEventListener('click', () => { pause(); setS(st.s + 1); });
 $('bMeet').addEventListener('click', () => { pause(); setS(SMAX / 2); });
 $('bSlow').addEventListener('click', () => { st.slow = !st.slow; syncInputs(); });
 $('scrub').addEventListener('input', e => { st.playing = false; setS(+e.target.value); syncInputs(); });
+$('vBoth').addEventListener('click', () => { st.view = 'both'; syncInputs(); resize(); });
 $('vOver').addEventListener('click', () => { st.view = 'over'; syncInputs(); resize(); });
+document.querySelectorAll('[data-shape]').forEach(b => b.addEventListener('click', () => { st.shape = b.dataset.shape; peakReset(); syncInputs(); }));
 $('vSep').addEventListener('click', () => { st.view = 'sep'; syncInputs(); resize(); });
 $('showInd').addEventListener('change', e => { st.showInd = e.target.checked; dirty = true; });
 $('showRes').addEventListener('change', e => { st.showRes = e.target.checked; dirty = true; });
