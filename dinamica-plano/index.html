@@ -429,10 +429,10 @@ function diagram(res) {
   const base = add(add(contact, u, 135), n, -30);
   if (v.sit === 'up' || v.sit === 'down') {
     const p0 = add(base, u, -s * 40), p1 = add(base, u, s * 40);
-    out.push(arrow(p0, p1, '--mov', { w: 2.4, label: 'v', grow, labelSide: -1 }));
+    //out.push(arrow(p0, p1, '--mov', { w: 2.4, label: 'v', grow, labelSide: -1 }));
   } else if (v.sit.startsWith('lim')) {
     const p0 = add(base, u, -s * 40), p1 = add(base, u, s * 40);
-    out.push(arrow(p0, p1, '--mov', { w: 2, dash: true, label: 'tiende a moverse', grow, labelSide: -1 }));
+    //out.push(arrow(p0, p1, '--mov', { w: 2, dash: true, label: 'tiende a moverse', grow, labelSide: -1 }));
   } else if (v.sit === 'check' && !A.moves) {
     top.push(text(add(base, n, -6), 'en reposo', '--muted', 13, 'middle', 600));
   }
@@ -756,8 +756,8 @@ function diagram2(res) {
   const below = k => vec(0, -k);
   if (moving || lim) {
     const b = add(anchor, below(32)), p0 = add(b, u, -s * 40), p1 = add(b, u, s * 40);
-    out.push(arrow(p0, p1, '--mov', { w: 2.2, dash: lim, label: lim ? 'tiende a moverse' : 'v', side: vec(0, -16) }));
-    if (pul) out.push(arrow([c2[0] + 56, c2[1] - s * 30], [c2[0] + 56, c2[1] + s * 30], '--mov', { w: 2.2, dash: lim, label: lim ? '' : 'v', side: [14, 0] }));
+    //out.push(arrow(p0, p1, '--mov', { w: 2.2, dash: lim, label: lim ? 'tiende a moverse' : 'v', side: vec(0, -16) }));
+    //if (pul) out.push(arrow([c2[0] + 56, c2[1] - s * 30], [c2[0] + 56, c2[1] + s * 30], '--mov', { w: 2.2, dash: lim, label: lim ? '' : 'v', side: [14, 0] }));
   } else if (v.sit === 'check') top.push(text(add(anchor, below(40)), 'en reposo', '--muted', 13, 'middle', 600));
   const acc = v.sit === 'check' ? (A.moves ? A.a : 0) : A.a;
   if (moving && Math.abs(acc) > 1e-9) {
