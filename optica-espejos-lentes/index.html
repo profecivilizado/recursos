@@ -53,6 +53,7 @@ body{margin:0}
   --btn:#1d2738; --btn-hover:#253148; color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
 .wrap{max-width:1150px;margin:0 auto;display:grid;gap:22px}
@@ -106,6 +107,10 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
 .note{font-size:13px;color:var(--muted);margin:0}
 .presets{display:flex;flex-wrap:wrap;gap:8px}
 .presets button{font-size:13px}
+.scale{display:flex;justify-content:space-between;font:600 11px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.rrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;margin-top:6px}
+.rrow input{font:15px var(--f-mono);width:110px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.unit{color:var(--muted);font-family:var(--f-mono);font-size:13px}
 
 .theory{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:6px}
 @media (max-width:860px){.theory{grid-template-columns:1fr}}
@@ -120,14 +125,12 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
   <header>
     <div class="eyebrow">Óptica geométrica · Normas DIN</div>
     <h1>Espejos y lentes <span class="eq" id="hEq">1/s′ + 1/s = 1/f</span></h1>
-    <p>Elige un espejo o una lente y arrastra el objeto por el eje. Los rayos principales construyen la imagen: con trazo continuo los rayos reales y en discontinuo sus prolongaciones.</p>
+    <p>Elige un espejo o una lente y arrastra el objeto por el eje. En el espejo, el radio de curvatura decide si es cóncavo, plano o convexo. Los rayos principales construyen la imagen: con trazo continuo los rayos reales y en discontinuo sus prolongaciones.</p>
   </header>
 
   <div class="sim" id="sim">
     <div class="elems" role="group" aria-label="Elemento óptico">
-      <button data-el="concave">Espejo cóncavo</button>
-      <button data-el="convex">Espejo convexo</button>
-      <button data-el="plane">Espejo plano</button>
+      <button data-el="mirror">Espejo</button>
       <button data-el="conv">Lente convergente</button>
       <button data-el="div">Lente divergente</button>
     </div>
@@ -163,6 +166,12 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
   <div class="controls">
     <div class="card">
       <h2>Elemento</h2>
+      <div class="field" id="RBox"><div class="top"><label for="RR">Radio de curvatura R</label><output id="RO"></output></div>
+        <input type="range" id="RR" min="-21" max="21" step="1" value="-15" aria-describedby="RNote">
+        <div class="scale"><span>cóncavo</span><span>plano</span><span>convexo</span></div>
+        <div class="rrow"><label for="RN">Escribe R</label><input type="number" id="RN" step="0.5" placeholder="∞"><span class="unit">cm</span><button id="RInf">Plano (R = ∞)</button></div>
+        <p class="note" id="RNote">Desliza: a la izquierda R &lt; 0 (cóncavo), en el centro R = ∞ (plano) y a la derecha R &gt; 0 (convexo). Cuanto más hacia los extremos, más curvado.</p>
+      </div>
       <div class="field" id="fBox"><div class="top"><label for="fR" id="fLab">Distancia focal |f|</label><output id="fO"></output></div>
         <input type="range" id="fR" min="5" max="40" step="0.5" value="20"></div>
       <p class="note" id="fNote"></p>
@@ -215,7 +224,14 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
-const st = { el: 'concave', F: 20, d: 50, y: 4, rays: [true, true, true], ext: true, dims: true, pred: false, revealed: false };
+const st = { base: 'mirror', R: -40, FL: 20, d: 50, y: 4, rays: [true, true, true], ext: true, dims: true, pred: false, revealed: false };
+// tipo de elemento según el botón y, en el espejo, según el signo de R
+Object.defineProperty(st, 'el', { get() { return this.base !== 'mirror' ? this.base : !isFinite(this.R) ? 'plane' : this.R < 0 ? 'concave' : 'convex'; } });
+Object.defineProperty(st, 'F', { get() { return this.base === 'mirror' ? Math.abs(this.R) / 2 : this.FL; } });
+// valores de |R| del deslizador (de menos a más curvado); en el centro, R = ∞
+const RMAG = [300, 200, 150, 120, 100, 80, 70, 60, 50, 45, 40, 35, 30, 25, 20, 15, 12, 10, 8, 6, 5];
+const idxToR = k => k === 0 ? Infinity : Math.sign(k) * RMAG[Math.abs(k) - 1];
+const rToIdx = R => { if (!isFinite(R)) return 0; let best = 1, bd = Infinity; RMAG.forEach((v, i) => { const d = Math.abs(Math.log(Math.abs(R) / v)); if (d < bd) { bd = d; best = i + 1; } }); return Math.sign(R) * best; };
 const MIRROR = el => el === 'concave' || el === 'convex' || el === 'plane';
 const fmt = (n, k = 1) => { if (!isFinite(n)) return '∞'; const r = Math.abs(n) < 0.5 * 10 ** -k ? 0 : n; return (r < 0 ? '−' : '') + Math.abs(r).toFixed(k).replace('.', ','); };
 const sg = n => (n > 0 ? '+' : n < 0 ? '−' : '') + Math.abs(n).toFixed(1).replace('.', ',');
@@ -278,7 +294,7 @@ const wx = p => (p - PADL) / (W - PADL - PADR) * 2 * view.X - view.X;
 
 function setView() {
   const F = st.el === 'plane' ? 0 : st.F;
-  const X = st.el === 'plane' ? Math.max(30, 1.6 * st.d) : Math.max(4 * F, 1.15 * st.d);
+  const X = st.el === 'plane' ? Math.max(30, 1.6 * st.d) : Math.max(Math.min(4 * F, 120), 1.15 * st.d);
   view = { X, Y: Math.max(12, 3 * st.y) };
 }
 function clipLine(p, d) { // de p en la dirección d hasta el borde de la vista
@@ -456,23 +472,29 @@ const RAYNAMES = {
   lens: ['Paralelo al eje → por F′', 'Hacia F → sale paralelo', 'Por el centro O → no se desvía'],
 };
 function sync() {
-  document.querySelectorAll('[data-el]').forEach(b => b.setAttribute('aria-pressed', b.dataset.el === st.el));
+  document.querySelectorAll('[data-el]').forEach(b => b.setAttribute('aria-pressed', b.dataset.el === st.base));
+  const mir = st.base === 'mirror';
+  $('RBox').hidden = !mir;
+  $('RR').value = rToIdx(st.R);
+  if (document.activeElement !== $('RN')) $('RN').value = isFinite(st.R) ? +st.R.toFixed(1) : '';
+  $('RO').textContent = isFinite(st.R) ? `R = ${fmt(st.R)} cm · f = ${fmt(st.R / 2)} cm · ${st.R < 0 ? 'cóncavo' : 'convexo'}` : 'R = ∞ · espejo plano';
   const m = MIRROR(st.el), names = st.el === 'plane' ? RAYNAMES.plane : m ? RAYNAMES.mirror : RAYNAMES.lens;
   [1, 2, 3].forEach(i => { $('c' + i).textContent = 'Rayo ' + i + ': ' + names[i - 1]; $('lg' + i).textContent = names[i - 1] ? 'Rayo ' + i : ''; $('k' + i).parentElement.hidden = !names[i - 1]; $('lg' + i).parentElement.hidden = !names[i - 1]; $('k' + i).checked = st.rays[i - 1]; });
-  $('fBox').hidden = st.el === 'plane';
+  $('fBox').hidden = mir;
   $('fLab').textContent = m ? 'Distancia focal |f|' : 'Distancia focal imagen |f′|';
   const f = focal();
   $('fO').textContent = st.el === 'plane' ? '' : `${m ? 'f' : 'f′'} = ${fmt(f)} cm${m ? ` · R = ${fmt(2 * f)} cm` : ''}`;
+  $('fNote').hidden = mir;
   $('fNote').textContent = { concave: 'Cóncavo: f y R negativos (F y C delante del espejo).', convex: 'Convexo: f y R positivos (F y C detrás del espejo).', plane: 'Un espejo plano es como uno esférico de radio infinito.', conv: 'Convergente: f′ positiva.', div: 'Divergente: f′ negativa.' }[st.el];
   $('hEq').textContent = m ? '1/s′ + 1/s = 1/f' : '1/s′ − 1/s = 1/f′';
-  $('fR').value = st.F; $('sR').value = st.d; $('yR').value = st.y;
+  $('fR').value = st.FL; $('sR').value = st.d; $('yR').value = st.y;
   $('sO').textContent = `s = ${fmt(-st.d)} cm`; $('yO').textContent = `${fmt(st.y)} cm`;
   $('pred').checked = st.pred; $('bReveal').hidden = !st.pred; $('bReveal').textContent = st.revealed ? 'Ocultar de nuevo' : 'Mostrar la imagen';
   $('kExt').checked = st.ext; $('kDim').checked = st.dims;
   buildPresets(); draw(); readouts();
 }
 function buildPresets() {
-  const F = st.F, el = st.el;
+  const F = st.el === 'plane' ? 20 : st.F, el = st.el;
   let P;
   if (el === 'concave' || el === 'conv') {
     const two = el === 'concave' ? 'C' : '2F', what = el === 'concave' ? 'el espejo' : 'la lente';
@@ -482,8 +504,11 @@ function buildPresets() {
   $('presets').innerHTML = P.map(([t, d]) => `<button data-d="${d}" aria-pressed="${Math.abs(st.d - d) < 1e-9}">${t}</button>`).join('');
   $('presets').querySelectorAll('[data-d]').forEach(b => b.addEventListener('click', () => { st.d = +b.dataset.d; st.revealed = false; sync(); }));
 }
-document.querySelectorAll('[data-el]').forEach(b => b.addEventListener('click', () => { st.el = b.dataset.el; st.revealed = false; sync(); }));
-$('fR').addEventListener('input', e => { st.F = +e.target.value; sync(); });
+document.querySelectorAll('[data-el]').forEach(b => b.addEventListener('click', () => { st.base = b.dataset.el; st.revealed = false; sync(); }));
+$('RR').addEventListener('input', e => { st.R = idxToR(+e.target.value); st.revealed = false; sync(); });
+$('RN').addEventListener('input', e => { const v = parseFloat(String(e.target.value).replace(',', '.')); st.R = !isFinite(v) || v === 0 ? Infinity : Math.max(-1000, Math.min(1000, v)); st.revealed = false; sync(); });
+$('RInf').addEventListener('click', () => { st.R = Infinity; sync(); });
+$('fR').addEventListener('input', e => { st.FL = +e.target.value; sync(); });
 $('sR').addEventListener('input', e => { st.d = +e.target.value; sync(); });
 $('yR').addEventListener('input', e => { st.y = +e.target.value; sync(); });
 [1, 2, 3].forEach(i => $('k' + i).addEventListener('change', e => { st.rays[i - 1] = e.target.checked; sync(); }));
