@@ -128,14 +128,20 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
 .steps ol{margin:10px 0 0;padding-left:1.4em;display:grid;gap:10px}
 .f{font:14px/1.65 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .f .u{color:var(--accent);font-weight:700}
-.tinst{font:14px/1.6 var(--f-mono);font-variant-numeric:tabular-nums}
+.tinst{font:14px/1.7 var(--f-mono);font-variant-numeric:tabular-nums;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:0 16px}
+.tinst .th{grid-column:1/-1;font:700 14px var(--f-body)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px}
+@media (max-width:620px){.fgrid{grid-template-columns:1fr}}
+.fgrid p{margin:0;font:14px/1.7 var(--f-mono)}
+.fk{font:600 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+sub{font-size:.72em;line-height:0}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="eyebrow">Cinemática · Composición de movimientos</div>
-    <h1>Tiro parabólico <span class="eq">x = v₀ₓ·t · y = v₀ᵧ·t − ½·g·t²</span></h1>
+    <h1>Tiro parabólico</h1>
     <p>Elige uno de los tres casos, da los datos del lanzamiento o marca qué quieres averiguar a partir de otro dato. Verás la trayectoria con sus vectores, podrás recorrerla instante a instante y tendrás la resolución paso a paso.</p>
   </header>
 
@@ -144,8 +150,8 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
       <div class="card">
         <div class="legend" aria-hidden="true">
           <span style="color:var(--v0)"><i class="sw"></i>v</span>
-          <span style="color:var(--vx)"><i class="sw"></i>vₓ</span>
-          <span style="color:var(--vy)"><i class="sw"></i>vᵧ</span>
+          <span style="color:var(--vx)"><i class="sw"></i><span>v<sub>x</sub></span></span>
+          <span style="color:var(--vy)"><i class="sw"></i><span>v<sub>y</sub></span></span>
           <span style="color:var(--pos)">● posición en t</span>
         </div>
         <div id="cw"><canvas id="cv" aria-label="Trayectoria del tiro parabólico"></canvas></div>
@@ -161,6 +167,19 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
           <label class="check"><input type="checkbox" id="tSame" checked> Misma escala en x e y</label>
         </div>
         <div class="tinst" id="inst"></div>
+      </div>
+      <div class="card formulario">
+        <h2>Formulario</h2>
+        <div class="fgrid">
+          <div><div class="fk">Descomposición de v<sub>0</sub></div>
+            <p>v<sub>0x</sub> = v<sub>0</sub>·cosθ</p><p>v<sub>0y</sub> = v<sub>0</sub>·senθ</p>
+            <p>v<sub>0</sub> = √(v<sub>0x</sub>² + v<sub>0y</sub>²)</p><p>tanθ = v<sub>0y</sub> / v<sub>0x</sub></p></div>
+          <div><div class="fk">Eje X (MRU)</div>
+            <p>x = v<sub>0x</sub>·t = v<sub>0</sub>·cosθ·t</p><p>v<sub>fx</sub> = v<sub>0x</sub> = v<sub>0</sub>·cosθ</p></div>
+          <div><div class="fk">Eje Y (MRUA)</div>
+            <p>y = v<sub>0y</sub>·t − ½·g·t²</p><p>v<sub>fy</sub> = v<sub>0y</sub> − g·t</p></div>
+        </div>
+        <p class="note">Origen en el punto de lanzamiento: x<sub>0</sub> = 0, y<sub>0</sub> = 0, t<sub>0</sub> = 0. Si se lanza desde una altura h, el suelo está en y = −h.</p>
       </div>
       <div class="card" id="result"></div>
     </div>
@@ -178,7 +197,7 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
       <div class="card">
         <h2>2 · Datos del lanzamiento</h2>
         <div class="grid2">
-          <div class="field" id="fv0"><div class="top"><label for="v0N">v₀</label><span class="num"><input type="number" id="v0N" step="0.1" min="0.1"><span class="unit">m/s</span></span></div><input type="range" id="v0R" min="1" max="60" step="0.5"></div>
+          <div class="field" id="fv0"><div class="top"><label for="v0N">v<sub>0</sub></label><span class="num"><input type="number" id="v0N" step="0.1" min="0.1"><span class="unit">m/s</span></span></div><input type="range" id="v0R" min="1" max="60" step="0.5"></div>
           <div class="field" id="fth"><div class="top"><label for="thN">θ</label><span class="num"><input type="number" id="thN" step="0.5"><span class="unit">°</span></span></div><input type="range" id="thR" min="1" max="89" step="0.5"></div>
           <div class="field" id="fh"><div class="top"><label for="hN">h</label><span class="num"><input type="number" id="hN" step="0.5" min="0.1"><span class="unit">m</span></span></div><input type="range" id="hR" min="1" max="200" step="0.5"></div>
           <div class="field"><div class="top"><label for="gS">g</label><span class="num"><select id="gS"><option value="9.8">9,8</option><option value="9.81">9,81</option><option value="10">10</option></select><span class="unit">m/s²</span></span></div></div>
@@ -196,10 +215,6 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
         <p class="note" id="unkNote"></p>
       </div>
 
-      <div class="card">
-        <h2>Ejemplos</h2>
-        <div class="presets" id="presets"></div>
-      </div>
     </div>
   </div>
 </div>
@@ -223,13 +238,13 @@ function solveMotion(v) {
   return { th, h, g, v0: v.v0, v0x, v0y, T, R: v0x * T, ts, ymax, Hs: h + ymax, vfx, vfy, vf, af };
 }
 const QS = {
-  T: { name: 'Tiempo de vuelo', sym: 't_v', unit: 's', get: M => M.T },
-  R: { name: 'Alcance', sym: 'x_máx', unit: 'm', get: M => M.R },
-  H: { name: 'Altura máxima sobre el suelo', sym: 'y_máx', unit: 'm', get: M => M.Hs },
-  vf: { name: 'Rapidez al llegar al suelo', sym: 'v_f', unit: 'm/s', get: M => M.vf },
+  T: { name: 'Tiempo de vuelo', sym: 't<sub>v</sub>', unit: 's', get: M => M.T },
+  R: { name: 'Alcance', sym: 'x<sub>máx</sub>', unit: 'm', get: M => M.R },
+  H: { name: 'Altura máxima sobre el suelo', sym: 'y<sub>máx</sub>', unit: 'm', get: M => M.Hs },
+  vf: { name: 'Rapidez al llegar al suelo', sym: 'v<sub>f</sub>', unit: 'm/s', get: M => M.vf },
   af: { name: 'Ángulo de llegada (bajo la horizontal)', sym: 'α', unit: '°', get: M => M.af },
 };
-const UNKS = { v0: { name: 'v₀', unit: 'm/s', lo: 0.05, hi: 400 }, th: { name: 'θ', unit: '°', lo: 0.05, hi: 89.95 }, h: { name: 'h', unit: 'm', lo: 0.001, hi: 5000 } };
+const UNKS = { v0: { name: 'v<sub>0</sub>', unit: 'm/s', lo: 0.05, hi: 400 }, th: { name: 'θ', unit: '°', lo: 0.05, hi: 89.95 }, h: { name: 'h', unit: 'm', lo: 0.001, hi: 5000 } };
 function setU(v, k, u) { return { ...v, [k]: u }; }
 function qOptions() {
   const o = ['T', 'R', 'vf', 'af'];
@@ -237,8 +252,8 @@ function qOptions() {
   return o;
 }
 function unkOptions() {
-  const o = [['none', 'Todo, a partir de v₀, θ y h']];
-  o.push(['v0', 'v₀']);
+  const o = [['none', 'Todo, a partir de v<sub>0</sub>, θ y h']];
+  o.push(['v0', 'v<sub>0</sub>']);
   if (st.kase !== 2) o.push(['th', 'θ']);
   if (st.kase !== 1) o.push(['h', 'h']);
   return o;
@@ -279,6 +294,16 @@ function resize() {
 }
 new ResizeObserver(resize).observe($('cw'));
 const tok = () => { const c = getComputedStyle(document.documentElement), g = k => c.getPropertyValue(k).trim(); return { ink: g('--ink'), muted: g('--muted'), minor: g('--grid-minor'), major: g('--grid-major'), path: g('--path'), v0: g('--v0'), vx: g('--vx'), vy: g('--vy'), pos: g('--pos'), ground: g('--ground'), hatch: g('--hatch'), panel: g('--panel'), acc: g('--acc') }; };
+// Texto con subíndices en el lienzo: «x_{máx} = 3 m»
+function subText(str, x, y, align, base, size, wt) {
+  const parts = []; str.replace(/([^_]+)|_\{([^}]*)\}/g, (m, a, b) => { parts.push(a != null ? [a, false] : [b, true]); return m; });
+  const fN = mono(size, wt), fS = mono(Math.round(size * 0.72), wt);
+  let w = 0; for (const [t, sub] of parts) { ctx.font = sub ? fS : fN; w += ctx.measureText(t).width; }
+  let cx = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x;
+  ctx.textBaseline = base; ctx.textAlign = 'left';
+  for (const [t, sub] of parts) { ctx.font = sub ? fS : fN; ctx.fillText(t, cx, y + (sub ? size * 0.28 : 0)); cx += ctx.measureText(t).width; }
+  return w;
+}
 const mono = (s, w = 400) => `${w} ${s}px "JetBrains Mono", ui-monospace, monospace`;
 let V = { kx: 1, ky: 1, x0: 0, y0: 0 };
 const PX = x => 46 + (x - V.x0) * V.kx, PY = y => H - 34 - (y - V.y0) * V.ky;
@@ -333,13 +358,13 @@ function draw() {
     if (M.v0y > 0) {
       const xt = M.v0x * M.ts;
       ctx.beginPath(); ctx.moveTo(PX(xt), PY(M.ymax)); ctx.lineTo(PX(xt), PY(-h)); ctx.stroke();
-      ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(`y_máx = ${fmt(M.Hs)} m`, PX(xt) + 6, PY((M.ymax - h) / 2));
+      subText(`y_{máx} = ${fmt(M.Hs)} m`, PX(xt) + 6, PY((M.ymax - h) / 2), 'left', 'middle', 12, 600);
     }
     ctx.setLineDash([]);
     const yb = PY(-h) + 14 > H - 34 ? PY(-h) - 10 : PY(-h) + 12;
     ctx.beginPath(); ctx.moveTo(PX(0), yb); ctx.lineTo(PX(M.R), yb); ctx.moveTo(PX(0), yb - 4); ctx.lineTo(PX(0), yb + 4); ctx.moveTo(PX(M.R), yb - 4); ctx.lineTo(PX(M.R), yb + 4); ctx.stroke();
-    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; const tx = `x_máx = ${fmt(M.R)} m`, tw = ctx.measureText(tx).width;
-    ctx.fillStyle = C.panel; ctx.fillRect((PX(0) + PX(M.R)) / 2 - tw / 2 - 3, yb - 16, tw + 6, 14); ctx.fillStyle = C.acc; ctx.fillText(tx, (PX(0) + PX(M.R)) / 2, yb - 3);
+    const tx = `x_{máx} = ${fmt(M.R)} m`; ctx.font = mono(12, 600); const tw = ctx.measureText(tx.replace(/[_{}]/g, '')).width;
+    ctx.fillStyle = C.panel; ctx.fillRect((PX(0) + PX(M.R)) / 2 - tw / 2 - 3, yb - 16, tw + 6, 14); ctx.fillStyle = C.acc; subText(tx, (PX(0) + PX(M.R)) / 2, yb - 3, 'center', 'bottom', 12, 600);
     if (h > 0) { ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(`h = ${fmt(h)} m`, PX(0) + 8, PY(-h * 0.8)); }
   }
   // vectores
@@ -349,7 +374,7 @@ function draw() {
     const ux = dx / L, uy = dy / L, ex = x + dx, ey = y + dy, hl = Math.min(10, L * 0.45);
     ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex - ux * hl * .8, ey - uy * hl * .8); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex - ux * hl - uy * hl * .55, ey - uy * hl + ux * hl * .55); ctx.lineTo(ex - ux * hl + uy * hl * .55, ey - uy * hl - ux * hl * .55); ctx.closePath(); ctx.fill();
-    if (lab) { ctx.font = mono(12, 700); ctx.textAlign = ux > .3 ? 'left' : ux < -.3 ? 'right' : 'center'; ctx.textBaseline = uy > .3 ? 'top' : uy < -.3 ? 'bottom' : 'middle'; ctx.fillText(lab, ex + ux * 6, ey + uy * 6); }
+    if (lab) subText(lab, ex + ux * 6, ey + uy * 6, ux > .3 ? 'left' : ux < -.3 ? 'right' : 'center', uy > .3 ? 'top' : uy < -.3 ? 'bottom' : 'middle', 13, 700);
   };
   const vecAt = (t, labels) => {
     const p = pos(t), vx = M.v0x, vy = M.v0y - M.g * t, X = PX(p[0]), Y = PY(p[1]);
@@ -357,11 +382,11 @@ function draw() {
     arrow(X, Y, vx * VK, -vy * VK, C.v0, 3, labels ? labels[0] : '');
   };
   if (st.show.vec) {
-    vecAt(0, ['v₀', 'v₀ₓ', 'v₀ᵧ']);
+    vecAt(0, ['v_{0}', 'v_{0x}', 'v_{0y}']);
     // ángulo θ
     if (Math.abs(M.th) > 0.5) { ctx.strokeStyle = C.v0; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(PX(0), PY(0), 26, -Math.max(0, Math.atan2(M.v0y * VK, M.v0x * VK)), -Math.min(0, Math.atan2(M.v0y * VK, M.v0x * VK)), false); ctx.stroke(); ctx.font = mono(12, 700); ctx.fillStyle = C.v0; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('θ', PX(0) + 30, PY(0) - Math.sign(M.th) * 8); }
-    vecAt(M.T, ['v_f', '', '']);
-    if (st.t > 1e-6 && st.t < M.T - 1e-6) vecAt(st.t, ['v', 'vₓ', 'vᵧ']);
+    vecAt(M.T, ['v_{f}', '', '']);
+    if (st.t > 1e-6 && st.t < M.T - 1e-6) vecAt(st.t, ['v', 'v_{x}', 'v_{y}']);
   }
   // posición en t
   const p = pos(st.t);
@@ -377,26 +402,26 @@ function steps(res) {
   if (res.kind === 'ok') {
     const Q = QS[v.q], U = UNKS[v.unk];
     const eq = {
-      T: k === 1 ? `t_v = 2·v₀·senθ / g` : k === 2 ? `−h = −½·g·t_v²` : `−h = v₀·senθ·t_v − ½·g·t_v²`,
-      R: k === 1 ? `x_máx = v₀·cosθ·t_v, con t_v = 2·v₀·senθ / g` : `x_máx = v₀ₓ·t_v, con t_v el tiempo en que y = −h`,
-      H: `y_máx = h + (v₀·senθ)² / (2·g)`,
-      vf: `v_f = √(v_fx² + v_fy²), con v_fx = v₀·cosθ y v_fy = v₀·senθ − g·t_v`,
-      af: `tan α = |v_fy| / v_fx`,
+      T: k === 1 ? `t<sub>v</sub> = 2·v<sub>0</sub>·senθ / g` : k === 2 ? `−h = −½·g·t<sub>v</sub>²` : `−h = v<sub>0</sub>·senθ·t<sub>v</sub> − ½·g·t<sub>v</sub>²`,
+      R: k === 1 ? `x<sub>máx</sub> = v<sub>0</sub>·cosθ·t<sub>v</sub>, con t<sub>v</sub> = 2·v<sub>0</sub>·senθ / g` : `x<sub>máx</sub> = v<sub>0x</sub>·t<sub>v</sub>, con t<sub>v</sub> el tiempo en que y = −h`,
+      H: `y<sub>máx</sub> = h + (v<sub>0</sub>·senθ)² / (2·g)`,
+      vf: `v<sub>f</sub> = √(v<sub>fx</sub>² + v<sub>fy</sub>²), con v<sub>fx</sub> = v<sub>0</sub>·cosθ y v<sub>fy</sub> = v<sub>0</sub>·senθ − g·t<sub>v</sub>`,
+      af: `tan α = |v<sub>fy</sub>| / v<sub>fx</sub>`,
     }[v.q];
     L.push(`<b>Planteamiento.</b> Conocemos ${Q.name.toLowerCase()} (${Q.sym} = ${fmt(v.qv)} ${Q.unit}) y buscamos ${U.name}. La relación entre ellos es:<br><span class="f">${eq}</span><br>Con los demás datos, la única incógnita es ${U.name}. Resolviendo: <span class="f"><span class="u">${U.name} = ${fmt(res.u)} ${U.unit}</span></span>${res.roots.length > 1 ? ` (hay ${res.roots.length} soluciones; se muestra la elegida).` : ''}<br>Con este valor, el resto del problema se resuelve igual que en el caso directo:`);
   }
   // descomposición
-  if (k === 2) L.push(`<b>Velocidad inicial.</b> Es horizontal, así que no hay v₀ᵧ:<br><span class="f">v₀ₓ = v₀ = ${fmt(M.v0x)} m/s · v₀ᵧ = 0</span>`);
-  else L.push(`<b>Descomposición de v₀.</b><br><span class="f">v₀ₓ = v₀·cosθ = ${fmt(M.v0)} · cos ${fmt(M.th, 1)}° = ${fmt(M.v0x)} m/s</span><br><span class="f">v₀ᵧ = v₀·senθ = ${fmt(M.v0)} · sen ${fmt(M.th, 1)}° = ${fmt(M.v0y)} m/s</span>`);
-  L.push(`<b>Ecuaciones del movimiento</b> (origen en el punto de lanzamiento${k === 1 ? '' : '; el suelo está en y = −h'}):<br><span class="f">Eje X (MRU): x = ${fmt(M.v0x)}·t · vₓ = ${fmt(M.v0x)}</span><br><span class="f">Eje Y (MRUA): y = ${k === 2 ? '' : fmt(M.v0y) + '·t '}− ½·${g}·t² · vᵧ = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·t</span>`);
+  if (k === 2) L.push(`<b>Velocidad inicial.</b> Es horizontal, así que no hay v<sub>0y</sub>:<br><span class="f">v<sub>0x</sub> = v<sub>0</sub> = ${fmt(M.v0x)} m/s</span><br><span class="f">v<sub>0y</sub> = 0</span>`);
+  else L.push(`<b>Descomposición de v<sub>0</sub>.</b><br><span class="f">v<sub>0x</sub> = v<sub>0</sub>·cosθ = ${fmt(M.v0)} · cos ${fmt(M.th, 1)}° = ${fmt(M.v0x)} m/s</span><br><span class="f">v<sub>0y</sub> = v<sub>0</sub>·senθ = ${fmt(M.v0)} · sen ${fmt(M.th, 1)}° = ${fmt(M.v0y)} m/s</span>`);
+  L.push(`<b>Ecuaciones del movimiento</b> (origen en el punto de lanzamiento${k === 1 ? '' : '; el suelo está en y = −h'}):<br>Eje X (MRU):<br><span class="f">x = ${fmt(M.v0x)}·t</span><br><span class="f">v<sub>x</sub> = ${fmt(M.v0x)}</span><br>Eje Y (MRUA):<br><span class="f">y = ${k === 2 ? '' : fmt(M.v0y) + '·t '}− ½·${g}·t²</span><br><span class="f">v<sub>y</sub> = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·t</span>`);
   // tiempo de vuelo
-  if (k === 1) L.push(`<b>Tiempo de vuelo.</b> Vuelve al suelo cuando y = 0:<br><span class="f">0 = ${fmt(M.v0y)}·t − ½·${g}·t² → t·(${fmt(M.v0y)} − ${fmt(M.g / 2, 2)}·t) = 0 → t_v = 2·v₀ᵧ / g = <span class="u">${fmt(M.T)} s</span></span>`);
-  else if (k === 2) L.push(`<b>Tiempo de vuelo.</b> Llega al suelo cuando y = −h:<br><span class="f">−${fmt(M.h)} = −½·${g}·t² → t_v = √(2·h / g) = √(2·${fmt(M.h)} / ${g}) = <span class="u">${fmt(M.T)} s</span></span>`);
-  else L.push(`<b>Tiempo de vuelo.</b> Llega al suelo cuando y = −h:<br><span class="f">−${fmt(M.h)} = ${fmt(M.v0y)}·t − ½·${g}·t² → ${fmt(M.g / 2, 2)}·t² ${M.v0y >= 0 ? '−' : '+'} ${fmt(Math.abs(M.v0y))}·t − ${fmt(M.h)} = 0</span><br>Ecuación de segundo grado; nos quedamos con la solución positiva: <span class="f"><span class="u">t_v = ${fmt(M.T)} s</span></span>`);
-  L.push(`<b>Alcance.</b> Es la x cuando t = t_v:<br><span class="f">x_máx = v₀ₓ·t_v = ${fmt(M.v0x)} · ${fmt(M.T)} = <span class="u">${fmt(M.R)} m</span></span>`);
-  if (M.v0y > 0) L.push(`<b>Altura máxima.</b> En el punto más alto vᵧ = 0:<br><span class="f">0 = ${fmt(M.v0y)} − ${g}·t → t_s = v₀ᵧ / g = ${fmt(M.ts)} s</span><br><span class="f">y = ${fmt(M.v0y)}·${fmt(M.ts)} − ½·${g}·${fmt(M.ts)}² = ${fmt(M.ymax)} m</span>${M.h > 0 ? ` sobre el punto de lanzamiento, así que sobre el suelo: <span class="f">${fmt(M.h)} + ${fmt(M.ymax)} = <span class="u">${fmt(M.Hs)} m</span></span>` : ` → <span class="f"><span class="u">y_máx = ${fmt(M.Hs)} m</span></span>`}`);
-  else L.push(`<b>Altura máxima.</b> ${k === 2 ? 'Como v₀ᵧ = 0, el objeto no sube: la altura máxima es la de lanzamiento,' : 'Como se lanza hacia abajo, no sube: la altura máxima es la de lanzamiento,'} <span class="f">h = ${fmt(M.h)} m</span>.`);
-  L.push(`<b>Velocidad al llegar al suelo</b> (t = t_v):<br><span class="f">v_fx = v₀ₓ = ${fmt(M.vfx)} m/s</span><br><span class="f">v_fy = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·${fmt(M.T)} = ${fmt(M.vfy)} m/s</span><br><span class="f">v_f = √(v_fx² + v_fy²) = √(${fmt(M.vfx)}² + ${fmt(M.vfy)}²) = <span class="u">${fmt(M.vf)} m/s</span></span><br><span class="f">tan α = |v_fy| / v_fx = ${fmt(Math.abs(M.vfy))} / ${fmt(M.vfx)} → <span class="u">α = ${fmt(M.af, 1)}°</span> bajo la horizontal</span>`);
+  if (k === 1) L.push(`<b>Tiempo de vuelo.</b> Vuelve al suelo cuando y = 0:<br><span class="f">0 = ${fmt(M.v0y)}·t − ½·${g}·t² → t·(${fmt(M.v0y)} − ${fmt(M.g / 2, 2)}·t) = 0 → t<sub>v</sub> = 2·v<sub>0y</sub> / g = <span class="u">${fmt(M.T)} s</span></span>`);
+  else if (k === 2) L.push(`<b>Tiempo de vuelo.</b> Llega al suelo cuando y = −h:<br><span class="f">−${fmt(M.h)} = −½·${g}·t² → t<sub>v</sub> = √(2·h / g) = √(2·${fmt(M.h)} / ${g}) = <span class="u">${fmt(M.T)} s</span></span>`);
+  else L.push(`<b>Tiempo de vuelo.</b> Llega al suelo cuando y = −h:<br><span class="f">−${fmt(M.h)} = ${fmt(M.v0y)}·t − ½·${g}·t² → ${fmt(M.g / 2, 2)}·t² ${M.v0y >= 0 ? '−' : '+'} ${fmt(Math.abs(M.v0y))}·t − ${fmt(M.h)} = 0</span><br>Ecuación de segundo grado; nos quedamos con la solución positiva: <span class="f"><span class="u">t<sub>v</sub> = ${fmt(M.T)} s</span></span>`);
+  L.push(`<b>Alcance.</b> Es la x cuando t = t<sub>v</sub>:<br><span class="f">x<sub>máx</sub> = v<sub>0x</sub>·t<sub>v</sub> = ${fmt(M.v0x)} · ${fmt(M.T)} = <span class="u">${fmt(M.R)} m</span></span>`);
+  if (M.v0y > 0) L.push(`<b>Altura máxima.</b> En el punto más alto v<sub>y</sub> = 0:<br><span class="f">0 = ${fmt(M.v0y)} − ${g}·t → t<sub>s</sub> = v<sub>0y</sub> / g = ${fmt(M.ts)} s</span><br><span class="f">y = ${fmt(M.v0y)}·${fmt(M.ts)} − ½·${g}·${fmt(M.ts)}² = ${fmt(M.ymax)} m</span>${M.h > 0 ? ` sobre el punto de lanzamiento, así que sobre el suelo: <span class="f">${fmt(M.h)} + ${fmt(M.ymax)} = <span class="u">${fmt(M.Hs)} m</span></span>` : ` → <span class="f"><span class="u">y<sub>máx</sub> = ${fmt(M.Hs)} m</span></span>`}`);
+  else L.push(`<b>Altura máxima.</b> ${k === 2 ? 'Como v<sub>0y</sub> = 0, el objeto no sube: la altura máxima es la de lanzamiento,' : 'Como se lanza hacia abajo, no sube: la altura máxima es la de lanzamiento,'} <span class="f">h = ${fmt(M.h)} m</span>.`);
+  L.push(`<b>Velocidad al llegar al suelo</b> (t = t<sub>v</sub>):<br><span class="f">v<sub>fx</sub> = v<sub>0x</sub> = ${fmt(M.vfx)} m/s</span><br><span class="f">v<sub>fy</sub> = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·${fmt(M.T)} = ${fmt(M.vfy)} m/s</span><br><span class="f">v<sub>f</sub> = √(v<sub>fx</sub>² + v<sub>fy</sub>²) = √(${fmt(M.vfx)}² + ${fmt(M.vfy)}²) = <span class="u">${fmt(M.vf)} m/s</span></span><br><span class="f">tan α = |v<sub>fy</sub>| / v<sub>fx</sub> = ${fmt(Math.abs(M.vfy))} / ${fmt(M.vfx)} → <span class="u">α = ${fmt(M.af, 1)}°</span> bajo la horizontal</span>`);
   return L;
 }
 function render() {
@@ -404,21 +429,21 @@ function render() {
   const R = $('result'), M = res.M, v = res.v;
   let h = '<h2>Resultado</h2>';
   if (res.kind === 'none') {
-    h += `<div class="err">Con estos datos no hay ningún valor de ${UNKS[v.unk].name} que dé ${QS[v.q].name.toLowerCase()} = ${fmt(v.qv)} ${QS[v.q].unit}. ${v.q === 'R' && v.unk === 'th' ? 'Puede que el alcance pedido sea mayor que el máximo posible con esa v₀.' : 'Revisa los datos.'}</div>`;
+    h += `<div class="err">Con estos datos no hay ningún valor de ${UNKS[v.unk].name} que dé ${QS[v.q].name.toLowerCase()} = ${fmt(v.qv)} ${QS[v.q].unit}. ${v.q === 'R' && v.unk === 'th' ? 'Puede que el alcance pedido sea mayor que el máximo posible con esa v<sub>0</sub>.' : 'Revisa los datos.'}</div>`;
   } else {
     if (res.kind === 'ok') {
       h += `<div class="big">${UNKS[v.unk].name} = ${fmt(res.u)} ${UNKS[v.unk].unit}</div>`;
       if (res.roots.length > 1) h += `<div class="roots">Hay ${res.roots.length} soluciones: ${res.roots.map((r, i) => `<button data-root="${i}" aria-pressed="${i === res.idx}">${UNKS[v.unk].name} = ${fmt(r)}${UNKS[v.unk].unit}</button>`).join('')}</div>`;
     }
     h += `<div class="res">
-      <div class="ro hl"><div class="k">Tiempo de vuelo <span style="text-transform:none">t_v</span></div><div class="v">${fmt(M.T)} s</div></div>
-      <div class="ro hl"><div class="k">Alcance <span style="text-transform:none">x_máx</span></div><div class="v">${fmt(M.R)} m</div></div>
+      <div class="ro hl"><div class="k">Tiempo de vuelo <span style="text-transform:none">t<sub>v</sub></span></div><div class="v">${fmt(M.T)} s</div></div>
+      <div class="ro hl"><div class="k">Alcance <span style="text-transform:none">x<sub>máx</sub></span></div><div class="v">${fmt(M.R)} m</div></div>
       <div class="ro hl"><div class="k">Altura máx. (suelo)</div><div class="v">${fmt(M.Hs)} m</div></div>
-      <div class="ro"><div class="k">Rapidez final <span style="text-transform:none">v_f</span></div><div class="v">${fmt(M.vf)} m/s</div></div>
+      <div class="ro"><div class="k">Rapidez final <span style="text-transform:none">v<sub>f</sub></span></div><div class="v">${fmt(M.vf)} m/s</div></div>
       <div class="ro"><div class="k">Ángulo de llegada <span style="text-transform:none">α</span></div><div class="v">${fmt(M.af, 1)}°</div></div>
-      <div class="ro"><div class="k" style="text-transform:none">v_fx · v_fy (m/s)</div><div class="v">${fmt(M.vfx)} · ${fmt(M.vfy)}</div></div>
+      <div class="ro"><div class="k">Componentes de <span style="text-transform:none">v<sub>f</sub></span></div><div class="v" style="font-size:15px">v<sub>fx</sub> = ${fmt(M.vfx)} m/s<br>v<sub>fy</sub> = ${fmt(M.vfy)} m/s</div></div>
     </div>`;
-    if (st.kase === 1 && Math.abs(M.th - 45) < 0.26) h += `<p class="note">Con θ = 45° se consigue el alcance máximo para esa v₀ (desde el suelo).</p>`;
+    if (st.kase === 1 && Math.abs(M.th - 45) < 0.26) h += `<p class="note">Con θ = 45° se consigue el alcance máximo para esa v<sub>0</sub> (desde el suelo).</p>`;
     h += `<details class="steps" open><summary>Resolución paso a paso</summary><ol>${steps(res).map(l => `<li>${l}</li>`).join('')}</ol></details>`;
   }
   R.innerHTML = h;
@@ -429,7 +454,7 @@ function syncT() {
   const M = cur.M, t = st.t, x = M.v0x * t, y = M.v0y * t - 0.5 * M.g * t * t, vy = M.v0y - M.g * t;
   $('tR').max = M.T; $('tR').value = t;
   $('tO').textContent = `t = ${fmt(t)} s`;
-  $('inst').innerHTML = `En t = ${fmt(t)} s: x = ${fmt(x)} m · y = ${fmt(y)} m${M.h > 0 ? ` (a ${fmt(y + M.h)} m del suelo)` : ''} · vₓ = ${fmt(M.v0x)} m/s · vᵧ = ${fmt(vy)} m/s · |v| = ${fmt(Math.hypot(M.v0x, vy))} m/s`;
+  $('inst').innerHTML = `<div class="th">En t = ${fmt(t)} s</div><div>x = ${fmt(x)} m</div><div>y = ${fmt(y)} m</div>${M.h > 0 ? `<div>altura sobre el suelo = ${fmt(y + M.h)} m</div>` : ''}<div>v<sub>x</sub> = ${fmt(M.v0x)} m/s</div><div>v<sub>y</sub> = ${fmt(vy)} m/s</div><div>|v| = ${fmt(Math.hypot(M.v0x, vy))} m/s</div>`;
   $('bPlay').textContent = st.playing ? '⏸ Pausa' : t >= M.T - 1e-9 ? '↺ Repetir' : t > 0 ? '▶ Seguir' : '▶ Lanzar';
 }
 
@@ -446,10 +471,10 @@ function build() {
   $('unks').innerHTML = U.map(([k, t]) => `<label><input type="radio" name="unk" value="${k}" ${k === st.unk ? 'checked' : ''}>${t}</label>`).join('');
   $('unks').querySelectorAll('input').forEach(r => r.addEventListener('change', () => { st.unk = r.value; st.root = 0; prefillQ(); build(); render(); }));
   const Q = qOptions(); if (!Q.includes(st.q)) st.q = Q[0];
-  $('qS').innerHTML = Q.map(k => `<option value="${k}" ${k === st.q ? 'selected' : ''}>${QS[k].name} (${QS[k].sym})</option>`).join('');
+  $('qS').innerHTML = Q.map(k => `<option value="${k}" ${k === st.q ? 'selected' : ''}>${QS[k].name}</option>`).join('');
   $('condBox').hidden = st.unk === 'none';
   $('qU').textContent = QS[st.q].unit;
-  $('unkNote').textContent = st.unk === 'none' ? 'Con v₀, θ y h se calcula todo: tiempo de vuelo, alcance, altura máxima y velocidad final.' : `${UNKS[st.unk].name} se calcula a partir del dato conocido; su casilla queda marcada.`;
+  $('unkNote').textContent = st.unk === 'none' ? 'Con v<sub>0</sub>, θ y h se calcula todo: tiempo de vuelo, alcance, altura máxima y velocidad final.' : `${UNKS[st.unk].name} se calcula a partir del dato conocido; su casilla queda marcada.`;
   $('gS').value = String(st.g);
   syncInputs();
 }
@@ -498,24 +523,6 @@ function tick(now) {
   if (st.playing) requestAnimationFrame(tick);
 }
 
-const PRESETS = [
-  ['Ej. 1.14: 25 m/s a 32° (g = 9,81)', { kase: 1, v0: 25, th: 32, h: 0, g: 9.81, unk: 'none' }],
-  ['Fig. 1.37: 20 m/s a 30°', { kase: 1, v0: 20, th: 30, h: 0, g: 9.8, unk: 'none' }],
-  ['Alcance máximo: 45°', { kase: 1, v0: 20, th: 45, h: 0, g: 9.8, unk: 'none' }],
-  ['¿Qué ángulos dan 30 m de alcance?', { kase: 1, v0: 20, th: 30, h: 0, g: 9.8, unk: 'th', q: 'R', qv: 30 }],
-  ['Ej. 1.12: horizontal, 15 m/s desde 20 m (g = 10)', { kase: 2, v0: 15, th: 0, h: 20, g: 10, unk: 'none' }],
-  ['Ej. 1.15: llega a 55° desde 42 m: halla v₀', { kase: 2, v0: 20, th: 0, h: 42, g: 9.8, unk: 'v0', q: 'af', qv: 55 }],
-  ['¿Desde qué altura? Tarda 3 s', { kase: 2, v0: 10, th: 0, h: 20, g: 9.8, unk: 'h', q: 'T', qv: 3 }],
-  ['Desde un acantilado: 20 m/s a 40° desde 30 m', { kase: 3, v0: 20, th: 40, h: 30, g: 9.8, unk: 'none' }],
-  ['Hacia abajo: 15 m/s a −20° desde 50 m', { kase: 3, v0: 15, th: -20, h: 50, g: 9.8, unk: 'none' }],
-];
-$('presets').innerHTML = PRESETS.map(([t], i) => `<button data-p="${i}">${t}</button>`).join('');
-$('presets').querySelectorAll('[data-p]').forEach(b => b.addEventListener('click', () => {
-  const p = PRESETS[+b.dataset.p][1];
-  Object.assign(st, { q: 'R', qv: 0 }, p, { root: 0, t: 0, playing: false });
-  if (st.unk !== 'none' && p.qv == null) prefillQ();
-  build(); render();
-}));
 matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
 new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 build(); render(); resize();
