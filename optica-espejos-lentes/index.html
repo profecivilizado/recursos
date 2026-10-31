@@ -331,9 +331,11 @@ function drawElement(C) {
   const X0 = px(0), hl = 25, top = py(hl), bot = py(-hl);
   ctx.lineWidth = 3; ctx.strokeStyle = C.ink;
   if (MIRROR(st.el)) {
-    // forma real del espejo: arco de radio |R| (los rayos se reflejan en el plano del vértice, aproximación paraxial)
-    const R = st.el === 'plane' ? Infinity : (st.el === 'concave' ? -st.Rm : st.Rm), hmax = isFinite(R) ? Math.min(hl, 0.97 * Math.abs(R)) : hl;
-    const sx = yy => isFinite(R) ? px(R - Math.sign(R) * Math.sqrt(R * R - yy * yy)) : X0;
+    // espejo casi recto, con una curvatura leve que indica si es cóncavo o convexo:
+    // así los rayos rebotan justo sobre él (se reflejan en el plano del vértice, aproximación paraxial)
+    // alto suficiente para que todos los rayos lleguen al espejo
+    const hits = rays(image()).map(r => Math.abs(r.H[1])), hmax = Math.min(150, Math.max(hl, ...hits.map(h => h * 1.08))), sag = st.el === 'plane' ? 0 : (st.el === 'concave' ? -1 : 1) * 9;
+    const sx = yy => X0 + sag * (yy / hmax) ** 2;
     ctx.beginPath();
     for (let i = 0; i <= 120; i++) { const yy = -hmax + 2 * hmax * i / 120; i ? ctx.lineTo(sx(yy), py(yy)) : ctx.moveTo(sx(yy), py(yy)); }
     ctx.stroke();
