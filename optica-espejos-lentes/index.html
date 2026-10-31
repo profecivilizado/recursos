@@ -171,10 +171,12 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
       <div class="field" id="RBox"><div class="top"><label for="RR">Radio de curvatura |R|</label><output id="RO"></output></div>
         <input type="range" id="RR" min="10" max="200" step="1" value="40">
         <div class="rrow"><label for="RN">Escribe |R|</label><input type="number" id="RN" min="10" max="200" step="0.5"><span class="unit">cm</span></div>
-        <p class="note">También puedes arrastrar el punto C por el eje.</p>
+        <p class="note">También puedes cambiar f o arrastrar el punto C por el eje.</p>
       </div>
       <div class="field" id="fBox"><div class="top"><label for="fR" id="fLab">Distancia focal |f|</label><output id="fO"></output></div>
-        <input type="range" id="fR" min="5" max="40" step="0.5" value="20"></div>
+        <input type="range" id="fR" min="5" max="100" step="0.5" value="20"></div>
+      <div class="field" id="PBox"><div class="top"><label for="PR">Potencia P = 1/f′</label><output id="PO"></output></div>
+        <input type="range" id="PR" min="1" max="20" step="0.5" value="5"></div>
       <p class="note" id="fNote"></p>
     </div>
     <div class="card">
@@ -292,7 +294,7 @@ const wx = p => (p - PADL) / (W - PADL - PADR) * 2 * view.X - view.X;
 function setView() {
   if (drag) return; // la escala no cambia mientras se arrastra
   const F = st.el === 'plane' ? 0 : st.F;
-  const X = st.el === 'plane' ? Math.max(30, 1.6 * st.d) : Math.max(Math.min(4 * F, 120), 1.15 * st.d);
+  const X = 100;
   view = { X, Y: Math.max(12, 3 * st.y) };
 }
 function clipLine(p, d) { // de p en la dirección d hasta el borde de la vista
@@ -376,9 +378,7 @@ function draw() {
   marks.push([0, m ? 'V' : 'O']);
   for (const [x, lab] of marks) {
     if (Math.abs(x) > view.X) continue;
-    const isH = x === handle() && x !== 0;
-    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px(x), py(0), isH ? 6 : 3.5, 0, 7); ctx.fill();
-    if (isH) { ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(px(x), py(0), 10, 0, 7); ctx.stroke(); }
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px(x), py(0), 3.5, 0, 7); ctx.fill();
     ctx.font = mono(13, 700); ctx.textAlign = x === 0 ? 'left' : 'center'; ctx.textBaseline = 'top';
     ctx.fillText(lab, px(x) + (x === 0 ? 6 : 0), py(0) + 6);
   }
@@ -404,7 +404,7 @@ function draw() {
   ctx.lineCap = 'butt';
   // objeto e imagen
   arrowObj(I.s, I.y, C.obj, false, 'y');
-  if (showImg && !I.inf && Math.abs(I.sp) <= view.X && Math.abs(I.yp) < view.Y * 1.5) arrowObj(I.sp, I.yp, C.img, !I.real, 'y′');
+  if (showImg && !I.inf && Math.abs(I.sp) <= view.X && Math.abs(I.yp) < view.Y * 1.5) arrowObj(I.sp, I.yp, C.img, false, 'y′');
   if (showImg && !I.inf && (Math.abs(I.sp) > view.X || Math.abs(I.yp) >= view.Y * 1.5)) {
     ctx.fillStyle = C.img; ctx.font = mono(13, 600); ctx.textAlign = I.sp > 0 ? 'right' : 'left'; ctx.textBaseline = 'top';
     ctx.fillText(`imagen fuera de la vista (s′ = ${fmt(I.sp)} cm)`, I.sp > 0 ? W - PADR - 4 : PADL + 4, PADT + 4);
@@ -481,14 +481,16 @@ function sync() {
   $('RO').textContent = `R = ${fmt(Rs)} cm · f = ${fmt(Rs / 2)} cm`;
   const m = MIRROR(st.el), names = st.el === 'plane' ? RAYNAMES.plane : m ? RAYNAMES.mirror : RAYNAMES.lens;
   [1, 2, 3].forEach(i => { $('c' + i).textContent = 'Rayo ' + i + ': ' + names[i - 1]; $('lg' + i).textContent = names[i - 1] ? 'Rayo ' + i : ''; $('k' + i).parentElement.hidden = !names[i - 1]; $('lg' + i).parentElement.hidden = !names[i - 1]; $('k' + i).checked = st.rays[i - 1]; });
-  $('fBox').hidden = mir;
+  $('fBox').hidden = st.el === 'plane'; $('PBox').hidden = mir;
+  $('fR').value = mir ? st.Rm / 2 : st.FL;
+  const P = 100 / st.FL; $('PR').value = P; $('PO').textContent = `P = ${st.el === 'div' ? '−' : '+'}${fmt(P, 2)} dioptrías`;
   $('fLab').textContent = m ? 'Distancia focal |f|' : 'Distancia focal imagen |f′|';
   const f = focal();
   $('fO').textContent = st.el === 'plane' ? '' : `${m ? 'f' : 'f′'} = ${fmt(f)} cm${m ? ` · R = ${fmt(2 * f)} cm` : ''}`;
-  $('fNote').hidden = mir;
+  $('fNote').hidden = st.el === 'plane';
   $('fNote').textContent = { concave: 'Cóncavo: f y R negativos (F y C delante del espejo).', convex: 'Convexo: f y R positivos (F y C detrás del espejo).', plane: 'Un espejo plano es como uno esférico de radio infinito.', conv: 'Convergente: f′ positiva.', div: 'Divergente: f′ negativa.' }[st.el];
   $('hEq').textContent = m ? '1/s′ + 1/s = 1/f' : '1/s′ − 1/s = 1/f′';
-  $('fR').value = st.FL; $('sR').value = st.d; $('yR').value = st.y;
+  $('sR').value = st.d; $('yR').value = st.y;
   $('sO').textContent = `s = ${fmt(-st.d)} cm`; $('yO').textContent = `${fmt(st.y)} cm`;
   $('pred').checked = st.pred; $('bReveal').hidden = !st.pred; $('bReveal').textContent = st.revealed ? 'Ocultar de nuevo' : 'Mostrar la imagen';
   $('kExt').checked = st.ext; $('kDim').checked = st.dims;
@@ -502,13 +504,15 @@ function buildPresets() {
     P = [[`Muy lejos (3·|f|)`, 3 * F], [`En ${two}`, 2 * F], [`Entre ${two} y F`, 1.5 * F], ['En F', F], [`Entre F y ${what}`, 0.5 * F]];
     if (el === 'conv') P[4][0] += ' (lupa)';
   } else P = [['Lejos', Math.min(100, 3 * (F || 20))], ['A media distancia', Math.min(100, 1.5 * (F || 20))], ['Cerca', Math.min(100, 0.5 * (F || 20))]];
+  P = P.filter(([, d]) => d <= 100 && d >= 1);
   $('presets').innerHTML = P.map(([t, d]) => `<button data-d="${d}" aria-pressed="${Math.abs(st.d - d) < 1e-9}">${t}</button>`).join('');
   $('presets').querySelectorAll('[data-d]').forEach(b => b.addEventListener('click', () => { st.d = +b.dataset.d; st.revealed = false; sync(); }));
 }
 document.querySelectorAll('[data-el]').forEach(b => b.addEventListener('click', () => { st.el = b.dataset.el; st.revealed = false; sync(); }));
 $('RR').addEventListener('input', e => { st.Rm = +e.target.value; st.revealed = false; sync(); });
 $('RN').addEventListener('input', e => { const v = Math.abs(parseFloat(String(e.target.value).replace(',', '.'))); if (isFinite(v) && v >= 1) { st.Rm = Math.min(400, v); st.revealed = false; sync(); } });
-$('fR').addEventListener('input', e => { st.FL = +e.target.value; sync(); });
+$('fR').addEventListener('input', e => { if (MIRROR(st.el)) st.Rm = 2 * +e.target.value; else st.FL = +e.target.value; st.revealed = false; sync(); });
+$('PR').addEventListener('input', e => { st.FL = 100 / +e.target.value; st.revealed = false; sync(); });
 $('sR').addEventListener('input', e => { st.d = +e.target.value; sync(); });
 $('yR').addEventListener('input', e => { st.y = +e.target.value; sync(); });
 [1, 2, 3].forEach(i => $('k' + i).addEventListener('change', e => { st.rays[i - 1] = e.target.checked; sync(); }));
@@ -524,7 +528,7 @@ const move = e => {
   const r = cv.getBoundingClientRect(), x = wx(e.clientX - r.left);
   if (drag === 'obj') st.d = Math.max(1, Math.min(100, Math.round(-x * 2) / 2));
   else if (drag === 'C') st.Rm = Math.max(10, Math.min(200, Math.round(Math.abs(x))));
-  else if (drag === 'F') st.FL = Math.max(5, Math.min(40, Math.round(Math.abs(x) * 2) / 2));
+  else if (drag === 'F') st.FL = Math.max(5, Math.min(100, Math.round(Math.abs(x) * 2) / 2));
   st.revealed = false; sync();
 };
 cv.addEventListener('pointerdown', e => {
