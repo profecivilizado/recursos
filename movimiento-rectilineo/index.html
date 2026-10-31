@@ -73,7 +73,7 @@ sub{font-size:.72em;line-height:0}
 .right{display:grid;gap:14px;min-width:0}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
 canvas{display:block;width:100%;border-radius:8px}
-.graphs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.graphs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 @media (max-width:560px){.graphs{grid-template-columns:1fr}}
 .cwrap{min-width:0}
 .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}
@@ -146,7 +146,7 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
   <header>
     <div class="eyebrow">Cinemática · MRU y MRUA</div>
     <h1>Movimiento rectilíneo</h1>
-    <p>Uno o dos móviles en línea recta, en horizontal o en vertical: MRU, MRUA, frenadas, caída libre, lanzamientos hacia arriba y hacia abajo, encuentros y alcances. Mira la escena, las gráficas x–t y v–t y la resolución paso a paso.</p>
+    <p>Uno o dos móviles en línea recta, en horizontal o en vertical: MRU, MRUA, frenadas, caída libre, lanzamientos hacia arriba y hacia abajo, encuentros y alcances. Mira la escena, las gráficas x–t, v–t y a–t y la resolución paso a paso.</p>
   </header>
 
   <div class="main">
@@ -167,6 +167,7 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
         <div class="graphs">
           <div class="cwrap" id="gw1"><canvas id="gx" aria-label="Gráfica posición-tiempo"></canvas></div>
           <div class="cwrap" id="gw2"><canvas id="gv" aria-label="Gráfica velocidad-tiempo"></canvas></div>
+          <div class="cwrap" id="gw3"><canvas id="ga" aria-label="Gráfica aceleración-tiempo"></canvas></div>
         </div>
         <div class="tinst" id="inst"></div>
       </div>
@@ -192,7 +193,9 @@ details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spaci
           <div class="seg" role="group" aria-label="Eje"><button data-axis="h">Horizontal</button><button data-axis="v">Vertical (caída libre)</button></div></div>
         <div class="field"><div class="top"><span style="font:600 14px var(--f-body)">Móviles</span></div>
           <div class="seg" role="group" aria-label="Número de móviles"><button data-n="1">Uno</button><button data-n="2">Dos (encuentro o alcance)</button></div></div>
-        <div class="grid2" id="gBox"><div class="field"><div class="top"><label for="gS">g</label><span class="num"><select id="gS"><option value="9.8">9,8</option><option value="9.81">9,81</option><option value="10">10</option></select><span class="unit">m/s²</span></span></div></div></div>
+        <div class="field"><div class="top"><span style="font:600 14px var(--f-body)">Observador (origen del sistema de referencia)</span></div>
+          <div class="seg" role="group" aria-label="Origen"><button data-orig="start" id="oStart">Donde sale A</button><button data-orig="other" id="oOther">En otro punto</button></div></div>
+        <div class="grid2" id="gBox"><div class="field" id="hBox"><div class="top"><label for="hN">h</label><span class="num"><input type="number" id="hN" step="1"><span class="unit">m</span></span></div><input type="range" id="hR" min="0" max="200" step="1"></div><div class="field"><div class="top"><label for="gS">g</label><span class="num"><select id="gS"><option value="9.8">9,8</option><option value="9.81">9,81</option><option value="10">10</option></select><span class="unit">m/s²</span></span></div></div></div>
         <p class="note" id="sitNote"></p>
       </div>
 
@@ -231,7 +234,7 @@ const sgn = (n, d = 2) => (n < 0 ? '− ' : '+ ') + fmt(Math.abs(n), d);
 const st = {
   axis: 'h', n: 1, g: 9.8,
   m: { A: { kind: 'mrua', x0: 0, v0: 10, a: 2, t0: 0, stop: true }, B: { kind: 'mru', x0: 200, v0: -15, a: 0, t0: 0, stop: true } },
-  unk: 'none', cond: 'xAt', cT: 5, cV: 75, root: 0,
+  orig: 'start', h: 0, unk: 'none', cond: 'xAt', cT: 5, cV: 75, root: 0,
   pt: 'none', ptM: 'A', pv: 1, ptRoot: 0, t: 0, playing: false,
 };
 const NAMES = { A: 'A', B: 'B' };
@@ -245,12 +248,13 @@ const X = () => st.axis === 'v' ? 'y' : 'x';
 function params(v, k) {
   const m = v.m[k], vert = v.axis === 'v';
   const a = vert ? -v.g : (m.kind === 'mru' ? 0 : m.a);
-  const p = { x0: m.x0, v0: m.v0, a, t0: m.t0, vert, kind: vert ? 'cl' : m.kind };
+  const x0 = v.orig === 'start' && k === 'A' ? 0 : m.x0, yS = vert ? (v.orig === 'start' ? -v.h : 0) : null;
+  const p = { x0, v0: m.v0, a, t0: m.t0, vert, kind: vert ? 'cl' : m.kind, yS };
   // fin del movimiento: frenada (se queda parado) o llegada al suelo
   p.tEnd = Infinity; p.endWhy = null;
   if (vert) {
-    const D = p.v0 * p.v0 + 2 * v.g * p.x0;
-    const tg = p.x0 <= 0 && p.v0 <= 0 ? 0 : (p.v0 + Math.sqrt(Math.max(0, D))) / v.g;
+    const D = p.v0 * p.v0 + 2 * v.g * (p.x0 - yS);
+    const tg = p.x0 <= yS && p.v0 <= 0 ? 0 : (p.v0 + Math.sqrt(Math.max(0, D))) / v.g;
     p.tEnd = tg; p.endWhy = 'suelo';
   } else if (m.stop && a !== 0 && p.v0 * a < 0) { p.tEnd = -p.v0 / a; p.endWhy = 'para'; }
   return p;
@@ -260,9 +264,10 @@ function state(p, t) {
   let tau = t - p.t0, ended = false;
   if (tau > p.tEnd) { tau = p.tEnd; ended = true; }
   const x = p.x0 + p.v0 * tau + 0.5 * p.a * tau * tau, v = ended ? 0 : p.v0 + p.a * tau;
-  return { x: p.vert && ended ? 0 : x, v, moving: !ended, ended };
+  return { x: p.vert && ended ? p.yS : x, v, moving: !ended, ended };
 }
 // raíces de f en [lo, hi] por barrido + bisección
+const accAt = (p, t) => t < p.t0 || t - p.t0 > p.tEnd ? 0 : p.a;
 function roots(f, lo, hi, N = 6000) {
   const out = []; let pt = lo, pf = f(lo);
   if (Math.abs(pf) < 1e-9) out.push(lo);
@@ -306,11 +311,13 @@ function horizon(v, R) {
 }
 
 /* ---------- problemas inversos ---------- */
-const PARAMS = { x0: { lab: k => `${X()}<sub>0${k}</sub>`, unit: 'm', lo: -2000, hi: 2000 }, v0: { lab: k => `v<sub>0${k}</sub>`, unit: 'm/s', lo: -300, hi: 300 }, a: { lab: k => `a<sub>${k}</sub>`, unit: 'm/s²', lo: -60, hi: 60 }, t0: { lab: k => `t<sub>0${k}</sub>`, unit: 's', lo: 0, hi: 200 } };
+const PARAMS = { x0: { lab: k => `${X()}<sub>0${k}</sub>`, unit: 'm', lo: -2000, hi: 2000 }, v0: { lab: k => `v<sub>0${k}</sub>`, unit: 'm/s', lo: -300, hi: 300 }, a: { lab: k => `a<sub>${k}</sub>`, unit: 'm/s²', lo: -60, hi: 60 }, t0: { lab: k => `t<sub>0${k}</sub>`, unit: 's', lo: 0, hi: 200 }, h: { lab: () => 'h', unit: 'm', lo: 0, hi: 3000 } };
 function unkOptions() {
   const o = [['none', 'Todo, a partir de los datos']];
   for (const k of MOV()) {
-    o.push([`x0${k}`, PARAMS.x0.lab(st.n === 2 ? k : '')], [`v0${k}`, PARAMS.v0.lab(st.n === 2 ? k : '')]);
+    if (k === 'A' && st.axis === 'v' && st.orig === 'start') o.push(['hA', 'h']);
+    if (!(k === 'A' && st.orig === 'start')) o.push([`x0${k}`, PARAMS.x0.lab(st.n === 2 ? k : '')]);
+    o.push([`v0${k}`, PARAMS.v0.lab(st.n === 2 ? k : '')]);
     if (st.axis === 'h' && st.m[k].kind === 'mrua') o.push([`a${k}`, PARAMS.a.lab(st.n === 2 ? k : '')]);
     if (st.n === 2) o.push([`t0${k}`, PARAMS.t0.lab(k)]);
   }
@@ -339,7 +346,7 @@ function condValue(v, R, c) {
 }
 const COND_UNIT = { xAt: 'm', vAt: 'm/s', stopD: 'm', top: 'm', tGround: 's', vGround: 'm/s', meetT: 's', meetX: 'm' };
 function clone(v) { return { ...v, m: { A: { ...v.m.A }, B: { ...v.m.B } } }; }
-function setP(v, key, u) { const w = clone(v), k = key.slice(-1), name = key.slice(0, -1); w.m[k][name] = u; return w; }
+function setP(v, key, u) { const w = clone(v), k = key.slice(-1), name = key.slice(0, -1); if (name === 'h') w.h = u; else w.m[k][name] = u; return w; }
 function solve() {
   const v = clone(st);
   if (v.unk === 'none') return { kind: 'direct', v, R: analyze(v) };
@@ -354,13 +361,13 @@ function solve() {
 /* =====================================================================
    Dibujo
    ===================================================================== */
-const sc = $('scene'), sx = sc.getContext('2d'), gx = $('gx'), gxc = gx.getContext('2d'), gv = $('gv'), gvc = gv.getContext('2d');
+const sc = $('scene'), sx = sc.getContext('2d'), gx = $('gx'), gxc = gx.getContext('2d'), gv = $('gv'), gvc = gv.getContext('2d'), ga = $('ga'), gac = ga.getContext('2d');
 let SW = 0, SH = 0, GW = 0, GH = 0, cur = null, TH = 10;
 function fitC(c, ctx, w, h) { const d = devicePixelRatio || 1; c.width = Math.round(w * d); c.height = Math.round(h * d); c.style.height = h + 'px'; ctx.setTransform(d, 0, 0, d, 0, 0); }
 function resize() {
   SW = $('sw').clientWidth; SH = st.axis === 'v' ? Math.round(Math.max(260, Math.min(380, SW * 0.6))) : Math.round(Math.max(130, Math.min(150, SW * 0.25)));
-  GW = $('gw1').clientWidth; GH = Math.round(Math.max(180, Math.min(260, GW * 0.7)));
-  fitC(sc, sx, SW, SH); fitC(gx, gxc, GW, GH); fitC(gv, gvc, GW, GH); draw();
+  GW = $('gw1').clientWidth; GH = Math.round(Math.max(170, Math.min(240, GW * 0.85)));
+  fitC(sc, sx, SW, SH); fitC(gx, gxc, GW, GH); fitC(gv, gvc, GW, GH); fitC(ga, gac, GW, GH); draw();
 }
 new ResizeObserver(resize).observe($('sw'));
 const tok = () => { const c = getComputedStyle(document.documentElement), g = k => c.getPropertyValue(k).trim(); return { ink: g('--ink'), muted: g('--muted'), minor: g('--grid-minor'), major: g('--grid-major'), A: g('--A'), B: g('--B'), meet: g('--meet'), vel: g('--vel'), ground: g('--ground'), hatch: g('--hatch'), panel: g('--panel') }; };
@@ -376,9 +383,14 @@ const nice = span => { const r = span / 6, p = 10 ** Math.floor(Math.log10(r)), 
 function posRange(R) {
   let lo = Infinity, hi = -Infinity;
   for (const k in R.P) for (let i = 0; i <= 200; i++) { const x = state(R.P[k], TH * i / 200).x; lo = Math.min(lo, x); hi = Math.max(hi, x); }
-  if (st.axis === 'v') lo = Math.min(lo, 0);
+  if (st.axis === 'v') lo = Math.min(lo, R.P.A.yS);
   if (hi - lo < 1) { hi += 0.5; lo -= 0.5; }
   const pad = (hi - lo) * 0.08; return [lo - pad, hi + pad];
+}
+function accRange(R) {
+  let lo = 0, hi = 0; for (const k in R.P) { lo = Math.min(lo, R.P[k].a); hi = Math.max(hi, R.P[k].a); }
+  if (hi - lo < 1) { hi += 1; lo -= 1; }
+  const pad = (hi - lo) * 0.15; return [lo - pad, hi + pad];
 }
 function velRange(R) {
   let lo = 0, hi = 0;
@@ -412,10 +424,11 @@ function drawScene(C, R) {
     });
     R.meets.forEach(m => { ctx.fillStyle = C.meet; ctx.beginPath(); const X0 = P(m.x); ctx.moveTo(X0, yr - 6); ctx.lineTo(X0 + 6, yr); ctx.lineTo(X0, yr + 6); ctx.lineTo(X0 - 6, yr); ctx.closePath(); ctx.fill(); });
   } else {
-    const T = 18, Bm = H - 26, P = y => Bm - (y - lo) / (hi - lo) * (Bm - T), xl = 48;
-    ctx.fillStyle = C.ground; ctx.fillRect(0, P(0), W, H - P(0));
-    ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, P(0)); ctx.lineTo(W, P(0)); ctx.stroke();
-    ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(xl, T - 6); ctx.lineTo(xl, P(0)); ctx.stroke();
+    const T = 18, Bm = H - 26, P = y => Bm - (y - lo) / (hi - lo) * (Bm - T), xl = 48, G0 = P(R.P.A.yS);
+    ctx.fillStyle = C.ground; ctx.fillRect(0, G0, W, H - G0);
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, G0); ctx.lineTo(W, G0); ctx.stroke();
+    ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(xl, T - 6); ctx.lineTo(xl, G0); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('suelo', W - 6, G0 + 5);
     ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
     for (let y = Math.ceil(lo / step) * step; y <= hi; y += step) { ctx.beginPath(); ctx.moveTo(xl - 4, P(y)); ctx.lineTo(xl + 4, P(y)); ctx.stroke(); ctx.fillText(fmt(y, step < 1 ? 1 : 0), xl - 7, P(y)); }
     ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('y (m)', 4, 2);
@@ -434,7 +447,7 @@ function drawScene(C, R) {
   }
 }
 function drawGraph(ctx, W, H, C, R, which) {
-  const [lo, hi] = which === 'x' ? posRange(R) : velRange(R), L = 46, Rr = W - 10, T = 22, B = H - 30;
+  const [lo, hi] = which === 'x' ? posRange(R) : which === 'v' ? velRange(R) : accRange(R), L = 46, Rr = W - 10, T = 22, B = H - 30;
   const PX = t => L + t / TH * (Rr - L), PY = y => B - (y - lo) / (hi - lo) * (B - T);
   ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
   const sy = nice(hi - lo), sxs = nice(TH);
@@ -449,25 +462,31 @@ function drawGraph(ctx, W, H, C, R, which) {
   for (let y = Math.ceil(lo / sy) * sy; y <= hi; y += sy) ctx.fillText(fmt(y, sy < 1 ? 1 : 0), L - 5, PY(y));
   ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('t (s)', Rr, B + 16);
   ctx.textAlign = 'left'; ctx.font = mono(12, 700); ctx.fillStyle = C.ink;
-  ctx.fillText(which === 'x' ? `${X()} – t  (${X()} en m)` : 'v – t  (v en m/s)', L + 4, 4);
+  ctx.fillText(which === 'x' ? `${X()} – t  (${X()} en m)` : which === 'v' ? 'v – t  (v en m/s)' : 'a – t  (a en m/s²)', L + 4, 4);
   for (const k of MOV()) {
     const p = R.P[k]; ctx.strokeStyle = C[k]; ctx.lineWidth = 2.6;
     // antes de salir: en reposo, discontinuo
     if (p.t0 > 0) { ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5; ctx.beginPath(); const y = which === 'x' ? p.x0 : 0; ctx.moveTo(PX(0), PY(y)); ctx.lineTo(PX(Math.min(p.t0, TH)), PY(y)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 2.6; }
-    ctx.beginPath();
     const tMax = which === 'v' && p.vert ? Math.min(TH, p.t0 + p.tEnd) : TH;
+    if (which === 'a') {
+      const t1 = Math.min(TH, p.t0 + p.tEnd);
+      ctx.beginPath(); ctx.moveTo(PX(Math.min(p.t0, TH)), PY(p.a)); ctx.lineTo(PX(t1), PY(p.a)); ctx.stroke();
+      if (t1 < TH) { ctx.beginPath(); ctx.moveTo(PX(t1), PY(0)); ctx.lineTo(PX(TH), PY(0)); ctx.stroke(); }
+      continue;
+    }
+    ctx.beginPath();
     for (let i = 0; i <= 300; i++) { const t = p.t0 + (tMax - p.t0) * i / 300; if (t > TH) break; const s = state(p, t), y = which === 'x' ? s.x : s.v; i ? ctx.lineTo(PX(t), PY(y)) : ctx.moveTo(PX(t), PY(y)); }
     ctx.stroke();
   }
   if (which === 'x') R.meets.forEach(m => { if (m.t > TH) return; ctx.fillStyle = C.meet; const X0 = PX(m.t), Y = PY(m.x); ctx.beginPath(); ctx.moveTo(X0, Y - 7); ctx.lineTo(X0 + 7, Y); ctx.lineTo(X0, Y + 7); ctx.lineTo(X0 - 7, Y); ctx.closePath(); ctx.fill(); });
   // instante actual
   ctx.strokeStyle = C.ink; ctx.globalAlpha = .5; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(PX(st.t), T); ctx.lineTo(PX(st.t), B); ctx.stroke(); ctx.globalAlpha = 1;
-  for (const k of MOV()) { const s = state(R.P[k], st.t), y = which === 'x' ? s.x : s.v; ctx.fillStyle = C[k]; ctx.beginPath(); ctx.arc(PX(st.t), PY(y), 4.5, 0, 7); ctx.fill(); }
+  for (const k of MOV()) { const s = state(R.P[k], st.t), y = which === 'x' ? s.x : which === 'v' ? s.v : accAt(R.P[k], st.t); ctx.fillStyle = C[k]; ctx.beginPath(); ctx.arc(PX(st.t), PY(y), 4.5, 0, 7); ctx.fill(); }
 }
 function draw() {
   if (!cur || !SW || MOV().some(k => !cur.R.P[k])) return;
   const C = tok(); TH = horizon(cur.v, cur.R);
-  drawScene(C, cur.R); drawGraph(gxc, GW, GH, C, cur.R, 'x'); drawGraph(gvc, GW, GH, C, cur.R, 'v');
+  drawScene(C, cur.R); drawGraph(gxc, GW, GH, C, cur.R, 'x'); drawGraph(gvc, GW, GH, C, cur.R, 'v'); drawGraph(gac, GW, GH, C, cur.R, 'a');
 }
 
 /* =====================================================================
@@ -484,7 +503,8 @@ function eqText(p, k, g, two) {
   return { xe, ve };
 }
 function steps(res) {
-  const v = res.v, R = res.R, L = [], two = v.n === 2, xs = X(), g = v.g;
+  const v = res.v, R = res.R, L = [], two = v.n === 2, xs = X(), g = v.g, yS = R.P.A.yS;
+  L.push(`<b>Sistema de referencia.</b> ${refText(v)}`);
   if (res.kind === 'ok') {
     const k = v.unk.slice(-1), lab = PARAMS[res.name].lab(two ? k : ''), cname = condOptions().find(c => c[0] === v.cond)?.[1] || '';
     L.push(`<b>Planteamiento.</b> Conocemos: ${cname.toLowerCase()} = ${fmt(v.cV)} ${COND_UNIT[v.cond]}${v.cond.endsWith('At') ? ` en t = ${fmt(v.cT)} s` : ''}. Buscamos ${lab}.<br>Escribimos esa condición con las ecuaciones del movimiento; la única incógnita es ${lab}. Resolviendo: <span class="f"><span class="u">${lab} = ${fmt(res.u)} ${PARAMS[res.name].unit}</span></span>${res.roots.length > 1 ? ` (hay ${res.roots.length} soluciones; se muestra la elegida).` : ''}`);
@@ -497,10 +517,10 @@ function steps(res) {
       const tau = p.tEnd, d = p.v0 * tau + 0.5 * p.a * tau * tau;
       L.push(`<b>${two ? `El móvil ${k} se para` : 'Se para'}</b> cuando v = 0:<br><span class="f">0 = ${fmt(p.v0)} ${sgn(p.a)}·t → t = ${fmt(-p.v0)} / ${fmt(p.a)} = <span class="u">${fmt(tau)} s</span>${p.t0 > 0 ? ` después de salir (t = ${fmt(p.tStop)} s)` : ''}</span><br>Distancia de frenada: <span class="f">Δ${xs} = ${fmt(p.v0)}·${fmt(tau)} ${p.a < 0 ? '−' : '+'} ${fmt(Math.abs(p.a) / 2)}·${fmt(tau)}² = <span class="u">${fmt(Math.abs(d))} m</span></span><br>Después se queda parado en ${xs} = ${fmt(p.x0 + d)} m.`);
     }
-    if (p.vert && p.tTop != null) L.push(`<b>Altura máxima${who ? ' ' + who : ''}.</b> En el punto más alto v = 0:<br><span class="f">0 = ${fmt(p.v0)} − ${fmt(g, g === 9.81 ? 2 : 1)}·t → t = ${fmt(p.v0 / g)} s</span><br><span class="f">y<sub>máx</sub> = ${fmt(p.x0)} + ${fmt(p.v0)}·${fmt(p.v0 / g)} − ${fmt(g / 2, 2)}·${fmt(p.v0 / g)}² = <span class="u">${fmt(p.top)} m</span></span>`);
+    if (p.vert && p.tTop != null) L.push(`<b>Altura máxima${who ? ' ' + who : ''}.</b> En el punto más alto v = 0:<br><span class="f">0 = ${fmt(p.v0)} − ${fmt(g, g === 9.81 ? 2 : 1)}·t → t = ${fmt(p.v0 / g)} s</span><br><span class="f">y<sub>máx</sub> = ${fmt(p.x0)} + ${fmt(p.v0)}·${fmt(p.v0 / g)} − ${fmt(g / 2, 2)}·${fmt(p.v0 / g)}² = <span class="u">${fmt(p.top)} m</span></span>${yS ? `<br>Respecto al suelo: <span class="f">${fmt(p.top)} + ${fmt(-yS)} = ${fmt(p.top - yS)} m</span>` : ''}`);
     if (p.vert) {
       const tau = p.tEnd, vg = p.v0 - g * tau;
-      L.push(`<b>${two ? `El móvil ${k} llega al suelo` : 'Llega al suelo'}</b> cuando y = 0:<br><span class="f">0 = ${fmt(p.x0)} ${sgn(p.v0)}·t − ${fmt(g / 2, 2)}·t²</span> → ecuación de segundo grado; la solución positiva es <span class="f"><span class="u">t = ${fmt(tau)} s</span>${p.t0 > 0 ? ` (t = ${fmt(p.tGround)} s desde el principio)` : ''}</span><br>Velocidad al llegar: <span class="f">v = ${fmt(p.v0)} − ${fmt(g, g === 9.81 ? 2 : 1)}·${fmt(tau)} = <span class="u">${fmt(vg)} m/s</span></span>`);
+      L.push(`<b>${two ? `El móvil ${k} llega al suelo` : 'Llega al suelo'}</b> cuando y = ${fmt(yS)}${yS ? ' (el suelo)' : ''}:<br><span class="f">${fmt(yS)} = ${fmt(p.x0)} ${sgn(p.v0)}·t − ${fmt(g / 2, 2)}·t²</span> → ecuación de segundo grado; la solución positiva es <span class="f"><span class="u">t = ${fmt(tau)} s</span>${p.t0 > 0 ? ` (t = ${fmt(p.tGround)} s desde el principio)` : ''}</span><br>Velocidad al llegar: <span class="f">v = ${fmt(p.v0)} − ${fmt(g, g === 9.81 ? 2 : 1)}·${fmt(tau)} = <span class="u">${fmt(vg)} m/s</span></span>`);
     }
   }
   if (two) {
@@ -517,6 +537,11 @@ function steps(res) {
     else { const t = ts[Math.min(st.ptRoot, ts.length - 1)], s = state(p, t); L.push(`<b>${what}</b>${v.pt !== 't' ? ` → <span class="f">t = ${ts.map(q => fmt(q)).join(' s y t = ')} s</span>` : ''}:<br><span class="f">${xs}${sub} = ${fmt(s.x)} m</span><br><span class="f">v${sub} = ${fmt(s.v)} m/s</span>`); }
   }
   return L;
+}
+function refText(v) {
+  const two = v.n === 2, A = two ? 'del móvil A' : 'del móvil';
+  if (v.axis === 'h') return v.orig === 'start' ? `Observador en el punto de salida ${A}: x<sub>0${two ? 'A' : ''}</sub> = 0. Positivo hacia la derecha.` : 'Observador en otro punto: cada posición inicial se mide desde él. Positivo hacia la derecha.';
+  return v.orig === 'start' ? `Observador en el punto de lanzamiento ${A}: y<sub>0${two ? 'A' : ''}</sub> = 0. Positivo hacia arriba, así que a = −g y el suelo está en y = −h = ${fmt(-v.h)} m.` : 'Observador en el suelo: y = 0 en el suelo e y<sub>0</sub> es la altura de salida. Positivo hacia arriba, así que a = −g.';
 }
 function pointTimes(v, R) {
   const p = R.P[v.ptM]; if (!p) return [];
@@ -545,7 +570,7 @@ function render() {
     for (const k of MOV()) {
       const p = R.P[k], nm = two ? ` <span class="nt">${k}</span>` : '';
       if (p.endWhy === 'para') tiles.push(['', `Se para${nm}`, `t = ${fmt(p.tStop)} s<br>${xs} = ${fmt(state(p, p.tStop).x)} m`]);
-      if (p.top != null) tiles.push(['', `Altura máxima${nm}`, `${fmt(p.top)} m<br><span style="font-size:13px">en t = ${fmt(p.tTop)} s</span>`]);
+      if (p.top != null) tiles.push(['', `Altura máxima${nm}`, `y<sub>máx</sub> = ${fmt(p.top)} m${p.yS ? `<br><span style="font-size:13px">${fmt(p.top - p.yS)} m sobre el suelo</span>` : ''}<br><span style="font-size:13px">en t = ${fmt(p.tTop)} s</span>`]);
       if (p.tGround != null) tiles.push(['', `Llega al suelo${nm}`, `t = ${fmt(p.tGround)} s<br>v = ${fmt(p.v0 - v.g * p.tEnd)} m/s`]);
     }
     if (v.pt !== 'none') {
@@ -569,7 +594,7 @@ function syncT() {
   if (!cur || MOV().some(k => !cur.R.P[k])) return;
   const R = cur.R, two = st.n === 2, xs = X();
   $('tR').max = TH; $('tR').value = st.t; $('tO').textContent = `t = ${fmt(st.t)} s`;
-  $('inst').innerHTML = MOV().map(k => { const s = state(R.P[k], st.t), sub = two ? `<sub>${k}</sub>` : ''; return `<div><div class="th" style="color:var(--${k})">${two ? 'Móvil ' + k : 'En t = ' + fmt(st.t) + ' s'}</div><div>${xs}${sub} = ${fmt(s.x)} m</div><div>v${sub} = ${fmt(s.v)} m/s</div>${s.waiting ? '<div style="color:var(--muted)">aún no ha salido</div>' : s.ended ? `<div style="color:var(--muted)">${R.P[k].vert ? 'en el suelo' : 'parado'}</div>` : ''}</div>`; }).join('');
+  $('inst').innerHTML = MOV().map(k => { const s = state(R.P[k], st.t), sub = two ? `<sub>${k}</sub>` : ''; return `<div><div class="th" style="color:var(--${k})">${two ? 'Móvil ' + k : 'En t = ' + fmt(st.t) + ' s'}</div><div>${xs}${sub} = ${fmt(s.x)} m</div><div>v${sub} = ${fmt(s.v)} m/s</div><div>a${sub} = ${fmt(accAt(R.P[k], st.t))} m/s²</div>${s.waiting ? '<div style="color:var(--muted)">aún no ha salido</div>' : s.ended ? `<div style="color:var(--muted)">${R.P[k].vert ? 'en el suelo' : 'parado'}</div>` : ''}</div>`; }).join('');
   $('bPlay').textContent = st.playing ? '⏸ Pausa' : st.t >= TH - 1e-9 ? '↺ Repetir' : st.t > 0 ? '▶ Seguir' : '▶ Empezar';
 }
 
@@ -579,31 +604,37 @@ function syncT() {
 const FIELDS = { x0: ['m', -500, 500, 1], v0: ['m/s', -60, 60, 0.5], a: ['m/s²', -10, 10, 0.1], t0: ['s', 0, 30, 0.5] };
 function movHTML(k) {
   const two = st.n === 2, sub = two ? k : '', vert = st.axis === 'v', m = st.m[k];
-  const fld = (name, lab, extra = '') => { const [u, lo, hi, step] = FIELDS[name]; const lo2 = vert && name === 'x0' ? 0 : lo; return `<div class="field"><div class="top"><label for="${name}${k}N">${lab}</label><span class="num"><input type="number" id="${name}${k}N" step="${step}"><span class="unit">${u}</span></span></div><input type="range" id="${name}${k}R" min="${lo2}" max="${vert && name === 'x0' ? 200 : hi}" step="${step}" ${extra}></div>`; };
+  const fld = (name, lab, extra = '') => { const [u, lo, hi, step] = FIELDS[name]; const lo2 = vert && name === 'x0' ? (st.orig === 'start' ? -200 : 0) : lo; return `<div class="field"><div class="top"><label for="${name}${k}N">${lab}</label><span class="num"><input type="number" id="${name}${k}N" step="${step}"><span class="unit">${u}</span></span></div><input type="range" id="${name}${k}R" min="${lo2}" max="${vert && name === 'x0' ? 200 : hi}" step="${step}" ${extra}></div>`; };
   return `<div class="mov ${k}">
     ${two ? `<h3 style="color:var(--${k})">Móvil ${k}</h3>` : ''}
     ${vert ? '' : `<div class="seg" role="group" aria-label="Tipo de movimiento ${k}"><button data-kind="mru" data-k="${k}" aria-pressed="${m.kind === 'mru'}">MRU</button><button data-kind="mrua" data-k="${k}" aria-pressed="${m.kind === 'mrua'}">MRUA</button></div>`}
     <div class="grid2">
-      ${fld('x0', `${vert ? 'y' : 'x'}<sub>0${sub}</sub>`)}
+      ${st.orig === 'start' && k === 'A' ? '' : fld('x0', `${vert ? 'y' : 'x'}<sub>0${sub}</sub>`)}
       ${fld('v0', vert || m.kind === 'mrua' ? `v<sub>0${sub}</sub>` : `v${sub ? '<sub>' + sub + '</sub>' : ''}`)}
       ${!vert && m.kind === 'mrua' ? fld('a', `a${sub ? '<sub>' + sub + '</sub>' : ''}`) : ''}
       ${two ? fld('t0', `t<sub>0${sub}</sub>`) : ''}
     </div>
     ${!vert && m.kind === 'mrua' ? `<label class="check"><input type="checkbox" data-stop="${k}" ${m.stop ? 'checked' : ''}> Si frena hasta pararse, se queda parado</label>` : ''}
-    ${vert ? `<p class="note">${m.v0 > 0 ? 'Lanzado hacia arriba.' : m.v0 < 0 ? 'Lanzado hacia abajo.' : 'Se deja caer (v<sub>0</sub> = 0).'} y<sub>0</sub> es la altura sobre el suelo.</p>` : ''}
+    ${st.orig === 'start' && k === 'A' ? `<p class="note">Sale del origen: ${vert ? 'y' : 'x'}<sub>0${sub}</sub> = 0${vert ? ', a una altura h sobre el suelo' : ''}.</p>` : ''}
+    ${vert ? `<p class="note">${m.v0 > 0 ? 'Lanzado hacia arriba.' : m.v0 < 0 ? 'Lanzado hacia abajo.' : 'Se deja caer (v<sub>0</sub> = 0).'}${st.orig === 'start' ? (k === 'B' ? ' y<sub>0B</sub> se mide desde donde se lanza A (negativo si está por debajo).' : '') : ' y<sub>0</sub> es la altura sobre el suelo.'}</p>` : ''}
   </div>`;
 }
 function build() {
   document.querySelectorAll('[data-axis]').forEach(b => b.setAttribute('aria-pressed', b.dataset.axis === st.axis));
   document.querySelectorAll('[data-n]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.n === st.n));
   $('gBox').hidden = st.axis !== 'v'; $('gS').value = String(st.g);
+  document.querySelectorAll('[data-orig]').forEach(b => b.setAttribute('aria-pressed', b.dataset.orig === st.orig));
+  const who = st.n === 2 ? 'A' : 'el móvil';
+  $('oStart').textContent = st.axis === 'v' ? `Donde se lanza ${who}` : `Donde sale ${who}`;
+  $('oOther').textContent = st.axis === 'v' ? 'En el suelo' : 'En otro punto';
+  $('hBox').hidden = !(st.axis === 'v' && st.orig === 'start');
   $('lgB').hidden = st.n !== 2; $('lgM').hidden = st.n !== 2;
-  $('sitNote').innerHTML = st.axis === 'v' ? 'Eje vertical, positivo hacia arriba, origen en el suelo. Aceleración a = −g. v<sub>0</sub> positiva: hacia arriba; negativa: hacia abajo.' : 'Eje horizontal, positivo hacia la derecha. Una velocidad o aceleración negativa apunta a la izquierda.';
+  $('sitNote').innerHTML = st.axis === 'v' ? `Eje vertical, positivo hacia arriba, ${st.orig === 'start' ? 'origen donde se lanza; h es la altura de ese punto sobre el suelo (el suelo está en y = −h)' : 'origen en el suelo'}. Aceleración a = −g. v<sub>0</sub> positiva: hacia arriba; negativa: hacia abajo.` : `Eje horizontal, positivo hacia la derecha${st.orig === 'start' ? ', origen donde sale ' + who : ''}. Una velocidad o aceleración negativa apunta a la izquierda.`;
   $('movs').innerHTML = MOV().map(movHTML).join('');
   $('movs').style.display = 'grid'; $('movs').style.gap = '12px';
   for (const k of MOV()) for (const name of Object.keys(FIELDS)) {
     const n = $(`${name}${k}N`), r = $(`${name}${k}R`); if (!n) continue;
-    n.addEventListener('input', () => { const x = num(n); if (x == null) return; st.m[k][name] = st.axis === 'v' && name === 'x0' ? Math.max(0, x) : x; stop(); render(); syncInputs(); });
+    n.addEventListener('input', () => { const x = num(n); if (x == null) return; st.m[k][name] = st.axis === 'v' && name === 'x0' && st.orig !== 'start' ? Math.max(0, x) : x; stop(); render(); syncInputs(); });
     r.addEventListener('input', () => { st.m[k][name] = +r.value; stop(); render(); syncInputs(); if (st.axis === 'v' && name === 'v0') build(); });
   }
   $('movs').querySelectorAll('[data-kind]').forEach(b => b.addEventListener('click', () => { const k = b.dataset.k; st.m[k].kind = b.dataset.kind; if (b.dataset.kind === 'mrua' && !st.m[k].a) st.m[k].a = 2; build(); render(); }));
@@ -628,6 +659,8 @@ function syncInputs() {
     if (document.activeElement !== n) n.value = unk ? '' : +(+st.m[k][name]).toFixed(2);
     if (!unk) r.value = st.m[k][name];
   }
+  { const unk = st.unk === 'hA'; $('hN').disabled = unk; $('hR').disabled = unk; $('hN').placeholder = unk ? '?' : '';
+    if (document.activeElement !== $('hN')) $('hN').value = unk ? '' : +(+st.h).toFixed(2); if (!unk) $('hR').value = st.h; }
   if (document.activeElement !== $('cV')) $('cV').value = +(+st.cV).toFixed(2);
   if (document.activeElement !== $('cT')) $('cT').value = +(+st.cT).toFixed(2);
   if (document.activeElement !== $('ptN')) $('ptN').value = +(+st.pv).toFixed(2);
@@ -640,11 +673,21 @@ function prefill() {
 const num = el => { const x = parseFloat(String(el.value).replace(',', '.')); return isFinite(x) ? x : null; };
 document.querySelectorAll('[data-axis]').forEach(b => b.addEventListener('click', () => {
   st.axis = b.dataset.axis;
-  if (st.axis === 'v') { st.m.A = { ...st.m.A, x0: 0, v0: 20, t0: 0 }; st.m.B = { ...st.m.B, x0: 60, v0: 0, t0: 0 }; }
+  if (st.axis === 'v') { st.h = 0; st.m.A = { ...st.m.A, x0: 0, v0: 20, t0: 0 }; st.m.B = { ...st.m.B, x0: 60, v0: 0, t0: 0 }; }
   else { st.m.A = { kind: 'mrua', x0: 0, v0: 10, a: 2, t0: 0, stop: true }; st.m.B = { kind: 'mru', x0: 200, v0: -15, a: 0, t0: 0, stop: true }; }
   st.unk = 'none'; st.pt = 'none'; st.t = 0; stop(); build(); render();
 }));
 document.querySelectorAll('[data-n]').forEach(b => b.addEventListener('click', () => { st.n = +b.dataset.n; st.unk = 'none'; st.t = 0; stop(); build(); render(); }));
+document.querySelectorAll('[data-orig]').forEach(b => b.addEventListener('click', () => {
+  const o = b.dataset.orig; if (o === st.orig) return;
+  // mismo movimiento físico, visto desde el nuevo origen
+  const A = st.m.A, B = st.m.B;
+  if (st.axis === 'v') { if (o === 'start') { st.h = A.x0; B.x0 -= A.x0; A.x0 = 0; } else { A.x0 = st.h; B.x0 += st.h; } }
+  else if (o === 'start') { B.x0 -= A.x0; A.x0 = 0; }
+  st.orig = o; if (st.unk === 'hA' || st.unk === 'x0A') st.unk = 'none'; stop(); build(); render();
+}));
+$('hN').addEventListener('input', () => { const x = num($('hN')); if (x == null) return; st.h = Math.max(0, x); stop(); render(); syncInputs(); });
+$('hR').addEventListener('input', () => { st.h = +$('hR').value; stop(); render(); syncInputs(); });
 $('gS').addEventListener('change', e => { st.g = +e.target.value; render(); });
 $('cS').addEventListener('change', e => { st.cond = e.target.value; st.root = 0; prefill(); build(); render(); });
 $('cT').addEventListener('input', () => { const x = num($('cT')); if (x == null) return; st.cT = x; st.root = 0; render(); });
@@ -673,6 +716,7 @@ function tick(now) {
   syncT(); draw(); if (st.playing) requestAnimationFrame(tick);
 }
 new ResizeObserver(resize).observe($('gw1'));
+new ResizeObserver(resize).observe($('gw3'));
 matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
 new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 build(); render();
