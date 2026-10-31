@@ -125,12 +125,14 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
   <header>
     <div class="eyebrow">Óptica geométrica · Normas DIN</div>
     <h1>Espejos y lentes <span class="eq" id="hEq">1/s′ + 1/s = 1/f</span></h1>
-    <p>Elige un espejo o una lente y arrastra el objeto por el eje. En el espejo, el radio de curvatura decide si es cóncavo, plano o convexo. Los rayos principales construyen la imagen: con trazo continuo los rayos reales y en discontinuo sus prolongaciones.</p>
+    <p>Elige un espejo o una lente y arrastra por el eje el objeto, el centro de curvatura C o el foco F′. Los rayos principales construyen la imagen: con trazo continuo los rayos reales y en discontinuo sus prolongaciones.</p>
   </header>
 
   <div class="sim" id="sim">
     <div class="elems" role="group" aria-label="Elemento óptico">
-      <button data-el="mirror">Espejo</button>
+      <button data-el="concave">Espejo cóncavo</button>
+      <button data-el="convex">Espejo convexo</button>
+      <button data-el="plane">Espejo plano</button>
       <button data-el="conv">Lente convergente</button>
       <button data-el="div">Lente divergente</button>
     </div>
@@ -166,11 +168,10 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
   <div class="controls">
     <div class="card">
       <h2>Elemento</h2>
-      <div class="field" id="RBox"><div class="top"><label for="RR">Radio de curvatura R</label><output id="RO"></output></div>
-        <input type="range" id="RR" min="-21" max="21" step="1" value="-15" aria-describedby="RNote">
-        <div class="scale"><span>cóncavo</span><span>plano</span><span>convexo</span></div>
-        <div class="rrow"><label for="RN">Escribe R</label><input type="number" id="RN" step="0.5" placeholder="∞"><span class="unit">cm</span><button id="RInf">Plano (R = ∞)</button></div>
-        <p class="note" id="RNote">Desliza: a la izquierda R &lt; 0 (cóncavo), en el centro R = ∞ (plano) y a la derecha R &gt; 0 (convexo). Cuanto más hacia los extremos, más curvado.</p>
+      <div class="field" id="RBox"><div class="top"><label for="RR">Radio de curvatura |R|</label><output id="RO"></output></div>
+        <input type="range" id="RR" min="10" max="200" step="1" value="40">
+        <div class="rrow"><label for="RN">Escribe |R|</label><input type="number" id="RN" min="10" max="200" step="0.5"><span class="unit">cm</span></div>
+        <p class="note">También puedes arrastrar el punto C por el eje.</p>
       </div>
       <div class="field" id="fBox"><div class="top"><label for="fR" id="fLab">Distancia focal |f|</label><output id="fO"></output></div>
         <input type="range" id="fR" min="5" max="40" step="0.5" value="20"></div>
@@ -224,14 +225,10 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
-const st = { base: 'mirror', R: -40, FL: 20, d: 50, y: 4, rays: [true, true, true], ext: true, dims: true, pred: false, revealed: false };
-// tipo de elemento según el botón y, en el espejo, según el signo de R
-Object.defineProperty(st, 'el', { get() { return this.base !== 'mirror' ? this.base : !isFinite(this.R) ? 'plane' : this.R < 0 ? 'concave' : 'convex'; } });
-Object.defineProperty(st, 'F', { get() { return this.base === 'mirror' ? Math.abs(this.R) / 2 : this.FL; } });
-// valores de |R| del deslizador (de menos a más curvado); en el centro, R = ∞
-const RMAG = [300, 200, 150, 120, 100, 80, 70, 60, 50, 45, 40, 35, 30, 25, 20, 15, 12, 10, 8, 6, 5];
-const idxToR = k => k === 0 ? Infinity : Math.sign(k) * RMAG[Math.abs(k) - 1];
-const rToIdx = R => { if (!isFinite(R)) return 0; let best = 1, bd = Infinity; RMAG.forEach((v, i) => { const d = Math.abs(Math.log(Math.abs(R) / v)); if (d < bd) { bd = d; best = i + 1; } }); return Math.sign(R) * best; };
+let drag = null; // 'obj', 'C' o 'F' mientras se arrastra
+const st = { el: 'concave', Rm: 40, FL: 20, d: 50, y: 4, rays: [true, true, true], ext: true, dims: true, pred: false, revealed: false };
+// |f|: en los espejos, la mitad de |R|
+Object.defineProperty(st, 'F', { get() { return MIRROR(this.el) ? this.Rm / 2 : this.FL; } });
 const MIRROR = el => el === 'concave' || el === 'convex' || el === 'plane';
 const fmt = (n, k = 1) => { if (!isFinite(n)) return '∞'; const r = Math.abs(n) < 0.5 * 10 ** -k ? 0 : n; return (r < 0 ? '−' : '') + Math.abs(r).toFixed(k).replace('.', ','); };
 const sg = n => (n > 0 ? '+' : n < 0 ? '−' : '') + Math.abs(n).toFixed(1).replace('.', ',');
@@ -293,6 +290,7 @@ const py = y => PADT + (view.Y - y) / (2 * view.Y) * (H - PADT - PADB);
 const wx = p => (p - PADL) / (W - PADL - PADR) * 2 * view.X - view.X;
 
 function setView() {
+  if (drag) return; // la escala no cambia mientras se arrastra
   const F = st.el === 'plane' ? 0 : st.F;
   const X = st.el === 'plane' ? Math.max(30, 1.6 * st.d) : Math.max(Math.min(4 * F, 120), 1.15 * st.d);
   view = { X, Y: Math.max(12, 3 * st.y) };
@@ -378,7 +376,9 @@ function draw() {
   marks.push([0, m ? 'V' : 'O']);
   for (const [x, lab] of marks) {
     if (Math.abs(x) > view.X) continue;
-    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px(x), py(0), 3.5, 0, 7); ctx.fill();
+    const isH = x === handle() && x !== 0;
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px(x), py(0), isH ? 6 : 3.5, 0, 7); ctx.fill();
+    if (isH) { ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(px(x), py(0), 10, 0, 7); ctx.stroke(); }
     ctx.font = mono(13, 700); ctx.textAlign = x === 0 ? 'left' : 'center'; ctx.textBaseline = 'top';
     ctx.fillText(lab, px(x) + (x === 0 ? 6 : 0), py(0) + 6);
   }
@@ -472,12 +472,13 @@ const RAYNAMES = {
   lens: ['Paralelo al eje → por F′', 'Hacia F → sale paralelo', 'Por el centro O → no se desvía'],
 };
 function sync() {
-  document.querySelectorAll('[data-el]').forEach(b => b.setAttribute('aria-pressed', b.dataset.el === st.base));
-  const mir = st.base === 'mirror';
-  $('RBox').hidden = !mir;
-  $('RR').value = rToIdx(st.R);
-  if (document.activeElement !== $('RN')) $('RN').value = isFinite(st.R) ? +st.R.toFixed(1) : '';
-  $('RO').textContent = isFinite(st.R) ? `R = ${fmt(st.R)} cm · f = ${fmt(st.R / 2)} cm · ${st.R < 0 ? 'cóncavo' : 'convexo'}` : 'R = ∞ · espejo plano';
+  document.querySelectorAll('[data-el]').forEach(b => b.setAttribute('aria-pressed', b.dataset.el === st.el));
+  const mir = MIRROR(st.el);
+  $('RBox').hidden = !(st.el === 'concave' || st.el === 'convex');
+  $('RR').value = st.Rm;
+  if (document.activeElement !== $('RN')) $('RN').value = +st.Rm.toFixed(1);
+  const Rs = st.el === 'concave' ? -st.Rm : st.Rm;
+  $('RO').textContent = `R = ${fmt(Rs)} cm · f = ${fmt(Rs / 2)} cm`;
   const m = MIRROR(st.el), names = st.el === 'plane' ? RAYNAMES.plane : m ? RAYNAMES.mirror : RAYNAMES.lens;
   [1, 2, 3].forEach(i => { $('c' + i).textContent = 'Rayo ' + i + ': ' + names[i - 1]; $('lg' + i).textContent = names[i - 1] ? 'Rayo ' + i : ''; $('k' + i).parentElement.hidden = !names[i - 1]; $('lg' + i).parentElement.hidden = !names[i - 1]; $('k' + i).checked = st.rays[i - 1]; });
   $('fBox').hidden = mir;
@@ -504,10 +505,9 @@ function buildPresets() {
   $('presets').innerHTML = P.map(([t, d]) => `<button data-d="${d}" aria-pressed="${Math.abs(st.d - d) < 1e-9}">${t}</button>`).join('');
   $('presets').querySelectorAll('[data-d]').forEach(b => b.addEventListener('click', () => { st.d = +b.dataset.d; st.revealed = false; sync(); }));
 }
-document.querySelectorAll('[data-el]').forEach(b => b.addEventListener('click', () => { st.base = b.dataset.el; st.revealed = false; sync(); }));
-$('RR').addEventListener('input', e => { st.R = idxToR(+e.target.value); st.revealed = false; sync(); });
-$('RN').addEventListener('input', e => { const v = parseFloat(String(e.target.value).replace(',', '.')); st.R = !isFinite(v) || v === 0 ? Infinity : Math.max(-1000, Math.min(1000, v)); st.revealed = false; sync(); });
-$('RInf').addEventListener('click', () => { st.R = Infinity; sync(); });
+document.querySelectorAll('[data-el]').forEach(b => b.addEventListener('click', () => { st.el = b.dataset.el; st.revealed = false; sync(); }));
+$('RR').addEventListener('input', e => { st.Rm = +e.target.value; st.revealed = false; sync(); });
+$('RN').addEventListener('input', e => { const v = Math.abs(parseFloat(String(e.target.value).replace(',', '.'))); if (isFinite(v) && v >= 1) { st.Rm = Math.min(400, v); st.revealed = false; sync(); } });
 $('fR').addEventListener('input', e => { st.FL = +e.target.value; sync(); });
 $('sR').addEventListener('input', e => { st.d = +e.target.value; sync(); });
 $('yR').addEventListener('input', e => { st.y = +e.target.value; sync(); });
@@ -517,11 +517,28 @@ $('kDim').addEventListener('change', e => { st.dims = e.target.checked; sync(); 
 $('pred').addEventListener('change', e => { st.pred = e.target.checked; st.revealed = false; sync(); });
 $('bReveal').addEventListener('click', () => { st.revealed = !st.revealed; sync(); });
 // arrastrar el objeto por el eje
-let drag = false;
-const moveObj = e => { const r = cv.getBoundingClientRect(); const x = wx(e.clientX - r.left); st.d = Math.max(1, Math.min(100, Math.round(-x * 2) / 2)); st.revealed = false; sync(); };
-cv.addEventListener('pointerdown', e => { const r = cv.getBoundingClientRect(); if (wx(e.clientX - r.left) < 0) { drag = true; cv.setPointerCapture(e.pointerId); moveObj(e); } });
-cv.addEventListener('pointermove', e => { if (drag) moveObj(e); });
-cv.addEventListener('pointerup', () => { drag = false; }); cv.addEventListener('pointercancel', () => { drag = false; });
+// punto que se puede arrastrar del elemento: C en los espejos curvos, F′ en las lentes
+const handle = () => st.el === 'concave' ? -st.Rm : st.el === 'convex' ? st.Rm : st.el === 'conv' ? st.FL : st.el === 'div' ? -st.FL : null;
+const nearHandle = (cx, cy) => { const h = handle(); return h != null && Math.abs(h) <= view.X && Math.abs(cx - px(h)) < 16 && Math.abs(cy - py(0)) < 22; };
+const move = e => {
+  const r = cv.getBoundingClientRect(), x = wx(e.clientX - r.left);
+  if (drag === 'obj') st.d = Math.max(1, Math.min(100, Math.round(-x * 2) / 2));
+  else if (drag === 'C') st.Rm = Math.max(10, Math.min(200, Math.round(Math.abs(x))));
+  else if (drag === 'F') st.FL = Math.max(5, Math.min(40, Math.round(Math.abs(x) * 2) / 2));
+  st.revealed = false; sync();
+};
+cv.addEventListener('pointerdown', e => {
+  const r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top;
+  if (nearHandle(cx, cy)) drag = MIRROR(st.el) ? 'C' : 'F';
+  else if (wx(cx) < 0) drag = 'obj'; else return;
+  cv.setPointerCapture(e.pointerId); move(e);
+});
+cv.addEventListener('pointermove', e => {
+  if (drag) return move(e);
+  const r = cv.getBoundingClientRect();
+  cv.style.cursor = nearHandle(e.clientX - r.left, e.clientY - r.top) ? 'ew-resize' : 'default';
+});
+cv.addEventListener('pointerup', () => { drag = null; sync(); }); cv.addEventListener('pointercancel', () => { drag = null; });
 if (!document.fullscreenEnabled) $('bFull').hidden = true;
 $('bFull').addEventListener('click', () => { const p = document.fullscreenElement ? document.exitFullscreen() : $('sim').requestFullscreen(); if (p && p.catch) p.catch(() => { $('bFull').hidden = true; }); });
 document.addEventListener('fullscreenchange', resize);
