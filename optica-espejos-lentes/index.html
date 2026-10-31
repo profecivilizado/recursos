@@ -68,7 +68,9 @@ h2{font:700 14px/1.2 var(--f-display);letter-spacing:.04em;margin:0;text-transfo
 .sim:fullscreen{border-radius:0;padding:24px;align-content:center;overflow:auto}
 .elems{display:flex;flex-wrap:wrap;gap:6px}
 #cw{position:relative;min-width:0}
-canvas{display:block;width:100%;border-radius:8px;touch-action:pan-y}
+canvas{display:block;width:100%;border-radius:8px;touch-action:none;cursor:grab}
+.zoom{display:inline-flex;gap:4px}
+.zoom button{min-width:38px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .sw{width:24px;height:0;border-top:3px solid currentColor;display:inline-block}
@@ -147,12 +149,14 @@ input[type=range]{accent-color:var(--ink);width:100%;height:24px}
       <span style="color:var(--r3)"><i class="sw"></i><b id="lg3"></b></span>
       <span><i class="sw d"></i>Prolongación (no es luz real)</span>
       <span style="color:var(--obj)">↑ Objeto (arrástralo)</span>
+      <span>Rueda o pellizco: zoom · arrastra el fondo para moverte</span>
     </div>
     <div id="cw"><canvas id="cv" aria-label="Banco óptico con el objeto, el elemento y los rayos"></canvas></div>
     <div class="bar">
       <label class="check"><input type="checkbox" id="pred"> Ocultar la imagen (modo predicción)</label>
       <span class="grow"></span>
       <button id="bReveal" hidden>Mostrar la imagen</button>
+      <span class="zoom" role="group" aria-label="Zoom"><button id="zOut" title="Alejar">−</button><button id="zFit" title="Volver a −100…100 cm">Encajar</button><button id="zIn" title="Acercar">+</button></span>
       <button id="bFull" title="Pantalla completa para proyectar">⛶</button>
     </div>
     <div class="readouts">
@@ -276,29 +280,31 @@ function rays(I) {
 
 /* ---------- Dibujo ---------- */
 const cv = $('cv'), ctx = cv.getContext('2d');
-let W = 0, H = 0, view = { X: 80, Y: 12 };
+let W = 0, H = 0, view = { cx: 0, cy: 0, k: 3 }, fitted = false;
 function resize() {
   W = $('cw').clientWidth; H = Math.round(Math.max(300, Math.min(document.fullscreenElement ? innerHeight - 330 : 520, W * 0.46)));
   const dpr = devicePixelRatio || 1; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + 'px';
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); draw();
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); if (!fitted) fit(); draw();
 }
 new ResizeObserver(resize).observe($('cw'));
 const tok = () => { const c = getComputedStyle(document.documentElement), g = k => c.getPropertyValue(k).trim(); return { ink: g('--ink'), muted: g('--muted'), minor: g('--grid-minor'), major: g('--grid-major'), r: [g('--r1'), g('--r2'), g('--r3')], obj: g('--obj'), img: g('--img'), glass: g('--glass'), panel: g('--panel'), accent: g('--accent') }; };
 const mono = (sz, w = 400) => `${w} ${sz}px "JetBrains Mono", ui-monospace, monospace`;
-const PADL = 14, PADR = 14, PADT = 18, PADB = 40;
-const px = x => PADL + (x + view.X) / (2 * view.X) * (W - PADL - PADR);
-const py = y => PADT + (view.Y - y) / (2 * view.Y) * (H - PADT - PADB);
-const wx = p => (p - PADL) / (W - PADL - PADR) * 2 * view.X - view.X;
-
-function setView() {
-  if (drag) return; // la escala no cambia mientras se arrastra
-  const F = st.el === 'plane' ? 0 : st.F;
-  const X = 100;
-  view = { X, Y: Math.max(12, 3 * st.y) };
+// misma escala en los dos ejes (como en GeoGebra): view.k píxeles por cm
+const px = x => W / 2 + (x - view.cx) * view.k;
+const py = y => H / 2 - (y - view.cy) * view.k;
+const wx = p => view.cx + (p - W / 2) / view.k;
+const wy = p => view.cy - (p - H / 2) / view.k;
+function fit() { view = { cx: 0, cy: 0, k: (W - 28) / 200 }; fitted = true; }   // de −100 a 100 cm
+function zoomAt(f, sx, sy) {
+  const x = wx(sx), y = wy(sy);
+  view.k = Math.max(0.6, Math.min(60, view.k * f));
+  view.cx = x - (sx - W / 2) / view.k; view.cy = y + (sy - H / 2) / view.k; draw();
 }
+const bounds = () => ({ x0: wx(0), x1: wx(W), y0: wy(H), y1: wy(0) });
 function clipLine(p, d) { // de p en la dirección d hasta el borde de la vista
-  const tx = d[0] > 0 ? (view.X - p[0]) / d[0] : d[0] < 0 ? (-view.X - p[0]) / d[0] : Infinity;
-  const ty = d[1] > 0 ? (view.Y - p[1]) / d[1] : d[1] < 0 ? (-view.Y - p[1]) / d[1] : Infinity;
+  const b = bounds();
+  const tx = d[0] > 0 ? (b.x1 - p[0]) / d[0] : d[0] < 0 ? (b.x0 - p[0]) / d[0] : Infinity;
+  const ty = d[1] > 0 ? (b.y1 - p[1]) / d[1] : d[1] < 0 ? (b.y0 - p[1]) / d[1] : Infinity;
   const t = Math.min(tx, ty); return [p[0] + d[0] * t, p[1] + d[1] * t];
 }
 function seg(a, b, col, w, dash) {
@@ -312,26 +318,28 @@ function midArrow(a, b, col) { // punta de flecha a mitad de un tramo, en el sen
 }
 function arrowObj(x, y, col, dashed, label) {
   const X = px(x), Y0 = py(0), Y1 = py(y), dir = Math.sign(Y1 - Y0) || -1;
-  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 3.5; ctx.setLineDash(dashed ? [6, 4] : []);
-  ctx.beginPath(); ctx.moveTo(X, Y0); ctx.lineTo(X, Y1 - dir * 10); ctx.stroke(); ctx.setLineDash([]);
-  ctx.beginPath(); ctx.moveTo(X, Y1); ctx.lineTo(X - 8, Y1 - dir * 14); ctx.lineTo(X + 8, Y1 - dir * 14); ctx.closePath();
+  const L = Math.abs(Y1 - Y0), hl = Math.max(4, Math.min(14, L * 0.45)), hw = hl * 0.6;   // punta proporcionada a la flecha
+  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = L < 12 ? 2.5 : 3.5; ctx.setLineDash(dashed ? [6, 4] : []);
+  ctx.beginPath(); ctx.moveTo(X, Y0); ctx.lineTo(X, Y1 - dir * hl * 0.7); ctx.stroke(); ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(X, Y1); ctx.lineTo(X - hw, Y1 - dir * hl); ctx.lineTo(X + hw, Y1 - dir * hl); ctx.closePath();
   if (dashed) { ctx.lineWidth = 2; ctx.stroke(); } else ctx.fill();
   ctx.font = mono(13, 700); ctx.textAlign = 'center'; ctx.textBaseline = dir < 0 ? 'bottom' : 'top';
   ctx.fillText(label, X, Y1 + (dir < 0 ? -16 : 16));
 }
 
 function drawElement(C) {
-  const X0 = px(0), top = py(view.Y * 0.88), bot = py(-view.Y * 0.88);
+  const X0 = px(0), hl = 25, top = py(hl), bot = py(-hl);
   ctx.lineWidth = 3; ctx.strokeStyle = C.ink;
   if (MIRROR(st.el)) {
-    // curvatura exagerada para que se vea; los rayos se reflejan en el plano del vértice (aproximación paraxial)
-    const hmax = view.Y * 0.88, sag = st.el === 'plane' ? 0 : (st.el === 'concave' ? -1 : 1) * Math.min(60, 15 + 1500 / st.Rm);
-    const sx = yy => X0 + sag * (yy / hmax) ** 2;
+    // forma real del espejo: arco de radio |R| (los rayos se reflejan en el plano del vértice, aproximación paraxial)
+    const R = st.el === 'plane' ? Infinity : (st.el === 'concave' ? -st.Rm : st.Rm), hmax = isFinite(R) ? Math.min(hl, 0.97 * Math.abs(R)) : hl;
+    const sx = yy => isFinite(R) ? px(R - Math.sign(R) * Math.sqrt(R * R - yy * yy)) : X0;
     ctx.beginPath();
-    for (let i = 0; i <= 80; i++) { const yy = -hmax + 2 * hmax * i / 80; i ? ctx.lineTo(sx(yy), py(yy)) : ctx.moveTo(sx(yy), py(yy)); }
+    for (let i = 0; i <= 120; i++) { const yy = -hmax + 2 * hmax * i / 120; i ? ctx.lineTo(sx(yy), py(yy)) : ctx.moveTo(sx(yy), py(yy)); }
     ctx.stroke();
     ctx.lineWidth = 1.2; ctx.strokeStyle = C.muted;
-    for (let i = 0; i <= 22; i++) { const yy = -hmax + 2 * hmax * i / 22; ctx.beginPath(); ctx.moveTo(sx(yy) + 1, py(yy)); ctx.lineTo(sx(yy) + 9, py(yy) - 7); ctx.stroke(); }
+    const n = Math.max(6, Math.round((py(-hmax) - py(hmax)) / 14));
+    for (let i = 0; i <= n; i++) { const yy = -hmax + 2 * hmax * i / n; ctx.beginPath(); ctx.moveTo(sx(yy) + 1, py(yy)); ctx.lineTo(sx(yy) + 9, py(yy) - 7); ctx.stroke(); }
   } else {
     // lente: zona de vidrio y flechas en los extremos
     const conv = st.el === 'conv', w = 9;
@@ -347,19 +355,24 @@ function drawElement(C) {
 
 function draw() {
   if (!W) return;
-  setView();
   const C = tok(), I = image(), m = MIRROR(st.el);
   ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
-  // rejilla y eje
-  const step = view.X > 120 ? 20 : view.X > 60 ? 10 : 5;
+  // rejilla y ejes con la misma escala
+  const b = bounds(), step = [1, 2, 5, 10, 20, 50, 100].find(v => v * view.k >= 38) || 100;
   ctx.lineWidth = 1; ctx.strokeStyle = C.minor; ctx.beginPath();
-  for (let x = -Math.floor(view.X / step) * step; x <= view.X; x += step) { ctx.moveTo(Math.round(px(x)) + .5, PADT); ctx.lineTo(Math.round(px(x)) + .5, H - PADB); }
+  for (let x = Math.ceil(b.x0 / step) * step; x <= b.x1; x += step) { ctx.moveTo(Math.round(px(x)) + .5, 0); ctx.lineTo(Math.round(px(x)) + .5, H); }
+  for (let y = Math.ceil(b.y0 / step) * step; y <= b.y1; y += step) { ctx.moveTo(0, Math.round(py(y)) + .5); ctx.lineTo(W, Math.round(py(y)) + .5); }
   ctx.stroke();
-  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(PADL, py(0)); ctx.lineTo(W - PADR, py(0)); ctx.stroke();
-  ctx.fillStyle = C.muted; ctx.font = mono(11); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-  for (let x = -Math.floor(view.X / step) * step; x <= view.X; x += step) if (x && Math.abs(px(x) - px(0)) > 20) ctx.fillText(fmt(x, 0), px(x), H - PADB + 22);
-  ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('x (cm)', W - PADR - 2, py(0) - 4);
-  // puntos notables
+  const ay = Math.round(py(0)) + .5;
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(0, ay); ctx.lineTo(W, ay); ctx.stroke();
+  // marcas y números sobre el eje
+  ctx.lineWidth = 1.2; ctx.beginPath();
+  for (let x = Math.ceil(b.x0 / step) * step; x <= b.x1; x += step) { ctx.moveTo(Math.round(px(x)) + .5, ay - 4); ctx.lineTo(Math.round(px(x)) + .5, ay + 4); }
+  ctx.stroke();
+  ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  for (let x = Math.ceil(b.x0 / step) * step; x <= b.x1; x += step) if (Math.abs(x) > 1e-9) ctx.fillText(fmt(x, 0), px(x), ay + 6);
+  ctx.textAlign = 'right'; ctx.textBaseline = 'bottom'; ctx.fillText('x (cm)', W - 6, ay - 4);
+  // puntos notables (etiqueta encima del eje)
   const marks = [];
   if (st.el !== 'plane') {
     const f = I.f;
@@ -368,10 +381,10 @@ function draw() {
   }
   marks.push([0, m ? 'V' : 'O']);
   for (const [x, lab] of marks) {
-    if (Math.abs(x) > view.X) continue;
-    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px(x), py(0), 3.5, 0, 7); ctx.fill();
-    ctx.font = mono(13, 700); ctx.textAlign = x === 0 ? 'left' : 'center'; ctx.textBaseline = 'top';
-    ctx.fillText(lab, px(x) + (x === 0 ? 6 : 0), py(0) + 6);
+    if (x < b.x0 || x > b.x1) continue;
+    ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(px(x), ay, 3.5, 0, 7); ctx.fill();
+    ctx.font = mono(13, 700); ctx.textAlign = x === 0 ? 'left' : 'center'; ctx.textBaseline = 'bottom';
+    ctx.fillText(lab, px(x) + (x === 0 ? 6 : 0), ay - 6);
   }
   drawElement(C);
 
@@ -395,10 +408,11 @@ function draw() {
   ctx.lineCap = 'butt';
   // objeto e imagen
   arrowObj(I.s, I.y, C.obj, false, 'y');
-  if (showImg && !I.inf && Math.abs(I.sp) <= view.X && Math.abs(I.yp) < view.Y * 1.5) arrowObj(I.sp, I.yp, C.img, false, 'y′');
-  if (showImg && !I.inf && (Math.abs(I.sp) > view.X || Math.abs(I.yp) >= view.Y * 1.5)) {
+  const inView = I.sp >= b.x0 && I.sp <= b.x1 && Math.min(0, I.yp) <= b.y1 && Math.max(0, I.yp) >= b.y0;
+  if (showImg && !I.inf) arrowObj(I.sp, I.yp, C.img, false, 'y′');
+  if (showImg && !I.inf && !inView) {
     ctx.fillStyle = C.img; ctx.font = mono(13, 600); ctx.textAlign = I.sp > 0 ? 'right' : 'left'; ctx.textBaseline = 'top';
-    ctx.fillText(`imagen fuera de la vista (s′ = ${fmt(I.sp)} cm)`, I.sp > 0 ? W - PADR - 4 : PADL + 4, PADT + 4);
+    ctx.fillText(`imagen fuera de la vista (s′ = ${fmt(I.sp)} cm): aleja el zoom`, I.sp > 0 ? W - 10 : 10, 8);
   }
   // cotas
   if (st.dims) {
@@ -410,9 +424,9 @@ function draw() {
       const t = lab, tw = ctx.measureText(t).width; ctx.fillStyle = C.panel; ctx.fillRect((a + b) / 2 - tw / 2 - 3, yb - 16, tw + 6, 14);
       ctx.fillStyle = col; ctx.fillText(t, (a + b) / 2, yb - 3);
     };
-    const yb = H - PADB + 6, same = showImg && !I.inf && I.sp < 0;
+    const yb = H - 10, same = showImg && !I.inf && I.sp < 0;
     dim(I.s, 0, `s = ${fmt(I.s)}`, C.obj, same ? yb - 22 : yb);
-    if (showImg && !I.inf) dim(0, Math.max(-view.X, Math.min(view.X, I.sp)), `s′ = ${fmt(I.sp)}`, C.img, yb);
+    if (showImg && !I.inf) dim(0, Math.max(b.x0, Math.min(b.x1, I.sp)), `s′ = ${fmt(I.sp)}`, C.img, yb);
   }
 }
 
@@ -514,7 +528,9 @@ $('bReveal').addEventListener('click', () => { st.revealed = !st.revealed; sync(
 // arrastrar el objeto por el eje
 // punto que se puede arrastrar del elemento: C en los espejos curvos, F′ en las lentes
 const handle = () => st.el === 'concave' ? -st.Rm : st.el === 'convex' ? st.Rm : st.el === 'conv' ? st.FL : st.el === 'div' ? -st.FL : null;
-const nearHandle = (cx, cy) => { const h = handle(); return h != null && Math.abs(h) <= view.X && Math.abs(cx - px(h)) < 16 && Math.abs(cy - py(0)) < 22; };
+const nearHandle = (cx, cy) => { const h = handle(); return h != null && Math.abs(cx - px(h)) < 14 && Math.abs(cy - py(0)) < 16; };
+const nearObj = (cx, cy) => { const x = px(-st.d), y0 = py(0), y1 = py(st.y); return Math.abs(cx - x) < 14 && cy >= Math.min(y0, y1) - 16 && cy <= Math.max(y0, y1) + 8; };
+const pts = new Map(); let pan = null, pinch = null;
 const move = e => {
   const r = cv.getBoundingClientRect(), x = wx(e.clientX - r.left);
   if (drag === 'obj') st.d = Math.max(1, Math.min(100, Math.round(-x * 2) / 2));
@@ -524,16 +540,27 @@ const move = e => {
 };
 cv.addEventListener('pointerdown', e => {
   const r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top;
+  pts.set(e.pointerId, [cx, cy]); cv.setPointerCapture(e.pointerId);
+  if (pts.size === 2) { drag = null; pan = null; const [a, c] = [...pts.values()]; pinch = { d: Math.hypot(a[0] - c[0], a[1] - c[1]), k: view.k }; return; }
   if (nearHandle(cx, cy)) drag = MIRROR(st.el) ? 'C' : 'F';
-  else if (wx(cx) < 0) drag = 'obj'; else return;
-  cv.setPointerCapture(e.pointerId); move(e);
+  else if (nearObj(cx, cy)) drag = 'obj';
+  else { pan = { x: cx, y: cy, cx: view.cx, cy: view.cy }; cv.style.cursor = 'grabbing'; return; }
+  move(e);
 });
 cv.addEventListener('pointermove', e => {
+  const r = cv.getBoundingClientRect(), cx = e.clientX - r.left, cy = e.clientY - r.top;
+  if (pts.has(e.pointerId)) pts.set(e.pointerId, [cx, cy]);
+  if (pinch && pts.size === 2) { const [a, c] = [...pts.values()], d = Math.hypot(a[0] - c[0], a[1] - c[1]); zoomAt(pinch.k * d / pinch.d / view.k, (a[0] + c[0]) / 2, (a[1] + c[1]) / 2); return; }
   if (drag) return move(e);
-  const r = cv.getBoundingClientRect();
-  cv.style.cursor = nearHandle(e.clientX - r.left, e.clientY - r.top) ? 'ew-resize' : 'default';
+  if (pan) { view.cx = pan.cx - (cx - pan.x) / view.k; view.cy = pan.cy + (cy - pan.y) / view.k; draw(); return; }
+  cv.style.cursor = nearHandle(cx, cy) || nearObj(cx, cy) ? 'ew-resize' : 'grab';
 });
-cv.addEventListener('pointerup', () => { drag = null; sync(); }); cv.addEventListener('pointercancel', () => { drag = null; });
+const up = e => { pts.delete(e.pointerId); if (pts.size < 2) pinch = null; drag = null; pan = null; cv.style.cursor = 'grab'; };
+cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+cv.addEventListener('wheel', e => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * 0.0015), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
+$('zIn').addEventListener('click', () => zoomAt(1.4, W / 2, H / 2));
+$('zOut').addEventListener('click', () => zoomAt(1 / 1.4, W / 2, H / 2));
+$('zFit').addEventListener('click', () => { fit(); draw(); });
 if (!document.fullscreenEnabled) $('bFull').hidden = true;
 $('bFull').addEventListener('click', () => { const p = document.fullscreenElement ? document.exitFullscreen() : $('sim').requestFullscreen(); if (p && p.catch) p.catch(() => { $('bFull').hidden = true; }); });
 document.addEventListener('fullscreenchange', resize);
