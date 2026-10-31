@@ -9,6 +9,18 @@
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <link rel="stylesheet" href="assets/style.css?v=6" />
   <script defer src="assets/main.js?v=3"></script>
+  <style>
+    .ig-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 32px; align-items: start; }
+    .ig-grid:not(.has-post) { grid-template-columns: minmax(0, 560px); }
+    .ig-card { gap: 18px; }
+    .ig-head { display: flex; align-items: center; gap: 16px; }
+    .ig-head h3 { margin: 0; }
+    .ig-head p { margin: 2px 0 0; }
+    .ig-logo { width: 64px; height: 64px; border-radius: 50%; background: #fff; border: 1px solid var(--line); object-fit: cover; }
+    .ig-post:empty { display: none; }
+    .ig-post .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; }
+    @media (max-width: 860px) { .ig-grid { grid-template-columns: minmax(0, 1fr); } }
+  </style>
 </head>
 <body>
   <nav class="nav" aria-label="Navegación principal">
@@ -122,7 +134,30 @@
       </div>
     </section>
 
-    <section class="alt" id="recursos">
+    <section class="alt" id="instagram">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Instagram</p>
+          <h2>Lo último en Instagram.</h2>
+          <p>Recursos, vídeos de los simuladores y novedades de la web.</p>
+        </div>
+        <div class="ig-grid">
+          <div class="card ig-card">
+            <div class="ig-head">
+              <img class="ig-logo" src="img/logo-profe-civilizado.png" alt="" width="64" height="64">
+              <div><h3>@profecivilizado</h3><p>Profe Civilizado</p></div>
+            </div>
+            <p class="grow">Sígueme para enterarte antes que nadie de los recursos nuevos.</p>
+            <div><a class="btn" href="https://www.instagram.com/profecivilizado/" target="_blank" rel="noopener">Seguir en Instagram</a></div>
+          </div>
+          <!-- PUBLICACIÓN DESTACADA: pega en data-post el enlace de la publicación o reel
+               (en Instagram: ··· › Copiar enlace). Si lo dejas vacío, solo se ve la tarjeta del perfil. -->
+          <div class="ig-post" id="igPost" data-post=""></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Recursos del curso</p>
@@ -157,41 +192,48 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">PRSI</p>
-          <h2>Prácticas destacadas.</h2>
-          <p>Del hardware a la programación, en el orden en que las trabajamos.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card practice"><div class="meta"><span class="area">Hardware</span><span class="num">1</span></div><h3>Componentes de un PC</h3><p>Conoce los componentes de un PC y la compatibilidad entre ellos.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Hardware</span><span class="num">2</span></div><h3>Desmontar un PC</h3><p>Desmonta un PC real y diseña uno virtual.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Redes</span><span class="num">3</span></div><h3>Configuración de un router</h3><p>Aprende a configurar tu router para crear subredes y añadir protección y seguridad.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Web</span><span class="num">4</span></div><h3>Creación de una página web</h3><p>Podrás crear tu propia página web personalizada y gratuita usando GitHub Pages.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Excel</span><span class="num">5</span></div><h3>Calculadoras de Excel</h3><p>Aprende a crear calculadoras para fórmulas específicas en función de ciertos parámetros.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Excel</span><span class="num">6</span></div><h3>Bases de datos y cálculos con Excel</h3><p>Aprende a crear bases de datos organizadas que te permitan gestionar las cuentas de un negocio.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Python</span><span class="num">7</span></div><h3>Generador de contraseñas</h3><p>Aprende a crear un generador de contraseñas seguras con Python.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Python</span><span class="num">8</span></div><h3>Calculadora completa</h3><p>Diseña una calculadora completa con fórmulas usando Python.</p></article>
-          <article class="card practice"><div class="meta"><span class="area">Python + IA</span><span class="num">9</span></div><h3>Diseña tu propio programa</h3><p>Usando Python y la IA, podrás diseñar tu propio programa donde tu imaginación es el límite.</p></article>
-        </div>
-      </div>
-    </section>
-
     <section class="alt">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">FAQ rápidas</p>
-          <h2>Cómo está hecha esta web.</h2>
+          <h2>Lo que más me preguntáis.</h2>
         </div>
         <div class="faq">
           <details>
-            <summary>¿Por qué GitHub Pages y no Google Sites o WordPress?</summary>
-            <p>Control total del código, versión gratuita, y aprendes HTML/CSS real. Menos magia negra, más cerebro.</p>
+            <summary>¿Qué encuentro en esta web?</summary>
+            <p>Recursos interactivos para ESO y Bachillerato: simuladores de Física, calculadoras de Matemáticas y otras herramientas para clase. Los tienes ordenados por etapa en Recursos ESO y Recursos Bachillerato, y lo más reciente aparece en Últimas novedades.</p>
           </details>
           <details>
-            <summary>¿Cómo actualizo la web?</summary>
-            <p>Haz un commit al repo. GitHub Pages reconstruye y publica solo.</p>
+            <summary>¿Cómo se usan los simuladores?</summary>
+            <p>Despliega el recurso y se abre en la misma página. Si prefieres verlo más grande, usa «Abrir en una pestaña nueva». Cambia los datos con los deslizadores o escribiendo el número, elige qué quieres calcular y mira la resolución paso a paso.</p>
+          </details>
+          <details>
+            <summary>¿Funcionan en el móvil o en la tablet?</summary>
+            <p>Sí. Funcionan en cualquier navegador actual, también en iPhone, iPad y Android. No hay que instalar nada ni crear ninguna cuenta.</p>
+          </details>
+          <details>
+            <summary>¿Puedo usarlos para hacer los ejercicios?</summary>
+            <p>Para comprobarlos, sí: calculan con las mismas fórmulas que usamos en clase. Pero primero plantea y resuelve tú el ejercicio, y después compara. En el examen no estará el simulador.</p>
+          </details>
+          <details>
+            <summary>¿Dónde están los apuntes y las prácticas?</summary>
+            <p>Los apuntes están en el OneNote de la asignatura, las prácticas en Teams y el resto de materiales en OneDrive. Tienes los accesos en Recursos del curso.</p>
+          </details>
+          <details>
+            <summary>Tengo una duda, ¿cómo contacto contigo?</summary>
+            <p>Escríbeme al correo del colegio indicando tu nombre, curso, grupo y asignatura. Lo tienes en Contacto, junto a mi Instagram.</p>
+          </details>
+          <details>
+            <summary>¿Puedo ver la web en modo oscuro?</summary>
+            <p>Sí: pulsa el botón 🌓 de la barra de arriba. Tu navegador recordará tu elección.</p>
+          </details>
+          <details>
+            <summary>¿La web guarda algún dato mío?</summary>
+            <p>No. No hay cuentas, formularios de registro ni estadísticas. Solo se guarda en tu propio navegador si prefieres el modo claro u oscuro. La publicación de Instagram, si la hay, la carga Instagram.</p>
+          </details>
+          <details>
+            <summary>¿Cómo está hecha esta web?</summary>
+            <p>Con HTML, CSS y JavaScript, sin plantillas ni plataformas, y publicada gratis con GitHub Pages. Los simuladores están programados desde cero para que se parezcan a cómo lo explicamos en clase.</p>
           </details>
         </div>
       </div>
@@ -204,5 +246,19 @@
       <span>Hecho con HTML &amp; CSS</span>
     </div>
   </footer>
+  <script>
+    /* Publicación de Instagram incrustada (si hay enlace en data-post) */
+    (function () {
+      var box = document.getElementById("igPost"); if (!box) return;
+      var url = (box.getAttribute("data-post") || "").trim().split("?")[0];
+      if (!/^https:\/\/www\.instagram\.com\/(p|reel)\//.test(url)) return;
+      if (url.slice(-1) !== "/") url += "/";
+      var q = document.createElement("blockquote");
+      q.className = "instagram-media"; q.setAttribute("data-instgrm-permalink", url); q.setAttribute("data-instgrm-version", "14");
+      var a = document.createElement("a"); a.href = url; a.textContent = "Ver esta publicación en Instagram"; q.appendChild(a);
+      box.appendChild(q); box.parentNode.classList.add("has-post");
+      var sc = document.createElement("script"); sc.async = true; sc.src = "https://www.instagram.com/embed.js"; document.body.appendChild(sc);
+    })();
+  </script>
 </body>
 </html>
