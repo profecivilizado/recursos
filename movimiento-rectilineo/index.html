@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Movimiento rectilíneo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cuaderno de laboratorio. Escena y gráficas a la izquierda (fijas), planteamiento y resultado a la derecha. */
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8; --ground:#e6ebf3; --hatch:#b9c3d3;
+  --grid-minor:rgba(43,97,170,.07); --grid-major:rgba(43,97,170,.18);
+  --A:#df4a1c; --B:#1f55d6; --meet:#7b3fc4; --vel:#0b8a5c;
+  --chip-n:#eef1f6; --chip-warn:#fdeee7; --chip-warn-ink:#a3360f;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --accent:#df4a1c;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --ground:#1f2a3c; --hatch:#3a4862;
+    --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+    --A:#ff7c4f; --B:#6e9dff; --meet:#c49bff; --vel:#3fd09a;
+    --chip-n:#1e283a; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88;
+    --btn:#1d2738; --btn-hover:#253148; --accent:#ff7c4f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --ground:#1f2a3c; --hatch:#3a4862;
+  --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.16);
+  --A:#ff7c4f; --B:#6e9dff; --meet:#c49bff; --vel:#3fd09a;
+  --chip-n:#1e283a; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88;
+  --btn:#1d2738; --btn-hover:#253148; --accent:#ff7c4f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1200px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px;text-wrap:balance}
+header p{margin:0;color:var(--muted);max-width:70ch}
+h2{font:700 14px/1.2 var(--f-display);letter-spacing:.04em;margin:0;text-transform:uppercase}
+h3{font:700 13px/1.2 var(--f-mono);letter-spacing:.06em;margin:0;text-transform:uppercase}
+sub{font-size:.72em;line-height:0}
+.lt{font-style:normal}
+
+.main{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:980px){.main{grid-template-columns:1fr}}
+.left{display:grid;gap:14px;position:sticky;top:12px;min-width:0}
+@media (max-width:980px){.left{position:static}}
+.right{display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+canvas{display:block;width:100%;border-radius:8px}
+.graphs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.graphs{grid-template-columns:1fr}}
+.cwrap{min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.tbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.tbar input[type=range]{flex:1 1 200px;min-width:0}
+.tval{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tinst{font:14px/1.7 var(--f-mono);font-variant-numeric:tabular-nums;display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.tinst .th{font:700 14px var(--f-body)}
+
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--B);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button.play{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:700;min-width:96px}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0;font-size:13px}
+.field{display:grid;gap:3px;min-width:0}
+.field .top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px}
+.field .top label{font:700 15px var(--f-mono)}
+.num{display:inline-flex;align-items:center;gap:6px}
+.num input{font:14px var(--f-mono);width:92px;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-align:right}
+.num input:disabled{background:var(--chip-warn);color:var(--chip-warn-ink);border-color:transparent;font-weight:700}
+.unit{color:var(--muted);font:13px var(--f-mono)}
+input[type=range]{accent-color:var(--ink);width:100%}
+input[type=range]:disabled{opacity:.35}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}}
+.mov{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:10px}
+.mov.A{border-left:5px solid var(--A)} .mov.B{border-left:5px solid var(--B)}
+.check{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--ink)}
+select{font:14px var(--f-body);padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:0}
+.note{font-size:13px;color:var(--muted);margin:0}
+.unks{display:flex;flex-wrap:wrap;gap:8px}
+.unks label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px;background:var(--btn)}
+.unks input{accent-color:var(--accent)}
+.unks label:has(input:checked){background:var(--chip-warn);color:var(--chip-warn-ink);border-color:transparent;font-weight:700}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+details.formulario summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.formulario summary::-webkit-details-marker{display:none}
+details.formulario summary::after{content:"+";font:300 24px/1 var(--f-body);color:var(--muted)}
+details.formulario[open] summary::after{content:"−"}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px}
+@media (max-width:620px){.fgrid{grid-template-columns:1fr}}
+.fgrid p{margin:0;font:14px/1.7 var(--f-mono)}
+.fk{font:600 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:620px){.res{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ro{border-top:1px solid var(--line);padding-top:8px;min-width:0}
+.ro .k{font:600 11px/1.25 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ro .k .nt{text-transform:none}
+.ro .v{font:600 16px/1.4 var(--f-mono);font-variant-numeric:tabular-nums}
+.ro.hl .v{color:var(--accent)}
+.big{font:700 clamp(20px,2.6vw,26px)/1.2 var(--f-mono);color:var(--accent)}
+.err{background:var(--chip-warn);color:var(--chip-warn-ink);padding:10px 12px;border-radius:10px;font-size:15px}
+.roots{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spacing:.04em;text-transform:uppercase}
+.steps ol{margin:10px 0 0;padding-left:1.4em;display:grid;gap:10px}
+.f{font:14px/1.65 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.f .u{color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Cinemática · MRU y MRUA</div>
+    <h1>Movimiento rectilíneo</h1>
+    <p>Uno o dos móviles en línea recta, en horizontal o en vertical: MRU, MRUA, frenadas, caída libre, lanzamientos hacia arriba y hacia abajo, encuentros y alcances. Mira la escena, las gráficas x–t y v–t y la resolución paso a paso.</p>
+  </header>
+
+  <div class="main">
+    <div class="left">
+      <div class="card">
+        <div class="legend" aria-hidden="true">
+          <span id="lgA"><i class="dot" style="background:var(--A)"></i>Móvil A</span>
+          <span id="lgB"><i class="dot" style="background:var(--B)"></i>Móvil B</span>
+          <span style="color:var(--vel)">→ velocidad</span>
+          <span id="lgM" style="color:var(--meet)">◆ encuentro</span>
+        </div>
+        <div class="cwrap" id="sw"><canvas id="scene" aria-label="Escena del movimiento"></canvas></div>
+        <div class="tbar">
+          <button id="bPlay" class="play">▶ Empezar</button>
+          <input type="range" id="tR" min="0" max="10" step="0.001" value="0" aria-label="Instante t">
+          <span class="tval" id="tO">t = 0,00 s</span>
+        </div>
+        <div class="graphs">
+          <div class="cwrap" id="gw1"><canvas id="gx" aria-label="Gráfica posición-tiempo"></canvas></div>
+          <div class="cwrap" id="gw2"><canvas id="gv" aria-label="Gráfica velocidad-tiempo"></canvas></div>
+        </div>
+        <div class="tinst" id="inst"></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <details class="card formulario">
+        <summary><h2>Formulario</h2></summary>
+        <div class="fgrid">
+          <div><div class="fk">MRU (a = 0)</div>
+            <p>x = x<sub>0</sub> + v·t</p><p>v = constante</p></div>
+          <div><div class="fk">MRUA</div>
+            <p>x = x<sub>0</sub> + v<sub>0</sub>·t + ½·a·t²</p><p>v = v<sub>0</sub> + a·t</p><p>v² = v<sub>0</sub>² + 2·a·(x − x<sub>0</sub>)</p></div>
+          <div><div class="fk">Caída libre (a = −g)</div>
+            <p>y = y<sub>0</sub> + v<sub>0</sub>·t − ½·g·t²</p><p>v = v<sub>0</sub> − g·t</p><p>v² = v<sub>0</sub>² − 2·g·(y − y<sub>0</sub>)</p></div>
+        </div>
+        <p class="note">Positivo hacia la derecha (eje horizontal) o hacia arriba (eje vertical). Si un móvil sale más tarde, en t<sub>0</sub>, se usa (t − t<sub>0</sub>) en lugar de t. Encuentro o alcance: x<sub>A</sub> = x<sub>B</sub> en el mismo instante.</p>
+      </details>
+
+      <div class="card">
+        <h2>1 · Situación</h2>
+        <div class="field"><div class="top"><span style="font:600 14px var(--f-body)">Eje</span></div>
+          <div class="seg" role="group" aria-label="Eje"><button data-axis="h">Horizontal</button><button data-axis="v">Vertical (caída libre)</button></div></div>
+        <div class="field"><div class="top"><span style="font:600 14px var(--f-body)">Móviles</span></div>
+          <div class="seg" role="group" aria-label="Número de móviles"><button data-n="1">Uno</button><button data-n="2">Dos (encuentro o alcance)</button></div></div>
+        <div class="grid2" id="gBox"><div class="field"><div class="top"><label for="gS">g</label><span class="num"><select id="gS"><option value="9.8">9,8</option><option value="9.81">9,81</option><option value="10">10</option></select><span class="unit">m/s²</span></span></div></div></div>
+        <p class="note" id="sitNote"></p>
+      </div>
+
+      <div class="card">
+        <h2>2 · Datos</h2>
+        <div id="movs"></div>
+      </div>
+
+      <div class="card">
+        <h2>3 · ¿Qué quieres calcular?</h2>
+        <div class="unks" id="unks"></div>
+        <div class="grid2" id="condBox">
+          <div class="field"><div class="top"><label for="cS" style="font:600 14px var(--f-body)">Dato conocido</label></div><select id="cS"></select></div>
+          <div class="field" id="cTBox"><div class="top"><label for="cT" style="font:600 14px var(--f-body)">en el instante</label><span class="num"><input type="number" id="cT" step="0.1"><span class="unit">s</span></span></div></div>
+          <div class="field" id="cVBox"><div class="top"><label for="cV" style="font:600 14px var(--f-body)" id="cVLab">Valor</label><span class="num"><input type="number" id="cV" step="0.1"><span class="unit" id="cVU"></span></span></div></div>
+        </div>
+        <p class="note" id="unkNote"></p>
+        <div class="field"><div class="top"><span style="font:600 14px var(--f-body)">Además, en un punto concreto</span></div>
+          <div class="row">
+            <select id="ptS" aria-label="Punto concreto"><option value="none">Ninguno</option><option value="t">En un instante t</option><option value="x">Cuando la posición vale…</option><option value="v">Cuando la velocidad vale…</option></select>
+            <select id="ptM" aria-label="Móvil del punto"><option value="A">del móvil A</option><option value="B">del móvil B</option></select>
+            <span class="num" id="ptBox"><input type="number" id="ptN" step="0.1" aria-label="Valor del punto"><span class="unit" id="ptU"></span></span>
+          </div></div>
+      </div>
+
+      <div class="card" id="result"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const fmt = (n, d = 2) => { if (!isFinite(n)) return '—'; const r = Math.abs(n) < 0.5 * 10 ** -d ? 0 : n; return (r < 0 ? '−' : '') + Math.abs(r).toFixed(d).replace('.', ','); };
+const sgn = (n, d = 2) => (n < 0 ? '− ' : '+ ') + fmt(Math.abs(n), d);
+const st = {
+  axis: 'h', n: 1, g: 9.8,
+  m: { A: { kind: 'mrua', x0: 0, v0: 10, a: 2, t0: 0, stop: true }, B: { kind: 'mru', x0: 200, v0: -15, a: 0, t0: 0, stop: true } },
+  unk: 'none', cond: 'xAt', cT: 5, cV: 75, root: 0,
+  pt: 'none', ptM: 'A', pv: 1, ptRoot: 0, t: 0, playing: false,
+};
+const NAMES = { A: 'A', B: 'B' };
+const MOV = () => st.n === 2 ? ['A', 'B'] : ['A'];
+const X = () => st.axis === 'v' ? 'y' : 'x';
+
+/* =====================================================================
+   Física
+   ===================================================================== */
+// aceleración efectiva y parámetros de un móvil
+function params(v, k) {
+  const m = v.m[k], vert = v.axis === 'v';
+  const a = vert ? -v.g : (m.kind === 'mru' ? 0 : m.a);
+  const p = { x0: m.x0, v0: m.v0, a, t0: m.t0, vert, kind: vert ? 'cl' : m.kind };
+  // fin del movimiento: frenada (se queda parado) o llegada al suelo
+  p.tEnd = Infinity; p.endWhy = null;
+  if (vert) {
+    const D = p.v0 * p.v0 + 2 * v.g * p.x0;
+    const tg = p.x0 <= 0 && p.v0 <= 0 ? 0 : (p.v0 + Math.sqrt(Math.max(0, D))) / v.g;
+    p.tEnd = tg; p.endWhy = 'suelo';
+  } else if (m.stop && a !== 0 && p.v0 * a < 0) { p.tEnd = -p.v0 / a; p.endWhy = 'para'; }
+  return p;
+}
+function state(p, t) {
+  if (t < p.t0) return { x: p.x0, v: 0, moving: false, waiting: true };
+  let tau = t - p.t0, ended = false;
+  if (tau > p.tEnd) { tau = p.tEnd; ended = true; }
+  const x = p.x0 + p.v0 * tau + 0.5 * p.a * tau * tau, v = ended ? 0 : p.v0 + p.a * tau;
+  return { x: p.vert && ended ? 0 : x, v, moving: !ended, ended };
+}
+// raíces de f en [lo, hi] por barrido + bisección
+function roots(f, lo, hi, N = 6000) {
+  const out = []; let pt = lo, pf = f(lo);
+  if (Math.abs(pf) < 1e-9) out.push(lo);
+  for (let i = 1; i <= N; i++) {
+    const t = lo + (hi - lo) * i / N, ft = f(t);
+    if (Math.abs(ft) < 1e-9) { if (!out.some(r => Math.abs(r - t) < (hi - lo) / N * 2)) out.push(t); }
+    else if (pf * ft < 0) { let a = pt, b = t, fa = pf; for (let k = 0; k < 70; k++) { const c = (a + b) / 2, fc = f(c); if (fa * fc <= 0) b = c; else { a = c; fa = fc; } } const r = (a + b) / 2; if (!out.some(q => Math.abs(q - r) < 1e-6)) out.push(r); }
+    pt = t; pf = ft;
+  }
+  return out;
+}
+function analyze(v) {
+  const P = {}; for (const k of (v.n === 2 ? ['A', 'B'] : ['A'])) P[k] = params(v, k);
+  const R = { P, meets: [] };
+  for (const k in P) {
+    const p = P[k];
+    p.tStop = p.endWhy === 'para' ? p.t0 + p.tEnd : null;
+    p.tGround = p.endWhy === 'suelo' ? p.t0 + p.tEnd : null;
+    p.tTop = p.vert && p.v0 > 0 ? p.t0 + p.v0 / v.g : null;
+    p.top = p.tTop != null ? p.x0 + p.v0 * p.v0 / (2 * v.g) : null;
+  }
+  if (v.n === 2) {
+    const ends = ['A', 'B'].map(k => isFinite(P[k].tEnd) ? P[k].t0 + P[k].tEnd : P[k].t0 + 300);
+    const hi = Math.max(60, ...ends.filter(isFinite)) * 1.05;
+    const f = t => state(P.A, t).x - state(P.B, t).x;
+    R.meets = roots(f, 0, hi).filter(t => !(state(P.A, t).ended && state(P.B, t).ended && Math.abs(f(t + 1)) < 1e-9)).slice(0, 4)
+      .map(t => ({ t, x: state(P.A, t).x, vA: state(P.A, t).v, vB: state(P.B, t).v }));
+  }
+  return R;
+}
+// duración que se muestra en las gráficas
+function horizon(v, R) {
+  const ev = [];
+  for (const k in R.P) { const p = R.P[k]; if (p.tStop != null) ev.push(p.tStop); if (p.tGround != null) ev.push(p.tGround); if (p.tTop != null) ev.push(p.tTop); ev.push(p.t0); }
+  R.meets.forEach(m => ev.push(m.t));
+  if (v.pt === 't') ev.push(v.pv);
+  if (v.unk !== 'none' && v.cond.endsWith('At')) ev.push(v.cT);
+  const m = Math.max(0, ...ev.filter(isFinite));
+  const ground = Object.values(R.P).some(p => p.tGround != null);
+  return ground ? Math.max(0.5, Math.max(...Object.values(R.P).map(p => p.tGround || 0), m) * 1.04) : Math.max(5, m * 1.25);
+}
+
+/* ---------- problemas inversos ---------- */
+const PARAMS = { x0: { lab: k => `${X()}<sub>0${k}</sub>`, unit: 'm', lo: -2000, hi: 2000 }, v0: { lab: k => `v<sub>0${k}</sub>`, unit: 'm/s', lo: -300, hi: 300 }, a: { lab: k => `a<sub>${k}</sub>`, unit: 'm/s²', lo: -60, hi: 60 }, t0: { lab: k => `t<sub>0${k}</sub>`, unit: 's', lo: 0, hi: 200 } };
+function unkOptions() {
+  const o = [['none', 'Todo, a partir de los datos']];
+  for (const k of MOV()) {
+    o.push([`x0${k}`, PARAMS.x0.lab(st.n === 2 ? k : '')], [`v0${k}`, PARAMS.v0.lab(st.n === 2 ? k : '')]);
+    if (st.axis === 'h' && st.m[k].kind === 'mrua') o.push([`a${k}`, PARAMS.a.lab(st.n === 2 ? k : '')]);
+    if (st.n === 2) o.push([`t0${k}`, PARAMS.t0.lab(k)]);
+  }
+  return o;
+}
+function condOptions() {
+  const k = st.unk === 'none' ? 'A' : st.unk.slice(-1), sub = st.n === 2 ? k : '', xs = X();
+  const o = [[`xAt`, `Posición ${xs}${sub ? '<sub>' + sub + '</sub>' : ''} en un instante`], [`vAt`, `Velocidad v${sub ? '<sub>' + sub + '</sub>' : ''} en un instante`]];
+  if (st.axis === 'h' && st.m[k]?.kind === 'mrua') o.push([`stopD`, 'Distancia de frenada (hasta pararse)']);
+  if (st.axis === 'v') o.push([`top`, 'Altura máxima'], [`tGround`, 'Instante en que llega al suelo'], [`vGround`, 'Velocidad al llegar al suelo']);
+  if (st.n === 2) o.push([`meetT`, 'Instante del encuentro'], [`meetX`, `Posición del encuentro`]);
+  return o.map(([c, t]) => [c, t.replace(/<[^>]+>/g, '')]);
+}
+function condValue(v, R, c) {
+  const k = v.unk === 'none' ? 'A' : v.unk.slice(-1), p = R.P[k];
+  switch (c) {
+    case 'xAt': return state(p, v.cT).x;
+    case 'vAt': return state(p, v.cT).v;
+    case 'stopD': return p.endWhy === 'para' ? Math.abs(p.v0 * p.tEnd + 0.5 * p.a * p.tEnd ** 2) : NaN;
+    case 'top': return p.top != null ? p.top : NaN;
+    case 'tGround': return p.tGround != null ? p.tGround : NaN;
+    case 'vGround': return p.tGround != null ? p.v0 - v.g * p.tEnd : NaN;
+    case 'meetT': return R.meets.length ? R.meets[0].t : NaN;
+    case 'meetX': return R.meets.length ? R.meets[0].x : NaN;
+  }
+}
+const COND_UNIT = { xAt: 'm', vAt: 'm/s', stopD: 'm', top: 'm', tGround: 's', vGround: 'm/s', meetT: 's', meetX: 'm' };
+function clone(v) { return { ...v, m: { A: { ...v.m.A }, B: { ...v.m.B } } }; }
+function setP(v, key, u) { const w = clone(v), k = key.slice(-1), name = key.slice(0, -1); w.m[k][name] = u; return w; }
+function solve() {
+  const v = clone(st);
+  if (v.unk === 'none') return { kind: 'direct', v, R: analyze(v) };
+  const name = v.unk.slice(0, -1), P = PARAMS[name];
+  const f = u => condValue(setP(v, v.unk, u), analyze(setP(v, v.unk, u)), v.cond) - v.cV;
+  const rs = roots(f, P.lo, P.hi, 4000).filter(u => isFinite(f(u)) && Math.abs(f(u)) < 1e-4 * (1 + Math.abs(v.cV)));
+  if (!rs.length) return { kind: 'none', v, R: analyze(v) };
+  const idx = Math.min(st.root, rs.length - 1), w = setP(v, v.unk, rs[idx]);
+  return { kind: 'ok', v: w, R: analyze(w), roots: rs, idx, u: rs[idx], name };
+}
+
+/* =====================================================================
+   Dibujo
+   ===================================================================== */
+const sc = $('scene'), sx = sc.getContext('2d'), gx = $('gx'), gxc = gx.getContext('2d'), gv = $('gv'), gvc = gv.getContext('2d');
+let SW = 0, SH = 0, GW = 0, GH = 0, cur = null, TH = 10;
+function fitC(c, ctx, w, h) { const d = devicePixelRatio || 1; c.width = Math.round(w * d); c.height = Math.round(h * d); c.style.height = h + 'px'; ctx.setTransform(d, 0, 0, d, 0, 0); }
+function resize() {
+  SW = $('sw').clientWidth; SH = st.axis === 'v' ? Math.round(Math.max(260, Math.min(380, SW * 0.6))) : Math.round(Math.max(130, Math.min(150, SW * 0.25)));
+  GW = $('gw1').clientWidth; GH = Math.round(Math.max(180, Math.min(260, GW * 0.7)));
+  fitC(sc, sx, SW, SH); fitC(gx, gxc, GW, GH); fitC(gv, gvc, GW, GH); draw();
+}
+new ResizeObserver(resize).observe($('sw'));
+const tok = () => { const c = getComputedStyle(document.documentElement), g = k => c.getPropertyValue(k).trim(); return { ink: g('--ink'), muted: g('--muted'), minor: g('--grid-minor'), major: g('--grid-major'), A: g('--A'), B: g('--B'), meet: g('--meet'), vel: g('--vel'), ground: g('--ground'), hatch: g('--hatch'), panel: g('--panel') }; };
+const mono = (s, w = 400) => `${w} ${s}px "JetBrains Mono", ui-monospace, monospace`;
+function subText(ctx, str, x, y, align, base, size, wt) {
+  const parts = []; str.replace(/([^_]+)|_\{([^}]*)\}/g, (m, a, b) => { parts.push(a != null ? [a, false] : [b, true]); return m; });
+  const fN = mono(size, wt), fS = mono(Math.round(size * 0.72), wt);
+  let w = 0; for (const [t, s] of parts) { ctx.font = s ? fS : fN; w += ctx.measureText(t).width; }
+  let cx = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x; ctx.textBaseline = base; ctx.textAlign = 'left';
+  for (const [t, s] of parts) { ctx.font = s ? fS : fN; ctx.fillText(t, cx, y + (s ? size * 0.28 : 0)); cx += ctx.measureText(t).width; }
+}
+const nice = span => { const r = span / 6, p = 10 ** Math.floor(Math.log10(r)), m = r / p; return (m < 1.5 ? 1 : m < 3 ? 2 : m < 7 ? 5 : 10) * p; };
+function posRange(R) {
+  let lo = Infinity, hi = -Infinity;
+  for (const k in R.P) for (let i = 0; i <= 200; i++) { const x = state(R.P[k], TH * i / 200).x; lo = Math.min(lo, x); hi = Math.max(hi, x); }
+  if (st.axis === 'v') lo = Math.min(lo, 0);
+  if (hi - lo < 1) { hi += 0.5; lo -= 0.5; }
+  const pad = (hi - lo) * 0.08; return [lo - pad, hi + pad];
+}
+function velRange(R) {
+  let lo = 0, hi = 0;
+  for (const k in R.P) for (let i = 0; i <= 200; i++) { const v = state(R.P[k], TH * i / 200).v; lo = Math.min(lo, v); hi = Math.max(hi, v); }
+  if (hi - lo < 1) { hi += 1; lo -= 1; }
+  const pad = (hi - lo) * 0.1; return [lo - pad, hi + pad];
+}
+function arrow(ctx, x, y, dx, dy, col, w) {
+  const L = Math.hypot(dx, dy); if (L < 3) return; const ux = dx / L, uy = dy / L, hl = Math.min(10, L * .45);
+  ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + dx - ux * hl * .8, y + dy - uy * hl * .8); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x + dx, y + dy); ctx.lineTo(x + dx - ux * hl - uy * hl * .55, y + dy - uy * hl + ux * hl * .55); ctx.lineTo(x + dx - ux * hl + uy * hl * .55, y + dy - uy * hl - ux * hl * .55); ctx.closePath(); ctx.fill();
+}
+function drawScene(C, R) {
+  const ctx = sx, W = SW, H = SH, [lo, hi] = posRange(R), vert = st.axis === 'v', t = st.t;
+  ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
+  const vmax = Math.max(1, ...Object.values(R.P).map(p => Math.max(Math.abs(p.v0), Math.abs(p.v0 + p.a * Math.min(isFinite(p.tEnd) ? p.tEnd : TH, TH)))));
+  const VK = 46 / vmax, step = nice(hi - lo);
+  if (!vert) {
+    const L = 30, Rr = W - 20, P = x => L + (x - lo) / (hi - lo) * (Rr - L), yr = H - 46;
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(L - 10, yr); ctx.lineTo(Rr + 6, yr); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let x = Math.ceil(lo / step) * step; x <= hi; x += step) { ctx.beginPath(); ctx.moveTo(P(x), yr - 4); ctx.lineTo(P(x), yr + 4); ctx.stroke(); ctx.fillText(fmt(x, step < 1 ? 1 : 0), P(x), yr + 7); }
+    ctx.textAlign = 'right'; ctx.fillText('x (m)', Rr + 6, yr + 22);
+    MOV().forEach((k, i) => {
+      const s = state(R.P[k], t), X0 = P(s.x), yy = yr - 16 - i * 34, col = C[k];
+      ctx.fillStyle = col; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(X0 - 14, yy - 11, 28, 22, 6) : ctx.rect(X0 - 14, yy - 11, 28, 22); ctx.fill();
+      ctx.fillStyle = C.panel; ctx.font = mono(12, 700); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(k, X0, yy + 1);
+      ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X0, yy + 11); ctx.lineTo(X0, yr); ctx.stroke(); ctx.setLineDash([]);
+      if (Math.abs(s.v) > 1e-9) arrow(ctx, X0 + Math.sign(s.v) * 16, yy, s.v * VK, 0, C.vel, 2.5);
+      if (s.waiting) { ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'left'; ctx.fillText('esperando', X0 + 18, yy - 12); }
+    });
+    R.meets.forEach(m => { ctx.fillStyle = C.meet; ctx.beginPath(); const X0 = P(m.x); ctx.moveTo(X0, yr - 6); ctx.lineTo(X0 + 6, yr); ctx.lineTo(X0, yr + 6); ctx.lineTo(X0 - 6, yr); ctx.closePath(); ctx.fill(); });
+  } else {
+    const T = 18, Bm = H - 26, P = y => Bm - (y - lo) / (hi - lo) * (Bm - T), xl = 48;
+    ctx.fillStyle = C.ground; ctx.fillRect(0, P(0), W, H - P(0));
+    ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, P(0)); ctx.lineTo(W, P(0)); ctx.stroke();
+    ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(xl, T - 6); ctx.lineTo(xl, P(0)); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (let y = Math.ceil(lo / step) * step; y <= hi; y += step) { ctx.beginPath(); ctx.moveTo(xl - 4, P(y)); ctx.lineTo(xl + 4, P(y)); ctx.stroke(); ctx.fillText(fmt(y, step < 1 ? 1 : 0), xl - 7, P(y)); }
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('y (m)', 4, 2);
+    MOV().forEach((k, i) => {
+      const p = R.P[k], s = state(p, t), cx = xl + (W - xl) * (st.n === 2 ? (i ? 0.68 : 0.36) : 0.5), col = C[k];
+      // estela
+      ctx.strokeStyle = col; ctx.globalAlpha = .25; ctx.lineWidth = 3; ctx.beginPath();
+      for (let j = 0; j <= 60; j++) { const tt = Math.max(p.t0, Math.min(t, TH)) * j / 60; const y = state(p, tt).x; j ? ctx.lineTo(cx, P(y)) : ctx.moveTo(cx, P(y)); }
+      ctx.stroke(); ctx.globalAlpha = 1;
+      if (p.top != null) { ctx.setLineDash([4, 4]); ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx - 30, P(p.top)); ctx.lineTo(cx + 30, P(p.top)); ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = col; subText(ctx, `y_{máx} = ${fmt(p.top)} m`, cx + 34, P(p.top), 'left', 'middle', 11, 600); }
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(cx, P(s.x) - 9, 9, 0, 7); ctx.fill();
+      ctx.fillStyle = C.panel; ctx.font = mono(11, 700); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(k, cx, P(s.x) - 8);
+      if (Math.abs(s.v) > 1e-9) arrow(ctx, cx + 16, P(s.x) - 9, 0, -s.v * VK, C.vel, 2.5);
+    });
+    R.meets.forEach(m => { ctx.fillStyle = C.meet; const Y = P(m.x); ctx.beginPath(); ctx.moveTo(xl, Y - 6); ctx.lineTo(xl + 6, Y); ctx.lineTo(xl, Y + 6); ctx.lineTo(xl - 6, Y); ctx.closePath(); ctx.fill(); });
+  }
+}
+function drawGraph(ctx, W, H, C, R, which) {
+  const [lo, hi] = which === 'x' ? posRange(R) : velRange(R), L = 46, Rr = W - 10, T = 22, B = H - 30;
+  const PX = t => L + t / TH * (Rr - L), PY = y => B - (y - lo) / (hi - lo) * (B - T);
+  ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
+  const sy = nice(hi - lo), sxs = nice(TH);
+  ctx.strokeStyle = C.minor; ctx.lineWidth = 1; ctx.beginPath();
+  for (let t = 0; t <= TH + 1e-9; t += sxs) { ctx.moveTo(Math.round(PX(t)) + .5, T); ctx.lineTo(Math.round(PX(t)) + .5, B); }
+  for (let y = Math.ceil(lo / sy) * sy; y <= hi; y += sy) { ctx.moveTo(L, Math.round(PY(y)) + .5); ctx.lineTo(Rr, Math.round(PY(y)) + .5); }
+  ctx.stroke();
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(L, T); ctx.lineTo(L, B); ctx.moveTo(L, PY(Math.max(lo, Math.min(hi, 0)))); ctx.lineTo(Rr, PY(Math.max(lo, Math.min(hi, 0)))); ctx.stroke();
+  ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  for (let t = 0; t <= TH + 1e-9; t += sxs) ctx.fillText(fmt(t, sxs < 1 ? 1 : 0), PX(t), B + 5);
+  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  for (let y = Math.ceil(lo / sy) * sy; y <= hi; y += sy) ctx.fillText(fmt(y, sy < 1 ? 1 : 0), L - 5, PY(y));
+  ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('t (s)', Rr, B + 16);
+  ctx.textAlign = 'left'; ctx.font = mono(12, 700); ctx.fillStyle = C.ink;
+  ctx.fillText(which === 'x' ? `${X()} – t  (${X()} en m)` : 'v – t  (v en m/s)', L + 4, 4);
+  for (const k of MOV()) {
+    const p = R.P[k]; ctx.strokeStyle = C[k]; ctx.lineWidth = 2.6;
+    // antes de salir: en reposo, discontinuo
+    if (p.t0 > 0) { ctx.setLineDash([5, 4]); ctx.lineWidth = 1.5; ctx.beginPath(); const y = which === 'x' ? p.x0 : 0; ctx.moveTo(PX(0), PY(y)); ctx.lineTo(PX(Math.min(p.t0, TH)), PY(y)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 2.6; }
+    ctx.beginPath();
+    const tMax = which === 'v' && p.vert ? Math.min(TH, p.t0 + p.tEnd) : TH;
+    for (let i = 0; i <= 300; i++) { const t = p.t0 + (tMax - p.t0) * i / 300; if (t > TH) break; const s = state(p, t), y = which === 'x' ? s.x : s.v; i ? ctx.lineTo(PX(t), PY(y)) : ctx.moveTo(PX(t), PY(y)); }
+    ctx.stroke();
+  }
+  if (which === 'x') R.meets.forEach(m => { if (m.t > TH) return; ctx.fillStyle = C.meet; const X0 = PX(m.t), Y = PY(m.x); ctx.beginPath(); ctx.moveTo(X0, Y - 7); ctx.lineTo(X0 + 7, Y); ctx.lineTo(X0, Y + 7); ctx.lineTo(X0 - 7, Y); ctx.closePath(); ctx.fill(); });
+  // instante actual
+  ctx.strokeStyle = C.ink; ctx.globalAlpha = .5; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(PX(st.t), T); ctx.lineTo(PX(st.t), B); ctx.stroke(); ctx.globalAlpha = 1;
+  for (const k of MOV()) { const s = state(R.P[k], st.t), y = which === 'x' ? s.x : s.v; ctx.fillStyle = C[k]; ctx.beginPath(); ctx.arc(PX(st.t), PY(y), 4.5, 0, 7); ctx.fill(); }
+}
+function draw() {
+  if (!cur || !SW || MOV().some(k => !cur.R.P[k])) return;
+  const C = tok(); TH = horizon(cur.v, cur.R);
+  drawScene(C, cur.R); drawGraph(gxc, GW, GH, C, cur.R, 'x'); drawGraph(gvc, GW, GH, C, cur.R, 'v');
+}
+
+/* =====================================================================
+   Resolución
+   ===================================================================== */
+function eqText(p, k, g, two) {
+  const xs = X(), sub = two ? k : '', T = p.t0 > 0 ? `(t − ${fmt(p.t0)})` : 't';
+  const x0 = fmt(p.x0), v0 = p.v0, a = p.a, half = fmt(Math.abs(a) / 2, 2);
+  let xe = `${xs}${sub ? '<sub>' + sub + '</sub>' : ''} = ${x0}`;
+  if (Math.abs(v0) > 1e-12) xe += ` ${sgn(v0)}·${T}`;
+  if (Math.abs(a) > 1e-12) xe += ` ${a < 0 ? '−' : '+'} ${half}·${T}²`;
+  let ve = `v${sub ? '<sub>' + sub + '</sub>' : ''} = ${fmt(v0)}`;
+  if (Math.abs(a) > 1e-12) ve += ` ${a < 0 ? '−' : '+'} ${fmt(Math.abs(a), a === -9.81 || a === 9.81 ? 2 : 2)}·${T}`;
+  return { xe, ve };
+}
+function steps(res) {
+  const v = res.v, R = res.R, L = [], two = v.n === 2, xs = X(), g = v.g;
+  if (res.kind === 'ok') {
+    const k = v.unk.slice(-1), lab = PARAMS[res.name].lab(two ? k : ''), cname = condOptions().find(c => c[0] === v.cond)?.[1] || '';
+    L.push(`<b>Planteamiento.</b> Conocemos: ${cname.toLowerCase()} = ${fmt(v.cV)} ${COND_UNIT[v.cond]}${v.cond.endsWith('At') ? ` en t = ${fmt(v.cT)} s` : ''}. Buscamos ${lab}.<br>Escribimos esa condición con las ecuaciones del movimiento; la única incógnita es ${lab}. Resolviendo: <span class="f"><span class="u">${lab} = ${fmt(res.u)} ${PARAMS[res.name].unit}</span></span>${res.roots.length > 1 ? ` (hay ${res.roots.length} soluciones; se muestra la elegida).` : ''}`);
+  }
+  for (const k of MOV()) {
+    const p = R.P[k], e = eqText(p, k, g, two), who = two ? `del móvil ${k}` : '';
+    const kindTxt = p.vert ? 'caída libre (a = −g)' : p.kind === 'mru' ? 'MRU (velocidad constante)' : 'MRUA';
+    L.push(`<b>Ecuaciones ${who}</b> — ${kindTxt}${p.t0 > 0 ? `, sale en t<sub>0</sub> = ${fmt(p.t0)} s` : ''}:<br><span class="f">${e.xe}</span><br><span class="f">${e.ve}</span>`);
+    if (p.endWhy === 'para') {
+      const tau = p.tEnd, d = p.v0 * tau + 0.5 * p.a * tau * tau;
+      L.push(`<b>${two ? `El móvil ${k} se para` : 'Se para'}</b> cuando v = 0:<br><span class="f">0 = ${fmt(p.v0)} ${sgn(p.a)}·t → t = ${fmt(-p.v0)} / ${fmt(p.a)} = <span class="u">${fmt(tau)} s</span>${p.t0 > 0 ? ` después de salir (t = ${fmt(p.tStop)} s)` : ''}</span><br>Distancia de frenada: <span class="f">Δ${xs} = ${fmt(p.v0)}·${fmt(tau)} ${p.a < 0 ? '−' : '+'} ${fmt(Math.abs(p.a) / 2)}·${fmt(tau)}² = <span class="u">${fmt(Math.abs(d))} m</span></span><br>Después se queda parado en ${xs} = ${fmt(p.x0 + d)} m.`);
+    }
+    if (p.vert && p.tTop != null) L.push(`<b>Altura máxima${who ? ' ' + who : ''}.</b> En el punto más alto v = 0:<br><span class="f">0 = ${fmt(p.v0)} − ${fmt(g, g === 9.81 ? 2 : 1)}·t → t = ${fmt(p.v0 / g)} s</span><br><span class="f">y<sub>máx</sub> = ${fmt(p.x0)} + ${fmt(p.v0)}·${fmt(p.v0 / g)} − ${fmt(g / 2, 2)}·${fmt(p.v0 / g)}² = <span class="u">${fmt(p.top)} m</span></span>`);
+    if (p.vert) {
+      const tau = p.tEnd, vg = p.v0 - g * tau;
+      L.push(`<b>${two ? `El móvil ${k} llega al suelo` : 'Llega al suelo'}</b> cuando y = 0:<br><span class="f">0 = ${fmt(p.x0)} ${sgn(p.v0)}·t − ${fmt(g / 2, 2)}·t²</span> → ecuación de segundo grado; la solución positiva es <span class="f"><span class="u">t = ${fmt(tau)} s</span>${p.t0 > 0 ? ` (t = ${fmt(p.tGround)} s desde el principio)` : ''}</span><br>Velocidad al llegar: <span class="f">v = ${fmt(p.v0)} − ${fmt(g, g === 9.81 ? 2 : 1)}·${fmt(tau)} = <span class="u">${fmt(vg)} m/s</span></span>`);
+    }
+  }
+  if (two) {
+    if (!R.meets.length) L.push(`<b>Encuentro.</b> Igualamos ${xs}<sub>A</sub> = ${xs}<sub>B</sub>, pero la ecuación no tiene solución en el tiempo del movimiento: <b>no se encuentran</b>.`);
+    else R.meets.forEach((m, i) => {
+      const same = m.vA * m.vB > 0, kind = same ? 'alcance (van en el mismo sentido)' : 'encuentro (se cruzan)';
+      L.push(`<b>${R.meets.length > 1 ? `${i + 1}.º ` : ''}Encuentro.</b> Están en el mismo sitio en el mismo instante: ${xs}<sub>A</sub> = ${xs}<sub>B</sub><br><span class="f">${eqText(R.P.A, 'A', g, true).xe.split(' = ').slice(1).join(' = ')} = ${eqText(R.P.B, 'B', g, true).xe.split(' = ').slice(1).join(' = ')}</span><br>Resolviendo: <span class="f"><span class="u">t = ${fmt(m.t)} s</span></span>, y sustituyendo en cualquiera de las dos: <span class="f"><span class="u">${xs} = ${fmt(m.x)} m</span></span><br>Es un ${kind}. Velocidades en ese instante: <span class="f">v<sub>A</sub> = ${fmt(m.vA)} m/s, v<sub>B</sub> = ${fmt(m.vB)} m/s</span>`);
+    });
+  }
+  if (v.pt !== 'none') {
+    const k = v.ptM, p = R.P[k], ts = pointTimes(v, R), sub = two ? `<sub>${k}</sub>` : '';
+    const what = v.pt === 't' ? `En t = ${fmt(v.pv)} s` : v.pt === 'x' ? `Cuando ${xs}${sub} = ${fmt(v.pv)} m` : `Cuando v${sub} = ${fmt(v.pv)} m/s`;
+    if (!ts.length) L.push(`<b>${what}.</b> ${two ? `El móvil ${k}` : 'El móvil'} no pasa por ahí durante el movimiento.`);
+    else { const t = ts[Math.min(st.ptRoot, ts.length - 1)], s = state(p, t); L.push(`<b>${what}</b>${v.pt !== 't' ? ` → <span class="f">t = ${ts.map(q => fmt(q)).join(' s y t = ')} s</span>` : ''}:<br><span class="f">${xs}${sub} = ${fmt(s.x)} m</span><br><span class="f">v${sub} = ${fmt(s.v)} m/s</span>`); }
+  }
+  return L;
+}
+function pointTimes(v, R) {
+  const p = R.P[v.ptM]; if (!p) return [];
+  const end = isFinite(p.tEnd) ? p.t0 + p.tEnd : Math.max(TH, 200);
+  if (v.pt === 't') return v.pv >= 0 ? [v.pv] : [];
+  const f = v.pt === 'x' ? t => state(p, t).x - v.pv : t => state(p, t).v - v.pv;
+  return roots(f, p.t0, end + 1e-9, 4000).filter(t => !(state(p, t).ended && Math.abs(t - end) > 1e-6)).slice(0, 3);
+}
+let jump = false;
+function render() {
+  const res = solve(); cur = res; TH = horizon(res.v, res.R);
+  const R = res.R, v = res.v, two = v.n === 2, xs = X();
+  let h = '<h2>4 · Resultado</h2>';
+  if (res.kind === 'none') h += `<div class="err">Con estos datos no hay ningún valor de la incógnita que cumpla la condición. Revisa los datos.</div>`;
+  else {
+    if (res.kind === 'ok') {
+      const lab = PARAMS[res.name].lab(two ? v.unk.slice(-1) : '');
+      h += `<div class="big">${lab} = ${fmt(res.u)} ${PARAMS[res.name].unit}</div>`;
+      if (res.roots.length > 1) h += `<div class="roots">Hay ${res.roots.length} soluciones: ${res.roots.map((r, i) => `<button data-root="${i}" aria-pressed="${i === res.idx}">${lab} = ${fmt(r)}</button>`).join('')}</div>`;
+    }
+    const tiles = [];
+    if (two) {
+      if (R.meets.length) R.meets.slice(0, 2).forEach((m, i) => tiles.push(['hl', `${R.meets.length > 1 ? (i + 1) + '.º ' : ''}${m.vA * m.vB > 0 ? 'Alcance' : 'Encuentro'}`, `t = ${fmt(m.t)} s<br>${xs} = ${fmt(m.x)} m`]));
+      else tiles.push(['hl', 'Encuentro', 'No se encuentran']);
+    }
+    for (const k of MOV()) {
+      const p = R.P[k], nm = two ? ` <span class="nt">${k}</span>` : '';
+      if (p.endWhy === 'para') tiles.push(['', `Se para${nm}`, `t = ${fmt(p.tStop)} s<br>${xs} = ${fmt(state(p, p.tStop).x)} m`]);
+      if (p.top != null) tiles.push(['', `Altura máxima${nm}`, `${fmt(p.top)} m<br><span style="font-size:13px">en t = ${fmt(p.tTop)} s</span>`]);
+      if (p.tGround != null) tiles.push(['', `Llega al suelo${nm}`, `t = ${fmt(p.tGround)} s<br>v = ${fmt(p.v0 - v.g * p.tEnd)} m/s`]);
+    }
+    if (v.pt !== 'none') {
+      const ts = pointTimes(v, R);
+      if (ts.length) {
+        const i = Math.min(st.ptRoot, ts.length - 1), t = ts[i], s = state(R.P[v.ptM], t), sub = two ? `<sub>${v.ptM}</sub>` : '';
+        if (ts.length > 1) h += `<div class="roots">Pasa ${ts.length} veces: ${ts.map((q, j) => `<button data-pt="${j}" aria-pressed="${j === i}">t = ${fmt(q)} s</button>`).join('')}</div>`;
+        tiles.push(['hl', 'Punto pedido', `t = ${fmt(t)} s<br>${xs}${sub} = ${fmt(s.x)} m<br>v${sub} = ${fmt(s.v)} m/s`]);
+        if (jump) { st.t = Math.min(t, TH); jump = false; }
+      } else tiles.push(['', 'Punto pedido', 'No pasa por ahí']);
+    }
+    if (tiles.length) h += `<div class="res">${tiles.map(([c, k, val]) => `<div class="ro ${c}"><div class="k">${k}</div><div class="v">${val}</div></div>`).join('')}</div>`;
+    h += `<details class="steps" open><summary>Resolución paso a paso</summary><ol>${steps(res).map(l => `<li>${l}</li>`).join('')}</ol></details>`;
+  }
+  $('result').innerHTML = h;
+  $('result').querySelectorAll('[data-root]').forEach(b => b.addEventListener('click', () => { st.root = +b.dataset.root; render(); }));
+  $('result').querySelectorAll('[data-pt]').forEach(b => b.addEventListener('click', () => { st.ptRoot = +b.dataset.pt; jump = true; render(); }));
+  st.t = Math.min(st.t, TH); syncT(); draw();
+}
+function syncT() {
+  if (!cur || MOV().some(k => !cur.R.P[k])) return;
+  const R = cur.R, two = st.n === 2, xs = X();
+  $('tR').max = TH; $('tR').value = st.t; $('tO').textContent = `t = ${fmt(st.t)} s`;
+  $('inst').innerHTML = MOV().map(k => { const s = state(R.P[k], st.t), sub = two ? `<sub>${k}</sub>` : ''; return `<div><div class="th" style="color:var(--${k})">${two ? 'Móvil ' + k : 'En t = ' + fmt(st.t) + ' s'}</div><div>${xs}${sub} = ${fmt(s.x)} m</div><div>v${sub} = ${fmt(s.v)} m/s</div>${s.waiting ? '<div style="color:var(--muted)">aún no ha salido</div>' : s.ended ? `<div style="color:var(--muted)">${R.P[k].vert ? 'en el suelo' : 'parado'}</div>` : ''}</div>`; }).join('');
+  $('bPlay').textContent = st.playing ? '⏸ Pausa' : st.t >= TH - 1e-9 ? '↺ Repetir' : st.t > 0 ? '▶ Seguir' : '▶ Empezar';
+}
+
+/* =====================================================================
+   Controles
+   ===================================================================== */
+const FIELDS = { x0: ['m', -500, 500, 1], v0: ['m/s', -60, 60, 0.5], a: ['m/s²', -10, 10, 0.1], t0: ['s', 0, 30, 0.5] };
+function movHTML(k) {
+  const two = st.n === 2, sub = two ? k : '', vert = st.axis === 'v', m = st.m[k];
+  const fld = (name, lab, extra = '') => { const [u, lo, hi, step] = FIELDS[name]; const lo2 = vert && name === 'x0' ? 0 : lo; return `<div class="field"><div class="top"><label for="${name}${k}N">${lab}</label><span class="num"><input type="number" id="${name}${k}N" step="${step}"><span class="unit">${u}</span></span></div><input type="range" id="${name}${k}R" min="${lo2}" max="${vert && name === 'x0' ? 200 : hi}" step="${step}" ${extra}></div>`; };
+  return `<div class="mov ${k}">
+    ${two ? `<h3 style="color:var(--${k})">Móvil ${k}</h3>` : ''}
+    ${vert ? '' : `<div class="seg" role="group" aria-label="Tipo de movimiento ${k}"><button data-kind="mru" data-k="${k}" aria-pressed="${m.kind === 'mru'}">MRU</button><button data-kind="mrua" data-k="${k}" aria-pressed="${m.kind === 'mrua'}">MRUA</button></div>`}
+    <div class="grid2">
+      ${fld('x0', `${vert ? 'y' : 'x'}<sub>0${sub}</sub>`)}
+      ${fld('v0', vert || m.kind === 'mrua' ? `v<sub>0${sub}</sub>` : `v${sub ? '<sub>' + sub + '</sub>' : ''}`)}
+      ${!vert && m.kind === 'mrua' ? fld('a', `a${sub ? '<sub>' + sub + '</sub>' : ''}`) : ''}
+      ${two ? fld('t0', `t<sub>0${sub}</sub>`) : ''}
+    </div>
+    ${!vert && m.kind === 'mrua' ? `<label class="check"><input type="checkbox" data-stop="${k}" ${m.stop ? 'checked' : ''}> Si frena hasta pararse, se queda parado</label>` : ''}
+    ${vert ? `<p class="note">${m.v0 > 0 ? 'Lanzado hacia arriba.' : m.v0 < 0 ? 'Lanzado hacia abajo.' : 'Se deja caer (v<sub>0</sub> = 0).'} y<sub>0</sub> es la altura sobre el suelo.</p>` : ''}
+  </div>`;
+}
+function build() {
+  document.querySelectorAll('[data-axis]').forEach(b => b.setAttribute('aria-pressed', b.dataset.axis === st.axis));
+  document.querySelectorAll('[data-n]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.n === st.n));
+  $('gBox').hidden = st.axis !== 'v'; $('gS').value = String(st.g);
+  $('lgB').hidden = st.n !== 2; $('lgM').hidden = st.n !== 2;
+  $('sitNote').innerHTML = st.axis === 'v' ? 'Eje vertical, positivo hacia arriba, origen en el suelo. Aceleración a = −g. v<sub>0</sub> positiva: hacia arriba; negativa: hacia abajo.' : 'Eje horizontal, positivo hacia la derecha. Una velocidad o aceleración negativa apunta a la izquierda.';
+  $('movs').innerHTML = MOV().map(movHTML).join('');
+  $('movs').style.display = 'grid'; $('movs').style.gap = '12px';
+  for (const k of MOV()) for (const name of Object.keys(FIELDS)) {
+    const n = $(`${name}${k}N`), r = $(`${name}${k}R`); if (!n) continue;
+    n.addEventListener('input', () => { const x = num(n); if (x == null) return; st.m[k][name] = st.axis === 'v' && name === 'x0' ? Math.max(0, x) : x; stop(); render(); syncInputs(); });
+    r.addEventListener('input', () => { st.m[k][name] = +r.value; stop(); render(); syncInputs(); if (st.axis === 'v' && name === 'v0') build(); });
+  }
+  $('movs').querySelectorAll('[data-kind]').forEach(b => b.addEventListener('click', () => { const k = b.dataset.k; st.m[k].kind = b.dataset.kind; if (b.dataset.kind === 'mrua' && !st.m[k].a) st.m[k].a = 2; build(); render(); }));
+  $('movs').querySelectorAll('[data-stop]').forEach(c => c.addEventListener('change', () => { st.m[c.dataset.stop].stop = c.checked; render(); }));
+  // incógnitas y condición
+  const U = unkOptions(); if (!U.some(([k]) => k === st.unk)) st.unk = 'none';
+  $('unks').innerHTML = U.map(([k, t]) => `<label><input type="radio" name="unk" value="${k}" ${k === st.unk ? 'checked' : ''}><em class="lt">${t}</em></label>`).join('');
+  $('unks').querySelectorAll('input').forEach(r => r.addEventListener('change', () => { st.unk = r.value; st.root = 0; prefill(); build(); render(); }));
+  const Cs = condOptions(); if (!Cs.some(([c]) => c === st.cond)) st.cond = Cs[0][0];
+  $('cS').innerHTML = Cs.map(([c, t]) => `<option value="${c}" ${c === st.cond ? 'selected' : ''}>${t}</option>`).join('');
+  $('condBox').hidden = st.unk === 'none'; $('cTBox').hidden = !st.cond.endsWith('At'); $('cVU').textContent = COND_UNIT[st.cond];
+  $('unkNote').innerHTML = st.unk === 'none' ? 'Con los datos se calcula todo lo que aparece en el resultado.' : 'La incógnita se calcula para que se cumpla el dato conocido; su casilla queda marcada.';
+  $('ptM').hidden = st.n !== 2 || st.pt === 'none'; if (st.n !== 2) st.ptM = 'A';
+  $('ptS').value = st.pt; $('ptM').value = st.ptM; $('ptBox').hidden = st.pt === 'none'; $('ptU').textContent = { t: 's', x: 'm', v: 'm/s', none: '' }[st.pt];
+  $('ptS').options[2].text = `Cuando la posición ${X()} vale…`;
+  syncInputs(); resize();
+}
+function syncInputs() {
+  for (const k of MOV()) for (const name of Object.keys(FIELDS)) {
+    const n = $(`${name}${k}N`), r = $(`${name}${k}R`); if (!n) continue;
+    const unk = st.unk === name + k; n.disabled = unk; r.disabled = unk; n.placeholder = unk ? '?' : '';
+    if (document.activeElement !== n) n.value = unk ? '' : +(+st.m[k][name]).toFixed(2);
+    if (!unk) r.value = st.m[k][name];
+  }
+  if (document.activeElement !== $('cV')) $('cV').value = +(+st.cV).toFixed(2);
+  if (document.activeElement !== $('cT')) $('cT').value = +(+st.cT).toFixed(2);
+  if (document.activeElement !== $('ptN')) $('ptN').value = +(+st.pv).toFixed(2);
+}
+function prefill() {
+  if (st.unk === 'none') return;
+  const val = condValue(st, analyze(st), st.cond);
+  if (isFinite(val)) st.cV = +val.toFixed(2);
+}
+const num = el => { const x = parseFloat(String(el.value).replace(',', '.')); return isFinite(x) ? x : null; };
+document.querySelectorAll('[data-axis]').forEach(b => b.addEventListener('click', () => {
+  st.axis = b.dataset.axis;
+  if (st.axis === 'v') { st.m.A = { ...st.m.A, x0: 0, v0: 20, t0: 0 }; st.m.B = { ...st.m.B, x0: 60, v0: 0, t0: 0 }; }
+  else { st.m.A = { kind: 'mrua', x0: 0, v0: 10, a: 2, t0: 0, stop: true }; st.m.B = { kind: 'mru', x0: 200, v0: -15, a: 0, t0: 0, stop: true }; }
+  st.unk = 'none'; st.pt = 'none'; st.t = 0; stop(); build(); render();
+}));
+document.querySelectorAll('[data-n]').forEach(b => b.addEventListener('click', () => { st.n = +b.dataset.n; st.unk = 'none'; st.t = 0; stop(); build(); render(); }));
+$('gS').addEventListener('change', e => { st.g = +e.target.value; render(); });
+$('cS').addEventListener('change', e => { st.cond = e.target.value; st.root = 0; prefill(); build(); render(); });
+$('cT').addEventListener('input', () => { const x = num($('cT')); if (x == null) return; st.cT = x; st.root = 0; render(); });
+$('cV').addEventListener('input', () => { const x = num($('cV')); if (x == null) return; st.cV = x; st.root = 0; render(); });
+$('ptS').addEventListener('change', e => {
+  st.pt = e.target.value; st.ptRoot = 0;
+  const p = cur.R.P[st.ptM], tm = Math.min(TH / 2, isFinite(p.tEnd) ? p.t0 + p.tEnd / 2 : TH / 2), s = state(p, tm);
+  st.pv = st.pt === 't' ? +tm.toFixed(2) : st.pt === 'x' ? +s.x.toFixed(1) : st.pt === 'v' ? +s.v.toFixed(1) : st.pv;
+  jump = true; stop(); build(); render();
+});
+$('ptM').addEventListener('change', e => { st.ptM = e.target.value; st.ptRoot = 0; jump = true; render(); });
+$('ptN').addEventListener('input', () => { const x = num($('ptN')); if (x == null) return; st.pv = x; st.ptRoot = 0; jump = true; stop(); render(); });
+$('tR').addEventListener('input', e => { st.t = +e.target.value; stop(); syncT(); draw(); });
+let last = 0;
+function stop() { st.playing = false; }
+$('bPlay').addEventListener('click', () => {
+  if (st.playing) { st.playing = false; syncT(); return; }
+  if (st.t >= TH - 1e-9) st.t = 0;
+  st.playing = true; last = performance.now(); requestAnimationFrame(tick);
+});
+function tick(now) {
+  if (!st.playing) return;
+  const speed = TH / Math.min(8, Math.max(3, TH));
+  st.t = Math.min(TH, st.t + (now - last) / 1000 * speed); last = now;
+  if (st.t >= TH) st.playing = false;
+  syncT(); draw(); if (st.playing) requestAnimationFrame(tick);
+}
+new ResizeObserver(resize).observe($('gw1'));
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
+new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+build(); render();
+</script>
+</body>
+</html>
