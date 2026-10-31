@@ -109,7 +109,7 @@ input[type=range]{accent-color:var(--ink);height:24px;width:100%}
 .check input{width:18px;height:18px;accent-color:var(--ink)}
 .presets{display:flex;flex-wrap:wrap;gap:8px}
 
-.theory{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:6px}
+.theory{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-top:6px}
 @media (max-width:860px){.theory{grid-template-columns:1fr}}
 .theory section{display:grid;gap:10px;align-content:start;min-width:0}
 .theory p,.theory li{margin:0;max-width:62ch}
@@ -199,15 +199,6 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <p>Uniendo todos los puntos con la misma Δr se obtienen hipérbolas: las líneas antinodales (máxima amplitud, 2A) y las nodales (amplitud cero). Si las fuentes están en oposición de fase, las condiciones se intercambian.</p>
       <p class="note">Ejemplo resuelto: dos fuentes en fase emiten ondas de λ = 3,0 m. P está a 12,0 m de una y a 16,5 m de la otra. Δr = 16,5 − 12,0 = 4,5 m = 1,5λ, luego en P la interferencia es destructiva. Pulsa «Ejemplo resuelto» para verlo.</p>
       <p class="note">Atajos: <kbd>espacio</kbd> pausa · pulsa o arrastra en la cubeta para mover P.</p>
-    </section>
-    <section>
-      <h2>Para la clase</h2>
-      <ol>
-        <li>Carga el ejemplo resuelto. Antes de mirar las lecturas, calcula Δr y decide el tipo de interferencia. Comprueba con la gráfica y–t.</li>
-        <li>Mueve P a lo largo de una línea nodal. ¿Qué valor de Δr se mantiene constante? ¿Cuánto vale la amplitud?</li>
-        <li>Aumenta d sin cambiar λ. ¿Qué les pasa a las líneas antinodales? ¿Cuántas hay con d = 4λ? Justifica por qué Δr no puede superar d.</li>
-        <li>Cambia a «En oposición de fase». ¿Qué pasa en el eje central? Escribe las nuevas condiciones de interferencia.</li>
-      </ol>
     </section>
   </div>
 </div>

@@ -112,7 +112,7 @@ input[type=range]{accent-color:var(--ink);height:24px}
 .check{display:flex;align-items:center;gap:9px;font-size:15px;cursor:pointer}
 .check input{width:18px;height:18px;accent-color:var(--ink)}
 
-.theory{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding-top:6px}
+.theory{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-top:6px}
 @media (max-width:860px){.theory{grid-template-columns:1fr}}
 .theory section{display:grid;gap:10px;align-content:start;min-width:0}
 .theory p,.theory li{margin:0;max-width:62ch}
@@ -216,16 +216,6 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <p>El rectángulo es una idealización: hace que la suma sea fácil, porque cada pulso tiene la misma altura en todo su ancho y la cuerda queda dividida en tramos. Un pulso real en una cuerda tiene una forma suave, como en la franja de abajo.</p>
       <p>La regla es la misma en los dos casos: en cada punto de la cuerda se suman los dos desplazamientos. Con la forma de onda, la suma cambia punto a punto, y solo se llega a A₁ + A₂ cuando coinciden las crestas.</p>
       <p class="note">Atajos: <kbd>espacio</kbd> iniciar/pausar · <kbd>←</kbd> <kbd>→</kbd> paso a paso · <kbd>R</kbd> inicio. Pulsa o arrastra sobre la cuerda para mover la sonda.</p>
-    </section>
-    <section>
-      <h2>Para la clase</h2>
-      <ol>
-        <li>Elige «Positivo y negativo iguales», desmarca la resultante y deja la sonda en x = 50 cm. Antes de avanzar, predice y en el solape total. Después compruébalo.</li>
-        <li>Pon el pulso 1 en +3 cm y el pulso 2 en −1 cm. ¿Cuál es el desplazamiento máximo durante el encuentro? ¿Y si inviertes el pulso 2?</li>
-        <li>En la vista «Por separado», para el tiempo cuando los pulsos se solapen en parte (como en la fig. 14.18). Calcula y en cada región a, b, c… y comprueba con la sonda.</li>
-        <li>Cambia la velocidad de la onda. ¿Cambia la forma de la cuerda en el solape total? ¿Qué cambia entonces?</li>
-        <li>Con «Dos pulsos idénticos», avanza paso a paso y compara las dos franjas. ¿Cuándo alcanza cada una su desplazamiento máximo? ¿Por qué la onda tarda más que los rectángulos en llegar a 2A?</li>
-      </ol>
     </section>
   </div>
 </div>
