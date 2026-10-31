@@ -375,3 +375,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .pt-seg { display: grid; width: 100%; border-radius: var(--r-md); }
   .pt-seg button { border-radius: var(--r-sm); }
 }
+
+/* ---------- 16. Foto destacada (Sobre mí) ---------- */
+.feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.feature-photo { margin: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--card); aspect-ratio: 3 / 4; }
+.feature-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.feature-text { min-width: 0; }
+.feature-text p:not(.eyebrow) { margin: 16px 0 0; max-width: 40ch; font-size: 19px; color: var(--muted); }
+@media (max-width: 600px) {
+  .feature { grid-template-columns: 1fr; gap: 28px; }
+  .feature-photo { max-width: 420px; }
+}
+
+/* ---------- 17. Logo (barra, portada y pie) ---------- */
+.brand { display: inline-flex; align-items: center; gap: 8px; }
+.brand-logo { width: 28px; height: 28px; flex: none; display: block; }
+.hero-logo { display: block; width: 132px; height: 132px; margin: 0 auto 28px; }
+.foot-brand { display: inline-flex; align-items: center; gap: 6px; }
+.foot-brand img { width: 18px; height: 18px; display: block; }
+@media (max-width: 600px) { .hero-logo { width: 104px; height: 104px; margin-bottom: 22px; } }
