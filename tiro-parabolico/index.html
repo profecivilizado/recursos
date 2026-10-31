@@ -340,7 +340,7 @@ function draw() {
   V = { kx, ky, x0, y0: y0 - exB / ky };
   ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
   // rejilla
-  const nice = k => [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000].find(s => s * k >= 42) || 1000;
+  const nice = k => [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000].find(s => s * k >= 30 + 7 * String(s).length) || 50000;
   const sx = nice(kx), sy = nice(ky), xmax = x0 + (W - 46 - 16) / kx, ymax = y0 + (H - 34 - 16) / ky;
   ctx.lineWidth = 1; ctx.strokeStyle = C.minor; ctx.beginPath();
   for (let x = Math.ceil(x0 / sx) * sx; x <= xmax; x += sx) { ctx.moveTo(Math.round(PX(x)) + .5, 8); ctx.lineTo(Math.round(PX(x)) + .5, H - 34); }
