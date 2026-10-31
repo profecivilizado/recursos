@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Tiro parabólico</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: cuaderno de laboratorio. Trayectoria y resultado a la izquierda (fijo), planteamiento a la derecha. */
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8; --ground:#e6ebf3; --hatch:#b9c3d3;
+  --grid-minor:rgba(43,97,170,.07); --grid-major:rgba(43,97,170,.16);
+  --path:#15203a; --v0:#df4a1c; --vx:#1f55d6; --vy:#0b8a5c; --pos:#c2186b; --acc:#7b3fc4;
+  --chip-ok:#e7f6ee; --chip-ok-ink:#0b6b48; --chip-warn:#fdeee7; --chip-warn-ink:#a3360f; --chip-n:#eef1f6;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --accent:#df4a1c;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --ground:#1f2a3c; --hatch:#3a4862;
+    --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.14);
+    --path:#e7ecf5; --v0:#ff7c4f; --vx:#6e9dff; --vy:#3fd09a; --pos:#ff6fb0; --acc:#c49bff;
+    --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+    --btn:#1d2738; --btn-hover:#253148; --accent:#ff7c4f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --ground:#1f2a3c; --hatch:#3a4862;
+  --grid-minor:rgba(120,165,235,.06); --grid-major:rgba(120,165,235,.14);
+  --path:#e7ecf5; --v0:#ff7c4f; --vx:#6e9dff; --vy:#3fd09a; --pos:#ff6fb0; --acc:#c49bff;
+  --chip-ok:#12301f; --chip-ok-ink:#7be0b0; --chip-warn:#3a1d12; --chip-warn-ink:#ffab88; --chip-n:#1e283a;
+  --btn:#1d2738; --btn-hover:#253148; --accent:#ff7c4f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1200px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px;text-wrap:balance}
+h1 .eq{font:600 .44em var(--f-mono);color:var(--accent);letter-spacing:0;white-space:nowrap;margin-left:.4em;vertical-align:middle}
+header p{margin:0;color:var(--muted);max-width:70ch}
+h2{font:700 14px/1.2 var(--f-display);letter-spacing:.04em;margin:0;text-transform:uppercase}
+
+.main{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:980px){.main{grid-template-columns:1fr}}
+.left{display:grid;gap:14px;position:sticky;top:12px;min-width:0}
+@media (max-width:980px){.left{position:static}}
+.right{display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+#cw{position:relative;min-width:0}
+canvas{display:block;width:100%;border-radius:8px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:0;border-top:3px solid currentColor;display:inline-block}
+.toggles{display:flex;flex-wrap:wrap;gap:6px 16px}
+.check{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--ink)}
+.tbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.tbar input[type=range]{flex:1 1 200px;min-width:0}
+.tval{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--vx);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button.play{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:700;min-width:96px}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+@media (max-width:560px){.cases{grid-template-columns:1fr}}
+.cases button{display:grid;gap:4px;justify-items:center;text-align:center;padding:10px 8px;font-size:13px}
+.cases svg{width:72px;height:40px}
+.cases button[aria-pressed="true"] svg *{stroke:var(--paper)}
+
+.field{display:grid;gap:3px;min-width:0}
+.field .top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px}
+.field .top label{font:700 15px var(--f-mono)}
+.num{display:inline-flex;align-items:center;gap:6px}
+.num input{font:14px var(--f-mono);width:92px;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-align:right}
+.num input:disabled{background:var(--chip-warn);color:var(--chip-warn-ink);border-color:transparent;font-weight:700}
+.unit{color:var(--muted);font:13px var(--f-mono)}
+input[type=range]{accent-color:var(--ink);width:100%}
+input[type=range]:disabled{opacity:.35}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}}
+.unks{display:flex;flex-wrap:wrap;gap:8px}
+.unks label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px;background:var(--btn)}
+.unks input{accent-color:var(--accent)}
+.unks label:has(input:checked){background:var(--chip-warn);color:var(--chip-warn-ink);border-color:transparent;font-weight:700}
+select{font:14px var(--f-body);padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.note{font-size:13px;color:var(--muted);margin:0}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0;font-size:13px}
+details.formulario summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.formulario summary::-webkit-details-marker{display:none}
+details.formulario summary::after{content:"+";font:300 24px/1 var(--f-body);color:var(--muted)}
+details.formulario[open] summary::after{content:"−"}
+.lt{font-style:normal}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+.presets button{font-size:13px}
+
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:620px){.res{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ro{border-top:1px solid var(--line);padding-top:8px;min-width:0}
+.ro .k{font:600 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ro .v{font:600 18px/1.3 var(--f-mono);font-variant-numeric:tabular-nums}
+.ro.hl .v{color:var(--accent)}
+.big{font:700 clamp(20px,2.6vw,26px)/1.2 var(--f-mono);color:var(--accent)}
+.chip{display:inline-block;padding:4px 10px;border-radius:999px;font:700 14px var(--f-body);background:var(--chip-n)}
+.chip.warn{background:var(--chip-warn);color:var(--chip-warn-ink)}
+.err{background:var(--chip-warn);color:var(--chip-warn-ink);padding:10px 12px;border-radius:10px;font-size:15px}
+.roots{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+details.steps summary{cursor:pointer;font:700 14px var(--f-display);letter-spacing:.04em;text-transform:uppercase}
+.steps ol{margin:10px 0 0;padding-left:1.4em;display:grid;gap:10px}
+.f{font:14px/1.65 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.f .u{color:var(--accent);font-weight:700}
+.tinst{font:14px/1.7 var(--f-mono);font-variant-numeric:tabular-nums;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:0 16px}
+.tinst .th{grid-column:1/-1;font:700 14px var(--f-body)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px}
+@media (max-width:620px){.fgrid{grid-template-columns:1fr}}
+.fgrid p{margin:0;font:14px/1.7 var(--f-mono)}
+.fk{font:600 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+sub{font-size:.72em;line-height:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Cinemática · Composición de movimientos</div>
+    <h1>Tiro parabólico</h1>
+    <p>Elige uno de los tres casos y dónde pones el origen, da los datos del lanzamiento o marca qué quieres averiguar a partir de otro dato. Verás la trayectoria con sus vectores, podrás recorrerla instante a instante y tendrás la resolución paso a paso.</p>
+  </header>
+
+  <div class="main">
+    <div class="left">
+      <div class="card">
+        <div class="legend" aria-hidden="true">
+          <span style="color:var(--v0)"><i class="sw"></i>v</span>
+          <span style="color:var(--vx)"><i class="sw"></i><em class="lt">v<sub>x</sub></em></span>
+          <span style="color:var(--vy)"><i class="sw"></i><em class="lt">v<sub>y</sub></em></span>
+          <span style="color:var(--pos)">● posición en t</span>
+        </div>
+        <div id="cw"><canvas id="cv" aria-label="Trayectoria del tiro parabólico"></canvas></div>
+        <div class="tbar">
+          <button id="bPlay" class="play">▶ Lanzar</button>
+          <input type="range" id="tR" min="0" max="1" step="0.001" value="0" aria-label="Instante t">
+          <span class="tval" id="tO">t = 0,00 s</span>
+        </div>
+        <div class="toggles">
+          <label class="check"><input type="checkbox" id="tVec" checked> Vectores velocidad</label>
+          <label class="check"><input type="checkbox" id="tDots" checked> Posiciones cada Δt</label>
+          <label class="check"><input type="checkbox" id="tMarks" checked> Altura máxima y alcance</label>
+          <label class="check"><input type="checkbox" id="tSame" checked> Misma escala en x e y</label>
+        </div>
+        <div class="tinst" id="inst"></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <details class="card formulario">
+        <summary><h2>Formulario</h2></summary>
+        <div class="fgrid">
+          <div><div class="fk">Descomposición de v<sub>0</sub></div>
+            <p>v<sub>0x</sub> = v<sub>0</sub>·cosθ</p><p>v<sub>0y</sub> = v<sub>0</sub>·senθ</p>
+            <p>v<sub>0</sub> = √(v<sub>0x</sub>² + v<sub>0y</sub>²)</p><p>tanθ = v<sub>0y</sub> / v<sub>0x</sub></p></div>
+          <div><div class="fk">Eje X (MRU)</div>
+            <p>x = x<sub>0</sub> + v<sub>0x</sub>·t</p><p>v<sub>x</sub> = v<sub>0x</sub> = v<sub>0</sub>·cosθ</p></div>
+          <div><div class="fk">Eje Y (MRUA)</div>
+            <p>y = y<sub>0</sub> + v<sub>0y</sub>·t − ½·g·t²</p><p>v<sub>y</sub> = v<sub>0y</sub> − g·t</p></div>
+        </div>
+        <p class="note">x<sub>0</sub> e y<sub>0</sub> dependen de dónde pongas el origen: en el punto de lanzamiento, y<sub>0</sub> = 0 y el suelo está en y = −h; en el suelo, y<sub>0</sub> = h y el suelo está en y = 0.</p>
+      </details>
+
+      <div class="card">
+        <h2>1 · Caso</h2>
+        <div class="cases" role="group" aria-label="Caso de tiro parabólico">
+          <button data-case="1"><svg viewBox="0 0 72 40" aria-hidden="true"><path d="M4 36 Q36 -14 68 36" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M2 37 H70" stroke="currentColor" stroke-width="1.5"/></svg>Desde el suelo</button>
+          <button data-case="2"><svg viewBox="0 0 72 40" aria-hidden="true"><path d="M2 8 H14 V37" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 8 Q50 8 66 37" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 37 H70" stroke="currentColor" stroke-width="1.5"/></svg>Horizontal desde una altura</button>
+          <button data-case="3"><svg viewBox="0 0 72 40" aria-hidden="true"><path d="M2 18 H14 V37" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 18 Q36 -14 66 37" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 37 H70" stroke="currentColor" stroke-width="1.5"/></svg>Oblicuo desde una altura</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2 · Datos del lanzamiento</h2>
+        <div class="grid2">
+          <div class="field" id="fv0"><div class="top"><label for="v0N">v<sub>0</sub></label><span class="num"><input type="number" id="v0N" step="0.1" min="0.1"><span class="unit">m/s</span></span></div><input type="range" id="v0R" min="1" max="60" step="0.5"></div>
+          <div class="field" id="fth"><div class="top"><label for="thN">θ</label><span class="num"><input type="number" id="thN" step="0.5"><span class="unit">°</span></span></div><input type="range" id="thR" min="1" max="89" step="0.5"></div>
+          <div class="field" id="fh"><div class="top"><label for="hN">h</label><span class="num"><input type="number" id="hN" step="0.5" min="0.1"><span class="unit">m</span></span></div><input type="range" id="hR" min="1" max="200" step="0.5"></div>
+          <div class="field"><div class="top"><label for="gS">g</label><span class="num"><select id="gS"><option value="9.8">9,8</option><option value="9.81">9,81</option><option value="10">10</option></select><span class="unit">m/s²</span></span></div></div>
+        </div>
+        <p class="note" id="caseNote"></p>
+        <div class="field" id="fOrig"><div class="top"><span style="font:600 14px var(--f-body)">Origen de coordenadas (observador)</span></div>
+          <div class="seg" role="group" aria-label="Origen de coordenadas">
+            <button data-orig="launch">En el punto de lanzamiento</button>
+            <button data-orig="ground">En el suelo, bajo el lanzamiento</button>
+          </div></div>
+      </div>
+
+      <div class="card">
+        <h2>3 · ¿Qué quieres calcular?</h2>
+        <div class="unks" id="unks"></div>
+        <div class="grid2" id="condBox">
+          <div class="field"><div class="top"><label for="qS" style="font:600 14px var(--f-body)">Dato conocido</label></div><select id="qS"></select></div>
+          <div class="field"><div class="top"><label for="qN" style="font:600 14px var(--f-body)">Valor</label><span class="num"><input type="number" id="qN" step="0.1"><span class="unit" id="qU"></span></span></div></div>
+        </div>
+        <p class="note" id="unkNote"></p>
+        <div class="field"><div class="top"><span style="font:600 14px var(--f-body)">Además, en un punto concreto</span></div>
+          <div class="grid2">
+            <select id="ptS" aria-label="Punto concreto"><option value="none">Ninguno</option><option value="t">En un instante t</option><option value="x">Cuando x vale…</option><option value="y">Cuando y vale…</option></select>
+            <span class="num" id="ptBox"><input type="number" id="ptN" step="0.1" aria-label="Valor del punto"><span class="unit" id="ptU"></span></span>
+          </div></div>
+      </div>
+
+      <div class="card" id="result"></div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const D2R = Math.PI / 180, R2D = 180 / Math.PI;
+const fmt = (n, d = 2) => { if (!isFinite(n)) return '—'; const r = Math.abs(n) < 0.5 * 10 ** -d ? 0 : n; return (r < 0 ? '−' : '') + Math.abs(r).toFixed(d).replace('.', ','); };
+const st = { kase: 3, v0: 20, th: 40, h: 30, g: 9.8, unk: 'none', q: 'R', qv: 60, root: 0, origin: 'launch', pt: 'none', pv: 1, ptRoot: 0, t: 0, playing: false, show: { vec: true, dots: true, marks: true, same: true } };
+
+/* =====================================================================
+   Física (origen en el punto de lanzamiento; el suelo está en y = −h)
+   ===================================================================== */
+function launch(v) { return { th: v.kase === 2 ? 0 : v.th, h: v.kase === 1 ? 0 : v.h }; }
+function solveMotion(v) {
+  const { th, h } = launch(v), g = v.g, v0x = v.v0 * Math.cos(th * D2R), v0y = v.v0 * Math.sin(th * D2R);
+  const T = (v0y + Math.sqrt(v0y * v0y + 2 * g * h)) / g;
+  const ts = v0y > 0 ? v0y / g : 0, ymax = v0y > 0 ? v0y * v0y / (2 * g) : 0;
+  const vfx = v0x, vfy = v0y - g * T, vf = Math.hypot(vfx, vfy), af = Math.atan2(-vfy, vfx) * R2D;
+  return { th, h, g, v0: v.v0, v0x, v0y, T, R: v0x * T, ts, ymax, Hs: h + ymax, vfx, vfy, vf, af };
+}
+const QS = {
+  T: { name: 'Tiempo en llegar al suelo', sym: 't<sub>f</sub>', unit: 's', get: M => M.T },
+  R: { name: 'Alcance', sym: 'x<sub>máx</sub>', unit: 'm', get: M => M.R },
+  H: { name: 'Altura máxima sobre el suelo', sym: 'y<sub>máx</sub>', unit: 'm', get: M => M.Hs },
+  vf: { name: 'Rapidez al llegar al suelo', sym: 'v<sub>f</sub>', unit: 'm/s', get: M => M.vf },
+  af: { name: 'Ángulo de llegada (bajo la horizontal)', sym: 'α', unit: '°', get: M => M.af },
+};
+const UNKS = { v0: { name: 'v<sub>0</sub>', unit: 'm/s', lo: 0.05, hi: 400 }, th: { name: 'θ', unit: '°', lo: 0.05, hi: 89.95 }, h: { name: 'h', unit: 'm', lo: 0.001, hi: 5000 } };
+function setU(v, k, u) { return { ...v, [k]: u }; }
+function qOptions() {
+  const o = ['T', 'R', 'vf', 'af'];
+  if (st.kase !== 2) o.splice(2, 0, 'H');
+  return o;
+}
+function unkOptions() {
+  const o = [['none', 'Todo, a partir de v<sub>0</sub>, θ y h']];
+  o.push(['v0', 'v<sub>0</sub>']);
+  if (st.kase !== 2) o.push(['th', 'θ']);
+  if (st.kase !== 1) o.push(['h', 'h']);
+  return o;
+}
+function solve() {
+  const v = { ...st };
+  if (v.unk === 'none') return { kind: 'direct', v, M: solveMotion(v) };
+  const U = UNKS[v.unk], Q = QS[v.q], lo = v.unk === 'th' && v.kase === 3 ? -80 : U.lo, hi = U.hi;
+  const f = u => Q.get(solveMotion(setU(v, v.unk, u))) - v.qv;
+  // barrido logarítmico para v0 y h, lineal para θ
+  const N = 3000, xs = [];
+  for (let i = 0; i <= N; i++) xs.push(v.unk === 'th' ? lo + (hi - lo) * i / N : lo * Math.pow(hi / lo, i / N));
+  const roots = [];
+  let pu = xs[0], pf = f(pu);
+  for (let i = 1; i <= N; i++) {
+    const u = xs[i], fu = f(u);
+    if (isFinite(pf) && isFinite(fu) && pf * fu <= 0 && !(pf === 0 && fu === 0)) {
+      let a = pu, b = u, fa = pf;
+      for (let k = 0; k < 80; k++) { const c = (a + b) / 2, fc = f(c); if (fa * fc <= 0) b = c; else { a = c; fa = fc; } }
+      const r = (a + b) / 2; if (!roots.some(q => Math.abs(q - r) < 1e-3 * Math.max(1, Math.abs(r)))) roots.push(r);
+    }
+    pu = u; pf = fu;
+  }
+  if (!roots.length) return { kind: 'none', v, M: solveMotion(v) };
+  const idx = Math.min(st.root, roots.length - 1), w = setU(v, v.unk, roots[idx]);
+  return { kind: 'ok', v: w, M: solveMotion(w), roots, idx, u: roots[idx] };
+}
+
+/* =====================================================================
+   Dibujo
+   ===================================================================== */
+const cv = $('cv'), ctx = cv.getContext('2d');
+let W = 0, H = 0, cur = null;
+function resize() {
+  W = $('cw').clientWidth; H = Math.round(Math.max(280, Math.min(480, W * 0.62)));
+  const dpr = devicePixelRatio || 1; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); draw();
+}
+new ResizeObserver(resize).observe($('cw'));
+const tok = () => { const c = getComputedStyle(document.documentElement), g = k => c.getPropertyValue(k).trim(); return { ink: g('--ink'), muted: g('--muted'), minor: g('--grid-minor'), major: g('--grid-major'), path: g('--path'), v0: g('--v0'), vx: g('--vx'), vy: g('--vy'), pos: g('--pos'), ground: g('--ground'), hatch: g('--hatch'), panel: g('--panel'), acc: g('--acc') }; };
+// Texto con subíndices en el lienzo: «x_{máx} = 3 m»
+function subText(str, x, y, align, base, size, wt) {
+  const parts = []; str.replace(/([^_]+)|_\{([^}]*)\}/g, (m, a, b) => { parts.push(a != null ? [a, false] : [b, true]); return m; });
+  const fN = mono(size, wt), fS = mono(Math.round(size * 0.72), wt);
+  let w = 0; for (const [t, sub] of parts) { ctx.font = sub ? fS : fN; w += ctx.measureText(t).width; }
+  let cx = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x;
+  ctx.textBaseline = base; ctx.textAlign = 'left';
+  for (const [t, sub] of parts) { ctx.font = sub ? fS : fN; ctx.fillText(t, cx, y + (sub ? size * 0.28 : 0)); cx += ctx.measureText(t).width; }
+  return w;
+}
+const mono = (s, w = 400) => `${w} ${s}px "JetBrains Mono", ui-monospace, monospace`;
+let V = { kx: 1, ky: 1, x0: 0, y0: 0 };
+const PX = x => 46 + (x - V.x0) * V.kx, PY = y => H - 34 - (y - V.y0) * V.ky;
+
+function draw() {
+  if (!W || !cur) return;
+  const C = tok(), M = cur.M, h = M.h, FR = frameOf(cur.v, M);
+  // encaje: de x = −margen a x = R; de y = −h a la altura máxima
+  const xr = Math.max(M.R, 1), ytop = Math.max(M.ymax, 0.5), ybot = -h;
+  const x0 = -0.06 * xr - (h > 0 ? 0.08 * xr : 0), x1 = xr * 1.08, y0 = ybot - 0.04 * (ytop - ybot), y1 = ytop + 0.18 * (ytop - ybot);
+  // espacio extra (en píxeles) para el vector velocidad al llegar al suelo
+  const VKp = Math.min(72 / Math.max(M.v0, M.vf), 4), exB = st.show.vec ? Math.abs(M.vfy) * VKp + 14 : 0, exR = st.show.vec ? M.vfx * VKp + 24 : 0;
+  let kx = (W - 46 - 16 - exR) / (x1 - x0), ky = (H - 34 - 16 - exB) / (y1 - y0);
+  if (st.show.same) kx = ky = Math.min(kx, ky);
+  V = { kx, ky, x0, y0: y0 - exB / ky };
+  ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
+  // rejilla
+  const nice = k => [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000].find(s => s * k >= 42) || 1000;
+  const sx = nice(kx), sy = nice(ky), xmax = x0 + (W - 46 - 16) / kx, ymax = y0 + (H - 34 - 16) / ky;
+  ctx.lineWidth = 1; ctx.strokeStyle = C.minor; ctx.beginPath();
+  for (let x = Math.ceil(x0 / sx) * sx; x <= xmax; x += sx) { ctx.moveTo(Math.round(PX(x)) + .5, 8); ctx.lineTo(Math.round(PX(x)) + .5, H - 34); }
+  for (let y = Math.ceil(V.y0 / sy) * sy; y <= ymax; y += sy) { ctx.moveTo(46, Math.round(PY(y)) + .5); ctx.lineTo(W - 8, Math.round(PY(y)) + .5); }
+  ctx.stroke();
+  ctx.fillStyle = C.muted; ctx.font = mono(10); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  for (let x = Math.ceil(x0 / sx) * sx; x <= xmax; x += sx) ctx.fillText(fmt(x, sx < 1 ? 1 : 0), PX(x), H - 28);
+  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  for (let y = Math.ceil(V.y0 / sy) * sy; y <= ymax; y += sy) if (PY(y) > 20 && PY(y) < H - 30) ctx.fillText(fmt(y + FR.Y0, sy < 1 ? 1 : 0), 40, PY(y));
+  ctx.textBaseline = 'top'; ctx.textAlign = 'right'; ctx.fillText('x (m)', W - 10, H - 16); ctx.textAlign = 'left'; ctx.fillText('y (m)', 4, 4);
+  // ejes en el punto de lanzamiento
+  ctx.strokeStyle = C.major; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(PX(0), 8); ctx.lineTo(PX(0), H - 34); ctx.moveTo(46, PY(-FR.Y0)); ctx.lineTo(W - 8, PY(-FR.Y0)); ctx.stroke();
+  ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(PX(0), PY(-FR.Y0), 3.5, 0, 7); ctx.fill(); ctx.font = mono(12, 700); ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('O', PX(0) - 5, PY(-FR.Y0) + 3);
+  // suelo y acantilado
+  ctx.fillStyle = C.ground;
+  ctx.fillRect(46, PY(-h), W - 54, H - 34 - PY(-h));
+  if (h > 0) ctx.fillRect(46, PY(0), PX(0) - 46, PY(-h) - PY(0));
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.beginPath();
+  if (h > 0) { ctx.moveTo(46, PY(0)); ctx.lineTo(PX(0), PY(0)); ctx.lineTo(PX(0), PY(-h)); }
+  ctx.moveTo(PX(0), PY(-h)); ctx.lineTo(W - 8, PY(-h)); ctx.stroke();
+  // trayectoria
+  const pos = t => [M.v0x * t, M.v0y * t - 0.5 * M.g * t * t];
+  ctx.strokeStyle = C.path; ctx.lineWidth = 2.2; ctx.beginPath();
+  for (let i = 0; i <= 200; i++) { const p = pos(M.T * i / 200); i ? ctx.lineTo(PX(p[0]), PY(p[1])) : ctx.moveTo(PX(p[0]), PY(p[1])); }
+  ctx.stroke();
+  if (st.show.dots) {
+    const dt = [0.05, 0.1, 0.2, 0.25, 0.5, 1, 2, 5].find(d => M.T / d <= 24) || 5;
+    ctx.fillStyle = C.muted;
+    for (let t = dt; t < M.T - 1e-9; t += dt) { const p = pos(t); ctx.beginPath(); ctx.arc(PX(p[0]), PY(p[1]), 2.6, 0, 7); ctx.fill(); }
+    ctx.font = mono(11); ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText(`· posiciones cada Δt = ${fmt(dt, dt < 1 ? 2 : 0)} s`, W - 10, 6);
+  }
+  // marcas: altura máxima y alcance
+  if (st.show.marks) {
+    ctx.setLineDash([5, 5]); ctx.lineWidth = 1.2; ctx.strokeStyle = C.acc; ctx.fillStyle = C.acc; ctx.font = mono(12, 600);
+    if (M.v0y > 0) {
+      const xt = M.v0x * M.ts;
+      ctx.beginPath(); ctx.moveTo(PX(xt), PY(M.ymax)); ctx.lineTo(PX(xt), PY(-h)); ctx.stroke();
+      subText(`y_{máx} = ${fmt(M.Hs)} m`, PX(xt) + 6, PY((M.ymax - h) / 2), 'left', 'middle', 12, 600);
+    }
+    ctx.setLineDash([]);
+    const yb = PY(-h) + 14 > H - 34 ? PY(-h) - 10 : PY(-h) + 12;
+    ctx.beginPath(); ctx.moveTo(PX(0), yb); ctx.lineTo(PX(M.R), yb); ctx.moveTo(PX(0), yb - 4); ctx.lineTo(PX(0), yb + 4); ctx.moveTo(PX(M.R), yb - 4); ctx.lineTo(PX(M.R), yb + 4); ctx.stroke();
+    const tx = `x_{máx} = ${fmt(M.R)} m`; ctx.font = mono(12, 600); const tw = ctx.measureText(tx.replace(/[_{}]/g, '')).width;
+    ctx.fillStyle = C.panel; ctx.fillRect((PX(0) + PX(M.R)) / 2 - tw / 2 - 3, yb - 16, tw + 6, 14); ctx.fillStyle = C.acc; subText(tx, (PX(0) + PX(M.R)) / 2, yb - 3, 'center', 'bottom', 12, 600);
+    if (h > 0) { ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(`h = ${fmt(h)} m`, PX(0) + 8, PY(-h * 0.8)); }
+  }
+  // vectores
+  const VK = VKp; // px por m/s
+  const arrow = (x, y, dx, dy, col, w, lab) => {
+    const L = Math.hypot(dx, dy); if (L < 2) return;
+    const ux = dx / L, uy = dy / L, ex = x + dx, ey = y + dy, hl = Math.min(10, L * 0.45);
+    ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex - ux * hl * .8, ey - uy * hl * .8); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex - ux * hl - uy * hl * .55, ey - uy * hl + ux * hl * .55); ctx.lineTo(ex - ux * hl + uy * hl * .55, ey - uy * hl - ux * hl * .55); ctx.closePath(); ctx.fill();
+    if (lab) subText(lab, ex + ux * 6, ey + uy * 6, ux > .3 ? 'left' : ux < -.3 ? 'right' : 'center', uy > .3 ? 'top' : uy < -.3 ? 'bottom' : 'middle', 13, 700);
+  };
+  const vecAt = (t, labels) => {
+    const p = pos(t), vx = M.v0x, vy = M.v0y - M.g * t, X = PX(p[0]), Y = PY(p[1]);
+    if (Math.abs(vy) > 1e-6) { arrow(X, Y, 0, -vy * VK, C.vy, 2, labels ? labels[2] : ''); arrow(X, Y, vx * VK, 0, C.vx, 2, labels ? labels[1] : ''); }
+    arrow(X, Y, vx * VK, -vy * VK, C.v0, 3, labels ? labels[0] : '');
+  };
+  if (st.show.vec) {
+    vecAt(0, ['v_{0}', 'v_{0x}', 'v_{0y}']);
+    // ángulo θ
+    if (Math.abs(M.th) > 0.5) { ctx.strokeStyle = C.v0; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.arc(PX(0), PY(0), 26, -Math.max(0, Math.atan2(M.v0y * VK, M.v0x * VK)), -Math.min(0, Math.atan2(M.v0y * VK, M.v0x * VK)), false); ctx.stroke(); ctx.font = mono(12, 700); ctx.fillStyle = C.v0; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('θ', PX(0) + 30, PY(0) - Math.sign(M.th) * 8); }
+    vecAt(M.T, ['v_{f}', '', '']);
+    if (st.t > 1e-6 && st.t < M.T - 1e-6) vecAt(st.t, ['v', 'v_{x}', 'v_{y}']);
+  }
+  // posición en t
+  const p = pos(st.t);
+  ctx.fillStyle = C.pos; ctx.beginPath(); ctx.arc(PX(p[0]), PY(p[1]), 6, 0, 7); ctx.fill();
+  ctx.strokeStyle = C.panel; ctx.lineWidth = 2; ctx.stroke();
+}
+
+/* =====================================================================
+   Resolución
+   ===================================================================== */
+function frameOf(v, M) { const ground = v.origin === 'ground' && M.h > 0; return { ground, Y0: ground ? M.h : 0, yS: ground ? 0 : -M.h }; }
+const yTerm = (Y0, v0y, k, g) => `${Y0 ? fmt(Y0) + ' ' : ''}${k === 2 ? '' : (Y0 ? (v0y >= 0 ? '+ ' : '− ') + fmt(Math.abs(v0y)) : fmt(v0y)) + '·t '}− ½·${g}·t²`;
+// instantes en que se alcanza el punto pedido (dentro del vuelo)
+function pointTimes(v, M) {
+  const F = frameOf(v, M), T = M.T, ok = t => t >= -1e-9 && t <= T + 1e-9;
+  if (v.pt === 't') return ok(v.pv) ? [Math.max(0, v.pv)] : [];
+  if (v.pt === 'x') { if (M.v0x < 1e-9) return []; const t = v.pv / M.v0x; return ok(t) ? [t] : []; }
+  if (v.pt === 'y') {
+    const a = M.g / 2, b = -M.v0y, c = v.pv - F.Y0, D = b * b - 4 * a * c; if (D < 0) return [];
+    return [...new Set([(-b - Math.sqrt(D)) / (2 * a), (-b + Math.sqrt(D)) / (2 * a)].map(t => +t.toFixed(9)))].filter(ok).sort((p, q) => p - q);
+  }
+  return [];
+}
+function steps(res) {
+  const M = res.M, v = res.v, g = fmt(M.g, M.g === 9.81 ? 2 : 1), L = [], k = v.kase, F = frameOf(v, M);
+  const where = F.ground ? 'en el suelo, bajo el punto de lanzamiento' : 'en el punto de lanzamiento';
+  if (res.kind === 'ok') {
+    const Q = QS[v.q], U = UNKS[v.unk];
+    const eq = {
+      T: `${fmt(F.yS) === '0,00' ? '0' : (F.ground ? '0' : '−h')} = ${F.ground ? 'h + ' : ''}${k === 2 ? '' : 'v<sub>0</sub>·senθ·t<sub>f</sub> '}− ½·g·t<sub>f</sub>²`,
+      R: `x<sub>máx</sub> = v<sub>0x</sub>·t<sub>f</sub>, con t<sub>f</sub> el instante en que llega al suelo`,
+      H: `y<sub>máx</sub> = h + (v<sub>0</sub>·senθ)² / (2·g)`,
+      vf: `v<sub>f</sub> = √(v<sub>fx</sub>² + v<sub>fy</sub>²), con v<sub>fx</sub> = v<sub>0</sub>·cosθ y v<sub>fy</sub> = v<sub>0</sub>·senθ − g·t<sub>f</sub>`,
+      af: `tan α = |v<sub>fy</sub>| / v<sub>fx</sub>`,
+    }[v.q];
+    L.push(`<b>Planteamiento.</b> Conocemos ${Q.name.toLowerCase()} (${Q.sym} = ${fmt(v.qv)} ${Q.unit}) y buscamos ${U.name}. La relación entre ellos es:<br><span class="f">${eq}</span><br>Con los demás datos, la única incógnita es ${U.name}. Resolviendo: <span class="f"><span class="u">${U.name} = ${fmt(res.u)} ${U.unit}</span></span>${res.roots.length > 1 ? ` (hay ${res.roots.length} soluciones; se muestra la elegida).` : ''}<br>Con este valor, el resto del problema se resuelve igual que en el caso directo:`);
+  }
+  if (k === 2) L.push(`<b>Velocidad inicial.</b> Es horizontal, así que no hay v<sub>0y</sub>:<br><span class="f">v<sub>0x</sub> = v<sub>0</sub> = ${fmt(M.v0x)} m/s</span><br><span class="f">v<sub>0y</sub> = 0</span>`);
+  else L.push(`<b>Descomposición de v<sub>0</sub>.</b><br><span class="f">v<sub>0x</sub> = v<sub>0</sub>·cosθ = ${fmt(M.v0)} · cos ${fmt(M.th, 1)}° = ${fmt(M.v0x)} m/s</span><br><span class="f">v<sub>0y</sub> = v<sub>0</sub>·senθ = ${fmt(M.v0)} · sen ${fmt(M.th, 1)}° = ${fmt(M.v0y)} m/s</span>`);
+  L.push(`<b>Ecuaciones del movimiento.</b> Origen ${where}: x<sub>0</sub> = 0, y<sub>0</sub> = ${F.Y0 ? fmt(F.Y0) + ' m' : '0'}${k === 1 ? '' : `; el suelo está en y = ${F.yS === 0 ? '0' : fmt(F.yS) + ' m'}`}.<br>Eje X (MRU):<br><span class="f">x = ${fmt(M.v0x)}·t</span><br><span class="f">v<sub>x</sub> = ${fmt(M.v0x)}</span><br>Eje Y (MRUA):<br><span class="f">y = ${yTerm(F.Y0, M.v0y, k, g)}</span><br><span class="f">v<sub>y</sub> = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·t</span>`);
+  // llegada al suelo
+  const ys = F.yS === 0 ? '0' : fmt(F.yS);
+  if (k === 1) L.push(`<b>Tiempo en llegar al suelo.</b> Vuelve al suelo cuando y = 0:<br><span class="f">0 = ${fmt(M.v0y)}·t − ½·${g}·t² → t·(${fmt(M.v0y)} − ${fmt(M.g / 2, 2)}·t) = 0 → t<sub>f</sub> = 2·v<sub>0y</sub> / g = <span class="u">${fmt(M.T)} s</span></span>`);
+  else if (k === 2) L.push(`<b>Tiempo en llegar al suelo.</b> Llega al suelo cuando y = ${ys}:<br><span class="f">${ys} = ${yTerm(F.Y0, 0, 2, g)} → t<sub>f</sub> = √(2·h / g) = √(2·${fmt(M.h)} / ${g}) = <span class="u">${fmt(M.T)} s</span></span>`);
+  else L.push(`<b>Tiempo en llegar al suelo.</b> Llega al suelo cuando y = ${ys}:<br><span class="f">${ys} = ${yTerm(F.Y0, M.v0y, 3, g)} → ${fmt(M.g / 2, 2)}·t² ${M.v0y >= 0 ? '−' : '+'} ${fmt(Math.abs(M.v0y))}·t − ${fmt(M.h)} = 0</span><br>Ecuación de segundo grado; nos quedamos con la solución positiva: <span class="f"><span class="u">t<sub>f</sub> = ${fmt(M.T)} s</span></span>`);
+  L.push(`<b>Alcance.</b> Es la x cuando t = t<sub>f</sub>:<br><span class="f">x<sub>máx</sub> = v<sub>0x</sub>·t<sub>f</sub> = ${fmt(M.v0x)} · ${fmt(M.T)} = <span class="u">${fmt(M.R)} m</span></span>`);
+  if (M.v0y > 0) {
+    let t = `<b>Altura máxima.</b> En el punto más alto v<sub>y</sub> = 0:<br><span class="f">0 = ${fmt(M.v0y)} − ${g}·t → t<sub>s</sub> = v<sub>0y</sub> / g = ${fmt(M.ts)} s</span><br><span class="f">y = ${F.Y0 ? fmt(F.Y0) + ' + ' : ''}${fmt(M.v0y)}·${fmt(M.ts)} − ½·${g}·${fmt(M.ts)}² = ${fmt(F.Y0 + M.ymax)} m</span>`;
+    if (M.h > 0 && !F.ground) t += ` sobre el punto de lanzamiento, así que sobre el suelo: <span class="f">${fmt(M.h)} + ${fmt(M.ymax)} = <span class="u">${fmt(M.Hs)} m</span></span>`;
+    else t += ` → <span class="f"><span class="u">y<sub>máx</sub> = ${fmt(M.Hs)} m</span></span> sobre el suelo`;
+    L.push(t);
+  } else L.push(`<b>Altura máxima.</b> ${k === 2 ? 'Como v<sub>0y</sub> = 0, el objeto no sube: la altura máxima es la de lanzamiento,' : 'Como se lanza hacia abajo, no sube: la altura máxima es la de lanzamiento,'} <span class="f">h = ${fmt(M.h)} m</span>.`);
+  L.push(`<b>Velocidad al llegar al suelo</b> (t = t<sub>f</sub>):<br><span class="f">v<sub>fx</sub> = v<sub>0x</sub> = ${fmt(M.vfx)} m/s</span><br><span class="f">v<sub>fy</sub> = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·${fmt(M.T)} = ${fmt(M.vfy)} m/s</span><br><span class="f">v<sub>f</sub> = √(v<sub>fx</sub>² + v<sub>fy</sub>²) = √(${fmt(M.vfx)}² + ${fmt(M.vfy)}²) = <span class="u">${fmt(M.vf)} m/s</span></span><br><span class="f">tan α = |v<sub>fy</sub>| / v<sub>fx</sub> = ${fmt(Math.abs(M.vfy))} / ${fmt(M.vfx)} → <span class="u">α = ${fmt(M.af, 1)}°</span> bajo la horizontal</span>`);
+  // punto concreto
+  if (v.pt !== 'none') {
+    const ts = pointTimes(v, M);
+    let intro;
+    if (v.pt === 't') intro = `<b>En el instante t = ${fmt(v.pv)} s.</b>`;
+    else if (v.pt === 'x') intro = `<b>Cuando x = ${fmt(v.pv)} m.</b> Del eje X: <span class="f">${fmt(v.pv)} = ${fmt(M.v0x)}·t → t = ${fmt(v.pv)} / ${fmt(M.v0x)} = ${ts.length ? fmt(ts[0]) : '—'} s</span>`;
+    else intro = `<b>Cuando y = ${fmt(v.pv)} m.</b> Del eje Y: <span class="f">${fmt(v.pv)} = ${yTerm(F.Y0, M.v0y, k, g)}</span>${ts.length ? ` → <span class="f">t = ${ts.map(t => fmt(t)).join(' s y t = ')} s</span>${ts.length > 2 - 1 && ts.length === 2 ? ' (pasa por esa altura al subir y al bajar)' : ''}` : ''}`;
+    if (!ts.length) L.push(`${intro}<br>El proyectil no pasa por ese punto durante el vuelo.`);
+    else {
+      const t = ts[Math.min(st.ptRoot, ts.length - 1)], x = M.v0x * t, y = F.Y0 + M.v0y * t - 0.5 * M.g * t * t, vy = M.v0y - M.g * t;
+      L.push(`${intro}${ts.length > 1 ? `<br>Con t = ${fmt(t)} s:` : ''}<br><span class="f">x = ${fmt(M.v0x)}·${fmt(t)} = ${fmt(x)} m</span><br><span class="f">y = ${F.Y0 ? fmt(F.Y0) + ' + ' : ''}${k === 2 ? '' : fmt(M.v0y) + '·' + fmt(t) + ' '}− ½·${g}·${fmt(t)}² = ${fmt(y)} m</span><br><span class="f">v<sub>x</sub> = ${fmt(M.v0x)} m/s</span><br><span class="f">v<sub>y</sub> = ${k === 2 ? '' : fmt(M.v0y) + ' '}− ${g}·${fmt(t)} = ${fmt(vy)} m/s</span><br><span class="f">|v| = √(v<sub>x</sub>² + v<sub>y</sub>²) = <span class="u">${fmt(Math.hypot(M.v0x, vy))} m/s</span></span>`);
+    }
+  }
+  return L;
+}
+let jumpToPoint = false;
+function render() {
+  const res = solve(); cur = res;
+  const R = $('result'), M = res.M, v = res.v, F = frameOf(v, M);
+  let h = '<h2>4 · Resultado</h2>';
+  if (res.kind === 'none') {
+    h += `<div class="err">Con estos datos no hay ningún valor de ${UNKS[v.unk].name} que dé ${QS[v.q].name.toLowerCase()} = ${fmt(v.qv)} ${QS[v.q].unit}. ${v.q === 'R' && v.unk === 'th' ? 'Puede que el alcance pedido sea mayor que el máximo posible con esa v<sub>0</sub>.' : 'Revisa los datos.'}</div>`;
+  } else {
+    if (res.kind === 'ok') {
+      h += `<div class="big">${UNKS[v.unk].name} = ${fmt(res.u)} ${UNKS[v.unk].unit}</div>`;
+      if (res.roots.length > 1) h += `<div class="roots">Hay ${res.roots.length} soluciones: ${res.roots.map((r, i) => `<button data-root="${i}" aria-pressed="${i === res.idx}">${UNKS[v.unk].name} = ${fmt(r)}${UNKS[v.unk].unit}</button>`).join('')}</div>`;
+    }
+    h += `<div class="res">
+      <div class="ro hl"><div class="k">Tiempo en llegar al suelo <span style="text-transform:none">t<sub>f</sub></span></div><div class="v">${fmt(M.T)} s</div></div>
+      <div class="ro hl"><div class="k">Alcance <span style="text-transform:none">x<sub>máx</sub></span></div><div class="v">${fmt(M.R)} m</div></div>
+      <div class="ro hl"><div class="k">Altura máxima sobre el suelo</div><div class="v">${fmt(M.Hs)} m</div></div>
+      <div class="ro"><div class="k">Rapidez final <span style="text-transform:none">v<sub>f</sub></span></div><div class="v">${fmt(M.vf)} m/s</div></div>
+      <div class="ro"><div class="k">Ángulo de llegada <span style="text-transform:none">α</span></div><div class="v">${fmt(M.af, 1)}°</div></div>
+      <div class="ro"><div class="k">Componentes de <span style="text-transform:none">v<sub>f</sub></span></div><div class="v" style="font-size:15px">v<sub>fx</sub> = ${fmt(M.vfx)} m/s<br>v<sub>fy</sub> = ${fmt(M.vfy)} m/s</div></div>
+    </div>`;
+    if (v.pt !== 'none') {
+      const ts = pointTimes(v, M);
+      if (!ts.length) h += `<div class="err">El proyectil no pasa por ese punto durante el vuelo.</div>`;
+      else {
+        const i = Math.min(st.ptRoot, ts.length - 1), t = ts[i], x = M.v0x * t, y = F.Y0 + M.v0y * t - 0.5 * M.g * t * t, vy = M.v0y - M.g * t;
+        if (ts.length > 1) h += `<div class="roots">Pasa dos veces por esa altura: ${ts.map((q, j) => `<button data-pt="${j}" aria-pressed="${j === i}">t = ${fmt(q)} s</button>`).join('')}</div>`;
+        h += `<div class="res"><div class="ro hl"><div class="k">En el punto pedido: <span style="text-transform:none">t</span></div><div class="v">${fmt(t)} s</div></div><div class="ro"><div class="k">Posición</div><div class="v" style="font-size:15px">x = ${fmt(x)} m<br>y = ${fmt(y)} m</div></div><div class="ro"><div class="k">Velocidad</div><div class="v" style="font-size:15px">v<sub>x</sub> = ${fmt(M.v0x)} m/s<br>v<sub>y</sub> = ${fmt(vy)} m/s<br>|v| = ${fmt(Math.hypot(M.v0x, vy))} m/s</div></div></div>`;
+        if (jumpToPoint) { st.t = t; jumpToPoint = false; }
+      }
+    }
+    if (st.kase === 1 && Math.abs(M.th - 45) < 0.26) h += `<p class="note">Con θ = 45° se consigue el alcance máximo para esa v<sub>0</sub> (desde el suelo).</p>`;
+    h += `<details class="steps" open><summary>Resolución paso a paso</summary><ol>${steps(res).map(l => `<li>${l}</li>`).join('')}</ol></details>`;
+  }
+  R.innerHTML = h;
+  R.querySelectorAll('[data-root]').forEach(b => b.addEventListener('click', () => { st.root = +b.dataset.root; render(); }));
+  R.querySelectorAll('[data-pt]').forEach(b => b.addEventListener('click', () => { st.ptRoot = +b.dataset.pt; jumpToPoint = true; render(); }));
+  st.t = Math.min(st.t, M.T); syncT(); draw();
+}
+function syncT() {
+  const M = cur.M, F = frameOf(cur.v, M), t = st.t, x = M.v0x * t, y = F.Y0 + M.v0y * t - 0.5 * M.g * t * t, vy = M.v0y - M.g * t;
+  $('tR').max = M.T; $('tR').value = t;
+  $('tO').textContent = `t = ${fmt(t)} s`;
+  $('inst').innerHTML = `<div class="th">En t = ${fmt(t)} s</div><div>x = ${fmt(x)} m</div><div>y = ${fmt(y)} m</div><div>v<sub>x</sub> = ${fmt(M.v0x)} m/s</div><div>v<sub>y</sub> = ${fmt(vy)} m/s</div><div>|v| = ${fmt(Math.hypot(M.v0x, vy))} m/s</div>`;
+  $('bPlay').textContent = st.playing ? '⏸ Pausa' : t >= M.T - 1e-9 ? '↺ Repetir' : t > 0 ? '▶ Seguir' : '▶ Lanzar';
+}
+
+/* =====================================================================
+   Controles
+   ===================================================================== */
+const pairs = { v0: ['v0N', 'v0R'], th: ['thN', 'thR'], h: ['hN', 'hR'] };
+function build() {
+  document.querySelectorAll('[data-case]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.case === st.kase));
+  $('fth').hidden = st.kase === 2; $('fh').hidden = st.kase === 1;
+  $('thR').min = st.kase === 3 ? -80 : 1;
+  $('caseNote').textContent = { 1: 'Se lanza desde el suelo y vuelve al suelo (h = 0).', 2: 'Se lanza horizontalmente (θ = 0°) desde una altura h.', 3: 'Se lanza con un ángulo θ desde una altura h. Un ángulo negativo es un lanzamiento hacia abajo.' }[st.kase];
+  const U = unkOptions(); if (!U.some(([k]) => k === st.unk)) st.unk = 'none';
+  $('unks').innerHTML = U.map(([k, t]) => `<label><input type="radio" name="unk" value="${k}" ${k === st.unk ? 'checked' : ''}><em class="lt">${t}</em></label>`).join('');
+  $('unks').querySelectorAll('input').forEach(r => r.addEventListener('change', () => { st.unk = r.value; st.root = 0; prefillQ(); build(); render(); }));
+  const Q = qOptions(); if (!Q.includes(st.q)) st.q = Q[0];
+  $('qS').innerHTML = Q.map(k => `<option value="${k}" ${k === st.q ? 'selected' : ''}>${QS[k].name}</option>`).join('');
+  $('condBox').hidden = st.unk === 'none';
+  $('qU').textContent = QS[st.q].unit;
+  $('unkNote').innerHTML = st.unk === 'none' ? 'Con v<sub>0</sub>, θ y h se calcula todo: tiempo en llegar al suelo, alcance, altura máxima y velocidad final.' : `${UNKS[st.unk].name} se calcula a partir del dato conocido; su casilla queda marcada.`;
+  $('gS').value = String(st.g);
+  $('fOrig').hidden = st.kase === 1;
+  document.querySelectorAll('[data-orig]').forEach(b => b.setAttribute('aria-pressed', b.dataset.orig === st.origin));
+  $('ptS').value = st.pt; $('ptBox').hidden = st.pt === 'none'; $('ptU').textContent = { t: 's', x: 'm', y: 'm', none: '' }[st.pt];
+  syncInputs();
+}
+function syncInputs() {
+  for (const [k, [n, r]] of Object.entries(pairs)) {
+    const unk = st.unk === k;
+    $(n).disabled = unk; $(r).disabled = unk;
+    if (document.activeElement !== $(n)) $(n).value = unk ? '' : +(+st[k]).toFixed(2);
+    $(n).placeholder = unk ? '?' : '';
+    if (!unk) $(r).value = st[k];
+  }
+  if (document.activeElement !== $('qN')) $('qN').value = +(+st.qv).toFixed(2);
+  if (document.activeElement !== $('ptN')) $('ptN').value = +(+st.pv).toFixed(2);
+}
+function prefillQ() { if (st.unk !== 'none') st.qv = +QS[st.q].get(solveMotion(st)).toFixed(2); }
+const num = el => { const x = parseFloat(String(el.value).replace(',', '.')); return isFinite(x) ? x : null; };
+for (const [k, [n, r]] of Object.entries(pairs)) {
+  $(n).addEventListener('input', () => { const x = num($(n)); if (x == null) return; st[k] = x; stop(); render(); syncInputs(); });
+  $(r).addEventListener('input', () => { st[k] = +$(r).value; stop(); render(); syncInputs(); });
+}
+$('gS').addEventListener('change', e => { st.g = +e.target.value; render(); });
+document.querySelectorAll('[data-orig]').forEach(b => b.addEventListener('click', () => { st.origin = b.dataset.orig; build(); render(); }));
+$('ptS').addEventListener('change', e => {
+  st.pt = e.target.value; st.ptRoot = 0;
+  const M = cur.M, F = frameOf(st, M);
+  st.pv = st.pt === 't' ? +(M.T / 2).toFixed(2) : st.pt === 'x' ? +(M.R / 2).toFixed(1) : st.pt === 'y' ? +(F.Y0 + M.ymax / 2).toFixed(1) : st.pv;
+  jumpToPoint = true; stop(); build(); render();
+});
+$('ptN').addEventListener('input', () => { const x = num($('ptN')); if (x == null) return; st.pv = x; st.ptRoot = 0; jumpToPoint = true; stop(); render(); });
+$('qS').addEventListener('change', e => { st.q = e.target.value; st.root = 0; prefillQ(); build(); render(); });
+$('qN').addEventListener('input', () => { const x = num($('qN')); if (x == null) return; st.qv = x; st.root = 0; stop(); render(); });
+document.querySelectorAll('[data-case]').forEach(b => b.addEventListener('click', () => {
+  st.kase = +b.dataset.case;
+  if (st.kase === 1 && st.th <= 0) st.th = 40;
+  if (st.kase !== 1 && st.h <= 0) st.h = 30;
+  st.root = 0; stop(); st.t = 0; build(); render();
+}));
+[['tVec', 'vec'], ['tDots', 'dots'], ['tMarks', 'marks'], ['tSame', 'same']].forEach(([id, k]) => $(id).addEventListener('change', e => { st.show[k] = e.target.checked; draw(); }));
+$('tR').addEventListener('input', e => { st.t = +e.target.value; stop(); syncT(); draw(); });
+
+// animación
+let last = 0;
+function stop() { st.playing = false; }
+$('bPlay').addEventListener('click', () => {
+  if (st.playing) { st.playing = false; syncT(); return; }
+  if (st.t >= cur.M.T - 1e-9) st.t = 0;
+  st.playing = true; last = performance.now(); requestAnimationFrame(tick);
+});
+function tick(now) {
+  if (!st.playing) return;
+  const T = cur.M.T, speed = T / Math.min(6, Math.max(2, T)); // entre 2 y 6 s de animación
+  st.t = Math.min(T, st.t + (now - last) / 1000 * speed); last = now;
+  if (st.t >= T) st.playing = false;
+  syncT(); draw();
+  if (st.playing) requestAnimationFrame(tick);
+}
+
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', draw);
+new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+build(); render(); resize();
+</script>
+</body>
+</html>
