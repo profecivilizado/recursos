@@ -78,6 +78,7 @@ button:hover{background:var(--btn-hover)}
 button:disabled{opacity:.45;cursor:default}
 button:focus-visible,input:focus-visible{outline:2px solid var(--p1);outline-offset:2px}
 button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.zlab{font-size:14px;color:var(--muted)}
 .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
 .seg button{flex:1;border:0;border-radius:0;white-space:nowrap}
 input[type=range]{accent-color:var(--ink);height:24px;width:100%}
@@ -134,7 +135,7 @@ input[type=range]:disabled{opacity:.4}
   <div class="sim" id="sim">
     <h3>Esquema del montaje (vista superior, no a escala)</h3>
     <div class="cw" id="diagWrap"><canvas id="diag" aria-label="Esquema del experimento de la doble rendija"></canvas></div>
-    <h3>Lo que se ve en la pantalla</h3>
+    <h3>Lo que se ve en la pantalla (posición en mm)</h3>
     <div class="cw" id="stripWrap"><canvas id="strip" aria-label="Franjas de interferencia en la pantalla"></canvas></div>
     <div class="cw" id="graphWrap"><canvas id="graph" aria-label="Intensidad frente a la posición en la pantalla"></canvas></div>
     <div class="bar">
@@ -143,7 +144,8 @@ input[type=range]:disabled{opacity:.4}
       <button id="bNext">Máximo siguiente ▶</button>
       <button id="bMin">P al mínimo más cercano</button>
       <span class="grow"></span>
-      <div class="seg" role="group" aria-label="Zona visible de la pantalla">
+      <span class="zlab">Pantalla visible:</span>
+      <div class="seg" role="group" aria-label="Ancho de pantalla visible" title="Cuánta pantalla se ve a cada lado del centro: más mm = más franjas, pero más pequeñas">
         <button data-zoom="10">±10 mm</button><button data-zoom="25">±25 mm</button><button data-zoom="50">±50 mm</button>
       </div>
       <button id="bFull" title="Pantalla completa para proyectar">⛶</button>

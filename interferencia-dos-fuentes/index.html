@@ -89,6 +89,8 @@ input[type=range]{accent-color:var(--ink);height:24px;width:100%}
 .readouts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media (max-width:760px){.readouts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ro{border-top:1px solid var(--line);padding-top:10px;min-width:0}
+.readouts.off .ro{opacity:.35}
+.pnote{grid-column:1/-1;margin:0;font-size:14px;color:var(--muted)}
 .ro.wide{grid-column:1/-1}
 .ro .k{font:600 11px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .ro .v{font:15px/1.4 var(--f-mono);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
@@ -135,7 +137,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <span class="fr-only dot-only"><b class="cr">●</b> Cresta con cresta o valle con valle</span><span class="fr-only dot-only">○ Cresta con valle</span>
       <span class="cr"><i class="sw"></i>Antinodal (constructiva)</span>
       <span><i class="sw d"></i>Nodal (destructiva)</span>
-      <span>◎ P (arrástralo)</span>
+      <span>◎ P (en pausa, arrástralo)</span>
     </div>
     <div id="fieldWrap"><canvas id="field" aria-label="Cubeta de ondas con dos fuentes"></canvas></div>
     <div class="bar">
@@ -154,6 +156,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <div class="ro"><div class="k">S₂P</div><div class="v big c2" id="r2"></div></div>
       <div class="ro"><div class="k">Diferencia de camino Δr</div><div class="v big" id="dr"></div></div>
       <div class="ro"><div class="k">Amplitud en P</div><div class="v big cr" id="amp"></div></div>
+      <p class="pnote" id="pNote" hidden>P solo aparece en pausa: pulsa ⏸ Pausa (o toca la cubeta) para colocar P y ver el resultado.</p>
       <div class="ro wide"><div class="k">Resultado en P</div><div class="v"><span class="chip" id="verdict"></span> <span id="why"></span></div></div>
     </div>
   </div>
@@ -198,7 +201,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       </div>
       <p>Uniendo todos los puntos con la misma Δr se obtienen hipérbolas: las líneas antinodales (máxima amplitud, 2A) y las nodales (amplitud cero). Si las fuentes están en oposición de fase, las condiciones se intercambian.</p>
       <p class="note">Ejemplo resuelto: dos fuentes en fase emiten ondas de λ = 3,0 m. P está a 12,0 m de una y a 16,5 m de la otra. Δr = 16,5 − 12,0 = 4,5 m = 1,5λ, luego en P la interferencia es destructiva. Pulsa «Ejemplo resuelto» para verlo.</p>
-      <p class="note">Atajos: <kbd>espacio</kbd> pausa · pulsa o arrastra en la cubeta para mover P.</p>
+      <p class="note">Atajos: <kbd>espacio</kbd> pausa · pulsa o arrastra en la cubeta para mover P (la animación se pausa).</p>
     </section>
   </div>
 </div>
@@ -399,7 +402,7 @@ function draw() {
     ctx.fillStyle = onDark ? 'rgba(6,14,34,.8)' : C.panel; ctx.fillRect(lx, ly, tw + 8, 20);
     ctx.fillStyle = onDark ? '#fff' : col; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, lx + 4, ly + 10);
   };
-  seg(s1, C.p1, 'S₁P', -1); seg(s2, C.p2, 'S₂P', 1);
+  if (!st.playing) { seg(s1, C.p1, 'S₁P', -1); seg(s2, C.p2, 'S₂P', 1); }
   // fuentes
   const src = (s, col, lab, dy) => {
     ctx.beginPath(); ctx.arc(X(s.x), Y(s.y), 7, 0, 7); ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke();
@@ -407,11 +410,13 @@ function draw() {
     ctx.fillStyle = onDark ? '#fff' : col; ctx.fillText(lab, X(s.x) - 12, Y(s.y) + dy);
   };
   src(s1, C.p1, 'S₁', 0); src(s2, C.p2, 'S₂', 0);
-  // punto P
+  // punto P (solo en pausa: P está quieto y la onda no)
+  if (!st.playing) {
   ctx.beginPath(); ctx.arc(X(P.x), Y(P.y), 9, 0, 7); ctx.lineWidth = 3; ctx.strokeStyle = onDark ? '#fff' : C.ink; ctx.stroke();
   ctx.beginPath(); ctx.arc(X(P.x), Y(P.y), 3.5, 0, 7); ctx.fillStyle = C.res; ctx.fill();
   ctx.font = mono(14, 600); ctx.fillStyle = onDark ? '#fff' : C.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
   ctx.fillText('P', X(P.x) + 11, Y(P.y) - 6);
+  }
   // escala
   ctx.font = mono(11); ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillStyle = onDark ? '#fff' : C.muted;
   const bx = fx + 10, by = fy + fh - 10;
@@ -462,6 +467,7 @@ function sync() {
   $('lam').value = st.lam; $('sep').value = st.d;
   $('oLam').textContent = fmt(st.lam) + ' m'; $('oSep').textContent = `${fmt(st.d)} m = ${fmt(st.d / st.lam, 2)}λ`;
   $('bPlay').textContent = st.playing ? '⏸ Pausa' : '▶ Reproducir';
+  $('pNote').hidden = !st.playing; document.querySelector('.readouts').classList.toggle('off', st.playing);
   $('bSlow').setAttribute('aria-pressed', st.slow);
   document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === st.mode));
   $('legend').classList.toggle('nofr', st.mode !== 'fronts');
@@ -502,14 +508,14 @@ $('dots').addEventListener('change', e => { st.dots = e.target.checked; sync(); 
 $('snap').addEventListener('change', e => { st.snap = e.target.checked; snapP(); sync(); });
 $('bPlay').addEventListener('click', () => { st.playing = !st.playing; sync(); });
 $('bSlow').addEventListener('click', () => { st.slow = !st.slow; sync(); });
-$('pEx').addEventListener('click', () => { st.lam = 3; st.d = 8; st.anti = false; placeExample(); geom(); });
-$('pAxis').addEventListener('click', () => { st.P = { x: 24, y: 0 }; snapP(); sync(); });
+$('pEx').addEventListener('click', () => { st.playing = false; st.lam = 3; st.d = 8; st.anti = false; placeExample(); geom(); });
+$('pAxis').addEventListener('click', () => { st.playing = false; st.P = { x: 24, y: 0 }; snapP(); sync(); });
 $('pNear').addEventListener('click', () => { st.d = Math.round(st.lam * 2) / 2; geom(); });
 $('pFar').addEventListener('click', () => { st.d = Math.min(14, Math.round(st.lam * 4 * 2) / 2); geom(); });
 
 let drag = false;
 const setP = e => { const r = cv.getBoundingClientRect(); st.P = toWorld(e.clientX - r.left, e.clientY - r.top); clampP(); snapP(); };
-cv.addEventListener('pointerdown', e => { drag = true; cv.setPointerCapture(e.pointerId); setP(e); });
+cv.addEventListener('pointerdown', e => { if (st.playing) { st.playing = false; sync(); } drag = true; cv.setPointerCapture(e.pointerId); setP(e); });
 cv.addEventListener('pointermove', e => { if (drag) setP(e); });
 cv.addEventListener('pointerup', () => { drag = false; });
 cv.addEventListener('pointercancel', () => { drag = false; });
