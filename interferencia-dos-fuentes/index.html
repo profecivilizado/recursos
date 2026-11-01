@@ -156,7 +156,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <div class="ro"><div class="k">S₂P</div><div class="v big c2" id="r2"></div></div>
       <div class="ro"><div class="k">Diferencia de camino Δr</div><div class="v big" id="dr"></div></div>
       <div class="ro"><div class="k">Amplitud en P</div><div class="v big cr" id="amp"></div></div>
-      <p class="pnote" id="pNote" hidden>P solo aparece en pausa: pulsa ⏸ Pausa (o toca la cubeta) para colocar P y ver el resultado.</p>
+      <p class="pnote" id="pNote" hidden>P solo aparece en pausa: pulsa ⏸ Pausa (o toca la cubeta) para colocar P y ver el resultado. Al pausar, la onda termina su ciclo para que P quede sobre las crestas.</p>
       <div class="ro wide"><div class="k">Resultado en P</div><div class="v"><span class="chip" id="verdict"></span> <span id="why"></span></div></div>
     </div>
   </div>
@@ -181,7 +181,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
       <label class="check"><input type="checkbox" id="valleys"> Dibujar también los valles (líneas discontinuas)</label>
       <label class="check"><input type="checkbox" id="dots"> Marcar los cruces de crestas y valles</label>
       <label class="check"><input type="checkbox" id="snap" checked> P solo en cruces de crestas y valles</label>
-      <p class="note">Con esta opción, P salta al cruce más cercano, así que siempre cae en una interferencia constructiva o destructiva.</p>
+      <p class="note">Con esta opción, P salta al cruce más cercano de los frentes dibujados. Solo con crestas, P cae en cruces cresta-cresta; activa los valles para poder ponerlo también donde una cresta se cruza con un valle.</p>
       <div class="presets">
         <button id="pEx">Ejemplo resuelto</button>
         <button id="pAxis">P en el eje central</button>
@@ -402,7 +402,7 @@ function draw() {
     ctx.fillStyle = onDark ? 'rgba(6,14,34,.8)' : C.panel; ctx.fillRect(lx, ly, tw + 8, 20);
     ctx.fillStyle = onDark ? '#fff' : col; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(txt, lx + 4, ly + 10);
   };
-  if (!st.playing) { seg(s1, C.p1, 'S₁P', -1); seg(s2, C.p2, 'S₂P', 1); }
+  if (showP()) { seg(s1, C.p1, 'S₁P', -1); seg(s2, C.p2, 'S₂P', 1); }
   // fuentes
   const src = (s, col, lab, dy) => {
     ctx.beginPath(); ctx.arc(X(s.x), Y(s.y), 7, 0, 7); ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#fff'; ctx.stroke();
@@ -411,7 +411,7 @@ function draw() {
   };
   src(s1, C.p1, 'S₁', 0); src(s2, C.p2, 'S₂', 0);
   // punto P (solo en pausa: P está quieto y la onda no)
-  if (!st.playing) {
+  if (showP()) {
   ctx.beginPath(); ctx.arc(X(P.x), Y(P.y), 9, 0, 7); ctx.lineWidth = 3; ctx.strokeStyle = onDark ? '#fff' : C.ink; ctx.stroke();
   ctx.beginPath(); ctx.arc(X(P.x), Y(P.y), 3.5, 0, 7); ctx.fillStyle = C.res; ctx.fill();
   ctx.font = mono(14, 600); ctx.fillStyle = onDark ? '#fff' : C.ink; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
@@ -467,7 +467,7 @@ function sync() {
   $('lam').value = st.lam; $('sep').value = st.d;
   $('oLam').textContent = fmt(st.lam) + ' m'; $('oSep').textContent = `${fmt(st.d)} m = ${fmt(st.d / st.lam, 2)}λ`;
   $('bPlay').textContent = st.playing ? '⏸ Pausa' : '▶ Reproducir';
-  $('pNote').hidden = !st.playing; document.querySelector('.readouts').classList.toggle('off', st.playing);
+  $('pNote').hidden = showP(); document.querySelector('.readouts').classList.toggle('off', !showP());
   $('bSlow').setAttribute('aria-pressed', st.slow);
   document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === st.mode));
   $('legend').classList.toggle('nofr', st.mode !== 'fronts');
@@ -477,15 +477,15 @@ function sync() {
   document.querySelectorAll('[data-phase]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.phase === '1') === st.anti));
   $('lines').checked = st.lines;
 }
-// Cruces fijos: puntos a k·λ/2 de S₁ y j·λ/2 de S₂ (crestas y valles en t = 0)
+// Cruces fijos de los frentes visibles en t = 0: solo crestas (cada λ) o crestas y valles (cada λ/2)
 function snapP() {
   if (!st.snap) return;
-  const s1 = S1(), s2 = S2(), h = st.lam / 2, dd = dist(s1, s2), ex = (s2.x - s1.x) / dd, ey = (s2.y - s1.y) / dd;
+  const s1 = S1(), s2 = S2(), h = st.valleys ? st.lam / 2 : st.lam, off2 = !st.valleys && st.anti ? st.lam / 2 : 0, dd = dist(s1, s2), ex = (s2.x - s1.x) / dd, ey = (s2.y - s1.y) / dd;
   const r1 = dist(s1, st.P), r2 = dist(s2, st.P);
   let best = null, bd = Infinity;
-  const k0 = Math.round(r1 / h), j0 = Math.round(r2 / h);
+  const k0 = Math.round(r1 / h), j0 = Math.round((r2 - off2) / h);
   for (let k = Math.max(1, k0 - 4); k <= k0 + 4; k++) for (let j = Math.max(1, j0 - 4); j <= j0 + 4; j++) {
-    const a = k * h, b = j * h, x = (a * a - b * b + dd * dd) / (2 * dd), h2 = a * a - x * x;
+    const a = k * h, b = j * h + off2, x = (a * a - b * b + dd * dd) / (2 * dd), h2 = a * a - x * x;
     if (h2 < 0) continue;
     for (const sg of [1, -1]) {
       const px = s1.x + x * ex - sg * Math.sqrt(h2) * ey, py = s1.y + x * ey + sg * Math.sqrt(h2) * ex;
@@ -496,6 +496,10 @@ function snapP() {
   }
   if (best) st.P = best;
 }
+// Al pausar, la onda avanza hasta completar el periodo: así las crestas vuelven a la posición
+// de t = 0 y P (que está en un cruce de t = 0) queda justo sobre los frentes dibujados.
+const showP = () => !st.playing && st.target == null;
+function pause() { if (st.playing) { st.playing = false; st.target = Math.ceil(st.t / T - 1e-9) * T; } sync(); }
 const geom = () => { gridDirty = true; snapP(); sync(); };
 const clampP = () => { st.P.x = Math.min(WX1 - .3, Math.max(WX0 + .3, st.P.x)); st.P.y = Math.min(WY1 - .3, Math.max(WY0 + .3, st.P.y)); };
 $('lam').addEventListener('input', e => { st.lam = +e.target.value; geom(); });
@@ -503,19 +507,19 @@ $('sep').addEventListener('input', e => { st.d = +e.target.value; geom(); });
 document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => { st.mode = b.dataset.mode; ampDirty = true; sync(); }));
 document.querySelectorAll('[data-phase]').forEach(b => b.addEventListener('click', () => { st.anti = b.dataset.phase === '1'; ampDirty = true; sync(); }));
 $('lines').addEventListener('change', e => { st.lines = e.target.checked; });
-$('valleys').addEventListener('change', e => { st.valleys = e.target.checked; sync(); });
+$('valleys').addEventListener('change', e => { st.valleys = e.target.checked; snapP(); sync(); });
 $('dots').addEventListener('change', e => { st.dots = e.target.checked; sync(); });
 $('snap').addEventListener('change', e => { st.snap = e.target.checked; snapP(); sync(); });
-$('bPlay').addEventListener('click', () => { st.playing = !st.playing; sync(); });
+$('bPlay').addEventListener('click', () => { if (st.playing) pause(); else { st.target = null; st.playing = true; sync(); } });
 $('bSlow').addEventListener('click', () => { st.slow = !st.slow; sync(); });
-$('pEx').addEventListener('click', () => { st.playing = false; st.lam = 3; st.d = 8; st.anti = false; placeExample(); geom(); });
-$('pAxis').addEventListener('click', () => { st.playing = false; st.P = { x: 24, y: 0 }; snapP(); sync(); });
+$('pEx').addEventListener('click', () => { pause(); st.valleys = true; st.lam = 3; st.d = 8; st.anti = false; placeExample(); geom(); });
+$('pAxis').addEventListener('click', () => { pause(); st.P = { x: 24, y: 0 }; snapP(); sync(); });
 $('pNear').addEventListener('click', () => { st.d = Math.round(st.lam * 2) / 2; geom(); });
 $('pFar').addEventListener('click', () => { st.d = Math.min(14, Math.round(st.lam * 4 * 2) / 2); geom(); });
 
 let drag = false;
 const setP = e => { const r = cv.getBoundingClientRect(); st.P = toWorld(e.clientX - r.left, e.clientY - r.top); clampP(); snapP(); };
-cv.addEventListener('pointerdown', e => { if (st.playing) { st.playing = false; sync(); } drag = true; cv.setPointerCapture(e.pointerId); setP(e); });
+cv.addEventListener('pointerdown', e => { if (st.playing) pause(); drag = true; cv.setPointerCapture(e.pointerId); setP(e); });
 cv.addEventListener('pointermove', e => { if (drag) setP(e); });
 cv.addEventListener('pointerup', () => { drag = false; });
 cv.addEventListener('pointercancel', () => { drag = false; });
@@ -534,10 +538,11 @@ let last = performance.now();
 function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000); last = now;
   if (st.playing) st.t += dt * (st.slow ? 0.25 : 1);
+  else if (st.target != null) { st.t = Math.min(st.target, st.t + dt * 2.5); if (st.t >= st.target) { st.t = st.target; st.target = null; sync(); } }
   if (W > 0 && YW > 0) { draw(); readouts(); }
   requestAnimationFrame(frame);
 }
-placeExample(); sync(); resize(); requestAnimationFrame(frame);
+placeExample(); snapP(); sync(); resize(); requestAnimationFrame(frame);
 </script>
 </body>
 </html>
