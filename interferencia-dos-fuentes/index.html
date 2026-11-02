@@ -165,7 +165,7 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
     <div class="card">
       <h2>Desplazamiento en P frente al tiempo</h2>
       <div id="ytWrap"><canvas id="yt" aria-label="Gráfica desplazamiento-tiempo en P"></canvas></div>
-      <p class="note"><span class="c1">— — onda de S₁</span> · <span class="c2">— — onda de S₂</span> · <span class="cr">——— suma en P</span>. Compara con la figura 14.32: en fase se refuerzan, en oposición se anulan.</p>
+      <p class="note"><span class="c1">— — onda de S₁</span> · <span class="c2">— — onda de S₂</span> (cuando coinciden, los trazos se alternan) · <span class="cr">——— suma en P</span>. Compara con la figura 14.32: en fase se refuerzan, en oposición se anulan.</p>
     </div>
     <div class="card">
       <h2>Fuentes</h2>
@@ -436,13 +436,14 @@ function drawYT(C, wt) {
   yctx.textAlign = 'right'; yctx.textBaseline = 'top'; yctx.fillText('tiempo →', R, bot + 5);
   const k = 2 * Math.PI / st.lam, r1 = dist(S1(), st.P), r2 = dist(S2(), st.P), p = phi();
   const span = 2 * 2 * Math.PI; // dos periodos visibles, desplazándose
-  const curve = (f, col, w, dash) => {
+  const curve = (f, col, w, dash, off = 0) => {
     yctx.beginPath();
     for (let i = 0; i <= 240; i++) { const x = L + i / 240 * (R - L), ph = wt - span + i / 240 * span; const y = mid - f(ph) * A; i ? yctx.lineTo(x, y) : yctx.moveTo(x, y); }
-    yctx.strokeStyle = col; yctx.lineWidth = w; yctx.setLineDash(dash || []); yctx.stroke(); yctx.setLineDash([]);
+    yctx.strokeStyle = col; yctx.lineWidth = w; yctx.setLineDash(dash || []); yctx.lineDashOffset = off; yctx.stroke(); yctx.lineDashOffset = 0; yctx.setLineDash([]);
   };
-  curve(ph => Math.cos(ph - k * r1), C.p1, 1.8, [6, 4]);
-  curve(ph => Math.cos(ph - k * r2 + p), C.p2, 1.8, [6, 4]);
+  // trazos alternos: si las dos ondas coinciden, se ven las dos (azul-verde-azul…)
+  curve(ph => Math.cos(ph - k * r1), C.p1, 2.6, [14, 14]);
+  curve(ph => Math.cos(ph - k * r2 + p), C.p2, 2.6, [14, 14], 14);
   curve(ph => Math.cos(ph - k * r1) + Math.cos(ph - k * r2 + p), C.res, 3);
 }
 
