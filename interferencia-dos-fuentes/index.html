@@ -536,7 +536,7 @@ document.addEventListener('fullscreenchange', resize);
 
 let last = performance.now();
 function frame(now) {
-  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  now = performance.now(); const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now;
   if (st.playing) st.t += dt * (st.slow ? 0.25 : 1);
   else if (st.target != null) { st.t = Math.min(st.target, st.t + dt * 2.5); if (st.t >= st.target) { st.t = st.target; st.target = null; sync(); } }
   if (W > 0 && YW > 0) { draw(); readouts(); }

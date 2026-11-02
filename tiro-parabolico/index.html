@@ -592,7 +592,8 @@ $('bPlay').addEventListener('click', () => {
 function tick(now) {
   if (!st.playing) return;
   const T = cur.M.T, speed = T / Math.min(6, Math.max(2, T)); // entre 2 y 6 s de animación
-  st.t = Math.min(T, st.t + (now - last) / 1000 * speed); last = now;
+  now = performance.now(); const dt = Math.max(0, Math.min(0.1, (now - last) / 1000)); last = now;
+  st.t = Math.max(0, Math.min(T, st.t + dt * speed));
   if (st.t >= T) st.playing = false;
   syncT(); draw();
   if (st.playing) requestAnimationFrame(tick);
