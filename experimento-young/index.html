@@ -103,9 +103,9 @@ input[type=range]:disabled{opacity:.4}
 .field .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px}
 .field output{font:600 14px var(--f-mono);font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:6px}
 .swatch{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid var(--line)}
-#lam{background:linear-gradient(90deg,#7600ed,#2800ff,#00a6ff,#00ff5e,#c8ff00,#ffbf00,#ff2a00,#c80000);border-radius:999px;height:8px;appearance:none;-webkit-appearance:none;margin:10px 0}
-#lam::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--panel);border:3px solid var(--ink);cursor:pointer}
-#lam::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--panel);border:3px solid var(--ink);cursor:pointer}
+#lam,#lam2{background:linear-gradient(90deg,#7600ed,#2800ff,#00a6ff,#00ff5e,#c8ff00,#ffbf00,#ff2a00,#c80000);border-radius:999px;height:8px;appearance:none;-webkit-appearance:none;margin:10px 0}
+#lam::-webkit-slider-thumb,#lam2::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--panel);border:3px solid var(--ink);cursor:pointer}
+#lam::-moz-range-thumb,#lam2::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--panel);border:3px solid var(--ink);cursor:pointer}
 .row{display:flex;flex-wrap:wrap;gap:8px}
 .note{font-size:13px;color:var(--muted);margin:0}
 .check{display:flex;align-items:center;gap:9px;font-size:15px;cursor:pointer}
@@ -129,7 +129,7 @@ input[type=range]:disabled{opacity:.4}
   <header>
     <div class="eyebrow">Ondas · Interferencia de la luz</div>
     <h1>Experimento de Young <span class="eq">s = λD/d</span></h1>
-    <p>La luz de un láser pasa por dos rendijas muy juntas y forma franjas en una pantalla lejana. Mueve el punto P por la pantalla y mira cómo cambia la diferencia de camino d sin θ.</p>
+    <p>La luz de un láser (o de dos, de colores distintos) pasa por dos rendijas muy juntas y forma franjas en una pantalla lejana. Mueve el punto P por la pantalla y mira cómo cambia la diferencia de camino d sin θ.</p>
   </header>
 
   <div class="sim" id="sim">
@@ -146,7 +146,7 @@ input[type=range]:disabled{opacity:.4}
       <span class="grow"></span>
       <span class="zlab">Pantalla visible:</span>
       <div class="seg" role="group" aria-label="Ancho de pantalla visible" title="Cuánta pantalla se ve a cada lado del centro: más mm = más franjas, pero más pequeñas">
-        <button data-zoom="10">±10 mm</button><button data-zoom="25">±25 mm</button><button data-zoom="50">±50 mm</button>
+        <button data-zoom="10">±10 mm</button><button data-zoom="25">±25 mm</button><button data-zoom="50">±50 mm</button><button data-zoom="100">±100 mm</button>
       </div>
       <button id="bFull" title="Pantalla completa para proyectar">⛶</button>
     </div>
@@ -161,18 +161,23 @@ input[type=range]:disabled{opacity:.4}
   <div class="controls">
     <div class="card">
       <h2>Luz</h2>
-      <div class="field"><div class="top"><label for="lam">Longitud de onda λ</label><output id="oLam"></output></div>
+      <div class="field"><div class="top"><label for="lam" id="lamLab">Longitud de onda λ</label><output id="oLam"></output></div>
         <input type="range" id="lam" min="380" max="750" step="1" value="650"></div>
       <div class="row">
         <button data-wl="650">Rojo 650 nm</button><button data-wl="532">Verde 532 nm</button><button data-wl="405">Violeta 405 nm</button>
         <button id="bWhite" aria-pressed="false">Luz blanca</button>
+        <button id="bTwo" aria-pressed="false">Dos colores</button>
       </div>
+      <div class="field" id="f2" hidden><div class="top"><label for="lam2">Segunda longitud de onda λ₂</label><output id="oLam2"></output></div>
+        <input type="range" id="lam2" min="380" max="750" step="1" value="675"></div>
+      <div class="row" id="r2" hidden><button id="bRatio">λ₂ = 1,5 λ₁</button><button id="bQ">Pregunta: azul λ y rojo 1,5 λ (d = 60 µm, D = 2,5 m)</button></div>
+      <p class="note" id="twoNote" hidden>Cada color forma su propio patrón de franjas, con su propia separación. Donde coinciden un máximo de cada color, los colores se suman (rojo + azul = magenta). Con λ₂ = 1,5 λ₁, cada 3 franjas de λ₁ coinciden con 2 de λ₂.</p>
       <p class="note" id="whiteNote" hidden>Con luz blanca cada color forma su propio patrón. Las lecturas usan λ = 550 nm.</p>
     </div>
     <div class="card">
       <h2>Rendijas y pantalla</h2>
       <div class="field"><div class="top"><label for="dd">Separación entre rendijas d</label><output id="oD"></output></div>
-        <input type="range" id="dd" min="0.10" max="1.00" step="0.01" value="0.25"></div>
+        <input type="range" id="dd" min="0.05" max="1.00" step="0.01" value="0.25"></div>
       <div class="field"><div class="top"><label for="DD">Distancia a la pantalla D</label><output id="oDD"></output></div>
         <input type="range" id="DD" min="0.5" max="5" step="0.1" value="2"></div>
       <label class="check"><input type="checkbox" id="env"> Tener en cuenta la anchura de cada rendija</label>
@@ -209,7 +214,7 @@ input[type=range]:disabled{opacity:.4}
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
-const st = { lam: 650, white: false, d: 0.25, D: 2, env: false, b: 0.06, zoom: 25, y: 0, chal: false, secret: 0 };
+const st = { lam: 650, lam2: 675, two: false, white: false, d: 0.25, D: 2, env: false, b: 0.06, zoom: 25, y: 0, chal: false, secret: 0 };
 const fmt = (n, k = 1) => (n < 0 ? '−' : '') + Math.abs(n).toFixed(k).replace('.', ',');
 const lamEff = () => st.chal ? st.secret : st.white ? 550 : st.lam;
 
@@ -237,6 +242,7 @@ const css = c => `rgb(${c.map(v => Math.round(255 * Math.pow(Math.max(0, Math.mi
 const WHITE = []; for (let w = 400; w <= 700; w += 10) WHITE.push([w, wlRGB(w)]);
 const WN = WHITE.reduce((a, [, c]) => [a[0] + c[0], a[1] + c[1], a[2] + c[2]], [0, 0, 0]);
 function colourAt(ymm) {
+  if (st.two && !st.chal) { const a = wlRGB(st.lam), b = wlRGB(st.lam2), I1 = intensity(ymm, st.lam), I2 = intensity(ymm, st.lam2); return [a[0] * I1 + b[0] * I2, a[1] * I1 + b[1] * I2, a[2] * I1 + b[2] * I2]; }
   if (!st.white) { const c = wlRGB(lamEff()), I = intensity(ymm, lamEff()); return [c[0] * I, c[1] * I, c[2] * I]; }
   let r = 0, g = 0, b = 0;
   for (const [w, c] of WHITE) { const I = intensity(ymm, w); r += c[0] * I; g += c[1] * I; b += c[2] * I; }
@@ -273,12 +279,14 @@ function drawDiagram(C) {
   // láser
   dx.fillStyle = C.ink; dx.fillRect(14, cy - 16, 66, 32);
   dx.fillStyle = C.panel; dx.font = mono(11, 600); dx.textAlign = 'center'; dx.textBaseline = 'middle';
-  dx.fillText(st.white ? 'LÁMPARA' : 'LÁSER', 47, cy);
+  dx.fillText(st.white ? 'LÁMPARA' : st.two && !st.chal ? '2 LÁSERES' : 'LÁSER', 47, cy);
   dx.fillStyle = C.muted; dx.font = mono(11); dx.textBaseline = 'top';
-  dx.fillText(st.chal ? 'λ = ?' : st.white ? 'luz blanca' : `λ = ${lam} nm`, 47, cy + 22);
+  if (st.two && !st.chal) { dx.fillText(`λ₁ = ${st.lam} nm`, 47, cy + 22); dx.fillText(`λ₂ = ${st.lam2} nm`, 47, cy + 36); }
+  else dx.fillText(st.chal ? 'λ = ?' : st.white ? 'luz blanca' : `λ = ${lam} nm`, 47, cy + 22);
   // frentes de onda planos
   dx.strokeStyle = st.white ? C.muted : lc; dx.lineWidth = 2;
-  for (let x = 92; x < xb - 6; x += 11) { dx.beginPath(); dx.moveTo(x, cy - dd / 2 - 18); dx.lineTo(x, cy + dd / 2 + 18); dx.stroke(); }
+  const lc2 = css(wlRGB(st.lam2));
+  for (let x = 92, k = 0; x < xb - 6; x += 11, k++) { if (st.two && !st.chal) dx.strokeStyle = k % 2 ? lc2 : lc; dx.beginPath(); dx.moveTo(x, cy - dd / 2 - 18); dx.lineTo(x, cy + dd / 2 + 18); dx.stroke(); }
   // barrera con dos rendijas
   dx.strokeStyle = C.ink; dx.lineWidth = 5; dx.beginPath();
   dx.moveTo(xb, 10); dx.lineTo(xb, s1.y - g);
@@ -339,7 +347,7 @@ function drawStrip(C) {
   const W = SW, H = SH, top = 26, h = H - top - 6;
   sx.clearRect(0, 0, W, H); sx.fillStyle = C.panel; sx.fillRect(0, 0, W, H);
   // franjas (con supermuestreo para evitar moiré)
-  const key = [W, st.lam, st.white, st.d, st.D, st.env, st.b, st.zoom, st.chal, st.secret].join();
+  const key = [W, st.lam, st.lam2, st.two, st.white, st.d, st.D, st.env, st.b, st.zoom, st.chal, st.secret].join();
   if (key !== stripKey) {
     const dpr = devicePixelRatio || 1, n = Math.round((W - PL - PR) * dpr);
     stripImg = document.createElement('canvas'); stripImg.width = n; stripImg.height = 1;
@@ -355,7 +363,7 @@ function drawStrip(C) {
   sx.fillStyle = C.room; sx.fillRect(PL, top, W - PL - PR, h);
   sx.imageSmoothingEnabled = false; sx.drawImage(stripImg, PL, top, W - PL - PR, h);
   // regla en mm
-  const pxmm = (W - PL - PR) / (2 * st.zoom), lab = st.zoom === 10 ? 2 : st.zoom === 25 ? 5 : 10;
+  const pxmm = (W - PL - PR) / (2 * st.zoom), lab = st.zoom === 10 ? 2 : st.zoom === 25 ? 5 : st.zoom === 50 ? 10 : 20;
   sx.strokeStyle = C.muted; sx.lineWidth = 1; sx.beginPath();
   for (let m = -st.zoom; m <= st.zoom; m++) {
     if (pxmm < 3 && m % 5) continue;
@@ -391,6 +399,10 @@ function drawGraph(C) {
     else { gx.strokeStyle = col; gx.lineWidth = w; gx.setLineDash(envOnly ? [5, 4] : []); gx.stroke(); gx.setLineDash([]); }
   };
   if (st.white) { for (const w of [450, 550, 650]) curve(w, css(wlRGB(w)), 1.8); }
+  else if (st.two && !st.chal) {
+    for (const w of [st.lam, st.lam2]) { const c = wlRGB(w); curve(w, null, 0, `rgba(${c.map(v => Math.round(255 * v)).join(',')},.18)`); }
+    for (const w of [st.lam, st.lam2]) curve(w, css(wlRGB(w)), 2.2);
+  }
   else {
     const c = wlRGB(lamEff());
     curve(lamEff(), null, 0, `rgba(${c.map(v => Math.round(255 * v)).join(',')},.28)`);
@@ -399,7 +411,7 @@ function drawGraph(C) {
   }
   // órdenes de los máximos
   const lam = lamEff(), s = spacing(lam), pxs = s / (2 * st.zoom) * (R - L);
-  if (!st.chal && pxs > 26) {
+  if (!st.chal && !st.two && pxs > 26) {
     gx.font = mono(10, 600); gx.fillStyle = C.muted; gx.textAlign = 'center'; gx.textBaseline = 'top';
     for (let n = -60; n <= 60; n++) {
       const sn = n * lam * 1e-9 / (st.d * 1e-3); if (Math.abs(sn) >= 1) continue;
@@ -409,10 +421,25 @@ function drawGraph(C) {
   }
   gx.fillStyle = C.muted; gx.font = mono(10); gx.textAlign = 'left'; gx.textBaseline = 'top'; gx.fillText('I / I máx', L + 2, 2);
   const x = SX(st.y); gx.strokeStyle = C.res; gx.lineWidth = 1.5; gx.beginPath(); gx.moveTo(x, top - 4); gx.lineTo(x, bot); gx.stroke();
-  gx.beginPath(); gx.arc(x, Y(intensity(st.y, lam)), 4.5, 0, 7); gx.fillStyle = C.res; gx.fill();
+  for (const w of st.two && !st.chal ? [st.lam, st.lam2] : [lam]) { gx.beginPath(); gx.arc(x, Y(intensity(st.y, w)), 4.5, 0, 7); gx.fillStyle = st.two && !st.chal ? css(wlRGB(w)) : C.res; gx.fill(); }
 }
 
+function colName(w) { return w < 450 ? 'violeta' : w < 495 ? 'azul' : w < 570 ? 'verde' : w < 590 ? 'amarillo' : w < 620 ? 'naranja' : 'rojo'; }
+function readoutsTwo() {
+  const th = Math.atan(st.y / 1000 / st.D), ds = st.d * 1e-3 * Math.sin(th) * 1e9, L = [[st.lam, '₁'], [st.lam2, '₂']];
+  $('sOut').innerHTML = L.map(([w, i]) => `s${i} = ${fmt(spacing(w), 2)} mm`).join('<br>');
+  $('pOut').innerHTML = `y = ${fmt(st.y, 2)} mm · θ = ${fmt(th * 180 / Math.PI, 3)}°`;
+  $('dOut').innerHTML = `d sin θ = ${fmt(ds, 0)} nm<br>` + L.map(([w, i]) => `= <span class="cr">${fmt(ds / w, 2)}λ${i}</span>`).join('<br>');
+  const kind = w => { const m = ds / w; return Math.abs(m - Math.round(m)) < .05 ? 'b' : Math.abs(m - Math.floor(m) - .5) < .05 ? 'd' : 'i'; };
+  const k1 = kind(st.lam), k2 = kind(st.lam2), n1 = colName(st.lam), n2 = colName(st.lam2), v = $('verdict'), why = $('why');
+  if (k1 === 'b' && k2 === 'b') { v.textContent = `Máximo de los dos colores`; v.className = 'chip ok'; why.textContent = `d sin θ es un número entero de λ₁ y de λ₂: se ve la mezcla de ${n1} y ${n2}.`; }
+  else if (k1 === 'b') { v.textContent = `Solo ${n1}`; v.className = 'chip ok'; why.textContent = `Máximo de λ₁${k2 === 'd' ? ` y mínimo de λ₂: se ve ${n1} puro.` : '.'}`; }
+  else if (k2 === 'b') { v.textContent = `Solo ${n2}`; v.className = 'chip ok'; why.textContent = `Máximo de λ₂${k1 === 'd' ? ` y mínimo de λ₁: se ve ${n2} puro.` : '.'}`; }
+  else if (k1 === 'd' && k2 === 'd') { v.textContent = 'Oscuro'; v.className = 'chip warn'; why.textContent = 'Mínimo de los dos colores.'; }
+  else { v.textContent = 'Entre franjas'; v.className = 'chip'; why.textContent = `Intensidad: ${fmt(intensity(st.y, st.lam) * 100, 0)} % de λ₁ y ${fmt(intensity(st.y, st.lam2) * 100, 0)} % de λ₂.`; }
+}
 function readouts() {
+  if (st.two && !st.chal) return readoutsTwo();
   const lam = lamEff(), s = spacing(lam), th = Math.atan(st.y / 1000 / st.D), ds = st.d * 1e-3 * Math.sin(th) * 1e9, m = ds / lam;
   $('sOut').textContent = st.chal ? 's = ? (mídela)' : `s = λD/d = ${fmt(s, 2)} mm`;
   $('pOut').innerHTML = `y = ${fmt(st.y, 2)} mm · θ = ${fmt(th * 180 / Math.PI, 3)}°`;
@@ -438,8 +465,11 @@ function sync() {
   const c = st.chal ? null : wlRGB(st.lam);
   $('oLam').innerHTML = st.chal ? '? nm' : `<i class="swatch" style="background:${css(c)}"></i>${st.lam} nm`;
   $('lam').disabled = st.chal || st.white;
-  $('oD').textContent = fmt(st.d, 2) + ' mm'; $('oDD').textContent = fmt(st.D, 1) + ' m'; $('oB').textContent = fmt(st.b, 2) + ' mm';
+  $('oD').textContent = fmt(st.d, 2) + ' mm' + (st.d < .1 ? ` = ${fmt(st.d * 1000, 0)} µm` : ''); $('oDD').textContent = fmt(st.D, 1) + ' m'; $('oB').textContent = fmt(st.b, 2) + ' mm';
   $('bWhite').setAttribute('aria-pressed', st.white); $('whiteNote').hidden = !st.white;
+  $('bTwo').setAttribute('aria-pressed', st.two); $('bTwo').disabled = st.chal; ['f2', 'r2', 'twoNote'].forEach(id => $(id).hidden = !st.two || st.chal);
+  $('lamLab').textContent = st.two && !st.chal ? 'Primera longitud de onda λ₁' : 'Longitud de onda λ';
+  $('lam2').value = st.lam2; $('oLam2').innerHTML = `<i class="swatch" style="background:${css(wlRGB(st.lam2))}"></i>${st.lam2} nm`;
   document.querySelectorAll('[data-wl]').forEach(b => b.disabled = st.chal);
   $('bWhite').disabled = st.chal;
   document.querySelectorAll('[data-zoom]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.zoom === st.zoom));
@@ -448,7 +478,11 @@ function sync() {
 const clampY = () => { st.y = Math.max(-st.zoom, Math.min(st.zoom, st.y)); };
 $('lam').addEventListener('input', e => { st.lam = +e.target.value; sync(); });
 document.querySelectorAll('[data-wl]').forEach(b => b.addEventListener('click', () => { st.lam = +b.dataset.wl; st.white = false; sync(); }));
-$('bWhite').addEventListener('click', () => { st.white = !st.white; sync(); });
+$('bWhite').addEventListener('click', () => { st.white = !st.white; if (st.white) st.two = false; sync(); });
+$('bTwo').addEventListener('click', () => { st.two = !st.two; if (st.two) st.white = false; sync(); });
+$('lam2').addEventListener('input', e => { st.lam2 = +e.target.value; sync(); });
+$('bRatio').addEventListener('click', () => { st.lam2 = Math.min(750, Math.round(st.lam * 1.5)); if (st.lam * 1.5 > 750) st.lam = 500, st.lam2 = 750; sync(); });
+$('bQ').addEventListener('click', () => { Object.assign(st, { two: true, white: false, lam: 450, lam2: 675, d: 0.06, D: 2.5, zoom: 100, y: 0, env: false }); sync(); });
 $('dd').addEventListener('input', e => { st.d = +e.target.value; sync(); });
 $('DD').addEventListener('input', e => { st.D = +e.target.value; sync(); });
 $('bw').addEventListener('input', e => { st.b = +e.target.value; sync(); });
@@ -483,7 +517,7 @@ dragOn(dc, e => { const r = dc.getBoundingClientRect(), cy = DH / 2 - 6, half = 
 // reto
 $('bChal').addEventListener('click', () => {
   const opts = [445, 473, 488, 520, 543, 561, 594, 612, 633, 671, 690];
-  st.secret = opts[Math.floor(Math.random() * opts.length)]; st.chal = true; st.white = false; st.y = 0; st.env = false;
+  st.secret = opts[Math.floor(Math.random() * opts.length)]; st.chal = true; st.white = false; st.two = false; st.y = 0; st.env = false;
   $('guess').disabled = false; $('bCheck').disabled = false; $('bReveal').disabled = false; $('guess').value = '';
   $('bChal').textContent = 'Otro láser'; $('fb').textContent = 'Reto en marcha. Usa los botones de máximos y la regla de la pantalla.'; sync();
 });
