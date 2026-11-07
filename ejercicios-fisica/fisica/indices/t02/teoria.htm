@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/actualizar_indice.py a partir de las ayudas originales: no la edites a mano -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Teoría · Tema 2. Campo gravitatorio</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<style>
+.toc{columns:2 240px;margin:0 0 8px;padding:0 0 0 1.2em}
+.toc a{text-decoration:none}
+h2{font-size:1.15em;color:var(--accent);border-top:1px solid var(--line);padding-top:14px;margin:18px 0 4px}
+iframe.pc-teoria{display:block;width:100%;border:0;height:200px;background:transparent}
+</style>
+</head>
+<body onload="_pctop.indice='../../indices/t02/0.htm'">
+<div class="cab"><b>TEORÍA</b><span class="nuevo">Tema 2. Campo gravitatorio</span></div>
+<ol class="toc"><li><a href="#s1">Campo creado por una masa puntual</a></li><li><a href="#s2">Campo creado por una distribución</a></li><li><a href="#s3">Campo nulo</a></li><li><a href="#s4">Trabajo del campo</a></li><li><a href="#s5">Trabajo del campo cerca de un planeta</a></li><li><a href="#s6">Relación entre campo y potencial</a></li><li><a href="#s7">Satélite geoestacionario</a></li><li><a href="#s8">Movimientos de masas en campos</a></li><li><a href="#s9">Velocidad de escape</a></li></ol>
+<h2 id="s1">Campo creado por una masa puntual</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/campo/ayuda/1.htm" title="Campo creado por una masa puntual" scrolling="no"></iframe>
+<h2 id="s2">Campo creado por una distribución</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/campo/ayuda/2.htm" title="Campo creado por una distribución" scrolling="no"></iframe>
+<h2 id="s3">Campo nulo</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/campo/ayuda/3.htm" title="Campo nulo" scrolling="no"></iframe>
+<h2 id="s4">Trabajo del campo</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/trabajo/ayuda/1.htm" title="Trabajo del campo" scrolling="no"></iframe>
+<h2 id="s5">Trabajo del campo cerca de un planeta</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/trabajo/ayuda/2.htm" title="Trabajo del campo cerca de un planeta" scrolling="no"></iframe>
+<h2 id="s6">Relación entre campo y potencial</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/trabajo/ayuda/3.htm" title="Relación entre campo y potencial" scrolling="no"></iframe>
+<h2 id="s7">Satélite geoestacionario</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/ayuda/3.htm" title="Satélite geoestacionario" scrolling="no"></iframe>
+<h2 id="s8">Movimientos de masas en campos</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/movimientos/ayuda/1.htm" title="Movimientos de masas en campos" scrolling="no"></iframe>
+<h2 id="s9">Velocidad de escape</h2>
+<iframe class="pc-teoria" src="../../../fisica/gravitatorio/ayuda/2.htm" title="Velocidad de escape" scrolling="no"></iframe>
+<script>
+// el índice salta a la sección aunque la página esté dentro del visor (que es quien hace scroll)
+document.querySelectorAll('.toc a').forEach(a => a.onclick = e => {
+  e.preventDefault(); const h = document.querySelector(a.getAttribute('href'));
+  try { let y = h.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({top: y - 12, behavior: 'smooth'}); } catch (_) { h.scrollIntoView(); }
+});
+</script>
+</body>
+</html>

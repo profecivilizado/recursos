@@ -2,7 +2,8 @@
  "_ayuda": [
   "Menú de la colección «Física», ordenado como el temario de 2º de Bachillerato.",
   "Cada tema tiene un título y una lista de apartados. Cada apartado: grupo (cabecera roja), t (texto), u (ruta de su página) y, si se abre en ventana, \"ventana\": true.",
-  "Un mismo apartado puede aparecer en dos temas. Después de editar este archivo ejecuta: python3 _herramientas/actualizar_indice.py"
+  "Un mismo apartado puede aparecer en dos temas. Después de editar este archivo ejecuta: python3 _herramientas/actualizar_indice.py",
+  "El apartado «Teoría» se genera a partir de las ayudas originales (campo \"ayudas\"): una sección por ayuda, solo las de los apartados de ese tema."
  ],
  "coleccion": "Física (2º Bachillerato)",
  "temas": [
@@ -11,9 +12,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/gravitatorio/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t01/teoria.htm",
+     "ayudas": "fisica/gravitatorio/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -47,9 +48,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/gravitatorio/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t02/teoria.htm",
+     "ayudas": "fisica/gravitatorio/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -88,9 +89,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/electrico/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t03/teoria.htm",
+     "ayudas": "fisica/electrico/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -129,9 +130,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/magnetico/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t04/teoria.htm",
+     "ayudas": "fisica/magnetico/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -180,9 +181,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/magnetico/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t05/teoria.htm",
+     "ayudas": "fisica/magnetico/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -211,9 +212,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/vibraciones/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t06/teoria.htm",
+     "ayudas": "fisica/vibraciones/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -252,9 +253,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/ondas/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t07/teoria.htm",
+     "ayudas": "fisica/ondas/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -298,9 +299,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/optica/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t08/teoria.htm",
+     "ayudas": "fisica/optica/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -334,9 +335,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/optica/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t09/teoria.htm",
+     "ayudas": "fisica/optica/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -370,9 +371,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/relatividad/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t10/teoria.htm",
+     "ayudas": "fisica/relatividad/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -406,9 +407,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/cuantica/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t11/teoria.htm",
+     "ayudas": "fisica/cuantica/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",
@@ -442,9 +443,9 @@
    "items": [
     {
      "grupo": "",
-     "t": "Ayudas",
-     "u": "fisica/nuclear/buscarAyudas/0.htm",
-     "ventana": true
+     "t": "Teoría",
+     "u": "fisica/indices/t12/teoria.htm",
+     "ayudas": "fisica/nuclear/buscarAyudas/0_0.htm"
     },
     {
      "grupo": "Problemas por apartados",

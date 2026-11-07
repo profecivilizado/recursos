@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/actualizar_indice.py a partir de las ayudas originales: no la edites a mano -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Teoría · Tema 12. Física nuclear</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<style>
+.toc{columns:2 240px;margin:0 0 8px;padding:0 0 0 1.2em}
+.toc a{text-decoration:none}
+h2{font-size:1.15em;color:var(--accent);border-top:1px solid var(--line);padding-top:14px;margin:18px 0 4px}
+iframe.pc-teoria{display:block;width:100%;border:0;height:200px;background:transparent}
+</style>
+</head>
+<body onload="_pctop.indice='../../indices/t12/0.htm'">
+<div class="cab"><b>TEORÍA</b><span class="nuevo">Tema 12. Física nuclear</span></div>
+<ol class="toc"><li><a href="#s1">Núclidos y partículas</a></li><li><a href="#s2">Defecto de masa</a></li><li><a href="#s3">Ecuación de la desintegración</a></li><li><a href="#s4">Datación con C-14</a></li><li><a href="#s5">Actividad</a></li></ol>
+<h2 id="s1">Núclidos y partículas</h2>
+<iframe class="pc-teoria" src="../../../fisica/nuclear/nuclear1/ayuda/4.htm" title="Núclidos y partículas" scrolling="no"></iframe>
+<h2 id="s2">Defecto de masa</h2>
+<iframe class="pc-teoria" src="../../../fisica/nuclear/nuclear1/ayuda/1.htm" title="Defecto de masa" scrolling="no"></iframe>
+<h2 id="s3">Ecuación de la desintegración</h2>
+<iframe class="pc-teoria" src="../../../fisica/nuclear/nuclear2/ayuda/1.htm" title="Ecuación de la desintegración" scrolling="no"></iframe>
+<h2 id="s4">Datación con C-14</h2>
+<iframe class="pc-teoria" src="../../../fisica/nuclear/nuclear2/ayuda/2.htm" title="Datación con C-14" scrolling="no"></iframe>
+<h2 id="s5">Actividad</h2>
+<iframe class="pc-teoria" src="../../../fisica/nuclear/nuclear2/ayuda/3.htm" title="Actividad" scrolling="no"></iframe>
+<script>
+// el índice salta a la sección aunque la página esté dentro del visor (que es quien hace scroll)
+document.querySelectorAll('.toc a').forEach(a => a.onclick = e => {
+  e.preventDefault(); const h = document.querySelector(a.getAttribute('href'));
+  try { let y = h.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({top: y - 12, behavior: 'smooth'}); } catch (_) { h.scrollIntoView(); }
+});
+</script>
+</body>
+</html>

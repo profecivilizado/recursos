@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/actualizar_indice.py a partir de las ayudas originales: no la edites a mano -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Teoría · Tema 7. Movimiento ondulatorio</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<style>
+.toc{columns:2 240px;margin:0 0 8px;padding:0 0 0 1.2em}
+.toc a{text-decoration:none}
+h2{font-size:1.15em;color:var(--accent);border-top:1px solid var(--line);padding-top:14px;margin:18px 0 4px}
+iframe.pc-teoria{display:block;width:100%;border:0;height:200px;background:transparent}
+</style>
+</head>
+<body onload="_pctop.indice='../../indices/t07/0.htm'">
+<div class="cab"><b>TEORÍA</b><span class="nuevo">Tema 7. Movimiento ondulatorio</span></div>
+<ol class="toc"><li><a href="#s1">Ecuación de onda</a></li><li><a href="#s2">Fase temporal</a></li><li><a href="#s3">Fase espacial</a></li><li><a href="#s4">Energía de las ondas</a></li><li><a href="#s5">Interferencias</a></li><li><a href="#s6">Ondas estacionarias</a></li></ol>
+<h2 id="s1">Ecuación de onda</h2>
+<iframe class="pc-teoria" src="../../../fisica/ondas/general/ayuda/1.htm" title="Ecuación de onda" scrolling="no"></iframe>
+<h2 id="s2">Fase temporal</h2>
+<iframe class="pc-teoria" src="../../../fisica/ondas/general/ayuda/2_1.htm" title="Fase temporal" scrolling="no"></iframe>
+<h2 id="s3">Fase espacial</h2>
+<iframe class="pc-teoria" src="../../../fisica/ondas/general/ayuda/2_2.htm" title="Fase espacial" scrolling="no"></iframe>
+<h2 id="s4">Energía de las ondas</h2>
+<iframe class="pc-teoria" src="../../../fisica/ondas/energia/ayuda/1.htm" title="Energía de las ondas" scrolling="no"></iframe>
+<h2 id="s5">Interferencias</h2>
+<iframe class="pc-teoria" src="../../../fisica/ondas/interferencias/ayuda/2.htm" title="Interferencias" scrolling="no"></iframe>
+<h2 id="s6">Ondas estacionarias</h2>
+<iframe class="pc-teoria" src="../../../fisica/ondas/interferencias/ayuda/1.htm" title="Ondas estacionarias" scrolling="no"></iframe>
+<script>
+// el índice salta a la sección aunque la página esté dentro del visor (que es quien hace scroll)
+document.querySelectorAll('.toc a').forEach(a => a.onclick = e => {
+  e.preventDefault(); const h = document.querySelector(a.getAttribute('href'));
+  try { let y = h.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({top: y - 12, behavior: 'smooth'}); } catch (_) { h.scrollIntoView(); }
+});
+</script>
+</body>
+</html>
