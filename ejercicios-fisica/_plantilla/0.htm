@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+  PLANTILLA DE UN APARTADO DE PROBLEMAS
+  =====================================
+  1. Copia la carpeta _plantilla a  fisica/<bloque>/<nombre-corto>/
+     (por ejemplo fisica/magnetico/ampere/). Las rutas ../../../ de abajo ya
+     valen para esa profundidad.
+  2. Cambia el <title> y el texto de la cabecera (.cab).
+  3. Copia y pega un bloque <div class="prob"> por problema.
+  4. Escribe las fórmulas en LaTeX:
+       en línea   $B = \mu_0 n I$
+       aparte     $$R = \frac{m v}{|q| B}$$
+     Resultado recuadrado: \boxed{500\ \mathrm{m/s}}
+     Vectores: \vec{F}, unitarios: \vec{\imath}, \vec{\jmath}, \vec{k}
+  5. Añade una fila en  fisica/indices/temaN/0_a.htm  (copia la de otro apartado
+     y cambia la ruta y el nombre). Después ejecuta:
+       python3 _herramientas/actualizar_indice.py
+     para que aparezca en el menú lateral.
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Nombre del apartado</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<!-- KaTeX: convierte el LaTeX entre $…$ y $$…$$ en fórmulas -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
+</head>
+<body>
+<div class="cab"><b>NOMBRE DEL APARTADO</b>
+  <span class="enlace_texto" onclick="_pctop.problema=0;location.href=_pctop.indice">Índice</span></div>
+<p class="nuevo">Datos comunes del apartado (por ejemplo: $\mu_0 = 4\pi\cdot10^{-7}\ \mathrm{T\,m/A}$).</p>
+
+
+<!-- ===================== EJEMPLO: problema del repositorio pasado a texto =====================
+     Es «Fuerza sobre cargas», problema 8. Compáralo con el original para ver cómo se transcriben
+     las imágenes de fórmulas. -->
+<div class="prob" id="p1">
+  <p class="enun"><span class="num">1</span>Una partícula cargada entra con velocidad $\vec v$ en una región donde hay un campo magnético $\vec B = 0{,}2\,\vec k$ (T) y un campo eléctrico $\vec E = 100\,\vec\jmath$ (N/C). Calcula $\vec v$ para que la trayectoria sea rectilínea. <span class="tag">PAU sep. 1997</span></p>
+  <details><summary>Solución</summary><div class="sol">
+    <p>Fuerzas eléctrica y magnética, con $\vec v = v\,\vec u_v$:</p>
+    $$\vec F_E = qE\,\vec\jmath \qquad \vec F_M = q v B\,(\vec u_v \times \vec k)$$
+    <p>Para que la partícula siga en línea recta, las dos fuerzas se compensan:</p>
+    $$qE\,\vec\jmath + qvB\,(\vec u_v\times\vec k) = 0 \;\Rightarrow\; vB\,(\vec u_v\times\vec k) = E\,(-\vec\jmath)$$
+    <p>Igualando módulos y direcciones:</p>
+    $$vB = E \;\Rightarrow\; v = \frac{E}{B} = \frac{100\ \mathrm{N/C}}{0{,}2\ \mathrm{T}} = \boxed{500\ \mathrm{m/s}}$$
+    <p>Y como $\vec u_v \times \vec k = -\vec\jmath$, el unitario es $\vec u_v = \vec\imath$:</p>
+    $$\vec v = 500\,\vec\imath\ \ \mathrm{m/s}$$
+    <p class="nota">El resultado no depende de la carga ni de la masa: es un selector de velocidades.</p>
+  </div></details>
+</div>
+
+
+<!-- ===================== ESQUELETO: copia desde aquí para cada problema nuevo ===================== -->
+<div class="prob" id="p2">
+  <p class="enun"><span class="num">2</span>Enunciado del problema. <span class="tag">PAU jun. 2024</span></p>
+  <!-- Apartados (bórralo si no hay): -->
+  <ol class="ap enun" type="a"><li>Primer apartado.</li><li>Segundo apartado.</li></ol>
+  <!-- Figura (bórrala si no hay). Guárdala en la misma carpeta: -->
+  <!-- <img class="fig" src="figura2.png" alt="Descripción de la figura" width="320"> -->
+  <p class="nota">Datos: $m = 9{,}11\cdot10^{-31}\ \mathrm{kg}$</p>
+  <!-- Enlace a un simulador de tu web (bórralo si no hay): -->
+  <!-- <a class="sim" href="https://profecivilizado.github.io/recursos/tiro-parabolico/" target="_blank">▶ Pruébalo en el simulador</a> -->
+  <details><summary>Solución</summary><div class="sol">
+    <p>a) Explicación del paso.</p>
+    $$B = \mu_0 n I = \boxed{7{,}5\cdot10^{-3}\ \mathrm{T}}$$
+    <p>b) …</p>
+  </div></details>
+</div>
+
+</body>
+</html>
