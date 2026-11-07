@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Ley de Ampère, solenoides e imanes</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<style>
+  .cab{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .cab b{color:var(--accent);letter-spacing:.02em}
+  .nuevo{font-size:13px;color:var(--muted)}
+  .prob{border-top:1px solid var(--line);padding:14px 2px 16px}
+  .prob:first-of-type{border-top:0}
+  .enun{color:var(--accent);font-weight:700}
+  .num{display:inline-block;min-width:1.8em;color:var(--muted);font-weight:700}
+  .tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-left:6px;white-space:nowrap}
+  ol.ap{margin:.3em 0 .2em 1.8em;padding:0}
+  details{margin:.5em 0 0 1.8em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+  summary{cursor:pointer;padding:6px 12px;font-weight:600;color:var(--accent)}
+  details[open] summary{border-bottom:1px solid var(--line)}
+  .sol{padding:6px 14px 10px}
+  .f{display:block;margin:.35em 0 .35em 1em;font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:1.06em}
+  .res{display:inline-block;border:1.5px solid var(--accent);border-radius:6px;padding:0 6px}
+  .nota{color:var(--muted);font-size:.94em}
+</style>
+</head>
+<body>
+<div class="cab"><b>LEY DE AMPÈRE, SOLENOIDES E IMANES</b>
+  <span class="enlace_texto" onclick="_pctop.problema=0;location.href=_pctop.indice||'../../indices/tema3/0.htm'">Índice</span></div>
+<p class="nuevo">Bloque nuevo. Problemas propios para completar el tema: μ<sub>0</sub> = 4π·10<sup>−7</sup> T·m/A.</p>
+
+<div class="prob" id="p1">
+  <p class="enun"><span class="num">1</span>Aplica la ley de Ampère a una circunferencia centrada en un hilo rectilíneo indefinido recorrido por una corriente I y obtén el campo magnético a una distancia r del hilo. Calcula después el campo a 4 cm de un hilo por el que circulan 12 A.</p>
+  <details><summary>Solución</summary><div class="sol">
+    <p>Por simetría, B tiene el mismo módulo en todos los puntos de la circunferencia y es tangente a ella (regla de la mano derecha). La circulación es entonces B por la longitud de la circunferencia:</p>
+    <span class="f">∮ B·dl = B · 2πr = μ<sub>0</sub> I &nbsp;→&nbsp; B = μ<sub>0</sub> I / (2πr)</span>
+    <span class="f">B = 4π·10<sup>−7</sup> · 12 / (2π · 0,04) = <span class="res">6,0·10<sup>−5</sup> T</span></span>
+    <p class="nota">Es la misma expresión que da la ley de Biot y Savart, pero la ley de Ampère solo es cómoda cuando hay mucha simetría (hilo, solenoide, toroide).</p>
+  </div></details>
+</div>
+
+<div class="prob" id="p2">
+  <p class="enun"><span class="num">2</span>Un solenoide de 20 cm de longitud tiene 800 espiras y lo recorre una corriente de 1,5 A.</p>
+  <ol class="ap enun" type="a"><li>Calcula el campo magnético en su interior.</li><li>¿Qué corriente haría falta para que el campo fuera de 10 mT?</li><li>Indica qué extremo se comporta como polo norte si, mirando el solenoide desde su extremo derecho, la corriente circula en sentido antihorario.</li></ol>
+  <details><summary>Solución</summary><div class="sol">
+    <p>a) Número de espiras por unidad de longitud y campo en el interior (solenoide largo, campo uniforme):</p>
+    <span class="f">n = N / L = 800 / 0,20 = 4000 espiras/m</span>
+    <span class="f">B = μ<sub>0</sub> n I = 4π·10<sup>−7</sup> · 4000 · 1,5 = <span class="res">7,5·10<sup>−3</sup> T</span></span>
+    <p>b) Despejando la intensidad:</p>
+    <span class="f">I = B / (μ<sub>0</sub> n) = 0,010 / (4π·10<sup>−7</sup> · 4000) = <span class="res">2,0 A</span></span>
+    <p>c) Si los dedos de la mano derecha siguen la corriente, el pulgar apunta hacia el polo norte. Vista desde la derecha, una corriente antihoraria crea un campo que sale hacia el observador: <b>el extremo derecho es el polo norte</b>.</p>
+  </div></details>
+</div>
+
+<div class="prob" id="p3">
+  <p class="enun"><span class="num">3</span>Dentro de un solenoide largo con 2000 espiras por metro, recorrido por 2 A, se mueve un electrón a 3·10<sup>6</sup> m/s.</p>
+  <ol class="ap enun" type="a"><li>Si la velocidad es perpendicular al eje del solenoide, calcula el radio y el período de su trayectoria.</li><li>¿Qué movimiento describe si la velocidad es paralela al eje?</li></ol>
+  <p class="nota">Datos del electrón: m = 9,11·10<sup>−31</sup> kg, |q| = 1,6·10<sup>−19</sup> C</p>
+  <details><summary>Solución</summary><div class="sol">
+    <p>a) Campo en el interior del solenoide:</p>
+    <span class="f">B = μ<sub>0</sub> n I = 4π·10<sup>−7</sup> · 2000 · 2 = 5,03·10<sup>−3</sup> T</span>
+    <p>La fuerza de Lorentz es perpendicular a la velocidad y actúa como fuerza centrípeta (en el módulo la carga va sin signo):</p>
+    <span class="f">|q| v B = m v<sup>2</sup> / R &nbsp;→&nbsp; R = m v / (|q| B) = 9,11·10<sup>−31</sup> · 3·10<sup>6</sup> / (1,6·10<sup>−19</sup> · 5,03·10<sup>−3</sup>) = <span class="res">3,4·10<sup>−3</sup> m</span></span>
+    <span class="f">T = 2πm / (|q| B) = <span class="res">7,1·10<sup>−9</sup> s</span></span>
+    <p>b) Si v es paralela a B, el producto vectorial v × B es nulo: no hay fuerza y el electrón sigue en <b>movimiento rectilíneo uniforme</b> a lo largo del eje.</p>
+  </div></details>
+</div>
+
+<div class="prob" id="p4">
+  <p class="enun"><span class="num">4</span>Con 10 m de hilo de cobre se enrolla un solenoide de 25 cm de longitud y 2 cm de diámetro, y se hacen pasar 3 A.</p>
+  <ol class="ap enun" type="a"><li>¿Cuántas espiras tiene?</li><li>Calcula el campo magnético en su interior.</li><li>Calcula el campo en el centro si, con el mismo hilo y la misma corriente, se forma una sola espira circular.</li></ol>
+  <details><summary>Solución</summary><div class="sol">
+    <p>a) Cada espira gasta una longitud de hilo igual a su perímetro:</p>
+    <span class="f">N = 10 / (π · 0,02) = <span class="res">159 espiras</span></span>
+    <p>b) Campo en el interior:</p>
+    <span class="f">B = μ<sub>0</sub> N I / L = 4π·10<sup>−7</sup> · 159 · 3 / 0,25 = <span class="res">2,4·10<sup>−3</sup> T</span></span>
+    <p>c) Una espira de 10 m de perímetro tiene radio R = 10 / (2π) = 1,59 m:</p>
+    <span class="f">B = μ<sub>0</sub> I / (2R) = 4π·10<sup>−7</sup> · 3 / (2 · 1,59) = <span class="res">1,2·10<sup>−6</sup> T</span></span>
+    <p class="nota">Con el mismo hilo, el solenoide da un campo unas 2000 veces mayor: por eso los electroimanes son bobinas.</p>
+  </div></details>
+</div>
+
+<div class="prob" id="p5">
+  <p class="enun"><span class="num">5</span>Dos hilos paralelos atraviesan perpendicularmente el plano del papel: por uno circulan 5 A hacia fuera y por el otro 3 A hacia dentro. Una circunferencia rodea a los dos.</p>
+  <ol class="ap enun" type="a"><li>Calcula la circulación del campo magnético a lo largo de la circunferencia, recorrida en sentido antihorario.</li><li>Si por los dos hilos circularan 4 A en sentidos opuestos, la circulación sería cero. ¿Significa eso que el campo es nulo en todos los puntos de la circunferencia?</li></ol>
+  <details><summary>Solución</summary><div class="sol">
+    <p>a) Recorriendo la curva en sentido antihorario, la regla de la mano derecha toma como positivas las corrientes que salen del papel:</p>
+    <span class="f">∮ B·dl = μ<sub>0</sub> (5 − 3) = 4π·10<sup>−7</sup> · 2 = <span class="res">2,5·10<sup>−6</sup> T·m</span></span>
+    <p>b) No. La ley de Ampère solo dice que la <b>suma</b> de B·dl a lo largo de toda la curva es cero. En cada punto el campo de los dos hilos sigue existiendo, y en general no se anula. Por ejemplo, en el punto medio entre los hilos los dos campos se suman.</p>
+  </div></details>
+</div>
+
+<div class="prob" id="p6">
+  <p class="enun"><span class="num">6</span>Clasifica el hierro, el aluminio y el cobre según su comportamiento magnético. Explica, con la teoría de los dominios, por qué un clavo de hierro dulce atrae limaduras mientras está junto a un imán y deja de hacerlo al separarlo, y por qué una aguja de acero sigue imantada.</p>
+  <details><summary>Solución</summary><div class="sol">
+    <p>El <b>hierro</b> es ferromagnético: el imán lo atrae con fuerza. El <b>aluminio</b> es paramagnético: el imán lo atrae muy débilmente. El <b>cobre</b> es diamagnético: el imán lo repele muy débilmente.</p>
+    <p>Un material ferromagnético está formado por dominios, zonas donde los momentos magnéticos atómicos están alineados. Sin imán, los dominios apuntan al azar y sus efectos se cancelan. Cerca del imán, los dominios orientados como el campo crecen a costa de los demás, y el clavo se convierte en un imán.</p>
+    <p>En el hierro dulce, las paredes entre dominios se mueven con facilidad. Al retirar el imán, los dominios vuelven a desordenarse y el clavo pierde casi toda la imantación. En el acero esas paredes quedan «ancladas» y la orientación se mantiene: la aguja es un imán permanente.</p>
+  </div></details>
+</div>
+
+<div class="prob" id="p7">
+  <p class="enun"><span class="num">7</span>Compara el campo electrostático y el campo magnético en cuanto a: sus fuentes, la forma de sus líneas de campo y la circulación a lo largo de una línea cerrada.</p>
+  <details><summary>Solución</summary><div class="sol">
+    <p><b>Fuentes.</b> El campo electrostático lo crean cargas, quietas o en movimiento. El magnético lo crean cargas en movimiento (corrientes) y los imanes. No existen «cargas magnéticas» aisladas: no hay monopolos.</p>
+    <p><b>Líneas de campo.</b> Las eléctricas nacen en las cargas positivas y mueren en las negativas. Las magnéticas son cerradas: rodean a las corrientes o, en un imán, salen del polo norte y vuelven por el interior desde el polo sur.</p>
+    <p><b>Circulación.</b> La del campo electrostático a lo largo de una línea cerrada vale cero: es conservativo y tiene potencial. La del campo magnético vale μ<sub>0</sub> por la corriente que atraviesa la curva (ley de Ampère): en general no es nula, y por eso no se define un potencial magnético como el eléctrico.</p>
+  </div></details>
+</div>
+</body>
+</html>
