@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema 1</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+ 
+function opcionesVolver()	{
+ 	switch(_pctop.sueltos)	{
+		case 1: mostrarObjetos('celda',1,0,2,0,3,0);break;
+		case 2: mostrarObjetos('celda',1,2,2,0,3,0);break;
+		case 3: mostrarObjetos('celda',1,0,2,2,3,0);break;
+		default:mostrarObjetos('celda',1,0,2,2,3,2) 
+		}
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+var atributos="status=no,resizable=yes"
+if(ventana) ventana.close();
+if (barras) atributos=atributos+',scrollbars=yes'
+ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="opcionesVolver()"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellpadding="10" cellspacing="0" bgcolor="#FFFFCC" class="borde" >
+  <tr> 
+    <td colspan="3" > <p><b><font color="#0000FF">Un motorista recorre un <span class="enlace_texto" onClick="abrirVentana('../../mensajes/9.htm')">rizo 
+        vertical</span> de 5 m de radio (Masa del conjunto m&aacute;quina-motorista: 
+        110 kg)<br />
+        <span onclick="cambiar('','4_a.htm')" class="enlace_texto">a</span>) &iquest;Cu&aacute;l 
+        ser&iacute;a la menor velocidad posible en el punto m&aacute;s alto para 
+        tomar el rizo sin problemas?<br />
+        <span onclick="cambiar('','4_b.htm')" class="enlace_texto">b</span>) Si 
+        la velocidad fuera el doble, &iquest;cu&aacute;nto valdr&iacute;a la reacci&oacute;n 
+        normal del carril? </font><br />
+        </b></p>
+      </td>
+  </tr>
+  <tr> 
+    <td width="244" id="celda1" style="visibility:hidden"> <p>&nbsp;</p></td>
+    <td width="244" id="celda2" style="visibility:hidden"> <p align="center">&nbsp;</p></td>
+    <td width="252" id="celda3" style="visibility:hidden"> <p align="right"><span onclick="cambiar('../0.htm','')" class="enlace_texto">Lista 
+        problemas</span>&nbsp;&nbsp;&nbsp; </p></td>
+  </tr>
+</table>
+<table width="760" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><p class="m50">El eje normal tiene direcci&oacute;n vertical, el segundo 
+        eje coincide con la direcci&oacute;n del movimiento</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

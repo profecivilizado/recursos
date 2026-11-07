@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">c)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="31%"><div align="center"><img src="imagenes/6_03.png" width="190" height="144" /></div></td>
+          <td width="69%"><p class="m50"><img src="formulas/6_03.gif" width="212" height="24" /></p>
+            <p class="m50"><img src="formulas/6_04.gif" alt="Clic para aclaraci&oacute;n" width="92" height="46" class="enlace_imagen" onClick="_pctop.apartado='6_c.htm';cambiar('','6_z.htm')"/></p>
+            <p class="m50"><img src="formulas/6_05.gif" width="330" height="61" /></p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

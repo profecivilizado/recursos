@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,20);self.resizeTo(480,530)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p><strong><font color="#0000FF">Fuerza contraelectromotriz</font></strong><br />
+        Cuando una carga recorre un motor pierde energ&iacute;a potencial que 
+        se convierte en energ&iacute;a mec&aacute;nica. Se define fuerza contraelec-tromotriz 
+        (f.c.e.m) como la energ&iacute;a potencial que pierde cada unidad de carga 
+        que lo recorre </p>
+      <p> La energ&iacute;a que pierde una carga q al recorrer un generador cuya 
+        f.c.e.m es &epsilon;' viene dado por: </p>
+      <p class="m100"><strong><em>T</em></strong><sub>&epsilon;'</sub> = q&middot;&epsilon;' 
+        = I&middot;t&middot;&epsilon;'</p>
+      <p>Esta energ&iacute;a aparece como energ&iacute;a mec&aacute;nica, entonces 
+        la po-tencia mec&aacute;nica del motor ser&aacute;:</p>
+      <p class="m100">W<sub>&epsilon;'</sub> = I&middot;&epsilon;'</p>
+      <p><font color="#FF0000">Cuando el motor arranca o se le impide girar no 
+        tiene f.c.e.m porque no convierte energ&iacute;a el&eacute;ctrica en energ&iacute;a 
+        mec&aacute;nica</font></p>
+      <p><strong><font color="#0000FF">Circuito con motor<br />
+        </font></strong>Desde el punto de vista el&eacute;ctrico un motor es un 
+        generador de f.e.m &epsilon; ' que est&aacute; recorrido por corriente 
+        en sentido inverso (Entrando por el borne positivo).<font color="#0000FF"><strong> 
+        </strong></font></p>
+      <p align="center">R&nbsp;<img src="imagenes/1_01.png" width="174" height="162" align="middle" /></p>
+      <p>Ecuaci&oacute;n de malla:</p>
+      <p class="m100">&epsilon; - &epsilon; ' = I&middot;r + I&middot;R + I&middot;r'</p>
+      <p><strong><font color="#0000FF">Tensi&oacute;n en bornes del motor</font></strong><br />
+        Es la energ&iacute;a que pierde cada unidad de carga que entra al mo-tor. 
+        Parte de esta energ&iacute;a se convierte en energ&iacute;a mec&aacute;nica 
+        <br />
+        (&epsilon;') y el resto se convierte en calor en la resistencia interna</p>
+      <p class="m100">V'<sub>bornes</sub> = &epsilon;' + V<sub>r'</sub></p>
+      <p><strong><font color="#0000FF">Rendimientos<br />
+        </font></strong><font color="#000000">El rendimiento del motor es la relaci&oacute;n 
+        entre la potencia mec&aacute;ni-ca que produce y la potencia el&eacute;ctrica 
+        que consume:</font></p>
+      <p class="m100"><img src="formulas/1_01.gif" width="116" height="40" /></p>
+      <p>El rendimiento de la instalaci&oacute;n es la relaci&oacute;n entre la 
+        potencia el&eacute;ctrica que consume el motor y la potencia que suministra 
+        el generador</p>
+      <p class="m100"><img src="formulas/1_02.gif" width="110" height="40" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="right"><img src="formulas/1_01.gif" title="Clic para ver el desarrollo" width="164" height="145" border="0" class="enlace_imagen" onclick="abrirVentana('descomposicion/1.htm')" /></div></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros</p>
+            <p class="m50">v<sub>0</sub> = 500 m/s, &nbsp; &alpha; = 60&ordm;</p>
+            <p class="m50">g = 9.8 m/s<sup>2</sup></p></td> 
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Alcanza la m&aacute;xima altura</p>
+      <p class="m50">Datos: V<sub>y1</sub> = 0, &nbsp;Inc&oacute;gnitas: t<sub>1</sub>, 
+        x<sub>1</sub>,&nbsp;y<sub>1</sub>, v<sub>x1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="center">
+              <p><img src="imagenes/1_04.png" width="161" height="112" /></p>
+            </div></td>
+          <td width="63%"> <p align="center"><img src="formulas/1_02.gif" width="477" height="121" border="0" usemap="#Map1" style="cursor:pointer"/> 
+              <map name="Map1" id="Map1">
+                <area shape="rect" coords="195,23,475,98" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/1_1.htm')"/>
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="32%" rowspan="2"><img src="imagenes/16_06.png" width="199" height="122" /></td>
+          <td width="68%"><p class="peque&ntilde;o"><font color="#FF0000">Las l&iacute;neas 
+              verdes y rojas son perpendiculares entre s&iacute; y delimitan &aacute;ngulos 
+              iguales</font></p></td>
+        </tr>
+        <tr>
+          <td><p>La &uacute;nica fuerza util es mg&middot;sen &alpha;, por tanto 
+              el bloque tendr&aacute; aceleraci&oacute;n en el mismo sentido que 
+              esta</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="18%" height="167"> 
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton"  checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=''" />
+                Fuerzas</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Aplicaci&oacute;n</p>
+            </form></td>
+          <td width="32%" id="imagen"> 
+            <p align="center"><img src="imagenes/16_07.png" width="199" /></p></td>
+          <td width="50%" id="formula" > <p class="m50">&nbsp; </p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td width="29%" id="imagen1"> 
+            <div align="center"><img src="imagenes/16_07.png" width="199" /></div></td>
+          <td width="21%" id="imagen2"> 
+            <div align="center"><img src="imagenes/16_08.png" width="199" height="151" /></div></td>
+          <td width="50%" id="formula2"> 
+            <p class="m50"><img src="formulas/16_10.gif" width="213" height="49" border="0" style="cursor:pointer" /></p></td></tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

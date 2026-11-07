@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onLoad="self.resizeTo(480,510)"  
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="600" valign="top"> 
+      <p><b><font color="#0000FF">Din&aacute;mica del movimiento curvil&iacute;neo</font></b></p>
+      <p>En los movimientos curvil&iacute;neos siempre hay aceleraci&oacute;n 
+        normal (Perpendicular al movimiento y dirigida hacia el centro). Adem&aacute;s 
+        puede haber aceleraci&oacute;n tangencial pero no la calcularemos</p>
+      <p>En estos casos se toma un eje en la direcci&oacute;n del radio de la 
+        curva (Normal) y otro perpendicular de forma que todas las fuerzas est&eacute;n 
+        contenidas en el plano que determinan ambos ejes</p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <p>Se hace el diagrama libre del cuerpo incluyendo las fuerzas da-das, el 
+        peso y las fuerzas de <span class="enlace_texto" onclick="abrirVentana('2.htm')">ligadura</span>&nbsp;&nbsp;Si 
+        es necesario se des-componen estas fuerzas sobre los ejes establecidos</p>
+      <p>El sentido de la aceleraci&oacute;n normal se conoce: hacia el centro 
+        de la curva</p>
+      <p>La <span class="enlace_texto" onclick="abrirVentana('3.htm',1)"> resultante</span> 
+        de las fuerzas normales se iguala a m&middot;a<sub>n</sub></p>
+      <p>La <span class="enlace_texto" onclick="abrirVentana('3.htm',1)">resultante</span> 
+        de las fuerzas sobre el otro eje se iguala a cero (Si no hay aceleraci&oacute;n 
+        tangencial) </p>
+      <p><font color="#FF0000"> Importante<strong>: </strong> Si se obtiene un 
+        resultado negativo negativo signi-ficar&aacute; que el cuerpo no puede 
+        recorrer la curva de radio R</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

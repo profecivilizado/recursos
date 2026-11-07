@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.moveTo(20,20);self.resizeTo(440,630)"
+onUnload="cerrarVentanas()" >
+<table width="406" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="386" valign="top"> <p><b><font color="#0000FF">Ecuaciones del movimiento</font></b></p>
+      <p align="center"><img src="formulas/1_01.gif" alt="imagen" width="184" height="65" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%" valign="top"> <p align="right">&phi;&nbsp; </p></td>
+          <td width="85%"><p>Variable<br />
+              <span class="enlace_texto" onclick="abrirVentana('3.htm',1)">Posici&oacute;n 
+              angular</span> del m&oacute;vil en cada instante.<br />
+              No confundir con el <span class="enlace_texto" onclick="abrirVentana('6.htm')">desplazamiento angular</span> 
+            </p>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">&phi;<sub>0 </sub></p></td>
+          <td><p><span > Par&aacute;metro<br />
+              </span><span ><span class="enlace_texto" onclick="abrirVentana('3.htm',1)">Posici&oacute;n 
+              reducida</span></span> del m&oacute;vil en el instante inicial </p>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">&omega; &nbsp;</p></td>
+          <td><p>Variable<br />
+              Velocidad angular del m&oacute;vil en cada instante</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">&omega;<sub>0</sub>&nbsp;</p></td>
+          <td><p>Variable<br />
+              Velocidad angular del m&oacute;vil en el instante inicial </p></td>
+        </tr>
+        <tr> 
+          <td><div align="right">&alpha;&nbsp;</div></td>
+          <td><p>Par&aacute;metro<br />
+              Aceleraci&oacute;n angular del m&oacute;vil</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">t </p></td>
+          <td> <p>Variable<br />
+              Tiempo. Cuenta desde 0 hacia adelante.</p></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="top"> <p><strong><font color="#FF0000">Signos</font></strong> 
+        (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('2.htm',1)">&#149;</span>)</p>
+      <p>No se pone signo a las variables &phi;, &omega; pues estas lo llevan 
+        incluido. Cuando &phi;, &omega; sean inc&oacute;gnitas, al despejarlas 
+        se obtendr&aacute; el valor con su signo y cuando sean datos habr&aacute; 
+        que sustituir la variable por el valor con su signo</p>
+      <p>Hay que poner signo a los par&aacute;metros &phi;<sub>0</sub>, &omega;<sub>0</sub>, 
+        &alpha; pues estos representan el m&oacute;dulo de las magnitudes</p></td>
+  </tr>
+</table>
+</body>
+</html>

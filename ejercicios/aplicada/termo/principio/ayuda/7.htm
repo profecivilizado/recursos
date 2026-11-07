@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,460)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p><b><font color="#0000FF">Primer principio de la Termodin&aacute;mica</font></b></p>
+      <p align="left" class="m100">&Delta;U = Q - <em><strong>T</strong></em></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%"><p align="right">&Delta;U&nbsp;</p></td>
+          <td width="59%"><p>Variaci&oacute;n de energ&iacute;a interna</p></td>
+          <td width="28%"><input type="button" name="Submit" value=" " onClick="abrirVentana('5.htm',1)"/></td>
+        </tr>
+        <tr> 
+          <td><p align="right">Q&nbsp;</p></td>
+          <td><p>Calor intercambiado</p></td>
+          <td><input type="button" name="Submit2" value=" " onClick="abrirVentana('6.htm',1)"/></td>
+        </tr>
+        <tr> 
+          <td><p align="right">&nbsp;<strong><em>T&nbsp;</em></strong></p></td>
+          <td><p>Trabajo realizado</p></td>
+          <td><input type="button" name="Submit3" value=" " onClick="abrirVentana('4.htm',1)"/></td>
+        </tr>
+      </table>
+      <p align="left"><font color="#0000FF"><strong>Convenio de signos</strong></font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="18%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="texto.innerHTML=texto0.innerHTML"/>
+                Q</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="texto.innerHTML=texto1.innerHTML"/>
+                <em><strong>T</strong></em></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="texto.innerHTML=texto2.innerHTML"/>
+                &Delta;U</p>
+            </form></td>
+          <td id="texto"> 
+            <p>+ Gas toma calor del entorno</p>
+            <p>- Gas cede calor al entorno</p></td></tr>
+      </table>
+      <p align="center"><span class="enlace_texto" onClick="abrirVentana('3.htm',1)">Primer principio aplicado a 
+        transformaciones gaseosas</span></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="texto0"> 
+                  <p>+ Gas toma calor del entorno</p>
+                  <p>- Gas cede calor al entorno</p></td></tr>
+              <tr>
+                <td id="texto1"> 
+                  <p>+ Gas hace trabajo sobre entorno (Expansi&oacute;n)</p>
+                  <p>- &nbsp;Entorno hace trabajo sobre gas (Compresi&oacute;n)</p></td></tr>
+              <tr>
+                <td id="texto2"> 
+                  <p>+ &nbsp;Aumenta energ&iacute;a interna (Sube la temperatura)</p>
+                  <p>- &nbsp;Disminuye energ&iacute;a interna (Baja la temperatura)</p></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      <p align="left">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

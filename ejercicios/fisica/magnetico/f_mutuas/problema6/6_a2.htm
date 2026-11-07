@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','lorentz/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><b><font color="#0000FF">Fuerza que sufre la carga debido 
+        al campo creado por el hilo conductor</font></b></p>
+      <table width="740" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="223"><img src="imagenes/6_05.png" width="223" height="176" /></td>
+          <td width="477"><p><img src="formulas/6_04.gif" width="219" height="89" /></p>
+            <p><img src="formulas/6_05.gif" width="137" height="29" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">La carga experimentar&aacute; una fuerza paralela al cable</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

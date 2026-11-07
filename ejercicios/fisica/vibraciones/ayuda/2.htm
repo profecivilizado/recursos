@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana 
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=no'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onLoad="self.resizeTo(480,470)">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td valign="top"> 
+      <p><b><font color="#0000FF">Fase temporal</font></b></p>
+      <p align="center"><img src="formulas/1_01.gif"  width="178" height="105" /></p>
+      <p align="left">Posici&oacute;n, velocidad y aceleraci&oacute;n dependen 
+        de (&omega;t + &phi;<sub>0</sub>) que a su vez depende del tiempo. A medida 
+        que pasa el tiempo la fase crece y cuando est&aacute; alcanza un valor 
+        multiplo de 2&middot;&pi; los valores vuelven a repetirse</p>
+      <p align="left">En general la fase se puede poner como: &phi; + k&middot;2&middot;&pi;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="10%" valign="top">
+<p align="right">&nbsp;k&nbsp;</p></td>
+          <td width="90%"><p>N&uacute;mero de oscilaci&oacute;n (Contando desde 
+              0)<br />
+              Cada oscilaci&oacute;n empieza cuando el m&oacute;vil est&aacute; 
+              en el ori-gen yendo hacia la derecha<br />
+            </p></td>
+        </tr>
+        <tr> 
+          <td valign="top">
+<p align="right">&phi;&nbsp;</p></td>
+          <td><p>Var&iacute;a entre 0 y 2&middot;&pi; y determina la situaci&oacute;n 
+              del m&oacute;vil, situaci&oacute;n que se repetir&aacute; en cada 
+              oscilaci&oacute;n </p></td>
+        </tr>
+      </table>
+      <p><span class="enlace_texto" onClick="abrirVentana('8.htm')">Fase y estado 
+        del m&oacute;vil</span></p></td>
+  </tr>
+</table>
+</body>
+</html>

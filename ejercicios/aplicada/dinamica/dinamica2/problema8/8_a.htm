@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/11.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%" rowspan="2"><div align="center"><img src="imagenes/8_01.png" width="201" height="146" /></div></td>
+          <td width="71%"><p class="peque&ntilde;o"><font color="#FF0000">Las l&iacute;neas 
+              verdes y rojas son perpendiculares entre s&iacute; y delimitan &aacute;ngulos 
+              iguales</font></p></td>
+        </tr>
+        <tr>
+          <td><p>F (60 N) es mayor que mg&middot;sen &alpha; (49 N) </p>
+            <p><span>El bloque tendr&aacute; aceleraci&oacute;n en el sentido 
+              de F y se mover&aacute; <span class="enlace_texto" onclick="abrirVentana('../../ayuda/4.htm',1)">en 
+              el sentido de dicha aceleraci&oacute;n</span>. La fuerza de rozamiento 
+              ir&aacute; en sentido contrario al movi-miento y su m&oacute;dulo 
+              valdr&aacute; &mu;N</span></p>
+            </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td colspan="3">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td width="19%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton"  checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;mensaje.innerHTML='';mostrarObjetos('tabla',1,0)" />
+                Fuerzas</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;mensaje.innerHTML=mensaje2.innerHTML;mostrarObjetos('tabla',1,2)" />
+                Aplicaci&oacute;n</p>
+            </form></td>
+          <td width="28%" id="imagen"> <p align="center"><img src="imagenes/8_02.png"  width="199" height="151"  /></p></td>
+          <td width="53%" id="mensaje" > <p class="m50">&nbsp; </p></td>
+        </tr>
+        <tr> 
+          <td colspan="3" > <table width="100%" border="0" id="tabla1" style="visibility:hidden" cellspacing="0" cellpadding="5" >
+              <tr> 
+                <td width="100%"><p class="m50">Sustituyendo valores resulta:</p>
+                  <p class="m150"><img src="formulas/8_02.gif" width="402" height="48" border="0" usemap="#Map" style="cursor:pointer"/></p></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+              <tr> 
+                <td width="27%" id="imagen1"><div align="center"><img src="imagenes/8_02.png" width="199" height="151" /></div></td>
+                <td width="27%" id="imagen2"><div align="center"><img src="imagenes/8_03.png" width="199" height="151" /></div></td>
+                <td width="46%" id="mensaje2" > <div align="center"><img src="formulas/8_01.gif" width="226" height="102" usemap="#Map1" border="0" style="cursor:pointer" /> 
+                    <map name="Map1" id="Map1">
+                      <area shape="rect" coords="5,61,223,101"  title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/2.htm')" />
+                    </map>
+                  </div></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="342,6,400,45" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/1.htm')" />
+</map>
+</body>
+</html>

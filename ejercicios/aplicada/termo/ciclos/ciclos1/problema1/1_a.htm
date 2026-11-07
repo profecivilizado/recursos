@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td rowspan="3"> <p align="center">n: Inc&oacute;gnita</p></td>
+          <td width="17%"><p>P<sub>1</sub> = 2 at</p></td>
+          <td width="17%"><p>P<sub>2</sub> = P<sub>1</sub></p></td>
+          <td width="14%"><p>P<sub>3</sub> = 1 at</p></td>
+          <td width="32%"><p>P<sub>4</sub> = P<sub>3</sub></p></td>
+        </tr>
+        <tr> 
+          <td><p>V<sub>1</sub> = 1 l</p></td>
+          <td><p>V<sub>2</sub> = 2,5 l&nbsp;</p></td>
+          <td><p>V<sub>3</sub> = V<sub>2</sub></p></td>
+          <td><p>V<sub>4</sub> = V<sub>1</sub></p></td>
+        </tr>
+        <tr> 
+          <td><p>T<sub>1</sub></p></td>
+          <td><p>T<sub>2</sub></p></td>
+          <td><p>T<sub>3</sub></p></td>
+          <td><p>T<sub>4</sub></p></td>
+        </tr>
+      </table>
+      <p class="m50">En un gas monoat&oacute;mico: c<sub>p</sub> = 5&middot;R 
+        / 2, c<sub>v</sub> = 3&middot;R / 2</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="15%">
+<div align="center"> 
+              <form action="" method="post" name="form1" class="formulario" id="form1">
+                <div align="left"> 
+                  <legend>
+                  <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;texto.innerHTML=''"/>
+                  Rest </legend>
+                </div>
+                <p align="left"> 
+                  <input name="radiobutton" type="radio" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                  1 - 2</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                  2 - 3</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto3.innerHTML"/>
+                  3 - 4</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen4.innerHTML;texto.innerHTML=texto4.innerHTML"/>
+                  4 - 1</p>
+              </form>
+            </div></td>
+          <td width="23%" height="200" id="imagen"> 
+            <div align="center"><img src="imagenes/1_01.png" width="163" height="147" /></div></td>
+          <td width="62%" height="220" id="texto"> 
+            <p align="left">&nbsp; </p>
+            </td></tr>
+      </table>
+      <hr />
+      <p class="m50">El trabajo neto en el ciclo ser&aacute;:</p>
+      <p class="m150"><strong><em>T</em></strong> = (303 + 0 - 152 + 0) J = 151 
+        J</p>
+      <p class="m50">El calor intercambiado en el ciclo ser&aacute;:</p>
+      <p class="m150">Q = (758 - 379 - 379 + 152) J = 152 J</p>
+      <p class="m50">Observa que el calor intercambiado es igual (Casi) al trabajo 
+        neto </p>
+      <p class="m50">Y la variaci&oacute;n de energ&iacute;a interna en el ciclo 
+        ser&aacute;:</p>
+      <p class="m150">&Delta;U = (455 -379 - 227 + 152) J = 1 J</p>
+      <p class="m50">Observa que la variaci&oacute;n de energ&iacute;a interna 
+        en el ciclo es igual a cero (Casi)</p>
+      <p class="m150"><img src="formulas/1_05.gif" width="252" height="41" /></p>
+      <p class="m50">El 16.6% del calor tomado en el ciclo se convierte en trabajo, 
+        el 83.4% restante se devuelve</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="40%" id="imagen0" style="visibility:hidden"> 
+            <div align="center"><img src="imagenes/1_01.png" width="163" height="147" /></div></td><td width="60%">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td id="imagen1" style="visibility:hidden"> 
+            <div align="center"><img src="imagenes/1_02.png" width="163" height="147" /></div></td>
+          <td height="200" id="texto1" style="visibility:hidden"> 
+            <div align="center"><img src="formulas/1_01.gif" width="416" height="169" border="0" usemap="#Map" style="cursor:pointer"/></div></td></tr>
+        <tr> 
+          <td id="imagen2" style="visibility:hidden"> 
+            <div align="center"><img src="imagenes/1_03.png" width="163" height="147" /></div></td>
+          <td id="texto2" style="visibility:hidden"> 
+            <div align="center"><img src="formulas/1_02.gif" width="418" height="164" border="0" usemap="#Map2" style="cursor:pointer"/></div></td></tr>
+        <tr> 
+          <td id="imagen3" style="visibility:hidden"> 
+            <div align="center"><img src="imagenes/1_04.png" width="163" height="147" /></div></td>
+          <td height="200" id="texto3" style="visibility:hidden"> 
+            <div align="center"><img src="formulas/1_03.gif" width="420" height="174" border="0" usemap="#Map3" style="cursor:pointer"/></div></td></tr>
+        <tr>
+          <td id="imagen4" style="visibility:hidden"> 
+            <div align="center"><img src="imagenes/1_05.png" width="163" height="147" /></div></td>
+          <td id="texto4" style="visibility:hidden"> 
+            <div align="center"><img src="formulas/1_04.gif" width="409" height="164" border="0" usemap="#Map4" style="cursor:pointer"/></div></td></tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="259,3,310,23" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+  <area shape="rect" coords="182,42,302,84" title="Clic para aclaración" onClick="abrirVentana('mensajes/1.htm')" />
+  <area shape="rect" coords="192,110,243,129" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="183,37,305,79" title="Clic para aclaración" onClick="abrirVentana('mensajes/1.htm')" />
+  <area shape="rect" coords="211,103,262,122" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')"  />
+</map>
+<map name="Map3" id="Map3">
+  <area shape="rect" coords="284,4,335,24" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+  <area shape="rect" coords="183,44,305,87" title="Clic para aclaración" onClick="abrirVentana('mensajes/1.htm')" />
+  <area shape="rect" coords="211,110,263,129" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+</map>
+<map name="Map4" id="Map4">
+  <area shape="rect" coords="183,37,297,79" title="Clic para aclaración" onClick="abrirVentana('mensajes/1.htm')" />
+  <area shape="rect" coords="175,103,226,122" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+</map>
+</body>
+</html>

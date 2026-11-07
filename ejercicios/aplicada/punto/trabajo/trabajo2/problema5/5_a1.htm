@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','trabajo2/ayuda/1.htm');MM_preloadImages('imagenes/5_00.png','imagenes/5_01.png','imagenes/5_02.png')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Descompresi&oacute;n del muelle</font></b></p>
+      <p class="m50">Cambios de energ&iacute;a:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="34%"><div align="center"><img src="imagenes/5_01.png" name="imagen1" width="170" height="78" id="imagen1" /></div></td>
+          <td width="66%" id="celda1" style="visibility:hidden"> <p class="m50"><img src="formulas/5_01.gif" name="imagen2" width="54" height="76" id="imagen2" /></p>
+            </td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="34%" height="155" valign="top"> 
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              &nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/5_01.png',1);mostrarObjetos('celda',1,0)" checked="checked" />
+              Rest&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/5_02.png','imagen2','','formulas/5_01.gif',1);mostrarObjetos('celda',1,2)" />
+              Inicial &nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/5_03.png','imagen2','','formulas/5_02.gif',1);mostrarObjetos('celda',1,2)" />
+              Final </form></td>
+          <td width="66%" valign="top">
+<hr />
+            <p class="m100"><img src="formulas/5_03.gif" width="184" height="109" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">C&aacute;lculo del trabajo </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/5_04.png" width="135" height="102" /></div></td>
+          <td width="67%"><p><b><i>T</i></b><sub>peso</sub>&nbsp;&nbsp; (Ya est&aacute; 
+              contado en la variacion de energ&iacute;a potencial)</p>
+            <p><b><i>T</i></b><sub>muelle </sub> (Ya esta contado en la variaci&oacute;n 
+              de energ&iacute;a el&aacute;stica)</p>
+            <p><b><i>T</i></b><sub>N</sub> = 0&nbsp; (La normal es perpendicular 
+              al desplazamiento)</p>
+            <p><img src="formulas/5_04.gif" width="244" height="29" border="0" usemap="#Map" style="cursor:pointer" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/5_05.gif" width="212" height="113" border="0" /> 
+      </p>
+      <p class="m50">Vamos a hacer una aproximaci&oacute;n para simplificar la 
+        expresi&oacute;n:</p>
+      <p class="m150"><img src="formulas/5_06.gif" width="308" height="41" border="0" /> 
+      </p>
+      <p class="m50">Estamos suponiendo que la <span onClick="abrirVentana('../../mensajes/1.htm')"class="enlace_texto">fuerza 
+        media del muelle</span> al expandirse es mucho mayor que la fuerza de 
+        rozamiento En este caso podemos comprobar la veracidad de esta hip&oacute;tesis 
+        utilizando los valores num&eacute;ricos:</p>
+      <p class="m150"><img src="formulas/5_07.gif" width="268" height="81" border="0" /></p>
+      <p class="m50">La fuerza media del muelle es unas 10 veces mayor que la 
+        del rozamiento o sea que vamos bien... 
+        <map name="MapMapMap" id="MapMapMap">
+          <area shape="rect" coords="9,29,118,66"  alt="Clic para ver el desarrollo" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/2_1.htm')" />
+        </map>
+      </p>
+      <p><img src="formulas/5_08.gif" width="189" height="109" border="0" class="m150" /> 
+      </p>
+      <p class="m50">El resultado obtenido nos indica que toda la energ&iacute;a 
+        el&aacute;stica almacenada en el muelle se convierte en energ&iacute;a 
+        cin&eacute;tica del bloque, no se pierde pr&aacute;cticamente nada por 
+        el rozamiento.</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="182,5,224,25" alt="Clic para aclaraci&oacute;n" onClick="abrirVentana('../../descomposicion/2.htm')"/>
+</map>
+</body>
+</html>

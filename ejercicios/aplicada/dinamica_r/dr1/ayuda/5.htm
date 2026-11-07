@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,300)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p><strong><font color="#0000FF">&Aacute;ngulo de vectores 
+        | Regla del sacacorchos</font></strong></p>
+      <p>El &aacute;ngulo que forman dos vectores se determina cuando ambos tienen 
+        el mismo origen. Si no fuera as&iacute; habr&iacute;a que deslizar uno 
+        de ellos hasta el origen del otro<br />
+        Lo mismo ocurre para aplicar la regla del sacacorchos</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="35%"><img src="imagenes/5_01.png" width="122" height="108" /></td>
+          <td width="65%"><p>En la figura el vector gris es el vector <strong>r</strong> 
+              deslizado, entonces el &aacute;ngulo que for-man <strong>r</strong> 
+              y <strong>F</strong> es &phi; y el sentido de giro de <strong>r</strong> 
+              a <strong>F</strong> es como el de las agujas del reloj</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

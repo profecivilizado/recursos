@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m150"><img src="formulas/12_01.gif" width="365" height="132" border="0" usemap="#Map" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">La energ&iacute;a de enlace del N-15 es mayor pero la energ&iacute;a 
+        de enlace por nucle&oacute;n del N-14 es mayor, por tanto este &uacute;ltimo 
+        n&uacute;clido ser&aacute; el m&aacute;s estable porque cuesta m&aacute;s 
+        quitarle un nucle&oacute;n</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,357,60" onClick="_pctop.origen='12_a.htm';cambiar('','12_z.htm')" />
+  <area shape="rect" coords="3,73,362,129" onClick="_pctop.origen='12_a.htm';cambiar('','12_w.htm')"/>
+</map>
+</body>
+</html>

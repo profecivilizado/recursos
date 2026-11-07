@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+var texto1="El cuerpo no tiene velocidad y tiene aceleraci&oacute;n (Tangencial)<br /><br />"
+texto1 +="Se mover&aacute; en la direcci&oacute;n y sentido de la aceleraci&oacute;n (Vertical hacia abajo) ganando r&aacute;pidez",
+texto2 ="El cuerpo tiene velocidad y aceleraci&oacute;n en sentido contrario (Tangencial)<br /><br />"
+texto2 +="Se mover&aacute; en la direcci&oacute;n y sentido de la velocidad (Vertical hacia arriba) perdiendo r&aacute;pidez",
+texto3 ="El cuerpo tiene velocidad y aceleraci&oacute;n no alineada con ella que se puede desdoblar en dos: una en direcci&oacute;n de la "
+texto3 +="velocidad y sentido contrario (Tangencial) y otra perpendicular a la velocidad (Normal)<br /> <br />"
+texto3 +="Se mover&aacute; cambiando de direcci&oacute;n (Curvando la trayectoria) y perdiendo r&aacute;pidez"
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','');MM_preloadImages('imagenes/6_01.png','imagenes/6_02.png', 'imagenes/6_03.png')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p>&nbsp;</p>
+      <p class="m50">En todos los casos el cuerpo est&aacute; sometido a una &uacute;nica 
+        fuerza su peso y por tanto la aceleraci&oacute;n ser&aacute; la misma: 
+        g</p>
+      <p class="m50">Si en los tres casos la aceleraci&oacute;n es la misma &iquest;por 
+        qu&eacute; los movimientos son diferentes? Pues porque el movimiento depende 
+        de la combinaci&oacute;n de velocidad y aceleraci&oacute;n</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="11%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','imagenes/6_01.png',1);mensaje.innerHTML=texto1"/>
+                a</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','imagenes/6_02.png',1);mensaje.innerHTML=texto2"/>
+                b</p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','imagenes/6_03.png',1);mensaje.innerHTML=texto3"/>
+                c </p>
+            </form></td>
+          <td width="22%"><div align="center"><img src="imagenes/6_01.png" name="imagen1" width="141" height="137" id="imagen1" /></div></td>
+          <td width="67%"><p><span id="mensaje">El cuerpo no tiene velocidad y 
+              tiene aceleraci&oacute;n (Tangencial)<br />
+              <br />
+              Se mover&aacute; en la direcci&oacute;n y sentido de la aceleraci&oacute;n 
+              (Vertical hacia abajo) ganando r&aacute;pidez</span></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

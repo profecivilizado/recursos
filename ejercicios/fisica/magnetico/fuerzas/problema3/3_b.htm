@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+var n=0, m=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50" ><b><font color="#0000FF">b)</font></b> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%" rowspan="3"> <div align="center"> 
+              <p> 
+                <input type="button" name="Submit" value=" > " class="boton" 
+	  onclick="switch(n){
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,2);n=n+1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',2,2);n=n+1;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',1,0,2,0);n=0;break;
+				}" />
+              </p>
+            </div></td>
+          <td width="26%" rowspan="3" id="imagen"> 
+            <div align="center"> 
+              <p><img src="imagenes/3_06.png" width="145" height="180" /></p>
+            </div></td>
+          <td width="68%" height="39"> 
+            <p><img src="formulas/3_04.gif" width="138" height="22" /></p></td>
+        </tr>
+        <tr> 
+          <td width="68%" id="celda1" style="visibility:hidden"> <img src="formulas/3_05.gif" width="237" height="57" /></td>
+        </tr>
+        <tr> 
+          <td width="68%" id="celda2" style="visibility:hidden"> <p>No hay par 
+              sobre la espira. Esta se encuentra en equilibrio<br />
+              porque el flujo a trav&eacute;s de ella es m&aacute;ximo </p>
+            </td>
+        </tr>
+      </table>
+      <hr />
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="32%" id="imagen0"> <div align="center"><img src="imagenes/3_06.png" width="145" height="180" /></div></td>
+                <td width="29%" id="imagen1"><div align="center"><img src="imagenes/3_02.png" width="145" height="180" /></div></td>
+                <td width="39%" id="imagen2"> <div align="center"><img src="imagenes/3_07.png" width="145" height="180" /></div></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

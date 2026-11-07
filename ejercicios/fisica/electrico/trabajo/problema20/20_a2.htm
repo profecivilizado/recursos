@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../campo/ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%">&nbsp;</td>
+          <td width="23%" id="celda4"> <form action="" name="form2" class="formulario" id="form2">
+              V&eacute;rtice: 
+              <input name="radiobutton" type="radio" value="radiobutton" onclick="cambiar('','20_a1.htm')"/>
+              A&nbsp;&nbsp; 
+              <input name="radiobutton" type="radio"  value="radiobutton" checked="checked"/>
+              B </form></td>
+          <td width="71%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50"><font color="#000000">Calculamos el campo y el potencial 
+        que crean Q<sub>1</sub> y Q<sub>2</sub>, por separado, en el punto B</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="11%" rowspan="2"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula1.innerHTML='';formula2.innerHTML='';mostrarObjetos('form1.boton',1,0)"/>
+                Rest</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen11.innerHTML;formula1.innerHTML='';formula2.innerHTML='';mostrarObjetos('form1.boton',1,2);n=0;carga=1" />
+                Q<sub>1</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton"  onclick="imagen.innerHTML=imagen21.innerHTML;formula1.innerHTML='';formula2.innerHTML='';mostrarObjetos('form1.boton',1,2);n=0;carga=2" />
+                Q<sub>2</sub></p>
+              <p align="center"> 
+                <input type="button" name="Submit" id="boton1" value=" &gt; " style="visibility:hidden" 
+					onclick="switch(n) {
+						case 0: eval('imagen.innerHTML=imagen'+carga+'2.innerHTML');eval('formula1.innerHTML=formula'+carga+'1.innerHTML');n=1;break;
+						case 1: eval('imagen.innerHTML=imagen'+carga+'3.innerHTML');eval('formula2.innerHTML=formula'+carga+'2.innerHTML');n=2;break;
+						case 2: eval('imagen.innerHTML=imagen'+carga+'1.innerHTML');formula1.innerHTML='';formula2.innerHTML='';n=0;break;
+					}"/>
+              </p>
+            </form> </td>
+          <td width="32%" rowspan="2" id="imagen"> 
+            <div align="center">
+              <p><img src="imagenes/20_09.png" width="219" height="160" /></p>
+            </div></td>
+          <td width="57%" height="32" id="formula1"> <p align="center">&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td height="170" id="formula2" > 
+            <p align="center">&nbsp;</p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">El campo y el potencial en A se obtendr&aacute;n sumando 
+        los campos y potenciales creados por cada carga (Observa que los campos 
+        se suman vectorialmente y los potenciales agebraicamente)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/20_16.png" width="219" height="160" /></div></td>
+          <td width="67%"><img src="formulas/20_10.gif" width="380" height="148" border="0" usemap="#Map" style="cursor:pointer"/></td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="32%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/20_09.png" width="219" height="160" /></div></td>
+                <td width="32%" id="imagen11"> 
+                  <div align="center"><img src="imagenes/20_10.png" width="219" height="160" /></div></td>
+                <td width="36%" id="imagen12"> 
+                  <div align="center"><img src="imagenes/20_11.png" width="219" height="160" /></div></td></tr>
+              <tr> 
+                <td id="imagen13"> 
+                  <div align="center"><img src="imagenes/20_12.png" width="219" height="160" /></div></td>
+                <td id="imagen21"> 
+                  <div align="center"><img src="imagenes/20_13.png" width="219" height="160" /></div></td>
+                <td id="imagen22"> 
+                  <div align="center"><img src="imagenes/20_14.png" width="219" height="160" /></div></td></tr>
+              <tr>
+                <td id="imagen23"> 
+                  <div align="center"><img src="imagenes/20_15.png" width="219" height="160" /></div></td><td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="52%" id="formula11"> 
+                  <div align="center"><img src="formulas/20_06.gif" width="338" height="22" /></div></td>
+                <td width="48%" id="formula12"> 
+                  <div align="center"><img src="formulas/20_07.gif" width="314" height="158" /></div></td></tr>
+              <tr>
+                <td id="formula21"> 
+                  <div align="center"><img src="formulas/20_08.gif" width="338" height="22" /></div></td><td id="formula22"> 
+                  <div align="center"><img src="formulas/20_09.gif" width="314" height="158" /></div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="38,77,193,113" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/20_3.htm')"/>
+</map>
+</body>
+</html>

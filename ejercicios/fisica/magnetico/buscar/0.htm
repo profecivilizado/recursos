@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Propuestos en el curso</title>
+<meta charset="utf-8">
+<script language="JavaScript">
+<!--
+var ayuda 
+
+function abrirAyuda()	{
+		if(ayuda) ayuda.close();
+		var URL='../'+parent.frames[1].frames[0]._pctop.archivoAyuda;
+		var atributos="status=no,scrollbars=yes,resizable=yes,title=no";
+		ayuda=window.open(URL,"",atributos);
+}
+
+function cerrarAyuda() {
+	if(ayuda) ayuda.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body class="pc-fs" onunload="cerrarAyuda()">
+<iframe class="pc-frame pc-enunciado" name="enunciado" id="enunciado" src="0_0.htm" title="enunciado" scrolling="no"></iframe>
+<iframe class="pc-frame pc-solucion" name="solucion" id="solucion" src="../campo/problema1/1.htm" title="solucion" scrolling="no"></iframe>
+</body>
+ 
+</html>

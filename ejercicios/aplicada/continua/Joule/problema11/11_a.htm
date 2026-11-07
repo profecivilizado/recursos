@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m150"><img src="formulas/11_01.gif" width="202" height="116" border="0" style="cursor:pointer"/></p>
+      <p class="m50">Sustituyendo valores:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="18%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="formula.innerHTML=formula1.innerHTML"/>
+                V = 220 V</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="formula.innerHTML=formula2.innerHTML"/>
+                V = 110 V</p>
+              </form>
+          </td>
+          <td width="82%" id="formula"> 
+            <p class="m50"><img src="formulas/11_02.gif" width="169" height="46" border="0" usemap="#Map2" style="cursor:pointer"/></p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td id="formula1"><p class="m50"><img src="formulas/11_02.gif" width="169" height="46" border="0" usemap="#Map2" style="cursor:pointer"/> 
+              <map name="Map2" id="Map2">
+                <area shape="rect" coords="116,16,163,35" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')"/>
+              </map>
+            </p></td>
+          <td id="formula2"><p class="m50"><img src="formulas/11_03.gif" width="169" height="46" border="0" usemap="#Map2" style="cursor:pointer"/> 
+              <map name="Map2" id="Map2">
+                <area shape="rect" coords="113,17,160,36" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')"/>
+              </map>
+            </p></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="113,17,160,36" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/4.htm')"/>
+</map>
+</body>
+</html>

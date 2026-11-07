@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="886">
+<p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50">Ecuaciones de los movimientos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td><p align="center">Esfera</p></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><p>Cilindro</p></td>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td width="18%"><div align="center"><img src="imagenes/3_05.png" width="105" height="68" /></div></td>
+          <td width="16%"><div align="center"><img src="formulas/3_11.gif" width="85" height="41" /></div></td>
+          <td width="17%"><p>Par&aacute;metros:</p>
+            <p align="left"><img src="formulas/3_13.gif" width="98" height="36" /></p></td>
+          <td width="18%"><div align="center"><img src="imagenes/3_06.png" width="105" height="68" /></div></td>
+          <td width="15%"><div align="center"><img src="formulas/3_12.gif" width="80" height="41" /></div></td>
+          <td width="16%"><p>Par&aacute;metros:</p>
+            <p><img src="formulas/3_14.gif" width="93" height="37" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: La esfera llega al final de la rampa</p>
+      <p class="m50">Datos: x'<sub>1</sub> = L,&nbsp; Inc&oacute;gnitas: x<sub>1</sub>, 
+        t<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="24%"><div align="center"><img src="imagenes/3_07.png" width="114" height="72" /></div></td>
+          <td width="76%"><img src="formulas/3_15.gif" width="493" height="86" /></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/3_16.gif" width="204" height="86" /></p>
+      </td>
+  </tr>
+</table>
+<div align="center"></div>
+</body>
+</html>

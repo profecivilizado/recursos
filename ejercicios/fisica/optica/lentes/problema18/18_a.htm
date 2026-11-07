@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="14%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Final </p>
+            </form></td>
+          <td width="30%" id="imagen"> 
+            <p><img src="imagenes/18_01.png" width="216" height="157" /></p></td>
+          <td width="56%" id="formula"> 
+            <p class="m50"><img src="formulas/18_01.gif" width="77" height="38" /></p></td></tr>
+      </table>
+      <hr />
+      <p class="m50">Combinando las dos expresiones obtenidas resulta:</p>
+      <p class="m150"><img src="formulas/18_03.gif" width="146" height="86" /></p>
+      <p class="m50">Aunque el sistema parece f&aacute;cil es bastante enrevesado 
+        para operarlo con letras as&iacute; que usaremos n&uacute;meros (Recuerda 
+        que operamos en cm)</p>
+      <p class="m150"><img src="formulas/18_04.gif" width="204" height="86" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="50%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/18_01.png" width="215" height="157" /></div></td>
+                <td width="50%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/18_02.png" width="215" height="157" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="50%" id="formula0"> 
+                  <p class="m50"><img src="formulas/18_01.gif" width="77" height="38" /></p></td>
+                <td width="50%" id="formula1"> 
+                  <p class="peque&ntilde;o">El objeto queda una distancia 
+                    d m&aacute;s lejos de la lente, la pantalla donde se forma 
+                    la imagen queda una distancia 2&middot;d m&aacute;s cerca 
+                    de la lente</p>
+                  <p class="m50"><img src="formulas/18_02.gif" width="140" height="38" /></p></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="119,33,203,52" title="Clic para ver el desarrollo " onClick="abrirVentana('desarrollos/18_1.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="22%"><div align="center"><img src="imagenes/5_01.png" name="imagen1" width="144" height="180" border="0" id="imagen1" /></div></td>
+          <td width="26%"><p class="m50"><img src="formulas/5_01.gif" width="72" height="54" /></p></td>
+          <td width="52%" rowspan="2"><p class="m50">Conservaci&oacute;n del momento 
+              angular</p>
+            <p align="center"><img src="formulas/5_03.gif" width="182" height="112" /></p>
+            </td>
+        </tr>
+        <tr> 
+          <td><div align="center"><img src="imagenes/5_02.png" name="imagen1" width="144" height="180" border="0" id="imagen1" /></div></td>
+          <td><p class="m50"><img src="formulas/5_02.gif" width="109" height="22" /></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/5_04.gif" width="477" height="129" /></p>
+      <p class="m50">El conjunto de los discos acoplados girar&aacute; en el sentido 
+        de las agujas del reloj </p>
+      <p class="m50">C&aacute;lculo de la energ&iacute;a cin&eacute;tica perdida:</p>
+      <p class="m150"><img src="formulas/5_05.gif" width="456" height="140" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="32%"><div align="center"><img src="imagenes/11_01.png" width="205" height="207" /></div></td>
+          <td width="68%"><p>La energ&iacute;a que pasa, por unidad de tiempo, 
+              a traves de una esfera con centro en el foco se obtendr&aacute; 
+              multiplicando la intensidad de la onda por la superficie de la esfera</p>
+            <p>La energia que, por unidad de tiempo, pasa a trav&eacute;s de la 
+              esfera 1 tiene que ser la misma que pasa a trav&eacute;s de la esfera 
+              2 </p>
+            <p class="m50"><img src="formulas/11_01.gif" width="246" height="50" /></p>
+            <p>La intensidad de una onda esf&eacute;rica es inversamente proporcional 
+              al cuadrado de la distancia al foco</p></td>
+        </tr>
+      </table>
+      <p class="m50">Por otra parte la intensidad es directamente proporcional 
+        al cuadrado de la amplitud (I = k&middot;A<sup>2</sup>):</p>
+      <p class="m150"><img src="formulas/11_02.gif" width="190" height="52" /></p>
+      <p class="m50">La amplitud de una onda esf&eacute;rica es inversamente proporcional 
+        a la distancia al foco</p>
+      <p class="m50">&nbsp;</p>
+      <p class="m100">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

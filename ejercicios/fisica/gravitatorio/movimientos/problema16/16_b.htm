@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><b><font color="#0000FF">b)</font></b> </p>
+      <p class="m50">Cambios en la energ&iacute;a mec&aacute;nica del objeto desde 
+        la distancia 6&middot;R hasta la distancia R</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="17%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML" />
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Final </p>
+            </form></td>
+          <td width="26%" id="imagen"> 
+            <div align="center"><img src="imagenes/16_01.png" width="201" height="151" /></div></td>
+          <td width="57%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/16_04.gif" width="289" height="89" /></p>
+      <p class="m50">Durante el acercamiento al planeta, el objeto solo est&aacute; 
+        sometido a la fuerza gravitatoria cuyo trabajo ya est&aacute; contado 
+        en la variaci&oacute;n de energ&iacute;a potencial, por tanto <b><i>T 
+        </i></b>=0</p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n: </p>
+      <p class="m150"><img src="formulas/16_05.gif" width="408" height="196" usemap="#Map1" border="0" style="cursor:pointer"/> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/16_01.png" width="201" height="151" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/16_02.png" width="201" height="151" /></div></td>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/16_03.png" width="201" height="151" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="12%" id="formula0">&nbsp;</td>
+                <td width="44%" id="formula1"> 
+                  <div align="center"><img src="formulas/16_02.gif" width="273" height="89" /></div></td>
+                <td width="44%" id="formula2"> 
+                  <div align="center"><img src="formulas/16_03.gif" width="281" height="89" /></div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table><p class="m150"> 
+        <map name="Map1" id="Map1">
+          <area shape="rect" coords="208,91,255,114" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../ayuda/10.htm')"/>
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

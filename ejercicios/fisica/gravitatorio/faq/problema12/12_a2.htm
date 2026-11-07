@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="760" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7%">&nbsp; </td>
+          <td width="63%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              Resolver utilizando: 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="cambiar('','12_a1.htm')" />
+              Velocidad de escape &nbsp;&nbsp; 
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" />
+              Energ&iacute;a mec&aacute;nica </form></td>
+          <td width="30%"> <p align="right"><img src="../../../comunes/imagenes/transparent.gif" width="50" height="20" align="middle" /></p></td>
+        </tr>
+      </table>
+      <p class="m50" >Lo que determina si la Tierra est&aacute; atrapada por el 
+        Sol es el <span class="enlace_texto" onClick="abrirVentana('../../movimientos/ayuda/2.htm')">signo 
+        de su energ&iacute;a mec&aacute;nica</span>.</p>
+      <p class="m50" >Calculamos la energ&iacute;a mec&aacute;nica de la Tierra 
+        en &oacute;rbita alrededor del Sol normal:</p>
+      <p class="m150"><img src="formulas/12_04.gif" width="464" height="94" usemap="#Map" border="0" style="cursor:pointer" /> 
+      </p>
+      <p class="m50">El valor negativo de la energ&iacute;a mec&aacute;nica indica 
+        que la Tierra est&aacute; atrapada gravitatoriamente por el Sol y tiene 
+        que girar a su alrededor. 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="136,5,177,41" title="Clic para explicaci&oacute;n" onclick="abrirVentana('../../ayuda/1.htm')" />
+        </map>
+      </p>
+      <p class="m50">Calculamos la energ&iacute;a mec&aacute;nica de la Tierra 
+        en el momento en que el Sol se reduce a su cuarta parte (Suponiendo que 
+        la energ&iacute;a cin&eacute;tica de la Tierra se conserva)</p>
+      <p class="m150"><img src="formulas/12_05.gif" width="413" height="97" /></p>
+      <p class="m50">El valor positivo de la energ&iacute;a mec&aacute;nica indica 
+        que la Tierra ya no girar&aacute; alrededor del Sol<br />
+        Visto de otra forma: el Sol se ha hecho demasiado peque&ntilde;o para 
+        retener a la Tierra con la velocidad que esta lleva</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

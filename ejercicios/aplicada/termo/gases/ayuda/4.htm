@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,550)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p><b><font color="#0000FF">Diagrama P-V</font></b></p>
+      <p align="left">Los ejes de abscisas y ordenadas representan volumen y presi&oacute;n 
+        del gas respectivamente. Con estos ejes se representan isoter-mas (P&middot;V 
+        = n&middot;R&middot;T) para diferentes temperaturas que son hip&eacute;r-bolas 
+        equilateras m&aacute;s separadas de los ejes cuanto mayor es la temperatura</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="43%"><img src="imagenes/1_01.png" width="185" height="157" /></td>
+          <td width="57%" valign="top">
+<p>Para representar el estado de un gas (P<sub>1</sub>, V<sub>1</sub>, T<sub>1</sub>) 
+              se considera la hip&eacute;rbola correspondiente a la temperatura 
+              T<sub>1</sub> y se toma el punto de esta cuya abscisa es V<sub>1</sub> 
+              o cuya ordenada es P<sub>1</sub></p></td>
+        </tr>
+        <tr>
+          <td><img src="imagenes/1_03.png" width="190" height="158" /></td>
+          <td valign="bottom">
+<p>La evoluci&oacute;n reversible de un gas del estado (P<sub>1</sub>, V<sub>1</sub>, 
+              T<sub>1</sub>) al estado (P<sub>2</sub>, V<sub>2</sub>, T<sub>2</sub>) 
+              se representa por una l&iacute;nea que conecta los esta-dos inicial 
+              y final. Todos los pun-tos de est&aacute; l&iacute;nea corresponden 
+              a estados de equilibrio</p>
+            <p><font color="#FF0000">Una evoluci&oacute;n irreversible no se puede 
+              representar</font></p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

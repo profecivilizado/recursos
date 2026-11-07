@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var n=0, carga=1
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../trabajo/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">Calculamos el potencial el&eacute;ctrico en el punto P, que 
+        ser&aacute; la suma algebra&iacute;ca de los potenciales que crean cada 
+        una de las cargas por separado (Principio de superposici&oacute;n)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="11%" valign="middle"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Rest</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                Q<sub>1</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton"  onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Q<sub>2</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML"/>
+                Q<sub>3</sub></p>
+              </form></td>
+          <td width="29%" id="imagen"> <div align="center"> 
+              <p><img src="imagenes/16_11.PNG" width="209" height="186" border="0" /></p>
+            </div></td>
+          <td width="60%" valign="middle" id="formula" > 
+            <p align="center">&nbsp;</p>
+            <p class="m50">&nbsp;</p></td></tr>
+      </table>
+      <hr /> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td> <div align="center">
+<p align="left" class="m150"><img src="formulas/16_13.gif" width="296" height="50" /> 
+              </p>
+              <p align="left" class="m50">Este resultado indica que el campo el&eacute;ctrico 
+                resultante har&aacute; un trabajo positivo cuando la unidad de 
+                carga positiva (+1C) se desplace desde P hasta el infinito. Por 
+                tanto para traer la unidad positiva desde el infinito hasta P, 
+                un agente externo tendr&aacute; que hacer un trabajo de 3&middot;10<sup>7</sup> 
+                J </p>
+            </div>
+            </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+              <tr>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+                    <tr> 
+                      <td width="30%" id="imagen0"> <div align="center"><img src="imagenes/16_11.PNG" width="209" height="186" border="0" /></div></td>
+                      <td width="29%" id="imagen1"> 
+                        <div align="center"><img src="imagenes/16_12.PNG" width="209" height="186" border="0" /></div></td>
+                      <td width="41%" id="imagen2"> 
+                        <div align="center"><img src="imagenes/16_13.PNG" width="209" height="186" border="0" /></div></td></tr>
+                    <tr> 
+                      <td id="imagen3"><img src="imagenes/16_14.PNG" width="209" height="186" /></td>
+                      <td > <div align="center"></div></td>
+                      <td > <div align="center"></div></td>
+                    </tr>
+                  </table>
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="47%" id="formula0"> <div align="center">&nbsp;&nbsp;</div></td>
+                      <td width="53%" id="formula1"><div align="center"></div>
+                        <p align="center"><img src="formulas/16_10.gif" width="276" height="87" /></p>
+                        <p align="center">En la f&oacute;rmula del potencial la 
+                          carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >va 
+                          con signo</span></p></td>
+                    </tr>
+                    <tr> 
+                      <td id="formula2"> <div align="center"> 
+                          <p><img src="formulas/16_11.gif" width="276" height="87" /></p>
+                          <p>En la f&oacute;rmula del potencial la carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >va 
+                            con signo</span></p>
+                        </div></td>
+                      <td height="150" id="formula3"> <div align="center"> 
+                          <p><img src="formulas/16_12.gif" width="282" height="89" /></p>
+                          <p>En la f&oacute;rmula del potencial la carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >va 
+                            con signo</span></p>
+                        </div></td>
+                    </tr>
+                  </table>
+                  
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

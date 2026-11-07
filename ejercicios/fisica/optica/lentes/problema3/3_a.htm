@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../lentes/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones del dioptrio:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <div align="right"> 
+              <p><img src="formulas/3_01.gif" width="109" height="86" />&nbsp;&nbsp;</p>
+            </div></td>
+          <td width="67%"> <p class="m50">R = -2 cm, n = 1.5, n' = 1</p></td>
+        </tr>
+        <tr>
+          <td><div align="center"><img src="imagenes/3_00.png" width="161" height="143" /></div></td>
+          <td><p class="m50">Datos: s = -6 cm, y = 0.2 mm Inc&oacute;gnitas: s', 
+              y'</p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/3_02.gif" width="324" height="198" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">La imagen se forma en el infinito y tiene tama&ntilde;o infinito</p>
+      <p class="m50">La burbuja est&aacute; justamente en el foco objeto y todos 
+        los rayos que surgen de ella pasan al aire en direcciones paralelas al 
+        eje. Estos rayos paralelos se cortar&aacute;n en el infinito (Imagen real).</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="34%"> <div align="center"><img src="imagenes/3_01.png" width="189" height="147" /></div></td>
+          <td width="66%"> <p>En realidad el tama&ntilde;o de la imagen no es 
+              infinito porque solo emergen paralelos los rayos que pasan por la 
+              semiesfera as&iacute; que dicho tama&ntilde;o ser&aacute; el diametro 
+              de la semiesfera: 4 cm</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,319,45" title="Clic para ver el desarrollo" onClick="abrirVentana('../desarrollos/1.htm')"/>
+</map>
+</body>
+</html>

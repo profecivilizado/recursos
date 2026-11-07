@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','dr1/ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="886">
+<p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50">Ecuaciones del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="23%"><div align="center"><img src="imagenes/8_03.png" width="121" height="83" /></div></td>
+          <td width="24%"><div align="right"><img src="formulas/8_05.gif" width="126" height="73" /></div></td>
+          <td width="53%"><p class="m50">Par&aacute;metros:</p>
+            <p class="m50"><img src="formulas/8_06.gif" width="280" height="42" border="0" usemap="#Map2" style="cursor:pointer"/></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: La esfera se detiene</p>
+      <p class="m50">Datos: &omega;<sub>1</sub> = 0, Inc&oacute;gnitas: t<sub>1</sub>, 
+        &phi;<sub>1</sub></p>
+      <p class="m150"><img src="formulas/8_07.gif" width="173" height="137" border="0" usemap="#Map" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/8_08.gif" width="350" height="105" /></p>
+      </td>
+  </tr>
+</table>
+<div align="center"></div>
+<map name="Map" id="Map">
+  <area shape="rect" coords="4,89,170,136" onClick="abrirVentana('desarrollos/8_2.htm')"/>
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="117,4,174,39" onClick="abrirVentana('desarrollos/8_1.htm')" />
+</map>
+</body>
+</html>

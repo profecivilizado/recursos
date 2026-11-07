@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana 
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onload="self.resizeTo(480,370);">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="430"> 
+      <p><b><font color="#0000FF">Campo creado por varios cables paralelos</font></b></p>
+      <p>El campo que, en un punto, crean varios conductores paralelos es la suma 
+        vectorial de los <span class="enlace_texto" onclick="abrirVentana('4.htm',1)">campos 
+        que crea cada uno</span> por sepa-rado en dicho punto (Principio de superposici&oacute;n)</p>
+      <p>En el caso de una distribuci&oacute;n de dos conductores ser&iacute;a:</p>
+      <p class="m100"><img src="formulas/2_03.gif" name="imagen3" width="208" height="70" border="0" id="imagen3" /></p>
+      <p>&iquest;Sabes <span class="enlace_texto" onclick="abrirVentana('desarrollos/1.htm')">sumar 
+        vectores</span> en esta forma? </p>
+      <p>En algunas distribuciones de conductores puede que se com-pensen entre 
+        si algunos de los campos creados por estos. Vale la pena analizar si ocurre 
+        esto para evitarnos c&aacute;lculos.</p>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

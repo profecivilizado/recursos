@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="MM_preloadImages('imagenes/1_01.png','imagenes/1_02.png');self.moveTo(20,20);self.resizeTo(480,380)">
+<table width="480" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="456"><p><b><font color="#0000FF">Campo en el exterior de un planeta</font></b></p>
+      <p>El teorema de Gauss prueba que, para puntos situados en la superficie 
+        del planeta o m&aacute;s all&aacute; (r &gt;= R), este se comporta como 
+        si toda su masa estuviera concentrada puntualmente en el centro.</p>
+      <p> Entonces el campo a una altura h sobre la superficie ser&aacute;: </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="12%" valign="middle"> <div align="center"> 
+              <p>
+                <input type="button" name="Submit" value=" " class="boton" style="font-size:6pt"
+				onclick="switch(n) {
+				case 0:MM_swapImage('imagen1','','imagenes/1_02.png',1);mostrarObjetos('celda',1,1);n=1;break;
+				case 1:MM_swapImage('imagen1','','imagenes/1_01.png',1);mostrarObjetos('celda',1,0);n=0
+				}" />
+              </p>
+            </div></td>
+          <td width="52%"><p><img src="imagenes/1_01.png" name="imagen1" width="199" height="151" id="imagen1" /></p></td>
+          <td width="36%" id="celda1" style="visibility:hidden"> <p align="center"><img src="formulas/1_01.gif" width="60" height="62" /></p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

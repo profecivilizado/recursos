@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz">
+<script language="JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onload ="self.resizeTo(480,650)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="442">
+<p  ><b><font color="#0000FF">Aceleraciones del movimiento 
+        circular</font></b></p>
+      <p><strong><font color="#0000FF">Aceleraci&oacute;n normal</font><font color="#FF0000"><br>
+        </font></strong>Est&aacute; asociada al cambio de direcci&oacute;n<br>
+        El vector a<sub>n</sub> tiene la direcci&oacute;n del radio, apunta hacia 
+        el centro de la circunferencia y su m&oacute;dulo vale:</p>
+      <p class="m100"><img src="formulas/3_01.gif" width="186" height="49" border="0" usemap="#Map" style="cursor:pointer"> 
+      </p>
+      <p><strong><font color="#0000FF">Aceleraci&oacute;n tangencial</font><font color="#FF0000"><br>
+        </font></strong>Est&aacute; asociada al cambio de rapidez<br>
+        El vector at tiene la direcci&oacute;n de la tangente en cada punto y 
+        sentido igual o contrario al de la velocidad seg&uacute;n se trate de 
+        un movimiento acelerado o frenado. Su m&oacute;dulo vale:</p>
+      <p class="m100"><img src="formulas/3_02.gif" width="74" height="28" border="0" usemap="#Map2" style="cursor:pointer"></p>
+      <p><strong><font color="#0000FF">Aceleraci&oacute;n total</font></strong><br>
+        Es la resultante vectorial de las aceleraciones normal y tangen-cial</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="31%"><form name="form1" method="post" action="" class="formulario">
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" checked onClick="imagen.innerHTML=imagen1.innerHTML" >
+                Acelerado</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML">
+                Frenado </p>
+            </form></td>
+          <td width="69%" id="imagen"> 
+            <div align="center"><img src="imagenes/3_01.png" width="169" height="179"></div></td></tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td id="imagen1"> 
+            <div align="center"><img src="imagenes/3_01.png" width="169" height="179"></div></td>
+          <td id="imagen2"> 
+            <div align="center"><img src="imagenes/3_02.png" width="169" height="179"></div></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="80,9,120,28" title="Clic para aclaraci&oacute;n" onClick="abrirVentana('7.htm')">
+</map>
+<map name="Map2">
+  <area shape="rect" coords="2,4,70,25" title="Clic para aclaraci&oacute;n" onClick="abrirVentana('7.htm')">
+</map>
+</body>
+</html>

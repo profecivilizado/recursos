@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','tiros1/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><span class="t1"><b><font color="#0000FF">b)</font></b></span> 
+      </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p class="m150"><img src="formulas/4_01.gif" width="88" height="145" border="0" alt="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/5.htm','',1)" class="enlace_imagen" /></p></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 2 m/s, g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: &alpha;<sub>2</sub> = 30&ordm; m, Inc&oacute;gnitas: t<sub>2</sub>, 
+        v<sub>x2</sub>, v<sub>y2</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="34%"> <div align="center"> 
+              <p><img src="imagenes/4_05.png" width="129" height="116" /></p>
+            </div></td>
+          <td width="22%"> <p align="center"><img src="formulas/4_07.gif" width="116" height="153" border="0" usemap="#Map2" /></p></td>
+          <td width="44%" id="celda1" style="visibility:hidden"> <table width="100%" border="1" cellspacing="0" cellpadding="5">
+              <tr>
+                <td><p class="peque&ntilde;o">Los catetos de un tri&aacute;ngulo 
+                    deben ser positivos. Pero vy2 es negativa por eso hay que 
+                    cambiarla de signo para que quede positiva</p></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_08.gif" width="188" height="94" style="cursor:pointer" usemap="#Map" border="0" /> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="3,4,116,41" alt="Clic para ver el desarrollo" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/4_1.htm')" />
+          <area shape="rect" coords="141,62,186,81" alt="Clic para ver unidades" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2"><area shape="rect" coords="3,106,107,149" onMouseOver="mostrarObjetos('celda',1,2)"  onMouseOut="mostrarObjetos('celda',1,0)"/> 
+ 
+</map>
+</body>
+</html>

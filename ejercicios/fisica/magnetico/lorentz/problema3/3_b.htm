@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">Punto de vista: El prot&oacute;n se mueve en el plano de 
+        la pantalla y el campo magn&eacute;tico es perpendicular a ella y est&aacute; 
+        dirigido hacia afuera</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="19%"><div align="center"> 
+              <p><img src="imagenes/3_06.png" width="95" height="118" /></p>
+            </div></td>
+          <td width="10%"><div align="center"><img src="../../mensajes/imagenes/0.png" width="46" height="54" /></div></td>
+          <td width="71%"><p class="m50"><img src="formulas/3_05.gif" width="314" height="116" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">El prot&oacute;n sufrir&aacute; una fuerza q&middot;v&middot;B 
+        (M&oacute;dulo), perpendicular a la velocidad y al campo y su <span class="enlace_texto" onclick="abrirVentana('../ayuda/2.htm',1)">trayectoria</span> 
+        ser&aacute; una circunferencia</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="28%"> <div align="center">
+              <p><img src="imagenes/3_07.png" width="152" height="155" /></p>
+            </div></td>
+          <td width="72%"> <p>Ecuaci&oacute;n de la din&aacute;mica</p>
+            <p class="m50"><img src="formulas/3_06.gif" width="198" height="70" usemap="#Map" border="0" style="cursor:pointer"/></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/3_07.gif" width="357" height="102" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="302,69,354,88"  title="Clic para ver unidades" onclick="abrirVentana('../../unidades/6.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

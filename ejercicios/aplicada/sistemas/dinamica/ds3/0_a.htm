@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz">
+<script language="JavaScript">
+<!--
+function problema(num) {
+	var URL='problema'+ num +'/'+num+'.htm';
+	MM_goToURL('parent',URL);
+}
+
+function situar() {
+	MM_goToURL('parent.frames[1]','#'+_pctop.problema);
+}	
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onLoad="situar()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td id='1' style="cursor:pointer" onMouseOver="title='Problema '+ this.id" onClick="problema(this.id)"> 
+      <a name="1"></a> <hr width="100%"> <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="23%"><div align="center"><img src="problema1/imagenes/1_00.gif" width="96" height="117"></div></td>
+          <td width="77%"><p><strong><font color="#0000FF">Calcula la aceleraci&oacute;n 
+              de los bloques y la tensi&oacute;n de la cuerda al dejar en libertad 
+              el sistema. Datos: m<sub>1</sub> = 4 kg, m<sub>2</sub> = 6 kg</font></strong></p></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td id='2' style="cursor:pointer" onMouseOver="title='Problema '+ this.id" onClick="problema(this.id)"><a name="2"></a>
+<hr>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="23%"><img src="problema2/imagenes/2_00.gif" width="141" height="116"></td>
+          <td width="77%"><p><strong><font color="#0000FF">Calcula la aceleraci&oacute;n 
+              de los bloques y la tensi&oacute;n de las cuerdas al dejar en libertad 
+              el sistema. Ambos bloques tienen la misma masa y el coeficiente 
+              de rozamiento entre bloque 1 y superficie vale: &mu;</font></strong></p></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<p><img src="../../../comunes/imagenes/transparent.gif" width="50" height="400"></p>
+</body>
+</html>

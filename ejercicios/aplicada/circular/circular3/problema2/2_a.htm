@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <div align="center"><img src="imagenes/2_01.png" width="155" height="125" /></div></td>
+          <td width="25%"> <div align="center"><img src="formulas/2_01.gif" width="124" height="73" /></div></td>
+          <td width="46%"> <p>Par&aacute;metros:</p>
+            <p>&omega;<sub>0</sub> , &alpha; (Inc&oacute;gnitas)</p></td>
+        </tr>
+      </table>
+      <p class="m50"><font color="#FF0000">Primero hay que calcular los par&aacute;metros 
+        aunque no los pidan (No se puede trabajar con la ecuaci&oacute;n de un 
+        movimiento si no se conocen los par&aacute;metros)</font></p>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 4 s, &phi;<sub>1</sub> = 2&middot;&pi;,&nbsp;&nbsp;&omega;<sub>1</sub> 
+        = 0, Inc&oacute;gnitas: &omega;<sub>0</sub>, &alpha;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="29%"><div align="center"><img src="imagenes/2_02.png" width="125" height="123" /></div></td>
+          <td width="71%"><p class="m50"><img src="formulas/2_02.gif" width="356" height="73" border="0" usemap="#Map2" style="cursor:pointer"/></p></td>
+        </tr>
+      </table>
+      <p class="m50"><font color="#FF0000">Una vez conocidos los par&aacute;metros 
+        resolvemos el problema:</font></p>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: &omega;<sub>2</sub> = &omega;<sub>0</sub>/2,&nbsp; 
+        Inc&oacute;gnitas: t<sub>2</sub>, &phi;<sub>2</sub></p>
+      <p class="m150"><img src="formulas/2_03.gif" width="266" height="73" border="0" usemap="#Map" style="cursor:pointer" /></p>
+      <p class="m50">Sustituyendo valores resulta:</p>
+      <p class="m150"><img src="formulas/2_04.gif" width="293" height="118" /></p>
+      <p class="m50">F&iacute;jate que curioso: para perder la mitad de la velocidad 
+        inicial tiene que recorrer tres cuartos de vuelta y para perder la otra 
+        mitad recorre solo un cuarto de vuelta 
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="157,10,263,57" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/2_2.htm')"/>
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="187,17,369,61" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/2_1.htm')"/>
+</map>
+</body>
+</html>

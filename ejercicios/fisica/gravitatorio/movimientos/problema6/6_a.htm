@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','movimientos/ayuda/1.htm')");MM_preloadImages('imagenes/6_00.png','imagenes/6_01.png','formulas/6_01.gif','imagenes/6_02.png','formulas/6_02.gif')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&iquest;Sabes qu&eacute; es la <span class="enlace_texto" onClick="abrirVentana('../../mensajes/2.htm')">velocidad 
+        de escape</span>?</p>
+      <p class="m50">Cambios de energ&iacute;a desde que el cuerpo sale de la 
+        Tierra con velocidad hasta que llega al infinito donde se detiene</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="50%" rowspan="2"> <div align="center"> 
+              <p><img src="imagenes/6_00.png" name="imagen1" width="328" height="116" id="imagen1" /></p>
+            </div></td>
+          <td width="50%" id="celda1" style="visibility:hidden"> <p class="m50"><img src="formulas/6_01.gif" name="imagen2" width="175" height="62" id="imagen2" /></p></td>
+        </tr>
+        <tr> 
+          <td width="50%" id="celda2" style="visibility:hidden"> <p>El potencial 
+              en el infinito es cero porque justamente el infinito es el origen 
+              de potencial</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="15%">&nbsp;</td>
+          <td width="35%" valign="top">
+<form action="" method="post" name="form1" class="formulario" id="form1">
+              <div align="center"> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/6_00.png',1);mostrarObjetos('celda',1,0)" checked="checked" />
+                Restaurar 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/6_01.png','imagen2','','formulas/6_01.gif',1);mostrarObjetos('celda',1,2)" />
+                Inicial 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/6_02.png','imagen2','','formulas/6_02.gif',1);mostrarObjetos('celda',1,2)" />
+                Final </div>
+            </form></td>
+          <td width="50%"><hr />
+            <p class="m50"><img src="formulas/6_03.gif" width="250" height="84" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">C&aacute;lculo del trabajo</p>
+      <p class="m50">Durante el trayecto el cuerpo s&oacute;lo est&aacute; sometido 
+        a la fuerza la gravitatoria cuyo trabajo ya est&aacute; contado en la 
+        variaci&oacute;n de energ&iacute;a potencial, por tanto <b><i>T</i></b> 
+        = 0. </p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n: </p>
+      <p class="m150"><img src="formulas/6_04.gif" width="390" height="167" align="middle" usemap="#Map2" border="0" style="cursor:pointer" /> 
+      </p>
+      <p class="m50">Por curiosidad vamos a calcular la <span class="enlace_texto" onClick="abrirVentana('../ayuda/2.htm')">energ&iacute;a 
+        mec&aacute;nica</span> del cuerpo en el momento de iniciar el viaje: </p>
+      <p class="m150"><img src="formulas/6_05.gif" width="421" height="97" align="middle" usemap="#Map2Map" border="0" /> 
+      </p>
+      <p class="m50">Recuerda esto: para que un cuerpo escape partiendo de un 
+        punto dentro del campo gravitatorio su energ&iacute;a mec&aacute;nica 
+        en este punto, y en cualquier otro, deber&aacute; ser 0 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="291,128,384,154" alt="Clic para ver unidades" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/3.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

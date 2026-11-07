@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Parte 1</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../campo/ayuda/4.htm',1)">Campo 
+        que crea</span> el conductor AB en la posici&oacute;n que ocupa el conductor 
+        CD</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="9%" rowspan="3"> <div align="center"> 
+              <p> 
+                <input type="button" name="Submit" value=" > " class="boton" 
+	  onclick="switch(n){
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',2,2);n=n+1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',3,2,4,2);n=n+1;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',2,0,3,0,4,0);n=0;break;
+				}" />
+              </p>
+            </div></td>
+          <td width="14%" rowspan="3" id="imagen"> 
+            <div align="center"> 
+              <p><img src="imagenes/8_02.png" width="193" height="135" /></p>
+            </div></td><td width="14%" rowspan="3"><img src="../../mensajes/imagenes/0.png" width="46" height="54" /></td>
+          <td width="63%" height="46"> <p class="m50"><img src="formulas/8_04.gif" width="93" height="22" /></p></td>
+        </tr>
+        <tr> 
+          <td id="celda2" style="visibility:hidden"> <p class="m50"><img src="formulas/8_05.gif" width="128" height="52" /></p></td>
+        </tr>
+        <tr> 
+          <td width="63%" id="celda3" style="visibility:hidden"> <p class="m50"><img src="formulas/8_06.gif" width="248" height="40" border="0" /> 
+            </p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td colspan="3" id="celda4" style="visibility:hidden"> <p>Aunque hemos 
+              calculado el campo en un punto del conductor CD, todos los dem&aacute;s 
+              puntos sufren este mismo campo. Resumiendo el conductor CD est&aacute; 
+              sometido al campo <b>B</b></p></td>
+        </tr>
+      </table>  
+      <hr />
+      <p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../fuerzas/ayuda/1.htm',1)">Fuerza 
+        que sufre</span> el conductor CD debida al campo creado por el conductor 
+        AB</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%"> <div align="center"> 
+              <p><img src="imagenes/8_05.png" width="193" height="135" /></p>
+            </div></td>
+          <td width="15%"><div align="center"><img src="../../mensajes/imagenes/0.png" width="46" height="54" /></div></td>
+          <td width="70%"> <p class="m50"><img src="formulas/8_07.gif" width="314" height="104" /></p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/8_08.gif" width="244" height="42" /></p>
+      <p class="m50">El conductor CD es repelido por el conductor AB </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="27%" id="imagen0"> 
+            <div align="center"><img src="imagenes/8_02.png" width="193" height="135" /></div></td>
+          <td width="34%" id="imagen1"> 
+            <div align="center"><img src="imagenes/8_03.png" width="193" height="135" /></div></td>
+          <td width="39%" id="imagen2"> 
+            <div align="center"><img src="imagenes/8_04.png" width="193" height="135" /></div></td></tr>
+      </table><p class="m50">&nbsp;</p>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

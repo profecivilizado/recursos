@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Iluminando un metal este emite electrones con una cierta 
+        energ&iacute;a cin&eacute;tica. Esta energ&iacute;a cin&eacute;tica no 
+        depende de la intensidad de la radiaci&oacute;n sino de su frecuencia 
+        (A mayor frecuencia, m&aacute;s energ&iacute;a cin&eacute;tica)</p>
+      <p class="m50">Se puede interpretar el efecto fotoel&eacute;ctrico como 
+        la absorci&oacute;n de un fot&oacute;n por parte de un electr&oacute;n. 
+        La energ&iacute;a que gana el electr&oacute;n se reparte en trabajo de 
+        extracci&oacute;n del metal y energ&iacute;a cin&eacute;tica:</p>
+      <p class="m150">h&middot;f = W<sub>0</sub> + E<sub>C</sub></p>
+      <p class="m50">Evidentemente cuanto mayor sea la frecuencia de la radiaci&oacute;n 
+        mayor ser&aacute; la energ&iacute;a cin&eacute;tica de los fotoelectrones</p>
+      <p class="m50">Las c&eacute;lulas fotoel&eacute;ctricas se utilizan para 
+        impedir que las puertas deslizantes de los ascensores se cierren cuando 
+        se interpone un objeto entre ellas.<br />
+        En el canto de uno de los paneles hay un foco de luz ultravioleta (Invisible) 
+        y justo enfrente, en el canto del otro panel, hay una c&eacute;lula fotoel&eacute;ctrica. 
+        Mientras esta c&eacute;lula reciba luz permitir&aacute; que funcione el 
+        motor de cierre. <br />
+      </p></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,500)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p><b><font color="#0000FF">Dataci&oacute;n con C-14</font></b></p>
+      <p>Este m&eacute;todo permite saber cu&aacute;nto tiempo ha pasado desde 
+        que muri&oacute; un &aacute;rbol o planta</p>
+      <p><b><font color="#FF0000">Truco del asunto</font></b></p>
+      <p>La mayor&iacute;a de las mol&eacute;culas de CO<sub>2</sub> de la atm&oacute;sfera 
+        contienen C-12 estable y el resto contiene C-14 radioactivo que se va 
+        desintegrando.<br />
+        En principio la cantidad de C-14 tendr&iacute;a que disminuir pero se 
+        da la casualidad de que los rayos c&oacute;smicos procedentes del espacio 
+        provocan reacciones nucleares que producen C-14 al mismo rit-mo que este 
+        disminuye por desintegraci&oacute;n. En la atm&oacute;sfera la proporci&oacute;n 
+        C-12/C-14 no varia con el tiempo</p>
+      <p>Por otra parte los vegetales toman CO<sub>2</sub> del aire para formar 
+        tejido y por tanto tienen la misma proporci&oacute;n C-12/C-14 que hay 
+        en la atmosfera. Cuando el vegetal muera el C-14 que se desin-tegre no 
+        se repondr&aacute; y la proporci&oacute;n C-12/C-14 se ir&aacute; haciendo 
+        menor con el tiempo <b>a un ritmo conocido</b></p>
+      <p>Comparando la proporci&oacute;n C-12/C-14 en una planta muerta con la 
+        proporci&oacute;n C-12/C-14 en el mismo tipo de planta hoy, se pue-de 
+        calcular el tiempo transcurrido</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

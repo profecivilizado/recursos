@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td height="253"> 
+      <p class="m50">Una reacci&oacute;n de fusi&oacute;n es la uni&oacute;n de 
+        n&uacute;clidos ligeros (Por ejemplo: hidr&oacute;geno) para dar un n&uacute;clido 
+        m&aacute;s pesado y alguna part&iacute;cula subat&oacute;mica. Esta reacci&oacute;n 
+        libera energ&iacute;a</p>
+      <p class="m50">Una reacci&oacute;n de fisi&oacute;n es la ruptura de un 
+        n&uacute;clido pesado (Por ejemplo: uranio) para dar varios n&uacute;clidos 
+        m&aacute;s ligeros y algunas part&iacute;culas subat&oacute;micas. Esta 
+        reacci&oacute;n libera energ&iacute;a</p>
+      <p class="m50">Cuando un nucle&oacute;n, que est&aacute; en un n&uacute;clido, 
+        pasa a integrarse en otro n&uacute;clido se liberar&aacute; una energ&iacute;a 
+        igual a la&nbsp;<span class="enlace_texto" onclick="abrirVentana('mensajes/1.htm')">diferencia 
+        entre las energ&iacute;as de enlace por nucle&oacute;n</span>&nbsp;de 
+        los n&uacute;clidos inicial y final</p>
+      <p class="m50"> Ocurre que la energ&iacute;a de enlace por n&uacute;cleon 
+        (E/Z) var&iacute;a con el n&uacute;mero de nucleones: es peque&ntilde;a 
+        para valores peque&ntilde;os o grandes de Z y es m&aacute;xima para valores 
+        de Z = 56. Por tanto, cuando un nucle&oacute;n pase de un n&uacute;clido 
+        ligero a otro m&aacute;s pesado (Hasta Z = 56) se liberar&aacute; energ&iacute;a.<br />
+        An&aacute;logamente cuando un nucle&oacute;n pase de un n&uacute;clido 
+        pesado a otro m&aacute;s ligero (Hasta Z = 56) se liberar&aacute; energ&iacute;a 
+        tambi&eacute;n</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

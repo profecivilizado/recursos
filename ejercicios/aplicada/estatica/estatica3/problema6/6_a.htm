@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Fuerzas</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/6_01.png" width="206" height="220" /></div></td>
+          <td width="67%"><p>Equilibrio de traslaci&oacute;n:</p>
+            <p class="m50"><img src="formulas/6_01.gif" width="58" height="54" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Momentos:</p>
+      <p class="m50">El punto de aplicaci&oacute;n de la normal est&aacute; a 
+        distancia x (Inc&oacute;gnita) del borde izquierdo del bloque</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="19%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=''"/>
+                Restaurar </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                F</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                P</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML"/>
+                N</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen4.innerHTML;formula.innerHTML=formula4.innerHTML"/>
+                &mu;N </p>
+              </form></td>
+          <td width="26%" id="imagen"> 
+            <div align="center"><img src="imagenes/6_02.png" width="194" height="220" /></div></td>
+          <td width="55%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50">Equilibrio de rotaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/6_04.gif" width="104" height="41" /></p>
+      <p class="m50">Combinando las dos condiciones de equilibrio resulta un sistema</p>
+      <p class="m150"><img src="formulas/6_05.gif" width="221" height="129" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="130,47,219,82" title="Clic para aclaración" onclick="abrirVentana('desarrollos/6_1.htm')"/>
+        </map>
+      </p>
+      <p class="m50">Al aumentar h aumentar&aacute; x y cuando esta sobrepase 
+        la longitud de la base del bloque se romper&aacute; el equilibrio. El 
+        caso cr&iacute;tico corresponder&aacute; a: x = b</p>
+      <p class="m150"><img src="formulas/6_07.gif" width="177" height="38" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="34%" id="imagen0"> <div align="center"><img src="imagenes/6_02.png" width="194" height="220" /></div></td>
+                <td width="29%" id="imagen1"> <div align="center"><img src="imagenes/6_03.png" width="194" height="220" /></div></td>
+                <td width="37%" id="imagen2"> <div align="center"><img src="imagenes/6_04.png" width="194" height="220" /></div></td>
+              </tr>
+              <tr> 
+                <td id="imagen3"> <div align="center"><img src="imagenes/6_05.png" width="194" height="220" /></div></td>
+                <td id="imagen4"> <div align="center"><img src="imagenes/6_06.png" width="194" height="220" /></div></td>
+                <td id="imagen5"> 
+                  <div align="center"></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr id="formula2"> 
+                <td width="53%" id="formula1"> <p class="m50"><img src="formulas/6_02.gif" width="109" height="20" align="middle" 		  />&nbsp; 
+                    <img src="../../sentido/1_02.gif" width="24" height="28" align="middle" /></p></td>
+                <td width="47%"><p class="m50" ><img src="formulas/6_03.gif" width="152" height="41" align="middle"  />&nbsp; 
+                    <img src="../../sentido/1_02.gif" width="24" height="28" align="middle" /></p></td>
+              </tr>
+              <tr> 
+                <td id="formula3"> <p class="m50">M<sub>N</sub> = 0 (Est&aacute; 
+                    aplicada en el origen)</p></td>
+                <td id="formula4"> <p class="m50">M<sub>&mu;N</sub> = 0 (Est&aacute; 
+                    aplicada en el origen)</p></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

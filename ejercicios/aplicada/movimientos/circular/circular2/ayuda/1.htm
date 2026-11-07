@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana 
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.moveTo(20,20);self.resizeTo(440,600)" 
+onunload="cerrarVentanas()">
+<table width="401" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="381"> <p><b><font color="#0000FF">Recorridos parciales</font></b></p>
+      <p>Un recorrido parcial es un desplazamiento que empieza en la posici&oacute;n 
+        &phi;<sub>1</sub> en el instante t<sub>1</sub> y acaba en la posici&oacute;n 
+        &phi;<sub>2</sub> en el instante t<sub>2 </sub> <br />
+        El desplazamiento y la duraci&oacute;n del recorrido parcial son: &Delta;&phi; 
+        = &phi;<sub>2</sub> - &phi;<sub>1</sub>&nbsp; ,&nbsp; &Delta;t = t<sub>2</sub> 
+        - t<sub>1</sub></p>
+      <p align="left">En un problema t&iacute;pico de recorridos parciales suelen 
+        dar el desplazamiento parcial y pedir la duraci&oacute;n del recorrido 
+        o viceversa.<br />
+        En algunos casos dar&aacute;n el desplazamiento o la duraci&oacute;n del 
+        recorrido y pedir&aacute;n los valores de algunas de las variables al 
+        principio o al final del recorrido</p>
+      <p class="mimimo"><b><font color="#FF0000">M&eacute;todo</font></b></p>
+      <p> Se plantean las ecuaciones del movimiento</p>
+      <p>Se aplican las ecuaciones del movimiento al comienzo del recorrido parcial 
+        (&phi;<sub>1</sub>, t<sub>1</sub>)</p>
+      <p>Se aplican las ecuaciones del movimiento al final del recorrido parcial 
+        (&phi;<sub>2</sub>, t<sub>2</sub>) </p>
+      <p>Se a&ntilde;aden las expresiones del desplazamiento y duraci&oacute;n 
+        del recorrido parcial (Puede que s&oacute;lo se necesite una de ellas)</p>
+      <p>Se resuelve el sistema de ecuaciones </p></td>
+  </tr>
+</table>
+</body>
+</html>

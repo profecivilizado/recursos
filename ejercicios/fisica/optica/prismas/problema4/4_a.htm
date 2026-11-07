@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="5%" valign="middle"> <div align="center"> 
+              <input type="button" name="boton1" value=">" class="boton" 
+			onclick="switch(n)	{
+				case 0:imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML;n=n+1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML;n=n+1;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;formula.innerHTML='';n=0;break;
+				}" />
+            </div></td>
+          <td width="24%" valign="middle" id="imagen"> 
+            <div align="center"><img src="imagenes/4_01.png" width="183" height="153" /></div></td>
+          <td width="71%" valign="middle" id="formula" > 
+            <p>&nbsp;</p></td></tr>
+      </table>
+      <hr />
+      <p class="m50">Combinando las expresiones obtenidas con las relaciones entre 
+        &aacute;ngulos del prisma resulta un sistema de inc&oacute;gnitas: e, 
+        r, r',&delta; </p>
+      <p class="m150"><img src="formulas/4_03.gif" width="218" height="113" usemap="#Map" border="0" style="cursor:pointer"/></p>
+      <map name="Map" id="Map">
+        <area shape="rect" coords="144,46,215,66" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/4_1.htm')") />
+        <area shape="rect" coords="3,57,83,77" title="Clic para aclaración" onclick="abrirVentana('../ayuda/1_1.htm',1)"/>
+        <area shape="rect" coords="3,90,101,109" title="Clic para aclaración" onclick="abrirVentana('../ayuda/1_2.htm',1)" />
+      </map>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="33%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/4_01.png" width="183" height="153" /></div></td>
+                <td width="29%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/4_02.png" width="183" height="153" /></div></td>
+                <td width="38%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/4_03.png" width="183" height="153" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="46%" id="formula1"> <p align="left" class="m50"><img src="formulas/4_01.gif" width="132" height="20" /></p></td>
+                <td width="54%" id="formula2"> 
+                  <div align="center">
+                    <p align="left" class="m50"><img src="formulas/4_02.gif" width="132" height="20" /></p>
+                  </div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

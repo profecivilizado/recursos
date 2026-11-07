@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">Dentro del campo el electr&oacute;n experimenta una fuerza 
+        vertical hacia abajo cuyo m&oacute;dulo es:</p>
+      <p class="m150"><img src="formulas/5_00.gif" width="285" height="37" /></p>
+      <p class="m50">En la expresi&oacute;n del m&oacute;dulo de la fuerza la 
+        carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto">se 
+        pone con signo</span> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="10%" rowspan="2"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML;mostrarObjetos('celda',1,2)"/>
+                A-B</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML;mostrarObjetos('celda',1,0)"/>
+                B-C</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML;mostrarObjetos('celda',1,0)"/>
+                C-D</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML;mostrarObjetos('celda',1,0)"/>
+                D-A </p>
+            </form></td>
+          <td width="24%" rowspan="2" id="imagen"><img src="imagenes/5_01.PNG" width="170" height="188" /></td>
+          <td width="66%" height="129" id="formula"> 
+            <div align="center"><img src="formulas/5_01.gif" width="316" height="60" /></div></td></tr>
+        <tr>
+          <td height="58" id="celda1"> <p>Los &aacute;ngulos &phi; , &gamma; suman 
+              180&ordm; por tanto tienen cosenos iguales y cambiados de signo. 
+              <br />
+              Los &aacute;ngulos &gamma; son iguales por tener sus lados paralelos</p>
+            </td></tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/5_05.gif" width="345" height="60" /></p>
+      <p align="left" class="m50">El campo el&eacute;ctrico es conservativo: no 
+        hace trabajo en un recorrido cerrado</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="25%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/5_01.PNG" width="170" height="188" /></div></td>
+                <td width="19%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/5_02.PNG" width="170" height="188" /></div></td>
+                <td width="26%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/5_03.PNG" width="170" height="188" /></div></td>
+                <td width="30%" id="imagen3"> 
+                  <div align="center"><img src="imagenes/5_04.PNG" width="170" height="188" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="53%" id="formula0"> 
+                  <div align="center"><img src="formulas/5_01.gif" width="316" height="60" /></div></td>
+                <td width="47%" id="formula1"> 
+                  <div align="center"><img src="formulas/5_02.gif" width="161" height="22" /></div></td></tr>
+              <tr>
+                <td id="formula2"> 
+                  <div align="center"><img src="formulas/5_03.gif" width="297" height="60" /></div></td><td id="formula3"> 
+                  <div align="center"><img src="formulas/5_04.gif" width="309" height="60" /></div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

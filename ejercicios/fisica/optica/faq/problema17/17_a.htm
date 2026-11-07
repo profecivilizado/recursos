@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">El arco iris se debe a la dispersi&oacute;n de la luz 
+        del Sol por las gotas de agua suspendidas en el aire</p>
+      <p class="m50"><font color="#FF0000">Supongo que esta es la contestaci&oacute;n 
+        que se espera para la pregunta. Si tienes curiosidad por una explicaci&oacute;n 
+        m&aacute;s detallada aqu&iacute; va:</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="32%"><div align="center"><img src="imagenes/17_01.png" width="185" height="160" /></div></td>
+          <td width="68%"><p>Los rayos del Sol que llegan paralelos a la gota 
+              se refractan al llegar a la cara externa de la gota (1) y llegan 
+              a la cara interna opuesta con un &aacute;n-gulo superior al l&iacute;mite 
+              por lo que se reflejan (2) hacia la otra cara interna y all&iacute; 
+              se refractan al salir al aire (3) </p>
+            <p>Descartes tuvo la paciencia de calcular la trayectoria de cada 
+              uno de los rayos y descubri&oacute; que la mayor&iacute;a de ellos 
+              emerg&iacute;an de la gota en una di-recci&oacute;n que formaba 
+              42&ordm; con la direcci&oacute;n de los rayos del Sol<br />
+            </p></td>
+        </tr>
+        <tr>
+          <td><img src="imagenes/17_02.png" width="206" height="156" /></td>
+          <td><p>Siempre que miremos en una direcci&oacute;n que forme 42&ordm; 
+              con los rayos del Sol recibiremos la luz dispersada por las gotas 
+              de agua. En el espacio, el con-junto de todas las direcciones que 
+              forman 42&ordm; con una dada forman la superficie de un semicono 
+              cuya base veremos como un arco luminoso</p>
+            <p>As&iacute; se explica el 'arco', ahora veamos el 'iris'...</p></td>
+        </tr>
+      </table>
+      
+      <p class="m50">Al penetrar el rayo de luz en la gota de agua cada color 
+        se refracta con un &aacute;ngulo distinto y en conse-cuencia las trayectorias 
+        de los rayos dentro de la gota ser&aacute;n diferentes y los rayos que 
+        salen de la go-ta formar&aacute;n con la direcci&oacute;n de la luz del 
+        Sol &aacute;ngulos ligeramente diferentes de 42&ordm;.</p>
+      <p class="m50">Para entendernos: mirando en direcci&oacute;n 41.5, 42, 42.5&ordm; 
+        veremos respectivamente arcos de color azul, amarillo o rojo... (Los valores 
+        est&aacute;n dados a lo loco)</p></td>
+  </tr>
+</table>
+</body>
+</html>

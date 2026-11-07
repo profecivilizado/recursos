@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Relaci&oacute;n entre tiempos</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" link="#0000CC" vlink="#0000CC"  
+onload="self.moveTo(20,20);self.resizeTo(630,390);MM_preloadImages('imagenes/1_01.png','imagenes/1_02.png','imagenes/1_03.png')">
+<table width="626" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td colspan="3" > <p><b><font color="#0000FF">Relaci&oacute;n entre tiempos</font></b></p>
+      <p>Cuando se mide el tiempo con un reloj lo que realmente se mide es el 
+        &aacute;ngulo que gira una aguja a partir de una posici&oacute;n de partida 
+        arbitraria</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="5%" rowspan="3"><input type="button" name="boton1" value="    0    " class="boton"
+	  		onclick="var texto='    ', n=eval(this.value);
+			switch(n){
+				case 0: mostrarObjetos('celda',1,2,2,2);this.value=texto+eval(n+1)+texto;break;
+				case 1:MM_swapImage('imagen1','','imagenes/1_02.png',1);mostrarObjetos('celda',2,0,3,2);this.value=texto+eval(n+1)+texto;break;
+				case 2:MM_swapImage('imagen1','','imagenes/1_03.png',1);mostrarObjetos('celda',3,0,4,2);this.value=texto+eval(n+1)+texto;break;
+				case 3:mostrarObjetos('celda',5,2);this.value=texto+eval(n+1)+texto;break;
+				case 4:MM_swapImage('imagen1','','imagenes/1_01.png',1);mostrarObjetos('celda',1,0,4,0,5,0);this.value=texto+0+texto
+				}" /></td>
+          <td width="31%" rowspan="3" id="celda1" style="visibility:hidden"><img src="imagenes/1_01.png" name="imagen1" width="175" height="168" id="imagen1" /></td>
+          <td width="64%" height="33" id="celda2" style="visibility:hidden"> <p>Comienza 
+              a moverse el primer m&oacute;vil</p></td>
+        </tr>
+        <tr> 
+          <td id="celda3" style="visibility:hidden"> <p>El primer m&oacute;vil 
+              lleva movi&eacute;ndose un tiempo t = &Delta;t &nbsp;Ahora comienza 
+              el movimiento del segundo</p></td>
+        </tr>
+        <tr> 
+          <td id="celda4" style="visibility:hidden"> <p>El primer m&oacute;vil 
+              lleva movi&eacute;ndose un tiempo t (&Aacute;ngulo contado desde 
+              t = 0). <br />
+              El segundo m&oacute;vil lleva movi&eacute;ndose un tiempo t' (&Aacute;ngulo 
+              contado desde t' = 0)<br />
+              Evidentemente: t = &Delta;t + t'</p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td colspan="2" id="celda5" style="visibility:hidden"> <p align="center">t' 
+              = t - &Delta;t</p>
+            <p class="m50">Recuerda: el m&oacute;vil que sale <b>m&aacute;s tarde</b> 
+              circula <b>menos tiempo</b></p></td>
+        </tr>
+      </table></td>
+  </tr>
+ </table>
+</body>
+</html>

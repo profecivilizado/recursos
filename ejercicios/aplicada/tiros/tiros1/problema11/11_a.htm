@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/11_01.png" width="143" height="57" /></div></td>
+          <td width="67%"><p>Aunque la bomba se deje caer tiene la misma velocidad 
+              que el avi&oacute;n que la transporta</p></td>
+        </tr>
+      </table>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <p class="m150"><img src="formulas/11_01.gif" width="90" height="126" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/5.htm')" class="enlace_imagen" /></p></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 200 m/s</p>
+            <p class="m50"> g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Llegada al suelo</p>
+      <p class="m50">Datos: y<sub>1</sub> = -1900 m, Inc&oacute;gnitas: t<sub>1</sub>, 
+        x<sub>1</sub>, v<sub>x1</sub>, v<sub>y1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="center"> 
+              <p><img src="imagenes/11_02.png" width="154" height="144" /></p>
+            </div></td>
+          <td width="63%"> <p align="left" class="m50"><img src="formulas/11_02.gif" width="352" height="126" border="0" usemap="#Map1" style="cursor:pointer"/> 
+              <map name="Map1" id="Map1">
+                <area shape="rect" coords="114,22,351,105" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/11_1.htm')"/>
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m100"><img src="formulas/11_03.gif" width="453" height="220" border="0" usemap="#Map2" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">La bomba tarda 19.7 s en caer al suelo y lo hace 3938 m a 
+        la derecha del observador. El alcance ser&aacute;: 3938 - 0 = 3938 m</p>
+      <p class="m50"> Llega al suelo con velocidad 278 m/s en direcci&oacute;n 
+        44&ordm; bajo la horizontal</p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="209,77,264,96" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/22.htm')"/>
+  <area shape="rect" coords="158,15,205,34" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/0.htm')"/>
+</map>
+</body>
+</html>

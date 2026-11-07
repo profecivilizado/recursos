@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var texto11 ="Tama&ntilde;o del &aacute;tomo: 1 &Aring; = 10<sup>-10</sup> m = 0,1 nm",
+texto21 = "La longitud de onda de la luz es mucho mayor que el tama&ntilde;o del &aacute;tomo.<br />"
+texto21 +="La luz se comportar&aacute; frente al &aacute;tomo como un chorro de part&iacute;culas (No lo iluminar&aacute;, lo golpear&aacute;)",
+texto12 ="Tama&ntilde;o del microbio: 1 &mu;m = 10<sup>-6</sup> m = 1000 nm",
+texto22="La longitud de onda de la luz es menor que el tama&ntilde;o del microbio.<br />"
+texto22 +="La luz se comportar&aacute; frente al microbio como una onda (Lo iluminar&aacute; y se podr&aacute; ver la imagen)",
+texto13 ="Separaci&oacute;n entre iones: 5.63&middot;10<sup>-10</sup> m = 0,563 nm",
+texto23 ="La longitud de onda de la luz es mayor que los agujeros de la red cristalina.<br />"
+texto23 +="La luz se comportar&aacute; frente a a la red como un chorro de part&iacute;culas (No la iluminar&aacute;, la golpear&aacute;)"
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','cuantica2/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m150">Longitud de onda de la luz: 500 nm</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="23%" rowspan="2"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="mensaje1.innerHTML=texto11;mensaje2.innerHTML=texto21"/>
+                &Aacute;tomo </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="mensaje1.innerHTML=texto12;mensaje2.innerHTML=texto22"/>
+                Microbio </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="mensaje1.innerHTML=texto13;mensaje2.innerHTML=texto23"/>
+                Red cristalina</p>
+            </form></td>
+          <td width="77%" height="64"><p><span id="mensaje1">Tama&ntilde;o del 
+              &aacute;tomo: 1 &Aring; = 10<sup>-10</sup> m = 0,1 nm</span></p></td>
+        </tr>
+        <tr>
+          <td><p><span id="mensaje2">La longitud de onda de la luz es mucho mayor que el tama&ntilde;o del &aacute;tomo.<br />La luz se comportar&aacute; frente al &aacute;tomo como un chorro de part&iacute;culas (No lo iluminar&aacute;, lo golpear&aacute;)</span></p></td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

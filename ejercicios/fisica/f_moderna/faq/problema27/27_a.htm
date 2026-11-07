@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p>&nbsp;</p>
+      <p class="m50">Cuando se unen protones y neutrones para formar un n&uacute;clido 
+        se libera energ&iacute;a (Energ&iacute;a de enlace)</p>
+      <p class="m50"> La masa del conjunto de protones y de neutrones juntos siempre 
+        es menor que la suma de las masas por separado. Esta diferencia se denomina 
+        'defecto de masa'.</p>
+      <p class="m50">La energ&iacute;a de enlace procede de la conversi&oacute;n 
+        del defecto de masa en energ&iacute;a seg&uacute;n la ecuaci&oacute;n 
+        de Einstein:</p>
+      <p class="m150"><img src="formulas/27_01.gif" width="106" height="24" /></p></td>
+  </tr>
+</table>
+</body>
+</html>

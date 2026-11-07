@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','dinamica5/ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Consideramos el bloque en la posici&oacute;n de equilibrio</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center">
+              <p><img src="imagenes/13_01.png" width="169" height="162" /></p>
+            </div></td>
+          <td width="67%"><p>En la posici&oacute;n de equilibrio el bloque est&aacute; 
+              sometido al peso que tira hacia abajo y a la fuerza el&aacute;stica 
+              que tira hacia arriba. Ambas fuerzas se compensan</p>
+            <p class="m50"><img src="formulas/13_04.gif" width="80" height="65" /></p>
+            <p>Siendo d = 4 cm</p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Llevamos el bloque a una distancia y de la posici&oacute;n 
+        de equilibrio y soltamos...</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"><p><img src="imagenes/13_02.png" width="227" height="203" /></p></td>
+          <td width="67%" > <p>La fuerza el&aacute;stica es mayor que el peso 
+              (El muelle est&aacute; m&aacute;s estirado que en la posici&oacute;n 
+              de equilibrio): la fuerza util va hacia arriba y por tanto la aceleraci&oacute;n 
+              va hacia arriba</p>
+            <p class="m50"><img src="formulas/13_05.gif" width="152" height="25" border="0" /></p>
+            <p>Sustituyendo el valor de k obtenido en la situaci&oacute;n de equilibrio:</p>
+            <p class="m50"><img src="formulas/13_06.gif" width="269" height="78" border="0" style="cursor:pointer"/></p></td>
+        </tr>
+      </table>
+      <p class="m50">El sentido de la aceleraci&oacute;n es contrario a la elongaci&oacute;n 
+        (Separaci&oacute;n de la posici&oacute;n de equilibrio) y su m&oacute;dulo 
+        es proporcional a esta. Estas dos caracter&iacute;sticas son t&iacute;picas 
+        del movimiento arm&oacute;nico</p>
+      <p class="m50">En Cinem&aacute;tica el <b>m&oacute;dulo</b> de la aceleraci&oacute;n 
+        de un movimiento arm&oacute;nico vale:</p>
+      <p class="m150"><img src="formulas/13_07.gif" width="61" height="24" /></p>
+      <p class="m50">(Se ha suprimido el signo menos porque se trata de un m&oacute;dulo)</p>
+      <p class="m50">Evidentemente el <b>m&oacute;dulo</b> de la aceleraci&oacute;n 
+        calculada en Din&aacute;mica tiene que ser igual al <b>m&oacute;dulo</b> 
+        de la aceleraci&oacute;n calculada en Cinem&aacute;tica:</p>
+      <p class="m150"><img src="formulas/13_08.gif" width="228" height="146" border="0" usemap="#MapMap" style="cursor:pointer"/></p>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

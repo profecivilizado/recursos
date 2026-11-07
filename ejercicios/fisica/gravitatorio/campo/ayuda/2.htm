@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onLoad="self.resizeTo(480,350)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td> 
+      <p><b><font color="#0000FF">Campo creado por una distribuci&oacute;n de 
+        masas puntuales</font></b></p>
+      <p>El campo que crean varias masas puntuales en un punto es la suma vectorial 
+        de los campos que crea cada una por separado en dicho punto (Principio 
+        de superposici&oacute;n)</p>
+      <p>En el caso de una distribuci&oacute;n de dos masas ser&iacute;a:</p>
+      <p class="m50"><img src="formulas/3_01.gif" name="imagen3" width="265" height="45" border="0" id="imagen3" /></p>
+      <p>&iquest;Sabes <span class="enlace_texto" onclick="abrirVentana('desarrollos/1.htm')">sumar 
+        vectores</span> en esta forma? </p>
+      <p>En algunas distribuciones de masas puede que se compensen entre si los 
+        campos creados por algunas de ellas. Vale la pena analizar si ocurre esto 
+        para evitarnos c&aacute;lculos.</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

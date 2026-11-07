@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="12%"><form action="" method="post" name="form1" class="formulario" id="form1" >
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML;texto.innerHTML=texto0.innerHTML" />
+                A-B</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                C-B </p>
+            </form></td>
+          <td width="34%" id="imagen"> 
+            <div align="center"><img src="imagenes/7_04.png" width="225" height="69" /></div></td>
+          <td width="54%" id="formula"> 
+            <div align="center"><img src="formulas/7_04.gif" width="314" height="81" border="0" /></div></td></tr>
+        <tr> 
+          <td height="80">&nbsp;</td>
+          <td colspan="2" id="texto"> 
+            <p>Un trabajo negativo significa que la masa m no ir&aacute; 
+              sola desde A hasta B, habr&aacute; que llevarla (Y nos costar&aacute; 
+              un trabajo de 66 J) o lanzarla con una energ&iacute;a cin&eacute;tica 
+              min&iacute;ma de 66 J<span id="mensaje1"> </span></p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/7_04.png" width="225" height="69" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/7_05.png" width="225" height="69" /></div></td></tr>
+              <tr>
+                <td id="formula0"> 
+                  <div align="center"><img src="formulas/7_04.gif" width="314" height="81" border="0" /></div></td>
+                <td id="formula1"> 
+                  <div align="center"><img src="formulas/7_05.gif" width="308" height="81" border="0" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="12%">&nbsp;</td>
+                <td width="88%" id="texto0"> 
+                  <p>Un trabajo negativo significa que la masa m 
+                    no ir&aacute; sola desde A hasta B, habr&aacute; que llevarla 
+                    (Y nos costar&aacute; un trabajo de 66 J) o lanzarla con una 
+                    energ&iacute;a cin&eacute;tica min&iacute;ma de 66 J<span id="mensaje1"> 
+                    </span></p></td></tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td id="texto1"> 
+                  <p>Un trabajo positivo significa que la masa m ir&aacute; 
+                    sola desde C hasta B, ganando una energ&iacute;a cin&eacute;tica 
+                    de 23 J</p></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

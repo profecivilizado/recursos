@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','relatividad1/ayuda/4.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">El rect&aacute;ngulo representa un recinto que se mueve 
+        respecto al observador 2 (Neutr&oacute;n) con velocidad 0.6c El observador 
+        1, la Tierra y el Sol est&aacute;n dentro del recinto</p>
+      <p align="center"><img src="imagenes/10_02.png" width="404" height="74" /></p>
+      <p class="m50">Observador 1 (Sol):<br />
+        Ve el Sol y la Tierra en reposo. Midiendo la distancia entre ellos obtiene: 
+        L<sub>1</sub> = 1.5&middot;10<sup>11</sup> m<br />
+        Esta longitud es propia</p>
+      <p class="m50">Observador 2 (Neutr&oacute;n)<br />
+        Ve el conjunto Sol-Tierra en movimiento. Midiendo la distancia entre ellos 
+        obtiene: L<sub>2</sub></p>
+      <p class="m50">Aplicando la conversi&oacute;n de longitudes:</p>
+      <p class="m150"><img src="formulas/10_03.gif" width="246" height="108" /></p>
+      <p class="m50"> Vista desde el observador 2, en el momento de nacer el neutr&oacute;n 
+        la Tierra estaba a una distancia de 1.2&middot;10<sup>11</sup> m acerc&aacute;ndose 
+        con una velocidad 0.6c. Entonces tardar&aacute; en llegar:</p>
+      <p class="m150"><img src="formulas/10_04.gif" width="301" height="44" /></p>
+      <p class="m50">Para el observador 2 el neutr&oacute;n vive 15 min y la Tierra 
+        tarda en llegar 11.1 min. El neutr&oacute;n seguir&aacute; existiendo 
+        cuando la Tierra llegue hasta &eacute;l</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

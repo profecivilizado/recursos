@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../general/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50"><font color="#FF0000">La expresi&oacute;n dada no es un vector 
+        (&iquest;D&oacute;nde est&aacute;n los unitarios <strong>i</strong>, <strong>j</strong>?) 
+        sino la componente del vector seg&uacute;n un determinado eje</font></p>
+      <p class="m50">Para empezar hay que convertir la ecuaci&oacute;n de onda 
+        a la forma normal:</p>
+      <p class="m150"><img src="formulas/17_01.gif" width="256" height="49" /></p>
+      <p class="m50">Identificando los coeficientes de la ecuaci&oacute;n:</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td valign="middle"> <p align="right"><img src="formulas/17_02.gif" width="97" height="37" />&nbsp;&nbsp; 
+            </p></td>
+          <td width="52%"><img src="formulas/17_03.gif" width="362" height="42" /></td>
+        </tr>
+        <tr> 
+          <td height="50" valign="middle"> <div align="right"> 
+              <p align="right"><img src="formulas/17_04.gif" width="104" height="42" />&nbsp;&nbsp; 
+              </p>
+            </div></td>
+          <td><img src="formulas/17_05.gif" width="526" height="49" /></td>
+        </tr>
+        <tr> 
+          <td height="50" valign="middle">&nbsp;</td>
+          <td><img src="formulas/17_06.gif" width="406" height="41" /></td>
+        </tr>
+      </table>
+      <p class="m50">El &iacute;ndice de refracci&oacute;n del vidrio es el cociente 
+        de la velocidad de la luz en el vac&iacute;o entre la velocidad de la 
+        luz en el vidrio:</p>
+      <p class="m150"><img src="formulas/17_07.gif" width="125" height="38" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

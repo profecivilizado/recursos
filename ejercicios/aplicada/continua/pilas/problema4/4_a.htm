@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="40%"> 
+            <p align="center"><strong><font color="#0000FF"><img src="imagenes/4_01.png" width="165" height="145" /></font></strong></p></td>
+          <td width="60%"><p class="m50"><img src="formulas/4_01.gif" width="190" height="38" border="0"  style="cursor:pointer"/></p>
+            <p>Potencia suminisrada por el generador:</p>
+            <p class="m50"><img src="formulas/4_02.gif" width="188" height="44" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="formula.innerHTML=formula0.innerHTML"/>
+                R = 0</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="formula.innerHTML=formula1.innerHTML"/>
+                R = 5 &Omega;</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="formula.innerHTML=formula2.innerHTML"/>
+                R = &infin;</p>
+            </form></td>
+          <td height="180" id="formula"> 
+            <p align="left" class="m100"><img src="formulas/4_03.gif" width="184" height="102" border="0" usemap="#Map2" style="cursor:pointer"/> 
+            </p>
+            <p align="left" class="m50">R = 0 significa cortocircuitar los bornes 
+              de la pila </p></td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td id="formula0"> <div align="center"> 
+              <p align="left" class="m100"><img src="formulas/4_03.gif" width="184" height="102" border="0" usemap="#Map3"  style="cursor:pointer"/></p>
+              <p align="left" class="m50">R = 0 significa cortocircuitar los bornes 
+                de la pila</p>
+            </div></td>
+        </tr>
+        <tr> 
+          <td id="formula1"><p class="m100"><img src="formulas/4_04.gif" width="190" height="102" border="0" usemap="#Map4"  style="cursor:pointer"/> 
+              <map name="Map4" id="Map4">
+                <area shape="rect" coords="133,71,187,90" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')" />
+              </map>
+            </p></td>
+        </tr>
+        <tr> 
+          <td id="formula2"> <p class="m100"><img src="formulas/4_05.gif" width="145" height="102" border="0" style="cursor:pointer"/> 
+            </p>
+            <p align="left" class="m50">R = &infin;&nbsp;significa dejar la pila 
+              en circuito abierto</p></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="134,71,181,90" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/4.htm')" />
+</map>
+<map name="Map3" id="Map3">
+  <area shape="rect" coords="134,71,181,90" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/4.htm')" />
+</map>
+</body>
+</html>

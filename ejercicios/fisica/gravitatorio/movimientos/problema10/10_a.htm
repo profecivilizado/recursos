@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50"><font color="#FF0000">Para cambiar a una &oacute;rbita m&aacute;s 
+        alta no se sube directamente en direcci&oacute;n radial como pasa en las 
+        pel&iacute;culas, simplemente se aumenta la velocidad h&aacute;bilmente 
+        para describir un arco de par&aacute;bola que acaba justo en la trayectoria 
+        deseada</font></p>
+      <p class="m50">Cambios de energ&iacute;a mec&aacute;nica entre las &oacute;rbitas 
+        inicial y final</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="16%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"  />
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Final </p>
+            </form></td>
+          <td width="29%" id="imagen"><img src="imagenes/10_00.png" width="203" height="223" /></td>
+          <td width="55%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/10_03.gif" width="304" height="44" /></p>
+      <p class="m50">Durante el recorrido el sat&eacute;lite est&aacute; sometido 
+        a la fuerza del cohete propulsor y a la fuerza gravitatoria. El trabajo 
+        gravitatorio ya est&aacute; contado en la variaci&oacute;n de energ&iacute;a 
+        potencial por tanto el &uacute;nico trabajo que se hace sobre el sat&eacute;lite 
+        es el del motor del cohete: <b><i>T</i></b> </p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n:</p>
+      <p class="m100"><img src="formulas/10_04.gif" width="450" height="180" usemap="#Map" border="0" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="33,152,107,177" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/9.htm')" />
+        </map>
+      </p>
+      <p class="m50">Para cambiar la &oacute;rbita del sat&eacute;lite el motor 
+        tendr&aacute; que comunicarle una energ&iacute;a de 1.66&middot;10<sup>9</sup> 
+        J</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="31%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/10_00.png" width="203" height="223" /></div></td>
+                <td width="31%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/10_01.png" width="203" height="223" /></div></td>
+                <td width="38%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/10_02.png" width="203" height="223" /></div></td></tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="4%" id="formula0">&nbsp;</td>
+                <td width="44%" id="formula1"> <p align="left" class="m50"><img src="formulas/10_01.gif" width="228" height="156" border="0" usemap="#Map2" style="cursor:pointer"/> 
+                    <map name="Map2" id="Map2">
+                      <area shape="rect" coords="144,5,187,44" title="Clic para aclaración" onclick="abrirVentana('../../ayuda/1.htm')"/>
+                    </map>
+                  </p></td>
+                <td width="52%" id="formula2"><p class="m50"><img src="formulas/10_02.gif" width="233" height="156" border="0" usemap="#Map3" style="cursor:pointer"/> 
+                    <map name="Map3" id="Map3">
+                      <area shape="rect" coords="149,6,192,43" title="Clic para aclaración" onclick="abrirVentana('../../ayuda/1.htm')"/>
+                    </map>
+                  </p></td></tr>
+            </table></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="imagen2Map" id="imagen2Map">
+  <area shape="rect" coords="103,5,162,44" onClick="abrirVentana('../../ayuda/1.htm')"/>
+</map>
+</body>
+</html>

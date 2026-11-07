@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css"  rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,0);self.resizeTo(450,420)"
+onUnload="cerrarVentanas()">
+<table width="410" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="390"><p><b><strong><font color="#0000FF">Los bloques tienen diferentes 
+        aceleraciones</font></strong></b></p>
+      <p>Esto solo puede ocurrir cuando los cuerpos est&aacute;n apilados (Uno 
+        encima del otro)</p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <p>Se trata cada bloque por separado haciendo su diagrama libre (Ojo con 
+        la acci&oacute;n y reacci&oacute;n para las fuerzas entre bloques) y aplic&aacute;ndole 
+        la ecuaci&oacute;n de la din&aacute;mica como ya sabemos</p>
+      <p><strong><font color="#FF0000">Importante</font></strong></p>
+      <p><font color="#FF0000">Si se obtiene una aceleraci&oacute;n negativa para 
+        el cuerpo apilado significar&aacute; que este cuerpo no se mueve respecto 
+        al cuerpo que tiene debajo, luego ambos ir&aacute;n juntos</font></p>
+      <p><font color="#FF0000">Si se obtiene una aceleraci&oacute;n negativa para 
+        el cuerpo que apoya en el suelo significar&aacute; que este no se mueve 
+        respecto al suelo, porque el rozamiento se lo impide.</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

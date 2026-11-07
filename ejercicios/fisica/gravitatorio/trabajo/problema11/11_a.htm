@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../ayuda/1.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50" align="left"><b><font color="#0000FF">a)</font></b></p>
+      <p align="left" class="m50">Cuando hay una distribuci&oacute;n de masas, 
+        el potencial en un punto es la suma num&eacute;rica de los potenciales 
+        creados en ese punto por cada masa (Principio de superposici&oacute;n), 
+        por tanto hay que calcular el poten-cial que crean M<sub>1</sub>, M<sub>2</sub> 
+        y M<sub>3</sub> y M<sub>4</sub> por separado en el punto A.<br />
+        En este caso todas las masas son iguales y est&aacute;n a la misma distancia 
+        del punto A, por tanto crear&aacute;n potenciales iguales: V<sub>A1</sub> 
+        = V<sub>A2</sub> = V<sub>A3</sub> = V<sub>A4</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="24%"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub>, M<sub>4</sub></p>
+            </form>
+            
+          </td>
+          <td width="29%" height="170" id="imagen"> 
+            <p align="center"><img src="imagenes/11_01.png" width="156" height="156" /></p></td>
+          <td width="47%" id="formula" > <p class="m50">&nbsp;</p></td>
+        </tr>
+      </table>
+      <hr /> 
+      <p align="left" class="m150"><img src="formulas/11_02.gif" width="285" height="38" /></p>
+      <p class="m50">Evidentemente en este punto A el campo gravitatorio es nulo 
+        y ahora acabamos de obtener que en este punto es potencial no es nulo 
+        &iquest;c&oacute;mo puede ser esto?</p>
+      <p class="m50">El campo es la fuerza por unidad de masa <b>EN</b> el punto. 
+        El potencial es el trabajo por cada unidad de masa que se desplaza <b>DESDE</b> 
+        el punto<b> HASTA</b> el infinito. Aunque no haya fuerza en el punto de 
+        partida si la hay en el resto del recorrido y por ello el trabajo no es 
+        nulo.</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="44%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/11_01.png" width="156" height="156" /></div></td>
+                <td width="56%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/11_02.png" width="173" height="140" /></div></td></tr>
+              <tr>
+                <td id="formula0">&nbsp;&nbsp;</td>
+                <td id="formula1"> 
+                  <div align="center"><img src="formulas/11_01.gif" width="180" height="141" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table><p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

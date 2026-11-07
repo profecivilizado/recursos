@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../ayuda/10.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+      <p class="m50">Intensidades: 3, Mallas independientes: 2</p>
+      <p class="m50"> Hay que plantear dos ecuaciones de malla y una de nodo</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%" rowspan="2"  > <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML;mostrarObjetos('celda',1,0)"/>
+                Rest. </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML;mostrarObjetos('celda',1,2)"/>
+                Nodo</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML;mostrarObjetos('celda',1,2)"/>
+                Malla 1</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML;mostrarObjetos('celda',1,2)"/>
+                Malla 2</p>
+            </form></td>
+          <td width="39%" rowspan="2" id="imagen" ><img src="imagenes/3_02.png" width="287" height="164" /></td>
+          <td width="45%" height="160" valign="middle" id="formula"> 
+            <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td valign="middle" id="celda1" style="visibility:hidden"><p class="peque&ntilde;o">&nbsp;Para 
+              no complicar las cosas prescindiremos de las uni-dades en las ecuaciones 
+              de Kirchoff</p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Combinando la ecuaci&oacute;n de nodo y las dos de malla:</p>
+      <p class="m150"><img src="formulas/3_04.gif" width="244" height="148" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"><img src="imagenes/3_02.png" width="287" height="164" /></td>
+                <td id="imagen1"><img src="imagenes/3_03.png" width="287" height="164" /></td>
+              </tr>
+              <tr>
+                <td id="imagen2"><img src="imagenes/3_04.png" width="287" height="164" /></td>
+                <td id="imagen3"><img src="imagenes/3_05.png" width="287" height="164" /></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="formula0">&nbsp;</td>
+                <td id="formula1"><img src="formulas/3_01.gif" width="77" height="20" /></td>
+              </tr>
+              <tr>
+                <td id="formula2"><img src="formulas/3_02.gif" width="150" height="20" /></td>
+                <td id="formula3"><img src="formulas/3_03.gif" width="150" height="20" /></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,109,240,145" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/3_1.htm')"/>
+</map>
+</body>
+</html>

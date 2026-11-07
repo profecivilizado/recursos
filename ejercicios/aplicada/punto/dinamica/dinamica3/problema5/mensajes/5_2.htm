@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../../_pc/compat.js"></script>
+
+<title>Aclaraci&oacute;n</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload ="self.moveTo(20,20);self.resizeTo(370,430);MM_preloadImages('imagenes/5_10.png','imagenes/5_14.png','imagenes/5_15.png','imagenes/5_16.png')">
+<table width="361" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td colspan="2"> <p><b><font color="#0000FF">Direcci&oacute;n y sentido de 
+        la fuerza de rozamiento </font></b></p>
+      <p> Supongamos que no hubiera rozamiento entre caja y cami&oacute;n</p></td>
+  </tr>
+  <tr> 
+    <td width="62"> <div align="center"> 
+        <input type="button" name="boton1" value="    0    " 
+		onclick="var texto='    ', n=eval(this.value);
+			switch(n){
+				case 0:MM_swapImage('imagen1','','imagenes/5_14.png',1);this.value=texto+eval(n+1)+texto;break;
+				case 1:MM_swapImage('imagen1','','imagenes/5_15.png',1);this.value=texto+eval(n+1)+texto;break;
+				case 2:MM_swapImage('imagen1','','imagenes/5_16.png',1);this.value=texto+eval(n+1)+texto;break;
+				case 3:MM_swapImage('imagen1','','imagenes/5_10.png',1);this.value=texto+0+texto
+				}" />
+      </div></td>
+    <td width="259"> <div align="center"><img src="imagenes/5_10.png" name="imagen1" width="227" height="101" id="imagen1" /></div></td>
+  </tr>
+  <tr> 
+    <td colspan="2"> <p> El cami&oacute;n va moviendose hacia la derecha y frena 
+        La caja no ser&iacute;a frenada y continuar&iacute;a movi&eacute;ndose 
+        hacia la derecha <font color="#FF0000">respecto al suelo,</font> <font color="#FF0000">y 
+        tambi&eacute;n hacia la derecha respecto al cami&oacute;n</font> (Observa 
+        las marcas rojas)</p>
+      <p>Si hubiera rozamiento, &eacute;ste se opondr&iacute;a al movimiento de 
+        la caja respecto al cami&oacute;n y ejercer&iacute;a una fuerza horizontal 
+        hacia la izquierda</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

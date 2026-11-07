@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,620)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p><b><font color="#0000FF">Ecuaci&oacute;n de la desintegraci&oacute;n</font></b></p>
+      <p class="m100">N = N<sub>0</sub>&middot;e<sup>-&lambda;t</sup></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="12%" valign="top"> <p align="right">N<sub>0</sub> </p></td>
+          <td width="88%" valign="top"> <p>Cantidad de sustancia inicial (&Aacute;tomos)</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">N </p></td>
+          <td><p>Cantidad de sustancia que queda al cabo de un tiempo t (&Aacute;tomos)</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <div align="right">&lambda;&nbsp; </div></td>
+          <td><p>Constante de desintegraci&oacute;n<br />
+              Probabilidad de que, en un segundo, se desintegre uno de los &aacute;tomos 
+            </p>
+            <p><font color="#0000FF">Par&aacute;metros relacionados con &lambda;</font></p>
+            <p>T: Per&iacute;odo de semidesintegraci&oacute;n<br />
+              Tiempo que tarda en reducirse a la mitad cualquier cantidad de &aacute;tomos</p>
+            <p align="left" class="m100"> <img src="formulas/1_01.gif" width="73" height="20" class="enlace_imagen" onclick="abrirVentana('4.htm',1)"/></p>
+            <p align="left">&tau;: Vida media o per&iacute;odo<br />
+              Promedio de los tiempos que viven los &aacute;tomos</p>
+            <p align="left" class="m100"><img src="formulas/1_02.gif" width="40" height="37" /><br />
+            </p>
+            </td>
+        </tr>
+      </table>
+      <p>La ecuaci&oacute;n de la desintengraci&oacute;n tambi&eacute;n se puede 
+        expresar en funci&oacute;n de la masa</p>
+      <p class="m100"><img src="formulas/1_03.gif" width="93" height="24" /></p></td>
+  </tr>
+</table>
+</body>
+</html>

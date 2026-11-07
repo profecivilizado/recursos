@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm');">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> 
+      <p class="m150"><img src="imagenes/8_01.png" width="225" height="129" /></p>
+      <p class="m50">Observador 1 (S):<br />
+        Ve la taza movi&eacute;ndose con velocidad v. Midiendo el tiempo que tarda 
+        en vaciarse obtiene<br />
+        &Delta;t<sub>1</sub>= 15 min. La posici&oacute;n de la taza al empezar 
+        a beber y al acabar no es la misma</p>
+      <p class="m50">Observador 2 (S')<br />
+        Ve la taza quieta. Midiendo el tiempo que tarda en vaciarse obtiene &Delta;t<sub>2</sub> 
+        = 10 min<br />
+        Este tiempo es propio</p>
+      <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
+      <p class="m150"></p>
+      <p class="m150"><img src="formulas/8_01.gif" width="262" height="41" /></p>
+      <p class="m50">Conociendo &gamma; se puede calcular la velocidad de la nave. 
+        Este c&aacute;lculo resultar&aacute; m&aacute;s f&aacute;cil si expresamos 
+        la velocidad como un porcentaje de la velocidad de la luz: v =x&middot;c</p>
+      <p class="m150"><img src="formulas/8_02.gif" width="202" height="138" /> 
+      </p>
+      <p class="m50">La velocidad de la nave espacial es un 74.5% de la velocidad 
+        de la luz.</p>
+      <p class="m150"><img src="formulas/8_03.gif" width="285" height="37" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

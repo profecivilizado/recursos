@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','ayuda/3.htm')"
+"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="25%"><div align="center"><img src="imagenes/10_02.png" width="187" height="159" /></div></td>
+          <td width="75%">
+<p class="m50"><img src="formulas/10_08.gif" width="388" height="228" border="0" usemap="#Map3" style="cursor:pointer" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/10_09.gif" width="465" height="86" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+      <p class="m50">El gas realiza trabajo sobre el entorno a expensas de su 
+        energ&iacute;a interna</p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="111,9,199,46" alt="Clic para aclaraci&oacute;n" onClick="abrirVentana('../../../unidades/2.htm')" />
+</map>
+<map name="Map3" id="Map3">
+  <area shape="rect" coords="188,37,285,85" onclick="abrirVentana('mensajes/1.htm')" />
+</map>
+</body>
+</html>

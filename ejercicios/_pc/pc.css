@@ -1,0 +1,31 @@
+/* Estilo moderno para las páginas originales del repositorio */
+:root{--ink:#15203a;--muted:#5a6479;--line:#d6dde8;--card:#f6f8fb;--accent:#1f55d6;--red:#c2410c;--hover:#eef3fb;--bg:#ffffff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#e7ecf5;--muted:#9aa5ba;--line:#2a3447;--card:#18202e;--accent:#8fb2ff;--red:#ff9a6b;--hover:#1e293b;--bg:#121826;color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#e7ecf5;--muted:#9aa5ba;--line:#2a3447;--card:#18202e;--accent:#8fb2ff;--red:#ff9a6b;--hover:#1e293b;--bg:#121826;color-scheme:dark}
+html,body{background:transparent!important;color:var(--ink)!important}
+body{margin:0!important;padding:4px 2px 10px!important;font:17px/1.6 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif!important;overflow-x:hidden}
+body.pc-fs{padding:0!important;display:grid;gap:12px}
+iframe.pc-frame{display:block;width:100%;border:0;height:60px;background:transparent}
+iframe.pc-hide{display:none}
+p,td,li,span,div,b,strong,font{font-family:inherit!important}
+p{margin:.35em 0}
+.m50,.m100,.m150{margin-left:0!important}
+p.m100{padding-left:12px}p.m150{padding-left:4px}
+table{max-width:100%!important;border-collapse:collapse}
+table[width="760"],table[width="770"],table[width="750"],table[width="780"],table[width="800"]{width:100%!important}
+td{padding:6px 8px!important;vertical-align:top}
+img{max-width:100%;height:auto}
+font[color="#0000FF"],font[color="#0000ff"],font[color="blue"]{color:var(--accent)!important}
+font[color="#FF0000"],font[color="#ff0000"],font[color="red"]{color:var(--red)!important}
+font[color="#000000"]{color:inherit!important}
+[bgcolor="#FFFFCC"],[bgcolor="#ffffcc"],.borde{background:var(--card)!important;border:1px solid var(--line)!important;border-radius:12px}
+[bgcolor="#FFFFFF"],[bgcolor="#ffffff"],[bgcolor="#CCFFFF"],[bgcolor="#ccffff"],[bgcolor="#FFFF99"],[bgcolor="#ffff99"]{background:transparent!important}
+td[onclick],td[onClick],[style*="cursor:pointer"]{cursor:pointer;border-radius:10px;transition:background .15s}
+td[onclick]:hover,td[onClick]:hover{background:var(--hover)}
+.enlace_texto,.enlace{color:var(--accent)!important;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+a{color:var(--accent)}
+input[type=radio],input[type=checkbox]{accent-color:var(--accent)}
+hr{border:0;border-top:1px solid var(--line)}
+/* fórmulas e imágenes (fondo blanco): en modo oscuro se invierten */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) img{filter:invert(.9) hue-rotate(180deg)}}
+:root[data-theme="dark"] img{filter:invert(.9) hue-rotate(180deg)}

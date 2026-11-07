@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload="self.resizeTo(490,490)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="430"> 
+      <p><b><font color="#0000FF">Campo magn&eacute;tico creado por cable rectil&iacute;neo 
+        infinito</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td id="celda1" style="visibility:hidden"> 
+            <p align="center"><font color="#FF0000">El cable es perpendicular 
+              al plano de la pantalla</font></p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="17%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,2)"/>
+                2-D </p>
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',1,0)"/>
+                3-D </p>
+            </form></td>
+          <td width="47%" id="imagen"> 
+            <div align="center"><img src="imagenes/4_02.png" width="188" height="175" /></div></td><td width="36%"><div align="center"><img src="formulas/1_04.gif" width="138" height="40" /></div></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="top"> 
+          <td width="9%"> <p align="right">I </p></td>
+          <td width="91%"> <p>Intensidad de corriente en el conductor</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td><p align="right"><strong>r</strong> </p></td>
+          <td><p>Vector de posici&oacute;n (En el plano perpendicular al cable 
+              y desde este hasta el punto)</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td><p align="right">r </p></td>
+          <td><p>M&oacute;dulo del vector de posici&oacute;n</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td><p align="right"><strong>u</strong><sub>r </sub></p></td>
+          <td><p>Vector unitario correspondiente al de posici&oacute;n</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td> <p align="right"><b>u</b><sub>I </sub></p></td>
+          <td> <p>Vector unitario con la direcci&oacute;n y sentido de la corriente</p></td>
+        </tr>
+      </table>
+      
+      <p><strong><font color="#0000FF">Direcci&oacute;n y sentido del campo (R&aacute;pido)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="32%"><img src="imagenes/4_03.png" width="132" height="123" /></td>
+          <td width="68%"><p><font color="#000000">Se traza la <span class="enlace_texto" onClick="abrirVentana('7.htm')">linea 
+              de fuerza</span> que pasa por el punto. El campo ser&aacute; tangente 
+              a la l&iacute;nea y tendr&aacute; el sentido de esta</font></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="50%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/4_01.png" width="188" height="175" /></div></td>
+                <td width="50%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/4_02.png" width="188" height="175" /></div></td></tr>
+            </table>
+          </td>
+        </tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

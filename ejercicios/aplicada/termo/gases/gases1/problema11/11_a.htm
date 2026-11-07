@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var numero=numeroProblema();
+	_pctop.problema=numero;
+	var texto='Problema '+ numero;
+	if(apartado){texto = texto + '  Apartado '+ apartado};
+	parent.document.title=texto;
+	_pctop.document.title=texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+	
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/6.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> <p class="m50">Calculamos la cantidad de gas que hay inicialmente en 
+        el recipiente 1:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="49%"><div align="center"><img src="imagenes/11_01.png" name="imagen1" width="113" height="137" id="imagen1" /></div></td>
+          <td width="51%"><div align="center"><img src="formulas/11_01.gif" width="342" height="41" /></div></td>
+        </tr>
+      </table>
+      <p class="m50">Al poner en comunicaci&oacute;n los dos recipientes los 0,242 
+        mol de gas que hay en total se repartir&aacute;n en un volumen total de 
+        18 l haciendo una presi&oacute;n P':</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="38%"><div align="center"><img src="imagenes/11_02.png" width="257" height="172" /></div></td>
+          <td width="62%"><div align="center"><img src="formulas/11_02.gif" width="412" height="44" border="0" usemap="#Map" style="cursor:pointer"/> 
+              <map name="Map" id="Map">
+                <area shape="rect" coords="99,62,175,81" title="Clic para aclaración" onclick="abrirVentana('mensajes/3.htm')"/>
+              </map>
+            </div></td>
+        </tr>
+      </table>
+      <p class="m50">Ambos recipientes tendr&aacute;n la misma presi&oacute;n: 
+        0,334 at. Calculamos la cantidad de gas en cada uno </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="49%"><img src="formulas/11_03.gif" width="350" height="41" /></td>
+          <td width="51%"><img src="formulas/11_04.gif" width="342" height="41" /></td>
+        </tr>
+      </table>
+      <p class="m50">Cambio en la cantidad de gas del recipiente 1:</p>
+      <p class="m100">&Delta;n<sub>1</sub> = n'<sub>1</sub> - n<sub>1</sub> = 
+        (0,242 - 0,108) mol = -0,134 mol</p>
+      <p class="m50">El signo negativo indica que ha disminuido la cantidad de 
+        gas (Ha pasado al otro recipiente)</p>
+      <p class="m50">Cambio en la cantidad de gas del recipiente 2:</p>
+      <p class="m100">&Delta;n<sub>2</sub> = n'<sub>2</sub> - n<sub>2</sub> = 
+        (0,134 - 0) mol = 0,134 mol</p>
+      <p class="m50">El signo positivo indica que ha aumentado la cantidad de 
+        gas (Ha llegado del otro recipiente)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

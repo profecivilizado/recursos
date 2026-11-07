@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td width="59%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              <p><font color="#000000">P</font><font color="#000000">osici&oacute;n 
+                inicial:&nbsp; 
+                <input name="radiobutton" type="radio" value="radiobutton" onclick="parent[0].modo='1.htm';cambiar('','1_a1.htm')" />
+                0&ordm;&nbsp;&nbsp; 
+                <input name="radiobutton" type="radio"  checked="checked"/>
+                90&ordm; </font></p>
+            </form></td>
+          <td width="34%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">a)</font></b> </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%" rowspan="2"> <div align="center"> 
+              <p><img src="imagenes/6_01.png" width="150" height="125" /></p>
+            </div></td>
+          <td width="22%"> <div align="right"> 
+              <p align="center"><img src="formulas/6_01.gif" width="109" height="57" /></p>
+            </div></td>
+          <td width="49%"> <p>Par&aacute;metros:</p>
+            <p align="left"><img src="formulas/6_21.gif" width="292" height="70" /></p></td>
+        </tr>
+        <tr> 
+          <td colspan="2"><p align="center"><font color="#FF0000">Observa que 
+              &phi;<sub>0</sub> se toma en el mismo sentido que &omega;<sub>0</sub></font></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 54 s, &nbsp;Inc&oacute;gnita: &phi;<sub>1</sub></p>
+      <p class="m150"><img src="formulas/6_03.gif" width="390" height="65" usemap="#Map2" border="0" style="cursor:pointer" /> 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="296,38,388,61" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/6_1.htm')" />
+        </map>
+      </p>
+      <p class="m50">Esta en la posici&oacute;n -90&ordm; tras haber pasado cinco 
+        veces por el origen </p>
+      <p class="m50">El desplazamiento angular ser&aacute;: </p>
+      <p class="m150"><img src="formulas/6_13.gif" width="229" height="84" /></p>
+      <p class="m50">El desplazamiento se da en valor absoluto, as&iacute; que 
+        ser&aacute; 4,5 vueltas</p>
+      <p class="m50">Observa: No es lo mismo las vueltas dadas (4,5) que los pasos 
+        por el origen (5)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

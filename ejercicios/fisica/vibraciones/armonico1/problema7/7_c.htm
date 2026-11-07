@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+var n=0, v=12.5 
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><font color="#0000FF"><b>c) </b></font></p>
+      <p class="m50">Ecuaciones del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="35%"> <div align="right"> 
+              <p><img src="formulas/7_01.gif" width="178" height="105" /></p>
+            </div></td>
+          <td width="65%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">A = 25 cm, &omega; = &pi;/6 rad/s (T = 2&pi;/&omega; 
+              = 12 s)</p>
+            <p class="m50">&phi;<sub>0</sub> = 3&pi;/2 rad</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: a<sub>2</sub> = 2 cm/s<sup>2</sup>, &nbsp;Inc&oacute;gnitas: 
+        t<sub>2</sub>, v<sub>2</sub></p>
+      <p class="m150"><img src="formulas/7_04.gif" width="409" height="145" border="0" usemap="#Map" style="cursor:pointer"  /></p>
+      <p class="m50">En cada oscilaci&oacute;n, el m&oacute;vil tiene dos veces 
+        la misma aceleraci&oacute;n y las velocidades correspondientes son iguales 
+        y contrarias (En un caso ir&aacute; frenando y en el otro acelerando)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="20%"><div align="center">
+              <input type="button" name="Submit" value=">" 
+	  onclick="
+			switch(n){
+				case 0: imagen.innerHTML=imagen1.innerHTML;velocidad.innerHTML=v;n=1;break;
+				case 1: imagen.innerHTML=imagen0.innerHTML;velocidad.innerHTML=-v;n=0;break;
+			}" />
+            </div></td>
+          <td width="34%" id="imagen"> 
+            <div align="center"><img src="imagenes/7_04.png" width="173" height="64" /></div></td><td width="46%"><p>v = <span id="velocidad">-12.5</span> cm/s</p>
+            <p> a = 2 cm/s<sup>2</sup></p></td>
+        </tr>
+      </table>  <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/7_04.png" width="173" height="64" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/7_05.png" width="173" height="64" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="244,4,406,60" title="Clic para ver el desarroll" onClick="abrirVentana('../../desarrollos/3.htm')" />
+</map>
+</body>
+</html>

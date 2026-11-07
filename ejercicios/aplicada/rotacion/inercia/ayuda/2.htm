@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.moveTo(20,20);self.resizeTo(390,350)"
+onUnload="cerrarVentanas()">
+<table width="345" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="325"> <p><strong><font color="#0000FF">C&aacute;lculo del momento 
+        de inercia<br />
+        de cuerpos complejos</font></strong></p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <p>Se descompone el cuerpo en varios subcuerpos cuyo momento de inercia 
+        respecto a un eje se conoce</p>
+      <p>Si el eje respecto al cual se conoce el momento de inercia del subcuerpo 
+        no coincide con el eje del cuerpo dado habr&aacute; que convertirlo aplicando 
+        el <span class="enlace_texto" onClick="abrirVentana('../../mdi/2.htm',1)">teorema de Steiner</span></p>
+      <p>El momento de inercia del cuerpo ser&aacute; la suma de los momentos 
+        de inercia de los subcuerpos respecto al eje dado</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,75,269,120" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/1_1.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="19%"><div align="center"><img src="imagenes/2_01.png" width="50" height="109" /></div></td>
+          <td width="81%"><p>E = m&middot;g</p></td>
+        </tr>
+      </table>
+      <p class="m50">Suponemos que la persona (Volumen: V<sub>0</sub>) con el 
+        chaleco (Volumen: V) est&aacute; totalmente sumergida, por tanto el volumen 
+        de agua desplazada es: V<sub>0</sub> + V</p>
+      <p class="m150"><img src="formulas/2_01.gif" width="332" height="126" /></p>
+      <p class="m50">El chaleco deber&aacute; desplazar m&aacute;s de 2 l para 
+        que la persona pueda asomar la cabeza</p>
+      <p class="m50"><font color="#FF0000">Detalle: Se ha supuesto que el chaleco 
+        salvavidas no pesa </font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

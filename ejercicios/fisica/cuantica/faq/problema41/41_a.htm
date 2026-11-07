@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p class="m50">Cuando se midan a la vez la posici&oacute;n y el momento 
+        de una part&iacute;cula, el producto de las indetermina-ciones en dichas 
+        medidas tendr&aacute; que ser mayor que h/(2&pi;). Es decir: cuanto mejor 
+        se conozca la posici&oacute;n peor se conocer&aacute; el momento.</p>
+      <p class="m50">Esto matem&aacute;ticamente se expresa as&iacute;:</p>
+      <p class="m150"><img src="formulas/41_01.gif" width="77" height="37" /></p>
+      <p class="m50">El principio de Heisemberg confirma la dualidad onda-part&iacute;cula 
+        y la imposibilidad de observarla simul-t&aacute;neamente. La posici&oacute;n 
+        define el aspecto corpuscular y el momento define el aspecto ondulatorio<br />
+        (&lambda; = h/p), cuanto mejor se conozca un aspecto, peor se conocer&aacute; 
+        el otro</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

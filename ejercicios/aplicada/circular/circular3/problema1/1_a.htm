@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><font color="#FF0000"> La velocidad angular de un movimiento 
+        acelerado no debe darse en r.p.m porque en cada revoluci&oacute;n se tarda 
+        un tiempo diferente. Se hace en este caso porque los motores aceleran 
+        hasta alcanzar una velocidad de r&eacute;gimen que ya mantienen constante. 
+        La velocidad de r&eacute;gimen, en este problema, es de 1200 r.p.m</font></p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <div align="center"><img src="imagenes/1_01.png" width="143" height="123" /></div></td>
+          <td width="25%"> <div align="center"><img src="formulas/1_01.gif" width="81" height="70" /></div></td>
+          <td width="46%"> <p>Par&aacute;metros:</p>
+            <p>&alpha; (Inc&oacute;gnita)</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="16%"><p align="right">Datos:</p></td>
+          <td width="41%"><img src="formulas/1_03.gif" width="277" height="42" border="0" usemap="#Map2" style="cursor:pointer"/></td>
+          <td width="43%"><p>Inc&oacute;gnitas: &phi;<sub>1</sub> </p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/1_02.gif" width="349" height="180" border="0" usemap="#Map" style="cursor:pointer" /></p>
+      <p class="m50">Como no hay posici&oacute;n angular inicial el desplazamiento 
+        coincide con la posici&oacute;n angular</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="104,15,268,55" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/1_1.htm')"/>
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="205,4,273,38" title="Clic para aclaración" onClick="abrirVentana('desarrollos/1_2.htm')" />
+</map>
+</body>
+</html>

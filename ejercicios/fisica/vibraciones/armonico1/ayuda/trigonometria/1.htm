@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.moveTo(0,0);self.resizeTo(400,210)" 
+onUnload="cerrarVentanas()">
+<table width="361" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="341"> <p>En general hay dos &aacute;ngulos que tienen el mismo 
+        seno y su suma vale &pi; rad. <font color="#FF0000">Conviene dar estos 
+        &aacute;ngulos con signo positivo y en funci&oacute;n de &pi; </font></p>
+      <p>Tambi&eacute;n tienen el mismo seno todos los &aacute;ngulos que difieren 
+        en k&middot;2&pi; rad (En este caso k es el n&uacute;mero de oscilaci&oacute;n 
+        que vale: 0, 1, 2,...)</p>
+      <p align="right"><span class="enlace_texto" onClick="abrirVentana('3.htm',1)">Ejemplo</span>&nbsp;&nbsp; </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

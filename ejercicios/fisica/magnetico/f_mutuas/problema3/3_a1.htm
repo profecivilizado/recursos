@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="118"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked"/>
+              F<sub>21</sub> 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="cambiar('','3_a2.htm')"/>
+              F<sub>12</sub> </form></td>
+          <td width="602">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF"> Parte 1</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../campo/ayuda/1.htm',1)">Campo 
+        que crea</span> q<sub>1</sub> (Electr&oacute;n) en la posici&oacute;n 
+        de&nbsp; q<sub>2</sub> (Electr&oacute;n)</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="7%" rowspan="3"> <div align="center"> 
+              <p> 
+                <input type="button" name="Submit2" value=" > " class="boton" 
+	  onclick="switch(n){
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',2,2);n=n+1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',3,2);n=n+1;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',2,0,3,0);n=0;break;
+				}" />
+              </p>
+            </div></td>
+          <td width="32%" rowspan="3" id="imagen"><img src="imagenes/3_01.png" width="223" height="176" /></td>
+          <td width="61%"> <p align="center"><img src="formulas/3_01.gif" width="386" height="22" /></p></td>
+        </tr>
+        <tr> 
+          <td id="celda2" style="visibility:hidden"> <p align="center"><img src="formulas/3_02.gif" width="386" height="57" /></p></td>
+        </tr>
+        <tr> 
+          <td width="61%" id="celda3" style="visibility:hidden"> <div align="center"><img src="formulas/3_03.gif" width="381" height="42" border="0" /> 
+            </div>
+            <p>En la expresi&oacute;n del campo <span class="enlace_texto" onclick="abrirVentana('../../mensajes/1.htm')">la 
+              carga se pone con signo</span> </p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../lorentz/ayuda/1.htm',1)">Fuerza 
+        que sufre</span> q<sub>2</sub> (Electr&oacute;n) sometido al campo que 
+        crea q<sub>1</sub> (Electr&oacute;n)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td width="223"><p><img src="imagenes/3_04.png" width="228" height="176" /></p></td>
+          <td width="477"><p align="center"><img src="formulas/3_04.gif" width="409" height="105" /></p>
+            <p align="center"><img src="formulas/3_05.gif" width="312" height="92" /></p>
+            <p align="left">En la expresi&oacute;n de la fuerza la carga <span class="enlace_texto" onclick="abrirVentana('../../mensajes/1.htm')">se 
+              pone con signo</span> </p></td>
+        </tr>
+      </table>
+      <hr />
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td > <img src="imagenes/3_05.png" width="230" height="141" /></td>
+          <td > <p>La carga q<sub>1</sub> negativa repele a la carga q<sub>2</sub> 
+              negativa </p>
+            <p>Parece l&oacute;gico que cargas del mismo signo se repelan pero 
+              este caso no trata de interacci&oacute;n electr&oacute;statica sino 
+              electromagn&eacute;tica donde cuentan los signos de las cargas y 
+              los sentidos de las velocidades. <br />
+              Comprueba tu mismo que si las velocidades tuvieran el mismo sentido 
+              las cargas se atraer&iacute;an (A pesar de tener el mismo signo)</p>
+            </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="31%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/3_01.png" width="223" height="176" /></div></td>
+                <td width="28%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/3_02.gif" width="222" height="175" /></div></td>
+                <td width="41%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/3_03.png" width="223" height="176" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p class="m50">&nbsp;</p>
+</body>
+</html>

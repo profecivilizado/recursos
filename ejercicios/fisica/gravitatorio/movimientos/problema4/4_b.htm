@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b> </p>
+      <p class="m50">Desde la superficie de la Tierra se lanza el sat&eacute;lite 
+        con energ&iacute;a cin&eacute;tica E<sub>C</sub> para que llegue justo 
+        hasta la altura de la &oacute;rbita (Es como si se disparase con un ca&ntilde;on)</p>
+      <p class="m50">Cambios de energ&iacute;a mec&aacute;nica desde que el sat&eacute;lite 
+        parte de la Tierra con una cierta energ&iacute;a cin&eacute;tica hasta 
+        que queda detenido a la altura deseada</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="17%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <div align="left">
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"  />
+                  Restaurar</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                  Inicial</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                  Final </p>
+              </div>
+            </form></td>
+          <td width="25%" id="imagen"><img src="imagenes/3_03.png" width="184" height="182" /></td>
+          <td width="58%" id="formula">&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/4_05.gif" width="336" height="41" /></p>
+      <p class="m50">C&aacute;lculo del trabajo</p>
+      <p class="m50">Durante el recorrido el sat&eacute;lite solo est&aacute; 
+        sometido a la fuerza gravitatoria cuyo trabajo ya est&aacute; contado 
+        el la variaci&oacute;n de energ&iacute;a potencial, por tanto <b><i>T 
+        </i></b>=0<b><i> </i></b> </p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/4_06.gif" width="333" height="73" border="0" style="cursor:pointer"/> 
+      </p>
+      <p class="m150"><img src="formulas/4_07.gif" width="557" height="49" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="468,11,554,34" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/24.htm')" />
+        </map>
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="35%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/3_03.png" width="184" height="182" /></div></td>
+                <td width="34%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/3_01.png" width="184" height="182" /></div></td>
+                <td width="31%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/3_05.png" width="184" height="182" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="3%" id="formula0">&nbsp;</td>
+                <td width="42%" id="formula1"> 
+                  <p class="m50"><img src="formulas/4_03.gif" width="246" height="73" /></p></td>
+                <td width="55%" id="formula2"> 
+                  <p class="m50"><img src="formulas/4_04.gif" width="310" height="73" border="0" usemap="#Map1" style="cursor:pointer"/></p></td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="152,41,186,64" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../ayuda/1.htm')" />
+</map>
+</body>
+</html>

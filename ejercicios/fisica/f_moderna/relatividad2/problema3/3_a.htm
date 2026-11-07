@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','relatividad2/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50">Energ&iacute;a relativista del electr&oacute;n en reposo: 
+        E<sub>0</sub> = m<sub>0</sub>.c<sup>2</sup></p>
+      <p class="m50">Energ&iacute;a relativista del electr&oacute;n en movimiento: 
+        E = m&middot;c<sup><sup>2</sup></sup></p>
+      <p class="m50">Relaci&oacute;n entre masa en movimiento y en reposo: m = 
+        m<sub>0</sub>/&gamma;</p>
+      <p class="m50">Combinando estas tres expresiones resulta un sistema con 
+        inc&oacute;gnitas: m<sub>0</sub>, m, E</p>
+      <p class="m150"><img src="formulas/3_01.gif" width="168" height="172" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150"><img src="formulas/3_02.gif" width="474" height="160" /></p>
+      <p class="m50">Un electr&oacute;n movi&eacute;ndose a 0.8c almacena una 
+        energ&iacute;a de 0.85 Mev que se desglosa as&iacute;: 0.51 MeV (Masa) 
+        y 0.34 MeV (Cin&eacute;tica). A esta energ&iacute;a almacenada le corresponde 
+        una masa de 1.51&middot;10<sup>-30</sup> kg</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,126,165,169" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/3_1.htm')"/>
+</map>
+</body>
+</html>

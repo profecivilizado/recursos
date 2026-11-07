@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','circular2/ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <div align="center"><img src="imagenes/1_01.png" width="155" height="125" /></div></td>
+          <td width="25%"> <div align="center"><img src="formulas/1_01.gif" width="124" height="73" /></div></td>
+          <td width="46%"> <p>Par&aacute;metros:</p>
+            <p>&nbsp;&omega;<sub>0</sub> = <span class="enlace_texto" onclick="abrirVentana('desarrollos/1_3.htm')">90 
+              r.p.m = 3&pi; rad/s</span></p>
+            <p> &alpha; = 2 rad/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Para empezar calculamos las vueltas que da hasta detenerse 
+        y el tiempo que tarda en hacerlo</p>
+      <p class="m50">Aplicaci&oacute;n: Se ha parado</p>
+      <p class="m50">Datos: &omega;<sub>2</sub> = 0,&nbsp; Inc&oacute;gnitas: 
+        t<sub>2</sub>, &phi;<sub>2</sub></p>
+      <p class="m150"><img src="formulas/1_02.gif" width="174" height="137" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Calculamos el tiempo que tarda en dar una vuelta menos de 
+        las que da hasta pararse</p>
+      <p class="m50">Aplicaci&oacute;n: Le falta una vuelta para pararse</p>
+      <p class="m50">Datos: &omega;<sub>1</sub> = &omega;<sub>2</sub> - 2&pi;,&nbsp; 
+        Inc&oacute;gnitas: t<sub>1</sub></p>
+      <p class="m150"><img src="formulas/1_03.gif" width="406" height="116" border="0" usemap="#MapMap" style="cursor:pointer"/> 
+        <map name="MapMap" id="Map2">
+          <area shape="rect" coords="3,57,404,115" alt="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/1_2.htm')"/>
+        </map>
+      </p>
+      <p class="m50">Para saber cu&aacute;l de las dos soluciones es la que vale 
+        tendr&iacute;amos que calcular la velocidad correspondiente a cada tiempo 
+        y tomar el que hace que el sentido de la velocidad sea contrario al de 
+        las agujas del reloj</p>
+      <p class="m50">Hay otra forma de verlo: sabemos que se detiene en el instante 
+        t = &omega;<sub>0</sub>/&alpha; y el tiempo que buscamos tiene que ser 
+        anterior por tanto habr&aacute; que tomar la ra&iacute;z negativa (&iquest;Lo 
+        ves?) </p>
+      <p class="m150"><img src="formulas/1_04.gif" width="462" height="137" /></p>
+      <p class="m50">Entonces el intervalo de tiempo transcurrido ser&aacute;:</p>
+      <p class="m150"><img src="formulas/1_05.gif" width="257" height="178" /></p>
+      <p class="m50">Debido a la simetr&iacute;a de los movimientos uniformemente 
+        acelerados, el tiempo que se tarda en dar la &uacute;ltima vuelta frenando 
+        con aceleraci&oacute;n &alpha; es el mismo que se tardar&iacute;a en dar 
+        la primera vuelta partiendo del reposo con la misma aceleraci&oacute;n 
+        &alpha; &iexcl;Atr&eacute;vete a comprobarlo!</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,89,172,136" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/1_1.htm')"/>
+</map>
+</body>
+</html>

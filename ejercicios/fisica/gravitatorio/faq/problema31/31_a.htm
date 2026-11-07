@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50">La gravedad a una altura h sobre la superficie terrestre 
+        vale:</p>
+      <p class="m150"><img src="formulas/31_01.gif" width="82" height="46" /> 
+      </p>
+      <p class="m50">La variaci&oacute;n de la gravedad con la altura se obtendr&aacute; 
+        derivando esta expresi&oacute;n con respecto a h:</p>
+      <p class="m150"><img src="formulas/31_02.gif" width="238" height="102" /></p>
+      <p class="m50">El signo - indica que la gravedad disminuye al aumentar la 
+        altura (Evidente)</p>
+      <p class="m50">Suponiendo h &lt;&lt; R resulta:</p>
+      <p class="m150"><img src="formulas/31_03.gif" width="210" height="38" /></p>
+      <p class="m50">La variaci&oacute;n relativa de la gravedad (dg/g) es el 
+        doble del cociente del cambio de altura entre el radio terrestre (dh/R)</p>
+      <p class="m50"><font color="#FF0000">Por ejemplo, subiendo a una altura 
+        de 6 km el cociente cambio altura-radio ser&aacute; 0.001 (6/6000), por 
+        tanto la variaci&oacute;n relativa de gravedad ser&aacute; -0.002. Entonces 
+        la gravedad valdr&aacute;:</font></p>
+      <p class="m150"><font color="#FF0000">g' = 9.8 - 9.8&middot;0.002 = 9.78 
+        m/s<sup>2</sup></font></p></td>
+  </tr>
+</table>
+</body>
+</html>

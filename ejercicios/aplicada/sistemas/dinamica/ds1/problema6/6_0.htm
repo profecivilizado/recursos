@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema 1</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+ 
+function opcionesVolver()	{
+ 	switch(_pctop.sueltos)	{
+		case 1: mostrarObjetos('celda',1,0,2,0,3,0);break;
+		case 2: mostrarObjetos('celda',1,2,2,0,3,0);break;
+		case 3: mostrarObjetos('celda',1,0,2,2,3,0);break;
+		default:mostrarObjetos('celda',1,0,2,2,3,2) 
+		}
+	}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css"  rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="opcionesVolver()">
+<table width="760" border="0" cellpadding="10" cellspacing="0" bgcolor="#FFFFCC" class="borde" >
+  <tr> 
+    <td width="740" > <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%"><div align="center"><img src="imagenes/6_00.gif" width="144" height="63" /></div></td>
+          <td width="85%"><p><strong><font color="#0000FF">Calcula la aceleraci&oacute;n 
+              de los bloques y la tensi&oacute;n de la cuerda<br />
+              </font></strong><strong><font color="#0000FF">Coeficiente de rozamiento 
+              entre bloques: &micro;' <br />
+              Coeficiente de rozamiento entre bloque 2 y superficie: &micro; </font></strong></p>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="22%" id ="celda1" style="visibility:hidden">&nbsp;<id ="celda1" style="visibility:hidden"></td>
+                <td width="35%" id ="celda2" style="visibility:hidden"> 
+                  <p align="center">&nbsp;</p></td>
+                <td width="43%" id ="celda3" style="visibility:hidden"> 
+                  <p align="right"><span onclick="cambiar('../0.htm','')" class="enlace_texto">Lista 
+                    problemas</span>&nbsp;&nbsp;&nbsp; </p></td></tr>
+            </table> 
+          </td>
+        </tr>
+      </table> </td>
+  </tr>
+</table>
+<p>&nbsp;</p></body>
+</html>

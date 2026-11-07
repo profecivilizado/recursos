@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">En todos los casos el cuerpo est&aacute; sometido a una &uacute;nica 
+        fuerza su peso y por tanto la aceleraci&oacute;n ser&aacute; la misma: 
+        g</p>
+      <p class="m50">Si en los tres casos la aceleraci&oacute;n es la misma &iquest;por 
+        qu&eacute; los movimientos son diferentes? Pues porque el movimiento depende 
+        de la combinaci&oacute;n de velocidad y aceleraci&oacute;n</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="11%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> &nbsp; 
+                <input name="radiobutton" type="radio"  value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;texto.innerHTML=texto0.innerHTML"/>
+                a)</p>
+              <p>&nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                b)</p>
+              <p> &nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                c) </p>
+            </form></td>
+          <td width="19%" id="imagen"> 
+            <div align="center"><img src="imagenes/6_01.png" width="141" height="137" /></div></td>
+          <td width="70%" id="texto"> 
+            <p>El 
+              cuerpo no tiene velocidad y tiene aceleraci&oacute;n (Tangencial)<br />
+              <br />
+              Se mover&aacute; en la direcci&oacute;n y sentido de la aceleraci&oacute;n 
+              (Vertical hacia abajo) ganando r&aacute;pidez</p>
+            </td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="31%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/6_01.png" width="141" height="137" /></div></td>
+                <td width="69%" id="texto0"> 
+                  <p>El 
+                    cuerpo no tiene velocidad y tiene aceleraci&oacute;n (Tangencial)<br />
+                    <br />
+                    Se mover&aacute; en la direcci&oacute;n y sentido de la aceleraci&oacute;n 
+                    (Vertical hacia abajo) ganando r&aacute;pidez</p></td></tr>
+              <tr> 
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/6_02.png" width="141" height="137" /></div></td>
+                <td id="texto1"> 
+                  <p>El cuerpo tiene velocidad y aceleraci&oacute;n en sentido 
+                    contrario (Tangencial)</p>
+                  <p>Se mover&aacute; en la direcci&oacute;n y sentido de la velocidad 
+                    (Vertical hacia arriba) perdiendo r&aacute;pidez</p></td></tr>
+              <tr> 
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/6_03.png" width="141" height="137" /></div></td>
+                <td id="texto2"> 
+                  <p>El cuerpo tiene velocidad y aceleraci&oacute;n no alineada 
+                    con ella que se puede desdoblar en dos: una en direcci&oacute;n 
+                    de la velocidad y sentido contrario (Tangencial) y otra perpendicular 
+                    a la velocidad (Normal)</p>
+                  <p>Se mover&aacute; cambiando de direcci&oacute;n (Curvando 
+                    la trayectoria) y perdiendo r&aacute;pidez</p></td></tr>
+            </table></td>
+        </tr>
+      </table><p class="m50">&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

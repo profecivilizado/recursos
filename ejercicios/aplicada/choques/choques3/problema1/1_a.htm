@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">1&ordf; parte</font></strong></p>
+      <p class="m50">Posici&oacute;n y velocidad de la granada cuando llega a 
+        la m&aacute;xima altura</p>
+      <p class="m150"><img src="formulas/1_04.gif" width="285" height="78" border="0" usemap="#Map2" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Par&aacute;metros:&nbsp;v<sub>0</sub> = 500 m/s,&nbsp;&alpha; 
+        = 60&ordm;&nbsp; </p>
+      <p class="m50"><strong><font color="#0000FF"><a name="a" id="a"></a>2&ordf; 
+        parte</font></strong></p>
+      <p class="m50">La granada movi&eacute;ndose horizontalmente con velocidad 
+        v = v<sub>0</sub>&middot;cos &alpha; explota rompi&eacute;ndose en dos 
+        fragmentos uno de los cuales queda inm&oacute;vil y cae. Velocidad del 
+        otro fragmento (0.8 kg):</p>
+      <p class="m150"><img src="formulas/1_08.gif" width="110" height="86" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Datos: M = 1 kg, m = 0.8 kg</p>
+      <p class="m50"><strong><font color="#0000FF"><a name="b" id="b"></a>3&ordf; 
+        parte</font></strong></p>
+      <p class="m50">Llegada al suelo el fragmento de 0.8 kg</p>
+      <p class="m150"><img src="formulas/1_12.gif" width="145" height="44" class="enlace_imagen" onClick="_pctop.apartado='1_a.htm#b';cambiar('','1_w.htm')"/></p>
+      <p class="m50">Par&aacute;metros: </p>
+      <p class="m150"><img src="formulas/1_13.gif" width="434" height="45" /></p>
+      <p class="m50">Sustituyendo valores resulta:</p>
+      <p class="m150"><img src="formulas/1_14.gif" width="454" height="160" /></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,76,38"title="Clic para ver el desarrollo" onClick="_pctop.apartado='1_a.htm#a';cambiar('','1_x.htm')"/>
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="2,2,282,76" style="cursor:pointer" title= "Clic para ver el desarrollo" onClick="_pctop.apartado='1_a.htm';cambiar('','1_z.htm')"/>
+</map>
+</body>
+</html>

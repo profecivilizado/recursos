@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,430)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p><b><font color="#0000FF">Actividad</font></b></p>
+      <p>La actividad es la cantidad de &aacute;tomos que se desintegran por unidad 
+        de tiempo. Viene dada por:</p>
+      <p class="m100">A = &lambda;&middot;N</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="9%"><p align="right">N&nbsp;</p></td>
+          <td width="91%"><p>Cantidad de &aacute;tomos existentes</p></td>
+        </tr>
+        <tr> 
+          <td><p align="right">&lambda;&nbsp;</p></td>
+          <td><p>Constante de desintegraci&oacute;n</p></td>
+        </tr>
+      </table>
+      <p>Esta f&oacute;rmula funciona cuando N es un n&uacute;mero muy grande, 
+        si N es peque&ntilde;o no se podr&aacute; saber cuantos &aacute;tomos 
+        se desintegran por segundo.<br />
+        Ocurre esto porque la desintegraci&oacute;n radiactiva esta controlada 
+        por las leyes de la probabilidad </p>
+      <p align="left"><strong><font color="#FF0000">Justificaci&oacute;n<br />
+        </font></strong><font color="#FF0000">Al tirar una moneda la probabilidad 
+        de que salga cara es 50% <br />
+        En un millon de tiradas saldr&aacute; cara 500000 veces, pero en dos tiradas 
+        no es seguro que salga cara una vez</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

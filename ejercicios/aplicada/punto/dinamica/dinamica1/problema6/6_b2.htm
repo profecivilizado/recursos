@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','dinamica1/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">S&iacute; el bloque no se mueve es porque la fuerza de rozamiento 
+        contrarresta a la fuerza aplicada: valdr&aacute; lo mismo que esta e ir&aacute; 
+        en sentido contrario</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="205" id="celda1"> <p align="center"><img src="imagenes/6_02.png" name="imagen1" width="158" height="120" id="imagen1" /></p></td>
+          <td width="515" id="celda2" > <p class="m50"><img src="formulas/6_04.gif" name="imagen2" width="69" height="49" id="imagen2" /></p></td>
+        </tr>
+      </table>
+      <p class="m150">F<sub>R</sub> = 6 N</p>
+      <p class="m50">Para que el bloque est&eacute; quieto la fuerza de rozamiento 
+        tendr&aacute; que valer 6 N. Vamos a ver si puede tomar este valor. La 
+        fuerza de rozamiento m&aacute;xima vale:</p>
+      <p class="m150"><img src="formulas/6_05.gif" name="imagen2" width="349" height="40" id="imagen2" /></p>
+      <p class="m50">La fuerza de rozamiento para que el cuerpo no se mueva (6 
+        N) es inferior al valor m&aacute;ximo (8.8 N). Luego el bloque no se mueve 
+        y la hip&oacute;tesis es cierta</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

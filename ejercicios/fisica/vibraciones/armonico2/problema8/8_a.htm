@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="right">
+              <p><img src="formulas/8_01.gif" width="157" height="54" /></p>
+            </div></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">A, &omega;, &phi;<sub>0</sub> (Todos son inc&oacute;gnitas)</p></td>
+        </tr>
+      </table>
+      <p class="m50">Relaci&oacute;n entre posici&oacute;n y velocidad:</p>
+      <p class="m150"><img src="formulas/8_10.gif" width="128" height="52" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="3,4,126,49" title="Clic para ver el desarrollo" onclick="abrirVentana('../../desarrollos/5.htm')" />
+        </map>
+      </p>
+      <p class="m50">Aplicamos esta relaci&oacute;n a las dos situaciones dadas:</p>
+      <p class="m150"><img src="formulas/8_11.gif" width="298" height="49" /></p>
+      <p class="m150"><img src="formulas/8_12.gif" width="300" height="54" /></p>
+      <p class="m50">Combinando las ecuaciones resulta un sistema con dos inc&oacute;gnitas: 
+        A, &omega;</p>
+      <p class="m150"><img src="formulas/8_13.gif" width="244" height="110" usemap="#Map3" style="cursor:pointer" border="0" /> 
+      </p>
+      <p class="m150"><img src="formulas/8_14.gif" width="262" height="108" /> 
+        <map name="Map3" id="Map3">
+          <area shape="rect" coords="133,27,242,82"  title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/8_1.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

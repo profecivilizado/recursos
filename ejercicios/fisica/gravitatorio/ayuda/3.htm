@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,260)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="430"> <p class="mimimo"><strong><font color="#0000FF">Sat&eacute;lite 
+        geoestacionario (Geosincr&oacute;nico)</font></strong></p>
+      <p class="mimimo">Es un satel&iacute;te cuyo eje de rotaci&oacute;n tiene 
+        la direcci&oacute;n del eje te-rrestre y su per&iacute;odo es 24 h. Visto 
+        desde la Tierra parece estar siempre en la misma posici&oacute;n del cielo</p>
+      <p class="mimimo">El radio de la &oacute;rbita geosincr&oacute;nica vale:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="44%"><div align="center"><img src="formulas/3_01.gif" width="88" height="48" class="enlace_imagen" title="Clic para aclaración" onClick="abrirVentana('1.htm')"/></div></td>
+          <td width="56%"><p>T = 24 h</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

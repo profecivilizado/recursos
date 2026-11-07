@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto	
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">En el apartado anterior hemos obtenido la velocidad con 
+        que deber&iacute;a volar Superman para poder salvar al estudiante:</p>
+      <p class="m150"><img src="formulas/4_09.gif" width="164" height="48" /></p>
+      <p class="m50">Si el denominador fuera cero la velocidad seria infinita 
+        y Superman no podr&iacute;a alcanzarla (Creo)</p>
+      <p class="m150"><img src="formulas/4_10.gif" width="230" height="145" /></p>
+      <p class="m50">Si la altura del edificio fuera de 123 m o menos Superman 
+        tendr&iacute;a que volar con velocidad infinita para salvar al estudiante</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

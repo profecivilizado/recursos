@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo();MM_preloadImages('imagenes/4_02.png','formulas/4_03.gif')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="22%"><div align="center"><img src="imagenes/4_01.png" name="imagen1" width="133" height="142" id="imagen1" /></div></td>
+          <td width="25%"><div align="center"><img src="formulas/4_01.gif" name="imagen2" width="89" height="20" id="imagen2" /></div></td>
+          <td width="53%" rowspan="2"><p>Conservaci&oacute;n de la velocidad paralela 
+              a la superficie:</p>
+            <p align="center"><img src="formulas/4_03.gif" width="240" height="20" /></p></td>
+        </tr>
+        <tr> 
+          <td><div align="center"><img src="imagenes/4_03.png" name="imagen1" width="133" height="137" id="imagen1" /></div></td>
+          <td><div align="center"><img src="formulas/4_02.gif" width="106" height="20" /></div></td>
+        </tr>
+      </table>
+      <p class="m50">Llamando x<sub>c</sub> al porcentaje de energ&iacute;a cin&eacute;tica 
+        conservada: </p>
+      <p class="m150"><img src="formulas/4_05.gif" width="144" height="65" /></p>
+      <p class="m50">Combinando la conservaci&oacute;n de la velocidad tangencial 
+        con la relaci&oacute;n entre energ&iacute;as cin&eacute;ticas resulta 
+        un sistema con dos inc&oacute;gnitas: v', &alpha;'</p>
+      <p class="m150"><img src="formulas/4_06.gif" width="196" height="118" border="0" style="cursor:pointer"/></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

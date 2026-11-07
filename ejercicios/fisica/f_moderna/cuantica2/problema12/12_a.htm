@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','cuantica2/ayuda/2.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50"><font color="#FF0000">El l&aacute;ser teoric&aacute;mente 
+        emite luz monocrom&aacute;tica, pero el hecho de que emita la luz en breves 
+        flashes (Pulsos) provoca que la longitud de onda tenga imprecisi&oacute;n.</font> 
+      </p>
+      <p class="m50">La longitud de onda fluct&uacute;a entre 783-817 nm, por 
+        tanto la frecuencia tambi&eacute;n fluctuar&aacute;:</p>
+      <p class="m150"><img src="formulas/12_01.gif" width="269" height="100" /></p>
+      <p class="m50">La frecuencia fluct&uacute;a entre 3.67&middot;1014-3.83&middot;1014, 
+        por tanto la imprecisi&oacute;n en la frecuencia o anchura de frecuencias 
+        es:</p>
+      <p class="m150">&Delta;f = f<sub>2</sub> - f<sub>1</sub> = 0.16&middot;10<sup>14</sup> 
+        Hz</p>
+      <p class="m50">Una imprecisi&oacute;n en la frecuencia implica una imprecisi&oacute;n 
+        en la energ&iacute;a<br />
+        La relaci&oacute;n entre las imprecisiones &Delta;E, &Delta;f es la misma 
+        que hay entre dE, df, entonces resulta:</p>
+      <p class="m150"><img src="formulas/12_02.gif" width="158" height="46" /></p>
+      <p class="m50">Una de las indeterminaciones de Heisemberg relaciona la fluctuaci&oacute;n 
+        de energ&iacute;a con el intervalo de tiempo en el que se produce:</p>
+      <p class="m150"><img src="formulas/12_03.gif" width="261" height="86" /></p>
+      <p class="m50">Como poco la duraci&oacute;n del pulso tiene que ser: 9.95&middot;10<sup>-15</sup> 
+        s </p>
+      <p class="m150">&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Cambios de energ&iacute;a:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="20%" rowspan="2"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML='';mostrarObjetos('celda',1,0)"  />
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML;mostrarObjetos('celda',1,2)" />
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML;mostrarObjetos('celda',1,2)" />
+                Final </p>
+            </form></td>
+          <td width="30%" rowspan="2" id="imagen"> 
+            <div align="center"><img src="imagenes/9_01.png" width="178" height="124" /></div></td>
+          <td width="50%" height="128" id="formula"> 
+            <p class="m50">&nbsp;</p></td></tr>
+        <tr>
+          <td id="celda1" style="visibility:hidden"> 
+            <p class="peque&ntilde;o"><font color="#FF0000">La altura no se sabe 
+              pero no importa porque lo que cuenta es el cambio de altura</font></p></td></tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/9_04.gif" width="281" height="73" border="0" usemap="#Map1" style="cursor:pointer"/> 
+        <map name="Map1" id="Map1">
+          <area shape="rect" coords="197,48,273,67" title="Clic para aclaración" onClick="abrirVentana('mensajes/1.htm')" />
+        </map>
+      </p>
+      <p class="m50">C&aacute;lculo del trabajo:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%"><div align="center"><img src="imagenes/9_05.png" width="172" height="119" /></div></td>
+          <td width="70%" ><p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en la variaci&oacute;n de energ&iacute;a potencial)</p>
+            <p> <i><b>T</b></i><sub>N</sub> = N L cos 90 = 0</p>
+            <p><img src="formulas/9_05.gif" width="256" height="26" border="0" usemap="#Map2" style="cursor:pointer"/> 
+              <map name="Map2" id="Map2">
+                <area shape="rect" coords="160,4,243,23" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm')"/>
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/9_06.gif" width="348" height="148" border="0" /> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="32%" id="imagen1"> 
+            <div align="center"><img src="imagenes/9_01.png" width="178" height="124" /></div></td>
+          <td width="33%" id="imagen2"> 
+            <div align="center"><img src="imagenes/9_02.png" width="178" height="124" /></div></td>
+          <td width="35%" id="imagen3"> 
+            <div align="center"><img src="imagenes/9_03.png" width="178" height="124" /></div></td></tr>
+        <tr>
+          <td id="formula2"><img src="formulas/9_01.gif" width="106" height="65" /></td>
+          <td id="formula3"><img src="formulas/9_02.gif" width="106" height="65" /></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m150">
+        <map name="Map" id="Map">
+          <area shape="rect" coords="125,6,218,26"  title="Clic para ver la descomposici&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

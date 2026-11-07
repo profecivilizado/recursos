@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto	
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">En el apartado anterior hemos obtenido el tiempo que lleva 
+        movi&eacute;ndose cada piedra cuando se produce el encuentro:</p>
+      <p class="m150"><img src="formulas/3_09.gif" width="240" height="118" /></p>
+      <p class="m50">En la expresi&oacute;n de t' se ve que al aumentar el retardo 
+        &Delta;t disminuye t' y que llegar&aacute; un momento en que este ser&aacute; 
+        negativo en cuyo caso no habr&aacute; choque. El caso l&iacute;mite corresponder&aacute; 
+        al valor de &Delta;t que hace t' igual a cero.</p>
+      <p class="m150"><img src="formulas/3_10.gif" width="214" height="97" /></p>
+      <p class="m50">Si la segunda piedra se lanza m&aacute;s de 2.04 s despu&eacute;s 
+        que la primera no se encontrar&aacute; con la primera (Porque esta ya 
+        ha llegado al suelo)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

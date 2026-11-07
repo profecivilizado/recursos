@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../ayuda/11.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%">&nbsp;</td>
+          <td width="60%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              Hip&oacute;tesis: La caja se mueve respecto al cami&oacute;n: 
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked"/>
+              S&iacute;&nbsp; 
+              <input name="radiobutton" type="radio" value="radiobutton" onClick="parent.frames[0].modo='1.htm';cambiar('','5_b1.htm')"/>
+              No </form></td>
+          <td width="34%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">El cami&oacute;n se mueve horizontalmente hacia la derecha 
+        con aceleraci&oacute;n hacia la izquierda. Si la caja se mueve respecto 
+        al cami&oacute;n tendr&aacute; distinta aceleraci&oacute;n que este: a'. 
+        La fuerza de rozamiento entre caja y cami&oacute;n valdr&aacute;: &mu;N</p>
+      <p class="m50">Esta fuerza de rozamiento <span class="enlace_texto" onclick="abrirVentana('mensajes/5_2.htm')"> 
+        apuntar&aacute; hacia la izquierda</span> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="205" id="celda1"> <p class="m50"><img src="imagenes/5_04.png" name="imagen1" width="150" height="152" id="imagen1" /></p></td>
+          <td width="515" id="celda2" > <p class="m50">&nbsp;<img src="formulas/5_03.gif" name="imagen2" width="276" height="94" id="imagen2" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Resulta entonces que la caja tiene aceleraci&oacute;n hacia 
+        la izquierda (2.9 m/s<sup>2</sup>) mientras que el cami&oacute;n tiene 
+        tiene aceleraci&oacute;n mayor hacia la izquierda (3 m/s<sup>2</sup>). 
+        Entonces la caja se mover&aacute; hacia la derecha respecto al cami&oacute;n. 
+        Es lo normal: al frenar el cami&oacute;n la carga se va hacia adelante</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

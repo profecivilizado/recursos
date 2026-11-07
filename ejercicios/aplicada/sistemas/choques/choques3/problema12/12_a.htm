@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','');MM_preloadImages('imagenes/12_01.png','imagenes/12_02.png','formulas/12_01.gif','formulas/12_02.gif')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td>
+<p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+      <p class="m50">Choque con el bloque A</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="18%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="MM_swapImage('imagen1','','imagenes/12_01.png','imagen2','','formulas/12_01.gif',1);mostrarObjetos('celda',1,0)"  />
+                Antes</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/12_02.png','imagen2','','formulas/12_02.gif',1);mostrarObjetos('celda',1,2)" />
+                Despu&eacute;s</p>
+            </form></td>
+          <td width="23%"><p align="center"><img src="imagenes/12_01.png" name="imagen1" width="143" height="118" id="imagen1" /></p></td>
+          <td width="31%"> <p class="m50"><img src="formulas/12_01.gif" name="imagen2" width="133" height="20" id="imagen2" /></p></td>
+          <td width="28%" id="celda1" style="visibility:hidden"> 
+            <p class="m50">v'<sub>2</sub> = 2.5 m/s</p></td></tr>
+      </table>
+      <hr />
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../mensajes/7.htm')">Conservaci&oacute;n 
+        del momento lineal</span>&nbsp;</p>
+      <p class="m150"><img src="formulas/12_03.gif" width="153" height="54" align="middle" /></p>
+      <p class="m50">Choque con el bloque B</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="17%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="MM_swapImage('imagen3','','imagenes/12_03.png','imagen4','','formulas/12_04.gif',1);mostrarObjetos('celda',2,0)" />
+                Antes</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen3','','imagenes/12_04.png','imagen4','','formulas/12_05.gif',1);mostrarObjetos('celda',2,2)" />
+                Despu&eacute;s</p>
+            </form></td>
+          <td width="24%"><div align="center"><img src="imagenes/12_03.png" name="imagen3" width="119" height="118" id="imagen3" /></div></td>
+          <td width="31%"><p class="m50"><img src="formulas/12_04.gif" name="imagen4" width="128" height="22" id="imagen4" /></p></td>
+          <td width="28%" id="celda2" style="visibility:hidden"> 
+            <p class="m50">v'' = 1.5 m/s</p></td></tr>
+      </table>
+      <p class="m50" align="left"><span class="enlace_texto" onclick="abrirVentana('../../mensajes/7.htm')">Conservaci&oacute;n 
+        del momento lineal</span>&nbsp;</p>
+      <p class="m150" align="left"><img src="formulas/12_06.gif" width="150" height="57" /></p>
+      <p class="m50" align="left">Combinando las expresiones obtenidas resulta 
+        un sistema con dos inc&oacute;gnitas v<sub>1</sub>, v'<sub>1</sub>:</p>
+      <p class="m150" align="left"><img src="formulas/12_07.gif" width="404" height="246" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,77,365,120" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/12_1.htm')"/>
+</map>
+</body>
+</html>

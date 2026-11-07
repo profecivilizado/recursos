@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="20%" valign="middle">
+<div align="center"><img src="imagenes/6_02.png" width="121" height="138" /></div></td>
+          <td width="80%"><p>Trazamos una horizontal que pase por la divisi&oacute;n 
+              entre l&iacute;quidos y calculamos la presi&oacute;n en dos puntos 
+              de la misma (Uno en cada rama) <br />
+              En la figura: AB = h<sub>1</sub>, CB = h<sub>2</sub></p>
+            <p class="m100"><img src="formulas/6_01.gif" width="261" height="60" /></p>
+            <p class="m50">&nbsp;</p>
+            </td>
+        </tr>
+      </table>
+      
+      <p class="m50">Los puntos X y Y est&aacute;n al mismo nivel luego tendr&aacute;n 
+        la misma presi&oacute;n</p>
+      <p class="m150"><img src="formulas/6_02.gif" width="217" height="136" /></p>
+      <p class="m50"><font color="#FF0000">&iquest;Y no se podr&iacute;a haber 
+        tomado la horizontal que pasa por la superficie del l&iacute;quido en 
+        la rama derecha?<br />
+        No, el principio de la Hidrost&aacute;tica solo puede aplicarse dentro 
+        de un mismo l&iacute;quido</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,330)">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr bordercolor="#FFFFFF"> 
+    <td width="431" > <p align="left" class="mimimo"><span  ><b><font color="#0000FF">Velocidad 
+        de escape de un planeta</font></b></span></p>
+      <p>Es la velocidad con que deber&iacute;a lanzarse un cuerpo desde la superficie 
+        del planeta para que pudiera llegar al infinito y dete-nerse all&iacute;</p>
+      <p><span class="enlace_texto" onClick="abrirVentana('5.htm',1)">Velocidad 
+        de escape</span> (C&aacute;lculo r&aacute;pido)</p>
+      <p><strong><font color="#0000FF">Velocidad de escape de una &oacute;rbita</font></strong></p>
+      <p>Es la velocidad que deber&iacute;a a&ntilde;adirse a la velocidad orbital 
+        para que un cuerpo, en &oacute;rbita alrededor del planeta, pudiera llegar 
+        al infinito y detenerse all&iacute;</p>
+      <p><font color="#FF0000">En cualquier caso, la energ&iacute;a mec&aacute;nica 
+        de un cuerpo que escapa a la atracci&oacute;n de un planeta es cero</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,0);self.resizeTo(510,600)"
+onUnload="cerrarVentanas()">
+<table width="476" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="456"><p><b><font color="#0000FF">Din&aacute;mica del movimiento 
+        circular</font></b></p>
+      <p>En estos movimientos siempre hay aceleraci&oacute;n normal</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="8%" valign="top"> <p align="right">1 </p></td>
+          <td width="92%"><p>Se hace el diagrama libre del cuerpo incluyendo todas 
+              las fuerzas que &eacute;ste sufre: peso, <span class="enlace_texto" onclick="abrirVentana('../../dinamica1/ayuda/2.htm')">ligaduras</span> 
+              y las de otros agentes que se indiquen</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">2&nbsp;</p></td>
+          <td valign="top"> <p>Se toman los ejes de coordenadas: uno en direcci&oacute;n 
+              radial (Eje normal) y otro perpendicular de manera que todas las 
+              fuerzas est&eacute;n contenidas en el plano determinado por los 
+              dos ejes. Este segundo eje puede coincidir o no con la direcci&oacute;n 
+              del movimiento</p>
+            <p> Se descomponen sobre estos ejes las fuerzas que act&uacute;an 
+              sobre el cuerpo</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <div align="right"> 
+              <p>3&nbsp;</p>
+            </div></td>
+          <td><p>La aceleraci&oacute;n normal siempre apunta hacia el centro de 
+              la curva que recorre el cuerpo</p>
+            </td>
+        </tr>
+        <tr> 
+          <td height="36" valign="top"> 
+            <p align="right">4 </p></td>
+          <td valign="top"> 
+            <p>Se aplica el principio de la Din&aacute;mica en cada uno de los 
+              ejes</p>
+            <p><b><font color="#FF0000">Eje normal: F = m&middot;a<sub>n</sub></font></b></p>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td valign="top"> 
+                  <p align="right">F: </p></td>
+                <td valign="top"> <p><span onclick="abrirVentana('../../dinamica1/ayuda/4.htm')"class="enlace_texto">M&oacute;dulo 
+                    de la resultante</span> de las fuerzas sobre el eje<br />
+                  </p></td>
+              </tr>
+              <tr> 
+                <td valign="top"> <p align="right">a<sub>n</sub>: </p></td>
+                <td valign="top"> <p>M&oacute;dulo de la aceleraci&oacute;n normal 
+                    que muchas veces convendr&aacute; poner en funci&oacute;n 
+                    de la velocidad:</p>
+                  <p align="center">a<sub>n</sub> = v<sup>2</sup>/R&nbsp; ,&nbsp; 
+                    a<sub>n</sub> = &omega;<sup>2</sup>&middot;R</p>
+                  </td>
+              </tr>
+            </table>
+            <p><b><font color="#FF0000">Segundo eje:&nbsp; </font></b></p>
+            <p>Si no coincide con la direcci&oacute;n del movimiento se cumplir&aacute;:</p>
+            <p class="m50"><b><font color="#FF0000">F = m&middot;0</font></b></p>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td height="32" valign="top"> <p align="right">F: </p></td>
+                <td valign="top"> <p><span onclick="abrirVentana('../../dinamica1/ayuda/4.htm')"class="enlace_texto">M&oacute;dulo 
+                    de la resultante</span> de las fuerzas sobre el eje<br />
+                  </p></td>
+              </tr>
+            </table>
+            <p>Si el eje coincide con la direcci&oacute;n del movimiento habr&iacute;a 
+              que ver si el cuerpo tiene aceleraci&oacute;n tangencial (<font color="#FF0000"><b>F 
+              = m&middot;a<sub>t</sub></b></font>) o no (<font color="#FF0000"><b>F 
+              = m&middot;0</b></font>). Afortunadamente en este nivel de F&iacute;sica 
+              no se consideran estas posibilidades</p>
+            </td>
+        </tr>
+      </table>  
+      <p><strong><font color="#FF0000">Importante</font></strong></p>
+      <p><font color="#FF0000">En Din&aacute;mica se trabaja con m&oacute;dulos, 
+        por tanto una soluci&oacute;n negativa significar&aacute; que no puede 
+        darse la situaci&oacute;n planteada</font></p></td>
+  </tr>
+</table>
+</body>
+</html>

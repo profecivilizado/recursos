@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')">
+<table width="760" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="694"> <p class="m50"><font color="#FF0000">Si el problema no da 
+        las masas de las poleas se sobreentiende que estas son cero. En estos 
+        casos solo se estudia la traslaci&oacute;n de los bloques</font></p>
+      <p class="m50">La polea fija girar&aacute; en <span class="enlace_texto" onclick="abrirVentana('mensajes/1.htm')">sentido 
+        horario</span>&nbsp; El bloque 2 bajar&aacute; una distancia d y tomar&aacute; 
+        una velocidad v, el bloque 1 se mover&aacute; a la derecha una distancia 
+        d/2 y tomar&aacute; una velocidad v/2 (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('mensajes/4.htm')">&#149;</span>)</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="18%" rowspan="2"> 
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen1.innerHTML=imagen10.innerHTML;formula1.innerHTML='';mostrarObjetos('celda',1,0)"/>
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen1.innerHTML=imagen11.innerHTML;formula1.innerHTML=formula11.innerHTML;mostrarObjetos('celda',1,2)"/>
+                Inicial&nbsp;</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen1.innerHTML=imagen12.innerHTML;formula1.innerHTML=formula12.innerHTML;mostrarObjetos('celda',1,2)"/>
+                Final</p>
+            </form></td>
+          <td width="24%" height="240" rowspan="2" id="imagen1"> 
+            <div align="center"><img src="imagenes/9_02.png" width="160" height="192" /></div></td>
+          <td width="58%" height="210" id="formula1"><div align="center"></div></td>
+        </tr>
+        <tr>
+          <td id="celda1" style="visibility:hidden"> 
+            <p class="peque&ntilde;o"><font color="#FF0000">La altura no se sabe 
+              pero no importa porque lo que cuenta es el cambio de altura</font></p></td></tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/9_04.gif" width="340" height="94" border="0" usemap="#Map2" style="cursor:pointer"/> 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="241,69,271,90"  title="Clic para aclaración" onClick="abrirVentana('mensajes/3.htm')" />
+        </map>
+      </p>
+      <p class="m50">C&aacute;lculo del trabajo:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="18%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen2.innerHTML=imagen21.innerHTML;formula2.innerHTML=formula21.innerHTML"/>
+                Bloque 1</p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen2.innerHTML=imagen22.innerHTML;formula2.innerHTML=formula22.innerHTML"/>
+                Bloque 2</p>
+            </form></td>
+          <td width="21%" height="160" id="imagen2"> 
+            <div align="center"><img src="imagenes/9_08.png" width="133" height="98" /></div></td>
+          <td width="61%" height="200" id="formula2"> 
+            <p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en &Delta;E<sub>P1</sub>)</p>
+            <p><strong><em>T</em></strong><sub>T1</sub> = T<sub>1</sub>&middot;d&middot; 
+              cos 0 = T&middot;d</p>
+            </td></tr>
+      </table>
+      <hr />
+      <p class="m50">Trabajo total:</p>
+      <p class="m150"><img src="formulas/9_11.gif" width="173" height="36" /></p>
+      <p class="m50">Teniendo en cuenta que T<sub>1</sub> = 2&middot;T<sub>2</sub> 
+        (<span style="font-size:8pt;color:0000FF;cursor:pointer" title="Clic para aclaración" onclick="abrirVentana('mensajes/5.htm')">&#149;</span>) 
+        resulta:</p>
+      <p class="m150"> <img src="formulas/9_12.gif" width="93" height="36" /></p>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/9_05.gif" width="182" height="125" /></p>
+      <p class="m50">Finalmente</p>
+      <p class="m150"><img src="formulas/9_06.gif" width="160" height="94" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="31%" id="imagen10"> 
+                  <div align="center"><img src="imagenes/9_02.png" width="160" height="192" /></div></td>
+                <td width="34%" id="imagen11"> 
+                  <div align="center"><img src="imagenes/9_03.png" width="160" height="192" /></div></td>
+                <td width="35%" id="imagen12"><div align="center"><img src="imagenes/9_04.png" width="160" height="192" /></div></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="50%" id="formula11"> <p align="center"><img src="formulas/9_01.gif" width="317" height="62" /></p></td>
+                <td width="50%" id="formula12"> <p align="center"><img src="formulas/9_02.gif" width="338" height="84" /></p></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="44%" id="imagen21"> 
+                  <div align="center"><img src="imagenes/9_08.png" width="129" height="98" /></div></td>
+                <td width="56%" id="imagen22"> 
+                  <div align="center"><img src="imagenes/9_09.png" width="63" height="119" /></div>
+                  <p>&nbsp;</p></td></tr>
+              <tr> 
+                <td id="formula21"> 
+                  <p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+                    incluido en &Delta;E<sub>P1</sub>)</p>
+                  <p><img src="formulas/9_10.gif" width="218" height="86" /></p>
+                  </td>
+                <td id="formula22"> 
+                  <p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+                    incluido en &Delta;E<sub>P2</sub>)</p>
+                  <p><strong><em>T</em></strong><sub>2</sub> = T<sub>2</sub>&middot;d&middot; 
+                    cos 180 = -T<sub>2</sub>&middot;d</p></td></tr>
+            </table></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

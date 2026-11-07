@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/12_01.png" width="145" height="85" /></div></td>
+          <td width="67%"><p>La piedra tiene la velocidad horizontal del avi&oacute;n 
+              que la transportaba y adem&aacute;s la velocidad vertical con que 
+              se lanza</p></td>
+        </tr>
+      </table>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="40%"> <p class="m150"><img src="formulas/12_01.gif" width="126" height="145" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('descomposicion/11.htm')" class="enlace_imagen" /></p></td>
+          <td width="60%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 3 m/s, v'<sub>0</sub> = 5 m/s</p>
+            <p class="m50"> g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Llegada al suelo</p>
+      <p class="m50">Datos: y<sub>1</sub> = -24 m, Inc&oacute;gnitas: t<sub>1</sub>, 
+        x<sub>1</sub>, v<sub>x1</sub>, v<sub>y1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <div align="center"> 
+              <p><img src="imagenes/12_02.png" width="154" height="144" /></p>
+            </div></td>
+          <td width="67%"> <p align="left"><img src="formulas/12_02.gif" width="378" height="145" border="0" usemap="#Map1" style="cursor:pointer"/> 
+              <map name="Map1" id="Map1">
+                <area shape="rect" coords="158,14,376,130" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/12_1.htm')"/>
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      <p class="m100"><img src="formulas/12_03.gif" width="514" height="172" border="0" usemap="#Map2" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">La piedra llega al suelo 9,6 m a la derecha del observador.<br />
+        El alcance ser&aacute;: 9,6 - 0 = 9,6 m</p>
+      <p class="m50">Llega al suelo con velocidad 22.4 m/s en direcci&oacute;n 
+        77.1&ordm; bajo la horizontal</p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="367,19,412,38" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/51.htm')"/>
+</map>
+</body>
+</html>

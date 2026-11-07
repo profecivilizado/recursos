@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Aclaraci&oacute;n</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" 
+leftmargin="0" topmargin="0" 
+onload ="window.moveTo(20,20);window.resizeTo(420,300);" 
+onUnload="cerrarVentanas()">
+<table width="415" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="395"> <p class="mimimo"><b><font color="#0000FF">Onda arm&oacute;nica<br />
+        </font></b>Onda cuya perturbaci&oacute;n depende del seno o coseno de 
+        la fase espacio-temporal</p>
+      <p class="mimimo"><b><font color="#0000FF">Onda plana<br />
+        </font></b>Onda tridimensional cuyos frentes de onda son planos.</p>
+      <p class="mimimo"><b><font color="#0000FF">Onda no amortiguada<br />
+        </font></b>Onda cuya amplitud es constante<br />
+        En realidad la amplitud de la onda disminuye al alejarse del foco por 
+        <span class="enlace_texto" onClick="abrirVentana('7.htm')">diferentes 
+        causas</span></p>
+      <p class="mimimo"><font color="#FF0000">Las ondas arm&oacute;nicas planas 
+        no amortiguadas obedecen la ecuaci&oacute;n de onda unidimensional que 
+        usamos siempre</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Ecuaciones del movimiento arm&oacute;nico:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <p align="right"><img src="formulas/11_01.gif" width="129" height="62" align="middle" /></p></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">A = 1 cm , &nbsp;&omega; , &phi;<sub>0</sub>&nbsp;(Inc&oacute;gnitas) 
+            </p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Situaci&oacute;n inicial</p>
+      <p class="m50">Datos: t<sub>0</sub> = 0, x<sub>0</sub> = 0,5 cm, v<sub>0</sub> 
+        = 1 cm/s, &nbsp;Inc&oacute;gnita: &phi;<sub>0</sub></p>
+      <p class="m150"><img src="formulas/11_02.gif" width="358" height="164" /> 
+      </p>
+      <p class="m50">No se a&ntilde;ade k&middot;2&pi; a las soluciones porque 
+        buscamos la fase en la primera oscilaci&oacute;n (k = 0)</p>
+      <p class="m50">Para decidir cual de los dos valores es el correcto se comprueba 
+        el signo de la velocidad inicial:</p>
+      <p class="m150"><img src="formulas/11_03.gif" width="321" height="86" /> 
+      </p>
+      <p class="m50">Luego la fase inicial es &pi;/6</p>
+      <p class="m50">Falta por determinar la frecuencia y para esto se necesita 
+        la frecuencia angular</p>
+      <p class="m150"><img src="formulas/11_04.gif" width="301" height="126" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150"><img src="formulas/11_05.gif" width="180" height="81" /></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="146,11,298,61" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/1.htm')"/>
+</map>
+</body>
+</html>

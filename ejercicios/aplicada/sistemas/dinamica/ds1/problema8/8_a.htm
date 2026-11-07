@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css"  rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">Ecuaciones de la Din&aacute;mica para cada bloque (No 
+        hay aceleraci&oacute;n):</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%"><div align="center"><img src="imagenes/8_01.png" width="158" height="115" /></div></td>
+          <td width="35%"><img src="formulas/8_01.gif" width="237" height="92" border="0" style="cursor:pointer" onclick="_pctop.apartado='3_a.htm';cambiar('','3_z.htm')"/></td>
+          <td width="35%" rowspan="2"><p class="peque&ntilde;o">Como el muelle no 
+              tiene masa hace la misma fuerza el&aacute;stica en los dos extremos</p></td>
+        </tr>
+        <tr> 
+          <td><div align="center"><img src="imagenes/8_02.png" width="159" height="115" /></div></td>
+          <td><img src="formulas/8_02.gif" width="214" height="92" /></td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        inc&oacute;gnitas: F<sub>E</sub>, F</p>
+      <p class="m150"><img src="formulas/8_03.gif" width="478" height="129" border="0" style="cursor:pointer"/></p>
+      <p class="m50">Y la deformaci&oacute;n del muelle ser&aacute;:</p>
+      <p class="m150"><img src="formulas/8_04.gif" width="217" height="38" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

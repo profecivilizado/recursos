@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.resizeTo(480,600)" 
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="431" valign="top"> <p  ><b><font color="#0000FF">Relaci&oacute;n 
+        entre campo y potencial</font></b></p>
+      <p>Considera un campo uniforme <strong>E</strong> = Ex <strong>i</strong> 
+        + Ey <strong>j</strong> y dos puntos A, B sobre el eje x, separados una 
+        distancia &Delta;x<br />
+        El trabajo que hace este campo cuando una masa m se mueve desde A hasta 
+        B ser&aacute;</p>
+      <p class="m50"><em><strong>T</strong></em><sub>AB</sub> = m&middot;(E<sub>x</sub><strong>i</strong> 
+        + Ey <strong>j</strong>)&middot;(&Delta;x <strong>i</strong> + 0 <strong>j</strong>) 
+        = m&middot;E<sub>x</sub>&middot;&Delta;x</p>
+      <p>El trabajo tambi&eacute;n se puede determinar a partir de la variaci&oacute;n 
+        de la energ&iacute;a potencial de la masa:</p>
+      <p class="m50"><strong><em>T</em></strong><sub>AB</sub> = -&Delta;EP = -m&middot;(V<sub>B</sub> 
+        - V<sub>A</sub>) = -m&middot;&Delta;V</p>
+      <p>Igualando las dos expresiones:</p>
+      <p class="m50"><img src="formulas/3_01.gif" width="238" height="36" /></p>
+      <p>Analogamente se puede obtener:</p>
+      <p class="m150"><img src="formulas/3_02.gif" width="69" height="38" /> </p>
+      <p><font color="#FF0000">La componente x | y del campo es la relaci&oacute;n 
+        entre el cambio de potencial y el cambio en la coordenada x | y<br />
+        El signo negativo indica que la componente del campo apunta en el sentido 
+        de los potenciales decrecientes</font></p>
+      <p>Las relaciones obtenidas para el campo uniforme sirven para otro no uniforme 
+        sin m&aacute;s que tomar los cambios de coordenada y po-tencial muy, muy 
+        peque&ntilde;os (Diferencial)</p>
+      <p align="center"><img src="formulas/3_03.gif" width="160" height="38" align="middle" /> 
+        &nbsp; </p>
+      <p align="left"><font color="#FF0000">La componente x | y del campo es la 
+        derivada del potencial res-pecto a la coordenada x | y. El signo negativo 
+        indica que la componente del campo apunta en el sentido de los potenciales 
+        decrecientes</font> </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

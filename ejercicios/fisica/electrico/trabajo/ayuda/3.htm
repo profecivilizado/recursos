@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,500)">
+<table width="451" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="431"><p  ><b><font color="#0000FF">Potencial nulo</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="51%"><img src="imagenes/3_00.png" width="214" height="86" /></td>
+          <td width="49%"><p>En el caso de una distribu-ci&oacute;n de dos cargas 
+              de signos opuestos, hay infinitos pun-tos donde se anula el poten-cial.<br />
+              Estos infinitos puntos forman una equipotencial (V = 0) que rodea 
+              a la carga menor</p></td>
+        </tr>
+      </table>
+      <p  > Normalmente interesan los puntos A, B donde esta equipotencial corta 
+        a la l&iacute;nea que une las cargas</p>
+      <form action="" method="post" name="form1" class="formulario" id="form1">
+        <p> 
+          <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula1.innerHTML=formula10.innerHTML;formula2.innerHTML=formula20.innerHTML"/>
+          Punto A (Interior)
+          <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula1.innerHTML=formula11.innerHTML;formula2.innerHTML=formula21.innerHTML"/>
+          Punto B (Exterior)</p>
+        </form>
+      <p  >&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%" id="imagen"> 
+            <p align="center"><img src="imagenes/3_01.PNG" width="193" height="68" /></p></td>
+          <td width="44%" id="formula1"> 
+            <div align="center"><img src="formulas/3_01.gif" width="181" height="70" /></div></td></tr>
+        <tr> 
+          <td colspan="2" id="formula2"> 
+            <div align="center"> 
+              <p><img src="formulas/3_02.gif" width="258" height="45" border="0" usemap="#Map" style="cursor:pointer"/></p>
+            </div></td></tr>
+        <tr> 
+          <td colspan="2"><p align="center">En la expresi&oacute;n del potencial 
+              las <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto">cargas 
+              van con signo</span></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/3_01.PNG" width="193" height="68" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/3_02.PNG" width="186" height="70" /></div></td></tr>
+              <tr> 
+                <td id="formula10"> 
+                  <div align="center"><img src="formulas/3_01.gif" width="181" height="70" /></div></td>
+                <td id="formula11"> 
+                  <div align="center"><img src="formulas/3_03.gif" width="181" height="70" /></div></td></tr>
+              <tr> 
+                <td colspan="2" id="formula20"> 
+                  <div align="center"><img src="formulas/3_02.gif" width="258" height="45" border="0" usemap="#Map2" style="cursor:pointer"/> 
+                    <map name="Map2" id="Map2">
+                      <area shape="rect" coords="3,4,255,43" onclick="abrirVentana('../../desarrollos/5.htm')" />
+                    </map>
+                  </div></td></tr>
+              <tr> 
+                <td colspan="2" id="formula21"> 
+                  <div align="center"><img src="formulas/3_04.gif" width="270" height="45" border="0" usemap="#Map3" style="cursor:pointer"/> 
+                    <map name="Map3" id="Map3">
+                      <area shape="rect" coords="3,3,267,43" onclick="abrirVentana('../../desarrollos/6.htm')" />
+                    </map>
+                  </div></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,255,43" onClick="abrirVentana('../../desarrollos/5.htm')" />
+</map>
+</body>
+</html>

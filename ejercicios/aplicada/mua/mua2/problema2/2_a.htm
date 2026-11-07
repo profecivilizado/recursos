@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="42%"> <p class="m50"><img src="imagenes/2_01.png" width="169" height="38" /></p></td>
+          <td width="22%"> <div align="right"> 
+              <p><img src="formulas/2_01.gif" width="80" height="70" /></p>
+            </div></td>
+          <td width="36%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">a (Inc&oacute;gnita)</p></td>
+        </tr>
+      </table>
+      <p class="m50">Calculamos el par&aacute;metro aunque no lo pidan</p>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: x<sub>1</sub> = 50 m, &nbsp;v<sub>1</sub> = 60 km/h, 
+        &nbsp;Inc&oacute;gnitas: a, t<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="40%"> <p class="m50"><img src="imagenes/2_02.png" width="189" height="41" /></p></td>
+          <td width="35%"> <p><img src="formulas/2_02.gif" width="180" height="73" border="0" usemap="#Map2" style="cursor:pointer" /></p></td>
+          <td width="25%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50">Una vez conocido el par&aacute;metro resolvemos el problema:</p>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: x<sub>2</sub> = 100 m, &nbsp;Inc&oacute;gnitas: v<sub>2</sub>, 
+        t<sub>2</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p class="m50"><img src="imagenes/2_03.png" width="218" height="36" /></p></td>
+          <td width="56%"> <p><img src="formulas/2_04.gif" width="210" height="73" border="0" usemap="#Map" style="cursor:pointer"/> 
+              <map name="Map" id="Map">
+                <area shape="rect" coords="105,24,208,48" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/2b.htm')" />
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/2_05.gif" width="218" height="110" border="0" style="cursor:pointer" /> 
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="104,13,177,57" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/2a.htm')"/>
+</map>
+</body>
+</html>

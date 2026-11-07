@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50">Con las dos hip&oacute;tesis se obtiene el mismo valor de 
+        v<sub>0</sub>, prescindiendo del signo.<br />
+        Entonces para calcular una velocidad inicial se puede suponer una direcci&oacute;n 
+        cualquiera para esta. <br />
+        Si se obtiene un valor negativo significar&aacute; que la direcci&oacute;n 
+        de la velocidad inicial es contraria a la supuesta y el m&oacute;dulo 
+        es el valor absoluto del resultado</p></td>
+  </tr>
+</table>
+</body>
+</html>
