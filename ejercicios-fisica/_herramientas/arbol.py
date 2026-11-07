@@ -37,6 +37,7 @@ def group(items):
 
 tree = []
 for key, name in (('fisica', 'Física'), ('aplicada', 'Física aplicada')):
+    if not (ROOT / key / '0_a.htm').exists(): continue   # colección no publicada
     col = {'k': key, 'n': name, 'home': f'{key}/0.htm', 'g': []}
     for g in group(rows(ROOT / key / '0_a.htm')):
         G = {'h': g['h'], 'c': []}
