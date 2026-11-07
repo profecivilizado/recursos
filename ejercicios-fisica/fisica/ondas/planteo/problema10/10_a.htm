@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../general/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Se trata de una onda el&aacute;stica porque propaga un cambio de 
+        posici&oacute;n </p>
+      <p class="m50">La ecuaci&oacute;n de onda ser&aacute; de la forma:</p>
+      <p class="m150"><img src="formulas/10_01.gif" width="148" height="22" /></p>
+      <p class="m50">El signo positivo en la fase indica que la onda se propaga&nbsp;<span class="enlace_texto" onclick="abrirVentana('../../general/ayuda/4.htm',1)">en 
+        sentido de x decreciente</span> </p>
+      <p class="m50">Par&aacute;metros de la onda:&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%" height="50" valign="middle"> <p align="right">Amplitud: 
+              &nbsp;&nbsp;</p></td>
+          <td width="67%"> <p>20 cm</p></td>
+        </tr>
+        <tr> 
+          <td width="33%" height="50" valign="middle"> <p align="right">Frecuencia 
+              angular: &nbsp;&nbsp;</p></td>
+          <td width="67%"><img src="formulas/10_02.gif" width="241" height="37" /></td>
+        </tr>
+        <tr> 
+          <td width="33%" height="50" valign="middle"> <p align="right">Constante 
+              de propagaci&oacute;n:&nbsp;&nbsp;&nbsp;</p></td>
+          <td width="67%"><img src="formulas/10_03.gif" width="198" height="38" /></td>
+        </tr>
+      </table>
+      <p class="m50">La ecuaci&oacute;n de la onda ser&aacute; entonces:</p>
+      <p class="m150"><img src="formulas/10_04.gif" width="308" height="22" /></p>
+      <p class="m50">Tambi&eacute;n puede darse la ecuaci&oacute;n de esta forma:</p>
+      <p class="m150"><img src="formulas/10_05.gif" width="308" height="22" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

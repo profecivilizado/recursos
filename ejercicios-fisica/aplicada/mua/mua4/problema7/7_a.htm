@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../mua4/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones de los movimientos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Autom&oacute;vil</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Cami&oacute;n</p>
+            </form></td>
+          <td width="42%" id="imagen"> 
+            <div align="center"><img src="imagenes/7_00.png" width="279" height="38" /></div></td>
+          <td width="43%" id="formula"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="25%"><img src="formulas/7_01.gif" width="80" height="70" /></td>
+                <td width="75%" > <p class="m50">a = 1.8 m/s<sup>2</sup></p></td>
+              </tr>
+            </table></td></tr>
+      </table>
+      <hr />
+      <p class="m50">Aplicaci&oacute;n: El momento del choque</p>
+      <p class="m50">Inc&oacute;gnitas: t<sub>1</sub> , x<sub>1</sub> = x'<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="43%"><p align="center"><img src="imagenes/7_02.png" width="279" height="55" /></p></td>
+          <td width="57%"><div align="center"><img src="formulas/7_03.gif" width="292" height="81" border="0" usemap="#Map" style="cursor:pointer"/> 
+              <map name="Map" id="Map">
+                <area shape="rect" coords="152,22,289,58"  title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/7_1.htm')" />
+              </map>
+            </div></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="276" height="44" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="51%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/7_00.png" width="279" height="38" /></div></td>
+                <td width="49%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/7_01.png" width="280" height="58" /></div></td></tr>
+              <tr>
+                <td id="formula0"> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                      <td width="25%"><img src="formulas/7_01.gif" width="80" height="70" /></td>
+                      <td width="75%"><p class="m50">a = 1.8 m/s<sup>2</sup></p></td>
+                    </tr>
+                  </table></td>
+                <td id="formula1"> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr>
+                      <td width="41%"><img src="formulas/7_02.gif" width="132" height="70" /></td>
+                      <td width="59%"><p class="m50">x'<sub>0</sub> (Inc&oacute;gnita)</p>
+                        <p class="m50">a' = 1.2 m/s<sup>2</sup> &nbsp;</p></td>
+                    </tr>
+                  </table></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

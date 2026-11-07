@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ciclotr&oacute;n</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onload ="nuevoTitulo()" >
+<table width="760" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td> 
+      <p class="m50"><strong>Motor el&eacute;ctrico</strong></p>
+      <p class="m50">Una espira recorrida por corriente y colocada dentro de un 
+        campo magn&eacute;tico uniforme sufre un par (Torque) que la hace girar 
+        para alinear su momento magn&eacute;tico con el campo<br />
+        El truco del motor est&aacute; en los contactos por los que entra corriente 
+        a la espira, est&aacute;n dise&ntilde;ados de manera que el sentido de 
+        la corriente en la espira se invierte cada media vuelta. Entonces la espira 
+        gira para alinear su momento con el campo pero al hacerlo se invierte 
+        su momento magn&eacute;tico y tiene que volver a girar</p>
+      <p class="m50"><strong>Generador</strong></p>
+      <p class="m50">Una espira que gira dentro de un campo magn&eacute;tico uniforme 
+        sufre un cambio de flujo que induce en ella corriente. Esta corriente 
+        se saca al exterior por unos contactos que tiene la espira</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

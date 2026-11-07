@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Ecuaciones del movimiento del electr&oacute;n entre placas:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <p align="right"><img src="formulas/9_02.gif" title="Clic para ver el desarrollo" width="90" height="124" border="0" class="enlace_imagen" onclick="_pctop.apartado='9_a.htm';cambiar('','9_z.htm')" /></p></td>
+          <td width="67%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 2&middot;10<sup>7</sup> m/s</p>
+            <p class="m50"><img src="formulas/9_10.gif" width="58" height="36" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Punto A (Salida de las placas)</p>
+      <div align="left"> 
+        <p class="m50">Dato: x<sub><sub>1</sub></sub> = 4 cm. Inc&oacute;gnitas: 
+          t<sub><sub>1</sub></sub>, y<sub><sub>1</sub></sub>, v<sub><sub>x1</sub></sub>, 
+          v<sub><sub>y1</sub></sub></p>
+        <div align="left"></div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+          <tr> 
+            <td width="33%" valign="middle"> <div align="center">
+                <p><img src="imagenes/9_04.png" width="145" height="113" /> </p>
+              </div></td>
+            <td width="67%"> <p><img src="formulas/9_03.gif" width="453" height="124" border="0" usemap="#Map1" style="cursor:pointer"/> 
+                <map name="Map1" id="Map1">
+                  <area shape="rect" coords="115,36,449,84" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/9_1.htm')" />
+                </map>
+                <map name="Map" id="Map">
+                  <area shape="rect" coords="256,140,335,175" title="Clic para ver unidades" onclick="MM_openBrWindow('../../comunes/unidades/1_3.htm','','width=370,height=230')" />
+                </map>
+              </p></td>
+          </tr>
+        </table>
+        <p class="m50">Resolviendo el sistema:</p>
+        <p class="m100"><img src="formulas/9_04.gif" width="529" height="250" usemap="#Map2" border="0" style="cursor:pointer"/> 
+          <map name="Map2" id="Map2">
+            <area shape="rect" coords="324,15,420,38" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/8.htm')" />
+            <area shape="rect" coords="419,64,525,99" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/9.htm')" />
+          </map>
+        </p>
+        <p class="m50">Al salir de las placas el electr&oacute;n 'ha ca&iacute;do' 
+          7 mm y se mueve a 2.12&middot;10<sup>7</sup> m/s en direcci&oacute;n 
+          19.4&ordm; bajo la horizontal</p>
+      </div>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Desarrollo</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz">
+<link rel="stylesheet" href="file:///D|/js/estilos2.css" type="text/css">
+<script language="JavaScript">
+<!--
+var ventana, ayuda // Variables globales NO BORRAR
+
+function abrirVentana(URL) {
+	if(ventana) ventana.close();
+	var atributos="status=no,scroll=yes,width=5,height=5";
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+	if(ayuda) ayuda.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function verHasta(n) {
+	var totalCeldas =tabla.cells.length,i;
+	if (n>tabla.cells.length-1){n=tabla.cells.length-1};
+	for (i=3 ; i <n+1; i++){
+		mostrarObjetos("celda",i,1)
+	}
+	for (i=n+1; i <tabla.cells.length; i++){
+		mostrarObjetos("celda",i,0)
+	}
+}
+
+function siguiente(celda) {
+	var n = eval(celda.slice(5))+1;
+	if(eval("celda"+ n +".style.visibility")=="hidden")
+	{verHasta(n+1)}else {verHasta(n-1)};
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" 
+leftmargin="0" topmargin="0" 
+onLoad ="window.moveTo(20,20);window.resizeTo(480,250)" 
+onUnLoad="cerrarVentanas()">
+<span id="Layer1" style="position:absolute; width:447px; z-index:1; left: 10; top: 10; height: 135px"> 
+<table border="0" cellspacing="0" cellpadding="5" id="tabla">
+  <tr> 
+    <td width="40" id="celda0" onClick="verHasta(tabla.cells.length)"> 
+      <div align="center"> 
+        <input type="button" name="Submit" value=" " class="boton">
+      </div>
+    </td>
+    <td width="200" id="celda1"><img src="formulas/1_01.gif" width="113" height="65"></td>
+    <td width="40" id="celda2" onClick="siguiente(this.id)"> 
+      <div align="center"> 
+        <input type="button" name="Submit" value=" " class="boton">
+      </div>
+    </td>
+    <td width="200" id="celda3" style="visibility:hidden"><img src="formulas/1_02.gif" width="256" height="81"></td>
+  </tr>
+  <tr> 
+    <td width="40" id="celda4" style="visibility:hidden" onClick="siguiente(this.id)"> 
+      <div align="center"> 
+        <input type="button" name="Submit" value=" " class="boton">
+      </div>
+    </td>
+    <td width="200" id="celda5" style="visibility:hidden" ><img src="formulas/1_06.gif" width="121" height="48"></td>
+    <td width="40" id="celda6" style="visibility:hidden" onClick="siguiente(this.id)"> 
+      <div align="center"> 
+        <input type="button" name="Submit" value=" " class="boton">
+      </div>
+    </td>
+    <td width="200"id="celda7" style="visibility:hidden" ><img src="formulas/1_07.gif" width="112" height="48"></td>
+  </tr>
+  <tr> 
+    <td width="40" id="celda8" style="visibility:hidden" onClick="siguiente(this.id)"> 
+      <div align="center"> 
+        <input type="button" name="Submit" value=" " class="boton">
+      </div>
+    </td>
+    <td width="200" id="celda9" style="visibility:hidden" ><img src="formulas/1_08.gif" width="117" height="48"></td>
+    <td width="40" id="celda10" style="visibility:hidden" onClick="siguiente(this.id)">&nbsp;</td>
+    <td width="200"id="celda11" style="visibility:hidden" >&nbsp;</td>
+  </tr>
+</table>
+</span> 
+</body>
+</html>

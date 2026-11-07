@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">La f&oacute;rmula de De Broglie relaciona el momento de una 
+        part&iacute;cula con la longitud de onda asociada:</p>
+      <p class="m150"><img src="formulas/2_01.gif" width="269" height="89" usemap="#Map" border="0" style="cursor:pointer"/> 
+      </p>
+      <p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">Relaci&oacute;n entre momento lineal y energ&iacute;a cin&eacute;tica:</p>
+      <p class="m150"><img src="formulas/2_02.gif" width="362" height="181" usemap="#Map2" border="0" style="cursor:pointer"/></p>
+      <map name="Map2" id="Map2">
+        <area shape="rect" coords="269,134,358,156" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/5.htm')"/>
+        <area shape="rect" coords="2,3,81,46" title="Clic para aclaracion" onclick="abrirVentana('relacion/1.htm')"/>
+      </map>
+      <map name="Map" id="Map">
+        <area shape="rect" coords="146,50,267,86" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')" />
+      </map> </td>
+  </tr>
+</table>
+</body>
+</html>

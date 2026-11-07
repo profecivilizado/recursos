@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ejercicios de Física</title>
+<script>
+(function () { var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) { if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue); });
+})();
+window.__pcShell = true;
+</script>
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--paper:#f3f6fa;--panel:#fff;--ink:#15203a;--muted:#5a6479;--line:#d6dde8;--accent:#1f55d6;--hover:#eef3fb;--sel:#e3ebfb;--red:#c2410c;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;--f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0e1420;--panel:#121826;--ink:#e7ecf5;--muted:#9aa5ba;--line:#28344a;--accent:#8fb2ff;--hover:#1b2436;--sel:#1f2c48;--red:#ff9a6b;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0e1420;--panel:#121826;--ink:#e7ecf5;--muted:#9aa5ba;--line:#28344a;--accent:#8fb2ff;--hover:#1b2436;--sel:#1f2c48;--red:#ff9a6b;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);padding:24px max(16px,env(safe-area-inset-left,0px)) 56px}
+.embed body{padding-top:4px}
+.embed .top{display:none}
+.wrap{max-width:1280px;margin:0 auto;display:grid;gap:18px}
+.top{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;justify-content:space-between}
+.top .eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.top h1{font:800 clamp(28px,4.4vw,42px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 4px}
+.top p{margin:0;color:var(--muted);max-width:70ch}
+.top .tools{display:flex;gap:8px;align-items:center}
+a.back{color:var(--accent);text-decoration:none;font-size:14px}
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--hover)}
+button:disabled{opacity:.4;cursor:default}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cols{display:flex;gap:8px;flex-wrap:wrap}
+.cols button{font:700 15px var(--f-display);padding:9px 16px}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+nav.side{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:10px;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
+@media (max-width:900px){nav.side{position:static;max-height:none}}
+nav.side details.mob>summary{display:none}
+@media (max-width:900px){nav.side details.mob>summary{display:flex;justify-content:space-between;cursor:pointer;font:700 15px var(--f-display);padding:6px 8px;list-style:none}nav.side details.mob>summary::-webkit-details-marker{display:none}nav.side details.mob>summary::after{content:"+";color:var(--muted)}nav.side details.mob[open]>summary::after{content:"−"}}
+.blk{font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:14px 8px 6px}
+details.tema>summary{list-style:none;cursor:pointer;padding:8px 10px;border-radius:10px;font:700 15px/1.3 var(--f-display);display:flex;justify-content:space-between;gap:8px}
+details.tema>summary::-webkit-details-marker{display:none}
+details.tema>summary::after{content:"›";color:var(--muted);transition:transform .15s}
+details.tema[open]>summary::after{transform:rotate(90deg)}
+details.tema>summary:hover{background:var(--hover)}
+.grp{font-size:12px;color:var(--red);font-weight:700;padding:8px 12px 2px 18px}
+.it{display:block;width:100%;text-align:left;border:0;border-radius:8px;background:transparent;padding:6px 10px 6px 18px;font-size:14.5px;color:var(--ink)}
+.it:hover{background:var(--hover)}
+.it.on{background:var(--sel);color:var(--accent);font-weight:700}
+main{background:var(--panel);border:1px solid var(--line);border-radius:16px;min-width:0;overflow:hidden}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+.bar .ttl{flex:1 1 200px;min-width:0;font:700 15px var(--f-display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .crumb{display:block;font:600 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#help{background:var(--accent);color:var(--panel);border-color:var(--accent);font-weight:700}
+.view{padding:14px 16px 18px}
+#main{display:block;width:100%;border:0;height:600px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.55);display:grid;place-items:center;padding:16px}
+.sheet{background:var(--panel);border-radius:16px;width:min(900px,100%);max-height:calc(100vh - 32px);display:grid;grid-template-rows:auto 1fr;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.sheet header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font:700 15px var(--f-display)}
+.sheet .body{overflow:auto;padding:12px 16px}
+.sheet iframe{display:block;width:100%;border:0;height:400px}
+.note{font-size:13px;color:var(--muted);margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="eyebrow">Física · Repositorio de ejercicios</div>
+      <h1>Ejercicios de Física</h1>
+      <p>Cientos de problemas resueltos paso a paso, ordenados por temas, con ayudas y variantes.</p>
+    </div>
+    <div class="tools"><a class="back" href="../recursos-bachillerato.html">‹ Recursos Bachillerato</a><button id="theme" aria-label="Cambiar tema">🌓</button></div>
+  </div>
+  <div class="cols" id="cols" role="tablist"></div>
+  <div class="layout">
+    <nav class="side" aria-label="Temas"><details class="mob" id="mob" open><summary>Temas</summary><div id="tree"></div></details></nav>
+    <main>
+      <div class="bar">
+        <button id="bBack" aria-label="Atrás">‹ Atrás</button>
+        <button id="bHome">Índice</button>
+        <div class="ttl"><span class="crumb" id="crumb"></span><span id="ttl"></span></div>
+        <button id="help" hidden>Ayuda</button>
+      </div>
+      <div class="view"><iframe id="main" name="mainFrame" title="Ejercicio"></iframe></div>
+    </main>
+  </div>
+</div>
+<div class="modal" id="modal" hidden><div class="sheet" role="dialog" aria-modal="true"><header><span id="mTtl">Ayuda</span><button id="mClose">Cerrar ✕</button></header><div class="body"><iframe class="pc-modal-frame" id="mFrame" name="pcModal"></iframe></div></div></div>
+<script>
+const TREE = [{"k": "fisica", "n": "Física", "home": "fisica/indices/temas/0.htm", "g": [{"h": "", "c": [{"t": "Tema 1. Interacción gravitatoria", "u": "fisica/indices/t01/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/gravitatorio/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "General", "u": "fisica/gravitatorio/general/0.htm"}, {"t": "Órbitas de planetas y satélites", "u": "fisica/gravitatorio/orbitas/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/gravitatorio/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/gravitatorio/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/gravitatorio/buscar2/0.htm"}]}]}, {"t": "Tema 2. Campo gravitatorio", "u": "fisica/indices/t02/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/gravitatorio/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Campo de masas puntuales", "u": "fisica/gravitatorio/campo/0.htm"}, {"t": "Campo gravitatorio de planetas", "u": "fisica/gravitatorio/planetas/0.htm"}, {"t": "Trabajo, d.d.p., potencial", "u": "fisica/gravitatorio/trabajo/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/gravitatorio/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/gravitatorio/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/gravitatorio/buscar2/0.htm"}]}]}, {"t": "Tema 3. Campo eléctrico", "u": "fisica/indices/t03/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/electrico/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "General", "u": "fisica/electrico/general/0.htm"}, {"t": "Campo eléctrico", "u": "fisica/electrico/campo/0.htm"}, {"t": "Trabajo, d.d.p., potencial", "u": "fisica/electrico/trabajo/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/electrico/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/electrico/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/electrico/buscar2/0.htm"}]}]}, {"t": "Tema 4. Campo magnético", "u": "fisica/indices/t04/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/magnetico/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Campos creados por cargas y corrientes", "u": "fisica/magnetico/campo/0.htm"}, {"t": "Fuerza sobre cargas", "u": "fisica/magnetico/lorentz/0.htm"}, {"t": "Fuerza sobre cables y espiras", "u": "fisica/magnetico/fuerzas/0.htm"}, {"t": "Fuerzas entre cargas y corrientes", "u": "fisica/magnetico/f_mutuas/0.htm"}, {"t": "Ley de Ampère, solenoides e imanes", "u": "fisica/magnetico/ampere/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/magnetico/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/magnetico/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/magnetico/buscar2/0.htm"}]}]}, {"t": "Tema 5. Inducción electromagnética", "u": "fisica/indices/t05/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/magnetico/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Inducción magnética", "u": "fisica/magnetico/induccion/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/magnetico/faq/0i.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/magnetico/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/magnetico/buscar2/0.htm"}]}]}, {"t": "Tema 6. Movimientos vibratorios", "u": "fisica/indices/t06/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/vibraciones/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Aplicar las ecuaciones", "u": "fisica/vibraciones/armonico1/0.htm"}, {"t": "Obtener las ecuaciones", "u": "fisica/vibraciones/armonico2/0.htm"}, {"t": "Energía del movimiento armónico", "u": "fisica/vibraciones/energia/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/vibraciones/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/vibraciones/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/vibraciones/buscar2/0.htm"}]}]}, {"t": "Tema 7. Movimiento ondulatorio", "u": "fisica/indices/t07/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/ondas/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "General", "u": "fisica/ondas/general/0.htm"}, {"t": "Ecuaciones de onda", "u": "fisica/ondas/planteo/0.htm"}, {"t": "Energía de las ondas", "u": "fisica/ondas/energia/0.htm"}, {"t": "Interferencias", "u": "fisica/ondas/interferencias/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/ondas/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/ondas/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/ondas/buscar2/0.htm"}]}]}, {"t": "Tema 8. Ondas electromagnéticas. La luz", "u": "fisica/indices/t08/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/optica/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Refracción. Dioptrio plano", "u": "fisica/optica/snell/0.htm"}, {"t": "Láminas. Prismas", "u": "fisica/optica/prismas/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/optica/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/optica/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/optica/buscar2/0.htm"}]}]}, {"t": "Tema 9. Óptica geométrica", "u": "fisica/indices/t09/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/optica/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Espejos", "u": "fisica/optica/espejos/0.htm"}, {"t": "Dioptrio esférico. Lentes delgadas", "u": "fisica/optica/lentes/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/optica/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/optica/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/optica/buscar2/0.htm"}]}]}, {"t": "Tema 10. Física relativista", "u": "fisica/indices/t10/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/relatividad/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Longitud y tiempo", "u": "fisica/relatividad/relatividad1/0.htm"}, {"t": "Masa y energía", "u": "fisica/relatividad/relatividad2/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/relatividad/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/relatividad/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/relatividad/buscar2/0.htm"}]}]}, {"t": "Tema 11. Física cuántica", "u": "fisica/indices/t11/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/cuantica/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Fotones", "u": "fisica/cuantica/cuantica1/0.htm"}, {"t": "Dualidad", "u": "fisica/cuantica/cuantica2/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/cuantica/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/cuantica/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/cuantica/buscar2/0.htm"}]}]}, {"t": "Tema 12. Física nuclear", "u": "fisica/indices/t12/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "fisica/nuclear/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por apartados", "c": [{"t": "Reacciones nucleares", "u": "fisica/nuclear/nuclear1/0.htm"}, {"t": "Desintegraciones radiactivas", "u": "fisica/nuclear/nuclear2/0.htm"}, {"t": "Preguntas malvadas", "u": "fisica/nuclear/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "fisica/nuclear/buscar/0.htm"}, {"t": "Propuestos en la prueba de acceso", "u": "fisica/nuclear/buscar2/0.htm"}]}]}]}]}, {"k": "aplicada", "n": "Física aplicada", "home": "aplicada/0.htm", "g": [{"h": "Cinemática del punto", "c": [{"t": "Movimiento rectilíneo", "u": "aplicada/indices/tema1/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/mua/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/mua/mua1/0.htm"}, {"t": "Faltan parámetros", "u": "aplicada/mua/mua2/0.htm"}, {"t": "Recorridos parciales", "u": "aplicada/mua/mua3/0.htm"}, {"t": "Choques", "u": "aplicada/mua/mua4/0.htm"}, {"t": "Preguntas malvadas", "u": "aplicada/mua/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/mua/buscar/0.htm"}]}]}, {"t": "Tiros", "u": "aplicada/indices/tema2/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/tiros/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/tiros/tiros1/0.htm"}, {"t": "Tiros con viento", "u": "aplicada/tiros/tiros2/0.htm"}, {"t": "Problemas de barreras", "u": "aplicada/tiros/tiros3/0.htm"}, {"t": "Faltan parámetros", "u": "aplicada/tiros/tiros4/0.htm"}, {"t": "Choques", "u": "aplicada/tiros/tiros5/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/tiros/buscar/0.htm"}]}]}, {"t": "Movimiento circular", "u": "aplicada/indices/tema3/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/circular/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Movimiento circular uniforme", "u": "aplicada/circular/circular1/0.htm"}, {"t": "Movimiento circular acelerado", "u": "aplicada/circular/circular3/0.htm"}, {"t": "Aceleración del movimiento circular", "u": "aplicada/circular/circular4/0.htm"}, {"t": "Choques", "u": "aplicada/circular/circular5/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/circular/buscar/0.htm"}]}]}]}, {"h": "Dinámica del punto", "c": [{"t": "Dinámica", "u": "aplicada/indices/tema4/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/dinamica/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/dinamica/dinamica0/0.htm"}, {"t": "Fuerzas alineadas con el movimiento", "u": "aplicada/dinamica/dinamica1/0.htm"}, {"t": "Fuerzas no alineadas con el movimiento", "u": "aplicada/dinamica/dinamica2/0.htm"}, {"t": "Cuerpos que se mueven juntos", "u": "aplicada/dinamica/dinamica3/0.htm"}, {"t": "Dinámica del movimiento circular", "u": "aplicada/dinamica/dinamica4/0.htm"}, {"t": "Dinámica del movimiento armónico", "u": "aplicada/dinamica/dinamica5/0.htm"}, {"t": "Péndulos y relojes", "u": "aplicada/dinamica/periodos/0.htm"}, {"t": "Preguntas malvadas", "u": "aplicada/dinamica/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/dinamica/buscar/0.htm"}]}]}, {"t": "Conservación de la energía", "u": "aplicada/indices/tema5/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/trabajo/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/trabajo/trabajo1/0.htm"}, {"t": "Recorridos no homogéneos", "u": "aplicada/trabajo/trabajo2/0.htm"}, {"t": "Problemas mixtos", "u": "aplicada/trabajo/trabajo3/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/trabajo/buscar/0.htm"}]}]}]}, {"h": "Dinámica de sistemas", "c": [{"t": "Centro de masas", "u": "aplicada/indices/tema6/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/cdm/ayuda/1.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "c.d.m de distribuciones puntuales y continuas", "u": "aplicada/cdm/cdm/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/cdm/buscar/0.htm"}]}]}, {"t": "Conservación del momento lineal", "u": "aplicada/indices/tema8/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/choques/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Choques frontales", "u": "aplicada/choques/choques1/0.htm"}, {"t": "Choques oblicuos | Explosiones", "u": "aplicada/choques/choques2/0.htm"}, {"t": "Problemas mixtos", "u": "aplicada/choques/choques3/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/choques/buscar/0.htm"}]}]}, {"t": "Dinámica", "u": "aplicada/indices/tema7/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/dinamica_s/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Cuerpos en contacto", "u": "aplicada/dinamica_s/ds1/0.htm"}, {"t": "Máquinas de Atwood", "u": "aplicada/dinamica_s/ds2/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/dinamica_s/buscar/0.htm"}]}]}, {"t": "Conservación de la energía", "u": "aplicada/indices/tema9/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/trabajo_s/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Máquinas de Atwood", "u": "aplicada/trabajo_s/trabajo1/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/trabajo_s/buscar/0.htm"}]}]}]}, {"h": "Dinámica del sólido rígido", "c": [{"t": "Dinámica de la rotación", "u": "aplicada/indices/tema10/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/dinamica_r/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/dinamica_r/dr1/0.htm"}, {"t": "Máquinas de Atwood", "u": "aplicada/dinamica_r/dr2/0.htm"}, {"t": "Momentos de inercia", "u": "aplicada/dinamica_r/mdi/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/dinamica_r/buscar/0.htm"}]}]}, {"t": "Conservación de la energía", "u": "aplicada/indices/tema11/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/trabajo_r/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/trabajo_r/trabajo1/0.htm"}, {"t": "Máquinas de Atwood", "u": "aplicada/trabajo_r/trabajo2/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/trabajo_r/buscar/0.htm"}]}]}, {"t": "Conservación del momento angular", "u": "aplicada/indices/tema12/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/choques_r/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/choques_r/choques1/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/choques_r/buscar/0.htm"}]}]}]}, {"h": "Estática", "c": [{"t": "Equilibrio de cuerpos", "u": "aplicada/indices/tema13/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/estatica/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Equilibrio de traslación", "u": "aplicada/estatica/estatica1/0.htm"}, {"t": "Equilibrio de traslación y rotación", "u": "aplicada/estatica/estatica2/0.htm"}, {"t": "Ruptura del equilibrio", "u": "aplicada/estatica/estatica3/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/estatica/buscar/0.htm"}]}]}]}, {"h": "Hidrostática", "c": [{"t": "Hidrostática", "u": "aplicada/indices/tema14/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/fluidos/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/fluidos/fluidos1/0.htm"}, {"t": "Flotación", "u": "aplicada/fluidos/fluidos2/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/fluidos/buscar/0.htm"}]}]}]}, {"h": "Termodinámica", "c": [{"t": "Calorimetría", "u": "aplicada/indices/tema16/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/termo/calor/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Equilibrio térmico", "u": "aplicada/termo/calor/calor1/0.htm"}, {"t": "Conversión trabajo-calor", "u": "aplicada/termo/calor/calor2/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/termo/calor/buscar/0.htm"}]}]}, {"t": "Gases ideales", "u": "aplicada/indices/tema17/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/termo/gases/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/termo/gases/gases1/0.htm"}, {"t": "Transformaciones gaseosas", "u": "aplicada/termo/gases/gases2/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/termo/gases/buscar/0.htm"}]}]}, {"t": "Primer principio", "u": "aplicada/indices/tema18/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/termo/principio/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Primer principio", "u": "aplicada/termo/principio/principio1/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/termo/principio/buscar/0.htm"}]}]}, {"t": "Máquinas térmicas", "u": "aplicada/indices/tema19/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/termo/ciclos/ayuda/1.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Máquinas térmicas", "u": "aplicada/termo/ciclos/ciclos1/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/termo/ciclos/buscar/0.htm"}]}]}, {"t": "Entropía", "u": "aplicada/indices/tema20/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/termo/entropia/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/termo/entropia/entropia1/0.htm"}]}]}]}, {"h": "Corriente eléctrica", "c": [{"t": "Corriente continua", "u": "aplicada/indices/tema21/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/continua/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "Resistencia", "u": "aplicada/continua/Ohm/0.htm"}, {"t": "Trabajo eléctrico", "u": "aplicada/continua/Joule/0.htm"}, {"t": "Circuitos con pila", "u": "aplicada/continua/pilas/0.htm"}, {"t": "Resistencia equivalente", "u": "aplicada/continua/equivalente/0.htm"}, {"t": "Análisis de circuitos sencillos", "u": "aplicada/continua/analisis/0.htm"}, {"t": "Lemas de Kirchoff", "u": "aplicada/continua/kirchoff/0.htm"}, {"t": "Instrumentos de medida", "u": "aplicada/continua/instrumentos/0.htm"}, {"t": "Circuitos con motor", "u": "aplicada/continua/motores/0.htm"}, {"t": "Preguntas malvadas", "u": "aplicada/continua/faq/0.htm"}]}, {"h": "Problemas sueltos", "c": [{"t": "Propuestos en el curso", "u": "aplicada/continua/buscar/0.htm"}]}]}, {"t": "Corriente alterna", "u": "aplicada/indices/tema22/0.htm", "g": [{"h": "", "c": [{"t": "Ayudas", "u": "aplicada/alterna/buscarAyudas/0.htm", "m": 1}]}, {"h": "Problemas por temas", "c": [{"t": "General", "u": "aplicada/alterna/general/0.htm"}, {"t": "Análisis de circuitos", "u": "aplicada/alterna/analisis/0.htm"}]}]}]}]}];
+const $ = id => document.getElementById(id);
+const main = $('main'), base = new URL('.', location.href).href;
+let col = TREE[0].k;
+const rel = href => href.startsWith(base) ? decodeURI(href.slice(base.length)).replace(/[?#].*$/, '') : null;
+function go(u) { if (!$('modal').hidden) pcModalClose(); main.src = u; scrollTo({ top: 0 }); }
+function colOf(u) { return (u || '').split('/')[0]; }
+function renderCols() {
+  $('cols').innerHTML = TREE.map(c => `<button role="tab" data-k="${c.k}" aria-pressed="${c.k === col}">${c.n}</button>`).join('');
+  $('cols').querySelectorAll('button').forEach(b => b.onclick = () => { col = b.dataset.k; renderCols(); renderTree(); go(TREE.find(c => c.k === col).home); });
+}
+function renderTree() {
+  const c = TREE.find(x => x.k === col); let h = '';
+  c.g.forEach(b => {
+    if (b.h) h += `<div class="blk">${b.h}</div>`;
+    b.c.forEach(t => {
+      h += `<details class="tema" data-u="${t.u}"><summary>${t.t}</summary>`;
+      (t.g || []).forEach(g => { if (g.h) h += `<div class="grp">${g.h}</div>`; g.c.forEach(i => h += `<button class="it" data-u="${i.u}"${i.m ? ' data-m="1"' : ''}>${i.t}</button>`); });
+      if (!t.g) h += `<button class="it" data-u="${t.u}">${t.t}</button>`;
+      h += `</details>`;
+    });
+  });
+  $('tree').innerHTML = h;
+  $('tree').querySelectorAll('.it').forEach(b => b.onclick = () => { if (b.dataset.m) pcModal(new URL(b.dataset.u, base).href, b.textContent); else { go(b.dataset.u); if (matchMedia('(max-width:900px)').matches) $('mob').open = false; } });
+  $('tree').querySelectorAll('details.tema>summary').forEach(s => s.addEventListener('click', () => { const d = s.parentElement; if (!d.open) go(d.dataset.u); }));
+}
+// marca en el índice dónde estamos
+function mark(path) {
+  const c = colOf(path); if (c && c !== col && TREE.some(x => x.k === c)) { col = c; renderCols(); renderTree(); }
+  const dir = path.replace(/[^/]*$/, '');
+  let best = null, bl = 0;
+  $('tree').querySelectorAll('.it').forEach(b => { b.classList.remove('on'); const d = b.dataset.u.replace(/[^/]*$/, ''); if (!b.dataset.m && dir.startsWith(d) && d.length > bl) { best = b; bl = d.length; } });
+  if (best) { best.classList.add('on'); const det = best.closest('details.tema'); if (det) det.open = true; $('crumb').textContent = (det ? det.querySelector('summary').textContent + ' · ' : '') + best.textContent; }
+  else { const t = [...$('tree').querySelectorAll('details.tema')].find(d => d.dataset.u === path); $('crumb').textContent = t ? t.querySelector('summary').textContent : TREE.find(x => x.k === col).n; }
+}
+main.addEventListener('load', () => {
+  let p = null; try { p = rel(main.contentWindow.location.href); } catch (e) {}
+  if (!p) return;
+  history.replaceState(null, '', '#' + encodeURI(p));
+  mark(p); updateHelp();
+});
+// títulos que fijan las páginas («Problema 3 Apartado a»)
+new MutationObserver(() => { $('ttl').textContent = document.title === 'Ejercicios de Física' ? '' : document.title; }).observe(document.querySelector('title'), { childList: true, characterData: true, subtree: true });
+// ayuda (antes con F1 en Internet Explorer)
+let _ayuda = null;
+Object.defineProperty(window, 'archivoAyuda', { get: () => _ayuda, set: v => { _ayuda = v; updateHelp(); }, configurable: true });
+function updateHelp() { $('help').hidden = !_ayuda; }
+window.pcHelp = function () {
+  try { const w = main.contentWindow; if (w.abrirAyuda) { w.abrirAyuda(); return; } } catch (e) {}
+  if (_ayuda) pcModal(new URL(_ayuda, main.contentWindow.location.href).href, 'Ayuda');
+};
+$('help').onclick = () => window.pcHelp();
+// ventanas emergentes → modal
+let modalWin = null;
+window.pcModal = function (url, title) {
+  $('mTtl').textContent = title || 'Ayuda'; $('mFrame').style.height = '400px'; $('mFrame').src = url; $('modal').hidden = false; document.body.style.overflow = 'hidden';
+  modalWin = { closed: false, close: pcModalClose, focus() {}, blur() {}, resizeTo() {}, moveTo() {}, document: null, location: { set href(v) { $('mFrame').src = v; } } };
+  return modalWin;
+};
+window.pcModalClose = function () { $('modal').hidden = true; $('mFrame').src = 'about:blank'; document.body.style.overflow = ''; if (modalWin) modalWin.closed = true; };
+$('mClose').onclick = pcModalClose;
+$('modal').addEventListener('click', e => { if (e.target === $('modal')) pcModalClose(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !$('modal').hidden) pcModalClose(); if (e.key === 'F1') { e.preventDefault(); pcHelp(); } });
+$('mFrame').addEventListener('load', () => { try { const t = $('mFrame').contentDocument.title; if (t && t.trim()) $('mTtl').textContent = t; } catch (e) {} });
+// botones
+$('bBack').onclick = () => { if (!$('modal').hidden) pcModalClose(); history.back(); };
+$('bHome').onclick = () => { const p = rel(main.contentWindow.location.href) || ''; const t = [...$('tree').querySelectorAll('details.tema')].find(d => p.startsWith(d.dataset.u.replace(/[^/]*$/, '')) || d.querySelector('.it.on')); go(t ? t.dataset.u : TREE.find(x => x.k === col).home); };
+$('theme').onclick = () => { const r = document.documentElement, dark = r.getAttribute('data-theme') ? r.getAttribute('data-theme') === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches, n = dark ? 'light' : 'dark'; r.setAttribute('data-theme', n); try { localStorage.setItem('pc-theme', n); } catch (e) {} };
+window.pcFit = function () {};
+// inicio
+const start = decodeURI(location.hash.slice(1));
+if (start && TREE.some(c => c.k === colOf(start))) col = colOf(start);
+renderCols(); renderTree();
+if (start && matchMedia('(max-width:900px)').matches) $('mob').open = false;
+go(start && /\.htm$/.test(start) ? start : TREE.find(c => c.k === col).home);
+</script>
+</body>
+</html>

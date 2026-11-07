@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.moveTo(20,20);self.resizeTo(480,520)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p>Un electr&oacute;n sale de A con energ&iacute;a cin&eacute;tica, es frenado 
+        por el campo el&eacute;ctrico y llega a B sin velocidad</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="53%" id="imagen"><img src="imagenes/3_01.png" width="205" height="80" /></td>
+          <td width="22%" id="texto"> <p>E<sub>C in</sub> = E<sub>C</sub> </p>
+            <p>E<sub>P in</sub> = q&middot;V<sub>A</sub>&nbsp;</p>
+            </td>
+          <td width="25%" id="texto"><p>E<sub>C fin</sub> = 0&nbsp;</p>
+            <p>E<sub>P fin</sub> = q&middot;V<sub>B</sub></p></td>
+        </tr>
+      </table>
+      <p class="m100"><img src="formulas/3_03.gif" width="218" height="52" border="0" /></p>
+      <p>Durante el recorrido el electr&oacute;n s&oacute;lo est&aacute; sometido 
+        a la fuerza el&eacute;ctrica cuyo trabajo ya est&aacute; contado en la 
+        variaci&oacute;n de ener-g&iacute;a potencial, por tanto <b><i>T</i></b> 
+        = 0.</p>
+      <p class="m100"><img src="formulas/3_04.gif" width="145" height="80" align="middle" border="0" /> 
+      </p>
+      <p align="left">Llamando V a la diferencia de potencial queda:</p>
+      <p class="m100">E<sub>C</sub> = q&middot;V</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

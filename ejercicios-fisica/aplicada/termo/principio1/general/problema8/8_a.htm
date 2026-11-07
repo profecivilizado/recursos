@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','ayuda/3.htm');MM_preloadImages('formulas/8_01.gif','formulas/8_02.gif')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%" rowspan="2"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <legend>Tramo</legend>
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="MM_swapImage('imagen1','','formulas/8_01.gif')"/>
+                AC</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','formulas/8_02.gif')"/>
+                CB</p>
+            </form></td>
+          <td width="38%" rowspan="2"><div align="center"><img src="imagenes/8_01.png" width="217" height="185" /></div></td>
+          <td width="49%" height="123"><img src="formulas/8_01.gif" name="imagen1" width="294" height="60" border="0" id="imagen1" /> 
+          </td>
+        </tr>
+        <tr>
+          <td><p class="peque&ntilde;o">No se sabe si el gas es mono o diat&oacute;mico, 
+              por tanto se desconoce el calor molar y no se puede hallar directamente 
+              el calor intercambiado en ninguno de los tramos</p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Trabajo total en el proceso:</p>
+      <p class="m150"><em><strong>T</strong></em> = 0 + 202 = 202 J</p>
+      <p class="m50">Aplicando el primer principio de la Termodin&aacute;mica:</p>
+      <p class="m150"><img src="formulas/8_03.gif" width="241" height="52" /></p>
+      <p class="m50">Este calor ha sido intercambiado en los dos tramos conjuntamente 
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

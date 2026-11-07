@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','mua1/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b>&nbsp;</p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <p align="center"><img src="imagenes/4_01.png" width="183" height="38" /></p></td>
+          <td width="23%" valign="middle"> <div align="right"> 
+              <p><img src="formulas/4_01.gif" width="111" height="65" /></p>
+            </div></td>
+          <td width="44%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50"> v<sub>0</sub> = 8 m/s , a = 0.2 m/s<sup><sup>2</sup></sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 60 s, &nbsp;Inc&oacute;gnitas: x<sub>1</sub> 
+        , v<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <div align="center"> 
+              <p><img src="imagenes/4_02.png" width="187" height="52" /></p>
+            </div></td>
+          <td width="67%"> <p class="m50"><img src="formulas/4_02.gif" width="127" height="65" /></p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_03.gif" width="254" height="84" usemap="#Map" border="0" style="cursor:pointer" /> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="131,128,175,152" alt="Clic para ver el desarrollo" title="Clic para ver el desarrollo" onclick="abrirVentana('../../unidades/21.htm')" />
+        </map>
+      </p>
+      <p class="m50">El barco est&aacute; 120 m a la derecha del observador, movi&eacute;ndose 
+        hacia la izquierda a 4 m/s. <br />
+        Los motores funcionando marcha atr&aacute;s detienen el barco, si no los 
+        detienen, invierten el sentido de la marcha por eso al cabo de un minuto 
+        el barco est&aacute; navegando en sentido contrario al inicial.</p>
+      <p class="m50">Aunque el barco est&aacute; a 120 m del observador ha recorrido 
+        m&aacute;s de 120 m porque ha avanzado hasta detenerse y despu&eacute;s 
+        ha retrocedido hasta quedar a 120 m del observador. En movimientos de 
+        ida y vuelta el desplazamiento no es la diferencia entre las posiciones 
+        inicial y final</p>
+      <p class="m50">&nbsp; </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

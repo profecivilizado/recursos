@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,400)"
+onunload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p  ><b><font color="#0000FF">Principio de Conservaci&oacute;n</font></b></p>
+      <p>Para relacionar los cambios de posici&oacute;n con los cambios de velo-cidad 
+        en un cuerpo que se mueve dentro de un campo gravita-torio se utiliza 
+        el principio de conservaci&oacute;n: </p>
+      <p><b><font color="#FF0000">M&eacute;todo</font></b></p>
+      <p>Se determina la <span class="enlace_texto" onclick="abrirVentana('2.htm',1)" >energ&iacute;a 
+        mec&aacute;nica</span> en las posiciones inicial y final del recorrido 
+        y se calcula el cambio de energ&iacute;a mec&aacute;nica</p>
+      <p>Se calculan los trabajos realizados por las fuerzas que act&uacute;an 
+        sobre el cuerpo durante el recorrido. <font color="#FF0000">El</font><font color="#FF0000"> 
+        trabajo de la fuerza gravitatoria no se calcula porque est&aacute; incluido 
+        en el cambio de energ&iacute;a potencial </font></p>
+      <p>Se iguala el trabajo con el cambio de energ&iacute;a mec&aacute;nica</p>
+      <p align="left" class="m100"><b><i>T</i></b> = &Delta;E </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

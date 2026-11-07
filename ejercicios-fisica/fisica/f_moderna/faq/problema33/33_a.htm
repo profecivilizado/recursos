@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p>&nbsp;</p>
+      <p class="m50">En el efecto fotoel&eacute;ctrico un electr&oacute;n absorbe 
+        un fot&oacute;n y utiliza su energ&iacute;a (h&middot;f) para escapar 
+        del metal (W<sub>0</sub>) y adquirir energ&iacute;a cin&eacute;tica:</p>
+      <p class="m150"><img src="formulas/33_01.gif" width="238" height="37" /></p>
+      <p class="m50">Como el trabajo de extracci&oacute;n del metal (W<sub>0</sub>) 
+        es constante a medida que aumente &lambda; disminuir&aacute; la energ&iacute;a 
+        cin&eacute;tica hasta anularse. Caso cr&iacute;tico:</p>
+      <p class="m150"><img src="formulas/33_02.gif" width="62" height="40" /></p>
+      <p class="m50">Para valores de &lambda; superiores a &lambda;<sub>c</sub> 
+        no se cumplir&aacute; la expresi&oacute;n y cesar&aacute; la emisi&oacute;n.<br />
+        Dicho de otra forma los fotones de una radiaci&oacute;n de longitud de 
+        onda &lambda; &gt; &lambda;<sub>c</sub>&nbsp; no tienen energ&iacute;a 
+        ni para sacar el electr&oacute;n del metal </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

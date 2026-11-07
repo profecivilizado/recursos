@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m150"><img src="formulas/25_04.gif" width="165" height="26" /></p>
+      <p class="m50">Esta reacci&oacute;n es una fusi&oacute;n nuclear: dos n&uacute;clidos 
+        se unen expulsando un neutr&oacute;n</p>
+      <p class="m50">Conservaci&oacute;n del n&uacute;mero at&oacute;mico:</p>
+      <p class="m150">1 + 1 = A + 0, &nbsp;&nbsp;&nbsp;&nbsp;A = 2</p>
+      <p class="m50">Conservaci&oacute;n del n&uacute;mero m&aacute;sico:</p>
+      <p class="m150">2 + 3 = Z + 1, &nbsp;&nbsp;Z = 4</p>
+      <p class="m50">El elemento de n&uacute;mero at&oacute;mico 2 es el Helio</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

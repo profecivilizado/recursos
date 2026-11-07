@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/4.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td width="44%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              Escoge m&eacute;todo:&nbsp; 
+              <input name="radiobutton" type="radio" id="radio" onclick="cambiar('','4_b1.htm')" value="radiobutton" checked="checked"/>
+              F&iacute;sico&nbsp; 
+              <input name="radiobutton" type="radio" id="opcion2" value="radiobutton" onclick="cambiar('','4_b2.htm')" />
+              Matem&aacute;tico </form></td>
+          <td width="49%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">Ecuaciones de los movimientos:</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="16%"> <form action="" method="post" name="form2" class="formulario" id="form2">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Piedra 1</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Piedra 2</p>
+            </form></td>
+          <td width="32%" height="120" id="imagen"> <div align="center"><img src="imagenes/4_00.png" width="59" height="91" /></div></td>
+          <td width="52%" id="formula"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="21%"><img src="formulas/4_01.gif" width="125" height="70" /></td>
+                <td width="79%"> <p class="m50">v<sub>0</sub> = 19,6 m/s</p>
+                  <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Aplicaci&oacute;n: En caso extremo las piedras se encontrar&aacute;n 
+        en el suelo</p>
+      <p class="m50">Datos: y<sub>1</sub> = y'<sub>1</sub> = 0,&nbsp; Inc&oacute;gnitas: 
+        t<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="22%"><p align="center"><img src="imagenes/4_03.png" width="64" height="51" /></p></td>
+          <td width="78%"><div align="left"> 
+              <p class="m50"><img src="formulas/4_05.gif" width="252" height="86" border="0" usemap="#Map1" style="cursor:pointer"/></p>
+            </div></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/4_06.gif" width="224" height="44" usemap="#Map2" border="0" style="cursor:pointer" /></p>
+      <map name="Map2" id="Map2">
+        <area shape="rect" coords="269,15,319,36" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/30.htm')"/>
+      </map> <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="50%" id="imagen0"> <div align="center"><img src="imagenes/4_00.png" width="59" height="91" /></div></td>
+                <td width="50%" id="imagen1"> <div align="center"><img src="imagenes/4_01.png" width="59" height="107" /></div></td>
+              </tr>
+              <tr> 
+                <td id="formula0"> <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="21%"><img src="formulas/4_01.gif" width="125" height="70" /></td>
+                      <td width="79%"> <p class="m50">v<sub>0</sub> = 19,6 m/s</p>
+                        <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+                    </tr>
+                  </table></td>
+                <td id="formula1"> <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="26%"><img src="formulas/4_02.gif" width="124" height="70" /></td>
+                      <td width="74%"> <p class="m50">y'<sub>0</sub> = 14,7 m</p>
+                        <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="151,20,247,61" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/4_2.htm')" />
+</map>
+</body>
+</html>

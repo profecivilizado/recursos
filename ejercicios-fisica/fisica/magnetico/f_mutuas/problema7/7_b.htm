@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50"><b><font color="#0000FF">Parte 1</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../campo/ayuda/4.htm',1)">Campo 
+        que crea</span> el conductor 1 en la posici&oacute;n que ocupa el conductor 
+        2</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="6%" rowspan="3"> <div align="center"> 
+              <p> 
+                <input type="button" name="Submit2" value=" > " class="boton" 
+	  onclick="switch(n){
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',2,2);n=n+1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',3,2);n=n+1;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',2,0,3,0);n=0;break;
+				}" />
+              </p>
+            </div></td>
+          <td width="25%" rowspan="3" id="imagen"><div align="center"><img src="imagenes/7_03.png" width="183" height="153" /></div></td>
+          <td width="69%" height="40"> 
+            <p align="center"><img src="formulas/7_02.gif" width="136" height="24" /></p></td>
+        </tr>
+        <tr> 
+          <td height="77" id="celda2" style="visibility:hidden"> 
+            <p align="center"><img src="formulas/7_03.gif" width="182" height="52" /></p></td>
+        </tr>
+        <tr> 
+          <td width="69%" id="celda3" style="visibility:hidden"> <div align="center"><img src="formulas/7_04.gif" width="246" height="38" border="0" /> 
+            </div>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Aunque hemos calculado el campo en un punto del conductor 
+        2, todos los dem&aacute;s puntos sufren este mismo campo. Resumiendo el 
+        conductor 2 est&aacute; sometido al campo <b>B</b><sub>1</sub> </p>
+      <hr />
+      <p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../fuerzas/ayuda/1.htm',1)">Fuerza 
+        que sufre</span> el conductor 2 debida al campo creado por el conductor 
+        1</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td width="223" valign="top"> 
+            <p align="center"><img src="imagenes/7_06.png" width="183" height="153" /></p></td>
+          <td width="477"><p align="center"><img src="formulas/7_05.gif" width="310" height="104" /></p>
+            <p align="center"><img src="formulas/7_06.gif" width="273" height="38" /> 
+              <map name="Map" id="Map">
+                <area shape="rect" coords="246,52,320,87" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/12.htm')" />
+              </map>
+            </p>
+            </td>
+        </tr>
+      </table>
+      <p align="left" class="m50">Como L tiende a infinito la fuerza total sobre 
+        el conductor ser&aacute; infinita por eso se utiliza la fuerza por unidad 
+        de longitud del conductor:</p>
+      <p align="left" class="m150"><img src="formulas/7_07.gif" width="322" height="89" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <hr />
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%" > <div align="center"><img src="imagenes/7_07.png" width="183" height="153" /></div></td>
+          <td width="71%" > <p>El conductor 2 es repelido por el conductor 1</p>
+            </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="31%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/7_03.png" width="183" height="153" /></div></td>
+                <td width="28%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/7_04.png" width="183" height="153" /></div></td>
+                <td width="41%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/7_05.png" width="183" height="153" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p class="m50">&nbsp;</p>
+</body>
+</html>

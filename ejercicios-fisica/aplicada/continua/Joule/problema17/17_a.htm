@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Calor que toma el agua para subir de t<sub>1</sub> (20 
+        &ordm;C) hasta t' (100 &ordm;C):</p>
+      <p class="m150"> Q<sub>g</sub> = m&middot;c&middot;(t' - t<sub>1</sub>)</p>
+      <p class="m50">Calor que produce la resistencia el&eacute;ctrica:</p>
+      <p class="m150"><img src="formulas/17_01.gif" width="193" height="116" /></p>
+      <p class="m50">El 80% de este calor se cede al agua, y por tanto tendr&aacute; 
+        signo negativo</p>
+      <p class="m50">Principio de la calor&iacute;metria:</p>
+      <p class="m150"><img src="formulas/17_02.gif" width="188" height="78" /></p>
+      <p class="m150"><img src="formulas/17_03.gif" width="354" height="108" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">El valor de una rsistencia en funci&oacute;n de sus caracter&iacute;sticas 
+        f&iacute;sicas es:</p>
+      <p class="m150"><img src="formulas/17_04.gif" width="202" height="97" /></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="302,75,352,95" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/7.htm')"/>
+</map>
+</body>
+</html>

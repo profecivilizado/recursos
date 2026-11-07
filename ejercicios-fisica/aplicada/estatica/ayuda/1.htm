@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,nombre) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,nombre,atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,540)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p><b><font color="#0000FF">Estudio del equilibrio</font></b></p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="8%" valign="top"> <p align="right">1 </p></td>
+          <td width="92%" valign="top"> <p>Se hace el diagrama libre del cuerpo 
+              incluyendo todas las fuerzas que &eacute;ste sufre. Cada fuerza 
+              se pone en el punto donde est&aacute; aplicada </p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">2&nbsp;</p></td>
+          <td valign="top"><p><span class="enlace_texto" onclick="abrirVentana('3.htm',1)">Equilibrio 
+              de traslaci&oacute;n</span><br />
+              Si es necesario, se descomponen las fuerzas sobre unos ejes astutamente 
+              elegidos y, en cada eje, se igualan las resultantes de las fuerzas 
+              que van en uno y otro sentido<br />
+              <font color="#FF0000">Para cuerpos puntuales (Sin dimensiones) o 
+              sometidos a fuerzas concurrentes basta con plantear la condici&oacute;n 
+              de equilibrio de traslaci&oacute;n.<br />
+              Truco: Si en el sistema formado por las expresiones del equilibrio 
+              traslaci&oacute;n se pueden obtener todas las inc&oacute;gni-tas 
+              no se plantea el equilibrio de rotaci&oacute;n</font></p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">3</p></td>
+          <td valign="top"><p><span class="enlace_texto" onclick="abrirVentana('3.htm',1)">Equilibrio 
+              de rotaci&oacute;n</span><br />
+              Se hallan los <span class="enlace_texto" onclick="abrirVentana('2.htm',1)">momentos 
+              de las fuerzas</span> respecto a un pun-to cualquiera (Tomando como 
+              origen el punto donde es-t&aacute;n aplicadas m&aacute;s fuerzas 
+              se trabaja menos)<br />
+              Se igualan las resultantes de los momentos que van en uno y otro 
+              sentido <br />
+            </p></td>
+        </tr>
+        <tr> 
+          <td height="36" valign="top"> <p align="right">4</p>
+            <p align="right">&nbsp;</p></td>
+          <td valign="top"> <p>Combinando las expresiones correspondientes a los 
+              equi-librios de traslaci&oacute;n y de rotaci&oacute;n se obtiene 
+              un sistema de ecuaciones</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

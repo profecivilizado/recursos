@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../trabajo/ayuda/3.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p align="left" class="m50">Relaci&oacute;n general entre campo y potencial:</p>
+      <p align="left" class="m150"><img src="formulas/16_00.gif" width="160" height="38" align="middle"  />&nbsp; 
+        (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../ayuda/4.htm')">&#149;</span>) 
+      </p>
+      <p align="left" class="m50">Calculamos campo y potencial con fulm&iacute;nea 
+        r&aacute;pidez:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <div align="center">
+              <p><img src="imagenes/16_01.gif" width="170" height="169" /></p>
+            </div></td>
+          <td width="71%"> <p class="m50"><img src="formulas/16_01.gif" width="432" height="184" /></p></td>
+        </tr>
+      </table>
+      <p align="left" class="m50">Comprobemos las relaciones:</p>
+      <p align="left" class="m150"><img src="formulas/16_02.gif" width="317" height="66" usemap="#Map" border="0" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="164,10,269,63" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/16_1.htm')" />
+        </map>
+      </p>
+      <p align="left" class="m50">Observa que el resultado obtenido derivando 
+        el potencial con respecto a x es la componente x del campo, cambiada de 
+        signo</p>
+      <p align="left" class="m150"><img src="formulas/16_03.gif" width="316" height="66" border="0" usemap="#MapMap" style="cursor:pointer"/> 
+        <map name="MapMap" id="MapMap">
+          <area shape="rect" coords="164,10,269,63" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/16_2.htm')" />
+        </map>
+      </p>
+      <p align="left" class="m50">Y el resultado obtenido derivando el potencial 
+        con repecto a y es la componente y del campo, cambiada de signo</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

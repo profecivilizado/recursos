@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','periodos/ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">&nbsp;</p>
+      <p class="m50">Calculamos el per&iacute;odo del p&eacute;ndulo con longitud 
+        normal (T) y dilatado (T&acute;)</p>
+      <p class="m150"><img src="formulas/6_01.gif" width="353" height="145" /></p>
+      <p class="m50">Una oscilaci&oacute;n del p&eacute;ndulo dilatado dura 1.995 
+        s pero el reloj la contar&aacute; como si durase 2 s</p>
+      <p class="m50">Durante un d&iacute;a, en el polo, el p&eacute;ndulo efectuar&aacute; 
+        24&middot;3600/2.005 oscilaciones y cada una de ellas se contar&aacute; 
+        como si durara 2 s. Entonces el atraso por d&iacute;a ser&aacute;:</p>
+      <p class="m150"><img src="formulas/6_02.gif" width="438" height="41" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

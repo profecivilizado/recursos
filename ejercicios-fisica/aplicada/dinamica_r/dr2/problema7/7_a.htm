@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','dr2/ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="886"> <p class="m50">La polea comenzar&aacute; a girar en el sentido 
+        de las agujas del reloj y el bloque 2 empezar&aacute; a bajar:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%" rowspan="3"><div align="center"><img src="imagenes/7_06.png" width="241" height="231" /></div></td>
+          <td width="63%"> <p>Traslaci&oacute;n de los bloques:</p>
+            <p class="m50"><img src="formulas/7_03.gif" width="265" height="57" /></p>
+            <p class="m50"><img src="formulas/7_04.gif" width="126" height="20" /></p>
+            </td>
+        </tr>
+        <tr>
+          <td><p>Rotaci&oacute;n de la polea:</p>
+            <p class="m50"><img src="formulas/7_05.gif" width="122" height="20" border="0" class="enlace_imagen" onclick="_pctop.apartado='7_a.htm#a';cambiar('','7_z.htm')"/></p>
+            </td>
+        </tr>
+        <tr>
+          <td><p>Relaci&oacute;n entre traslaci&oacute;n y rotaci&oacute;n:</p>
+            <p class="m50"><img src="formulas/7_06.gif" width="53" height="20" class="enlace_imagen" onclick="abrirVentana('../ayuda/3.htm')"/></p></td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con cuatro inc&oacute;gnitas: T<sub>1</sub>, T<sub>2</sub>, a, &alpha;</p>
+      <p class="m150"><img src="formulas/7_07.gif" width="502" height="192" border="0" usemap="#Map2" style="cursor:pointer"/> 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="156,4,499,189" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/7_1.htm')"/>
+        </map>
+      </p>
+      <p class="m50">Observa que si la masa de la polea es cero (I = 0) las tensiones 
+        en los extremos de la cuerda, durante el movimiento, son iguales </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,530)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p><b><font color="#0000FF">M&aacute;quinas de Atwood (Polea 
+        m&oacute;vil)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="25%"><img src="imagenes/2_01.png" width="98" height="117" /></td>
+          <td width="75%"><p>La cuerda no tiene masa y las poleas tampoco</p>
+            <p>El sistema se encuentra inicialmente en reposo y al dejarlo en 
+              libertad los bloques adquieren aceleraciones diferentes</p>
+            <p> Las aceleraciones de la polea m&oacute;vil y del blo-que unido 
+              a su eje son iguales</p></td>
+        </tr>
+      </table>
+      <p align="center" class="peque&ntilde;o">(La configuraci&oacute;n mostrada 
+        es una de las muchas posibles)</p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <p>Considerando el sistema en reposo se predice el <span class="enlace_texto" onclick="abrirVentana('5.htm',1)">sentido 
+        de giro de la polea</span> que determinar&aacute; el sentido del movimiento 
+        de los blo-ques</p>
+      <p>Se hace el diagrama libre para cada bloque y se le aplica el prin-cipio 
+        de la Din&aacute;mica</p>
+      <p> Se <span class="enlace_texto" onclick="abrirVentana('4.htm',1)">relacionan 
+        las aceleraciones de los bloques</span></p>
+      <p>Se combinan las ecuaciones obtenidas para los bloques para for-mar un 
+        sistema de ecuaciones del cual se pueden obtener las aceleraciones y las 
+        tensiones</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

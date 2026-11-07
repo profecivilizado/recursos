@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload="self.resizeTo(490,570);"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="431"> 
+      <p><b><font color="#0000FF">Campo magn&eacute;tico en el eje de un solenoide 
+        </font></b></p>
+      <p>Un solenoide (Bobina) es un conjunto de espiras paralelas recorridas 
+        por la misma intensidad. La figura muestra el corte vertical de un solenoide. 
+        Los c&iacute;rculos unidos por una l&iacute;nea son secciones diametralmente 
+        opuestas de una misma espira</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="45%"><div align="center">
+              <p><img src="imagenes/1_06.png" name="imagen1" width="132" height="117" id="imagen1" /></p>
+            </div></td>
+          <td width="55%"><p class="m50"><img src="formulas/1_06.gif" width="136" height="28" /></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="top"> 
+          <td width="9%"> <p align="right">n </p></td>
+          <td width="91%"> <p>Espiras por unidad de longitud (N/L)</p></td>
+        </tr>
+        <tr valign="top">
+          <td><p align="right">I </p></td>
+          <td><p>Intensidad de corriente</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td> <p align="right"><b>u</b><sub>I </sub></p></td>
+          <td> <p>Vector unitario con la direcci&oacute;n y sentido de la corriente</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td> <p align="right"><b>u</b><sub>r</sub> </p></td>
+          <td> <p>Vector unitario que apunta hacia el eje. Este vector se toma 
+              en el plano perpendicular al eje del solenoide<br />
+            </p></td>
+        </tr>
+      </table>
+      <p><b>u</b><sub>I </sub>, <b>u</b><sub>r</sub> se pueden tomar a partir 
+        de cualquier punto del solenoide</p>
+      <p><strong><font color="#0000FF">Direcci&oacute;n y sentido del campo (R&aacute;pido)</font></strong></p>
+      <p> El campo en el eje del solenoide tiene la misma direcci&oacute;n y sentido 
+        que el <span class="enlace_texto" onClick="abrirVentana('5.htm',1)">campo creado por una de las espiras</span> 
+        en su centro</p></td>
+  </tr>
+</table>
+</body>
+</html>

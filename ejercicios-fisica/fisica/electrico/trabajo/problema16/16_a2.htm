@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../trabajo/ayuda/3.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="760" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%">&nbsp;</td>
+          <td width="38%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <input name="radiobutton" type="radio" value="radiobutton" onclick="cambiar('','16_a1.htm')"/>
+              Punto interior&nbsp;&nbsp; 
+              <input name="radiobutton" type="radio" onclick="cambiar('','16_a2.htm')" value="radiobutton" checked="checked"/>
+              Punto exterior </form></td>
+          <td width="56%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">Punto exterior</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <div align="center">
+              <p><img src="imagenes/16_03.png" name="imagen2" width="227" height="74" id="imagen2" /></p>
+            </div></td>
+          <td width="67%"> <p class="m50"><img src="formulas/16_03.gif" width="190" height="70" /></p>
+            <p class="m50">En la expresi&oacute;n del potencial la carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >se 
+              pone con signo</span></p></td>
+        </tr>
+      </table>
+      <p class="m50">Resolviendo el sistema:</p>
+      <p class="m150"><img src="formulas/16_04.gif" width="285" height="141" usemap="#Map1" border="0" style="cursor:pointer"/> 
+        <map name="Map1" id="Map1">
+          <area shape="rect" coords="3,1,282,41"  title="Clic para ver el desarrollo" onclick="abrirVentana('../../desarrollos/6.htm')" />
+        </map>
+      </p>
+      <p class="m50">El potencial se anula en un punto, exterior a las cargas, 
+        a 6 m de Q<sub>1</sub> y a 3 m de Q<sub>2</sub></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

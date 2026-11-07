@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.resizeTo(480,600)" 
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="431" valign="top"> <p><strong><font color="#0000FF">Interferencias</font></strong> 
+        <br />
+        Cuando pasan por un punto dos ondas que transportan la misma perturbaci&oacute;n 
+        &phi; con los mismos par&aacute;metros k y &omega;<br />
+        La perturbaci&oacute;n resultante ser&aacute; la suma de las perturbaciones 
+        de cada onda:</p>
+      <p align="center"><img src="formulas/2_01.gif" width="378" height="22" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="13%"><p>x<sub>1</sub>, x<sub>2</sub> </p></td>
+          <td width="87%"><p>Distancias del punto a cada uno de los focos</p></td>
+        </tr>
+      </table>
+      <p>Se puede demostrar que esta suma vale: </p>
+      <p align="center">&phi; = &phi;<sub>0</sub> sen (&omega;t + &Phi;)</p>
+      <p>siendo &Phi; la fase inicial y &phi;<sub>0</sub> la amplitud que viene 
+        dada por</p>
+      <p class="m50"><img src="formulas/2_02.gif" width="305" height="32" /></p>
+      <p>La amplitud de oscilaci&oacute;n depende de la diferencia de camino de 
+        cada onda hasta el punto (&delta;: = x<sub>2</sub> - x<sub>1</sub>)</p>
+      <p align="left"><strong><font color="#0000FF">Casos extremos</font></strong></p>
+      <p align="left">Si &delta; es m&uacute;ltiplo impar de la semilongitud de 
+        onda la amplitud de oscilaci&oacute;n es m&iacute;nima (<span class="enlace_texto" onClick="abrirVentana('2_1.htm',1)">Interferencia 
+        destructiva</span>) </p>
+      <p align="left">Si &delta; es m&uacute;ltiplo par de la semilongitud de 
+        onda la amplitud de oscilaci&oacute;n es m&aacute;xima (<span class="enlace_texto" onClick="abrirVentana('2_2.htm',1)">Interferencia 
+        constructiva</span>) </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

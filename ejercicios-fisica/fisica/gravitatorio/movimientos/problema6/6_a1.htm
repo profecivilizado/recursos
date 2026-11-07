@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<body leftmargin="0" topmargin="0">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td > <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td width="39%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              Forma de hacerlo 
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" />
+              Lenta 
+              <input type="radio" name="radiobutton" value="radiobutton" onClick="cambiar('','6_a2.htm')"/>
+              R&aacute;pida </form></td>
+          <td width="54%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50">Cambios de energ&iacute;a mec&aacute;nica desde que el cuerpo 
+        sale de la Tierra con velocidad hasta que llega al infinito donde se detiene</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%"><div align="left"></div>
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              <div align="center"> 
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"  />
+                  Rest.</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                  Inicial</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                  Final </p>
+              </div>
+            </form></td>
+          <td width="44%" id="imagen"><img src="imagenes/6_00.png" width="328" height="116" /></td>
+          <td width="43%" id="formula"> <div align="center"></div></td>
+        </tr>
+      </table>
+      <hr /> <p class="m150"><img src="formulas/6_03.gif" width="185" height="89" /></p>
+      <p class="m50">C&aacute;lculo del trabajo</p>
+      <p class="m50">Durante el trayecto el cuerpo s&oacute;lo est&aacute; sometido 
+        a la fuerza la gravitatoria cuyo trabajo ya est&aacute; con-tado en la 
+        variaci&oacute;n de energ&iacute;a potencial, por tanto <b><i>T</i></b> 
+        = 0. </p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n: </p>
+      <p class="m150"><img src="formulas/6_04.gif" width="422" height="134" align="middle" usemap="#Map2" border="0" style="cursor:pointer" /> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="52%" id="imagen0"> <div align="center"><img src="imagenes/6_00.png" width="328" height="116" /></div></td>
+                <td width="48%" id="imagen1"> <div align="center"><img src="imagenes/6_01.png" width="328" height="116" /></div></td>
+              </tr>
+              <tr> 
+                <td id="imagen2"> <div align="center"><img src="imagenes/6_02.png" width="328" height="116" /></div></td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="8%" id="formula0">&nbsp;</td>
+                <td width="48%" id="formula1"> <div align="center"><img src="formulas/6_01.gif" width="273" height="89" /></div></td>
+                <td width="44%" id="formula2"> <div align="center"><img src="formulas/6_02.gif" width="141" height="62" /></div></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <p class="m150"> 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="333,93,421,129" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/3.htm')" />
+        </map>
+      </p></td>
+  </tr>
+</table>
+</body>
+</html>

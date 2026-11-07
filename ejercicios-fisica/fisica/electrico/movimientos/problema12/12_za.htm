@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../movimientos/ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Din&aacute;mica</font></b> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="19%"> <div align="center"> 
+              <p><img src="imagenes/12_01.png" width="107" height="131" onclick="abrirVentana('../../mensajes/2.htm')"/></p>
+            </div></td>
+          <td width="81%"> <p>Como el positr&oacute;n tiene carga positiva, la 
+              fuerza que sufre tiene el sentido del campo </p>
+            <p class="m50"><img src="formulas/12_01.gif" width="85" height="36" align="middle" />&nbsp;(<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../mensajes/2.htm')">&#149;</span>)</p>
+            <p>En la expresi&oacute;n del modulo de la fuerza la carga q <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >se 
+              pone sin signo</span> </p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">Cinem&aacute;tica</font></b> </p>
+      <p class="m50">La aceleraci&oacute;n del electr&oacute;n no est&aacute; 
+        alineada con su velocidad inicial por tanto la trayectoria de &eacute;ste 
+        ser&aacute; una par&aacute;bola</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td width="532"> <table width="100%" border="0" cellpadding="5" cellspacing="0">
+              <tr> 
+                <td> 
+                  <form action="" method="post" name="form1" class="formulario" id="form1">
+                    <p> 
+                      <input name="radiobutton" type="radio"  value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',1,0,2,0)"/>
+                      Tiro </p>
+                    <p> 
+                      <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,0,2,0)" />
+                      Descomp.</p>
+                    <p> 
+                      <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',1,2,2,2)" />
+                      Ecuaciones</p>
+                  </form></td>
+                <td id="imagen"> 
+                  <div align="center"><img src="imagenes/12_02.png" width="138" height="123" /></div></td>
+                <td id="celda1" style="visibility:hidden"><div align="center"><img src="formulas/12_02.gif" width="172" height="124" /></div></td>
+                <td id="celda2" style="visibility:hidden"> 
+                  <div align="left"><img src="formulas/12_07.gif" width="52" height="36" onclick="abrirVentana('2.htm')"/></div></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+              <tr> 
+                <td width="31%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/12_02.png" width="138" height="123" /></div></td>
+                <td width="37%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/12_03.png" width="138" height="123" /></div></td>
+                <td width="32%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/12_04.png" width="138" height="123" /></div></td></tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

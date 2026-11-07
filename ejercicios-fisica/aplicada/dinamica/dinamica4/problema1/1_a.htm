@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/12.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/1_01.png" width="149" height="138" /></div></td>
+          <td width="67%"><img src="formulas/1_01.gif" width="106" height="94" /></td>
+        </tr>
+      </table>
+      <p class="m50">Observa hay valores de v que hacen la normal negativa. Una 
+        normal negativa indica una situaci&oacute;n que no puede darse: con esa 
+        velocidad la moto no podr&aacute; recorrer una circunferencia de radio 
+        R </p>
+      <p class="m50">El menor valor posible para la normal es 0 que corresponde 
+        al caso en que la moto recorre el mont&iacute;culo sin tocarlo sometida 
+        solo a la acci&oacute;n del peso. La velocidad correspondiente a esta 
+        situaci&oacute;n se deno-mina 'velocidad cr&iacute;tica' (v<sub>c</sub>).</p>
+      <p class="m150"><img src="formulas/1_02.gif" width="220" height="92" /></p>
+      <p class="m50"> Si la moto, sometida solo a su peso, tuviera una velocidad 
+        diferente de la cr&iacute;tica describir&iacute;a una curva de radio diferente 
+        a R:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%"> 
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                v &lt; v<sub>c</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                v = v<sub>c</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto3.innerHTML"/>
+                v &gt; v<sub>c</sub></p>
+            </form></td>
+          <td width="28%" id="imagen"> 
+            <p align="center"><img src="imagenes/1_02.png" width="195" height="54" /></p></td>
+          <td width="57%" valign="middle" id="texto"> 
+            <p>Sometida solamente al peso, la moto describir&iacute;a una curva 
+              de radio menor que R atravesando la superficie. La normal evita 
+              esto empujando a la moto para que &eacute;sta recorra el mont&iacute;culo</p></td></tr>
+      </table>  
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="43%" id="imagen1"> 
+            <div align="center"><img src="imagenes/1_02.png" width="195" height="54"  /></div></td>
+          <td width="57%" id="texto1"> <p>Sometida solamente al peso, la moto 
+              describir&iacute;a una curva de radio menor que R atravesando la 
+              superficie. La normal evita esto empujando a la moto para que &eacute;sta 
+              recorra el mont&iacute;culo</p></td></tr>
+        <tr>
+          <td id="imagen2"> 
+            <div align="center"><img src="imagenes/1_03.png" width="195" height="54" /></div></td>
+          <td id="texto2"> 
+            <p>Sometida solamente al peso, la moto describir&iacute;a una curva 
+              de radio R recorriendo el mont&iacute;culo</p></td></tr>
+        <tr>
+          <td id="imagen3"> 
+            <div align="center"><img src="imagenes/1_04.png" width="195" height="54" /></div></td>
+          <td id="texto3"> 
+            <p>Sometida solamente al peso, la moto describir&iacute;a una curva 
+              de radio mayor que R y se despegar&iacute;a del mont&iacute;culo<br />
+              La forma de evitar esto ser&iacute;a que la normal tirara de la 
+              moto, pero las superficies no tiran<br />
+            </p></td></tr>
+      </table>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

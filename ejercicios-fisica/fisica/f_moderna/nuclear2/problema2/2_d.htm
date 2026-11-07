@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('d','nuclear2/ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">d)</font></b></p>
+      <p class="m50">Ecuaci&oacute;n de desintegraci&oacute;n en funci&oacute;n 
+        de la masa:</p>
+      <p class="m150"><img src="formulas/2_00.gif" width="93" height="24" class="enlace_imagen" onclick="abrirVentana('../mensajes/1.htm')"/></p>
+      <p class="m150"><img src="formulas/2_04.gif" width="322" height="86" /></p>
+      <p class="m50">Vamos a justificar el resultado:</p>
+      <p class="m50"> Cada 3.11 d&iacute;as que pasan, la cantidad de sustancia 
+        radiactiva se reduce a la mitad, por tanto la cantidad de sustancia restante 
+        ser&aacute;: </p>
+      <p class="m100">100 (0 d), 50 (3.11 d), 25 (6.22 d), 12.5 (9.33 d), 6.25 
+        (12.44 d), 3.125 (15,55 d),<br />
+        1.5625 (18,66 d), 0.78125 (21.7 d)</p>
+      <p class="m50">De acuerdo con esto, en 20 d&iacute;as quedar&aacute; menos 
+        de 1.56 g y m&aacute;s de 0.781 g</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

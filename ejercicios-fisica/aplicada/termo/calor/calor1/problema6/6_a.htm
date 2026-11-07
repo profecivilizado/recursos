@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellpadding="10" cellspacing="0"  >
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+      <p class="m50"><strong><font color="#FF0000">Tanteo previo</font></strong></p>
+      <p class="m50"><font color="#FF0000">Supongamos que la temperatura de equilibrio 
+        fuera 0 &ordm;C (Sin cambios de fase)</font></p>
+      <p class="m150"><font color="#FF0000"><img src="formulas/6_20.gif" width="320" height="92" /></font></p>
+      <p class="m50"><font color="#FF0000"> No hay equilibrio porque hay m&aacute;s 
+        calor perdido que ganado</font></p>
+      <p class="m50"><font color="#FF0000"> Para aumentar el calor ganado y disminuir 
+        el perdido tendr&aacute; que fundirse hielo a 0&ordm;. La fusi&oacute;n 
+        de 1000 g de hielo requiere ganar 80000 calorias que sumadas a las 2500 
+        ya ganadas produce un total de 82500 calorias, todav&iacute;a por debajo 
+        de las 100000 calor&iacute;as perdidas. </font></p>
+      <p class="m50"><font color="#FF0000">Para aumentar m&aacute;s el galor ganado 
+        el agua procedente de la fusi&oacute;n del hielo tendr&aacute; subir de 
+        tempe-ratura y el agua caliente no se enfriar&aacute; hasta 0 &ordm;C</font></p>
+      <p class="m50">El hielo (m<sub>1</sub> = 1000 g, c<sub>1</sub> = 0.5 cal/g 
+        &ordm;C) sube su temperatura desde t<sub>1</sub> = -5&ordm;C hasta 0 &ordm;C, 
+        se funde (c<sub>f&nbsp;</sub>=&nbsp;80 cal/g) y el agua resultante (m<sub>1</sub> 
+        = 1000 g, c<sub>2</sub> = 1 cal/g &ordm;C) sube su temperatura desde 0 
+        &ordm;C hasta t</p>
+      <p class="m50"> El agua caliente (m<sub>2</sub> = 2000 g, c<sub>2</sub> 
+        = 1 cal/g &ordm;C) baja su temperatura desde t<sub>2</sub> = 50 &ordm;C 
+        hasta t</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="18%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;texto.innerHTML=''"/>
+                Rest. </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                Q<sub>ganado</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                Q<sub>perdido</sub></p>
+            </form></td>
+          <td width="36%" id="imagen"> 
+            <div align="center"><img src="imagenes/6_01.png" width="223" height="115" /></div></td><td width="46%" id="texto" > <p>&nbsp;</p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Principio de la calorimetr&iacute;a:</p>
+      <p class="m150"><img src="formulas/6_03.gif" width="329" height="124" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m50"><img src="formulas/6_04.gif" width="569" height="46" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="47%" id="imagen0" style="visibility:hidden"><div align="center"><img src="imagenes/6_01.png" width="223" height="115" /></div></td>
+          <td width="53%" id="texto0" style="visibility:hidden">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td id="imagen1" style="visibility:hidden"><div align="center"><img src="imagenes/6_02.png" width="223" height="115" /></div></td>
+          <td id="texto1" style="visibility:hidden"> <p>Q<sub>g</sub> = m<sub>1</sub>&middot;c<sub>1</sub>&middot;(0 
+              - t<sub>1</sub>) + m<sub>1</sub>&middot;c<sub>f</sub> + m<sub>1</sub>&middot;c<sub>2</sub> 
+              (t - 0)</p>
+            </td>
+        </tr>
+        <tr> 
+          <td id="imagen2" style="visibility:hidden"><div align="center"><img src="imagenes/6_03.png" width="223" height="115" /></div></td>
+          <td id="texto2" style="visibility:hidden"> <p>Q<sub>p</sub> = m<sub>2</sub>&middot;c<sub>2</sub>&middot;(t 
+              - t<sub>2</sub>)</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,76,221,121" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/6_1.htm')"/>
+</map>
+</body>
+</html>

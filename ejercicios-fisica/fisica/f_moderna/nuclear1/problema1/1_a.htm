@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%"> <p align="right">Masa protones:&nbsp;</p></td>
+          <td width="25%"> <p>7&middot;1.007277 u</p></td>
+          <td width="49%"> <p align="left">=&nbsp; 7.050939&nbsp;u&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="26%"> <p align="right">Masa neutrones: </p></td>
+          <td width="25%"> <p>(14 - 7) &middot; 1.008665 u</p></td>
+          <td width="49%"> <p align="left">=&nbsp;&nbsp;7.060655 u&nbsp;&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="26%">&nbsp;</td>
+          <td width="25%"> <p align="right">Masa total&nbsp;</p></td>
+          <td width="49%"> <p align="left">=&nbsp; 14.11159 u&nbsp;&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="26%">&nbsp;</td>
+          <td width="25%"> <p align="right">Masa del n&uacute;cleido&nbsp;</p></td>
+          <td width="49%"> <p align="left">=&nbsp;&nbsp;13.99922 u&nbsp;&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="26%">&nbsp;</td>
+          <td width="25%"> <p align="right">Defecto de masa&nbsp;</p></td>
+          <td width="49%"> <p align="left">=&nbsp;&nbsp;0.112374 u</p></td>
+        </tr>
+      </table>
+      <p class="m50">El n&uacute;cleido tiene 0.112374 u menos de masa que el 
+        conjunto de sus componentes. Esta masa que falta se ha convertido en energ&iacute;a 
+        que se libera en el momento de la formaci&oacute;n (Energ&iacute;a de 
+        enlace)</p>
+      <p class="m150"><img src="formulas/1_01.gif" width="386" height="62" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Y la energ&iacute;a de enlace por nucle&oacute;n ser&aacute;: 
+      </p>
+      <p class="m150"><img src="formulas/1_02.gif" width="190" height="36" /> 
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="219,41,293,60" alt="Clic para aclaraci&oacute;n" onClick="abrirVentana('../mensajes/1.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','circular1/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">c)</font></b> </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%"> <div align="center"> 
+              <p><img src="imagenes/1_05.png" width="152" height="123" /></p>
+            </div></td>
+          <td width="18%"> <div align="right"> 
+              <p><img src="formulas/1_07.gif" width="104" height="52" /></p>
+            </div></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">&nbsp;&omega;<sub>0</sub> = <span class="enlace_texto" onclick="abrirVentana('desarrollos/1_1.htm')">15 
+              r.p.m = &pi;/2 rad/s</span></p>
+            <p class="m50">T = 2&middot;&pi;/&omega;<sub>0</sub> = 4 s</p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">El tercer paso por la posici&oacute;n 135&ordm; se produce 
+        en la vuelta: k = 3 porque en la vuelta k = 0 no pasa por dicha posici&oacute;n</p>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: &phi;<sub>3</sub> = (3&pi;/4 + 3&middot;2&pi;) = 27&pi;/4 
+        rad , &nbsp;Inc&oacute;gnita: t<sub>3</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="37%"><div align="center"><img src="imagenes/1_04.png" width="123" height="123" /></div></td>
+          <td width="63%"><img src="formulas/1_11.gif" width="233" height="70" /></td>
+        </tr>
+      </table>
+      <p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

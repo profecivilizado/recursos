@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>An&aacute;lisis del grupo</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var n=0 
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.moveTo(20,20);self.resizeTo(480,390);">
+<table width="477" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="457" valign="middle"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td height="30"> 
+            <p class="m50"><strong><font color="#0000FF">An&aacute;lisis </font><font color="#0000FF"> 
+              del grupo R<sub>1</sub> - R<sub>3</sub></font></strong>&nbsp;&nbsp;&nbsp; 
+            </p>
+            </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%" height="132" valign="middle" > <p align="center"> 
+              <input type="button" name="boton1" id="boton1" value=" &gt; " 
+		 	 onclick="switch(n) {
+					case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('formula',2,2);mostrarObjetos('boton',1,0,2,2);mostrarObjetos('sol',11,2,12,2,21,2,22,2);n=n+1;break;
+								}" />
+            </p>
+            <p align="center"> 
+              <input type="button" name="boton2" id ="boton2" value=" &lt; " style="visibility:hidden"
+			  	onClick="switch(n) {
+					case 1:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('formula',2,0);mostrarObjetos('boton',1,2,2,0);mostrarObjetos('sol',11,0,12,0,21,0,22,0);n=n-1;break; 
+					}"/>
+            </p></td>
+          <td width="40%" rowspan="2" id="imagen" > <p align="center"><img src="../imagenes/1_05.png" width="173" height="142" /></p></td>
+          <td width="29%" rowspan="2" valign="middle" id="formula1" > 
+            <p align="left">&nbsp;</p>
+            <div align="center"><img src="../formulas/1_20.gif" width="77" height="54" /></div></td><td width="18%" rowspan="2" valign="middle" id="formula1"> <table width="80" border="1" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="33%" bordercolor="#FFFFFF"> <p>&nbsp;</p></td>
+                <td width="33%"><p align="center">I</p></td>
+                <td width="34%"><p align="center">V</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>1</sub></p></td>
+                <td><p align="right" id="sol11" style="visibility:hidden">2</p></td>
+                <td><p align="right" id="sol12" style="visibility:hidden">20</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>3</sub></p></td>
+                <td><p align="right" id="sol21" style="visibility:hidden">1</p></td>
+                <td><p align="right" id="sol22" style="visibility:hidden">20</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td valign="middle" ><img src="../../../../comunes/imagenes/transparent.gif" width="50" height="1" /></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="12%"><img src="../../../../comunes/imagenes/transparent.gif" width="50" height="1" /></td>
+          <td width="88%" id="formula2" style="visibility:hidden">&nbsp;<img src="../formulas/1_21.gif" width="384" height="146" /></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td id="imagen0"><img src="../imagenes/1_05.png" width="173" height="142" /></td>
+          <td id="imagen1"><img src="../imagenes/1_04.png" width="173" height="142" /></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

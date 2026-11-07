@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','relatividad2/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50">En F&iacute;sica cl&aacute;sica la masa es constante y la 
+        energ&iacute;a cin&eacute;tica est&aacute; asociada a la velocidad</p>
+      <p class="m150"><img src="formulas/7_01.gif" width="205" height="36" /></p>
+      <p class="m50">En F&iacute;sica relativista la masa aumenta con la velocidad 
+        y la energ&iacute;a cin&eacute;tica est&aacute; asociada al cambio de 
+        masa:</p>
+      <p class="m150"><img src="formulas/7_02.gif" width="336" height="44" /></p>
+      <p class="m150"><img src="formulas/7_03.gif" width="216" height="48" /></p>
+      <p class="m50">Entonces la relaci&oacute;n entre las energ&iacute;as relativista 
+        y cl&aacute;sica ser&aacute;:</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="233" height="105" /></p>
+      <p class="m50">A esta velocidad, la energ&iacute;a cin&eacute;tica relativista 
+        es el doble de la cl&aacute;sica</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

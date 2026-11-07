@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td width="65%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <input name="radiobutton" type="radio" value="radiobutton" onclick="cambiar('','5_a1.htm')"/>
+              Descompresi&oacute;n del muelle&nbsp;&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="cambiar('','5_a2.htm')"/>
+              Movimiento frenado&nbsp; 
+              <input name="radiobutton" type="radio"  value="radiobutton" checked="checked"/>
+              Total 
+            </form></td>
+          <td width="28%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50">Combinando los resultados obtenidos las dos partes anteriores 
+        resulta un sistema de inc&oacute;gnitas: v, L</p>
+      <p class="m150"><img src="formulas/5_14.gif" width="332" height="196" style="cursor:pointer" usemap="#Map" border="0" /> 
+      </p>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="202,163,255,182" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/3.htm')"/>
+</map>
+</body>
+</html>

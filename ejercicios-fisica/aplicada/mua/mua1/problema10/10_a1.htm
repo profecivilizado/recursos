@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%">&nbsp;</td>
+          <td width="36%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <font color="#0000FF">F</font>orma de hacerlo: 
+              <input type="radio" name="radiobutton" value="radiobutton" checked="checked" />
+              Una&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="cambiar('','10_a2.htm')" />
+              Otra </form></td>
+          <td width="58%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <p align="center"><img src="imagenes/10_01.png" width="187" height="42" /></p></td>
+          <td width="20%" valign="middle"> <div align="right"> 
+              <p><img src="formulas/10_01.gif" width="124" height="73" /></p>
+            </div></td>
+          <td width="47%"> <p>Par&aacute;metros:</p>
+            <p class="m50"> v<sub>0</sub> = 80 km/h = 22.2 m/s</p>
+            <p class="m50"> a = 2 m/s<sup><sup>2</sup></sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 5 s, &nbsp;Inc&oacute;gnitas: x<sub>1</sub> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="34%"><div align="center"><img src="imagenes/10_02.png" width="187" height="67" /></div></td>
+          <td width="66%"><img src="formulas/10_02.gif" width="301" height="92" /></td>
+        </tr>
+      </table>
+      <p class="m50">El coche est&aacute; a 372 m del punto de partida, le faltan 
+        pues 28 m para llegar al paso a nivel</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

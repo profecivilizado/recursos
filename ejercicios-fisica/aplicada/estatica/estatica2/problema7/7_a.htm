@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Supongamos que la persona est&aacute; a una distancia x 
+        del apoyo izquierdo</p>
+      <p class="m50">Fuerzas</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"><div align="center"><img src="imagenes/7_01.png" width="166" height="135" /></div></td>
+          <td width="67%"><p>Equilibrio de traslaci&oacute;n:</p>
+            <p class="m50"><img src="formulas/7_01.gif" width="108" height="20" /></p>
+            <p class="m50">&nbsp;</p></td>
+        </tr>
+      </table>
+      <p class="m50">Momentos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="17%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=''"/>
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Q &nbsp;&nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                P</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML"/>
+                N<sub>2</sub> &nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen4.innerHTML;formula.innerHTML=formula4.innerHTML"/>
+                N<sub>1</sub></p>
+            </form></td>
+          <td width="31%" id="imagen"> 
+            <div align="center"><img src="imagenes/7_02.png" width="189" height="154" /></div></td>
+          <td width="52%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Equilibrio de rotaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/7_05.gif" width="114" height="36" /></p>
+      <p class="m50">Combinando las dos condiciones de equilibrio resulta un sistema 
+        con dos inc&oacute;gnitas: N<sub>1</sub>, N<sub>2</sub></p>
+      <p class="m150"><img src="formulas/7_06.gif" width="348" height="134" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Observa al aumentar x disminuye la reacci&oacute;n N<sub>1</sub> 
+        y aumenta la N<sub>2</sub> (A medida que la persona avance hacia la derecha 
+        el apoyo 2 tendr&aacute; que soportar mayor peso)</p>
+      <p class="m50">Sustituyendo valores para x:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="12%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="texto.innerHTML=texto1.innerHTML"/>
+                2 m</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="texto.innerHTML=texto2.innerHTML"/>
+                3 m</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="texto.innerHTML=texto3.innerHTML"/>
+                4 m </p>
+            </form></td>
+          <td width="88%" id="texto"> <p class="m50"><img src="formulas/7_07.gif" width="389" height="94" /></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="30%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/7_02.png" width="189" height="154" /></div></td>
+                <td width="29%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/7_03.png" width="189" height="154" /></div></td>
+                <td width="36%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/7_04.png" width="189" height="154" /></div></td></tr>
+              <tr> 
+                <td rowspan="4" id="imagen3"> 
+                  <div align="center"><img src="imagenes/7_05.png" width="189" height="154" /></div></td>
+                <td rowspan="4" id="imagen4"> 
+                  <div align="center"><img src="imagenes/7_06.png" width="189" height="154" /></div></td>
+                <td id="formula1"> <p align="center"><img src="formulas/7_02.gif" width="117" height="36" align="middle" />&nbsp;&nbsp;<img src="../../sentido/1_02.gif" width="24" height="28" align="middle" /></p></td></tr>
+              <tr>
+                <td id="formula2"> 
+                  <div align="center">&nbsp;<img src="formulas/7_03.gif" width="110" height="20" align="middle" />&nbsp; 
+                    <img src="../../sentido/1_02.gif" width="24" height="28" align="middle" /> 
+                  </div></td></tr>
+              <tr>
+                <td id="formula3"> 
+                  <div align="center"><img src="formulas/7_04.gif" width="128" height="20" align="middle"  />&nbsp; 
+                    <img src="../../sentido/1_01.gif" width="24" height="28" align="middle" /></div></td></tr>
+              <tr>
+                <td id="formula4"> 
+                  <div align="center">
+                    <p>M<sub>N1</sub> = 0</p>
+                  </div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="12%">&nbsp;</td>
+                <td width="88%" id="texto1"><img src="formulas/7_07.gif" width="389" height="94" /></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td id="texto2"><img src="formulas/7_08.gif" width="389" height="94" /></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td id="texto3"> 
+                  <p><img src="formulas/7_09.gif" width="389" height="41" /></p>
+                  <p class="peque&ntilde;o">El resultado negativo indica que, para 
+                    mantener el equilibrio, el apoyo A tendr&iacute;a que tirar 
+                    en lugar de empujar cosa que es imposible. Por tanto el sistema 
+                    no puede estar en equilibrio con la persona a 4 m del apoyo 
+                    1</p></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table><p>&nbsp; </p>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,90,346,131" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/7_1.htm')"/>
+</map>
+</body>
+</html>

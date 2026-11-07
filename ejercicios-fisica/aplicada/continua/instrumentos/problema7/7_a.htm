@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> <p class="m50"><font color="#FF0000">El elemento colocado en la parte 
+        superior es un potenci&oacute;metro: una resistencia bobinada con un contacto 
+        m&oacute;vil (Cursor) que se puede mover de un extremo a otro. De esta 
+        forma se puede dividir la resistencia en dos cuyos valores dependen de 
+        la posici&oacute;n del cursor<br />
+        Una vez fijada la posici&oacute;n del cursor el potenci&oacute;metro equivale 
+        a dos resistencias con una bifurcaci&oacute;n entre ellas</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%" id="celda1" > <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Rest. </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Malla 1</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                Malla 2</p>
+            </form></td>
+          <td width="43%" id="imagen" ><div align="center"><img src="imagenes/7_02.png" width="259" height="179" /></div></td>
+          <td width="41%" valign="middle" id="formula"> 
+            <p>&nbsp;</p>
+            </td></tr>
+      </table>
+      <hr />
+      <p class="m50">Combinando las ecuaciones de malla:</p>
+      <p class="m150"><img src="formulas/7_03.gif" width="185" height="166" border="0" style="cursor:pointer"/></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"><div align="center"><img src="imagenes/7_02.png" width="259" height="179" /></div></td>
+                <td id="imagen1"><div align="center"><img src="imagenes/7_03.png" width="259" height="179" /></div></td>
+              </tr>
+              <tr>
+                <td id="imagen2"><div align="center"><img src="imagenes/7_04.png" width="259" height="179" /></div></td>
+                <td id="imagen3">&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="23%" id="formula0">&nbsp;</td>
+                <td width="37%" id="formula1"><div align="center"><img src="formulas/7_01.gif" width="118" height="20" /></div></td>
+                <td width="40%" id="formula2"> 
+                  <div align="center"><img src="formulas/7_02.gif" width="120" height="20" /></div></td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

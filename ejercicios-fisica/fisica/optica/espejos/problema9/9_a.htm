@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Si la imagen est&aacute; derecha y su tama&ntilde;o es 
+        la mitad A = 1/2</p>
+      <p class="m50">Una imagen derecha es virtual, tendr&aacute; que estar detr&aacute;s 
+        del espejo, luego s' = 60 cm</p>
+      <p class="m50">Datos: s' = 60 cm, A = 1/2</p>
+      <p class="m150"><img src="formulas/9_02.gif" title="Clic para ver el desarrollo" width="252" height="84" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150"><img src="formulas/9_03.gif" width="173" height="94" /></p>
+      <p class="m50">El foco est&aacute; 120 cm a la derecha del v&eacute;rtice 
+        del espejo, luego el centro est&aacute; 240 cm a la derecha. El radio 
+        del espejo vale 240 cm.</p>
+      <p class="m50"> <span class="enlace_texto"
+		  onclick="abrirVentana('../mensajes/6.htm')" >Construcci&oacute;n gr&aacute;fica</span> 
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="95,24,249,62" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/9_1.htm')"/>
+</map>
+</body>
+</html>

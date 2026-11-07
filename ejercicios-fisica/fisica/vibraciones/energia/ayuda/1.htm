@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana 
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.resizeTo(480,600)" >
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td valign="top"> 
+      <p><strong><font color="#0000FF">Energ&iacute;a</font></strong><strong><font color="#0000FF"><br />
+        </font></strong>Sea un cuerpo de masa m que oscila armonic&aacute;mente 
+        seg&uacute;n:</p>
+      <p class="m100">&nbsp;<img src="formulas/1_01.gif" width="122" height="62" /></p>
+      <p><b><font color="#0000FF">Energ&iacute;a cin&eacute;tica:</font></b></p>
+      <p class="m100"><img src="formulas/1_02.gif" width="86" height="36" border="0" style="cursor:pointer"/></p>
+      <p>Se puede expresar en funci&oacute;n del tiempo o de la posici&oacute;n</p>
+      <p class="m100"><img src="formulas/1_03.gif" width="202" height="105" border="0" usemap="#Map" style="cursor:pointer"/> 
+      </p>
+      <p>La energ&iacute;a cin&eacute;tica es nula en los extremos (x = &plusmn;A) 
+        y m&aacute;xima en el origen (x = 0)</p>
+      <p class="m100"><img src="formulas/1_07.gif" width="134" height="36" /></p>
+      <p><strong><font color="#0000FF">Energ&iacute;a potencial el&aacute;stica</font></strong></p>
+      <p class="m100"><img src="formulas/1_04.gif" width="81" height="36" /></p>
+      <p>Tambi&eacute;n se puede expresar en funci&oacute;n del tiempo</p>
+      <p class="m100"><img src="formulas/1_05.gif" width="144" height="36" border="0" style="cursor:pointer"/></p>
+      <p>La energ&iacute;a el&aacute;stica es m&aacute;xima en los extremos (x 
+        = &plusmn;A) y nula en el origen (x = 0) </p>
+      <p class="m150"><img src="formulas/1_08.gif" width="109" height="36" /></p>
+      <p><strong><font color="#0000FF">Energ&iacute;a de oscilaci&oacute;n (Total 
+        o mec&aacute;nica)<br />
+        </font></strong>La energ&iacute;a de oscilaci&oacute;n es la suma de las 
+        energ&iacute;as cin&eacute;tica y el&aacute;stica en cualquier situaci&oacute;n<br />
+        En el origen la energ&iacute;a de oscilaci&oacute;n vale:</p>
+      <p class="m100"><img src="formulas/1_09.gif" width="128" height="36" /></p>
+      <p>En uno de los extremos la energ&iacute;a de oscilaci&oacute;n vale:</p>
+      <p class="m100"><img src="formulas/1_10.gif" width="100" height="36" /></p>
+      <p>Si no hay rozamiento la energ&iacute;a de oscilaci&oacute;n es constante</p>
+      <p class="m100"><img src="formulas/1_06.gif" width="236" height="36" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+      <p>La energ&iacute;a de oscilaci&oacute;n es igual a la energ&iacute;a cin&eacute;tica 
+        m&aacute;xima que a su vez es igual a la energ&iacute;a el&aacute;stica 
+        m&aacute;xima </p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="70,54,198,105" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../desarrollos/1.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','');"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Parte 1</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../campo/ayuda/4.htm',1)">Campo 
+        que crea</span> el conductor en el punto donde se encuentra la carga</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%"> <div align="center"> 
+              <p> 
+                <input type="button" name="Submit2" value=" > " class="boton" 
+	  onclick="switch(n){
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,2);n=n+1;break;
+				case 1:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',1,0);n=0;break;
+				}" />
+              </p>
+            </div></td>
+          <td width="28%" id="imagen"> 
+            <div align="center"> 
+              <p><img src="imagenes/7_01.png" width="187" height="143" /></p>
+            </div></td><td width="66%" id="celda1" style="visibility:hidden"> 
+            <p class="m50"><img src="formulas/7_01.gif" width="225" height="98" /></p>
+            </td></tr>
+      </table>  
+      <hr />
+      <p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../lorentz/ayuda/1.htm',1)">Fuerza 
+        que sufre</span> la carga debido al campo creado por el conductor</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="223"><div align="center"><img src="imagenes/7_03.png" width="187" height="143" /></div></td>
+          <td width="477"><p class="m50"><img src="formulas/7_02.gif" width="212" height="90" /></p>
+            <p>El conductor atraer&aacute; a la carga (L&oacute;gico porque se 
+              trata de cargas del mismo signo movi&eacute;ndose en direcciones 
+              paralelas) </p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="41%" id="imagen0"> <div align="center"><img src="imagenes/7_01.png" width="187" height="143" /></div></td>
+                <td width="59%" id="imagen1"> <div align="center"><img src="imagenes/7_02.png" width="187" height="143" /></div>
+                  <div align="center"></div></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

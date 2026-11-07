@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td> 
+            <p align="right"><img src="formulas/2_01.gif" width="164" height="126" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm')" class="enlace_imagen" /></p></td>
+          <td width="60%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 200 m/s, &alpha; (Inc&oacute;gnita) 
+            </p>
+            <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Llegada al suelo</p>
+      <p class="m50">Datos: x<sub>1</sub> = 3000 m, &nbsp;y<sub>1</sub> = -500 
+        m &nbsp;Inc&oacute;gnitas: &alpha;, &nbsp;t<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="40%"> <p align="center"><img src="imagenes/2_01.png" name="imagen1" width="226" height="75" border="0" /></p></td>
+          <td width="60%" valign="middle"> <p align="left"><img src="formulas/2_02.gif" width="401" height="76" border="0" usemap="#Map1" style="cursor:pointer"/></p></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores resulta:</p>
+      <p class="m150"><img src="formulas/2_03.gif" width="460" height="73" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="47%"><div align="center"><img src="formulas/2_04.gif" width="245" height="54" /></div></td>
+          <td width="53%"><div align="center"><img src="formulas/2_05.gif" width="238" height="54" /></div></td>
+        </tr>
+      </table>
+      <p class="m50">Un &aacute;ngulo de tiro no puede ser mayor de 180&ordm; 
+        porque se disparar&iacute;a contra el suelo</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="41%"> <p align="center"><img src="imagenes/2_02.png" name="imagen1" width="224" height="114" border="0" id="imagen1" onclick="MM_openBrWindow('../../descomposicion/1.htm','','width=170,height=200')" /></p></td>
+          <td width="59%"> <p>Hay dos &aacute;ngulos de tiro complementarios, 
+              23.7&ordm; y 66.3 que producen el mismo alcance</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="187,3,398,74" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/2_1.htm')" />
+</map>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+var atributos="status=no,resizable=yes"
+if(ventana) ventana.close();
+if (barras) atributos=atributos+',scrollbars=yes'
+ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+if(!pagina)
+{MM_goToURL('parent.frames[1]',solucion)}
+if(!solucion)
+{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+ for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onUnload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">El muelle del dinam&oacute;metro se estira 15 cm cuando 
+        est&aacute; sometido a una fuerza de 16 kp, luego su constante el&aacute;stica 
+        vale:</p>
+      <p class="m150"><img src="formulas/14_00.gif" width="226" height="38" /></p>
+      <p class="m50">Per&iacute;odo de oscilaci&oacute;n de un cuerpo colgado 
+        de un muelle:</p>
+      <p class="m150"><img src="formulas/14_01.gif" width="209" height="204" border="0" usemap="#MapMap" style="cursor:pointer"/> 
+        <map name="MapMap" id="Map2">
+          <area shape="rect" coords="132,167,186,186" alt="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')"/>
+          <area shape="rect" coords="3,4,92,44" alt="Clic para ver el desarrollo" onclick="_pctop.origen='14_a.htm';cambiar('','14_z.htm')"/>
+        </map>
+      </p>
+      <p class="m50">&nbsp;</p>
+      <p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="176,9,297,28" alt="Clic para ver el desarrollo" onClick="_pctop.origen='13_a.htm';cambiar('','13_z.htm')"/>
+  <area shape="rect" coords="3,46,90,82" alt="Clic para ver el desarrollo" onClick="_pctop.origen='13_a.htm';cambiar('','13_w.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var texto11="El necesario para mantener el cuerpo en reposo hasta un valor m&aacute;ximo de &mu;N " ,
+texto12 ="&mu;N",
+texto31="Opuesto al de la fuerza que intente mover al cuerpo",
+texto32="Contrario al del movimiento del cuerpo"
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" >
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="440"><p><b><font color="#FF0000">Superficies</font></b></p>
+      <p>Un cuerpo en contacto con una superficie experimenta dos fuerzas, <b>normal</b> 
+        y <b>rozamiento</b>:</p>
+      <p><b><font color="#0000FF">Normal</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="19%" valign="top">
+<p align="right">M&oacute;dulo:</p></td>
+          <td width="81%"><p>Indeterminado (Depende de las circunstancias en cada 
+              caso)</p></td>
+        </tr>
+        <tr> 
+          <td valign="top">
+<p align="right">Direcci&oacute;n:</p></td>
+          <td><p>Perpendicular a la superficie</p></td>
+        </tr>
+        <tr> 
+          <td valign="top">
+<p align="right">Sentido:</p></td>
+          <td><p>La superficie rechaza al cuerpo</p></td>
+        </tr>
+      </table>
+      <p><b><font color="#0000FF">Fuerza de rozamiento</font></b></p>
+      <p>Sus caracter&iacute;sticas dependen de que el cuerpo se mueva o no respecto 
+        a la superficie</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="8%">&nbsp;</td>
+          <td width="60%"><form action="" method="post" name="form2" class="formulario" id="form2">
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="mensaje1.innerHTML=texto11;mensaje3.innerHTML=texto31"/>
+              No se mueve&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onClick="mensaje1.innerHTML=texto12;mensaje3.innerHTML=texto32"/>
+              Se mueve 
+            </form></td>
+          <td width="32%">&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td valign="top"> 
+            <p align="right">M&oacute;dulo:</p></td>
+          <td valign="top"> <p><span id="mensaje1">El necesario para mantener 
+              el cuerpo en reposo hasta un valor m&aacute;ximo de &mu;N</span></p>
+            <p> N es la normal de la superficie y &mu; el coeficiente de rozamiento entre cuerpo y superficie</p>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">Direcci&oacute;n: </p></td>
+          <td><p>Paralela a la superficie</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">Sentido:</p></td>
+          <td><p><span id="mensaje3">Contrario al de la fuerza que intente mover 
+              al cuerpo</span></p></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

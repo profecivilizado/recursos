@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m150"><img src="formulas/13_01.gif" width="436" height="196" border="0" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Quedar&aacute; la cuarta parte de los &aacute;tomos iniciales 
+        (Evidente: 16,08 d&iacute;as es el doble de 8,04 d&iacute;as luego quedar&aacute; 
+        la mitad de la mitad)</p>
+      <p class="m50">El problema surge cuando se aplica este resultado a las cantidades 
+        dadas: </p>
+      <p class="m50">Si N<sub>0</sub> = 10<sup>12</sup> &aacute;tomos, al cabo 
+        de 16,08 d&iacute;as quedar&aacute;n: 0,25&middot;10<sup>12</sup> = 2,5&middot;10<sup>11</sup>, 
+        bien</p>
+      <p class="m50">Si N<sub>0</sub> = 2<sup></sup> &aacute;tomos, al cabo de 
+        16,08 d&iacute;as quedar&aacute;n: 0,25&middot;2<sup></sup> = 0,5 &iquest;?</p>
+      <p class="m50"> Evidentemente no hay medios &aacute;tomos as&iacute; que 
+        lo que se espera que contestes es: cero</p>
+      <p class="m50">Con esto se aprueba, pero el asunto tiene m&aacute;s miga</p>
+      <p class="m50"><font color="#0000FF"><b>La radiactividad es un fen&oacute;meno 
+        probabil&iacute;stico</b></font></p>
+      <p class="m50"><font color="#FF0000">Al arrojar una moneda al aire la probabilidad 
+        de que salga cara es del 50% como sabemos todos. <br />
+        Entonces si se arroja la moneda N veces &iquest;saldr&aacute; cara 0,5&middot;N 
+        veces? Depende del valor N, cuanto mayor sea este m&aacute;s probable 
+        ser&aacute; que salga cara esta cantidad de veces.</font></p>
+      <p class="m50"><font color="#FF0000">Con la radioactividad pasa algo parecido. 
+        &lambda; es la probabilidad de que se desintegre uno de los &aacute;tomos 
+        en un segundo. En una muestra de N &aacute;tomos &iquest;se desintegrar&aacute;n 
+        &lambda;&middot;N cada segundo?. Pues depende del valor de N, si es muy 
+        grande seguro que s&iacute;.</font></p>
+      <p class="m50"><font color="#FF0000"> La ecuaci&oacute;n de desintegraci&oacute;n 
+        radiactiva da por sentado que el n&uacute;mero de &aacute;tomos es muy 
+        grande de forma que es verdad que cada segundo se desintegran &lambda;&middot;N 
+        &aacute;tomos. Y de esta ecuaci&oacute;n resulta que el tiempo que tarda 
+        en reducirse a la mitad una cantidad de &aacute;tomos (Grande) es siempre 
+        la misma.<br />
+        Pero si la cantidad de &aacute;tomos es peque&ntilde;a (Por ejemplo 2) 
+        el asunto se vuelve m&aacute;s difuso, no sirven la ecuaci&oacute;n de 
+        desintegraci&oacute;n, ni el concepto de per&iacute;odo de semidesintegraci&oacute;n.</font></p>
+      <p class="m50"><font color="#FF0000">Resumiendo: Partiendo de 2 &aacute;tomos 
+        no se puede afirmar cu&aacute;ntos quedar&aacute;n al cabo de 16.08 d&iacute;as, 
+        puede que queden 2, 1 o 0 (Es como hacer quinielas)</font></p>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

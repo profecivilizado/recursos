@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,510)"
+onunload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p  ><b><font color="#0000FF">Movimiento de cargas en campos</font></b></p>
+      <p>El siguiente m&eacute;todo s&oacute;lo se puede aplicar a cargas que 
+        se mue-ven dentro de un campo uniforme.</p>
+      <p><span  ><b><font color="#0000FF">Din&aacute;mica</font></b></span></p>
+      <p>Se determina la aceleraci&oacute;n constante que tiene la carga dentro 
+        del campo el&eacute;ctrico </p>
+      <p class="m100"> <img src="formulas/1_01.gif" width="140" height="36" align="middle" />&nbsp; 
+        (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../mensajes/2.htm')">&#149;</span>) 
+      </p>
+      <p>En la expresi&oacute;n del m&oacute;dulo de la fuerza, la carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >va 
+        sin signo</span></p>
+      <p><span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" > 
+        </span>El sentido de la aceleraci&oacute;n ser&aacute; el del campo o 
+        el contrario se-g&uacute;n la carga q sea positiva o negativa</p>
+      <p>Puede que sea necesario utilizar <span class="enlace_texto" onclick="abrirVentana('../../trabajo/ayuda/5.htm',1)"> 
+        d.d.p en lugar del campo</span></p>
+      <p><b><font color="#0000FF">Cinem&aacute;tica</font></b></p>
+      <p>Con la aceleraci&oacute;n calculada y la velocidad inicial (M&oacute;dulos) 
+        se plantean las ecuaciones del movimiento que puede ser rectil&iacute;neo 
+        o par&aacute;bolico seg&uacute;n el &aacute;ngulo que formen velocidad 
+        inicial y aceleraci&oacute;n</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

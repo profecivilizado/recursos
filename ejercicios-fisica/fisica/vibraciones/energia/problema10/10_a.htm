@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m150"><img src="formulas/10_01.gif" width="312" height="22" /></p>
+      <p class="m50">Una part&iacute;cula oscilando tiene energ&iacute;a cin&eacute;tica 
+        y energ&iacute;a potencial el&aacute;stica. </p>
+      <p class="m150"><img src="formulas/10_02.gif" width="274" height="86" /></p>
+      <p class="m50">La energ&iacute;a mec&aacute;nica es la suma de estas dos. 
+        Como esta energ&iacute;a se mantiene constante puede calcularse la suma 
+        en cualquier punto del recorrido.</p>
+      <p class="m50">Tomamos el paso por el origen cuando la energ&iacute;a el&aacute;stica 
+        es cero y la cin&eacute;tica es m&aacute;xima:</p>
+      <p class="m150"><img src="formulas/10_03.gif" width="217" height="136" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

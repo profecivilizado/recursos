@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> <p class="m50"><font color="#000000">Constante de desintegraci&oacute;n 
+        (&lambda;)<br />
+        </font>Probabilidad de que, en un segundo, se desintegre un &aacute;tomo.<br />
+        Si&nbsp; el n&uacute;mero de &aacute;tomos radioactivos, N, es muy grande 
+        la cantidad de ellos que se desintegran en un segundo es: &lambda;&middot;N, 
+        en este caso se puede considerar &lambda; como el porcentaje de &aacute;tomos 
+        que se desin-tegran por segundo </p>
+      <p class="m50">Per&iacute;odo de semidesintegraci&oacute;n (T) <br />
+        Tiempo que tarda en desintegrarse la mitad de una cantidad cualquiera 
+        de sustancia</p>
+      <p class="m50">Vida media (&tau;)<br />
+        Tiempo (Promedio) que tarda en desintegrarse un &aacute;tomo</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+var activo=0, x=10
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/1.htm');MM_preloadImages('imagenes/2_04.png','imagenes/2_05.png')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><span  ><b><font color="#0000FF">c)</font></b></span> 
+      </p>
+      <p class="m50">Ecuaciones del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="right">
+              <p><img src="formulas/2_01.gif" width="178" height="105" /></p>
+            </div></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros:&nbsp;</p>
+            <p class="m50">A = 15 cm, &omega; = 2&pi; rad/s (T = 2&pi;/&omega;= 
+              1 s)</p>
+            <p class="m50">&phi;<sub>0</sub> = &pi;/2 rd</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: v<sub>2</sub> = 70 cm/s, &nbsp;Inc&oacute;gnitas: 
+        t<sub>2</sub>, x<sub>2</sub></p>
+      <p class="m150"><img src="formulas/2_05.gif" width="376" height="126" border="0" usemap="#Map" style="cursor:pointer"   /></p>
+      <p class="m50">Cada velocidad se tiene en dos posiciones sim&eacute;tricas 
+        respecto al origen (Excepto la velocidad m&aacute;xima de ida o vuelta 
+        que s&oacute;lo se tiene en el origen). </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="20%"><div align="center">
+              <input name="Submit" type="button" 
+		onclick="switch(activo) {
+	  		case 0: MM_swapImage('imagen1','','imagenes/2_05.png',1);activo=1;posicion.innerHTML=-x;break;
+			case 1: MM_swapImage('imagen1','','imagenes/2_04.png',1);activo=0;posicion.innerHTML=x;break;
+			}" value=" " />
+            </div></td>
+          <td width="34%"><div align="center"><img src="imagenes/2_04.png" name="imagen1" width="210" height="64" id="imagen1" /></div></td>
+          <td width="46%"><p>x = <span id="posicion">10</span> cm</p>
+            <p>v = 70 cm/s</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="225,4,373,54" title="Clic para aclaración" onClick="abrirVentana('../../desarrollos/2.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> <p class="m50">C&aacute;lculo de la potencia total que disipa el circuito:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="30%"><div align="center"><img src="imagenes/1_02.png" width="208" height="123" /></div></td>
+          <td width="70%"><div align="center"><img src="formulas/1_01.gif" width="354" height="158" /></div></td>
+        </tr>
+      </table>
+      <p class="m50">Est&aacute; claro que la m&aacute;xima potencia disipada 
+        corresponder&aacute; a la m&aacute;xima intensidad posible. Esta m&aacute;xima 
+        intensidad ser&aacute; la que produce una potencia de 18 W o menos en 
+        las resistencias<br />
+        La potencia disipada en la resistencia R<sub>1</sub> es mayor que la disipada 
+        en cada una de las resistencias R<sub>2</sub>, R<sub>3</sub> por tanto 
+        en R<sub>1</sub> se disipar&aacute; el m&aacute;ximo de potencia (18 W) 
+        y en las otras no</p>
+      <p class="m150"><img src="formulas/1_02.gif" width="209" height="41" /></p>
+      <p class="m150"><img src="formulas/1_03.gif" width="257" height="53" /></p>
+      <p class="m50">&nbsp;</p>
+      <p class="m50">&nbsp;</p>
+      <p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

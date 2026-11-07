@@ -1,0 +1,23 @@
+/* Estilo de los problemas nuevos (bloques escritos a mano a partir de la plantilla).
+   Usa las variables de color de pc.css, así funciona igual en modo claro y oscuro. */
+.cab{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.cab b{color:var(--accent);letter-spacing:.02em}
+.nuevo{font-size:13px;color:var(--muted)}
+.prob{border-top:1px solid var(--line);padding:14px 2px 16px}
+.prob:first-of-type{border-top:0}
+.enun{color:var(--accent);font-weight:700}
+.num{display:inline-block;min-width:1.8em;color:var(--muted);font-weight:700}
+.tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-left:6px;white-space:nowrap}
+ol.ap{margin:.3em 0 .2em 1.8em;padding:0}
+details{margin:.5em 0 0 1.8em;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+summary{cursor:pointer;padding:6px 12px;font-weight:600;color:var(--accent)}
+details[open] summary{border-bottom:1px solid var(--line)}
+.sol{padding:6px 14px 10px}
+.f{display:block;margin:.35em 0 .35em 1em;font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:1.06em}
+.res{display:inline-block;border:1.5px solid var(--accent);border-radius:6px;padding:0 6px}
+.nota{color:var(--muted);font-size:.94em}
+.fig{display:block;max-width:100%;margin:.4em auto;border-radius:8px}
+.sim{display:inline-block;margin:.4em 0 0 1.8em;font-weight:600}
+.katex{font-size:1.05em}
+.katex-display{margin:.4em 0 .4em 1em;text-align:left;overflow-x:auto;overflow-y:hidden}
+.katex-display>.katex{text-align:left}

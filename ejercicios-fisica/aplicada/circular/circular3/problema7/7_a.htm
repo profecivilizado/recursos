@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <div align="center"><img src="imagenes/7_01.png" width="145" height="123" /></div></td>
+          <td width="25%"> <div align="center"><img src="formulas/7_01.gif" width="81" height="70" /></div></td>
+          <td width="46%"> <p>Par&aacute;metros:</p>
+            <p><img src="formulas/7_10.gif" width="66" height="40" /></p></td>
+        </tr>
+      </table>
+      <p class="m50"><font color="#FF0000">En lugar de hacer sendos c&aacute;lculos 
+        para cada vuelta vamos a obtener la f&oacute;rmula general del tiempo 
+        que se tarda en dar la vuelta n&uacute;mero k y despu&eacute;s la aplicaremos 
+        en cada caso</font></p>
+      <p class="m50">El tiempo que tarda en dar la vuelta n&uacute;mero k ser&aacute; 
+        la diferencia entre los tiempos que tarda en dar k y (k -1) vueltas (Para 
+        entendernos: el tiempo que tarda en dar la cuarta vuelta es la diferencia 
+        entre el tiempo que tarda en dar cuatro vueltas y el que tarda en dar 
+        tres) </p>
+      <p class="m50">Aplicaci&oacute;n: Ha dado k vueltas y est&aacute; en el 
+        origen</p>
+      <p class="m50">Datos: &phi;<sub>1</sub> = 0 + k&middot;2&pi; rad,&nbsp; 
+        Inc&oacute;gnita: t<sub>1</sub> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="28%"><div align="center"><img src="imagenes/7_03.png" width="126" height="123" /></div></td>
+          <td width="72%"><p class="m50"><img src="formulas/7_03.gif" width="222" height="97" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Entonces el intervalo de tiempo transcurrido entre las vueltas 
+        k - 1 y k ser&aacute;:</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="181" height="97" /></p>
+      <p class="m50">Dando valores a k:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="20%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen1.innerHTML"/>
+                Vuelta 1&ordf; </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML"/>
+                Vuelta 2&ordf;</p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML"/>
+                Vuelta 3&ordf;</p>
+            </form></td>
+          <td width="80%" id="imagen"> 
+            <p class="m50"><img src="formulas/7_05.gif" width="345" height="46" /></p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td width="49%" id="imagen1"> 
+            <div align="center"><img src="formulas/7_05.gif" width="345" height="46" /></div></td>
+          <td width="48%" id="imagen2"><div align="center"><img src="formulas/7_06.gif" width="348" height="46" /></div></td>
+        </tr>
+        <tr>
+          <td id="imagen3"> 
+            <div align="center"><img src="formulas/7_07.gif" width="346" height="46" /></div></td><td>&nbsp;</td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

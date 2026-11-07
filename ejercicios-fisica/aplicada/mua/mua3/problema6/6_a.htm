@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/3.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones del movimiento: </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="39%"> <p class="m50"><img src="imagenes/6_01.png" width="169" height="43" /></p></td>
+          <td width="20%"> <div align="right"> 
+              <p><img src="formulas/6_01.gif" width="113" height="65" /></p>
+            </div></td>
+          <td width="41%"> <p class="m50">Par&aacute;metros </p>
+            <p class="m50">v<sub>0</sub> = 20 m/s, &nbsp;a = 0.75 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Acaba el recorrido parcial</p>
+      <p class="m50">Datos v<sub>2</sub> = 0 Inc&oacute;gnitas: t<sub>2</sub>, 
+        x<sub>2</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="39%"> <p class="m50"><img src="imagenes/6_03.png" width="237" height="37" /></p></td>
+          <td width="61%"> <p class="m50"><img src="formulas/6_03.gif" width="141" height="73" border="0" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Empieza el recorrido parcial</p>
+      <p class="m50">Datos: &Delta;t = 1 s, Inc&oacute;gnita: &Delta;x</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="39%"> <p class="m50"><img src="imagenes/6_02.png" width="229" height="51" /></p></td>
+          <td width="61%"> <p class="m50"><img src="formulas/6_02.gif" width="257" height="36" border="0" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con tres inc&oacute;gnitas: t<sub>2</sub>, x<sub>2</sub>, &Delta;x</p>
+      <p class="m150"><img src="formulas/6_04.gif" width="386" height="193" usemap="#Map" border="0" style="cursor:pointer" /> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="283,52,384,86"  title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/6_1.htm')" />
+        </map>
+      </p>
+      <p class="m50">&iquest;Te das cuenta? Resulta un desplazamiento igual al 
+        que realizar&iacute;a el coche en 1 s partiendo del reposo con aceleraci&oacute;n 
+        0.75 m/s<sup>2</sup></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

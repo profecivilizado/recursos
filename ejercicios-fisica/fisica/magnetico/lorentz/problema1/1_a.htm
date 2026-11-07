@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"> El prot&oacute;n se mueve en el plano de la pantalla y el campo 
+        magn&eacute;tico es perpendicular a ella y est&aacute; dirigido hacia 
+        afuera</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="19%"><div align="center"> 
+              <p><img src="imagenes/1_00.png" width="95" height="118" /></p>
+            </div></td>
+          <td width="8%"><img src="../../mensajes/imagenes/0.png" width="46" height="54" /></td>
+          <td width="73%"><p class="m50"><img src="formulas/1_01.gif" width="276" height="116" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">El prot&oacute;n sufrir&aacute; una fuerza q&middot;v&middot;B 
+        (M&oacute;dulo), perpendicular a la velocidad y al campo y su <span class="enlace_texto" onClick="abrirVentana('../ayuda/2.htm',1)">trayectoria</span> 
+        ser&aacute; una circunferencia</p>
+      <p class="m50">Aplicando la Din&aacute;mica al prot&oacute;n:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="28%"> <div align="center">
+              <p><img src="imagenes/1_01.png" width="152" height="155" /></p>
+            </div></td>
+          <td width="72%"> <p class="m50"><img src="formulas/1_02.gif" width="253" height="124" usemap="#Map" border="0" style="cursor:pointer"/></p>
+            <p>En la expresi&oacute;n del m&oacute;dulo de la fuerza <span class="enlace_texto" onclick="abrirVentana('../../mensajes/1.htm')">la 
+              carga se pone sin signo</span> </p></td>
+        </tr>
+      </table>
+      <p class="m50">Cinem&aacute;tica del movimiento circular uniforme:</p>
+      <p class="m150"><img src="formulas/1_03.gif" width="264" height="92" border="0" usemap="#Map3" style="cursor:pointer"/> 
+        <map name="Map3" id="Map3">
+          <area shape="rect" coords="173,56,261,78" onclick="abrirVentana('../../unidades/4.htm')" />
+        </map>
+      </p>
+      <p class="m50">Curiosamente el per&iacute;odo de revoluci&oacute;n no depende 
+        de la velocidad <br />
+        &iquest;Que por qu&eacute;? Pues muy f&aacute;cil: si la velocidad es 
+        alta el radio de la circunferencia ser&aacute; grande y el prot&oacute;n 
+        la recorrer&aacute; muy deprisa y si la velocidad es baja el radio de 
+        la circunferencia ser&aacute; peque&ntilde;o y el prot&oacute;n la recorrer&aacute; 
+        muy despacio. Se est&aacute;n compensando longitud de recorrido y velocidad
+        <map name="Map" id="Map">
+          <area shape="rect" coords="199,91,250,111" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/2.htm')" />
+        </map>
+      </p>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

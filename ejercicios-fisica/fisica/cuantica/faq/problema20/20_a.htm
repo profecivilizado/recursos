@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Una part&iacute;cula puede comportarse como una onda cuya 
+        longitud de onda vale:</p>
+      <p class="m150"><img src="formulas/20_01.gif" width="92" height="38" /></p>
+      <p class="m50">Para que se muestre el aspecto ondulatorio de la part&iacute;cula 
+        esta debe interaccionar con objetos mayo-res que su longitud de onda. 
+        Si lanzamos un chorro de electrones a alta velocidad contra una red cris-talina 
+        estos se difractar&aacute;n igual que lo har&iacute;an los rayos X.</p>
+      <p class="m50"><font color="#FF0000">El tama&ntilde;o de los agujeros de 
+        una red cristalina es del orden de 10<sup>-10</sup> m, por tanto la longitud 
+        de onda del electr&oacute;n, para se comporte como una onda, tiene que 
+        ser 10<sup>-10</sup> m como mucho. Para el electr&oacute;n el cociente 
+        h/m es del orden de 10<sup>3</sup> m/(m/s) por tanto la velocidad tendr&aacute; 
+        que ser del orden de 10<sup>7</sup> m/s</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

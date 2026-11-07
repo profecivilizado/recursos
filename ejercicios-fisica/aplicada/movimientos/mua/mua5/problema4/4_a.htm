@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto	
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Ecuaciones del estudiante:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="22%"> <p class="m50"><img src="imagenes/4_01.png" width="58" height="94" /></p></td>
+          <td width="31%"> <div align="right"> 
+              <p><img src="formulas/4_01.gif" width="88" height="70" /></p>
+            </div></td>
+          <td width="47%"> <p class="m50">Par&aacute;metros</p>
+            <p class="m50">g = 9.8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Ecuaciones de Superman:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td rowspan="4" width="22%"> <p class="m50"><img src="imagenes/4_02.png" width="60" height="108" /></p></td>
+          <td width="31%"> <p align="left">Referidas al tiempo t'</p></td>
+          <td width="47%" rowspan="4"> <p class="m50">Par&aacute;metros</p>
+            <p class="m50">v'<sub>0</sub> (Inc&oacute;gnita)</p></td>
+        </tr>
+        <tr> 
+          <td width="31%"> <p align="right"><img src="formulas/4_02.gif" width="90" height="57" /></p></td>
+        </tr>
+        <tr> 
+          <td width="31%"> <p align="left">Referidas al tiempo t (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../mensajes/1.htm')">&#149;</span>)</p></td>
+        </tr>
+        <tr> 
+          <td width="31%"> <h1 align="right"><img src="formulas/4_03.gif" width="124" height="60" /></h1></td>
+        </tr>
+      </table>
+      <p class="m50">En el instante t<sub>1</sub> la posiciones del estudiante 
+        y de Superman ser&aacute;n:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="47%"><p class="m100"><img src="formulas/4_04.gif" width="96" height="41" /></p></td>
+          <td width="53%"><img src="formulas/4_05.gif" width="144" height="25" /></td>
+        </tr>
+      </table>
+      <p class="m50">Si Superman ha alcanzado al estudiante un pelin antes de 
+        llegar al suelo: y<sub>1</sub> = y'<sub>1</sub>= -270 m</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="22%"> <p class="m50"><img src="imagenes/4_03.png" width="81" height="161" /></p></td>
+          <td width="78%"> <p class="m50"><img src="formulas/4_06.gif" width="146" height="68" /></p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_07.gif" width="316" height="113" usemap="#Map" border="0" style="cursor:pointer" /> 
+      </p>
+      <p class="m50"><b>Comentario</b>: <br />
+        Superman tiene poderes para alcanzar una velocidad de 111 m/s con solo 
+        proponerselo pero adem&aacute;s debe tener poderes para detenerse instant&aacute;neamente. 
+        Si no fuera as&iacute;, alcanzar&iacute;a al estudiante y los dos juntitos 
+        se estampar&iacute;an en el suelo...</p>
+        <map name="Map" id="Map">
+        <area shape="rect" coords="3,4,171,50" alt="Clic para ver el desarrollo" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/4_1.htm')" />
+        <area shape="rect" coords="267,65,316,99" alt="Clic" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/41.htm')" />
+      </map>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

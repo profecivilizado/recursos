@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" 
+leftmargin="0" topmargin="0" 
+onload ="self.resizeTo(480,230)">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p ><b><font color="#0000FF">Fase y estado del </font><font color="#0000FF"> 
+        m&oacute;vil</font></b></p>
+      <table width="100%" border="1" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%" valign="middle"> <p> 
+              <input name="radiobutton" type="radio" checked="checked" onClick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML" />
+              &phi; = 0&nbsp;</p></td>
+          <td width="32%"><p> 
+              <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+              &phi; = &pi; / 2 </p></td>
+          <td width="35%"> <p> 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto3.innerHTML"/>
+              &phi; = &pi; </p></td></tr>
+        <tr> 
+          <td><p> 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen4.innerHTML;texto.innerHTML=texto4.innerHTML"/>
+              &phi; = 3&middot;&pi; / 2</p></td>
+          <td colspan="2"><p> 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen5.innerHTML;texto.innerHTML=texto5.innerHTML"/>
+              &phi; = 2&middot;&pi; </p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td id="imagen"> 
+            <div align="center"><img src="imagenes/8_01.png" width="322" height="48" /></div></td></tr>
+        <tr>
+          <td id="texto"> 
+            <p align="center">Est&aacute; junto al obs. yendo hacia la derecha 
+              sin aceleraci&oacute;n</p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden" >
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="imagen1"> <div align="center"><img src="imagenes/8_01.png" width="322" height="48" /></div></td>
+              </tr>
+              <tr> 
+                <td id="texto1"> <p align="center">Est&aacute; junto al obs. yendo 
+                    hacia la derecha</p></td>
+              </tr>
+              <tr> 
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/8_03.png" width="322" height="48" /></div></td></tr>
+              <tr> 
+                <td id="texto2"> 
+                  <p align="center">Est&aacute; quieto en el extremo 
+                    derecho</p></td></tr>
+              <tr> 
+                <td id="imagen3"> 
+                  <div align="center"><img src="imagenes/8_05.png" width="322" height="48" /></div></td></tr>
+              <tr> 
+                <td id="texto3"> 
+                  <p align="center">Est&aacute; junto al obs. yendo 
+                    hacia la izquierda</p></td></tr>
+              <tr> 
+                <td id="imagen4"> 
+                  <div align="center"><img src="imagenes/8_07.png" width="322" height="48" /></div></td></tr>
+              <tr> 
+                <td id="texto4"> 
+                  <div align="center"> 
+                    <p>Est&aacute; quieto en el extremo izquierdo</p>
+                  </div></td></tr>
+              <tr> 
+                <td id="imagen5"> 
+                  <div align="center"><img src="imagenes/8_01.png" width="322" height="48" /></div></td></tr>
+              <tr> 
+                <td id="texto5"> 
+                  <p align="center">Est&aacute; de nuevo junto 
+                    al obs. yendo hacia la derecha </p></td></tr>
+            </table></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

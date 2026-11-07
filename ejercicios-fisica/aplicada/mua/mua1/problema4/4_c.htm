@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">c)</font></b>&nbsp;</p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <p align="center"><img src="imagenes/4_01.png" width="183" height="38" /></p></td>
+          <td width="23%" valign="middle"> <div align="right"> 
+              <p><img src="formulas/4_01.gif" width="121" height="73" /></p>
+            </div></td>
+          <td width="44%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50"> v<sub>0</sub> = 8 m/s , a = 0.2 m/s<sup><sup>2</sup></sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: x<sub>3</sub> = 50 m, &nbsp;Inc&oacute;gnitas: t<sub>3</sub> 
+        , v<sub>3</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <div align="center"> 
+              <p><img src="imagenes/4_01.png" width="183" height="38" /></p>
+            </div></td>
+          <td width="67%"> <p class="m50"><img src="formulas/4_06.gif" width="397" height="110" border="0" usemap="#Map1" style="cursor:pointer"/> 
+              <map name="Map1" id="Map1">
+                <area shape="rect" coords="2,51,394,105" title="Clic para ver el desarrollo" onclick="abrirVentana('../../desarrollos/6.htm')" />
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_07.gif" width="366" height="129" usemap="#Map2" border="0" style="cursor:pointer" /> 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="317,19,363,41"  title="Clic para ver unidades" onclick="abrirVentana('../../unidades/3.htm')" />
+          <area shape="rect" coords="315,90,361,110" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/3.htm')" />
+        </map>
+      </p>
+      <p class="m50">&iquest;Como puede ser que pase dos veces por el mismo sitio? 
+      </p>
+      <p class="m50">Para interpretar una soluci&oacute;n hay que conocer los 
+        valores de todas las variables, as&iacute; que vamos a calcularnos la 
+        velocidad correspondiente a cada uno de los tiempos obtenidos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="17%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;mensaje.innerHTML=texto1.innerHTML"/>
+                t<sub>3</sub> = 15.5 </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;mensaje.innerHTML=texto2.innerHTML" />
+                t<sub>3</sub> = 64.5 </p>
+            </form></td>
+          <td width="83%" id="imagen"> <p class="m100"><img src="formulas/4_08.gif" width="366" height="160" border="0" usemap="#Map3" style="cursor:pointer"/> 
+              <map name="Map3" id="Map3">
+                <area shape="rect" coords="244,41,362,91" title="Clic para ver el desarrollo" onclick="abrirVentana('../../desarrollos/21.htm')" />
+                <area shape="rect" coords="253,114,308,150" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/43.htm')" />
+              </map>
+              </p></td>
+        </tr>
+        <tr> 
+          <td colspan="2" id="mensaje"> <p class="m50">El barco est&aacute; 100 
+              m a la derecha del observador movi&eacute;ndose hacia a la derecha 
+              a 4.90&nbsp;m/s, es decir se mueve en la misma direcci&oacute;n 
+              que al principio pero m&aacute;s lentamente porque tiene los motores 
+              marcha atr&aacute;s. Esta soluci&oacute;n es v&aacute;lida</p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td id="imagen1" style="visibility:hidden"> <p class="m100"><img src="formulas/4_08.gif" width="366" height="160" border="0" usemap="#Map4" style="cursor:pointer"/> 
+              <map name="Map4" id="Map4">
+                <area shape="rect" coords="244,41,362,91" title="Clic para ver el desarrollo" onclick="abrirVentana('../../desarrollos/21.htm')" />
+                <area shape="rect" coords="253,114,308,150" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/43.htm')" />
+              </map>
+              </p></td>
+        </tr>
+        <tr> 
+          <td colspan="2" id="texto1" style="visibility:hidden"> <p class="m50">El 
+              barco est&aacute; 100 m a la derecha del observador movi&eacute;ndose 
+              hacia a la derecha a 4.90&nbsp;m/s, es decir se mueve en la misma 
+              direcci&oacute;n que al principio pero m&aacute;s lentamente porque 
+              tiene los motores marcha atr&aacute;s. Esta soluci&oacute;n es v&aacute;lida</p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td id="imagen2" style="visibility:hidden"> 
+            <p class="m100"><img src="formulas/4_09.gif" width="366" height="160" border="0" usemap="#Map5" style="cursor:pointer"/> 
+              <map name="Map5" id="Map5">
+                <area shape="rect" coords="238,41,363,91" title="Clic para ver el desarrollo" onclick="abrirVentana('../../desarrollos/22.htm')" />
+                <area shape="rect" coords="259,114,322,150" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/43.htm')" />
+              </map>
+              </p></td></tr>
+        <tr> 
+          <td colspan="2" id="texto2" style="visibility:hidden"> <p class="m50">El 
+              barco est&aacute; 100 m a la derecha del observador movi&eacute;ndose 
+              hacia a la izquierda a 4.90 m/s, es decir: se mueve en direcci&oacute;n 
+              contraria a la que llevaba al principio, esto ocurrir&aacute; si 
+              no se detienen los motores cosa que no indica el enunciado. Esta 
+              soluci&oacute;n tambi&eacute;n es v&aacute;lida</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

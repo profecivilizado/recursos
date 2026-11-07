@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../lentes/ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">La imagen es real puesto que se recoge en un a pantalla, 
+        luego y' = -100 cm</p>
+      <p class="m50">Datos: A = (-100)/2 = -50</p>
+      <p class="m50">Inc&oacute;gnitas: s, s', f'</p>
+      <p class="m50">La distancia diapositiva-lente es: -s y la distancia lente-pantalla 
+        vale s', entonces sabemos que:<br />
+        (-s) + s' = d, siendo d: 4 m</p>
+      <p class="m50">Ecuaciones de la lente:</p>
+      <p class="m150"><img src="formulas/13_01.gif" width="322" height="129" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+      <p class="m150"><img src="formulas/13_02.gif" width="326" height="97" border="0" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">La diapositiva est&aacute; 0.078 m a la izquierda de la lente, 
+        luego la lente est&aacute; a 0.078 m de la diapositiva y a 3.92 m de la 
+        pantalla.</p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="107,39,320,85" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/13_1.htm')" />
+</map>
+</body>
+</html>

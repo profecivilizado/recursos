@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../../_pc/compat.js"></script>
+
+<title>Desarrollo</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function verHasta(n) {
+	var totalCeldas =tabla.cells.length,i;
+	if (n>totalCeldas-1){n=totalCeldas-1};
+	for (i=3 ; i <n+1; i++){
+		mostrarObjetos("celda",i,1)
+	}
+	for (i=n+1; i <totalCeldas; i++){
+		mostrarObjetos("celda",i,0)
+	}
+}
+
+function siguiente(celda) {
+	var n = eval(celda.slice(5))+1;
+	if(eval("celda"+ n +".style.visibility")=="hidden")
+	{verHasta(n+1)}else {verHasta(n-1)};
+}
+//-->
+</script>
+<link href="../../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" 
+leftmargin="0" topmargin="0" 
+onload ="self.moveTo(20,20);self.resizeTo(660,410)"
+onunload="cerrarVentanas()">
+<table border="0" cellspacing="0" cellpadding="10" id="tabla" width="94">
+  <tr> 
+    <td id="celda0" onclick="mostrarObjetos('capa',1,0);verHasta(tabla.cells.length)" width="36"> <div align="center"> 
+        <input type="button" name="Submit" value=" " class="boton" style="cursor:pointer" />
+      </div></td>
+    <td id="celda1" width="18"><img src="formulas/1_1_01.gif" width="369" height="97" /></td>
+  </tr>
+  <tr> 
+    <td id="celda2" onclick="siguiente(this.id)" width="36"> 
+      <div align="center"> 
+        <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
+      </div></td>
+    <td id="celda3" style="visibility:hidden" width="18" ><img src="formulas/1_1_02.gif" width="294" height="28" /></td>
+  </tr>
+  <tr> 
+    <td id="celda4" style="visibility:hidden" onclick="siguiente(this.id)" width="36"> 
+      <div align="center"> 
+        <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
+      </div></td>
+    <td id="celda5" style="visibility:hidden" width="18" ><img src="formulas/1_1_03.gif" width="592" height="24" /></td>
+  </tr>
+  <tr> 
+    <td id="celda6" style="visibility:hidden" onclick="if(celda7.style.visibility=='hidden'){mostrarObjetos('capa',1,2)}else{mostrarObjetos('capa',1,0)};siguiente(this.id)" width="36"> 
+      <div align="center"> 
+        <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
+        <span id="capa1" style="position:absolute; width:295px; height:36px; z-index:1; left: 176px; top: 226px; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000; visibility: hidden;"> 
+        <table width="100%" border="1" cellspacing="0" cellpadding="5">
+          <tr> 
+            <td><p align="center" class="peque&ntilde;o">La primera soluci&oacute;n 
+                no vale porque se sabe que la bola 1 sigue movi&eacute;ndose despu&eacute;s 
+                del choque</p></td>
+          </tr>
+        </table>
+        </span> </div></td>
+    <td id="celda7" style="visibility:hidden" width="18" ><img src="formulas/1_1_05.gif" width="106" height="52" /></td>
+  </tr>
+  <tr> 
+    <td id="celda8" style="visibility:hidden" onclick="mostrarObjetos('capa',1,0);siguiente(this.id)" width="36"> 
+      <div align="center"> 
+        <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
+      </div></td>
+    <td id="celda9" style="visibility:hidden" width="18" ><img src="formulas/1_1_06.gif" width="356" height="65" border="0" usemap="#Map" style="cursor:pointer"/></td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="179,39,354,63" alt="Clic para ver el desarrollo" onclick="abrirVentana('1_3.htm')"/>
+  <area shape="rect" coords="180,3,304,28" alt="Clic para ver el desarrollo" onClick="abrirVentana('1_2.htm')"/>
+</map>
+</body>
+</html>

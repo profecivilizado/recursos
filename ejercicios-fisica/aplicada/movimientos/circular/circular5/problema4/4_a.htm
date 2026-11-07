@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','circular5/ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones de los movimientos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="51%"><p align="center">M&oacute;vil A</p></td>
+          <td width="49%"><p align="center">M&oacute;vil B</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="25%"><div align="center"><img src="imagenes/4_01.png" width="150" height="149" /></div></td>
+          <td width="26%"><p><img src="formulas/4_01.gif" width="128" height="73" /></p>
+            <p> Par&aacute;metros:<br />
+              <br />
+              &omega;<sub>0</sub>,&nbsp; &alpha; (Inc&oacute;gnita)</p>
+            </td>
+          <td width="25%"><div align="center"><img src="imagenes/4_02.png" width="146" height="136" /></div></td>
+          <td width="24%"><p><img src="formulas/4_02.gif" width="141" height="73" /></p>
+            <p>Par&aacute;metros:</p>
+            <p>&omega;<sub>0</sub>,&nbsp; &alpha; (Inc&oacute;gnita)</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Momento del encuentro</p>
+      <p class="m50">M&oacute;vil A: &phi;<sub>1</sub>, t<sub>1</sub>&nbsp;&nbsp;(Inc&oacute;gnitas),&nbsp; 
+        M&oacute;vil B: Dato: &omega;' = 0,&nbsp;&nbsp; &phi;'<sub>1</sub>, t<sub>1</sub>&nbsp; 
+        (Inc&oacute;gnitas)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="27%"><div align="center"><img src="imagenes/4_03.png" width="123" height="126" /></div></td>
+          <td width="73%"><p><img src="formulas/4_03.gif" width="156" height="108" /></p>
+            <p>La relaci&oacute;n entre las posiciones angulares es: &phi;<sub>1</sub>- 
+              &phi;'<sub>1 </sub>= 2&pi;</p></td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        tres inc&oacute;gnitas: t<sub>1</sub>, &phi;<sub>1</sub>, &phi;'<sub>1</sub>, 
+        &alpha;</p>
+      <p class="m150"><img src="formulas/4_04.gif" width="156" height="193" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="3,147,67,192" alt="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/4_1.htm')"/>
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var numero=numeroProblema();
+	_pctop.problema=numero;
+	var texto='Problema '+ numero;
+	if(apartado){texto = texto + '  Apartado '+ apartado};
+	parent.document.title=texto;
+	_pctop.document.title=texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Ecuaci&oacute;n de la oscilaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/7_01.gif" width="145" height="22" align="top" /></p>
+      <p class="m50">Determinamos la fase inicial:</p>
+      <p class="m50">Aplicaci&oacute;n:(La part&iacute;cula esta quieta en el 
+        extremo derecho de su recorrido) </p>
+      <p class="m50">Datos: t = 0, x = x<sub>0</sub>, Inc&oacute;gnita: &phi;<sub>0</sub></p>
+      <p class="m150"><img src="formulas/7_02.gif" width="228" height="81" /></p>
+      <p class="m50">S&iacute; la elongaci&oacute;n inicial de la part&iacute;cula 
+        es la m&aacute;xima positiva, la fase inicial tendr&aacute; que ser: &pi;/2</p>
+      <p class="m150"><img src="formulas/7_03.gif" width="192" height="94" /></p>
+      <p class="m50">La velocidad m&aacute;xima puede alcanzarse yendo o viniendo. 
+        <br />
+        Calculamos cuando la velocidad es +x0&middot;&omega;:</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="444" height="276" border="0" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Calculamos cuando la velocidad es -x0&middot;&omega;:</p>
+      <p class="m150"><img src="formulas/7_05.gif" width="358" height="248" border="0" /> 
+      </p>
+      <p class="m50">La velocidad m&aacute;xima (M&oacute;dulo) se alcanza en 
+        los instantes:</p>
+      <p class="m50">t = 0.00125, 0.00375, 0.00625,&nbsp; 0.00875,...s</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

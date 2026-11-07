@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Aclaraci&oacute;n</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" 
+leftmargin="0" topmargin="0" 
+onload ="window.moveTo(20,20);window.resizeTo(370,370);" 
+onUnload="cerrarVentanas()">
+<table width="370" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="351"> <p class="mimimo"><b><font color="#0000FF">Onda progresiva</font></b></p>
+      <p> Su ecuaci&oacute;n es del tipo:</p>
+      <p class="m100"> &phi; = &phi;<sub>0</sub>&middot;sen (&omega;t - k x)</p>
+      <p>En estas ondas todos los puntos del medio oscilan con la misma amplitud 
+        <span onClick="abrirVentana('8.htm')"class="enlace_texto" > Ver onda</span></p>
+      <p><b><font color="#0000FF">Onda estacionaria</font></b></p>
+      <p>Su ecuaci&oacute;n es del tipo:</p>
+      <p class="m100"> &phi; = &phi;<sub>0</sub>&middot;cos (k x)&middot;sen (&omega;t)</p>
+      <p>En estas ondas la amplitud de oscilaci&oacute;n de los puntos del medio 
+        varia entre 0 y &phi;<sub>0</sub> <span onclick="abrirVentana('12.htm')"class="enlace_texto" >Ver 
+        onda</span></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

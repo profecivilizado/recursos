@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz">
+<script language="JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+var n=0
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,550)" 
+onUnload="cerrarVentanas()">
+
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p><b><font color="#0000FF">S</font><font color="#0000FF">ignos</font></b></p>
+      <p>La posici&oacute;n angular (&phi;) ser&aacute; negativa o positiva seg&uacute;n 
+        se mida en sentido horario o antihorario.<br>
+        <font color="#FF0000">Conviene medir la posici&oacute;n inicial en el 
+        sentido inicial del movi-miento</font></p>
+      <p>La velocidad angular (&omega;) ser&aacute; negativa o positiva seg&uacute;n 
+        el m&oacute;-vil gire en sentido horario o antihorario</p>
+      <p>La aceleraci&oacute;n angular (&omega;) tendr&aacute; signo igual o contrario 
+        al de la velocidad angular inicial seg&uacute;n el movimiento sea acelerado 
+        o frenado. Si no hubiera velocidad inicial se puede tomar la acele-raci&oacute;n 
+        con signo negativo o positivo (Movimiento en sentido ho-rario o antihorario)</p>
+      <p>Para ver facilmente el signo de velocidad y aceleraci&oacute;n repre-sentaremos 
+        estas magnitudes por flechas curvas (<font color="#FF0000">Que no son 
+        vectores</font>)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="11%"><div align="center"> 
+              <input type="button" name="Submit" value=" > " id="boton"
+			  onClick="switch(n)	{
+			  	case 0: imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML;n=1;break;	
+				case 1: imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto3.innerHTML;n=2;break;	
+				case 2: imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML;n=0;break;
+				}">
+            </div></td>
+          <td width="45%" id="imagen"> 
+            <div align="center"><img src="imagenes/1_4_01.png" width="166" height="152"></div></td>
+          <td width="44%" id="texto"> 
+            <div align="center"></div>
+            <p>&omega;<sub>0</sub>: + </p>
+            <p>&alpha;:&nbsp; -&nbsp;</p>
+            <p>Movimiento frenado</p>
+            <p>Sentido antihorario</p>
+            </td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td width="50%" id="imagen1"> <div align="center"><img src="imagenes/1_4_01.png" width="166" height="152"></div></td>
+          <td width="50%" id="texto1"> <div align="center"></div>
+            <p>&omega;<sub>0</sub>: + </p>
+            <p>&alpha;:&nbsp; -&nbsp;</p>
+            <p>Movimiento frenado</p>
+            <p>Sentido antihorario</p></td>
+        </tr>
+        <tr> 
+          <td id="imagen2"> <div align="center"><img src="imagenes/1_4_02.png" width="166" height="152"></div></td>
+          <td id="texto2"> <div align="center"> 
+              <p align="left">&omega;<sub>0</sub>: + </p>
+              <p align="left">&alpha;:&nbsp; +</p>
+              <p align="left">Movimiento acelerado</p>
+              <p align="left">Sentido antihorario</p>
+            </div></td>
+        </tr>
+        <tr> 
+          <td id="imagen3"> <div align="center"><img src="imagenes/1_4_03.png" width="166" height="152"></div></td>
+          <td id="texto3"> <div align="center"> 
+              <p align="left">&omega;<sub>0</sub>: - </p>
+              <p align="left">&alpha;:&nbsp; +</p>
+              <p align="left">Movimiento frenado</p>
+              <p align="left">Sentido horario</p>
+            </div></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

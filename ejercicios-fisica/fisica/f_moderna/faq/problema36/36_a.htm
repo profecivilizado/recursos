@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p>&nbsp;</p>
+      <p class="m50">Para ver el espectro del hidr&oacute;geno hay que aplicar 
+        una d.d.p elevada a un tubo que contiene gas hidr&oacute;geno a baja presi&oacute;n 
+        que son muchos millones de &aacute;tomos.</p>
+      <p class="m50">En los &aacute;tomos de hidr&oacute;geno, excitados por el 
+        campo el&eacute;ctrico, el &uacute;nico electr&oacute;n sube a un nivel 
+        m&aacute;s alto para caer despu&eacute;s emitiendo un fot&oacute;n (L&iacute;nea 
+        espectral).</p>
+      <p class="m50"> Ahora viene el truco: los electrones no suben todos al mismo 
+        nivel unos suben m&aacute;s y otros menos y los fotones que emiten al 
+        volver al nivel de partida tienen diferente energ&iacute;a (Distinta l&iacute;nea 
+        espectral)&nbsp; Cuantos m&aacute;s electrones hayan subido a un determinado 
+        nivel, m&aacute;s brillante ser&aacute; la l&iacute;nea espectral correspondiente</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

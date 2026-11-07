@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function conmutar(n) {
+	switch(n) {
+		case 1: texto.innerHTML=texto0.innerHTML;break;
+		case -1: texto.innerHTML=texto1.innerHTML;break;
+		}
+	}
+var q=-1, v = -1 
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload="self.resizeTo(480,630)">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="431"> 
+      <p><b><font color="#0000FF">Fuerzas entre cargas-corrientes</font></b></p>
+      <p>Entre dos cargas m&oacute;viles, entre dos corrientes o entre una carga 
+        m&oacute;vil y una corriente se producen fuerzas mutuas a distancia que 
+        ser&aacute;n iguales y opuestas (Acci&oacute;n y reacci&oacute;n)</p>
+      <p><b><font color="#0000FF">Fuerza que hace el elemento 1 sobre el elemento 
+        2 (F<sub>21</sub>)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="top"> 
+          <td width="15%"> 
+            <p>Parte 1</p></td>
+          <td width="85%"> 
+            <p>Se calcula el campo magn&eacute;tico (B<sub>1</sub>) 
+              que crea el elemento 1 en la posici&oacute;n del elemento 2 </p></td>
+        </tr>
+        <tr valign="top"> 
+          <td> 
+            <p>Parte 2</p></td>
+          <td> 
+            <p>Se calcula la fuerza que sufre el elemento 2 (F<sub>21</sub>) 
+              por estar sometido al campo B<sub>1</sub></p></td>
+        </tr>
+      </table>
+      <p><b><font color="#0000FF">Fuerza que hace el elemento 2 sobre el elemento 
+        1 (F<sub>12</sub>)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="top"> 
+          <td width="15%"> <p>Parte 1</p></td>
+          <td width="85%"> <p>Se calcula el campo magn&eacute;tico (B<sub>2</sub>) 
+              que crea el elemento 2 en la posici&oacute;n del elemento 1</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td> <p>Parte 2</p></td>
+          <td> <p>Se calcula la fuerza que sufre el elemento 1 (F<sub>12</sub>) 
+              por estar sometido al campo B<sub>2</sub></p></td>
+        </tr>
+      </table>
+      <p><b><font color="#0000FF">Regla para cargas que van en direcciones paralelas</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td><p>Signo de las cargas</p></td>
+          <td><p>Sentido de las velocidades</p></td>
+        </tr>
+        <tr> 
+          <td><form action="" method="post" name="form1" class="formulario" id="form1">
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="q=-1;conmutar(q * v)"    />
+              Igual&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onClick="q=1;conmutar(q * v)"/>
+              Distinto </form></td>
+          <td><form action="" method="post" name="form2" class="formulario" id="form2">
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="v=-1;conmutar(q * v)"/>
+              Igual&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onClick="v=1;conmutar(q * v)"/>
+              Distinto </form></td>
+        </tr>
+        <tr> 
+          <td colspan="2"><p align="center"><span id="texto">Las cargas se atraen</span></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><p align="center"><span id="texto0">Las cargas se atraen</span></p></td>
+        </tr>
+        <tr>
+          <td><p align="center"><span id="texto1">Las cargas se repelen</span></p></td>
+        </tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

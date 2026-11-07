@@ -1,0 +1,477 @@
+{
+ "_ayuda": [
+  "Menú de la colección «Física», ordenado como el temario de 2º de Bachillerato.",
+  "Cada tema tiene un título y una lista de apartados. Cada apartado: grupo (cabecera roja), t (texto), u (ruta de su página) y, si se abre en ventana, \"ventana\": true.",
+  "Un mismo apartado puede aparecer en dos temas. Después de editar este archivo ejecuta: python3 _herramientas/actualizar_indice.py"
+ ],
+ "coleccion": "Física (2º Bachillerato)",
+ "temas": [
+  {
+   "n": "Tema 1. Interacción gravitatoria",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/gravitatorio/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "General",
+     "u": "fisica/gravitatorio/general/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Órbitas de planetas y satélites",
+     "u": "fisica/gravitatorio/orbitas/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/gravitatorio/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/gravitatorio/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/gravitatorio/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 2. Campo gravitatorio",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/gravitatorio/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Campo de masas puntuales",
+     "u": "fisica/gravitatorio/campo/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Campo gravitatorio de planetas",
+     "u": "fisica/gravitatorio/planetas/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Trabajo, d.d.p., potencial",
+     "u": "fisica/gravitatorio/trabajo/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/gravitatorio/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/gravitatorio/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/gravitatorio/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 3. Campo eléctrico",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/electrico/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "General",
+     "u": "fisica/electrico/general/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Campo eléctrico",
+     "u": "fisica/electrico/campo/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Trabajo, d.d.p., potencial",
+     "u": "fisica/electrico/trabajo/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/electrico/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/electrico/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/electrico/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 4. Campo magnético",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/magnetico/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Campos creados por cargas y corrientes",
+     "u": "fisica/magnetico/campo/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Fuerza sobre cargas",
+     "u": "fisica/magnetico/lorentz/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Fuerza sobre cables y espiras",
+     "u": "fisica/magnetico/fuerzas/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Fuerzas entre cargas y corrientes",
+     "u": "fisica/magnetico/f_mutuas/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Ley de Ampère, solenoides e imanes",
+     "u": "fisica/magnetico/ampere/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/magnetico/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/magnetico/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/magnetico/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 5. Inducción electromagnética",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/magnetico/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Inducción magnética",
+     "u": "fisica/magnetico/induccion/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/magnetico/faq/0i.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/magnetico/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/magnetico/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 6. Movimientos vibratorios",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/vibraciones/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Aplicar las ecuaciones",
+     "u": "fisica/vibraciones/armonico1/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Obtener las ecuaciones",
+     "u": "fisica/vibraciones/armonico2/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Energía del movimiento armónico",
+     "u": "fisica/vibraciones/energia/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/vibraciones/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/vibraciones/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/vibraciones/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 7. Movimiento ondulatorio",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/ondas/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "General",
+     "u": "fisica/ondas/general/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Ecuaciones de onda",
+     "u": "fisica/ondas/planteo/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Energía de las ondas",
+     "u": "fisica/ondas/energia/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Interferencias",
+     "u": "fisica/ondas/interferencias/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/ondas/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/ondas/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/ondas/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 8. Ondas electromagnéticas. La luz",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/optica/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Refracción. Dioptrio plano",
+     "u": "fisica/optica/snell/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Láminas. Prismas",
+     "u": "fisica/optica/prismas/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/optica/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/optica/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/optica/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 9. Óptica geométrica",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/optica/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Espejos",
+     "u": "fisica/optica/espejos/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Dioptrio esférico. Lentes delgadas",
+     "u": "fisica/optica/lentes/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/optica/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/optica/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/optica/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 10. Física relativista",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/relatividad/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Longitud y tiempo",
+     "u": "fisica/relatividad/relatividad1/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Masa y energía",
+     "u": "fisica/relatividad/relatividad2/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/relatividad/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/relatividad/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/relatividad/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 11. Física cuántica",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/cuantica/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Fotones",
+     "u": "fisica/cuantica/cuantica1/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Dualidad",
+     "u": "fisica/cuantica/cuantica2/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/cuantica/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/cuantica/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/cuantica/buscar2/0.htm"
+    }
+   ]
+  },
+  {
+   "n": "Tema 12. Física nuclear",
+   "items": [
+    {
+     "grupo": "",
+     "t": "Ayudas",
+     "u": "fisica/nuclear/buscarAyudas/0.htm",
+     "ventana": true
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Reacciones nucleares",
+     "u": "fisica/nuclear/nuclear1/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Desintegraciones radiactivas",
+     "u": "fisica/nuclear/nuclear2/0.htm"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Preguntas malvadas",
+     "u": "fisica/nuclear/faq/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en el curso",
+     "u": "fisica/nuclear/buscar/0.htm"
+    },
+    {
+     "grupo": "Problemas sueltos",
+     "t": "Propuestos en la prueba de acceso",
+     "u": "fisica/nuclear/buscar2/0.htm"
+    }
+   ]
+  }
+ ]
+}

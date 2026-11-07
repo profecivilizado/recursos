@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/7.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50"><strong><font color="#0000FF">c)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="9%">&nbsp;</td>
+          <td width="13%"><p>&nbsp;</p></td>
+          <td width="14%"><p>P<sub>1</sub> = 3 at</p></td>
+          <td width="64%"><p>P<sub>3</sub> = 2 at</p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><p>n = 1 mol</p></td>
+          <td><p>V<sub>1</sub> = 1 l</p></td>
+          <td><p>V<sub>3</sub> = 3 l</p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><p>&nbsp;</p></td>
+          <td><p>T<sub>1</sub></p></td>
+          <td><p>T<sub>3</sub></p></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="27%"><div align="center"><img src="imagenes/7_09.png" name="imagen1" width="153" height="155" id="imagen1" /></div></td>
+          <td width="73%" > <p class="m50"><img src="formulas/7_09.gif" width="364" height="92" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+            <p>No se sabe si el gas es mono o diat&oacute;mico, por tanto se desconoce 
+              el calor molar y no se puede calcular directamente el calor intercambiado: 
+              Q<sub>13</sub> </p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicando el primer principio de la Termodin&aacute;mica:</p>
+      <p class="m150"><img src="formulas/7_11.gif" width="284" height="54" /></p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="42,4,194,42" title="Clic para aclaración" onClick="abrirVentana('mensajes/2.htm')"/>
+  <area shape="rect" coords="254,65,305,84" title="Clic para aclaración" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+</map>
+</body>
+</html>

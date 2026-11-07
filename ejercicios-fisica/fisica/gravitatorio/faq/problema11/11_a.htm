@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Las l&iacute;neas de fuerza nunca se pueden cortar</p>
+      <p class="m50"> La direcci&oacute;n del campo en un punto es tangente a 
+        la l&iacute;nea de fuerza que pasa por &eacute;l. <br />
+        Si por un punto pasaran dos l&iacute;neas de fuerza habr&iacute;a dos 
+        tangentes y entonces no se podr&iacute;a saber cual es la direcci&oacute;n 
+        del campo.</p>
+      <p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50">Las equipotenciales nunca pueden cortarse</p>
+      <p class="m50"> Una equipotencial es el conjunto de los puntos donde el 
+        potencial vale lo mismo. Si por un punto pasaran dos equipotenciales habr&iacute;a 
+        dos valores para el potencial del punto lo cual es absurdo</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+      <p class="m50"><strong><font color="#0000FF">1&ordf; parte</font></strong></p>
+      <p class="m50">Velocidad de la bola B<sub>1</sub> cuando llega a la posici&oacute;n 
+        de la bola B<sub>2</sub>:</p>
+      <p class="m150"><img src="formulas/9_05.gif" width="148" height="26" border="0" class="enlace_imagen" onclick="_pctop.apartado='9_a.htm';cambiar('','9_z.htm')"/> 
+      </p>
+      <p class="m50">Datos:&nbsp;L = 1 m,&nbsp;&phi; = 60&ordm;</p>
+      <p class="m50"><strong><font color="#0000FF">2&ordf; parte</font></strong></p>
+      <p class="m50">Velocidades de las bolas B<sub>1</sub>, B<sub>2</sub> despu&eacute;s 
+        del choque</p>
+      <p class="m150"><img src="formulas/9_11.gif" width="378" height="86" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Sustituyendo valores resulta:</p>
+      <p class="m150"><img src="formulas/9_12.gif" width="361" height="78" /></p>
+      <p class="m50">Observa que la velocidad de la bola B<sub>1</sub> tras el 
+        choque es negativa: ha rebotado</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,173,40" title="Clic para aclaración" onclick="_pctop.apartado='9_a.htm';cambiar('','9_w.htm')" />
+</map>
+</body>
+</html>

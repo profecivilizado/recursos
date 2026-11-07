@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../ayuda/2.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">C)</font></b></p>
+      <p class="m50"> Cuando hay una distribuci&oacute;n de cables, el campo en 
+        un punto es la suma vectorial de los campos creados en &eacute;l por cada 
+        cable (Principio de superposici&oacute;n)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="11%" rowspan="3"> <form action="" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('formula',1,0,2,0,3,0)"/>
+                Rest </p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton"  
+		  		onclick="imagen.innerHTML=imagen11.innerHTML;formula1.innerHTML=formula11.innerHTML;formula2.innerHTML=formula21.innerHTML;formula3.innerHTML=formula31.innerHTML;mostrarObjetos('formula',1,2,2,0,3,0);mostrarObjetos('form1.boton',1,2);cable=1;n=0" />
+                I<sub>1</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton"  
+		  		onclick="imagen.innerHTML=imagen21.innerHTML;formula1.innerHTML=formula12.innerHTML;formula2.innerHTML=formula22.innerHTML;formula3.innerHTML=formula32.innerHTML;mostrarObjetos('formula',1,2,2,0,3,0);mostrarObjetos('form1.boton',1,2);cable=2;n=0" />
+                I<sub>2</sub> </p>
+              <p align="center"> 
+                <input name="boton1" type="button" id="boton1" value=" &gt; " style="visibility:hidden"
+					onClick="switch(n)	{
+						case 0: eval('imagen.innerHTML=imagen'+cable+'2.innerHTML');mostrarObjetos('formula',2,2);n=n+1;break;
+						case 1: eval('imagen.innerHTML=imagen'+cable+'3.innerHTML');mostrarObjetos('formula',3,2);n=n+1;break;
+						case 2: eval('imagen.innerHTML=imagen'+cable+'1.innerHTML');mostrarObjetos('formula',2,0,3,0);n=0;break;
+					}"/>
+              </p>
+            </form></td>
+          <td width="29%" height="100" rowspan="2" valign="middle" id="imagen"> 
+            <div align="center"> 
+              <p></a><img src="imagenes/3_21.png" width="190" height="97" /></p>
+            </div></td>
+          <td width="60%" height="40" id="formula1" style="visibility:hidden"> 
+            <div align="center">&nbsp;</div></td></tr>
+        <tr> 
+          <td height="80" id="formula2" style="visibility:hidden"> 
+            <div align="center">&nbsp;</div></td></tr>
+        <tr>
+          <td width="29%" valign="middle"><div align="center"><img src="../../mensajes/imagenes/0.png" width="46" height="54" /></div></td>
+          <td width="60%" height="100" id="formula3" style="visibility:hidden"> 
+            <div align="center">&nbsp;</div></td></tr>
+      </table>
+      <hr /> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="36%"> <div align="center">
+              <p><img src="imagenes/3_28.png" width="190" height="97" /></p>
+            </div></td>
+          <td width="64%"><p class="m50"><img src="formulas/3_21.gif" width="256" height="106" /></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="35%" valign="middle" id="imagen0"> 
+                  <div align="center"><img src="imagenes/3_21.png" width="190" height="97" border="0" /></div></td>
+                <td width="32%" id="imagen11"> 
+                  <div align="center"><img src="imagenes/3_22.png" width="190" height="97" /></div></td>
+                <td width="33%" id="imagen12"> 
+                  <div align="center"><img src="imagenes/3_23.png" width="190" height="97" /></div></td></tr>
+              <tr>
+                <td id="imagen13"> 
+                  <div align="center"><img src="imagenes/3_24.png" width="190" height="97" /></div></td>
+                <td id="imagen21"> 
+                  <div align="center"><img src="imagenes/3_25.png" width="190" height="97" /></div></td>
+                <td id="imagen22"> 
+                  <div align="center"><img src="imagenes/3_26.png" width="190" height="97" /></div></td></tr>
+              <tr>
+                <td id="imagen23"> 
+                  <div align="center"><img src="imagenes/3_27.png" width="190" height="97" /></div></td><td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="51%" id="formula11"> <div align="center"><img src="formulas/3_01.gif" width="208" height="22" /></div></td>
+                <td width="49%" id="formula21"> <div align="center"><img src="formulas/3_16.gif" width="364" height="60" /></div></td>
+              </tr>
+              <tr> 
+                <td id="formula31"> <div align="center"><img src="formulas/3_17.gif" width="322" height="81" /></div></td>
+                <td id="formula12"> <div align="center"><img src="formulas/3_01.gif" width="208" height="22" /></div></td>
+              </tr>
+              <tr> 
+                <td colspan="2" id="formula22"> <div align="center"><img src="formulas/3_19.gif" width="353" height="62" /></div>
+                  <div align="center"></div></td>
+              </tr>
+              <tr> 
+                <td colspan="2" id="formula32"> <div align="center"><img src="formulas/3_20.gif" width="316" height="81" /></div></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><font color="#FF0000">Aunque el enunciado no lo diga se 
+        sobreentiende que piden la diferencia de fase espacial</font> </p>
+      <p class="m50">Ecuaci&oacute;n de la onda:</p>
+      <p class="m150"> &phi; = &phi;<sub>0</sub> sen(&omega;t - kx)</p>
+      <p class="m50">Calculamos la <span class="enlace_texto" onclick="abrirVentana('../../general/ayuda/2_2.htm',1)">fase 
+        espacia</span>l, en el instante t<sub>1</sub>, en las posiciones x<sub>1</sub> 
+        y x<sub>2</sub> (x<sub>2</sub> = x<sub>1</sub> + 150)</p>
+      <p class="m150"><img src="formulas/15_02.gif" width="470" height="110" /></p>
+      <p class="m50">Observa que hemos restado a la primera ecuaci&oacute;n la 
+        segunda para que la diferencia de posiciones sea positiva y resulte una 
+        diferencia de fase positiva.</p>
+      <p class="m50">10&pi; rad equivale a 0 rad: no hay defase entre los puntos, 
+        est&aacute;n en la misma posici&oacute;n movi&eacute;ndose de la misma 
+        manera</p>
+      <p class="m50"> <font color="#FF0000"> </font>Otra forma de hacerlo:</p>
+      <p class="m50">La longitud de onda es 30 cm lo que significa que en esta 
+        distancia la fase cambia en 2&middot;&pi; rad<br />
+        Luego en 150 cm la fase cambiar&aacute; en x. Regla de tres (Con perd&oacute;n) 
+        que da: 10&pi; rad</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/12.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td><div align="center"><img src="../mensajes/imagenes/1_02.png" width="103" height="145" /></div></td>
+          <td valign="middle"> <p>La bola gira en un plano horizontal por tanto 
+              el eje normal es horizontal</p>
+            <p> El segundo eje es perpendicular al anterior y est&aacute; en el 
+              plano de la pantalla. Observa que este eje no es el eje del movimiento 
+              (Tangencial) porque la bola se mueve en direcci&oacute;n perpendicular 
+              a la pantalla</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="23%"><div align="center"><img src="imagenes/6_01.png" width="132" height="116" /></div></td>
+          <td width="77%"><p class="peque&ntilde;o"><font color="#FF0000">Las 
+              l&iacute;neas del mismo color son paralelas y por tanto delimitan 
+              &aacute;ngulos iguales</font></p></td>
+        </tr>
+        <tr> 
+          <td colspan="2">&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="132" > <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=' ';mostrarObjetos('celda',1,0)"/>
+                Fuerzas </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML;mostrarObjetos('celda',1,2)"/>
+                Aplicaci&oacute;n </p>
+            </form></td>
+          <td width="172" id="imagen"> <div align="center"><img src="imagenes/6_02.png" width="156" height="135" /></div></td>
+          <td width="386" id="formula">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td colspan="3" id="celda1" style="visibility:hidden"> 
+            <p class="m150"><img src="formulas/6_02.gif" width="470" height="153" /></p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="24%" id="imagen1"><div align="center"><img src="imagenes/6_02.png" width="156" height="135" /></div></td>
+          <td width="25%" id="imagen2"><div align="center"><img src="imagenes/6_03.png" width="156" height="135" /></div></td>
+          <td width="51%" id="formula2"><img src="formulas/6_01.gif" title="Clic para ver el desarrollo" width="376" height="57" border="0" usemap="#Map" style="cursor:pointer"/> 
+            <map name="Map" id="Map">
+              <area shape="rect" coords="280,31,365,54" title="Clic para aclaración" onclick="abrirVentana('mensajes/1.htm')" />
+            </map> </td>
+        </tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

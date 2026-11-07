@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="13%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                Inicial </p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                Final </p>
+            </form></td>
+          <td width="26%" id="imagen"><div align="center"><img src="imagenes/7_01.png" width="164" height="165" /></div></td>
+          <td width="61%" id="texto"> 
+            <p class="m50">P<sub>1</sub>&middot;V<sub>1</sub> = 
+              n&middot;R&middot;T<sub>1</sub></p>
+            </td></tr>
+      </table>
+      <hr />
+      <p class="m50">Combinando las dos expresiones obtenidas resulta un sistema 
+        con dos inc&oacute;gnitas: n, T<sub>2</sub></p>
+      <p class="m150"><img src="formulas/7_03.gif" width="320" height="60" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="341" height="46" border="0" /></p>
+      <p class="m50">Habr&iacute;a que calentar el recipiente hasta 335 &ordm;C</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%" id="imagen1" style="visibility:hidden"><div align="center"><img src="imagenes/7_01.png" width="164" height="165" /></div></td>
+          <td width="71%" id="texto1" style="visibility:hidden"> <p class="m50">P<sub>1</sub>&middot;V<sub>1</sub> 
+              = n&middot;R&middot;T<sub>1</sub></p></td>
+        </tr>
+        <tr> 
+          <td id="imagen2" style="visibility:hidden"><div align="center"><img src="imagenes/7_02.png" width="164" height="165" /></div></td>
+          <td id="texto2" style="visibility:hidden"> <p class="m50">P<sub>1</sub>&middot;V<sub>1</sub> 
+              = (n - &Delta;n)&middot;R&middot;T<sub>2</sub></p>
+            <p class="peque&ntilde;o">Se han escapado &Delta;n moles y se ha aumentado 
+              la temperatura a T2 para mantener la presi&oacute;n inicial P1</p></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="167,4,317,53" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/7_1.htm')"/>
+</map>
+</body>
+</html>

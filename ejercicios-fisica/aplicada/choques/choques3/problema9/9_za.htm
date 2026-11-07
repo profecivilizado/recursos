@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="20%" rowspan="2"><div align="center">
+              <form action="" method="post" name="form1" class="formulario" id="form1">
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML;mostrarObjetos('celda',1,0)"  />
+                  Restaurar</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML;mostrarObjetos('celda',1,2)" />
+                  Inicial</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML;mostrarObjetos('celda',1,2)" />
+                  Final </p>
+                </form>
+            </div></td>
+          <td width="26%" rowspan="2" id="imagen"> 
+            <div align="center"><img src="imagenes/9_01.png" width="137" height="167" /></div></td>
+          <td width="54%" height="129" id="formula" > <p align="center">&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td id="celda1" style="visibility:hidden"><p class="peque&ntilde;o"><font color="#FF0000">La 
+              altura no se sabe pero no importa porque lo que cuenta es el cambio 
+              de altura</font></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td > <hr /> 
+            <p class="m150"><img src="formulas/9_03.gif" width="304" height="70" border="0" usemap="#Map" style="cursor:pointer" /></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td colspan="2">
+<p class="m50">Calculo del trabajo</p>
+            </td>
+        </tr>
+        <tr> 
+          <td width="27%"> <div align="center"> 
+              <p><img src="imagenes/9_05.png" width="106" height="99" /></p>
+            </div></td>
+          <td width="73%"> <p> <i><b>T</b></i><sub>peso</sub> = No se cuenta, 
+              ya est&aacute; incluido en la variaci&oacute;n de energ&iacute;a 
+              potencial</p>
+            <p> <i><b>T</b></i><sub>T</sub> = 0 (La tensi&oacute;n es perpendicular 
+              al desplazamiento)</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/9_04.gif" width="208" height="98" border="0" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/9_01.png" width="137" height="167" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/9_02.png" width="137" height="167" /></div></td>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/9_03.png" width="137" height="167" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr>
+                <td width="33%" id="formula0">&nbsp;</td>
+                <td width="35%" id="formula1"> 
+                  <div align="center"><img src="formulas/9_01.gif" width="50" height="54" /></div></td>
+                <td width="32%" id="formula2"> 
+                  <div align="center"><img src="formulas/9_02.gif" width="54" height="54" /></div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>
+  <map name="Map" id="Map">
+    <area shape="rect" coords="203,46,303,68" title="Clic para aclaraci&oacute;n" onClick="abrirVentana('mensajes/1.htm')" />
+  </map>
+ </p>
+</body>
+</html>

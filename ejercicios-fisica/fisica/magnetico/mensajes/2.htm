@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>L&iacute;neas de fuerza</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+
+var texto1="Para que un sacacorchos, perpendicular a la pantalla, venga hacia nosotros, como hace la corriente, "
+texto1 +="habr&aacute; que girarlo en sentido contrario al de las agujas del reloj",
+texto2="Para que un sacacorchos, perpendicular a la pantalla, se aleje de nosotros, como hace la corriente, "
+texto2 +="habr&aacute; que girarlo en el sentido de las agujas del reloj"
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload ="self.moveTo(20,20);self.resizeTo(380,500);MM_preloadImages('imagenes/2_01.png','imagenes/2_02.png')" >
+<table width="350" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td bordercolor="#FFFFFF" valign="middle"> <p class="mimimo" align="left"><span class="t1"><b><font color="#0000FF">Lineas 
+        de fuerza</font></b></span></p>
+      <p class="mimimo" align="left"> Las l&iacute;neas de fuerza del campo creado 
+        por un conductor est&aacute;n en un plano perpendicular a este y le rodean 
+        (En el caso de un conductor rectil&iacute;neo son circunferencias)</p>
+      <p class="mimimo" align="left"> El sentido de la l&iacute;nea viene dado 
+        por la regla del sacacorchos: Un sacacorchos, perpendicular al plano de 
+        la l&iacute;nea, que gire en el sentido de esta avanzar&aacute; en la 
+        direcci&oacute;n de la corriente</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="MM_swapImage('imagen1','','imagenes/2_01.png',1);mensaje.innerHTML=texto1"/>
+                Un caso&nbsp;</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','imagenes/2_02.png',1);mensaje.innerHTML=texto2"/>
+                Otro caso</p>
+            </form></td>
+          <td><div align="center"><img src="imagenes/2_01.png" name="imagen1" width="166" height="155" id="imagen1" /></div></td>
+        </tr>
+      </table>
+      <p class="mimimo" align="left"><span id="mensaje">Para que un sacacorchos, 
+        perpendicular a la pantalla, venga hacia nosotros, como hace la corriente, 
+        habr&aacute; que girarlo en sentido contrario al de las agujas del reloj</span></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>
