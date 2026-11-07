@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellpadding="10" cellspacing="0" class="borde2">
+  <tr>
+    <td><p class="m50">Tensi&oacute;n compleja: V* = (V<sub>0</sub>)<sub>&omega;t</sub>&nbsp;&nbsp; 
+        (V<sub>0</sub> = 220 V)</p>
+      <p class="m50">Intensidad compleja: I* = (I<sub>0</sub>)<sub>&omega;t - 
+        &pi;/6</sub></p>
+      <p class="m50">Impedancia:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="47%"><p class="m100"><img src="formulas/6_01.gif" width="193" height="49" /></p></td>
+          <td width="26%"><div align="center"><img src="imagenes/6_02.png" width="93" height="93" /></div></td>
+          <td width="27%"><img src="formulas/6_02.gif" width="62" height="37" /></td>
+        </tr>
+      </table>
+      <p class="m50">Quitando la resistencia la impedancia pasa a ser:</p>
+      <p class="m150"><img src="formulas/6_03.gif" width="285" height="89" /></p>
+      <p class="m50">I<sub>2</sub> es la intensidad m&aacute;xima de una corriente 
+        cuya intensidad eficaz es 0,5 A </p>
+      <p class="m150"><img src="formulas/6_04.gif" width="101" height="24" /></p>
+      <p class="m50">Resulta as&iacute; un sistema de ecuaciones de inc&oacute;gnitas: 
+        X, R</p>
+      <p class="m150"><img src="formulas/6_05.gif" width="262" height="204" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

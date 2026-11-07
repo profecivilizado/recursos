@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="6%">&nbsp;</td>
+          <td width="72%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              En el instante inicial el observador est&aacute;: 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="parent.frames[0].modo='1.htm';cambiar('','2_c'+parent.frames[0].modo)"/>
+              Junto al m&oacute;vil&nbsp; 
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" />
+              100 m detr&aacute;s </form></td>
+          <td width="22%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><b><font color="#0000FF">c)</font></b>&nbsp;</p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="32%"> <p align="center"><img src="imagenes/2_05.png" width="206" height="45" /></p></td>
+          <td width="23%" valign="middle"> <div align="right"> 
+              <p><img src="formulas/2_08.gif" width="160" height="73" /></p>
+            </div></td>
+          <td width="45%"> <p>Par&aacute;metros:</p>
+            <p class="m50"> v<sub>0</sub> = 36 km/h = 10 m/s</p>
+            <p class="m50"> x<sub>0</sub> = 100 m, a = 2 m/s<sup><sup>2</sup></sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Si el coche ha recorrido 50 m, estar&aacute; 150 m a la derecha 
+        del observador</p>
+      <p class="m50">Datos: x<sub>3</sub> = 150 m, &nbsp;Inc&oacute;gnita: v<sub>3</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="32%" rowspan="2"> <p align="center"><img src="imagenes/2_04.png" width="193" height="56" /></p></td>
+          <td width="68%" rowspan="2"> <p class="m50"><img src="formulas/2_13.gif" width="374" height="73" border="0" usemap="#Map1" style="cursor:pointer"/> 
+              <map name="Map1" id="Map1">
+                <area shape="rect" coords="193,21,371,50" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/3b.htm')" />
+              </map>
+            </p></td>
+        </tr>
+        <tr> </tr>
+      </table>
+      <p class="m150"><img src="formulas/2_14.gif" width="353" height="100" border="0" usemap="#Map2" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Se toma la soluci&oacute;n positiva porque el coche ir&aacute; 
+        hacia la derecha </p>
+      <map name="Map2" id="Map2">
+        <area shape="rect" coords="288,10,351,45"  title="Clic para ver unidades" onclick="abrirVentana('../../unidades/42.htm')" />
+      </map></td>
+  </tr>
+</table>
+</body>
+</html>

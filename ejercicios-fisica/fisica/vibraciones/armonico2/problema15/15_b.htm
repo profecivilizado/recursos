@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b> </p>
+      <p class="m50">Ecuaci&oacute;n del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%"> 
+            <div align="right"><img src="formulas/15_03.gif" width="113" height="25" /></div></td>
+          <td width="67%"><p class="m50">Par&aacute;metros:</p>
+            <p class="m50">A =4 m,&nbsp; &omega; = 4 rad/s</p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Para saber cuanto tarda en ir de x<sub>1</sub> = 2 m a x<sub>2</sub> 
+        = 4 m hay que calcular cuando est&aacute; en cada una de las posiciones 
+        por primera vez y restar los tiempos</p>
+      <p class="m50">Aplicaci&oacute;n</p>
+      <p class="m50">Datos: x<sub>1</sub> = 2 m, Inc&oacute;gnita t<sub>1</sub></p>
+      <p class="m150"><img src="formulas/15_04.gif" width="496" height="217" border="0" usemap="#Map" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Pasa por x<sub>1</sub> = 2 m, por primera vez, en el instante: 
+        t<sub>1</sub> = 0.0632 s</p>
+      <p class="m50">Aplicaci&oacute;n </p>
+      <p class="m50">Datos: x<sub>2</sub> = A, Inc&oacute;gnita t<sub>2</sub></p>
+      <p class="m150"><img src="formulas/15_05.gif" width="478" height="212" border="0" usemap="#Map2" style="cursor:pointer" /> 
+      </p>
+      <p class="m50">Pasa por x<sub>2</sub> = 4 m, por primera vez, en el instante: 
+        t<sub>2</sub> = 0.167 s</p>
+      <p class="m50">Tiempo invertido en el recorrido parcial: &Delta;t = (0.167 
+        - 0.0632) s = 0,104 s</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="340,42,490,100" title="Clic para aclaración" onClick="abrirVentana('../../ayuda/trigonometria/1.htm',1)" />
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="334,40,476,98" title="Clic para aclaración" onClick="abrirVentana('../../ayuda/trigonometria/1.htm',1)" />
+</map>
+</body>
+</html>

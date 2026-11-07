@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+   
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.moveTo(20,20);self.resizeTo(440,520)"
+onUnload="cerrarVentanas()">
+<table width="400" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="380"> <p><b><font color="#0000FF">Faltan par&aacute;metros</font></b></p>
+      <p>Puede ocurrir que en un problema no den la velocidad inicial o la aceleraci&oacute;n 
+        o ninguno de ellos</p>
+      <p><b><font color="#FF0000"> M&eacute;todo</font></b></p>
+      <p>Se plantean las <span onclick="abrirVentana('../../ayuda/1.htm',1)" class="enlace_texto">ecuaciones 
+        del movimiento</span> dejando como inc&oacute;gnita los par&aacute;metros. 
+        Si se desconoce el signo de alg&uacute;n par&aacute;metro habr&aacute; 
+        que presuponerlo.</p>
+      <p>El problema dar&aacute; una o m&aacute;s situaciones donde se conocer&aacute;n 
+        los valores de las variables. Se aplican las ecuaciones del movimiento 
+        a estas situaciones y se despejan los par&aacute;metros.</p>
+      <p>Si se obtuviera un valor negativo del par&aacute;metro significar&iacute;a 
+        que la direcci&oacute;n de este es contraria a la supuesta pero su m&oacute;dulo 
+        es el mismo</p>
+      <p><strong><font color="#FF0000">Aviso</font></strong></p>
+      <p>Hay problemas realmente malvados donde no dan los par&aacute;metros ni 
+        los piden. Aunque no pidan los par&aacute;metros el primer paso del problema 
+        es determinarlos usando para ello una situaci&oacute;n que dar&aacute; 
+        el problema de la que no se pide nada.</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

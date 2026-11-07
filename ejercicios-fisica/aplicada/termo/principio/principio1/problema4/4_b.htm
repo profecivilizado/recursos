@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../ayuda/7.htm');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="9%">&nbsp;</td>
+          <td width="13%"><p>&nbsp;</p></td>
+          <td width="14%"><p>P<sub>1</sub> = 2 at</p></td>
+          <td width="64%"><p>P<sub>2</sub> </p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><p>n = 5 mol</p></td>
+          <td><p>V<sub>1</sub> </p></td>
+          <td><p>V<sub>2</sub> </p></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td><p>&nbsp;</p></td>
+          <td><p>T<sub>1</sub> = 200 K</p></td>
+          <td><p>T<sub>2</sub> = 300 K</p></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="33%" height="191" valign="middle"><img src="imagenes/4_02.png" name="imagen1" width="214" height="181" id="imagen1" /></td>
+          <td width="67%"> <p class="m50">En un gas monoat&oacute;mico: c<sub>p</sub> 
+              = 5&middot;R / 2</p>
+            <p class="m50"><img src="formulas/4_04.gif" width="373" height="161" border="0" usemap="#Map" style="cursor:pointer"/></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/4_06.gif" width="348" height="161" border="0" usemap="#Map4" style="cursor:pointer"/></p>
+      <p class="m50">El gas ha tomado 10350 J de calor del entorno y ha hecho 
+        un trabajo de 4140 J sobre el entorno, el resto, 6210 J, lo ha almacenado 
+        como energ&iacute;a interna</p>
+      <p class="m50">La variaci&oacute;n de energ&iacute;a interna es la misma 
+        que en el apartado anterior porque hay el mismo cambio de temperatura</p>
+      </td>
+  </tr>
+</table>
+<map name="Map4" id="Map4">
+  <area shape="rect" coords="114,4,191,159" title="Clic para aclaraci&oacute;n" onClick="abrirVentana('../../../unidades/equivalentes/4.htm')" />
+</map>
+<map name="Map" id="Map">
+  <area shape="rect" coords="253,123,370,158" title="Clic para aclaraci&oacute;n" onClick="abrirVentana('desarrollos/4_1.htm')"/>
+</map>
+</body>
+</html>

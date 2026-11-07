@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css"  rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,0);self.resizeTo(410,260)"
+onUnload="cerrarVentanas()">
+<table width="373" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="353" height="214"> 
+      <p align="left"><strong><font color="#FF0000">S</font><font color="#FF0000">entido 
+        de la aceleraci&oacute;n</font></strong></p>
+      <p align="left">Se consideran las fuerzas &uacute;tiles que act&uacute;an 
+        sobre cada bloque (Las que act&uacute;an en la direcci&oacute;n en que 
+        el bloque puede moverse). Las fuerzas de rozamiento y las internas no 
+        cuentan como &uacute;tiles</p>
+      <p align="left">Se aplican en el c.d.m del sistema las fuerzas &uacute;tiles 
+        que act&uacute;an sobre los bloques. La resultante de estas fuerzas &uacute;tiles 
+        determina la aceleraci&oacute;n del c.d.m. Los bloques tendr&aacute;n 
+        la misma aceleraci&oacute;n que este</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

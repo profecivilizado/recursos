@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <p align="right">Masa primer miembro:&nbsp;</p></td>
+          <td width="24%"> <p align="right">7.01433 u + 1.00728 u&nbsp;&nbsp;</p></td>
+          <td width="39%"> <p align="left">=&nbsp;8.02161&nbsp;&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="37%"> <p align="right">Masa segundo miembro: </p></td>
+          <td width="24%"> <p align="right">2&middot;4.00151 u&nbsp;&nbsp;</p></td>
+          <td width="39%"> <p align="left">=&nbsp;&nbsp;8.00302&nbsp;&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="37%">&nbsp;</td>
+          <td width="24%"> <p align="right">Diferencia:&nbsp;</p></td>
+          <td width="39%"> <p align="left">=&nbsp;0.01859&nbsp;u</p></td>
+        </tr>
+      </table>
+      <p class="m50">El segundo miembro tiene 0.01859 u menos de masa que el primer 
+        miembro</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="if(parent.name==1){_pctop.document.title='Demostración'}else{nuevoTitulo('','ayuda/1.htm')};
+MM_preloadImages('formulas/7_01.gif','formulas/7_02.gif','formulas/7_03.gif','formulas/7_04.gif')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p class="m50">En el ciclo de Carnot el gas de trabajo realiza una expansi&oacute;n 
+        isoterma (AB), una expansi&oacute;n adiab&aacute;tica (BC), una compresi&oacute;n 
+        isoterma (CD) y una compresi&oacute;n adiab&aacute;tica.</p>
+      <p class="m50"><font color="#FF0000">En la figura, la l&iacute;nea AB es 
+        la isoterma T<sub>1</sub>, y la l&iacute;nea CD es la isoterma T<sub>2</sub></font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%"><div align="center"> 
+              <form action="" method="post" name="form1" class="formulario" id="form1">
+                <div align="left"> 
+                  <legend>Tramo</legend>
+                </div>
+                <p align="left"> 
+                  <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="MM_swapImage('imagen1','','formulas/7_01.gif',1)"/>
+                  AB</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','formulas/7_02.gif',1)"/>
+                  BC</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','formulas/7_03.gif',1)"/>
+                  CA</p>
+                <p align="left">
+                  <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','formulas/7_04.gif',1)"/>
+                  AD </p>
+              </form>
+            </div></td>
+          <td width="31%"><div align="center"><img src="imagenes/7_01.png" width="170" height="174" /></div></td>
+          <td width="56%"><p class="m50"><img src="formulas/7_01.gif" name="imagen1" width="201" height="130" border="0" id="imagen1" style="cursor:pointer"/> 
+            </p>
+            </td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">El trabajo intercambiado en el ciclo ser&aacute;:</p>
+      <p class="m150"><img src="formulas/7_05.gif" width="425" height="97" /></p>
+      <p class="m50">El calor intercambiado en el ciclo ser&aacute;:</p>
+      <p class="m150"><img src="formulas/7_06.gif" width="258" height="41" /></p>
+      <p class="m50">El calor y el trabajo intercambiados son iguales. Evidente 
+        porque la variaci&oacute;n de energ&iacute;a interna en el ciclo es cero). 
+        Observa que el calor P<sub>3</sub>&middot;V<sub>3</sub>&middot;Ln (V<sub>4 
+        </sub>/ V<sub>3</sub>) es negativo (Calor cedido) porque V<sub>4</sub> 
+        &lt; V<sub>3</sub></p>
+      <p class="m50">El rendimiento del ciclo ser&aacute;:</p>
+      <p class="m150"><img src="formulas/7_07.gif" width="514" height="162" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="119,62,181,83" alt="Clic para aclaraci&oacute;n" onClick="abrirVentana('mensajes/1.htm')"/>
+</map>
+</body>
+</html>

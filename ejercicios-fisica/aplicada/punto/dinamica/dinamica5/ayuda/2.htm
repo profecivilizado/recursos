@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,0);self.resizeTo(510,490)"
+onUnload="cerrarVentanas()">
+<table width="476" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="456"><p><b><font color="#0000FF">Calculo del per&iacute;odo de 
+        oscilaci&oacute;n</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="8%" valign="top"> <p align="right">1 </p></td>
+          <td width="92%"><p>Se coloca el cuerpo en la posici&oacute;n de equilibrio, 
+              donde no tiene aceleraci&oacute;n. <br />
+              Si el cuerpo est&aacute; sometido a fuerzas tangenciales hay que 
+              plantear la ecuaci&oacute;n de equilibrio (Igualar estas fuerzas)</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">2&nbsp;</p></td>
+          <td valign="top"> <p>Se separa el cuerpo una distancia x a partir de 
+              la posici&oacute;n de equilibrio (Elongaci&oacute;n) y se aplica 
+              la <span class="enlace_texto" onClick="abrirVentana('1.htm')">din&aacute;mica 
+              del movimiento arm&oacute;nico</span> para obtener la aceleraci&oacute;n</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <div align="right"> 
+              <p>3&nbsp;</p>
+            </div></td>
+          <td><p>Una vez obtenida la aceleraci&oacute;n se comprueba que:</p>
+            <p class="m50">El sentido es contrario a la elongaci&oacute;n</p>
+            <p class="m50">El m&oacute;dulo es proporcional a la elongaci&oacute;n</p>
+            <p>Si no se cumplen estas dos condiciones el movimento no ser&aacute; 
+              arm&oacute;nico </p></td>
+        </tr>
+        <tr> 
+          <td height="36" valign="top"> <p align="right">4 </p></td>
+          <td valign="top"> <p>Se iguala el m&oacute;dulo de la aceleraci&oacute;n 
+              calculado en Din&aacute;mica con el m&oacute;dulo de la aceleraci&oacute;n 
+              del movimiento arm&oacute;nico<br />
+              (&omega;<sup>2</sup>&middot;x). De esta igualdad se obtiene &omega;</p></td>
+        </tr>
+        <tr> 
+          <td height="36" valign="top"><p align="right">5 </p></td>
+          <td valign="top"><p>Se aplica la relaci&oacute;n entre frecuencia angular 
+              y per&iacute;odo:</p>
+            <p class="m150">&omega; = 2&middot;&pi;/T</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

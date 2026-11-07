@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50">Observa que no piden la velocidad de escape de Febos sino 
+        la velocidad con que habr&iacute;a que lanzar un cuerpo desde Febos para 
+        que escapara de Marte</p>
+      <p class="m50">Si el cuerpo se lanza desde Febos tendr&aacute; la correspondiente 
+        velocidad orbital v a la que se sumar&aacute; la velocidad de lanzamiento 
+        v' (Suponiendo que el lanzamiento se efect&uacute;a en la misma direcci&oacute;n 
+        que se mueve la estaci&oacute;n orbital)</p>
+      <p class="m50">Cambios de energ&iacute;a mec&aacute;nica desde que el cuerpo 
+        abandona Febos con una velocidad (v + v') hasta que se detiene en el infinito</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="15%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <div align="center"> 
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=''"  />
+                  Rest</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                  Inicial</p>
+                <p align="left"> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                  Final </p>
+              </div>
+            </form></td>
+          <td width="48%" id="imagen"><img src="imagenes/19_00.png" width="355" height="158" /></td>
+          <td width="37%" id="formula"> 
+            <div align="center"></div></td></tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/19_05.gif" width="228" height="89" /></p>
+      <p class="m50">Durante el trayecto el cuerpo no est&aacute; sometido a fuerza 
+        alguna excepto la gravitatoria cuyo trabajo ya est&aacute; contado en 
+        la variaci&oacute;n de energ&iacute;a potencial <sub></sub> por tanto 
+        <b><i>T</i></b> = 0. </p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n: </p>
+      <p class="m150"><img src="formulas/19_06.gif" width="350" height="73" border="0" align="middle" usemap="#MapMap" style="cursor:pointer"/> 
+      </p>
+      <p class="m50">Sustituyendo el valor de la masa de Marte obtenida en el 
+        apartado anterior:</p>
+      <p class="m150"><img src="formulas/19_07.gif" width="281" height="50" /> 
+      </p>
+      <p class="m150"><img src="formulas/19_08.gif" width="374" height="94" /> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="imagen0"><img src="imagenes/19_00.png" width="355" height="158" /></td>
+                <td id="imagen1"><img src="imagenes/19_01.png" width="355" height="158" /></td>
+              </tr>
+              <tr> 
+                <td rowspan="2" id="imagen2"><img src="imagenes/19_02.png" width="355" height="158" /></td>
+                <td id="formula1"> 
+                  <div align="center"><img src="formulas/19_03.gif" width="193" height="137" /></div></td></tr>
+              <tr>
+                <td id="formula2"> 
+                  <div align="center"><img src="formulas/19_04.gif" width="145" height="62" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table><p class="m150"> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="369,182,455,218" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/1.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

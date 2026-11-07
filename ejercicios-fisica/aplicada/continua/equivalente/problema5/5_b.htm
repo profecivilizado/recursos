@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+
+function mostrarObjetos(){
+for (var i=1 ; i <arguments.length; i =i+ 2){
+var estado=arguments[0]+arguments[i]+".style.visibility";
+switch(arguments[i+1]){
+case 0:estado=estado+"='hidden'";break
+case 1:estado=estado+"='visible'";break
+case 2:estado=estado+"='inherit'"};
+eval(estado)
+	}
+}
+
+var n=0 
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../analisis/ayuda/5.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="721" > 
+      <p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="10%" height="170" valign="middle" > <p align="center"> 
+              <input type="button" name="boton1" id="boton1" value=" &gt; "  
+		 	 onclick="switch(n) {
+					case 0: imagen.innerHTML=imagen1.innerHTML;formula1.innerHTML=formula11.innerHTML;formula2.innerHTML=formula21.innerHTML;mostrarObjetos('boton',2,2);mostrarObjetos('sol',21,2,22,2,23,2);n=n+1;break;
+					case 1: imagen.innerHTML=imagen2.innerHTML;formula1.innerHTML=formula12.innerHTML;formula2.innerHTML=formula22.innerHTML;mostrarObjetos('sol',31,2,32,2,33,2);n=n+1;break;
+					case 2: imagen.innerHTML=imagen3.innerHTML;formula1.innerHTML=formula13.innerHTML;formula2.innerHTML=formula23.innerHTML;mostrarObjetos('sol',11,2,12,2,13,2,41,2,42,2,43,2);n=n+1;break;
+					case 3: formula1.innerHTML=formula14.innerHTML;formula2.innerHTML=formula24.innerHTML;mostrarObjetos('boton',1,0);n=n+1;break;
+					}" />
+            </p>
+            <p align="center"> 
+              <input type="button" name="boton2" id ="boton2" value=" &lt; " style="visibility:hidden"
+			  	onclick="switch(n) {
+					case 4: imagen.innerHTML=imagen3.innerHTML;formula1.innerHTML=formula13.innerHTML;formula2.innerHTML=formula23.innerHTML;mostrarObjetos('boton',1,2);n=n-1;break;
+					case 3: imagen.innerHTML=imagen2.innerHTML;formula1.innerHTML=formula12.innerHTML;formula2.innerHTML=formula22.innerHTML;mostrarObjetos('sol',11,0,12,0,13,0,41,0,42,0,43,0);n=n-1;break;
+					case 2: imagen.innerHTML=imagen1.innerHTML;formula1.innerHTML=formula11.innerHTML;formula2.innerHTML=formula21.innerHTML;mostrarObjetos('sol',31,0,32,0,33,0);n=n-1;break;
+					case 1: imagen.innerHTML=imagen0.innerHTML;formula1.innerHTML=formula10.innerHTML;formula2.innerHTML=formula20.innerHTML;mostrarObjetos('sol',21,0,22,0,23,0);mostrarObjetos('boton',2,0);n=n-1;break;
+
+					}"/>
+            </p></td>
+          <td width="37%" rowspan="2" valign="middle" id="imagen"> <div align="left"><img src="imagenes/5_04.png" width="259" height="151" /></div></td>
+          <td rowspan="2" align="left" id="formula1"> 
+            <div align="left"> 
+              <p align="center"><img src="formulas/5_09.gif" width="93" height="54" /></p>
+            </div>
+            </td><td width="28%" rowspan="2"> <table width="180" border="1" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="29%" bordercolor="#FFFFFF"> <p>&nbsp;</p></td>
+                <td width="19%"><p align="center">I</p></td>
+                <td width="23%"><p align="center">V</p></td>
+                <td width="29%"><p align="center">W</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>1</sub></p></td>
+                <td > <p align="right" id="sol11" style="visibility:hidden">1/2</p></td>
+                <td > <p align="right" id="sol12" style="visibility:hidden">15/2</p></td>
+                <td > <p align="right" id="sol13" style="visibility:hidden">15/4</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>2</sub></p></td>
+                <td > <p align="right" id="sol21" style="visibility:hidden">3/2</p></td>
+                <td > <p align="right" id="sol22" style="visibility:hidden">40</p></td>
+                <td > <p align="right" id="sol23" style="visibility:hidden">60</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>3</sub></p></td>
+                <td > <p align="right" id="sol31" style="visibility:hidden">1</p></td>
+                <td > <p align="right" id="sol32" style="visibility:hidden">20</p></td>
+                <td > <p align="right" id="sol33" style="visibility:hidden">20</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>4</sub></p></td>
+                <td><p align="right" id="sol41" style="visibility:hidden">1/2</p></td>
+                <td><p align="right" id="sol42" style="visibility:hidden">25/2</p></td>
+                <td><p align="right" id="sol43" style="visibility:hidden">25/4</p></td>
+              </tr>
+              <tr> 
+                <td><p>R<sub>1432</sub></p></td>
+                <td><p align="right">3/2</p></td>
+                <td><p align="right">60</p></td>
+                <td><p align="right">90</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td valign="middle" ><img src="../../../comunes/imagenes/transparent.gif" width="70" height="8" /></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="11%"><img src="../../../comunes/imagenes/transparent.gif" width="70" height="8" /></td>
+          <td width="89%" align="left" valign="top" id="formula2"> 
+            <p>&nbsp;<img src="formulas/5_10.gif" width="192" height="41" /></p>
+            </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td align="left" valign="top" id="imagen0"><img src="imagenes/5_04.png" width="259" height="151" /></td>
+                <td align="left" valign="top" id="imagen1"><img src="imagenes/5_03.png" width="259" height="151" /></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top" id="imagen2"><img src="imagenes/5_02.png" width="259" height="151" /></td>
+                <td align="left" valign="top" id="imagen3"><img src="imagenes/5_01.png" width="259" height="151" /></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0">
+              <tr> 
+                <td width="18%" align="left" valign="top" id="formula10"><p align="center"><img src="formulas/5_09.gif" width="93" height="54" /></p></td>
+                <td width="82%" align="left" valign="top" id="formula20"><p><img src="formulas/5_10.gif" width="192" height="41" /></p></td>
+              </tr>
+              <tr> 
+                <td align="left" valign="top" id="formula11"><p align="center"><img src="formulas/5_11.gif" width="90" height="108" /></p></td>
+                <td align="left" valign="top" id="formula21"><p><img src="formulas/5_12.gif" width="513" height="157" /></p></td>
+              </tr>
+              <tr align="left" valign="top"> 
+                <td id="formula12"><p align="center"><img src="formulas/5_13.gif" width="84" height="105" /></p></td>
+                <td id="formula22"> <p><img src="formulas/5_14.gif" width="441" height="166" /></p></td>
+              </tr>
+              <tr align="left" valign="top"> 
+                <td id="formula13"> <p align="center"><img src="formulas/5_15.gif" width="77" height="70" /></p></td>
+                <td id="formula23"> <p><img src="formulas/5_16.gif" width="510" height="156" /></p></td>
+              </tr>
+              <tr> 
+                <td align="left" valign="top" id="formula14"> 
+                  <p>&nbsp;</p></td><td align="left" valign="top" id="formula24"><p><img src="formulas/5_20.gif" width="292" height="70" /></p></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

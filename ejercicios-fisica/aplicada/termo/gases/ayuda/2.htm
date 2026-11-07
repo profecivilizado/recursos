@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,540)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p><b><font color="#0000FF">Transformaciones gaseosas</font></b></p>
+      <p align="left">Una transformaci&oacute;n gaseosa es un proceso donde n 
+        moles de gas pasan del estado (P<sub>1</sub>, V<sub>1</sub>, T<sub>1</sub>) 
+        al estado: (P<sub>2</sub>, V<sub>2</sub>, T<sub>2</sub>)</p>
+      <p align="left">En una <span class="enlace_texto" onClick="abrirVentana('3.htm',1)">transformaci&oacute;n 
+        reversible</span> el gas va pasando por una se-rie de estados de equilibrio. 
+        La relaci&oacute;n matem&aacute;tica entre los valores P, V, T de estos 
+        estados es la ecuaci&oacute;n de la transformaci&oacute;n.</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="68%"><p>Isobara (Presi&oacute;n constante)</p></td>
+          <td width="32%"><p align="center"><img src="formulas/2_01.gif" width="60" height="41" class="enlace_imagen" onClick="abrirVentana('ecuaciones/1.htm')"/></p></td>
+        </tr>
+        <tr> 
+          <td><p>Isocora (Volumen constante)</p></td>
+          <td><p align="center"><img src="formulas/2_02.gif" width="58" height="41" class="enlace_imagen" onClick="abrirVentana('ecuaciones/2.htm')"/> 
+            </p></td>
+        </tr>
+        <tr> 
+          <td><p>Isoterma (Temperatura constante)</p></td>
+          <td><p align="center"><img src="formulas/2_03.gif" width="90" height="20" class="enlace_imagen" onClick="abrirVentana('ecuaciones/3.htm')"/></p></td>
+        </tr>
+        <tr> 
+          <td><p>Adiab&aacute;tica (Sin intercambio de calor)</p></td>
+          <td><p align="center"> <img src="formulas/2_04.gif" width="93" height="28" /> 
+              &nbsp;</p></td>
+        </tr>
+      </table>
+      <p align="left">La gr&aacute;fica de esta ecuaci&oacute;n en un <span class="enlace_texto" onClick="abrirVentana('4.htm',1)">diagrama 
+        P-V</span> es la trayecto-ria de la transformaci&oacute;n</p>
+      <p align="left" onclick="abrirVentana('3.htm',1)"><font color="#FF0000">Para 
+        relacionar las variables de los estados inicial y final (P<sub>1</sub>, 
+        V<sub>1</sub>, T<sub>1</sub>) y (P<sub>2</sub>, V<sub>2</sub>, T<sub>2</sub>) 
+        se aplica la ecuaci&oacute;n de estado y la ecuaci&oacute;n de la transformaci&oacute;n 
+        a los estados inicial y final</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

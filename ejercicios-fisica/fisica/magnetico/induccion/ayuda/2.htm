@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload="self.resizeTo(480,540);"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td> 
+      <p><b><font color="#0000FF">Ley de Faraday</font></b></p>
+      <p>El cambio en el flujo magn&eacute;tico que sufre una espira crea una 
+        f.e.m que hace circular corriente por esta. Esta f.e.m depende del cambio 
+        del flujo con el tiempo</p>
+      <p><b><font color="#0000FF">f.e.m inst&aacute;ntanea</font></b></p>
+      <p class="m100"><img src="formulas/2_01.gif" width="56" height="37" /></p>
+      <p>Esta f&oacute;rmula se usa cuando se conoce la expresi&oacute;n del flujo 
+        en funci&oacute;n del tiempo</p>
+      <p><b><font color="#0000FF">f.e.m media</font></b></p>
+      <p class="m100"><img src="formulas/2_02.gif" width="58" height="37" /></p>
+      <p>Esta f&oacute;rmula se aplica cuando se conoce el tiempo que ha tardado 
+        en producirse el cambio de flujo</p>
+      <p>En cualquiera de los casos el signo menos indica que la corriente que 
+        provoca la f.e.m tiende a compensar el cambio de flujo que la crea. No 
+        vale la pena preocuparse por esto, es m&aacute;s f&aacute;cil determinar 
+        el sentido de la corriente con la ley de Lenz</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

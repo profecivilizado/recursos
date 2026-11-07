@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../ayuda/4.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">c)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,0)" />
+                a<sub>t </sub>, a<sub>n</sub></p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',1,2)"/>
+                a </p>
+            </form></td>
+          <td width="26%" id="imagen"> 
+            <div align="center"><img src="imagenes/2_02.PNG" width="135" height="156" /></div></td><td width="59%"><img src="formulas/2_05.gif" width="278" height="68" border="0" usemap="#Map" style="cursor:pointer"/> 
+            <map name="Map" id="Map">
+              <area shape="rect" coords="99,37,174,62" title="Click para aclaraci&oacute;n" onclick="_pctop.apartado='2_c.htm';cambiar('','2_w.htm')"/>
+            </map></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td colspan="2" id="celda1" style="visibility:hidden"> 
+            <div align="center"><img src="formulas/2_06.gif" width="386" height="192" /></div></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="40%" id="imagen1"> 
+            <div align="center"><img src="imagenes/2_02.PNG" width="135" height="156" /></div></td>
+          <td width="60%" id="imagen2"> 
+            <div align="center"><img src="imagenes/2_03.png" width="135" height="156" /></div></td></tr>
+      </table></tr>
+</table>
+</body>
+</html>

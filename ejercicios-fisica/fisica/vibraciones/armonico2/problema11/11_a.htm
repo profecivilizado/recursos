@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Ecuaci&oacute;n de posici&oacute;n:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <p align="right"><img src="formulas/11_01.gif" width="125" height="22" /></p></td>
+          <td width="67%"> <p class="m50">Par&aacute;metros</p>
+            <p class="m50">A = 0.2 cm,&nbsp; &omega;,&nbsp; &phi;<sub>0</sub>&nbsp; 
+              &nbsp; (Inc&oacute;gnitas) </p></td>
+        </tr>
+      </table>
+      <p class="m50">Empezaremos determinando la fase inicial:</p>
+      <p class="m50">Aplicaci&oacute;n: Supongamos que est&aacute; en el extremo 
+        derecho</p>
+      <p class="m50">Datos: t<sub>0</sub> = 0, &nbsp;x<sub>0</sub> = A</p>
+      <p class="m150"><img src="formulas/11_02.gif" width="262" height="65" /></p>
+      <p class="m50">Se ve&iacute;a venir el resultado (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../ayuda/8.htm')">&#149;</span>) 
+       </p>
+      <p class="m50">Y ahora calculamos la frecuencia angular</p>
+      <p class="m50">Aplicaci&oacute;n: Pasa por el origen en la primera oscilaci&oacute;n 
+        (k = 0) </p>
+      <p class="m50">Datos:&nbsp;x<sub>1</sub> = 0,&nbsp; t<sub>1</sub> = 0.1 
+        s</p>
+      <p class="m150"><img src="formulas/11_04.gif" width="398" height="49" /></p>
+      <p class="m50">Comprobamos cual de las dos soluciones vale:</p>
+      <p class="m150"><img src="formulas/11_05.gif" width="278" height="65" border="0" /> 
+      </p>
+      <p class="m50">No puede ser un periodo negativo</p>
+      <p class="m150"><img src="formulas/11_06.gif" width="304" height="65" /></p>
+      <p class="m50">Evidente: se tarda un cuarto de per&iacute;odo en ir de un 
+        extremo al centro luego el per&iacute;odo ser&aacute; 0.4 s</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

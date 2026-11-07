@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function irA(hoja, problema) {
+	eval('URL='+hoja+'['+(problema-1)+']');
+	MM_goToURL('parent.frames[1]',URL);
+	parent.frames[1].focus()
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function borrarLista() {
+	var n=document.getElementById("lista2").options.length;
+	for (var i=0;i<n;i++){
+		document.getElementById("lista2").options.remove(0)}
+}
+
+function crearLista(hoja) {
+	borrarLista();
+	var n = eval(hoja+'.length'), texto;
+	for (var i=0;i<n;i++){
+		texto= "Problema "+(i+1)+" ";
+		eval('var p'+ (i+1)+'=document.createElement("option")');  
+		eval('p' + (i+1) + '.text=\"'+texto+'\"');
+		eval('p' + (i+1) + '.value='+ (i+1));
+		eval('document.getElementById("lista2").options.add(p'+(i+1)+')')
+	}
+	document.getElementById("lista2").options[0].selected=true
+}
+
+var hojaActual='hoja1';
+ 
+var hoja1 =['../relatividad1/problema1/1.htm',
+ 			'../relatividad1/problema2/2.htm',
+			'../relatividad1/problema3/3.htm',
+			'../relatividad1/problema4/4.htm',
+			'../relatividad1/problema5/5.htm',
+			'../relatividad1/problema6/6.htm',
+			'../relatividad1/problema12/12.htm',
+			'../relatividad1/problema8/8.htm',
+			'../relatividad1/problema9/9.htm',
+			'../relatividad1/problema7/7.htm'];
+var hoja2 =	['../relatividad1/problema10/10.htm',
+			'../relatividad1/problema11/11.htm',
+			'../relatividad1/problema14/14.htm',
+			'../relatividad2/problema1/1.htm',
+			'../relatividad2/problema2/2.htm',
+			'../relatividad2/problema3/3.htm',
+			'../relatividad2/problema12/12.htm',
+			'../relatividad2/problema4/4.htm',
+			'../relatividad2/problema5/5.htm',
+			'../relatividad2/problema6/6.htm',
+			'../relatividad2/problema7/7.htm',
+			'../relatividad2/problema8/8.htm',
+			'../relatividad2/problema9/9.htm'];
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="_pctop.document.title=parent.document.title;_pctop.sueltos=1;crearLista('hoja1');irA(hojaActual,1)"
+onunload="_pctop.sueltos=0">
+<table width="760" border="0" cellpadding="5" cellspacing="0" class="borde">
+  <tr> 
+    <td valign="top"> 
+      <p class="m50"><font color="#0000FF"><strong>F&Iacute;SICA RELATIVISTA</strong></font>&nbsp;&nbsp; 
+        <select name="lista1" size="1" id="lista1" onchange="hojaActual=lista1.value;crearLista(hojaActual);irA(hojaActual,1)">
+          <option value="hoja1" selected="selected">Hoja 1</option>
+          <option value="hoja2">Hoja 2</option>
+          </select>
+        &nbsp;&nbsp; 
+        <select name="lista2" size="1" id="lista2" onchange="irA(hojaActual,lista2.value)">
+          <option>Problema 1</option>
+        </select>
+      </p>
+      </td>
+    <td width="21%" valign="top"> <p align="right"><span class="enlace_texto" onclick="_pctop.problema=null;cambiar(_pctop.indice,'')">&Iacute;ndice</span> 
+        &nbsp; &nbsp; </p></td>
+  </tr>
+</table>
+</body>
+</html>

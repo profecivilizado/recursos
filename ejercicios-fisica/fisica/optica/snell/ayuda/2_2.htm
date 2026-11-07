@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,560)">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p><b><font color="#0000FF">Posici&oacute;n de la imagen </font></b></p>
+      <p><font color="#FF0000">Se supone que se </font><font color="#FF0000"> 
+        observa el objeto mirando en direcci&oacute;n muy pr&oacute;xima a la 
+        normal </font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="25%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=''"/>
+                Rest.</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Snell</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                Geom 1</p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML"/>
+                Geom 2</p>
+            </form></td>
+          <td width="37%" id="imagen"> 
+            <div align="center"><img src="imagenes/2_01.png" width="167" height="154" /></div></td>
+          <td width="38%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p><font color="#FF0000">Para &aacute;ngulos peque&ntilde;os (Pr&oacute;ximos 
+        a la normal) el seno vale lo mismo que la tangente</font></p>
+      <p align="center"><img src="formulas/2_04.gif" width="188" height="142" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/2_01.png" width="167" height="154" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/2_02.png" width="167" height="154" /></div></td></tr>
+              <tr>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/2_03.png" width="167" height="154" /></div></td>
+                <td id="imagen3"> 
+                  <div align="center"><img src="imagenes/2_04.png" width="167" height="154" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="50%" id="formula1"> 
+                  <div align="center"><img src="formulas/2_01.gif" width="126" height="20" /></div></td>
+                <td width="50%" id="formula2"> 
+                  <div align="center"><img src="formulas/2_02.gif" width="53" height="37" /></div></td></tr>
+              <tr>
+                <td id="formula3"> 
+                  <div align="center"><img src="formulas/2_03.gif" width="61" height="38" /></div></td><td>&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

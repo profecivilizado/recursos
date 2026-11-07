@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../general/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50"><font color="#FF0000">En el enunciado de este problema se omite 
+        mucha informaci&oacute;n que tendremos que suplir a base de imaginaci&oacute;n. 
+        Para empezar, &iquest;cual es la perturbaci&oacute;n que propaga la onda?, 
+        solamente se sabe que el valor m&aacute;ximo de esta es 10 de lo que sea 
+        (Medido en unidades S.I). Como la velocidad de propagaci&oacute;n es igual 
+        a la de la luz posiblemente se trate de una onda electromagn&eacute;tica.</font></p>
+      <p class="m50"><font color="#FF0000">Tampoco sabemos la direcci&oacute;n 
+        y sentido de propagaci&oacute;n de la onda as&iacute; que supondremos 
+        que va por el eje x, en sentido decreciente.</font></p>
+      <p class="m50">La ecuaci&oacute;n de onda ser&aacute; de la forma:</p>
+      <p class="m150"><img src="formulas/1_01.gif" width="149" height="22" /></p>
+      <p class="m50">El signo positivo en la fase indica que la onda se propaga 
+        <span class="enlace_texto" onclick="abrirVentana('../../general/ayuda/4.htm',1)">en 
+        sentido de x decreciente</span> </p>
+      <p class="m50">Par&aacute;metros de la onda:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%" height="50" valign="middle"> <p align="right">Amplitud: 
+              &nbsp;&nbsp;</p></td>
+          <td width="67%"> <p>10 (S.I)</p></td>
+        </tr>
+        <tr> 
+          <td width="33%" height="50" valign="middle"> <p align="right">Frecuencia 
+              angular: &nbsp;&nbsp;</p></td>
+          <td width="67%"><img src="formulas/1_02.gif" width="317" height="37" /></td>
+        </tr>
+        <tr> 
+          <td width="33%" height="50" valign="middle"> <p align="right">Constante 
+              de propagaci&oacute;n:&nbsp;&nbsp;&nbsp;</p></td>
+          <td width="67%"><img src="formulas/1_03.gif" width="365" height="42" /></td>
+        </tr>
+      </table>
+      <p class="m50">La ecuaci&oacute;n de la onda ser&aacute; entonces:</p>
+      <p class="m150"><img src="formulas/1_04.gif" width="345" height="30" /></p>
+      <p class="m50">Tambi&eacute;n puede darse la ecuaci&oacute;n de esta forma:</p>
+      <p class="m150"><img src="formulas/1_05.gif" width="349" height="30" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

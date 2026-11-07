@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ayuda 
+
+function abrirAyuda()	{
+		if(!_pctop.archivoAyuda){return(false)};
+                                if(ayuda) ayuda.close();
+		var atributos="status=no,scrollbars=yes,resizable=yes,title=no";
+		ayuda=window.open(_pctop.archivoAyuda,"",atributos);
+}
+
+function cerrarAyuda() {
+	if(ayuda) ayuda.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body class="pc-fs" onunload="cerrarAyuda()">
+<iframe class="pc-frame pc-enunciado" name="enunciado" id="enunciado" src="3_w0.htm" title="enunciado" scrolling="no"></iframe>
+<iframe class="pc-frame pc-solucion" name="solucion" id="solucion" src="3_wa.htm" title="solucion" scrolling="no"></iframe>
+</body>
+ 
+</html>

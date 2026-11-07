@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var n=0, masa=1
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p align="left" class="m50">La fuerza que experimentar&aacute; el cuerpo 
+        ser&aacute; la suma vectorial de las fuerzas que ejercen Tierra y Luna 
+        sobre &eacute;l (Principio de superposici&oacute;n)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%" rowspan="2" valign="middle"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula1.innerHTML=formula10.innerHTML;formula2.innerHTML=formula20.innerHTML;mostrarObjetos('form1.boton',1,0)"/>
+                Rest.</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen11.innerHTML;formula1.innerHTML=formula10.innerHTML;formula2.innerHTML=formula20.innerHTML;mostrarObjetos('form1.boton',1,2);n=0;masa=1" />
+                Tierra</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton"  onclick="imagen.innerHTML=imagen21.innerHTML;formula1.innerHTML=formula10.innerHTML;formula2.innerHTML=formula20.innerHTML;mostrarObjetos('form1.boton',1,2);n=0;masa=2" />
+                Luna </p>
+              <p align="center"> 
+                <input type="button" name="Submit" id="boton1" value=" &gt; " style="visibility:hidden" 
+					onclick="switch(n) {
+						case 0: eval('imagen.innerHTML=imagen'+masa+'2.innerHTML');eval('formula1.innerHTML=formula'+masa+'2.innerHTML');n=1;break;
+						case 1: eval('imagen.innerHTML=imagen'+masa+'3.innerHTML');eval('formula2.innerHTML=formula'+masa+'3.innerHTML');n=2;break;
+						case 2: eval('imagen.innerHTML=imagen'+masa+'1.innerHTML');formula1.innerHTML=formula10.innerHTML;formula2.innerHTML=formula20.innerHTML;n=0;break;
+					}"/>
+              </p>
+            </form>
+          </td>
+          <td width="26%" rowspan="2" id="imagen"> 
+            <div align="center">
+              <p><img src="imagenes/12_00.png" width="193" height="71" border="0" /></p>
+            </div></td>
+          <td width="61%" height="40" id="formula1" > 
+            <p align="left" class="m50">&nbsp;</p></td>
+        </tr>
+        <tr> 
+          <td width="61%" height="100" id="formula2" > 
+            <p align="left" class="m50">&nbsp;</p></td>
+        </tr>
+      </table>
+      <hr /> 
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td> 
+            <div align="center"> 
+              <p><img src="imagenes/12_07.png" width="193" height="71" /></p>
+            </div></td>
+          <td> 
+            <p align="center"><img src="formulas/12_05.gif" width="472" height="216" /></p>
+            <p align="left">El cuerpo sufrir&aacute; una fuerza de 10,7 que tira 
+              de &eacute;l hacia la Tierra</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td colspan="3" id="imagen0"> <div align="center"><img src="imagenes/12_00.png" width="193" height="71" border="0" /></div>
+                  <div align="center"></div>
+                  <div align="center"></div>
+                  <div align="center"></div></td>
+              </tr>
+              <tr> 
+                <td width="41%" id="imagen11"> 
+                  <div align="center"><img src="imagenes/12_01.png" width="193" height="71" border="0" /></div></td>
+                <td width="27%" id="imagen12"> 
+                  <div align="center"><img src="imagenes/12_02.png" width="193" height="71" border="0" /></div></td><td width="32%" id="imagen13"><div align="center"><img src="imagenes/12_03.png" width="193" height="71" /></div></td>
+              </tr>
+              <tr> 
+                <td id="imagen21"> 
+                  <div align="center"><img src="imagenes/12_04.png" width="193" height="71" /></div></td>
+                <td id="imagen22"><img src="imagenes/12_05.png" width="193" height="71" /></td>
+                <td id="imagen23"> 
+                  <div align="center"><img src="imagenes/12_06.png" width="193" height="71" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="56%" id="formula10">&nbsp;</td>
+                <td width="44%" id="formula20">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td id="formula12" > 
+                  <div align="center">
+                    <p align="left" class="m50"><img src="formulas/12_01.gif" width="170" height="36" border="0" align="middle" /></p>
+                  </div></td>
+                <td height="58" id="formula13"> 
+                  <p align="left" class="m50"><img src="formulas/12_02.gif" width="130" height="48" border="0" align="middle" /></p></td></tr>
+              <tr>
+                <td id="formula22"> 
+                  <div align="left">
+                    <p class="m50"><img src="formulas/12_03.gif" width="194" height="36" border="0" align="middle" /></p>
+                  </div></td>
+                <td id="formula23"> 
+                  <p class="m50"><img src="formulas/12_04.gif" width="140" height="48" border="0" align="middle" /></p></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

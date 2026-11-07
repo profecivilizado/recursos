@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="15%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML" />
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Final </p>
+            </form></td>
+          <td width="34%" height="160" id="imagen"> 
+            <p align="center"><img src="imagenes/2_00.PNG" width="240" height="51" /></p></td>
+          <td width="51%" id="formula" > 
+            <p class="m50">&nbsp;</p>
+            <p align="center">&nbsp;</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td valign="top"> <hr /> 
+            <p class="m150"><img src="formulas/2_03.gif" width="177" height="89" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Durante el recorrido el electr&oacute;n s&oacute;lo est&aacute; 
+        sometido a <span class="enlace_texto" onclick="abrirVentana('../../mensajes/2.htm')">la 
+        fuerza el&eacute;ctrica</span> cuyo trabajo ya est&aacute; contado &eacute;n 
+        la variaci&oacute;n de energ&iacute;a potencial, por tanto <b><i>T</i></b> 
+        = 0</p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n:</p>
+      <p class="m100"><img src="formulas/2_05.gif" width="582" height="204" align="middle" usemap="#Map" border="0" style="cursor:pointer"/> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="52%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/2_00.PNG" width="240" height="51" /></div></td>
+                <td width="48%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/2_01.PNG" width="240" height="51" /></div></td></tr>
+              <tr> 
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/2_02.PNG" width="240" height="51" /></div></td><td>&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="5%" id="formula0">&nbsp;&nbsp;</td>
+                <td width="47%" id="formula1"> 
+                  <div align="center">
+                    <p><img src="formulas/2_01.gif" width="108" height="76" /></p>
+                    <p align="left">En la expresi&oacute;n de la energ&iacute;a 
+                      potencial las cargas<br />
+                      <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >van 
+                      con signo</span></p>
+                  </div></td>
+                <td width="48%" id="formula2"> 
+                  <div align="center">
+                    <p><img src="formulas/2_02.gif" width="112" height="89" /></p>
+                    <p align="left">En la expresi&oacute;n de la energ&iacute;a 
+                      potencial las cargas<br />
+                      <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >van 
+                      con signo</span></p>
+                  </div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="30,166,130,202" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/2.htm')"/>
+</map>
+</body>
+</html>

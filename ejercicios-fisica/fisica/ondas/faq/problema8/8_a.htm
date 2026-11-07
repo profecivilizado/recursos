@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Las ondas estacionarias se producen como resultado de la 
+        interferencia de dos ondas que se propagan en sentidos contrarios en un 
+        medio dimensi&oacute;n limitada (Por ejemplo una cuerda con sus extremos 
+        fijos)</p>
+      <p class="m50">La caracter&iacute;stica m&aacute;s destacada de una onda 
+        estacionaria es que la amplitud de oscilaci&oacute;n de las part&iacute;culas 
+        del medio depende de la posici&oacute;n de estas. Esta amplitud varia 
+        entre 0 (Nodos) y un valor m&aacute;ximo (Vientre)</p>
+      <p class="m50">El nombre de onda <span class="enlace_texto" onclick="abrirVentana('../../mensajes/12.htm')">estacionaria</span> 
+        alude al hecho de que las crestas de onda no avanzan en la direcci&oacute;n 
+        de propagaci&oacute;n como ocurre en las ondas <span class="enlace_texto" onclick="abrirVentana('../../mensajes/8.htm')">progresivas</span><br />
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

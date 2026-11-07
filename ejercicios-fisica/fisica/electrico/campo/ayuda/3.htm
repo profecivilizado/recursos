@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,420)">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> <p><b><font color="#0000FF">Campo nulo</font></b></p>
+      <p>El campo creado por dos cargas puntuales se anular&aacute; en un punto 
+        donde los campos creados por cada carga tengan igual m&oacute;dulo, la 
+        misma direcci&oacute;n y sentidos contrarios.<br />
+        Para que los campos tengan el mismo m&oacute;dulo el punto deber&aacute; 
+        estar cerca de la carga menor y lejos de la mayor<br />
+        Para que los campos tengan la misma direcci&oacute;n, el punto deber&aacute; 
+        estar en la l&iacute;nea que une las cargas. Habr&aacute; que tantear 
+        en que zona de esta l&iacute;nea deber&aacute; estar el punto para que 
+        los campos tengan sentidos contrarios (Esto depender&aacute; de los signos 
+        de las cargas)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td><form action="" method="post" name="form1" class="formulario" id="form1">
+              Signos de las cargas: 
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen10.innerHTML;texto.innerHTML=texto0.innerHTML"/>
+              Iguales&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen20.innerHTML;texto.innerHTML=texto0.innerHTML"/>
+              Distintos </form></td>
+        </tr>
+        <tr> 
+          <td id="imagen"> <div align="center"><img src="imagenes/3_00.png" width="280" height="70" border="0" usemap="#Map1" style="cursor:pointer" title="Clic en una zona"/> 
+              <map name="Map1" id="Map1" >
+                <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen11.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen12.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen13.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+              </map>
+            </div></td>
+        </tr>
+        <tr> 
+          <td id="texto">&nbsp;</td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td></td>
+              </tr>
+              <tr> 
+                <td id="imagen1"><map name="MapMap3Map" id="Map42" >
+                    <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                  </map></td>
+              </tr>
+              <tr> 
+                <td id="imagen10"> <div align="center"><img src="imagenes/3_00.png" width="280" height="70" border="0" usemap="#Map2" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map2" id="Map2" >
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen11.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                      <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen12.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                      <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen13.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen11"> <div align="center"> <img src="imagenes/3_01.png" width="280" height="70" border="0" usemap="#Map3" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map3" id="Map3" >
+                      <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen13.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                      <area shape="rect" coords="88,29,195,44" onclick="imagen.innerHTML=imagen12.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen12"> <div align="center"><img src="imagenes/3_02.png" width="280" height="70" border="0" usemap="#Map4" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map4" id="Map4" >
+                      <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen13.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen11.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen13"> <div align="center"><img src="imagenes/3_03.png" width="280" height="70" border="0" usemap="#Map5" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map5" id="Map5" >
+                      <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen12.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen11.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen20"> <div align="center"><img src="imagenes/3_05.png" width="280" height="70" border="0" usemap="#Map6" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map6" id="Map6" ><area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen23.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                      <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen22.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen21.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen21"> 
+                  <div align="center"><img src="imagenes/3_06.png" width="280" height="70" border="0" usemap="#Map7" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map7" id="Map7" >
+                      <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen23.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                      <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen22.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                    </map>
+                  </div></td></tr>
+              <tr>
+                <td id="imagen22"> 
+                  <div align="center"><img src="imagenes/3_07.png" width="280" height="70" border="0" usemap="#Map8" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map8" id="Map8" >
+                      <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen23.innerHTML;texto.innerHTML=texto2.innerHTML"/>
+                      <area shape="rect" coords="4,30,78,44" onclick="imagen.innerHTML=imagen21.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                    </map>
+                  </div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="imagen23"> 
+                  <div align="center"><img src="imagenes/3_08.png" width="280" height="70" border="0" usemap="#Map9" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="Map9" id="Map9" >
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen21.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                      <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen22.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                    </map>
+                  </div></td></tr>
+              <tr>
+                <td id="texto0">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td id="texto1"> <p align="center">Los campos tienen el mismo 
+                    sentido, no pueden anularse</p></td>
+              </tr>
+              <tr> 
+                <td id="texto2"> <p align="center">Los campos tienen sentidos 
+                    contrarios, pueden anularse</p></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><font color="#FF0000">Aunque el enunciado se refiere a 
+        una onda en general consideramos el caso de una onda luminosa</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="28%"><div align="center"><img src="imagenes/1_01.png" width="161" height="102" /></div></td>
+          <td width="72%"><p>Cuando la luz pasa de un medio a otro donde su velocidad 
+              es distinta sufre un cambio en la direcci&oacute;n de propagaci&oacute;n. 
+              <br />
+              La ley de Snell describe este cambio:</p>
+            <p class="m100"> n<sub>1</sub>&middot;sen i = n<sub>2</sub>&middot; 
+              sen r</p></td>
+        </tr>
+      </table>
+      <p class="m50">La ley de Snell expresada en funci&oacute;n de las velocidades 
+        en cada medio es:</p>
+      <p class="m150"><img src="formulas/1_01.gif" width="269" height="89" /></p>
+      <p class="m50">Como sen r tiene que ser menor que 1, no habr&aacute; rayo 
+        refractado cuando se cumpla que:</p>
+      <p class="m150"><img src="formulas/1_03.gif" width="198" height="41" /></p>
+      <p class="m50">En esta situaci&oacute;n toda la luz incidente se reflejar&aacute; 
+        porque no puede refractarse</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

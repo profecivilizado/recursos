@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','tiros5/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50">Ecuaciones del movimiento del proyectil:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p align="center"><img src="formulas/3_01.gif" width="164" height="137" border="0" alt="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm','',1)" class="enlace_imagen" /></p></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 100 m/s, &alpha; = 55&ordm;</p>
+            <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Calculamos la velocidad del proyectil en el instante del 
+        choque: </p>
+      <p class="m150"><img src="formulas/3_07.gif" width="396" height="324" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="22%"><div align="center"><img src="imagenes/3_04.png" width="93" height="103" /></div></td>
+          <td width="78%"><p>En el momento del choque la velocidad del proyectil 
+              forma 51&ordm; con la horizontal y la velocidad de la piedra es 
+              vertical hacia abajo.</p>
+            <p>El &aacute;ngulo formado por las velocidades ser&aacute;: 51&ordm; 
+              + 90&ordm; = 141&ordm;</p></td>
+        </tr>
+      </table>
+      <p class="m50">Hay otra forma menos rupestre de calcular el &aacute;ngulo 
+        que forman los vectores velocidad: utilizar el producto escalar</p>
+      <p class="m150"><img src="formulas/3_08.gif" width="364" height="190" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

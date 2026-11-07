@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana 
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=no'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onLoad="self.resizeTo(490,600)">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td valign="top"> 
+      <p><b><font color="#0000FF">Ecuaciones del movimiento arm&oacute;nico</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="49%"><div align="center"><img src="formulas/1_01.gif"  width="178" height="105" /></div></td>
+          <td width="51%"><p class="peque&ntilde;o"> <font color="#FF0000">La 
+              funci&oacute;n puede ser seno o coseno</font></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td valign="top"> 
+            <p align="right">x </p></td>
+          <td> <p>Elongaci&oacute;n (Variable)<br />
+              Posici&oacute;n del m&oacute;vil en cada instante</p>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top">
+<p align="right">A </p></td>
+          <td><p>Amplitud (Par&aacute;metro)<br />
+              M&oacute;dulo de la elongaci&oacute;n m&aacute;xima </p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">v&nbsp;</p></td>
+          <td valign="top"> <p>Velocidad del m&oacute;vil en cada instante (Variable)<br />
+            </p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">a&nbsp;</p></td>
+          <td valign="top"> <p>Aceleraci&oacute;n del m&oacute;vil en cada instante 
+              (Variable) </p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">t&nbsp;</p></td>
+          <td valign="top"> <p> Tiempo (Variable)</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="23%" valign="top"> <p align="right">&omega;t + &phi;<sub>0&nbsp;</sub></p></td>
+          <td width="77%"><p>Fase temporal (Variable)<br />
+              Determina el <span class="enlace_texto" onclick="abrirVentana('2.htm',1)">estado 
+              del m&oacute;vil en cada instante</span> <br />
+            </p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">&phi;<sub>0</sub>&nbsp;</p></td>
+          <td><p align="left">Fase inicial (Par&aacute;metro)<br />
+              Determina el estado del m&oacute;vil en instante inicial</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">&omega; </p></td>
+          <td><p>Pulsaci&oacute;n | Frecuencia angular (Par&aacute;metro)<br />
+              Relaci&oacute;n entre cambio de fase y cambio de tiempo. Al pasar 
+              un tiempo T (Per&iacute;odo) la fase cambia en 2&pi;</p>
+            <p class="m50">&omega; = 2&middot;&pi; / T</p>
+            <p>La inversa del per&iacute;odo se denomina frecuencia </p>
+            </td>
+        </tr>
+      </table>
+      <p><b><font color="#FF0000">Signos<br />
+        </font></b>No se pone signo a las variables x, a, v pues estas lo llevan 
+        in-cluido. Cuando x, a, v sean inc&oacute;gnitas, al despejarlas se obten-dr&aacute; 
+        el valor con su signo y cuando sean datos habr&aacute; que susti-tuir 
+        la variable por el valor con su signo<br />
+        Los par&aacute;metros A, &omega; no tienen signo. En alg&uacute;n casos 
+        la fase inicial puede ser negativa en cuyo caso se le pondr&aacute; signo</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

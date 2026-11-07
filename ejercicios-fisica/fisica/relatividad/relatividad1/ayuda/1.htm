@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,650)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p><b><font color="#0000FF">Conversi&oacute;n de longitud 
+        y masa</font></b></p>
+      <p>Se considera que uno de los observadores, junto con el objeto, est&aacute; 
+        contenido en un recinto que se mueve respecto al otro ob-servador.<br />
+        El observador que ve el objeto en reposo mide su masa y dimen-siones (Valores 
+        propios). El otro observador mide estas misma magnitudes viendo el objeto 
+        en movimiento (Valores no propios)</p>
+      <p> Relaci&oacute;n entre valores propios y no propios:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="57%"><div align="center"><img src="formulas/1_01.gif" width="177" height="76" /></div></td>
+          <td width="43%"><div align="center"><img src="formulas/1_02.gif" width="97" height="48" /></div></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%"><p align="right">L </p></td>
+          <td width="93%"><p>Dimensi&oacute;n del objeto en la direcci&oacute;n 
+              del movimiento </p></td>
+        </tr>
+        <tr> 
+          <td><p align="right">H </p></td>
+          <td><p>Dimensi&oacute;n del objeto en direcci&oacute;n normal al movimiento</p></td>
+        </tr>
+      </table>
+      <p><b><font color="#0000FF">Conversi&oacute;n de tiempo</font></b></p>
+      <p>El observador que est&aacute; dentro del recinto mide el intervalo de 
+        tiempo transcurrido entre dos sucesos que <span class="enlace_texto" onclick="abrirVentana('2.htm')"> 
+        ocurren en la misma posici&oacute;n</span> (Tiempo propio). El otro observador 
+        mide este mismo intervalo de tiempo (Tiempo no-propio)</p>
+      <p>Relaci&oacute;n entre tiempo propio y no-propio</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="53%"><div align="center"><img src="formulas/1_03.gif" width="89" height="41" /></div></td>
+          <td width="47%"><div align="center"><img src="formulas/1_02.gif" width="97" height="48" /></div></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

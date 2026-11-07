@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+var n=0, m=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,500)">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431">
+<p><b><font color="#0000FF">Campo fuera del planeta</font></b></p>
+      <p>Para puntos situados en la superficie del planeta o m&aacute;s all&aacute; 
+        este se comporta como si toda su masa estuviera concentrada pun-tualmente 
+        en el centro.</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td colspan="2"><p align="center">Campo a una altura h sobre la superficie: 
+            </p></td>
+        </tr>
+        <tr> 
+          <td><input type="button" name="Submit" value="&gt;" class="boton" 
+				onclick="switch(n) {
+				case 0:imagen1.innerHTML=imagen12.innerHTML;mostrarObjetos('celda',1,2,2,2);n=1;break;
+				case 1:imagen1.innerHTML=imagen11.innerHTML;;mostrarObjetos('celda',1,0,2,0);n=0;
+				}" /></td>
+          <td width="46%" id="imagen1"><img src="imagenes/1_01.png" width="199" height="154" /></td>
+          <td width="47%" id="celda1" style="visibility:hidden"> 
+            <p class="m50"><img src="formulas/1_01.gif" width="57" height="40" /></p>
+            <p class="m50">(r = R + h)</p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td id="celda2" style="visibility:hidden"> 
+            <p>Para puntos situados a poca altura sobre la superficie del planeta 
+              (h &lt;&lt; R) el campo gravitatorio se puede considerar constante 
+              e igual al de la superficie E = G&middot;M/R<sup>2</sup>. Este campo 
+              gravitatorio en las cercan&iacute;as del planeta se denomina gravedad 
+            </p></td></tr>
+      </table>
+      <p><b><font color="#0000FF">Campo dentro del planeta</font></b></p>
+      <p>Para puntos situados dentro del planeta este se comporta como si una 
+        parte de su masa estuviera concentrada puntualmente en el centro. Esta 
+        masa parcial es la que tendr&iacute;a un 'subplaneta' conc&eacute;ntrico 
+        de radio r </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td colspan="2"><p align="center">Campo a una profundidad p bajo la 
+              superficie: </p></td>
+        </tr>
+        <tr> 
+          <td rowspan="2"><input type="button" name="Submit2" value="&gt;" class="boton" 
+				onclick="switch(n) {
+				case 0:imagen2.innerHTML=imagen22.innerHTML;mostrarObjetos('celda',3,2);n=1;break;
+				case 1:imagen2.innerHTML=imagen23.innerHTML;mostrarObjetos('celda',4,2);n=2;break;
+				case 2:imagen2.innerHTML=imagen21.innerHTML;;mostrarObjetos('celda',3,0,4,0);n=0;
+				}" /></td>
+          <td width="46%" rowspan="2" id="imagen2"><img src="imagenes/2_01.png" width="156" height="154" /></td>
+          <td width="47%" height="68" id="celda3" style="visibility:hidden"> 
+            <p align="center"><img src="formulas/2_01.gif" width="82" height="45" align="middle" class="enlace_imagen" title="Clic para aclaración" onclick="abrirVentana('../../ayuda/8.htm',1)"/>&nbsp;&nbsp; 
+              &nbsp; r = R - p</p></td></tr>
+        <tr>
+          <td id="celda4" style="visibility:hidden"><div align="center"><img src="formulas/2_02.gif" width="148" height="92" /></div></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="46%" id="imagen11"> 
+                  <div align="center"><img src="imagenes/1_01.png" width="199" height="154" /></div></td>
+                <td width="54%" id="imagen12"> 
+                  <div align="center"><img src="imagenes/1_02.png" width="199" height="154" /></div></td></tr>
+              <tr> 
+                <td id="imagen21"> 
+                  <div align="center"><img src="imagenes/2_01.png" width="156" height="154" /></div></td>
+                <td id="imagen22"> 
+                  <div align="center"><img src="imagenes/2_02.png" width="156" height="154" /></div></td></tr>
+              <tr>
+                <td id="imagen23"> 
+                  <div align="center"><img src="imagenes/2_03.PNG" width="156" height="154" /></div></td><td>&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

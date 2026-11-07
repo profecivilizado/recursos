@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">Aplicaci&oacute;n: Llegada a la placa opuesta</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="ecuacion.innerHTML=ecuacion1.innerHTML;imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Electr&oacute;n</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="ecuacion.innerHTML=ecuacion2.innerHTML;imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                Prot&oacute;n </p>
+            </form></td>
+          <td width="22%" id="ecuacion"> 
+            <div align="center"><img src="formulas/5_12.gif" width="133" height="65" /></div></td>
+          <td width="20%" id="imagen"> 
+            <p align="center"><img src="imagenes/5_07.png" width="90" height="138" /></p>
+            <p align="center">y'<sub>2</sub> = 0</p></td>
+          <td width="42%" id="formula"> 
+            <div align="center"><img src="formulas/5_08.gif" width="273" height="116" border="0" usemap="#Map1" style="cursor:pointer" /> 
+            </div></td></tr>
+      </table>
+      <hr /> <p class="m50">Comparamos los m&oacute;dulos de las velocidades:</p>
+      <p class="m150"><img src="formulas/5_09.gif" width="448" height="50" align="middle" /> 
+      </p>
+      <p class="m50">El electr&oacute;n llega con una velocidad 42.8 veces mayor 
+        que la del prot&oacute;n. <br />
+        El trabajo que realiza el campo el&eacute;ctrico sobre prot&oacute;n y 
+        electr&oacute;n es el mismo (Misma fuerza y mismo desplazamiento) por 
+        tanto adquieren la misma energ&iacute;a cin&eacute;tica. Si el electr&oacute;n 
+        tiene la misma energ&iacute;a cin&eacute;tica que el prot&oacute;n deber&aacute; 
+        tener mayor velocidad porque su masa es menor</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td id="ecuacion1"> 
+            <div align="center"><img src="formulas/5_12.gif" width="133" height="65" /></div></td>
+          <td id="imagen1"> 
+            <div align="center"> 
+              <p><img src="imagenes/5_07.png" width="90" height="138" /></p>
+              <p>y'<sub>2</sub> = 0</p>
+            </div></td>
+          <td id="formula1"> 
+            <div align="center"><img src="formulas/5_08.gif" alt="Clic para ver el desarrollo" width="273" height="116" border="0" usemap="#imagen2MapMap2" style="cursor:pointer" /> 
+              <map name="imagen2MapMap2" id="imagen2Map3">
+                <area shape="rect" coords="145,20,270,44" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/5_3.htm')"/>
+              </map>
+              <map name="Map1" id="Map1">
+                <area shape="rect" coords="145,20,270,44" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/5_3.htm')"/>
+                </map>
+            </div></td></tr>
+        <tr> 
+          <td id="ecuacion2"> 
+            <div align="center"><img src="formulas/5_13.gif" width="80" height="65" /></div></td>
+          <td id="imagen2"> 
+            <div align="center">
+              <p><img src="imagenes/5_06.png" width="90" height="138" /></p>
+              <p>y<sub>2</sub> = 4 cm</p>
+            </div></td>
+          <td id="formula2"> 
+            <div align="center"><img src="formulas/5_07.gif" width="210" height="113" border="0" usemap="#Map3" style="cursor:pointer"/> 
+              <map name="Map3" id="Map3">
+                <area shape="rect" coords="105,20,208,45" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/5_2.htm')"/>
+              </map>
+            </div></td></tr>
+      </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp; </p>
+</body>
+</html>

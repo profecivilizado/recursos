@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/1.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b> </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="right">
+              <p><img src="formulas/2_01.gif" width="178" height="105" /></p>
+            </div></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros:&nbsp;</p>
+            <p class="m50">A = 15 cm, &omega; = 2&pi; rad/s (T = 2&pi;/&omega;= 
+              1 s)</p>
+            <p class="m50">&phi;<sub>0</sub> = &pi;/2 rd</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: (Situaci&oacute;n inicial)</p>
+      <p class="m50">Datos: t = 0, &nbsp;Inc&oacute;gnitas: x<sub>0</sub>, v<sub>0</sub>, 
+        a<sub>0</sub></p>
+      <p class="m150"><img src="formulas/2_02.gif" width="209" height="105" /></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="55%"> <div align="right"><img src="formulas/2_03.gif" width="320" height="153" /></div></td>
+          <td width="45%"><img src="imagenes/2_01.png" width="158" height="64" /></td>
+        </tr>
+      </table>
+      <p class="m50">Inicialmente el m&oacute;vil est&aacute; quieto en el extremo 
+        derecho de la trayectoria y tiene aceleraci&oacute;n hacia la izquierda 
+        lo que significa que en el siguiente instante estar&aacute; movi&eacute;ndose 
+        hacia la izquierda</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

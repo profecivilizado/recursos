@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.moveTo(20,20);self.resizeTo(440,430)"
+onUnload="cerrarVentanas()">
+<table width="401" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="381"><p><b><font color="#0000FF">c.d.m de cuerpos homog&eacute;neos</font></b></p>
+      <p>Cuerpo homog&eacute;neo es el que tiene la misma densidad en todos sus 
+        puntos </p>
+      <p><strong><font color="#FF0000">Si el cuerpo es regular<br />
+        </font></strong>El c.d.m estar&aacute; en el centro de simetria</p>
+      <p><strong><font color="#FF0000">Si al cuerpo le falta un trozo regular 
+        para ser regular</font></strong><br />
+        Se a&ntilde;ade al cuerpo el trozo que le falta para ser regular <span class="enlace_texto" onclick="abrirVentana('2.htm')">Utilizando 
+        la densidad</span> se calculan la masa y el c.d.m del cuerpo regular a&ntilde;adido 
+        y del cuerpo regular total. La masa del cuerpo dado ser&aacute; la diferencia 
+        de las masas de estos dos cuerpos y su c.d.m ser&aacute; inc&oacute;gnita: 
+        (x, y) </p>
+      <p>El cuerpo regular a&ntilde;adido y el dado se sustituyen por las masas 
+        respectivas concentradas en el c.d.m resultando una distribuci&oacute;n 
+        de masas puntuales cuyo c.d.m coincide con el del cuerpo regular total</p>
+      <p>Se aplica a la distribuci&oacute;n la <span class="enlace_texto" onclick="abrirVentana('../../cdm1/ayuda/1.htm')">formulita 
+        del c.d.m</span> y en ella se despejan: x, y</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

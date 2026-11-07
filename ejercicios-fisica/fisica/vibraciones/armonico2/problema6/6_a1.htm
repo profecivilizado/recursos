@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <table width="760" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7%">&nbsp; </td>
+          <td width="46%" valign="top"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              Forma de resolverlo 
+              <input type="radio" name="radiobutton" value="radiobutton" checked="checked" />
+              Rigurosa &nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton" onclick="cambiar('','6_a2.htm')" />
+              Chapucera </form></td>
+          <td width="47%"> <p align="right">&nbsp;</p></td>
+        </tr>
+      </table>
+      <p class="m50">Ecuaciones del movimiento: </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="37%"> <div align="right">
+              <p><img src="formulas/6_01.gif" width="157" height="89" /></p>
+            </div></td>
+          <td width="63%"> <p class="m50">Par&aacute;metros</p>
+            <p class="m50">A = 0.3 cm, &omega; = 2&pi;f = 20&pi; rad/s</p>
+            <p class="m50">&phi;<sub>0</sub> (Inc&oacute;gnita) </p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: (Paso por la posici&oacute;n de equilibrio)</p>
+      <p class="m50">Datos y<sub>1</sub> = 0, &nbsp;Inc&oacute;gnitas: t<sub>1</sub>&nbsp;</p>
+      <p class="m150"><img src="formulas/6_02.gif" width="296" height="79" /></p>
+      <p class="m50">Aplicaci&oacute;n: (1/60 s despu&eacute;s de pasar por la 
+        posici&oacute;n de equilibrio)</p>
+      <p class="m50">Inc&oacute;gnitas: v<sub>2</sub>, &nbsp;t<sub>2</sub> = t<sub>1</sub> 
+        +&Delta;t (Siendo &Delta;t = 1/60 s)</p>
+      <p class="m150"><img src="formulas/6_03.gif" width="377" height="89" /></p>
+      <p class="m50">Teniendo en cuenta los resultados de la primera aplicaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/6_04.gif" width="271" height="79" border="0" /> 
+      </p>
+      <p class="m150"><img src="formulas/6_05.gif" width="362" height="65" border="0" /></p>
+      <p class="m50">El resultado no significa que el m&oacute;vil tenga dos velocidades 
+        al mismo tiempo, sino que tendr&aacute; una u otra velocidad dependiendo 
+        del valor de la fase inicial que no se conoce</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

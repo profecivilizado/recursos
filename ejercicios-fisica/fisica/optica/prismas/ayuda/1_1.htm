@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+var atributos="status=no,resizable=no"
+if(ventana) ventana.close();
+if (barras) atributos=atributos+',scrollbars=yes'
+ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,560);"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p><b><font color="#0000FF">Marcha de la luz en un prisma</font></b></p>
+      <p>Se aplica Snell a la entrada del rayo en el prisma y a la salida:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="44%"><div align="center"><img src="imagenes/2_01.png" width="203" height="181" /></div></td>
+          <td width="56%"> <p align="center">n<sub>1</sub>&middot;sen i = n<sub>2</sub>&middot;sen 
+              r</p>
+            <p align="center">n<sub>2</sub>&middot;sen r' = n<sub>1</sub>&middot;sen 
+              e</p>
+            </td>
+        </tr>
+      </table>  <p>Para relacionar r con r' se considera el tri&aacute;gulo cuyos lados 
+        son el rayo y las normales a las caras del prisma</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="32%"><div align="center"><img src="imagenes/2_02.png" width="111" height="154" /></div></td>
+          <td width="68%"><p>Las l&iacute;neas del mismo color son perpendi-culares 
+              y delimitan &aacute;ngulos iguales</p>
+            <p>En el tri&aacute;ngulo peque&ntilde;o:</p>
+            
+          <p class="m50">r + r' + (180 - A) = 180</p>
+            <p class="m50">r + r' = A</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

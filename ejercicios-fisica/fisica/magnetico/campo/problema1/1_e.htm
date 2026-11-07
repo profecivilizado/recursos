@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('e','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">e)</font></b></p>
+      <p class="m50">Punto: E (0, 0, 2) cm</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%" rowspan="3"> <div align="center"> 
+              <p>
+                <input type="button" name="boton1" value=" &gt; " class="boton"
+		  onclick="switch(n) {
+		  		case 0: imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',2,2);n=n+1;break;
+	  			case 1: imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',3,2);n=n+1;break;
+				case 2: imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',2,0,3,0);n=0;break;
+			}" />
+              </p>
+            </div></td>
+          <td width="32%" rowspan="3" valign="middle" id="imagen"> 
+            <div align="center">
+              <p><img src="imagenes/1_13.png" width="223" height="176" border="0" /></p>
+            </div></td><td height="50" id="celda1" > 
+            <p align="center"><img src="formulas/1_01.gif" width="353" height="37" /></p></td>
+        </tr>
+        <tr> 
+          <td height="100" id="celda2" style="visibility:hidden"> 
+            <p align="center"><img src="formulas/1_14.gif" width="368" height="60" /></p></td>
+        </tr>
+        <tr> 
+          <td width="61%" height="150" id="celda3" style="visibility:hidden"> 
+            <p align="center"><img src="formulas/1_15.gif" width="398" height="94" border="0" align="middle" /></p>
+            <p align="center">En la expresi&oacute;n del campo, la carga q <span class="enlace_texto" onclick="abrirVentana('../../mensajes/1.htm')">se 
+              pone con signo</span> </p></td>
+        </tr>
+      </table>  
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="32%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/1_13.png" width="223" height="176" /></div></td>
+                <td width="35%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/1_14.png" width="223" height="176" /></div></td>
+                <td width="33%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/1_15.png" width="223" height="176" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

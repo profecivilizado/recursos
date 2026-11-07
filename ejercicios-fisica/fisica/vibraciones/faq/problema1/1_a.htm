@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="43%"> <div align="right">
+              <p><img src="formulas/1_01.gif" width="152" height="93" /></p>
+            </div></td>
+          <td width="57%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">A = 14 cm,&nbsp;&omega; = 2&pi;f = 2&pi;rad 1 Hz = 
+              2&pi; rad/s</p>
+            <p class="m50">&phi;<sub>0</sub>: Desconocido </p></td>
+        </tr>
+      </table>
+      <p class="m50"><span class="enlace_texto" onClick="abrirVentana('../../ayuda/3.htm',1)">Magnitudes 
+        m&aacute;ximas</span></p>
+      <p class="m50">Elongaci&oacute;n m&aacute;xima: x<sub>max</sub> = 14 cm</p>
+      <p class="m50">Velocidad m&aacute;xima: v<sub>max</sub> = A&omega; = 14 
+        cm&middot;2&pi; rad/s = 88 cm/s</p>
+      <p class="m50">Aceleraci&oacute;n m&aacute;xima: a<sub>max</sub> = A&omega;<sup>2</sup> 
+        = 14 cm (2&pi; rad/s)<sup>2</sup> = 553 cm/s<sup>2</sup></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

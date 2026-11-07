@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','rodadura/ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="886"> <p class="m50"><font color="#FF0000">No nos dan la masa ni 
+        el radio del cilindro... &iexcl;Que no cunda el p&aacute;nico! Esto significa 
+        que la aceleraci&oacute;n no depender&aacute; de dichas magnitudes</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="27%"><div align="center"><img src="imagenes/9_05.png" width="113" height="106" /></div></td>
+          <td width="73%"><p>La velocidad lineal del cilindro va hacia arriba. 
+              La velocidad angular tiene sentido contrario al de las agujas del 
+              reloj (El punto de contacto con el suelo no tiene velocidad porque 
+              en &eacute;l se compensan las velocidades de traslaci&oacute;n y 
+              rotaci&oacute;n) </p></td>
+        </tr>
+        <tr>
+          <td><div align="center"><img src="imagenes/9_06.png" width="124" height="106" /></div></td>
+          <td><p>La aceleraci&oacute;n lineal tiene sentido contrario a la velocidad 
+              lineal (Frena). La aceleraci&oacute;n angular tiene el sentido de 
+              las agujas del reloj (El punto de contacto con el suelo no tiene 
+              aceleraci&oacute;n porque en &eacute;l se compensan las aceleraciones) 
+            </p></td>
+        </tr>
+      </table>
+      <p class="m50"> Para crear un par que produzca aceleraci&oacute;n angular 
+        el sentido de las agujas del reloj la fuerza de rozamiento deber&aacute; 
+        apuntar hacia arriba (En el mismo sentido que la traslaci&oacute;n)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%" rowspan="2"><div align="center"><img src="imagenes/9_01.png" width="181" height="126" /></div></td>
+          <td width="26%"><p>Traslaci&oacute;n del c.d.m:</p>
+            <p class="m50"><img src="formulas/9_01.gif" width="152" height="57" /></p></td>
+          <td width="48%"><p class="peque&ntilde;o">A efectos de traslaci&oacute;n 
+              se puede considerar que todas las fuerzas exteriores est&aacute;n 
+              aplicadas en el c.d.m</p></td>
+        </tr>
+        <tr> 
+          <td height="139" colspan="2"> <p>Rotaci&oacute;n alrededor del c.d.m:</p>
+            <p class="m50"><img src="formulas/9_02.gif" width="72" height="20" class="enlace_imagen" onclick="_pctop.apartado='9_a.htm';cambiar('','9_z.htm')"/></p>
+            <p>Relaci&oacute;n entre traslaci&oacute;n y rotaci&oacute;n:</p>
+            <p class="m50"><img src="formulas/9_03.gif" width="53" height="20" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con tres inc&oacute;gnitas: a,&nbsp;&alpha; , F<sub>R</sub></p>
+      <p class="m150"><img src="formulas/9_04.gif" width="152" height="158" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Sustituyendo <span class="enlace_texto" onclick="abrirVentana('../../mdi/1.htm')">el 
+        momento de inercia</span>:</p>
+      <p class="m150"><img src="formulas/9_05.gif" width="230" height="53" border="0" style="cursor:pointer"/> 
+      </p>
+      </td>
+  </tr>
+</table>
+<div align="center"></div>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,109,135,155" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/9_1.htm')"/>
+</map>
+</body>
+</html>

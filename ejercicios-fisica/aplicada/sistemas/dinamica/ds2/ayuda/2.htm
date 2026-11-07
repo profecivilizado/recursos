@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,0);self.resizeTo(440,540)"
+onUnload="cerrarVentanas()">
+<table width="401" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="381" height="214"> 
+      <p align="left"><strong><font color="#0000FF">Sentido de giro de la polea</font></strong></p>
+      <p align="left">El sistema se encuentra inicialmente en reposo porque algui&eacute;n 
+        est&aacute; sujetando la polea (No se ha representado esta fuerza)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="30%"><div align="center"><img src="imagenes/1_01.png" width="74" height="160" /></div></td>
+          <td width="70%"><p> Mientras el sistema est&eacute; en reposo en cada 
+              bloque se cumplir&aacute;:</p>
+            <p align="center">T<sub>1</sub> = F<sub>1&nbsp; </sub>, T<sub>2</sub> 
+              = F<sub>2</sub></p>
+            <p> Siendo F<sub>1</sub>, F<sub>2</sub> las resultantes de la <span class="enlace_texto" onClick="abrirVentana('../../mensajes/1.htm')">fuerzas 
+              &uacute;tiles</span> que sufren los bloques</p></td>
+        </tr>
+      </table>
+      
+      <p>En el momento de liberar la polea &eacute;sta queda sometida a las fuerzas 
+        T<sub>1</sub> y T<sub>2</sub> (Iguales a F<sub>1</sub> y F<sub>2</sub> 
+        respectivamente) y girar&aacute; en el sentido que indique la mayor </p>
+      <p><font color="#FF0000"><strong>Importante</strong></font></p>
+      <p><font color="#FF0000">En cuanto comience el movimiento cambiar&aacute;n 
+        las tensiones en los extremos de la cuerda y no se cumplir&aacute;n las 
+        igualdades anteriores. Si la polea no tiene masa las tensiones en los 
+        extremos de la cuerda ser&aacute;n iguales</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

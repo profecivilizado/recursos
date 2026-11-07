@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="6%">&nbsp;</td>
+          <td width="59%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              Escoge m&eacute;todo:&nbsp; 
+              <input type="radio" name="radiobutton"  value="radiobutton" checked="checked" />
+              F&iacute;sico&nbsp;&nbsp;&nbsp; 
+              <input type="radio" name="radiobutton" value="radiobutton"	onclick="cambiar('','1_b2.htm')" />
+              Matem&aacute;tico 
+            </form></td>
+          <td width="35%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50"><font color="#FF0000">A primera vista parece que la condici&oacute;n 
+        para que no haya choque es que la velocidad del tren de via-jeros, en 
+        el momento del alcance, sea cero... &iexcl;Pues no!, basta con que, en 
+        el momento del alcance, el tren de pasajeros tenga la misma velocidad 
+        que el tren de mercancias</font></p>
+      <p class="m50">Aplicaci&oacute;n: </p>
+      <p class="m50">En el instante del encuentro, t<sub>2</sub>, la posici&oacute;n 
+        de los trenes ser&aacute; la misma: x<sub>2 </sub>= x'<sub>2</sub> y adem&aacute;s 
+        la velocidad del tren de viajeros tendr&aacute; que ser igual a la del 
+        mercancias: v<sub>2</sub> = v'<sub>0</sub></p>
+      <p class="m150"><img src="formulas/1_09.gif" width="205" height="65" /></p>
+      <p class="m150"><img src="formulas/1_10.gif" width="228" height="110" usemap="#Map" border="0" style="cursor:pointer" /> 
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,116,51" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/1_2.htm')"/>
+  <area shape="rect" coords="168,68,224,107" title="Clic para ver unidades" onclick="abrirVentana('unidades/50.htm')" />
+</map>
+</body>
+</html>

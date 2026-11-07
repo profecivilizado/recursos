@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','circular4/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50">Primero hay que buscar la relaci&oacute;n entre aceleraci&oacute;n 
+        angular y el &aacute;ngulo aceleraci&oacute;n-velocidad</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%"><div align="center"><img src="imagenes/6_02.png" name="imagen1" width="135" height="156" id="imagen1" /></div></td>
+          <td width="74%"><img src="formulas/6_01.gif" width="550" height="181" border="0" usemap="#Map" style="cursor:pointer"/></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t1 = 3 s,&nbsp; &gamma; = 60&ordm;&nbsp; Inc&oacute;gnita: 
+        &alpha; </p>
+      <p class="m150"><img src="formulas/6_02.gif" width="218" height="140" border="0" usemap="#Map2" style="cursor:pointer"/> 
+      </p></tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="201,8,240,30" alt="Click para aclaraci&oacute;n" onClick="_pctop.origen='6_a.htm';cambiar('','6_z.htm')"/>
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="3,4,154,62" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/6_1.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.moveTo(20,0);self.resizeTo(480,450)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="440" height="214"> 
+      <p align="left"><strong><font color="#0000FF">Sentido de giro de la polea 
+        fija </font></strong></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="28%"><div align="center"><img src="imagenes/5_01.png" width="109" height="260" /></div></td>
+          <td width="72%" valign="middle"> 
+            <p>La polea est&aacute; inicialmente en reposo porque la mano le sujeta. 
+              En cada bloque y en la polea m&oacute;vil se cumple:</p>
+            <p align="center"><img src="formulas/3_2_01.gif" width="200" height="92" /></p>
+            <p align="left">Al retirar la mano la polea queda sometida a las fuerzas 
+              T<sub>1</sub> y T<sub>3</sub> (Iguales a m<sub>1</sub>g y m<sub>2</sub>g/2 
+              respectivamente) y girar&aacute; en el sentido de la mayor </p>
+            </td>
+        </tr>
+      </table>
+      
+      <p><font color="#FF0000"><strong>Importante</strong></font></p>
+      <p><font color="#FF0000">En cuanto comience el movimiento cambiar&aacute;n 
+        las tensiones en los extremos de la cuerda y no valdr&aacute;n las igualdades 
+        anteriores</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

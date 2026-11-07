@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana 
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.moveTo(20,20);self.resizeTo(410,600)" >
+<table width="376" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="356"> 
+      <p><b><font color="#0000FF">Resoluci&oacute;n de problemas</font></b></p>
+      <p>En un problema de tiros nos dar&aacute;n los datos necesarios para obtener 
+        las ecuaciones de un movimiento y nos pedir&aacute;n los valores de las 
+        variables: t, x, y, v<sub>x</sub>, v<sub>y</sub> en situaciones posteriores 
+        a la inicial</p>
+      <p><b><font color="#FF0000">M&eacute;todo</font></b></p>
+      <p>Se plantean las ecuaciones del movimiento visto por un obervador determinado</p>
+      <p>Cada pregunta del problema tratar&aacute; de una situaci&oacute;n del 
+        m&oacute;vil donde se conoce el valor de una de las variables y se desconocen 
+        las otras. Se aplican las ecuaciones del movimiento a esta situaci&oacute;n 
+        y se despejan las inc&oacute;gnitas</p>
+      <p>Puede que nos den el m&oacute;dulo o la direcci&oacute;n de la velocidad 
+        que no son variables directas del movimiento. En estos casos habr&aacute; 
+        que a&ntilde;adir una de estas ecuaciones:</p>
+      <p align="center"><img src="formulas/1_01.gif" width="266" height="42" /></p>
+      <p><b><font color="#FF0000">Comprobaciones de los resultados</font></b></p>
+      <p>Al ganar altura se pierde velocidad y viceversa (Esto solamente es cierto 
+        si no hay viento)</p>
+      <p>La inclinaci&oacute;n de la velocidad <b>siempre</b> disminuye</p>
+      <p>El tiempo siempre tiene que ser positivo</p>
+      <p>Posici&oacute;n o velocidad no pueden ser imaginarios</p>
+      <p>No valen valores de posici&oacute;n que sobrepasen barreras (Suelo, paredes...)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

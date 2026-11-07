@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">Para llegar a la Luna con el m&iacute;nimo esfuerzo bastar&aacute; 
+        con llegar justo al punto donde se equilibran los campos de Tierra y Luna, 
+        a partir de ah&iacute; el cohete 'caera' solo hasta la Luna. <br />
+        La distancia de este punto de equilibrio a la Tierra es:</p>
+      <p class="m150"><img src="formulas/12_00.gif" width="117" height="24" class="enlace_imagen" title="Clic para aclaración" onclick="_pctop.apartado='12_a.htm';cambiar('','12_z.htm')" /></p>
+      <p class="m50">Cambios de energ&iacute;a mec&aacute;nica desde que el cohete 
+        sale, partiendo del reposo, hasta que llega a la posici&oacute;n de equilibrio 
+        y se detiene</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="12%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"  />
+                Rest.</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Final </p>
+            </form></td>
+          <td width="55%" id="imagen"> 
+            <div align="center"><img src="imagenes/12_00.png" width="396" height="120" /></div></td>
+          <td width="33%" id="formula"> 
+            <div align="center"></div></td></tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/12_03.gif" width="377" height="44" /></p>
+      <p class="m50">C&aacute;lculo del trabajo:</p>
+      <p class="m50">Durante el recorrido la sonda est&aacute; sometida a la fuerza 
+        del cohete propulsor y a la fuerza gravitatoria. El trabajo gravitatorio 
+        ya est&aacute; contado en la variaci&oacute;n de energ&iacute;a potencial 
+        por tanto el &uacute;nico trabajo que se hace sobre la sonda es el del 
+        motor del cohete: <b><i>T</i></b></p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n:</p>
+      <p class="m100"><img src="formulas/12_04.gif" width="608" height="137" border="0" usemap="#Map" style="cursor:pointer" /> 
+      </p>
+      <p class="m50">El trabajo del motor suministra la energ&iacute;a necesaria 
+        para llegar a A. 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="522,100,603,122" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/9.htm')" />
+        </map>
+      </p>
+      <p class="m50"><b>Disquisici&oacute;n final</b></p>
+      <p class="m50">Hemos hecho todo el problema suponiendo que el potencial 
+        gravitatorio de la Luna en un punto es despreciable en comparaci&oacute;n 
+        con el potencial de la Tierra en ese mismo punto. Comprob&eacute;moslo:</p>
+      <p class="m50">Los potenciales que crean Tierra y Luna en la superficie 
+        de la Tierra son:</p>
+      <p class="m150"><img src="formulas/12_05.gif" width="482" height="105" /></p>
+      <p class="m50">En la superficie terrestre el potencial de la Tierra es unas 
+        5000 veces mayor que el de la Luna, as&iacute; que este efectivamente 
+        puede considerarse despreciable</p>
+      <p class="m50">Los potenciales que crean Tierra y Luna en el punto A, donde 
+        se anulan los campos, son:</p>
+      <p class="m150"><img src="formulas/12_06.gif" width="484" height="113" /></p>
+      <p class="m50">En el punto A, el potencial de la Tierra es unas nueve veces 
+        mayor que el de la Luna as&iacute; que para despreciar este hay que tener 
+        un poco de manga ancha...</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/12_00.png" width="396" height="120" /></div></td>
+                <td id="formula0">&nbsp;&nbsp;</td>
+              </tr>
+              <tr>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/12_01.png" width="396" height="120" /></div></td>
+                <td id="formula1"> 
+                  <div align="center"><img src="formulas/12_01.gif" width="225" height="73" /></div></td></tr>
+              <tr>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/12_02.png" width="396" height="120" /></div></td>
+                <td id="formula2"> 
+                  <div align="center"><img src="formulas/12_02.gif" width="238" height="76" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table>
+      <p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

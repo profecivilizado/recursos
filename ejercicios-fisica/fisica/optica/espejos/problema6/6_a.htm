@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Si la imagen es de tama&ntilde;o doble y virtual (Derecha) 
+        o real (Invertida) A valdr&aacute; 2 o -2 respectivamente</p>
+      <p class="m50">Datos: f = -32 cm / 2, A = 2 | -2 </p>
+      <p class="m50">Inc&oacute;gnitas: s, s'</p>
+      <p class="m150"><img src="formulas/6_01.gif" width="305" height="84" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="98,23,302,63" title="Clic para ver el desarrollo" onclick="abrirVentana('../desarrollos/2_1.htm')"/>
+        </map>
+      </p>
+      <p class="m50">Sustituyendo el valor del aumento </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="11%" rowspan="2"> <form action="" method="post" name="form1" class="formulario" id="form1" >
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="formula.innerHTML=formula0.innerHTML;mensaje.innerHTML=mensaje0.innerHTML"/>
+                a)</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="formula.innerHTML=formula1.innerHTML;mensaje.innerHTML=mensaje1.innerHTML" />
+                b)</p>
+              </form></td>
+          <td width="89%" height="126" valign="middle" id="formula" ><p align="left" class="m50"><img src="formulas/6_03.gif" width="201" height="96" align="middle" /></p>
+            <p align="left" class="m50"><span class="enlace_texto" onclick="abrirVentana('../mensajes/1.htm')">Construcci&oacute;n 
+              gr&aacute;fica</span> </p>
+                  </td>
+        </tr>
+        <tr> 
+          <td valign="top" id="mensaje"> <p align="left">La imagen se forma 10 
+              cm detr&aacute;s del espejo, aumento +2 (Derecha, Virtual)</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="50%" id="formula0"> <div align="center"> 
+                    <p align="left" class="m50"><img src="formulas/6_03.gif" width="201" height="96" align="middle" /></p>
+                    <p align="left" class="m50"><span class="enlace_texto" onclick="abrirVentana('../mensajes/1.htm')">Construcci&oacute;n 
+                      gr&aacute;fica</span> </p>
+                  </div></td>
+                <td width="50%" id="formula1"> <p class="m50"><img src="formulas/6_04.gif" width="233" height="105" align="middle" /></p>
+                  <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../mensajes/3.htm')">Construcci&oacute;n 
+                    gr&aacute;fica</span></p></td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="mensaje0"> <p align="left">El objeto estar&iacute;a 8 
+                    cm delante del espejo y su imagen se formar&iacute;a 16 cm 
+                    detr&aacute;s</p></td>
+              </tr>
+              <tr> 
+                <td id="mensaje1"> <p>El objeto estar&aacute; 24 cm delante del 
+                    espejo y su imagen se formar&aacute; 48 cm delante</p></td>
+              </tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

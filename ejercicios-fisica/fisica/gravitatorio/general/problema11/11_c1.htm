@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%">&nbsp;</td>
+          <td width="28%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              Calcular: 
+              <input name="radiobutton" type="radio" value="radiobutton" checked="checked"/>
+              F<sub>21</sub>&nbsp;&nbsp; 
+              <input name="radiobutton" type="radio" value="radiobutton" onclick="parent.frames[0].modo='2.htm';cambiar('','11_c2.htm')"/>
+              F<sub>12</sub> </form></td>
+          <td width="65%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50" align="left"><b><font color="#0000FF">c)</font></b></p>
+      <p class="m50" align="left"><b><font color="#0000FF">F<sub>21</sub>:&nbsp; 
+        Fuerza que la masa m<sub>1</sub> hace sobre la masa m<sub>2</sub></font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="5%" rowspan="2" valign="middle"> <p> 
+              <input type="button" name="boton1" value=" &gt; " class="boton" 
+	  			onclick="switch(n)	{
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,1);n=1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',2,1,3,1);n=2;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',1,0,2,0,3,0);n=0;break;
+				}" />
+            </p></td>
+          <td width="31%" rowspan="2" id="imagen"> 
+            <p align="center"><img src="imagenes/11_11.png" width="152" height="154" /></p></td><td width="64%" id="celda1" style="visibility:hidden" height="30"> <p align="center"><img src="formulas/11_09.gif" width="401" height="41" align="middle" border="0" /></p></td>
+        </tr>
+        <tr> 
+          <td width="64%" id="celda2" style="visibility:hidden"> <p align="center"><img src="formulas/11_10.gif" width="405" height="89" border="0" /> 
+            </p></td>
+        </tr>
+        <tr> 
+          <td width="5%" valign="middle">&nbsp;</td>
+          <td colspan="2" id="celda3" style="visibility:hidden"> <p class="m100">La 
+              masa m<sub>2</sub> es atra&iacute;da por la masa m<sub>1</sub> con 
+              una fuerza de 0,133 N</p></td>
+        </tr>
+      </table>  
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/11_11.png" width="152" height="154" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/11_12.png" width="152" height="154" /></div></td>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/11_13.png" width="152" height="154" /></div></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

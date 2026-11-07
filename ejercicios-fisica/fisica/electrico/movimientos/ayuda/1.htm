@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,490)"
+onunload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p  ><b><font color="#0000FF">Principio de Conservaci&oacute;n</font></b></p>
+      <p>Este m&eacute;todo se puede aplicar a cargas que se mueven dentro de 
+        campos uniformes o no pero tiene una limitaci&oacute;n: no sirve cuando 
+        interviene el tiempo que se tarda en hacer el recorrido</p>
+      <p class="m100"><b><i>T</i></b> = &Delta;E<sub>C </sub>+ &Delta;E<sub>P</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="10%" valign="top"> <p align="right">&Delta;E<sub>C </sub></p></td>
+          <td width="90%"> <p>Variaci&oacute;n de energ&iacute;a cin&eacute;tica 
+              entre las posiciones inicial y final: E<sub>C fin</sub> - E<sub>C 
+              in</sub><br />
+            </p></td>
+        </tr>
+        <tr> 
+          <td width="10%" valign="top"> <p align="right">&Delta;E<sub>P </sub></p></td>
+          <td width="90%"> <p>Variaci&oacute;n de energ&iacute;a potencial entre 
+              las posiciones inicial y final: q&middot;V<sub>fin</sub> - q&middot;V<sub>in</sub></p>
+            <p>En caso de campo no uniforme los potenciales se cal-culan a partir 
+              de la distribuci&oacute;n de cargas</p>
+            <p>En campos uniformes se utiliza directamente la d.d.p entre las 
+              posiciones inicial y final: q&middot;(V<sub>fin</sub> - V<sub>in</sub>)<br />
+              Algunas veces habr&aacute; que manejar el <span class="enlace_texto" onClick="abrirVentana('../../trabajo/ayuda/7.htm')">campo 
+              el&eacute;ctrico en lugar de la d.d.p<br />
+              <br />
+              </span></p>
+            </td>
+        </tr>
+        <tr> 
+          <td width="10%" valign="top"> <p align="right"><i><b>T </b></i></p></td>
+          <td width="90%" valign="top"> 
+            <p>Trabajo de las fuerzas, <font color="#000000">exceptuando la el&eacute;ctrica</font>, 
+              que han actuado sobre la carga a lo largo del recorrido </p></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

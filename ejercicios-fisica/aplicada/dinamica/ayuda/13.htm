@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,500)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="580"><p><strong><font color="#0000FF">Din&aacute;mica del movimiento 
+        arm&oacute;nico</font></strong></p>
+      <p>La aceleraci&oacute;n de un movimiento arm&oacute;nico se calcula igual 
+        que la <span class="enlace_texto" onClick="abrirVentana('11.htm',1)">aceleraci&oacute;n 
+        de un movimiento rect&iacute;lineo</span>. La &uacute;nica diferencia 
+        es que esta aceleraci&oacute;n no es constante, depende del punto donde 
+        se halle</p>
+      <p><b><font color="#0000FF">Calculo del per&iacute;odo de oscilaci&oacute;n</font></b></p>
+      <p>Se coloca el cuerpo en la posici&oacute;n de equilibrio (Donde no tiene 
+        aceleraci&oacute;n) y se obtiene la ecuaci&oacute;n de equilibrio igualando 
+        las fuerzas que sufre</p>
+      <p>Se desplaza el cuerpo una distancia x de la posici&oacute;n de equilibrio 
+        y se calcula su aceleraci&oacute;n aplicando la din&aacute;mica del movimiento 
+        rect&iacute;lineo</p>
+      <p>Se comprueba que el sentido de la aceleraci&oacute;n es contrario al 
+        desplazamiento y que el m&oacute;dulo de esta es proporcional a la posici&oacute;n 
+        x (Si no se cumplen estas dos condiciones el movi-miento no ser&aacute; 
+        arm&oacute;nico) </p>
+      <p>Se iguala el m&oacute;dulo de la aceleraci&oacute;n obtenido con el m&oacute;dulo 
+        de la aceleraci&oacute;n del movimiento arm&oacute;nico (&omega;<sup>2</sup>&middot;x) 
+        y se despeja </p>
+      <p>Conociendo &omega; est&aacute; tirado obtener el per&iacute;odo o la 
+        frecuencia</p>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

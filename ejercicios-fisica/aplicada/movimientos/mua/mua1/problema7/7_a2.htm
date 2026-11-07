@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','mua1/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%" height="76"> <p align="center"><img src="imagenes/7_05.png" width="108" height="108" /></p></td>
+          <td width="20%" height="76"> <div align="right"> 
+              <p><img src="formulas/7_05.gif" width="112" height="70" /></p>
+            </div></td>
+          <td width="47%" height="76"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50"> y<sub>0</sub> = 30 m, &nbsp;g = 9.8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 1 s, &nbsp;Inc&oacute;gnitas: y<sub>1</sub> 
+        , v<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="47%"> <p align="right"><img src="formulas/7_06.gif" width="253" height="178" /></p></td>
+          <td width="53%"> <p class="m50"><img src="imagenes/7_06.png" width="109" height="106" /></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">La piedra est&aacute; 25.1 m sobre el observador bajando 
+        a 9.8 m/s</p></td>
+  </tr>
+</table>
+<b><font color="#0000FF"></font></b> 
+</body>
+</html>

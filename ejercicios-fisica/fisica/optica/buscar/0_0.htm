@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function irA(hoja, problema) {
+	eval('URL='+hoja+'['+(problema-1)+']');
+	MM_goToURL('parent.frames[1]',URL);
+	parent.frames[1].focus()
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function borrarLista() {
+	var n=document.getElementById("lista2").options.length;
+	for (var i=0;i<n;i++){
+		document.getElementById("lista2").options.remove(0)}
+}
+
+function crearLista(hoja) {
+	borrarLista();
+	var n = eval(hoja+'.length'), texto;
+	for (var i=0;i<n;i++){
+		texto= "Problema "+(i+1)+" ";
+		eval('var p'+ (i+1)+'=document.createElement("option")');  
+		eval('p' + (i+1) + '.text=\"'+texto+'\"');
+		eval('p' + (i+1) + '.value='+ (i+1));
+		eval('document.getElementById("lista2").options.add(p'+(i+1)+')')
+	}
+	document.getElementById("lista2").options[0].selected=true
+}
+
+var hojaActual='hoja1';
+ 
+ var hoja1 =['../espejos/problema1/1.htm',
+			'../espejos/problema2/2.htm',
+			'../faq/problema6/6.htm',
+			'../espejos/problema4/4.htm',
+			'../espejos/problema5/5.htm',
+			'../espejos/problema6/6.htm',
+			'../espejos/problema8/8.htm',
+			'../espejos/problema9/9.htm',
+			'../espejos/problema7/7.htm',
+			'../espejos/problema11/11.htm',
+			'../espejos/problema12/12.htm'];
+var hoja2 =	['../snell/problema1/1.htm',
+			'../faq/problema3/3.htm',
+			'../snell/problema3/3.htm',
+			'../snell/problema4/4.htm',
+			'../snell/problema10/10.htm',
+			'../snell/problema2/2.htm',
+			'../snell/problema6/6.htm',
+			'../snell/problema8/8.htm',
+			'../faq/problema11/11.htm',
+			'../snell/problema5/5.htm',
+			'../snell/problema9/9.htm'];
+var hoja3 = ['../prismas/problema10/10.htm',
+			'../prismas/problema11/11.htm',
+			'../prismas/problema1/1.htm',
+			'../prismas/problema3/3.htm',
+			'../prismas/problema2/2.htm',
+			'../prismas/problema5/5.htm',
+			'../prismas/problema6/6.htm',
+			'../prismas/problema4/4.htm',
+			'../prismas/problema13/13.htm',
+			'../prismas/problema7/7.htm'];
+var hoja4 =	['../lentes/problema1/1.htm',
+			'../lentes/problema2/2.htm',
+			'../lentes/problema3/3.htm',
+			'../lentes/problema19/19.htm',
+			'../lentes/problema4/4.htm',
+			'../lentes/problema6/6.htm',
+			'../lentes/problema5/5.htm',
+			'../lentes/problema7/7.htm',
+			'../lentes/problema8/8.htm',
+			'../lentes/problema9/9.htm',
+			'../lentes/problema10/10.htm'];
+var hoja5 = ['../lentes/problema11/11.htm',
+			'../lentes/problema12/12.htm',
+			'../lentes/problema13/13.htm',
+			'../lentes/problema14/14.htm']
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="_pctop.document.title=parent.document.title;_pctop.sueltos=1;crearLista('hoja1');irA(hojaActual,1)"
+onunload="_pctop.sueltos=0">
+<table width="760" border="0" cellpadding="5" cellspacing="0" class="borde">
+  <tr> 
+    <td valign="top"> 
+      <p class="m50"><font color="#0000FF"><strong>&Oacute;PTICA</strong></font>&nbsp;&nbsp; 
+        <select name="lista1" size="1" id="lista1" onchange="hojaActual=lista1.value;crearLista(hojaActual);irA(hojaActual,1)">
+          <option value="hoja1" selected="selected">Hoja 1</option>
+          <option value="hoja2">Hoja 2</option>
+          <option value="hoja3">Hoja 3</option>
+		  <option value="hoja4">Hoja 4</option>
+		  <option value="hoja5">Hoja 5</option>
+		  </select>
+        &nbsp;&nbsp; 
+        <select name="lista2" size="1" id="lista2" onchange="irA(hojaActual,lista2.value)">
+          <option>Problema 1</option>
+        </select>
+      </p>
+      </td>
+    <td width="21%" valign="top"> <p align="right"><span class="enlace_texto" onclick="_pctop.problema=null;cambiar(_pctop.indice,'')">&Iacute;ndice</span> 
+        &nbsp; &nbsp; </p></td>
+  </tr>
+</table>
+</body>
+</html>

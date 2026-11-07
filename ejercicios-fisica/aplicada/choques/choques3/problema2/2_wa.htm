@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Cambios de energ&iacute;a:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="18%" > <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"  />
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                Final </p>
+            </form>
+          </td>
+          <td width="29%" id="imagen" > <p align="center"><img src="imagenes/2_04.png" width="191" height="88" /></p></td>
+          <td width="53%"  id="formula">&nbsp;&nbsp;</td>
+        </tr>
+        <tr> 
+          <td colspan="3" valign="top"> <hr /> 
+            <p class="m150"><img src="formulas/2_07.gif" width="316" height="65" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">C&aacute;lculo del trabajo:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%"><div align="center"><img src="imagenes/2_07.png" width="125" height="105" /></div></td>
+          <td width="70%" > <p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en la variaci&oacute;n de energ&iacute;a potencial)</p>
+            <p> <i><b>T</b></i><sub>N</sub> = 0 (La normal es perpendicular al 
+              desplazamiento)</p>
+            <p><img src="formulas/2_08.gif" width="276" height="22" border="0" style="cursor:pointer"/> 
+            </p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/2_09.gif" width="282" height="114" border="0" usemap="#Map2" style="cursor:pointer"/> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="28%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/2_04.png" width="191" height="88" /></div></td>
+                <td width="28%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/2_05.png" width="191" height="88" /></div></td>
+                <td width="29%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/2_06.png" width="191" height="88" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="formula0">&nbsp;</td>
+                <td id="formula1"> 
+                  <div align="center"><img src="formulas/2_05.gif" width="102" height="65" /></div></td>
+                <td id="formula2"> 
+                  <div align="center"><img src="formulas/2_06.gif" width="65" height="52" /></div></td></tr>
+            </table>
+            
+          </td>
+        </tr>
+      </table>
+      <p class="m150">&nbsp;</p>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="311,148,342,184" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/7.htm')"/>
+</map>
+</body>
+</html>

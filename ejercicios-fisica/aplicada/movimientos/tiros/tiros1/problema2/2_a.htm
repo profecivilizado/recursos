@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link rel="stylesheet" href="../../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','tiros1/ayuda/1.htm');MM_preloadImages('imagenes/1_05.png','imagenes/1_06.png')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><span class="t1"><b><font color="#0000FF">a)</font></b></span> 
+      </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p class="m150"><img src="formulas/2_01.gif" width="151" height="146" border="0" alt="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/3.htm','',1)" class="enlace_imagen" /></p></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 5 m/s, &alpha; = 30&ordm;</p>
+            <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 1 s, Inc&oacute;gnitas: x<sub>1</sub>, 
+        y<sub>1</sub>, v<sub>x1</sub>, v<sub>y1</sub></p>
+      <p class="m150"><img src="formulas/2_03.gif" width="186" height="126" /></p>
+      <p class="m50">Sustituyendo valores:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="50%"><p class="m100"><img src="formulas/2_04.gif" width="346" height="116" /></p></td>
+          <td width="50%" valign="middle">
+<div align="center"> 
+              <p><img src="imagenes/2_01.png" width="128" height="112" /></p>
+            </div></td>
+        </tr>
+      </table>
+      <p class="m50">La piedra est&aacute; 4.33 m a la derecha y 7.40 m por debajo 
+        del observador. Observa que se sabe donde est&aacute; pero no el espacio 
+        (Longitud de trayectoria) que ha recorrido</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="62%"><p class="m100"><img src="formulas/2_05.gif" width="308" height="238" /></p></td>
+          <td width="38%" valign="middle">
+<div align="center">
+              <p><img src="imagenes/2_02.png" width="140" height="114" /></p>
+            </div></td>
+        </tr>
+      </table>
+      <p class="m50">Se mueve a 13 m/s en direcci&oacute;n 70.5&ordm; bajo la 
+        horizontal</p>
+      <p class="m50">Las componentes intr&iacute;nsecas de la aceleraci&oacute;n 
+        son las componentes de la aceleraci&oacute;n (g) en la direcci&oacute;n 
+        de la velocidad (Tangencial) y su perpendicular (Normal)</p>
+      <table border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="97" rowspan="2"> 
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/2_04.png',1);mostrarObjetos('celda',1,0,2,0)" checked="checked" />
+                v , a</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/2_05.png',1);mostrarObjetos('celda',1,2,2,2)" />
+                a<sub>t </sub>, a<sub>n</sub></p>
+            </form></td>
+          <td width="175" rowspan="2">
+<div align="center">
+              <p><img src="imagenes/2_04.png" name="imagen1" width="170" height="133" id="imagen1" /></p>
+            </div></td>
+          <td width="418" id="celda1" style="visibility:hidden"> 
+            <table width="65%" border="1" cellspacing="0" cellpadding="5" >
+              <tr> 
+                <td> <p class="peque&ntilde;o" >Los segmentos del mismo color 
+                    son perpendiculares y delimitan &aacute;ngulos iguales </p></td>
+              </tr>
+            </table></td></tr>
+        <tr> 
+          <td width="418" id="celda2" style="visibility:hidden"> 
+            <p class="m50"><img src="formulas/2_06.gif" width="301" height="92" /></p>
+            <p>El m&oacute;vil curva su trayectoria y gana r&aacute;pidez (La 
+              aceleraci&oacute;n tangencial tiene el sentido de la velocidad).</p></td></tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.resizeTo(480,600)" 
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="430" valign="top"> <p><strong><font color="#0000FF">Ecuaci&oacute;n 
+        de onda unidimensional</font></strong> <br />
+        Cuando una onda se propaga por un medio en cada punto de este hay una 
+        magnitud f&iacute;sica, cuyo valor est&aacute; oscilando.<br />
+        La ecuaci&oacute;n de onda describe el conjunto de todas estas oscila-ciones 
+      </p>
+      <p align="center" class="peque&ntilde;o"><img src="formulas/1_01.gif" width="148" height="22" align="middle" />&nbsp; 
+        (La funci&oacute;n puede ser coseno)</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr valign="top"> 
+          <td width="19%"> <p align="right">&phi;&nbsp; </p></td>
+          <td> <p>Valor de la magnitud </p></td>
+        </tr>
+        <tr valign="top"> 
+          <td> <p align="right">&phi;<sub>0&nbsp;</sub></p></td>
+          <td> <p>Amplitud: M&aacute;ximo valor (M&oacute;dulo) de la magnitud</p></td>
+        </tr>
+        <tr valign="top"> 
+          <td><p align="right"><img src="formulas/1_02.gif" width="73" height="22" align="middle" onClick="abrirVentana('../../mensajes/5.htm')"/>&nbsp;</p></td>
+          <td><p>Fase espacio-temporal: Determina el valor de la magnitud en cada 
+              punto x en cada instante t</p></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <p align="right">&omega;&nbsp;</p></td>
+          <td height="112" valign="top"> <p>Frecuencia angular (Par&aacute;metro)<br />
+              Relaci&oacute;n entre cambio de fase y cambio de tiem-po. En un 
+              punto fijo, al pasar un tiempo T (Per&iacute;o-do) la fase cambia 
+              en 2&pi;</p>
+            <p align="left" class="m100"><img src="formulas/1_03.gif" width="49" height="36" /></p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><div align="right"> 
+              <p>k&nbsp;</p>
+            </div></td>
+          <td valign="top"> <p>Constante de propagaci&oacute;n (Par&aacute;metro)<br />
+              Relaci&oacute;n entre cambio de fase y cambio de posi-ci&oacute;n. 
+              En un instante dado, al cambiar la posici&oacute;n en &lambda; (Longitud 
+              de onda) la fase cambia en 2&pi;</p>
+            <p align="left" class="m100"><font color="#FF0000"><img src="formulas/1_04.gif" width="48" height="37" /><br />
+              </font></p></td>
+        </tr>
+        <tr> 
+          <td valign="top"><div align="right">c&nbsp;&nbsp; </div></td>
+          <td valign="top"><div align="right">
+              <p align="left">Velocidad de propagaci&oacute;n (M&oacute;dulo)<br />
+                En un per&iacute;odo T la onda avanza &lambda;:</p>
+            </div>
+            <p class="m50"><img src="formulas/1_05.gif" width="129" height="38" border="0" style="cursor:pointer"/></p></td>
+        </tr>
+        <tr> 
+          <td colspan="2" valign="top"><p>Seg&uacute;n los t&eacute;rminos de 
+              la fase est&eacute;n separados por signo + o - la onda <span class="enlace_texto" onClick="abrirVentana('4.htm',1)">se 
+              propagar&aacute;</span> hacia la izquierda o la derecha </p></td>
+        </tr>
+      </table>
+      <p>Si la oscilaci&oacute;n que origina la onda tiene una fase inicial &delta; 
+        , la fase espacio-temporal ser&aacute;: (&omega;&middot;t &plusmn; k·x 
+        + &delta;)</p>
+      <p><b><font color="#0000FF">Otra forma de la ecuaci&oacute;n de onda:</font></b></p>
+      <p align="center"><b><font color="#FF0000"><img src="formulas/1_08.gif" width="148" height="22" align="middle" /></font></b></p>
+      
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

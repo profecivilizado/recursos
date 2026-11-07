@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+onload ="self.resizeTo(480,500)"
+onUnload="cerrarVentanas()" >
+<table width="451" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td valign="top"> 
+      <p><b><font color="#0000FF">Ondas estacionarias 
+        <br />
+        </font></b>Se producen al interferir dos ondas que se propagan en sentidos 
+        contrarios en un medio de tama&ntilde;o limitado (Una cuerda con sus extremos 
+        fijos o un tubo hueco con un extremo abierto)<br />
+        En las ondas estacionarias la amplitud de oscilaci&oacute;n no es la mis-ma 
+        en todos los puntos, varia desde 0 (Nodo) hasta un m&aacute;ximo (Vientre). 
+        En el caso de una onda el&aacute;stica parecer&aacute; que las crestas 
+        no avanzan <span onclick="abrirVentana('../../mensajes/12.htm')"class="enlace_texto" >Ver 
+        onda</span></p>
+      <p> La ecuaci&oacute;n de una onda estacionaria se distingue r&aacute;pido 
+        porque k&middot;x y &omega;&middot;t van separados, cada uno es el argumento 
+        de una funci&oacute;n trigonom&eacute;trica. Por ejemplo:</p>
+      <p class="m50">&phi; = &phi;<sub>0</sub> sen (k x) cos (&omega; t)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="11%" valign="top">
+<p>&phi;<sub>0</sub>&nbsp;</p>
+            </td>
+          <td width="89%"><p>Amplitud de oscilaci&oacute;n: el doble de la amplitud 
+              de una de las ondas que interfieren)</p>
+            </td>
+        </tr>
+      </table>
+      <p><strong><font color="#0000FF">Posiciones de nodos y vientres</font></strong></p>
+      <p>Para la onda estacionaria del ejemplo anterior los vientres o no-dos 
+        son los puntos donde sen (k x) = &plusmn;1 o sen (k x) = 0 respec-tivamente. 
+        <span class="enlace_texto" onClick="abrirVentana('3.htm')">Ver c&aacute;lculo</span></p>
+      <p><font color="#FF0000">Para obtener r&aacute;pidamente las posiciones 
+        de nodos y vientres</font></p>
+      <p class="m50">Se calcula la perturbaci&oacute;n en x = 0 en un instante 
+        cual-quiera t. Seg&uacute;n resulte cero o no, en el origen habr&aacute; 
+        un nodo o un vientre</p>
+      <p class="m50">La separaci&oacute;n entre dos nodos o dos vientres consecuti-vos 
+        vale &lambda;/2</p>
+      <p class="m50">La separaci&oacute;n entre un nodo y un vientre consecutivos 
+        vale &lambda;/4 (En medio de cada dos nodos hay un vientre y en medio 
+        de cada dos vientres hay un nodo)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

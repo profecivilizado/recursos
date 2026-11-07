@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><span  ><b><font color="#0000FF">a)</font></b></span> 
+      </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p class="m150"><img src="formulas/1_01.gif" width="164" height="148" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm')" class="enlace_imagen" /></p></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 100 m/s, &alpha; = 51&ordm;</p>
+            <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: t<sub>1</sub> = 4 s, Inc&oacute;gnitas: x<sub>1</sub>, 
+        y<sub>1</sub>, v<sub>x1</sub>, v<sub>y1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="32%"><div align="center"><img src="imagenes/1_02.png" width="149" height="89" /></div></td>
+          <td width="68%"><p class="m50"><img src="formulas/1_03.gif" width="178" height="148" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/1_04.gif" width="465" height="174" /></p>
+      <p class="m50">El proyectil est&aacute; 252 m a la derecha y 233 m por encima 
+        del observador. Observa que se sabe donde est&aacute; pero no el espacio 
+        (Longitud de trayectoria) que ha recorrido</p>
+      <p class="m50">Se mueve a 73.1 m/s en direcci&oacute;n 31.2&ordm; sobre 
+        la horizontal. </p>
+      <p class="m50">Las componentes intr&iacute;nsecas de la aceleraci&oacute;n 
+        son las componentes de la aceleraci&oacute;n (g) en la direcci&oacute;n 
+        de la velocidad (Tangencial) y su perpendicular (Normal)</p>
+      <table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="51"><div align="center"> 
+              <input type="button" name="Submit" value="  0  " id="boton"
+			  onClick="var n=parseInt(boton.value);switch(n) {
+			  		case 0:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',1,2);boton.value='  1  ';break;
+					case 1:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,0);boton.value='  0  ';break; 
+					}"/>
+            </div></td>
+          <td width="167" id="imagen"> <div align="center"> 
+              <p><img src="imagenes/1_05.png" width="154" height="129" /></p>
+            </div></td>
+          <td width="472" id="celda1" style="visibility:hidden"> <p class="peque&ntilde;o"><font color="#FF0000">Las 
+              l&iacute;neas verdes y rojas son perpendiculares entre si y delimitan 
+              &aacute;ngulos iguales </font></p>
+            <p class="m50"><img src="formulas/1_06.gif" width="293" height="86" /></p>
+            <p>El m&oacute;vil curva su trayectoria y pierde rapidez</p></td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td id="imagen1"> 
+            <div align="center"><img src="imagenes/1_05.png" width="154" height="129" /></div></td>
+          <td id="imagen2"> 
+            <div align="center"><img src="imagenes/1_06.png" width="154" height="129" /></div></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../../ayuda/3.htm');"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><span  ><b><font color="#0000FF">a)</font></b></span> 
+      </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p class="m150"><img src="formulas/6_01.gif" width="122" height="153" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('descomposicion/6.htm')" class="enlace_imagen" /></p></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 10 m/s, a = g/5,&nbsp; g = 9,8 m/s<sup>2</sup></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Alcanza la altura m&aacute;xima (Se anula 
+        la velocidad vertical)</p>
+      <p class="m50">Datos: v<sub>y1</sub> = 0, Inc&oacute;gnitas: t<sub>1</sub>, 
+        x<sub>1</sub>, v<sub>x1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="42%"><div align="center"><img src="imagenes/6_01.png" width="211" height="86" /></div></td>
+          <td width="58%"><p class="m50"><img src="formulas/6_02.gif" width="137" height="121" /></p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/6_03.gif" width="310" height="238" border="0" usemap="#Map1" style="cursor:pointer"/></p>
+      <p class="m50">Observa que en la expresi&oacute;n de la altura m&aacute;xima 
+        no interviene la aceleraci&oacute;n del viento, luego ser&aacute; la misma 
+        con viento o sin &eacute;l. El viento solo afecta al desplazamiento horizontal 
+        que corresponde a dicha altura m&aacute;xima</p>
+      </td>
+  </tr>
+</table>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="134,206,185,224" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/21.htm')"/>
+  <area shape="rect" coords="257,142,308,160" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/21.htm')"/>
+  <area shape="rect" coords="3,4,275,52" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/6_1.htm')" />
+  <area shape="rect" coords="152,79,199,98" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/4.htm')"/>
+</map>
+</body>
+</html>

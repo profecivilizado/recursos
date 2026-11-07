@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">El <span class="enlace_texto" onclick="abrirVentana('../../mensajes/8.htm')">vector 
+        superficie</span> se ha tomado arbitrariamente, servir&iacute;a igual 
+        el opuesto</p>
+      <p class="m50">Nos dan el tiempo que tarda en producirse el cambio de flujo 
+        por tanto calculamos la f.e.m media</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="12%" rowspan="2"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Inicial</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Final </p>
+            </form></td>
+          <td width="28%" rowspan="2" id="imagen"> 
+            <div align="center"><img src="imagenes/6_01.png" width="178" height="142" /></div></td>
+          <td width="60%" height="95" valign="middle" id="formula"> 
+            <p class="m50"><img src="formulas/6_01.gif" name="imagen2" width="130" height="20" align="middle" id="imagen2" /></p>
+            </td></tr>
+        <tr> 
+          <td><p>El flujo a trav&eacute;s de una bobina de N espiras es N veces 
+              el flujo que atraviesa una de las espiras </p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/6_03.gif" width="394" height="126" usemap="#Map" border="0" style="cursor:pointer" /> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="340,96,382,116" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/11.htm')" />
+        </map>
+      </p>
+      <p class="m50">El signo de la f.em determina el sentido en que circular&aacute; 
+        la corriente inducida pero no es nada f&aacute;cil su interpretaci&oacute;n. 
+        El sentido de la corriente inducida se determina mejor con la ley de Lenz</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="49%" id="imagen0"> 
+            <div align="center"><img src="imagenes/6_01.png" width="178" height="142" /></div></td>
+          <td width="51%" id="imagen1"> 
+            <div align="center"><img src="imagenes/6_02.png" width="178" height="142" /></div></td></tr>
+        <tr>
+          <td id="formula0"> 
+            <div align="left">
+              <p class="m50"><img src="formulas/6_01.gif" width="130" height="20" /></p>
+            </div></td>
+          <td id="formula1"> 
+            <div align="left">
+              <p class="m50"><img src="formulas/6_02.gif" width="130" height="20" /></p>
+            </div></td></tr>
+      </table><p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

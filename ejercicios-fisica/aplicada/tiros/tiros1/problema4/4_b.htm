@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><span  ><b><font color="#0000FF">b)</font></b></span> 
+      </p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="44%"> <p class="m150"><img src="formulas/4_01.gif" width="88" height="145" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/5.htm')" class="enlace_imagen" /></p></td>
+          <td width="56%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">v<sub>0</sub> = 2 m/s, g = 9,8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: Se mueve en direcci&oacute;n &alpha;<sub>2</sub> 
+        = 30&ordm; bajo la horizontal. <br />
+        Las componentes de la velocidad en ese momento ser&aacute;n: v<sub>x2</sub> 
+        = v<sub>2</sub>&middot;cos &alpha;<sub>2</sub>,&nbsp; v<sub>y2</sub> = 
+        -v<sub>2</sub>&middot;sen &alpha;<sub>2<br />
+        </sub>(v<sub>2</sub> inc&oacute;gnita)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%"> <div align="center"> 
+              <p><img src="imagenes/4_05.png" width="129" height="116" /></p>
+            </div></td>
+          <td width="70%"> <p align="left"><img src="formulas/4_07.gif" width="290" height="57" border="0" /></p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_08.gif" width="189" height="94" border="0" usemap="#Map1" style="cursor:pointer" /> </map> 
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="139,62,188,81" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/4.htm')"/>
+</map>
+</body>
+</html>

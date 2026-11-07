@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <p class="m50">Ecuaciones de la ca&iacute;da de la pelota</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="27%"> <div align="center">
+              <p><img src="imagenes/4_01.png" width="110" height="140" /></p>
+            </div></td>
+          <td width="20%"> <div align="right">
+              <p><img src="formulas/4_01.gif" width="93" height="34" /></p>
+            </div></td>
+          <td width="53%"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">y<sub>0</sub> = 0.31 m, &nbsp;g = 9.8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n: (Llegada al suelo)</p>
+      <p class="m50">Datos y<sub>1</sub> = 0, &nbsp;Inc&oacute;gnita: t<sub>1</sub></p>
+      <p class="m150"><img src="formulas/4_02.gif" width="208" height="89" /></p>
+      <p class="m50">La pelota, tras rebotar en el suelo, tardar&aacute; otros 
+        0.25 s en volver al punto de partida. Por tanto el per&iacute;odo del 
+        movimiento es: 0.5 s y la frecuencia f = 1/0.5 = 2 Hz (Dos oscilaciones 
+        por segundo)</p>
+      <p class="m50">En un movimiento arm&oacute;nico la aceleraci&oacute;n es 
+        proporcional y contraria a la posici&oacute;n. En este movimiento la aceleraci&oacute;n 
+        es g (Constante), luego no es arm&oacute;nico. Simplemente es un vaiv&eacute;n</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ecuaciones del movimiento</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ayuda 
+
+function abrirAyuda(archivoAyuda)	{
+		if(ayuda) ayuda.close();
+		var atributos="status=no,scrollbars=yes,resizable=yes,title=no";
+		ayuda=window.open(archivoAyuda,"",atributos);
+}
+
+function cerrarAyuda() {
+	if(ayuda) ayuda.close();
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.moveTo(20,20);self.resizeTo(520,200)"
+onUnload="cerrarAyuda()">
+<table width="510" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="490"><table width="100%" border="0" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="129"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,0)"  />
+                Tiro </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;;mostrarObjetos('celda',1,0)" />
+                Descomp.</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen3.innerHTML;;mostrarObjetos('celda',1,2)" />
+                Ecuaciones</p>
+            </form></td>
+          <td width="148" rowspan="2" id="imagen"> 
+            <div align="center"><img src="imagenes/3_01.png" width="148" height="140" /></div></td><td width="173" rowspan="2" id="celda1" style="visibility:hidden"> <div align="left"><img src="formulas/3_01.gif" width="172" height="126" /></div></td>
+        </tr>
+        <tr> 
+          <td><div align="center"> 
+              <p class="peque&ntilde;o"><font color="#0000FF"> F1: Ayuda</font></p>
+            </div></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="37%" id="imagen1"><img src="imagenes/3_01.png" width="148" height="140" /></td>
+          <td width="35%" id="imagen2"><img src="imagenes/3_02.png" width="148" height="140" /></td>
+          <td width="28%" id="imagen3"><img src="imagenes/3_03.png" width="148" height="140" /></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

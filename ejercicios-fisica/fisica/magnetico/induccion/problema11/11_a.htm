@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Para facilitar las cosas expresamos el campo magn&eacute;tico 
+        as&iacute;:</p>
+      <p class="m150"><img src="formulas/11_00.gif" width="244" height="41" align="middle" /> 
+        (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('mensajes/1.htm')">&#149;</span>) 
+      </p>
+      <p class="m50">Tomamos <span class="enlace_texto" onclick="abrirVentana('../../mensajes/8.htm')">el 
+        vector superficie</span> de la espira seg&uacute;n el eje z positivo</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <div align="center"><img src="imagenes/11_0.png" width="154" height="128" /></div></td>
+          <td width="71%"> <p class="m50"><img src="formulas/11_01.gif" width="240" height="24" /> 
+            </p>
+            <p>El flujo en el instante cero valdr&aacute;:</p>
+            <p class="m50"><img src="formulas/11_02.gif" width="312" height="65" align="middle" />&nbsp;</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

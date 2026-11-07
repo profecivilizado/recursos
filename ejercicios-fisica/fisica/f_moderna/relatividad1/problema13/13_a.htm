@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','relatividad1/ayuda/1.htm');MM_preloadImages('imagenes/12_00.png','imagenes/12_01.png')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">El rect&aacute;ngulo representa un recinto que se mueve 
+        respecto al observador 1 con velocidad v<br />
+        El observador 2 y la part&iacute;cula est&aacute;n dentro del recinto</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="17%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <legend>Part&iacute;cula</legend>
+              </p>
+              <p> 
+                <legend> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="MM_swapImage('imagen1','','imagenes/12_00.png',1)"/>
+                Nace</legend>
+              </p>
+              <p> 
+                <legend> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="MM_swapImage('imagen1','','imagenes/12_01.png',1)"/>
+                Muere</legend>
+              </p>
+            </form></td>
+          <td width="83%"><div align="center"><img src="imagenes/13_00.png" name="imagen1" width="407" height="93" id="imagen1" /></div></td>
+        </tr>
+      </table>
+      <p class="m50">Observador 1 (Laboratorio):<br />
+        Ve la part&iacute;cula movi&eacute;ndose con velocidad v. Midiendo la 
+        duraci&oacute;n de su vida obtiene:&Delta;t<sub>1</sub><br />
+        La posici&oacute;n de la part&iacute;cula al nacer y al morir no es la 
+        misma</p>
+      <p class="m50">Observador 2 (Recinto)<br />
+        Ve la part&iacute;cula quieta. Midiendo la duraci&oacute;n de su vida 
+        obtiene:&Delta;t<sub>2</sub><br />
+        Este tiempo es propio</p>
+      <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
+      <p class="m150"><img src="formulas/13_01.gif" width="198" height="41" /></p>
+      <p class="m50">Conociendo &gamma; se puede calcular la velocidad del recinto. 
+        Este c&aacute;lculo resultar&aacute; m&aacute;s f&aacute;cil si expresamos 
+        la velocidad como un porcentaje de la velocidad de la luz: v =x&middot;c</p>
+      <p class="m150"><img src="formulas/13_02.gif" width="204" height="138" /> 
+      </p>
+      <p class="m50">La velocidad de la nave espacial es un 86.6% de la velocidad 
+        de la luz.</p>
+      <p class="m150"><img src="formulas/13_03.gif" width="290" height="37" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

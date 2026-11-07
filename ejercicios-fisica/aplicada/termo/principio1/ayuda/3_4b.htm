@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.moveTo(20,20);self.resizeTo(440,640)"
+onUnload="cerrarVentanas()">
+<table width="455" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="435" height="309">
+<p><strong><font color="#0000FF">Adiab&aacute;tica (2)</font></strong></p>
+      <p><font color="#FF0000">(Esta forma de calcular no suele utilizarse en 
+        la pr&aacute;ctica)</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="50%"><div align="center"><img src="imagenes/3_04.png" width="171" height="158" /></div></td>
+          <td width="50%"> <p><img src="formulas/3_05.gif" width="244" height="182" border="0" usemap="#Map" style="cursor:pointer"/></p>
+            </td>
+        </tr>
+      </table>  
+      <p align="left">Trabajo obtenido por integraci&oacute;n: <em><strong>T</strong></em> 
+        = (P<sub>2</sub>&middot;V<sub>2</sub> - P<sub>1</sub>&middot;V<sub>1</sub>)/(1 
+        - &gamma;)</p>
+      <p align="left">El trabajo obtenido sin integrar era: <em><strong>T</strong></em> 
+        = -n&middot;cv&middot;(T<sub>2</sub> - T<sub>1</sub>)</p>
+      <p align="left">Por increible que parezca las dos expresiones <span class="enlace_texto" onClick="abrirVentana('../../auxiliar/adiabatica/desarrollos/6.htm')">son 
+        iguales</span></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="95,89,240,129" alt="Clic para aclaraci&oacute;n" onClick="abrirVentana('../../auxiliar/adiabatica/desarrollos/1.htm')"/>
+  <area shape="rect" coords="3,158,94,178" alt="Clic para aclaraci&oacute;n" onClick="abrirVentana('7.htm',1)" />
+</map>
+</body>
+</html>

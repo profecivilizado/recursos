@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/5.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">Ecuaciones de los movimientos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="15%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Proyectil </p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Tanque </p>
+            </form></td>
+          <td width="38%" id="imagen"> 
+            <div align="center"><img src="imagenes/1_01.png" width="234" height="97" /></div></td>
+          <td width="47%" height="200" id="formula"> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="50%"><div align="center"><img src="formulas/1_01.gif" width="164" height="148" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm')" class="enlace_imagen" /></div></td>
+                <td width="50%"><p class="m50">v<sub>0</sub> = 60 m/s,</p>
+                  <p class="m50"> &alpha; = 53&ordm;</p>
+                  <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+              </tr>
+            </table> </td></tr>
+      </table>
+      <hr />
+      <p class="m50">Aplicaci&oacute;n: El momento del encuentro:</p>
+      <p class="m50">Inc&oacute;gnitas: t<sub>1</sub> , x<sub>1</sub> = x'<sub>1</sub> 
+        , y<sub>1</sub> = y'<sub>1</sub> = 0</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="34%"><div align="center"><img src="imagenes/1_02.png" width="195" height="107" /></div></td>
+          <td width="66%"><img src="formulas/1_03.gif" width="440" height="142" border="0" usemap="#Map1" style="cursor:pointer"/> 
+            <map name="Map1" id="Map1">
+              <area shape="rect" coords="195,51,437,90" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/1_1.htm')"/>
+            </map></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/1_04.gif" width="378" height="44" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+      <p class="m50">Habr&iacute;a que disparar cuando el tanque se encontrase 
+        a 383 m del mortero</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="52%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/1_01.png" width="234" height="97" /></div></td>
+                <td width="48%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/1_05.png" width="240" height="41" /></div></td></tr>
+              <tr>
+                <td id="formula0"> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="47%"><div align="center"><img src="formulas/1_01.gif" width="164" height="148" border="0" title="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../descomposicion/1.htm')" class="enlace_imagen" /></div></td>
+                      <td width="53%"><p class="m50">v<sub>0</sub> = 60 m/s,</p>
+                        <p class="m50"> &alpha; = 53&ordm;</p>
+                        <p class="m50">g = 9,8 m/s<sup>2</sup></p></td>
+                    </tr>
+                  </table></td>
+                <td id="formula1"> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="33%"><div align="center"><img src="formulas/1_02.gif" width="114" height="126" /></div></td>
+                      <td width="67%"><p class="m50">x'<sub>0</sub> (Inc&oacute;gnita),&nbsp;</p>
+                        <p class="m50"> v'<sub>0</sub> = 3 m/s</p></td>
+                    </tr>
+                    <tr> 
+                      <td colspan="2"><p class="peque&ntilde;o"><font color="#FF0000">Como 
+                          el proyectil se mueve en dos dimensiones, hay que dar 
+                          las ecuaciones del movimiento del tanque en dos dimensiones 
+                          tambi&eacute;n </font></p></td>
+                    </tr>
+                  </table></td></tr>
+            </table></td>
+        </tr>
+      </table><p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="329,10,376,30" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/28.htm')"/>
+</map>
+</body>
+</html>

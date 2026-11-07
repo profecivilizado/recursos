@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,250)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p><b><font color="#0000FF">Relaci&oacute;n de De Broglie</font></b><br />
+        Una particula de masa m y momento lineal p puede comportarse como una 
+        onda cuya longitud de onda es:</p>
+      <p align="left" class="m100"><img src="formulas/1_02.gif" width="84" height="38" /></p>
+      <p align="left">La magnitud que propaga esta onda no tiene interpretaci&oacute;n 
+        pero el cuadrado de la misma permite obtener la probabilidad de en-contrar 
+        la part&iacute;cula en una regi&oacute;n (Por eso se llama onda de pro-babilidad)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

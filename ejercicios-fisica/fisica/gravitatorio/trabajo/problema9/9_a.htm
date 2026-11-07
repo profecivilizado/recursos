@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">El campo <span class="enlace_texto" onClick="_pctop.apartado='9_a.htm';cambiar('','9_z.htm')">se 
+        anula en un punto</span> situado a 1 m de M<sub>1</sub> y 3 m de M<sub>2</sub> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="13%"> <form action="" method="post" name="form1" class="formulario" id="form1" >
+              <div align="left">
+				<p>
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML" />
+                  Rest.</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                  M<sub>1</sub></p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                  M<sub>2</sub> </p>
+                </div>
+            </form></td>
+          <td width="41%" id="imagen"> 
+            <div align="center">
+              <p><img src="imagenes/9_02.png" width="291" height="79" /></p>
+            </div></td>
+          <td width="46%" id="formula" > <p align="center">&nbsp;</p></td>
+        </tr>
+      </table>
+      <hr /> 
+      <p align="left" class="m50">El potencial en A ser&aacute; la suma algebraica 
+        de los potenciales creados por las masas M<sub>1</sub>, M<sub>2</sub> 
+      </p>
+      <p class="m150"><img src="formulas/9_05.gif" width="245" height="38" /></p>
+      <p align="left" class="m50"><strong>Meditaci&oacute;n:<br />
+        </strong>&iquest;C&oacute;mo puede ser que el campo en un punto sea nulo 
+        y el potencial no?</p>
+      <p align="left" class="m50"> El campo es la fuerza por unidad de masa <b>EN</b> 
+        el punto. El potencial es el trabajo por unidad de masa que se desplaza 
+        <b>DESDE</b> el punto<b> HASTA</b> el infinito. <br />
+        En el punto A la unidad de carga positiva est&aacute; sometida a fuerzas 
+        por parte de M<sub>1</sub> y M<sub>2</sub> y la resultante no es cero<br />
+        Aunque no haya fuerza en el punto de partida s&iacute; la hay en el resto 
+        del recorrido y por ello el trabajo no es nulo.</p>
+      <p align="left" class="m50">Visto de otra forma: </p>
+      <p align="left" class="m150"><img src="formulas/9_06.gif" width="160" height="38" class="enlace_imagen" onClick="abrirVentana('../ayuda/3.htm',1)"/></p>
+      <p align="left" class="m50">Las componentes del campo son respectivamente 
+        las derivadas del potencial respecto a x, y<br />
+        Puede ocurrir que, en un punto, la funci&oacute;n V no sea nula y que 
+        su derivada s&iacute; que lo sea </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="39%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/9_02.png" width="291" height="79" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/9_03.png" width="291" height="79" /></div></td></tr>
+              <tr>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/9_04.png" width="291" height="79" /></div></td><td>&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="4%" id="formula0">&nbsp;&nbsp;</td>
+                <td width="48%" id="formula1"> 
+                  <div align="center"><img src="formulas/9_03.gif" width="301" height="46" /></div></td>
+                <td width="48%" id="formula2"> 
+                  <div align="center"><img src="formulas/9_04.gif" width="313" height="46" /></div></td></tr>
+            </table>
+            <p>&nbsp;</p></td>
+        </tr>
+      </table><p align="left" class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

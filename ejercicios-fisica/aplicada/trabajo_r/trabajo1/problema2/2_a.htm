@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Cambios de energ&iacute;a en el disco:</p>
+      <p class="m150"><img src="formulas/2_01.gif" width="182" height="70" align="middle"></p>
+      <p class="m50">No hay cambio de energ&iacute;a potencial porque el c.d.m 
+        del disco no cambia de altura ya que est&aacute; fijo en el eje de rotaci&oacute;n</p>
+      <p class="m50">C&aacute;lculo del trabajo:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=''"/>
+                Restaurar</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                F </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                mg</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML"/>
+                N </p>
+            </form></td>
+          <td width="23%" id="imagen"> 
+            <div align="center"><img src="imagenes/2_01.png" width="152" height="150" /></div></td>
+          <td width="61%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Trabajo neto: <em><strong>T</strong></em> = -R&middot;F&middot;&phi;</p>
+      <p class="m50">Principio de conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/2_05.gif" width="233" height="81" /></p>
+      <p class="m150"><img src="formulas/2_06.gif" width="330" height="165" border="0" usemap="#MapMap" style="cursor:pointer"/></a> 
+      </p>
+      <map name="MapMap" id="Map2">
+        <area shape="rect" coords="30,4,102,27" title="Clic para aclaración" onclick="abrirVentana('../../../dinamica_r/ayuda/1.htm',1)" />
+        <area shape="rect" coords="255,81,328,105" title="Clic para ver unidades" onclick="abrirVentana('../../../unidades/3.htm')"/>
+        <area shape="rect" coords="138,72,221,91" title="Clic para aclaración" onclick="abrirVentana('desarrollos/2_1.htm')" />
+      </map>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="22%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/2_01.png" width="152" height="150" /></div></td>
+                <td width="28%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/2_02.png" width="152" height="150" /></div></td>
+                <td width="25%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/2_03.png" width="152" height="150" /></div></td>
+                <td width="25%" id="imagen3"> 
+                  <div align="center"><img src="imagenes/2_04.png" width="152" height="150" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="39%" id="formula1"> 
+                  <p class="m50"><img src="formulas/2_02.gif" width="112" height="20" align="middle"
+			/>&nbsp;&nbsp;<img src="../../sentido/1_01.gif" width="24" height="28" align="middle" />&nbsp;&nbsp;</p>
+                  <p class="m50"><img src="formulas/2_04.gif" width="189" height="20" /></p></td>
+                <td width="61%" id="formula2"> 
+                  <p class="m50">M<sub>mg</sub> = 0 (Est&aacute; 
+                    aplicado en el eje)</p>
+                  <p class="m50"><strong><em>T</em></strong><sub>mg</sub> = 0</p></td></tr>
+              <tr>
+                <td id="formula3"> 
+                  <p class="m50">M<sub>N</sub> = 0 (Est&aacute; aplicado en 
+                    el eje)</p>
+                  <p class="m50"><strong><em>T</em></strong><sub>N</sub> = 0</p></td><td>&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <p class="m50">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

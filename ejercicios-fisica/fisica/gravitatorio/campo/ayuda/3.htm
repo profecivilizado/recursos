@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,380)">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="610"><p><b><font color="#0000FF">Campo nulo</font></b></p>
+      <p>El campo creado por dos masas puntuales se anular&aacute; en un pun-to 
+        donde los campos creados por cada masa tengan igual m&oacute;du-lo, la 
+        misma direcci&oacute;n y sentidos contrarios.<br />
+        Para que los campos tengan el mismo m&oacute;dulo el punto deber&aacute; 
+        estar cerca de la masa menor y lejos de la mayor <br />
+        Para que los campos tengan la misma direcci&oacute;n, el punto deber&aacute; 
+        estar en la l&iacute;nea que une las masas. Habr&aacute; que tantear en 
+        que zona de esta l&iacute;nea deber&aacute; estar el punto para que los 
+        campos tengan sentidos contrarios </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td bordercolor="0" id="imagen"> 
+            <div align="center"> 
+              <p><img src="imagenes/2_00.png" width="281" height="72" border="0" usemap="#Map" style="cursor:pointer" title="Clic en una zona"/> 
+                <map name="Map" id="Map" >
+                  <area shape="rect" coords="3,30,77,44" onClick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML"  />
+                  <area shape="rect" coords="87,29,194,44" onClick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                  <area shape="rect" coords="205,29,272,44" onClick="imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                </map>
+              </p>
+            </div></td></tr>
+        <tr> 
+          <td height="45" bordercolor="0" id="texto"> 
+            <p align="center">&nbsp; </p></td></tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td></td>
+              </tr>
+              <tr> 
+                <td id="imagen1"> <div align="center"><img src="imagenes/2_01.png" width="281" height="72" border="0" usemap="#MapMap" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="MapMap" id="Map2" ><area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                      <area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen2"> <div align="center"><img src="imagenes/2_02.png" width="281" height="72" border="0" usemap="#MapMap2" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="MapMap2" id="Map3" >
+                      <area shape="rect" coords="205,29,272,44" onclick="imagen.innerHTML=imagen3.innerHTML;texto.innerHTML=texto1.innerHTML"/>
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                    </map>
+                  </div></td>
+              </tr>
+              <tr> 
+                <td id="imagen3"> 
+                  <div align="center"><img src="imagenes/2_03.png" width="281" height="72" border="0" usemap="#MapMap2Map" style="cursor:pointer" title="Clic en una zona"/> 
+                    <map name="MapMap2Map" id="Map32" ><area shape="rect" coords="87,29,194,44" onclick="imagen.innerHTML=imagen2.innerHTML;texto.innerHTML=texto2.innerHTML" />
+                      <area shape="rect" coords="3,30,77,44" onclick="imagen.innerHTML=imagen1.innerHTML;texto.innerHTML=texto1.innerHTML" />
+                    </map>
+                  </div></td></tr>
+              <tr> 
+                <td id="texto0">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td id="texto1"> <p align="center">Los campos tienen el mismo 
+                    sentido, no pueden anularse</p></td>
+              </tr>
+              <tr> 
+                <td id="texto2"> <p align="center">Los campos tienen sentidos 
+                    contrarios, pueden anularse</p></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table><p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

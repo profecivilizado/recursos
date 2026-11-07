@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%"> <div align="center"><img src="imagenes/7_01.png" width="145" height="57" /></div></td>
+          <td width="70%"> <p><img src="formulas/7_01.gif" width="474" height="116" border="0" align="top" usemap="#Map" style="cursor:pointer"/></p></td>
+        </tr>
+        <tr> 
+          <td colspan="2"> <p align="center">En la expresi&oacute;n del m&oacute;dulo 
+              de la aceleraci&oacute;n las cargas <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >se 
+              ponen sin signo</span> </p></td>
+        </tr>
+      </table>
+      <p class="m50"><b>Meditaci&oacute;n</b></p>
+      <p class="m50">Con una aceleraci&oacute;n tan grande parece que la part&iacute;cula 
+        superar&aacute; la velocidad de la luz (3&middot;10<sup>8</sup> m/s) en 
+        menos de 1 s No ocurre as&iacute; porque la aceleraci&oacute;n de la part&iacute;cula 
+        no es constante, disminuye a medida que esta se separa del n&uacute;cleo. 
+        <br />
+        Como ver&aacute;s en el siguiente apartado la m&aacute;xima velocidad 
+        que alcanza la part&iacute;cula es un 13% de la velocidad de la luz</p></td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="369,62,470,104" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/17.htm')"/>
+</map>
+</body>
+</html>

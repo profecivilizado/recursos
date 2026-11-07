@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','dr2/ayuda/1.htm');"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="886">
+<p class="m50">El cilindro comenzar&aacute; a girar en el <span class="enlace_texto" onclick="_pctop.apartado='../dinamica/dr2/problema2/2_a.htm';cambiar('','../../../poleas/1.htm')">sentido 
+        de las agujas del reloj</span></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="27%" height="272">
+<div align="center"><img src="imagenes/2_04.png" width="108" height="262" /></div></td>
+          <td width="73%"> <p>Traslaci&oacute;n del bloque:</p>
+            <p class="m50"><img src="formulas/2_03.gif" width="98" height="20" /></p>
+            <p>Rotaci&oacute;n del cilindro:</p>
+            <p class="m50"><img src="formulas/2_04.gif" width="65" height="20" border="0" class="enlace_imagen" onClick="_pctop.apartado='2_a.htm#a';cambiar('','2_z.htm')"/></p>
+            <p>Relaci&oacute;n entre traslaci&oacute;n y rotaci&oacute;n: </p>
+            <p class="m50"><img src="formulas/2_05.gif" width="53" height="20" class="enlace_imagen" onclick="abrirVentana('../../../mensajes/3.htm')"/></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con tres inc&oacute;gnitas: T, a, &alpha;</p>
+      <p class="m150"><img src="formulas/2_06.gif" width="109" height="150" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+      <p class="m50">Sustituyendo <span class="enlace_texto" onclick="abrirVentana('../../../mdi/1.htm')">el 
+        momento de inercia</span>:</p>
+      <p class="m100"><img src="formulas/2_07.gif" width="309" height="102" border="0" usemap="#Map2Map" style="cursor:pointer"/> 
+        <map name="Map2Map" id="Map22">
+          <area shape="rect" coords="181,60,245,99" alt="Clic para ver unidades" onclick="abrirVentana('../../../unidades/1.htm')"/>
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="3,106,106,148" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/2_1.htm')"/>
+</map>
+</body>
+</html>

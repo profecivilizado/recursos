@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+for (var i=1 ; i <arguments.length; i =i+ 2){
+var estado=arguments[0]+arguments[i]+".style.visibility";
+switch(arguments[i+1]){
+case 0:estado=estado+"='hidden'";break
+case 1:estado=estado+"='visible'";break
+case 2:estado=estado+"='inherit'"};
+eval(estado)
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css"  rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo();"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">Cuando la cuerda tiene masa las tensiones en sus extremos 
+        son forzosamente distintas. Observa en el diagrama que si fueran iguales 
+        las tensiones T<sub>31</sub>, T<sub>32</sub> resultar&iacute;a que la 
+        cuerda tiene fuerza hacia abajo (Su peso) y aceleraci&oacute;n hacia arriba</p>
+      <p class="m50">Ecuaciones de la Din&aacute;mica para bloques y cuerda:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="33%"> <p align="center"><img src="imagenes/7_01.png" width="80" height="121" /></p></td>
+          <td width="35%"> <p align="center"><img src="imagenes/7_02.png" width="55" height="146" /></p></td>
+          <td width="32%"><p align="center" class="peque&ntilde;o"><img src="imagenes/7_03.png" width="81" height="111" /></p></td>
+        </tr>
+        <tr> 
+          <td><p align="center"><img src="formulas/7_01.gif" width="144" height="22" border="0" style="cursor:pointer"/></p></td>
+          <td><p align="center"><img src="formulas/7_02.gif" width="153" height="22" /></p></td>
+          <td width="32%"><div align="center"><img src="formulas/7_03.gif" width="126" height="22" /></div></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="12%">&nbsp;</td>
+          <td width="88%"><p class="peque&ntilde;o">Las fuerzas T13, T31 (Tensi&oacute;n) 
+              tienen el mismo m&oacute;dulo: T (Acci&oacute;n y reacci&oacute;n)<br />
+              Las fuerzas T32, T23 (Tensi&oacute;n) tienen el mismo modulo T' 
+              (Acci&oacute;n y reacci&oacute;n)<br />
+              Los bloques y la cuerda van juntos luego tienen la misma aceleraci&oacute;n: 
+              a </p></td>
+        </tr>
+      </table>
+      <p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        inc&oacute;gnitas: a, T, T'</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="320" height="212" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m50">Observa que si la masa de la cuerda fuera cero las tensiones 
+        en ambos extremos ser&iacute;an iguales</p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,109,318,209" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/7_1.htm')"/>
+</map>
+</body>
+</html>

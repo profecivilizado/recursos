@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','lorentz/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><b><font color="#0000FF">Fuerza que sufre la carga debido 
+        al campo creado por el conductor (Direcci&oacute;n)</font></b></p>
+      <table width="740" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td width="223" rowspan="2"><div align="center"><img src="imagenes/7_03.png" width="187" height="143" /></div></td>
+          <td width="477"><p class="m50"><img src="formulas/7_02.gif" width="216" height="90" /></p>
+            </td>
+        </tr>
+        <tr>
+          <td><p>El conductor atraer&aacute; a la carga (L&oacute;gico porque 
+              se trata de cargas del mismo signo movi&eacute;ndose en direcciones 
+              paralelas) </p></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

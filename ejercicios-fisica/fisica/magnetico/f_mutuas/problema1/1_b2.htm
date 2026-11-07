@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','f_mutuas/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">F<sub>12</sub>&nbsp;&nbsp; Parte 
+        2</font></b></p>
+      <p class="m50"><b><font color="#0000FF">Fuerza que sufre q<sub>1</sub> (Prot&oacute;n) 
+        sometido al campo que crea q<sub>2</sub> (Electr&oacute;n)</font></b></p>
+      <table width="740" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+          <td width="241"><p align="center"><img src="imagenes/1_14.png" width="223" height="176" /></p></td>
+          <td width="459"><p><img src="formulas/1_14.gif" width="402" height="100" /></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/1_15.gif" width="288" height="92" /></p>
+      <p class="m50">En la expresi&oacute;n de la fuerza la carga <span class="enlace_texto" onclick="abrirVentana('../../mensajes/1.htm')">se 
+        pone con signo</span> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td > <h2><img src="imagenes/1_15.png" width="230" height="141" /></h2></td>
+          <td > <p>La carga q<sub>2</sub> negativa repele a la carga q<sub>1</sub> 
+              positiva (Y la carga q<sub>1</sub> repeler&aacute; a la carga q<sub>2</sub> 
+              con la misma fuerza)</p>
+            <p> Este sorprendente resultado se justifica si tenemos en cuenta 
+              que no se trata de una interacci&oacute;n electrost&aacute;tica 
+              sino electromagn&eacute;tica donde cuentan los signos de las cargas 
+              y los sentidos de las velocidades. <br />
+              <br />
+              Comprueba t&uacute; mismo que si las velocidades tuvieran sentidos contrarios las cargas s&iacute; se atraer&iacute;an</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

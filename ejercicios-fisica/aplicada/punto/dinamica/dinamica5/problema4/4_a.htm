@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+var atributos="status=no,resizable=yes"
+if(ventana) ventana.close();
+if (barras) atributos=atributos+',scrollbars=yes'
+ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','dinamica5/ayuda/2.htm')"
+onUnload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <p class="m50">Consideramos el bloque en la posici&oacute;n de equilibrio</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="31%"><div align="center"><img src="imagenes/4_01.png" width="167" height="53" /></div></td>
+          <td width="13%"><div align="center"><img src="imagenes/4_02.png" width="48" height="123" /></div></td>
+          <td width="56%"><p>En la posici&oacute;n de equilibrio los muelles no 
+              est&aacute;n deformados. No hay fuerzas tangenciales</p></td>
+        </tr>
+      </table>
+      <p class="m50">Llevamos el bloque a una distancia x de la posici&oacute;n 
+        de equilibrio. Con esto el muelle 1 se alarga una distancia x y tira del 
+        bloque hacia la izquierda y el muelle 2 se comprime una distancia x y 
+        empuja al bloque hacia la izquierda</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%"><div align="center">
+              <p><img src="imagenes/4_03.png" width="167" height="127" /></p>
+            </div></td>
+          <td width="21%"><p align="center"><img src="imagenes/4_04.png" width="111" height="123" /></p></td>
+          <td width="49%"><p><img src="formulas/4_01.gif" width="128" height="94" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">El sentido de la aceleraci&oacute;n es contrario a la elongaci&oacute;n 
+        (Separaci&oacute;n de la posici&oacute;n de equilibrio) y su m&oacute;dulo 
+        es proporcional a esta. Estas dos caracter&iacute;sticas son t&iacute;picas 
+        del movimiento arm&oacute;nico</p>
+      <p class="m50">En Cinem&aacute;tica el <b>m&oacute;dulo</b> de la aceleraci&oacute;n 
+        de un movimiento arm&oacute;nico vale:</p>
+      <p class="m150"><img src="formulas/4_02.gif" width="61" height="24" /></p>
+      <p class="m50">(Se ha suprimido el signo menos porque se trata de un m&oacute;dulo)</p>
+      <p class="m50">Evidentemente el <b>m&oacute;dulo</b> de la aceleraci&oacute;n 
+        calculada en Din&aacute;mica tiene que ser igual al <b>m&oacute;dulo</b> 
+        de la aceleraci&oacute;n calculada en Cinem&aacute;tica:</p>
+      <p class="m150"><img src="formulas/4_03.gif" width="276" height="92" border="0" style="cursor:pointer"/> 
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

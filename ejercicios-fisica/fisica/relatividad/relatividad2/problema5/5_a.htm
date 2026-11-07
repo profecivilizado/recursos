@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">La energ&iacute;a necesaria para comunicar velocidad a un cuerpo 
+        se denomina energ&iacute;a cin&eacute;tica. En f&iacute;sica relativista 
+        la energ&iacute;a cin&eacute;tica viene dada por: E<sub>C</sub> = (m - 
+        m<sub>0</sub>)&middot;c<sup><sup><sup>2</sup></sup></sup></p>
+      <p class="m50"> Conversi&oacute;n de masas: m = m<sub>0</sub> / &gamma;</p>
+      <p class="m50">Combinando estas dos expresiones resulta un sistema con dos 
+        inc&oacute;gnitas: E<sub>C</sub>, m<br />
+      </p>
+      <p class="m150"><img src="formulas/5_01.gif" width="234" height="124" /></p>
+      <p class="m150">Siendo &gamma;:</p>
+      <p class="m150"><img src="formulas/5_02.gif" width="260" height="48" /></p>
+      <p class="m50">Sustituyendo los datos de cada part&iacute;cula:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="texto.innerHTML=texto1.innerHTML" />
+                Electr&oacute;n</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="texto.innerHTML=texto2.innerHTML" />
+                Prot&oacute;n</p>
+            </form></td>
+          <td width="84%" id="texto"> 
+            <p class="m50"><img src="formulas/5_03.gif" width="412" height="45" /></p></td></tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td id="texto1" style="visibility:hidden"> 
+            <p class="m50"><img src="formulas/5_03.gif" width="412" height="45" /></p></td></tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td id="texto2" style="visibility:hidden"> 
+            <p class="m50"><img src="formulas/5_04.gif" width="412" height="45" /></p></td></tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','../../ayuda/2.htm')"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">c)</font></b></p>
+      <p class="m50">Ecuaciones del movimiento:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%" height="76"> <p align="center"><img src="imagenes/12_01.png" /></p></td>
+          <td width="28%" height="76"> <div align="right"> 
+              <p><img src="formulas/12_01.gif" width="169" height="73" /></p>
+            </div></td>
+          <td width="46%" height="76"> <p class="m50">Par&aacute;metros:</p>
+            <p class="m50">y<sub>0</sub> = 7 m, v<sub>0</sub> = 10 m/s</p>
+            <p class="m50"> g = 9.8 m/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">El enunciado no detalla si la piedra sube o baja pero no 
+        importa porque los graves tienen en el mismo punto dos velocidades iguales 
+        y opuestas (Subida y bajada)</p>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: v<sub>3</sub> = 5 m/s, &nbsp;Inc&oacute;gnitas: y<sub>3</sub>, 
+        t<sub>3</sub> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="36%"> <p align="center"><img src="imagenes/12_04.png" width="119" height="118" /></p></td>
+          <td width="64%"> <p><img src="formulas/12_06.gif" width="177" height="137" border="0" usemap="#Map1" style="cursor:pointer"/></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores resulta:</p>
+      <p class="m150"><img src="formulas/12_07.gif" width="312" height="50" border="0" usemap="#Map2" style="cursor:pointer"/></p>
+      <p class="m50">La piedra est&aacute; 3.17 m por debajo del observador y 
+        por tanto 3.83 m por encima del punto de partida</p></td>
+  </tr>
+</table>
+<b><font color="#0000FF"></font></b> 
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="252,18,310,36" title="Clic para ver unidades" onClick="abrirVentana('../../unidades/29.htm')"/>
+</map>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="2,89,153,135" title="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/19.htm')"/>
+</map>
+</body>
+</html>

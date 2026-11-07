@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="6%">&nbsp;</td>
+          <td width="59%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>Usar: 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked"/>
+                Cinem&aacute;tica &nbsp;&nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="cambiar('','7_a2.htm')"/>
+                Energ&iacute;a </p>
+            </form></td>
+          <td width="35%">&nbsp;</td>
+        </tr>
+      </table>
+      <p class="m50">Ecuaciones del movimiento arm&oacute;nico:</p>
+      <p class="m150"><img src="formulas/7_01.gif" width="116" height="60" /></p>
+      <p class="m50">La velocidad m&aacute;xima (M&oacute;dulo) valdr&aacute;: 
+        V<sub>max</sub> = A&middot;&omega;</p>
+      <p class="m50">Como recordar&aacute; alguno que otro la relaci&oacute;n 
+        frecuencia angular y constante el&aacute;stica era:</p>
+      <p class="m150"><img src="formulas/7_02.gif" width="56" height="40" /></p>
+      <p class="m50">Sustituyendo en la expresi&oacute;n de la velocidad m&aacute;xima:</p>
+      <p class="m150"><img src="formulas/7_03.gif" width="96" height="40" /></p>
+      <p class="m50">Aqu&iacute; ya se ve que, a igualdad de masa y amplitud, 
+        tendr&aacute; la mayor velocidad m&aacute;xima el cuerpo que est&eacute; 
+        unido al muelle de mayor k</p></td>
+  </tr>
+</table>
+</body>
+</html>

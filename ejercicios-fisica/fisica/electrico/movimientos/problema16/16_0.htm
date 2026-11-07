@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+ 
+function opcionesVolver()	{
+ 	switch(_pctop.sueltos)	{
+		case 1: mostrarObjetos('celda',1,0,2,0,3,0);break;
+		case 2: mostrarObjetos('celda',1,2,2,0,3,0);break;
+		case 3: mostrarObjetos('celda',1,0,2,2,3,0);break;
+		default:mostrarObjetos('celda',1,0,2,2,3,2) 
+		}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+
+function esteProblema()	{
+	var n=numeroProblema()
+	return('../problema' + n + '/' + n + '.htm') 
+}	
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="opcionesVolver()">
+<table width="760" border="0" cellpadding="10" cellspacing="0" bgcolor="#FFFFCC" class="borde" >
+  <tr> 
+    <td width="740" > <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="16%" rowspan="2"><div align="center"><img src="imagenes/16_00.gif" width="107" height="134" /></div></td>
+          <td height="114" colspan="3"><p class="enlace1"><b> <font color="#0000FF">Entre 
+              las placas met&aacute;licas, longitud L y separaci&oacute;n d, hay 
+              un campo uniforme E.<br />
+              Un electr&oacute;n penetra entre las placas por un punto equidistante 
+              de ambas, movi&eacute;n-dose con velocidad v<sub>0</sub> en direcci&oacute;n 
+              paralela a estas. Determina el m&aacute;ximo valor del campo para 
+              que el electr&oacute;n no choque con las placas </font><br />
+              </b></p>
+            </td>
+        </tr>
+        <tr> 
+          <td width="27%" id="celda1" style="visibility:hidden">&nbsp;&nbsp;</td>
+          <td width="23%" id="celda2" style="visibility:hidden"><p align="center">&nbsp;</p></td>
+          <td width="34%" id="celda3" style="visibility:hidden"> 
+            <p align="right"><span onclick="cambiar('../0.htm','')" class="enlace_texto">Lista 
+              problemas</span>&nbsp;&nbsp;&nbsp; </p></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

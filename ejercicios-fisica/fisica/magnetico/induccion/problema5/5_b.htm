@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="35%"><div align="center"><img src="imagenes/5_09.png" width="203" height="145" /></div></td>
+          <td width="65%"><p class="m50"><img src="formulas/5_01.gif" width="188" height="20" /></p>
+            <p>Conocemos la expresi&oacute;n del flujo en funci&oacute;n de L 
+              que depende del tiempo (Al desplazar el lado m&oacute;vil cambiar&aacute; 
+              el valor de L) por tanto calculamos la f.e.m instant&aacute;nea</p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/5_02.gif" width="280" height="40" /></p>
+      <p class="m50">Observa que L nos da la posici&oacute;n de la barra m&oacute;vil, 
+        por tanto dL/dt ser&aacute; la velocidad de dicha barra</p>
+      <p class="m150"><img src="formulas/5_03.gif" width="197" height="37" usemap="#Map" border="0" style="cursor:pointer"/></p>
+      <p class="m50">El signo de la f.em determina el sentido en que circular&aacute; 
+        la corriente inducida pero no es nada f&aacute;cil su interpretaci&oacute;n. 
+        El sentido de la corriente inducida se determina mejor con la ley de Lenz 
+      </p>
+      <p class="m50"><b><font color="#FF0000">Observaci&oacute;n: </font></b><font color="#FF0000">Si 
+        la barra se moviera en sentido contrario la velcidad ser&iacute;a negativa 
+        y la f.e.m resultar&iacute;a positiva</font> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="149,10,194,29" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/11.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

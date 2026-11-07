@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a')">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50" align="left"><b><font color="#0000FF">a)</font></b></p>
+      <p class="m50">Cuando hay una distribuci&oacute;n de masas, el potencial 
+        en un punto es la suma num&eacute;rica de los potenciales creados en &eacute;l 
+        por cada masa (Principio de superposici&oacute;n)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="40%"><div align="center"><img src="imagenes/17_01.png" width="232" height="51" /></div></td>
+          <td width="60%"><p>Las dos masas son iguales y est&aacute;n a la misma 
+              distancia del punto, luego crear&aacute;n potenciales iguales</p></td>
+        </tr>
+      </table>
+      <p class="m50">El potencial en A ser&aacute; el doble del potencial creado 
+        por una de las masas:</p>
+      <p class="m150"><img src="formulas/17_01.gif" width="397" height="105" /></p>
+      <p class="m50">En una distribuci&oacute;n de masas, el campo en un punto 
+        es la suma vectorial de los campos creados en &eacute;l por cada masa 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="40%"><div align="center"><img src="imagenes/17_02.png" width="232" height="51" /></div></td>
+          <td width="60%"><p>Las dos masas son iguales y est&aacute;n a la misma 
+              distancia del punto A, luego crear&aacute;n campos iguales y opuestos</p></td>
+        </tr>
+      </table>
+      <p class="m50">El campo resultante en A ser&aacute; nulo</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../induccion/ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">La ley de Faraday indica que la variaci&oacute;n del flujo 
+        magn&eacute;tico que atraviesa una espira induce en esta una f.e.m y por 
+        tanto, hace circular una corriente. </p>
+      <p class="m50"> Mientras haya variaci&oacute;n de flujo habr&aacute; f.e.m. 
+        Una forma sencilla de conseguir que cambie continuamente el flujo es 
+        hacer que la espira gire dentro de un campo magn&eacute;tico</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%" valign="middle"> 
+            <div align="center">
+              <p><img src="imagenes/11_02.png" name="imagen1" width="157" height="138" id="imagen1" /></p>
+            </div></td>
+          <td width="74%">
+<p class="m100"><img src="formulas/11_01.gif" width="96" height="20" /></p>
+            <p>Al girar la espira cambia el &aacute;ngulo &phi; y por tanto cambia 
+              el flujo:</p>
+            <p class="m50"><img src="formulas/11_02.gif" width="317" height="86" /></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Como recordar&aacute; alguno que otro d&phi;/dt es la velocidad 
+        angular &omega;, adem&aacute;s la posici&oacute;n angular &phi; se puede 
+        expresar como &omega;&middot;t, entonces resulta:</p>
+      <p class="m150"><img src="formulas/11_05.gif" width="166" height="22" border="0" /> 
+      </p>
+      <p class="m50">Resulta que la magnitud de la f.e.m oscila con amplitud &epsilon;<sub>0</sub> 
+        y frecuencia angular &omega;. Esta f.e.m oscilante produce una corriente 
+        de intensidad variable cuyo sentido se invierte cada medio per&iacute;odo 
+        de rotaci&oacute;n de la espira. Una corriente&nbsp; de este tipo se denomina 
+        'corriente alterna' 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="149,10,194,29" alt="Clic para ver unidades" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/11.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

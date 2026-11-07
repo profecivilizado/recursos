@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('a','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> <p class="m50"><strong><font color="#0000FF">a)</font></strong> </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="29%"><div align="center"> 
+              <p>&nbsp;<img src="imagenes/7_01.png" width="174" height="162" align="middle" /></p>
+            </div></td>
+          <td width="71%"><p>Ecuaci&oacute;n de malla:</p>
+            <p class="m50"><img src="formulas/7_01.gif" width="286" height="97" border="0" /></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/7_03.gif" width="373" height="106" border="0" usemap="#Map2" style="cursor:pointer"/> 
+        <map name="Map2" id="Map2">
+          <area shape="rect" coords="170,43,226,62" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')" />
+          <area shape="rect" coords="160,4,216,23" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/4.htm')" />
+          <area shape="rect" coords="322,84,370,103"  title="Clic para ver unidades" onclick="abrirVentana('../../unidades/15.htm')"/>
+        </map>
+      </p>
+      <p class="m50">Naturalmente se cumple: </p>
+      <p class="m150">W<font color="#000000"><sub>&epsilon;</sub></font> = W<font color="#000000"></font><sub>&epsilon;'</sub> 
+        + W<sub>res</sub></p>
+      <p class="m50">Calculamos las tensiones en bornes de pila y motor</p>
+      <p class="m150"><img src="formulas/7_02.gif" width="288" height="57" /></p>
+      <p class="m50">Cada 1 C que sale del generador lleva 360 J de energ&iacute;a</p>
+      <p class="m50">Cada 1 C que entra al motor pierde 340 J (300 se convierten 
+        en energ&iacute;a mec&aacute;nica y 40 J en calor)</p>
+      <p class="m50">Cada 1 C que sale del generador pierde 20 J hasta llegar 
+        al motor</p>
+      <p class="m50">Rendimiento del motor:</p>
+      <p class="m150"><img src="formulas/7_04.gif" width="224" height="40" /></p>
+      <p class="m50">El motor convierte en energ&iacute;a mec&aacute;nica el 88% 
+        de la energ&iacute;a el&eacute;ctrica que recibe y el 12% restante lo 
+        convierte en calor) </p>
+      <p class="m50">Rendimiento de la instalaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/7_05.gif" width="224" height="40" /></p>
+      <p class="m50">La instalaci&oacute;n transfiere al motor el 85% de la energ&iacute;a 
+        que produce el generador y el 15% restante lo convierte en calor</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

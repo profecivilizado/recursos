@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function mostrarObjetos(){
+for (var i=1 ; i <arguments.length; i =i+ 2){
+var estado=arguments[0]+arguments[i]+".style.visibility";
+switch(arguments[i+1]){
+case 0:estado=estado+"='hidden'";break
+case 1:estado=estado+"='visible'";break
+case 2:estado=estado+"='inherit'"};
+eval(estado)
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+var texto1="El bloque empezar&aacute; a moverse en el sentido previsto con aceleraci&oacute;n 0.22 m/s<sup>2</sup>",
+texto2="El bloque no se mover&aacute;",
+activo=1
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','');MM_preloadImages('formulas/9_02.gif','formulas/9_03.gif')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="29%"> <p align="center"><img src="imagenes/9_01.png" width="148" height="51" /></p></td>
+          <td> <p>F<sub>1</sub> (72 N) es mayor que F<sub>2</sub> (60 N): <span id="mensaje1"> 
+              la fuerza util va hacia </span>la izquierda <span id="mensaje1">y 
+              la aceleraci&oacute;n (Si la hubiera) ir&iacute;a hacia la izquierda</span></p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td height="87" colspan="2"> <p class="m50"> Si hay aceleraci&oacute;n 
+              hacia la izquierda, el bloque comenzar&aacute; a moverse <span class="enlace_texto" onclick="abrirVentana('../../mensajes/2.htm')">hacia 
+              la izquierda</span> y por tanto la fuerza de rozamiento ir&aacute; 
+              hacia la derecha y su m&oacute;dulo valdr&aacute; &mu;N</p>
+            </td>
+        </tr>
+        <tr> 
+          <td width="29%"> <p align="center"><img src="imagenes/9_02.png" width="152" height="111" /></p></td>
+          <td width="71%"> <p class="m50"><img src="formulas/9_01.gif" width="153" height="102" border="0" usemap="#Map" style="cursor:pointer"/></p></td>
+        </tr>
+      </table>
+      <p class="m50">Sustituyendo datos resulta:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="18%" rowspan="2"> <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','formulas/9_02.gif',1);mensaje.innerHTML=texto1;mostrarObjetos('celda',1,0);activo=1" checked="checked" />
+                &mu; = 0.1</p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','formulas/9_03.gif',1);mensaje.innerHTML=texto2;mostrarObjetos('celda',1,2);activo=0" />
+                &mu; = 0.2</p>
+            </form></td>
+          <td width="82%" > <div align="center"></div>
+            <p class="m50"><img src="formulas/9_02.gif" name="imagen1" width="330" height="49" border="0" usemap="#imagen1Map" id="imagen1" style="cursor:pointer" /> 
+              <map name="imagen1Map" id="imagen1Map">
+                <area shape="rect" coords="268,4,327,45" alt="Clic para ver unidades" title="Clic para ver unidades" onclick="if(activo==1){abrirVentana('../../unidades/1.htm')}" />
+              </map>
+            </p></td>
+        </tr>
+        <tr> 
+          <td width="82%" > <p><span id="mensaje">El bloque empezar&aacute; a 
+              moverse en el sentido previsto con aceleraci&oacute;n 0.22 m/s<sup>2</sup></span></p></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td id="celda1" style="visibility:hidden"> 
+            <p>El valor m&aacute;ximo de la fuerza de rozamiento es 19.6 N (&mu;&middot;N) 
+              y la fuerza &uacute;til es 12 N<br />
+              (72 - 60). Hay fuerza de rozamiento suficiente para compensar la 
+              fuerza &uacute;til</p></td></tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,62,142,101" alt="Clic para ver el desarrollo" onClick="abrirVentana('desarrollos/9_1.htm')" />
+</map>
+</body>
+</html>

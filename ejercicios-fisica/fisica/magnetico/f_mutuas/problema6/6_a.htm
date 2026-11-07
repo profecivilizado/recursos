@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+ var n=0
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellpadding="10" cellspacing="0">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">Parte 1</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../campo/ayuda/4.htm',1)">Campo 
+        que crea</span> el hilo conductor en el punto donde se encuentra la carga</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td width="7%" rowspan="3"> <div align="center"> 
+              <p> 
+                <input type="button" name="Submit2" value=" > " class="boton" 
+	  onclick="	switch(n){
+				case 0:imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',2,2);n=n+1;break;
+				case 1:imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',3,2);n=n+1;break;
+				case 2:imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',2,0,3,0);n=0;break;
+				}" />
+              </p>
+            </div></td>
+          <td width="35%" rowspan="3" id="imagen"> 
+            <div align="center"> 
+              <p><img src="imagenes/6_01.png" width="223" height="176" /></p>
+            </div></td><td width="58%"> <p align="center"><img src="formulas/6_01.gif" width="102" height="26" /></p></td>
+        </tr>
+        <tr> 
+          <td width="58%" id="celda2" style="visibility:hidden"> <p align="center"><img src="formulas/6_02.gif" width="213" height="58" /></p></td>
+        </tr>
+        <tr> 
+          <td width="58%" id="celda3" style="visibility:hidden"> <p align="center"><img src="formulas/6_03.gif" width="135" height="28" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">No hace falta calcular el m&oacute;dulo del campo, s&oacute;lo 
+        piden direcci&oacute;n y sentido</p>
+      <p class="m50"><b><font color="#0000FF">Parte 2</font></b></p>
+      <p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../lorentz/ayuda/1.htm',1)">Fuerza 
+        que sufre</span> la carga debido al campo creado por el hilo conductor</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr> 
+          <td width="223"><img src="imagenes/6_05.png" width="223" height="176" /></td>
+          <td width="477"><p align="center"><img src="formulas/6_04.gif" width="219" height="89" /></p>
+            <p align="center"><img src="formulas/6_05.gif" width="137" height="29" /></p></td>
+        </tr>
+      </table>
+      <p class="m50">La carga experimentar&aacute; una fuerza paralela al cable</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td width="32%" id="imagen0"> 
+            <div align="center"><img src="imagenes/6_01.png" width="223" height="176" /></div></td>
+          <td width="33%" id="imagen1"> 
+            <div align="center"><img src="imagenes/6_02.png" width="223" height="176" /></div></td>
+          <td width="35%" id="imagen2"> 
+            <div align="center"><img src="imagenes/6_03.png" width="223" height="176" /></div></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

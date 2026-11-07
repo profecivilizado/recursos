@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="694"> <p class="m50">La doble polea girar&aacute; un &aacute;ngulo 
+        &phi; en el <span class="enlace_texto" onclick="_pctop.apartado='../../../trabajo_r/trabajo2/problema3/3_a.htm';cambiar('','../../../dinamica_r/dr2/problema4/4_z.htm')">sentido 
+        de las agujas del reloj</span> y tomar&aacute; una velocidad &omega;, 
+        el bloque 2 bajar&aacute; un espacio d<sub>2</sub> y tomar&aacute; una 
+        velocidad v<sub>2</sub>, el bloque 1 subir&aacute; un espacio d<sub>1</sub> 
+        y tomar&aacute; una velocidad v<sub>1</sub></p>
+      <p class="m50">Cambios de energ&iacute;a:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="14%">
+<form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=''"/>
+                Rest&nbsp; </p>
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Inicial&nbsp; </p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML"/>
+                Final</p>
+            </form></td>
+          <td width="22%" id="imagen"> 
+            <div align="center"><img src="imagenes/3_01.png" width="145" height="265" /></div></td>
+          <td width="64%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/3_07.gif" width="504" height="124" border="0" usemap="#Map1" style="cursor:pointer"/></p>
+      <p class="m50">C&aacute;lculo del trabajo (Bloque 1)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="23%"><div align="center"><img src="imagenes/3_09.png" width="68" height="121" /></div></td>
+          <td width="77%"><p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en &Delta;E<sub>P1</sub>)</p>
+            <p><img src="formulas/3_08.gif" width="245" height="28" border="0" usemap="#Map2" style="cursor:pointer"/> 
+              <map name="Map2" id="Map2">
+                <area shape="rect" coords="196,5,241,25" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../../dinamica_r/dr2/ayuda/3.htm')"/>
+              </map>
+            </p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50"><a name="a" id="a"></a>C&aacute;lculo del trabajo (Bloque 
+        2)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="23%"><div align="center"><img src="imagenes/3_10.png" width="69" height="119" /></div></td>
+          <td width="77%"><p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en &Delta;E<sub>P2</sub>)</p>
+            <p><img src="formulas/3_09.gif" width="289" height="28" border="0" usemap="#Map3" style="cursor:pointer"/> 
+              <map name="Map3" id="Map3">
+                <area shape="rect" coords="239,5,287,26" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../../dinamica_r/dr2/ayuda/3.htm')"/>
+              </map>
+            </p></td>
+        </tr>
+        <tr>
+          <td><p align="right">Trabajo sobre la polea:&nbsp;</p></td>
+          <td><img src="formulas/3_10.gif" width="152" height="20" align="middle" class="enlace_imagen" onclick="_pctop.apartado='3_a.htm#a';cambiar('','3_z.htm')"/></td>
+        </tr>
+      </table>
+      <p class="m50">&nbsp;Trabajo total:</p>
+      <p class="m150"><em><strong>T</strong></em> = -R&middot;T<sub>1</sub>&middot;&phi; 
+        + R&middot;T<sub>2</sub>&middot;&phi; + T<sub>1</sub>&middot;R&middot;&phi; 
+        - T<sub>2</sub>&middot;R &middot;&phi; = 0</p>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/3_11.gif" width="358" height="70" /></p>
+      <p class="m50">Hay que dejar esta expresi&oacute;n en funci&oacute;n de 
+        la inc&oacute;gnita &omega; y del dato &phi;</p>
+      <p class="m100"><img src="formulas/3_12.gif" width="526" height="220" border="0" usemap="#Map4" style="cursor:pointer"/> 
+        <map name="Map4" id="Map4">
+          <area shape="rect" coords="477,9,524,29" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../../dinamica_r/dr2/ayuda/3.htm')"/>
+          <area shape="rect" coords="373,10,420,30" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../../dinamica_r/dr2/ayuda/3.htm')"/>
+          <area shape="rect" coords="257,9,304,29" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../../dinamica_r/dr2/ayuda/3.htm')"/>
+          <area shape="rect" coords="133,9,180,29" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('../../../dinamica_r/dr2/ayuda/3.htm')"/>
+        </map>
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="30%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/3_01.png" width="145" height="265" /></div></td>
+                <td width="35%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/3_02.png" width="145" height="265" /></div></td>
+                <td width="35%" id="imagen2"> 
+                  <div align="center"><img src="imagenes/3_03.png" width="145" height="265" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="formula1"> 
+                  <table width="56%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="34%"><p class="peque&ntilde;o">Bloque 1</p></td>
+                      <td width="34%"><p class="peque&ntilde;o">Bloque 2</p></td>
+                      <td width="32%"><p class="peque&ntilde;o">Polea</p></td>
+                    </tr>
+                    <tr> 
+                      <td><p><img src="formulas/3_01.gif" width="121" height="62" />&nbsp;</p></td>
+                      <td><p><img src="formulas/3_02.gif" width="122" height="62" />&nbsp;</p></td>
+                      <td><p><img src="formulas/3_03.gif" width="105" height="62" />&nbsp;</p></td>
+                    </tr>
+                  </table></td></tr>
+              <tr>
+                <td id="formula2"> 
+                  <table width="64%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="34%"><p class="peque&ntilde;o">Bloque 1</p></td>
+                      <td width="35%"><p class="peque&ntilde;o">Bloque 2</p></td>
+                      <td width="31%"><p class="peque&ntilde;o">Polea</p></td>
+                    </tr>
+                    <tr> 
+                      <td><p><img src="formulas/3_04.gif" width="137" height="76" />&nbsp;&nbsp;</p></td>
+                      <td><p><img src="formulas/3_05.gif" width="140" height="76" />&nbsp;&nbsp;</p></td>
+                      <td><p><img src="formulas/3_06.gif" width="114" height="76" />&nbsp;&nbsp;</p></td>
+                    </tr>
+                  </table></td></tr>
+            </table>
+          </td>
+        </tr>
+      </table><p class="m100">&nbsp;</p>
+      </td>
+  </tr>
+</table>
+<map name="Map1" id="Map1">
+  <area shape="rect" coords="172,99,221,120" title="Clic para aclaraci&oacute;n"  onclick="abrirVentana('mensajes/2.htm')"/>
+  <area shape="rect" coords="83,99,115,120" title="Clic para aclaraci&oacute;n"  onClick="abrirVentana('mensajes/1.htm')"/>
+</map>
+</body>
+</html>

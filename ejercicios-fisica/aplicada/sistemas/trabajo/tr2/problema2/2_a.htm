@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado);
+	}
+}
+
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','trabajo1/ayuda/1.htm');MM_preloadImages('imagenes/2_02.png','imagenes/2_03.png','imagenes/2_04.png',
+'formulas/2_01.gif','formulas/2_02.gif')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellpadding="10" cellspacing="0">
+  <tr> 
+    <td width="694"> <p class="m50"><font color="#FF0000">Si el problema no da 
+        los datos de la polea se sobreentiende que su masa es despreciable. En 
+        este caso no se cuenta con la rotaci&oacute;n de la polea y solo se estudia 
+        la traslaci&oacute;n de los bloques</font></p>
+      <p class="m50">La polea fija girar&aacute; en <span class="enlace_texto" onclick="_pctop.apartado='2_a.htm';cambiar('','2_z.htm')">sentido 
+        contrario al de las agujas del reloj</span></p>
+      <p class="m50"> El bloque 1 se desplazar&aacute; un espacio d y tomar&aacute; 
+        una velocidad v, el bloque 2 bajar&aacute; un espacio 2&middot;d y tomar&aacute; 
+        una velocidad 2&middot;v. (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../mensajes/3.htm')">&#149;</span>)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="24%"><div align="center"><img src="imagenes/2_02.png" name="imagen1" width="160" height="192" id="imagen1" /></div></td>
+          <td width="34%" id="celda1" style="visibility:hidden"><div align="center"><img src="formulas/2_02.gif" name="imagen2" width="168" height="148" border="0" usemap="#imagen2Map" id="imagen2" style="cursor:pointer"/> 
+              <map name="imagen2Map" id="imagen2Map">
+                <area shape="rect" coords="47,41,152,65" alt="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../mensajes/4.htm')"/>
+                <area shape="rect" coords="49,122,159,144" alt="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../mensajes/4.htm')" />
+              </map>
+            </div></td>
+          <td width="21%"  id="celda2" style="visibility:hidden"><div align="center"><img src="imagenes/2_07.png" name="imagen3" width="101" height="141" id="imagen3" /></div></td>
+          <td width="21%"  id="celda3" style="visibility:hidden"><div align="center"><img src="formulas/2_05.gif" name="imagen4" width="144" height="65" id="imagen4" /></div></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="34%" valign="top"><form action="" method="post" name="form1" class="formulario" id="form1">
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onclick="MM_swapImage('imagen1','','imagenes/2_02.png',1);mostrarObjetos('celda',1,0)"/>
+                Rest&nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/2_03.png','imagen2','','formulas/2_01.gif',1);mostrarObjetos('celda',1,2)"/>
+                Inicial&nbsp; 
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="MM_swapImage('imagen1','','imagenes/2_04.png','imagen2','','formulas/2_02.gif',1);mostrarObjetos('celda',1,2)"/>
+                Final</form> </td>
+          <td width="66%"><hr />
+            <p align="center"><img src="formulas/2_06.gif" width="366" height="81" border="0" usemap="#Map2" style="cursor:pointer"/> 
+              <map name="Map2" id="Map2">
+                <area shape="rect" coords="240,55,283,80"
+  onmouseover="mostrarObjetos('celda',2,2,3,2)"  onmouseout="mostrarObjetos('celda',2,0,3,0)" />
+              </map>
+            </p></td>
+        </tr>
+      </table>
+      <p class="m50">C&aacute;lculo del trabajo (Bloque 1)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="26%"><div align="center"><img src="imagenes/2_08.png" width="122" height="98" /></div></td>
+          <td width="74%"><p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en &Delta;E<sub>P1</sub>)</p>
+            <p><strong><em>T</em></strong><sub>T1</sub> = T<sub>1</sub>&middot;d&middot; 
+              cos 0 = T<sub>1</sub>&middot;d</p>
+            <p><strong><em>T</em></strong><sub>N</sub> = N&middot;d&middot; cos 
+              90 = 0</p>
+            <p><img src="formulas/2_07.gif" width="236" height="26" border="0" usemap="#Map" /></p>
+            </td>
+        </tr>
+      </table>
+      <p class="m50">C&aacute;lculo del trabajo (Bloque 2)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="26%"><div align="center"><img src="imagenes/2_09.png" width="73" height="119" /></div></td>
+          <td width="74%"><p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en &Delta;E<sub>P2</sub>)</p>
+            <p><strong><em>T</em></strong><sub>T2</sub> = T<sub>2</sub>&middot;2&middot;d&middot; 
+              cos 180 = -T<sub>2</sub>&middot;2&middot;d</p></td>
+        </tr>
+      </table>
+      <p class="m50">Trabajo total:</p>
+      <p class="m150"><em><strong>T</strong></em> = T<sub>1</sub>&middot;d - &mu;&middot;mg&middot;d 
+        - T<sub>2</sub>&middot;2&middot;d</p>
+      <p class="m50">Como <span>2&middot;T<sub>2</sub> = T<sub>1</sub></span> 
+        (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../mensajes/1.htm')">&#149;</span>) 
+        resulta:</p>
+      <p class="m150"><em><strong>T</strong></em> = - &mu;&middot;mg&middot;d</p>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/2_08.gif" width="193" height="125" /></p>
+      <p class="m50">Finalmente resulta:</p>
+      <p class="m150"><img src="formulas/2_09.gif" width="180" height="94" /></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="179,5,221,23" alt="Clic para aclaraci&oacute;n" onclick="abrirVentana('../../mensajes/2.htm')" />
+</map>
+</body>
+</html>

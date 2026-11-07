@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">La velocidad media en el recorrido de ida y vuelta ser&aacute;:</p>
+      <p class="m150"><img src="formulas/11_01.gif" width="88" height="40" /></p>
+      <p class="m50"> d es la distancia entre las dos ciudades, t<sub>1</sub> 
+        y t<sub>2</sub> son los respectivos tiempos de ida y de vuelta.</p>
+      <p class="m50">El tiempo de ida se puede poner como t<sub>1</sub> = d / 
+        v<sub>1</sub> (Siendo v<sub>1</sub> = 80 km/h) y el tiempo de vuelta se 
+        puede poner como t<sub>2</sub> = d / v<sub>2</sub>, siendo v<sub>2</sub> 
+        la velocidad que nos piden</p>
+      <p class="m150"><img src="formulas/11_02.gif" width="385" height="214" /></p>
+      <p class="m50">Para hacer una media de 80 km/h tendr&iacute;a que hacer 
+        la vuelta a velocidad infinita... o sea, que no puede conseguirlo.</p>
+      <p class="m50">Vamos a ver si te convenzo de la veracidad del resultado.</p>
+      <p class="m50"> Con una velocidad de 80 km/h se tardar&iacute;a 2.5 h en 
+        recorrer los 200 km (Ida y vuelta). Si el recorrido de ida lo hace a 40 
+        km/h tardar&aacute; 2.5 h. En hacer la ida tarda tanto como deber&iacute;a 
+        tardar en hacer la ida m&aacute;s la vuelta, est&aacute; claro que no 
+        puede recuperar</p>
+      <p class="m50">&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

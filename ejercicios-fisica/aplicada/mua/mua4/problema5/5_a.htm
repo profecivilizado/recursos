@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	if (estado) atributos=atributos+',status=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="../../../comunes/js/estilos.css" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../../ayuda/4.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><font color="#FF0000">Este problema trata del choque de 
+        un grave (La bombilla) con una superficie que sube con aceleraci&oacute;n 
+        (El suelo del ascensor). El problema empieza cuando se desprende la bombilla, 
+        en ese momento el as-censor ya ha adquirido una cierta velocidad como 
+        consecuencia de la aceleraci&oacute;n</font></p>
+      <p class="m50">Ecuaciones de los movimientos:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="15%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <p>
+                <input name="radiobutton" type="radio" value="radiobutton" checked="checked" onClick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"/>
+                Suelo</p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onClick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML"/>
+                Bombilla </p>
+            </form></td>
+          <td width="21%" valign="middle" id="imagen"> 
+            <div align="center"><img src="imagenes/5_01.png" width="75" height="78" /></div></td>
+          <td width="64%" height="140" id="formula">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td width="29%"><img src="formulas/5_01.gif" width="124" height="73" align="middle" /></td>
+                <td width="71%"><p class="m50">a = 1 m/s<sup>2</sup></p></td>
+              </tr>
+              <tr> 
+                <td height="34" colspan="2"> <p class="peque&ntilde;o"><font color="#FF0000">v0 
+                    es la velocidad del suelo cuando se desprende la bombilla</font></p></td>
+              </tr>
+            </table> </td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m50">Aplicaci&oacute;n: El momento del choque</p>
+      <p class="m50">Inc&oacute;gnitas: t<sub>1</sub> , y<sub>1</sub> = y'<sub>1</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="31%" valign="middle"> <p align="center"><img src="imagenes/5_03.png" width="90" height="131" /></p></td>
+          <td width="69%"> <p class="m50"><img src="formulas/5_03.gif" width="314" height="81" border="0" usemap="#Map2" style="cursor:pointer"/></p></td>
+        </tr>
+      </table>
+      <p class="m50">Observa que el resultado no depende de la velocidad del ascensor 
+        cuando se suelta la bombilla</p>
+      <p class="m50">Sustituyendo valores:</p>
+      <p class="m150"><img src="formulas/5_04.gif" width="222" height="48" usemap="#Map" border="0" style="cursor:pointer" /> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="45%" id="imagen0"> 
+                  <div align="center"><img src="imagenes/5_01.png" width="75" height="78" /></div></td>
+                <td width="55%" id="imagen1"> 
+                  <div align="center"><img src="imagenes/5_02.png" width="75" height="119" /></div></td></tr>
+              <tr>
+                <td id="formula0"> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="29%"><img src="formulas/5_01.gif" width="124" height="73" align="middle" /></td>
+                      <td width="71%"><p class="m50">a = 1 m/s<sup>2</sup></p></td>
+                    </tr>
+                    <tr> 
+                      <td height="34" colspan="2"> 
+                        <p class="peque&ntilde;o"><font color="#FF0000">v0 
+                          es la velocidad del suelo cuando se desprende la bombilla</font></p></td>
+                    </tr>
+                  </table></td>
+                <td id="formula1"> 
+                  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td width="46%"><img src="formulas/5_02.gif" width="169" height="73" align="middle" /></td>
+                      <td width="54%"><p class="m50">y'<sub>0</sub> = 2 m</p>
+                        <p class="m50">g = 9.8 m/s<sup>2</sup></p></td>
+                    </tr>
+                    <tr> 
+                      <td colspan="2"><p class="peque&ntilde;o"><font color="#FF0000">v0 
+                          es la velocidad de la bombilla cuando esta se desprende</font></p></td>
+                    </tr>
+                  </table></td></tr>
+            </table></td>
+        </tr>
+      </table>
+      <p class="m150">
+        <map name="Map" id="Map">
+          <area shape="rect" coords="172,12,219,32" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/0.htm')" />
+        </map>
+      </p>
+      </td>
+  </tr>
+</table>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="198,18,310,62"  title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/5_1.htm')"/>
+</map>
+</body>
+</html>

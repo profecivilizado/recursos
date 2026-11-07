@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('c','circular1/ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">c)</font></strong></p>
+      <p class="m50">Ecuaciones del movimiento</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="36%"><div align="center"><img src="imagenes/4_01.png" width="155" height="125" /></div></td>
+          <td width="22%"><div align="right"><img src="formulas/4_01.gif" width="124" height="65" /></div></td>
+          <td width="42%"><p class="m50">Par&aacute;metros</p>
+            <p class="m50">&nbsp;&omega;<sub>0</sub> = <span class="enlace_texto" onClick="abrirVentana('desarrollos/4_3.htm')">300 
+              r.p.m. = 10 &pi; rad/s</span></p>
+            <p class="m50"> &alpha; = &pi; rad/s<sup>2</sup></p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicaci&oacute;n:</p>
+      <p class="m50">Datos: &phi;3 = (&pi; + k&middot;2&pi;) rad, &nbsp;Inc&oacute;gnitas: 
+        t<sub>3</sub>,&nbsp; &omega;<sub>3</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="36%"><div align="center"><img src="imagenes/4_03.png" width="126" height="123" /></div></td>
+          <td width="64%"><img src="formulas/4_05.gif" width="140" height="65" /></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_06.gif" width="402" height="57" border="0" class="enlace_imagen" style="cursor:pointer" onClick="abrirVentana('desarrollos/4_2.htm')"/></p>
+      <p class="m50">Para interpretar los tiempos calculamos la correspondiente 
+        velocidad del m&oacute;vil</p>
+      <p class="m150"><img src="formulas/4_07.gif" width="384" height="121" /></p>
+      <p class="m50">No puede ser que, un cuerpo que gira en sentido contrario 
+        al de las agujas del reloj frenando, gire en el sentido de las agujas 
+        del reloj. Un m&oacute;vil frenado disminuye su velocidad hasta quedar 
+        parado pero no invierte el sentido de su movimiento</p>
+      <p class="m150"><img src="formulas/4_08.gif" width="372" height="121" /></p>
+      <p class="m50">Esta soluci&oacute;n es correcta: el m&oacute;vil gira en 
+        el mismo sentido que al empezar a frenar</p>
+      <p class="m100"><img src="formulas/4_09.gif" width="556" height="196" /></p>
+      <p class="m50">Observa, que conforme aumenta k, el radicando (Contenido 
+        de la ra&iacute;z) va disminuyendo y llegar&aacute; un momento en que 
+        ser&aacute; negativo y la ra&iacute;z ser&aacute; imaginaria.<br />
+        &iquest;Qu&eacute; significa esto? Pues que el m&oacute;vil no pasa m&aacute;s 
+        veces por esta posici&oacute;n girando en el sentido en que lo hac&iacute;a 
+        inicialmente</p>
+      <p class="m50">Vamos a ver cuando pasa esto:</p>
+      <p class="m100"><img src="formulas/4_10.gif" width="284" height="38" /></p>
+      <p class="m50">En la vuelta k = 24 se produce el &uacute;ltimo paso por 
+        la posici&oacute;n indicada, en el instante:</p>
+      <p class="m100"><img src="formulas/4_11.gif" width="545" height="57" /></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

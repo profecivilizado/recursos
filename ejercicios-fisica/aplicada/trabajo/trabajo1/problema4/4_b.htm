@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','../../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+      <p class="m50">Cambios de energ&iacute;a: </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="18%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <div align="left"> 
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=''" />
+                  Restaurar</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                  Inicial</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen3.innerHTML;formula.innerHTML=formula3.innerHTML" />
+                  Final </p>
+              </div>
+            </form></td>
+          <td width="28%" id="imagen"> <div align="center"><img src="imagenes/4_05.png" width="192" height="184" /></div></td>
+          <td width="54%" id="formula" > <p align="left" class="m50">&nbsp;</p></td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/4_07.gif" width="177" height="65" border="0" usemap="#Map" style="cursor:pointer"/> 
+        <map name="Map" id="Map">
+          <area shape="rect" coords="192,45,214,65" title="Clic para aclaración" onClick="abrirVentana('mensajes/2.htm')"/>
+        </map>
+      </p>
+      <p class="m50">C&aacute;lculo del trabajo:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="31%"><div align="center"><img src="imagenes/4_09.png" width="88" height="98" /></div></td>
+          <td width="69%"><p><i><b>T</b></i><sub>peso</sub> (No se cuenta, est&aacute; 
+              incluido en la variaci&oacute;n de energ&iacute;a potencial)</p></td>
+        </tr>
+      </table>
+      <p class="m50">Aplicando el principio de Conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/4_08.gif" width="293" height="158" border="0" style="cursor:pointer"/> 
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="18%"><div align="center"><img src="imagenes/4_08.png" width="72" height="69" /></div></td>
+          <td width="82%"><p>El proyectil llega al suelo con una velocidad v<sub>1</sub>, 
+              cuya componente v<sub>x1</sub> vale lo mismo que la componente v<sub>x0</sub> 
+              de la velocidad inicial porque la componente horizontal de la velocidad 
+              no cambia durante el recorrido.</p></td>
+        </tr>
+      </table>
+      <p class="m150"><img src="formulas/4_09.gif" width="394" height="97" /></p>
+      <p class="m50">El proyectil llega al suelo a 118 m/s en direcci&oacute;n 
+        43,1&ordm; bajo la horizontal</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr> 
+          <td width="22%" id="imagen1"><div align="center"><img src="imagenes/4_05.png" width="192" height="184" /></div></td>
+          <td width="19%" id="imagen2"><div align="center"><img src="imagenes/4_06.png" width="192" height="184" /></div></td>
+          <td width="17%" id="imagen3"><div align="center"><img src="imagenes/4_07.png" width="192" height="184" /></div></td>
+        </tr>
+        <tr> 
+          <td width="42%" id="formula2"><img src="formulas/4_01.gif" width="100" height="65" /></td>
+          <td id="formula3"><img src="formulas/4_06.gif" width="212" height="70" border="0" /> 
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<p>&nbsp; </p>
+</body>
+</html>

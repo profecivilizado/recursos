@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/2.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><font color="#FF0000">Para que pueda recogerse en pel&iacute;cula 
+        una imagen, esta tendr&aacute; que ser real e invertida y' = -34 mm</font></p>
+      <p class="m50">Datos: f' = +50 mm | +22 mm, A = -34&middot;10<sup>-3</sup> 
+        m / 200 m = -17&middot;10<sup>-5</sup></p>
+      <p class="m50">Inc&oacute;gnitas: s', s</p>
+      <p class="m50">Ecuaciones de la lente:</p>
+      <p class="m150"><img src="formulas/10_01.gif" width="217" height="84" border="0" usemap="#Map1" style="cursor:pointer"/> 
+        <map name="Map1" id="Map1">
+          <area shape="rect" coords="107,23,214,62" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/10_1.htm')"/>
+        </map>
+      </p>
+      <p class="m50">Sustituyendo cada distancia focal:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="middle"> 
+          <td width="21%"> 
+            <form action="" method="post" name="form1" class="formulario" id="form1">
+              <p> 
+                <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="formula.innerHTML=formula0.innerHTML" />
+                f' = 50 mmm</p>
+              <p>
+                <input type="radio" name="radiobutton" value="radiobutton" onclick="formula.innerHTML=formula1.innerHTML" />
+                f' = 22 mm </p>
+              </form></td>
+          <td width="79%" id="formula"> 
+            <p class="m50"><img src="formulas/10_03.gif" width="377" height="44" /></p></td></tr>
+      </table>
+      <p class="m50">Observa que cuanto menor es la distancia focal (Mayor es 
+        la potencia del objetivo) menos hay que alejarse del edicicio para que 
+        salga entero en la foto</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="formula0"> 
+                  <p class="m50"><img src="formulas/10_03.gif" width="377" height="44" /></p></td></tr>
+              <tr>
+                <td id="formula1"> 
+                  <p class="m50"><img src="formulas/10_04.gif" width="377" height="44" /></p></td></tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,4,110,43" title="Clic para ver el desarrollo" onclick="abrirVentana('desarrollos/10_1.htm')"/>
+</map>
+</body>
+</html>

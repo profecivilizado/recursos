@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Problema N&uacute;mero</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var texto='',numero='';
+	numero=numeroProblema();
+	_pctop.problema=numero;
+	if(apartado){texto = '  Apartado '+ apartado};
+	_pctop.document.title='Problema '+ numero + texto;
+	if(ayuda)
+		{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+		{_pctop.archivoAyuda=null; window._pcStatus=' '}		
+	}
+
+function numeroProblema() {
+	var dir=document.URL, i=dir.indexOf('problema'), numero;
+	dir=dir.slice(i+8);
+	i=dir.indexOf('\\');
+	return(dir.slice(0,i))
+	}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('b','relatividad1/ayuda/1.htm')">
+<table width="740" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
+      <p class="m50">&iexcl;Resulta que el tren dista de la estaci&oacute;n 3.36&middot;10<sup>9</sup> 
+        m y que la estaci&oacute;n dista del tren 2.02 10<sup>9</sup> m!</p>
+      <p class="m50">Vamos a justificar tan extra&ntilde;o resultado. </p>
+      <p align="left" class="m150"><img src="imagenes/7_07.png" width="393" height="67" /></p>
+      <p class="m50">Considera la porci&oacute;n de v&iacute;a que va de la estaci&oacute;n 
+        al tren</p>
+      <p class="m50">Observador 1 (Estaci&oacute;n)<br />
+        Ve la porci&oacute;n de v&iacute;a en reposo. Midiendo su longitud obtendr&iacute;a: 
+        L<sub>1</sub> = 3.36&middot;10<sup>9</sup> m<br />
+        Esta longitud es propia</p>
+      <p class="m50">Observador 2 (Tren)<br />
+        Ve la porci&oacute;n de v&iacute;a en movimiento. Midiendo su longitud 
+        obtendr&iacute;a: L<sub>2</sub></p>
+      <p align="left" class="m50">Aplicando la conversi&oacute;n de longitudes:</p>
+      <p align="left" class="m150"><img src="formulas/7_04.gif" width="246" height="52" /> 
+        &nbsp;&nbsp;</p>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

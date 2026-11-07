@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title> </title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=yes"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo()"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td><p class="m50">&nbsp;</p>
+      <p class="m50">Si hay que realizar un trabajo de 8&middot;10<sup>-16</sup> 
+        J para llevar el electr&oacute;n de P a Q es porque el trabajo del campo 
+        el&eacute;ctrico en este desplazamiento vale: -8&middot;10<sup>-16</sup> 
+        J </p>
+      <p class="m150"><img src="formulas/7_01.gif" width="264" height="44" /></p>
+      <p class="m50">En la expresi&oacute;n de la d.d.p la carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >se 
+        pone con signo</span></p>
+      <p class="m50">Justificaci&oacute;n del signo del resultado:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="28%"> <div align="center">
+              <p><img src="imagenes/7_01.PNG" width="170" height="128" /></p>
+            </div></td>
+          <td width="72%"> <p>Si el trabajo del campo en el recorrido PQ es negativo 
+              la fuerza estar&aacute; dirigida de Q a P. Si la fuerza el&eacute;ctrica 
+              sobre el electr&oacute;n, que es negativo, est&aacute; diri-gida 
+              de Q a P el campo ir&aacute; de P a Q.<br />
+              Como el campo apunta hacia los potenciales decrecientes, V<sub>P</sub> 
+              &gt; V<sub>Q </sub>y por tan-to la d.d.p (V<sub>P</sub> - V<sub>Q</sub>) 
+              ser&aacute; positiva</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

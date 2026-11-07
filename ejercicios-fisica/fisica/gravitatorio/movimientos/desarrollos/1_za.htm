@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function nuevoTitulo(apartado,ayuda)	{
+	var n = numeroProblema(), texto='Problema '+ n
+	if(apartado) {texto = texto + ' Apartado ' + apartado}
+	_pctop.problema=n;
+	_pctop.document.title=texto
+	if(ayuda)
+	{_pctop.archivoAyuda=ayuda; window._pcStatus='F1: Ayuda'}
+	else
+	{_pctop.archivoAyuda=null; window._pcStatus=' '}
+}
+	
+function numeroProblema() {
+	var dir=document.URL, i=dir.lastIndexOf('/'), j=dir.lastIndexOf('_')
+	return(dir.slice(i+1,j))
+}
+	
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes';
+	ventana=window.open(URL,"",atributos)
+}
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+var activo
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="nuevoTitulo('','../ayuda/1.htm')"
+onunload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p class="m50">Desde la superficie de la Tierra se lanza el sat&eacute;lite con 
+        energ&iacute;a cin&eacute;tica E<sub>C1</sub> para que llegue justo hasta 
+        la altura de la &oacute;rbita (Es como si se disparase con un ca&ntilde;on)</p>
+      <p class="m50">Cambios de energ&iacute;a mec&aacute;nica:</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="18%"><form action="" method="post" name="form1" class="formulario" id="form1">
+              <div align="left">
+                <p>
+                  <input type="radio" name="radiobutton" value="radiobutton" checked="checked" onclick="imagen.innerHTML=imagen0.innerHTML;formula.innerHTML=formula0.innerHTML"  />
+                  Restaurar</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen1.innerHTML;formula.innerHTML=formula1.innerHTML" />
+                  Inicial</p>
+                <p> 
+                  <input type="radio" name="radiobutton" value="radiobutton" onclick="imagen.innerHTML=imagen2.innerHTML;formula.innerHTML=formula2.innerHTML" />
+                  Final </p>
+              </div>
+            </form></td>
+          <td width="24%" id="imagen"> 
+            <div align="center"><img src="imagenes/1_01.png" width="184" height="182" /></div></td>
+          <td width="58%" id="formula">&nbsp;</td>
+        </tr>
+      </table>
+      <hr />
+      <p class="m150"><img src="formulas/1_03.gif" width="360" height="76" /></p>
+      <p class="m50">C&aacute;lculo del trabajo</p>
+      <p class="m50">Durante el recorrido el sat&eacute;lite solo est&aacute; 
+        sometido a la fuerza gravitatoria. El trabajo gravitatorio ya est&aacute; 
+        contado el la variaci&oacute;n de energ&iacute;a potencial, por tanto 
+        <b><i>T</i></b> = 0</p>
+      <p class="m50">Aplicando el principio de conservaci&oacute;n:</p>
+      <p class="m150"><img src="formulas/1_04.gif" width="166" height="126" usemap="#Map1" border="0" /> 
+        <map name="Map1" id="Map1">
+          <area shape="rect" coords="541,99,621,122" title="Clic para ver unidades" onclick="abrirVentana('../../unidades/9.htm')" />
+        </map>
+      </p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/1_01.png" width="184" height="182" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/1_02.png" width="184" height="182" /></div></td>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/1_03.png" width="184" height="182" /></div></td></tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="4%" id="formula0">&nbsp;&nbsp;</td>
+                <td width="35%" id="formula1"> 
+                  <p class="m50"><img src="formulas/1_01.gif" width="200" height="124" /></p></td>
+                <td width="61%" id="formula2"> 
+                  <p class="m50"><img src="formulas/1_02.gif" width="200" height="124" border="0" style="cursor:pointer"/> 
+                  </p></td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
