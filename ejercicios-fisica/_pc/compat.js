@@ -18,6 +18,12 @@
     return realOpen.apply(window, arguments);
   };
   if (window.frameElement && window.frameElement.classList.contains('pc-modal-frame')) window.close = function () { _pctop.pcModalClose && _pctop.pcModalClose(); };
+  // dentro de la página «Teoría»: el título azul de la ayuda ya está como subtítulo
+  if (window.frameElement && window.frameElement.classList.contains('pc-teoria')) addEventListener('DOMContentLoaded', function () {
+    var f = document.querySelector('p b font[color="#0000FF"], p b font[color="#0000ff"]'); if (f) f.closest('p').style.display = 'none';
+    // tablas ocultas que solo sirven de plantilla (su contenido se copia con innerHTML): que no ocupen hueco
+    document.querySelectorAll('table[style*="visibility:hidden"], table[style*="visibility: hidden"]').forEach(function (t) { t.style.display = 'none'; });
+  });
   // altura automática
   var pending = 0;
   function fit() {

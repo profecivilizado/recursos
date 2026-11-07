@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/actualizar_indice.py a partir de las ayudas originales: no la edites a mano -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Teoría · Tema 3. Campo eléctrico</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<style>
+.toc{columns:2 240px;margin:0 0 8px;padding:0 0 0 1.2em}
+.toc a{text-decoration:none}
+h2{font-size:1.15em;color:var(--accent);border-top:1px solid var(--line);padding-top:14px;margin:18px 0 4px}
+iframe.pc-teoria{display:block;width:100%;border:0;height:200px;background:transparent}
+</style>
+</head>
+<body onload="_pctop.indice='../../indices/t03/0.htm'">
+<div class="cab"><b>TEORÍA</b><span class="nuevo">Tema 3. Campo eléctrico</span></div>
+<ol class="toc"><li><a href="#s1">Campo creado por una carga puntual</a></li><li><a href="#s2">Campo creado por una distribución</a></li><li><a href="#s3">Campo nulo</a></li><li><a href="#s4">Campo de una esfera metálica</a></li><li><a href="#s5">Campo creado por placas</a></li><li><a href="#s6">Trabajo del campo (Cargas puntuales)</a></li><li><a href="#s7">Trabajo del campo (Placas)</a></li><li><a href="#s8">Relación entre campo y d.d.p</a></li><li><a href="#s9">Movimiento de cargas en campo (I)</a></li><li><a href="#s10">Movimiento de cargas en campo (II)</a></li></ol>
+<h2 id="s1">Campo creado por una carga puntual</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/campo/ayuda/1.htm" title="Campo creado por una carga puntual" scrolling="no"></iframe>
+<h2 id="s2">Campo creado por una distribución</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/campo/ayuda/2.htm" title="Campo creado por una distribución" scrolling="no"></iframe>
+<h2 id="s3">Campo nulo</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/campo/ayuda/3.htm" title="Campo nulo" scrolling="no"></iframe>
+<h2 id="s4">Campo de una esfera metálica</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/campo/ayuda/4.htm" title="Campo de una esfera metálica" scrolling="no"></iframe>
+<h2 id="s5">Campo creado por placas</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/campo/ayuda/5.htm" title="Campo creado por placas" scrolling="no"></iframe>
+<h2 id="s6">Trabajo del campo (Cargas puntuales)</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/trabajo/ayuda/1.htm" title="Trabajo del campo (Cargas puntuales)" scrolling="no"></iframe>
+<h2 id="s7">Trabajo del campo (Placas)</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/trabajo/ayuda/2.htm" title="Trabajo del campo (Placas)" scrolling="no"></iframe>
+<h2 id="s8">Relación entre campo y d.d.p</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/trabajo/ayuda/5.htm" title="Relación entre campo y d.d.p" scrolling="no"></iframe>
+<h2 id="s9">Movimiento de cargas en campo (I)</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/movimientos/ayuda/1.htm" title="Movimiento de cargas en campo (I)" scrolling="no"></iframe>
+<h2 id="s10">Movimiento de cargas en campo (II)</h2>
+<iframe class="pc-teoria" src="../../../fisica/electrico/movimientos/ayuda/2.htm" title="Movimiento de cargas en campo (II)" scrolling="no"></iframe>
+<script>
+// el índice salta a la sección aunque la página esté dentro del visor (que es quien hace scroll)
+document.querySelectorAll('.toc a').forEach(a => a.onclick = e => {
+  e.preventDefault(); const h = document.querySelector(a.getAttribute('href'));
+  try { let y = h.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({top: y - 12, behavior: 'smooth'}); } catch (_) { h.scrollIntoView(); }
+});
+</script>
+</body>
+</html>

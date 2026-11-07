@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/actualizar_indice.py a partir de las ayudas originales: no la edites a mano -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Teoría · Tema 9. Óptica geométrica</title>
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<style>
+.toc{columns:2 240px;margin:0 0 8px;padding:0 0 0 1.2em}
+.toc a{text-decoration:none}
+h2{font-size:1.15em;color:var(--accent);border-top:1px solid var(--line);padding-top:14px;margin:18px 0 4px}
+iframe.pc-teoria{display:block;width:100%;border:0;height:200px;background:transparent}
+</style>
+</head>
+<body onload="_pctop.indice='../../indices/t09/0.htm'">
+<div class="cab"><b>TEORÍA</b><span class="nuevo">Tema 9. Óptica geométrica</span></div>
+<ol class="toc"><li><a href="#s1">Espejos esféricos</a></li><li><a href="#s2">Dioptrio esférico</a></li><li><a href="#s3">Lentes delgadas</a></li><li><a href="#s4">Acomodación del ojo</a></li></ol>
+<h2 id="s1">Espejos esféricos</h2>
+<iframe class="pc-teoria" src="../../../fisica/optica/espejos/ayuda/1.htm" title="Espejos esféricos" scrolling="no"></iframe>
+<h2 id="s2">Dioptrio esférico</h2>
+<iframe class="pc-teoria" src="../../../fisica/optica/lentes/ayuda/1.htm" title="Dioptrio esférico" scrolling="no"></iframe>
+<h2 id="s3">Lentes delgadas</h2>
+<iframe class="pc-teoria" src="../../../fisica/optica/lentes/ayuda/2.htm" title="Lentes delgadas" scrolling="no"></iframe>
+<h2 id="s4">Acomodación del ojo</h2>
+<iframe class="pc-teoria" src="../../../fisica/optica/lentes/ayuda/3.htm" title="Acomodación del ojo" scrolling="no"></iframe>
+<script>
+// el índice salta a la sección aunque la página esté dentro del visor (que es quien hace scroll)
+document.querySelectorAll('.toc a').forEach(a => a.onclick = e => {
+  e.preventDefault(); const h = document.querySelector(a.getAttribute('href'));
+  try { let y = h.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({top: y - 12, behavior: 'smooth'}); } catch (_) { h.scrollIntoView(); }
+});
+</script>
+</body>
+</html>
