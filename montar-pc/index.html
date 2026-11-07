@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Monta tu PC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --accent:#1f55d6; --ok:#0b8a5c; --ok-bg:#e3f5ec; --bad:#c2410c; --bad-bg:#fdeee7; --warn:#a16207; --warn-bg:#fdf6dc;
+  --case:#2a3142; --case-in:#1b2130; --board:#1e5a43; --board-line:#2f7a5d; --slot:#0f2a20; --chip:#c9ced8; --zone:#3b82f6;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+    --btn:#1d2738; --btn-hover:#253148; --accent:#6e9dff; --ok:#3fd09a; --ok-bg:#12302a; --bad:#ff9a6b; --bad-bg:#3a1d12; --warn:#f2c94c; --warn-bg:#33290f;
+    --case:#0b0f18; --case-in:#121826; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a;
+  --btn:#1d2738; --btn-hover:#253148; --accent:#6e9dff; --ok:#3fd09a; --ok-bg:#12302a; --bad:#ff9a6b; --bad-bg:#3a1d12; --warn:#f2c94c; --warn-bg:#33290f;
+  --case:#0b0f18; --case-in:#121826; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:4px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 clamp(28px,4.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;margin:6px 0 2px}
+header p{margin:0;color:var(--muted);max-width:72ch}
+h2{font:700 14px/1.2 var(--f-display);letter-spacing:.04em;margin:0;text-transform:uppercase}
+.main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:980px){.main{grid-template-columns:1fr}}
+.left{display:grid;gap:14px;position:sticky;top:12px;min-width:0}
+@media (max-width:980px){.left{position:static}}
+.right{display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+button{font:inherit;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer;line-height:1.2}
+button:hover{background:var(--btn-hover)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:700}
+.primary:hover{background:var(--ink);opacity:.9}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.note{font-size:13px;color:var(--muted);margin:0}
+select{font:15px var(--f-body);padding:8px 10px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+
+/* banco de trabajo */
+#bench{display:block;width:100%;height:auto;border-radius:10px;background:var(--paper);touch-action:none;user-select:none;-webkit-user-select:none}
+#bench .part{cursor:pointer}
+#bench .part:hover{filter:brightness(1.15)}
+#bench .zone{fill:transparent;stroke:transparent;stroke-width:2.5;stroke-dasharray:6 5}
+#bench .zone.cand{fill:rgba(59,130,246,.12);stroke:#3b82f6}
+#bench .zone.cand.bad{fill:rgba(194,65,12,.12);stroke:#c2410c}
+#bench .zone.over{fill:rgba(59,130,246,.3)}
+#bench .zone.over.bad{fill:rgba(194,65,12,.3)}
+#bench text{font-family:var(--f-mono);pointer-events:none}
+.selbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;min-height:36px}
+.selbar b{font-family:var(--f-display)}
+
+/* pantalla de arranque */
+.monitor{background:#05070b;color:#d7f7e4;border-radius:10px;padding:14px 16px;font:13px/1.6 var(--f-mono);min-height:150px;border:6px solid #2a2f3a;white-space:pre-wrap;overflow-wrap:anywhere}
+.monitor .ok{color:#5ef0a6}.monitor .bad{color:#ff8a65}.monitor .warn{color:#ffd166}.monitor .dim{color:#7d8799}
+
+/* catálogo */
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{font-size:13px;padding:6px 10px;border-radius:999px}
+.tabs button .n{font:600 11px var(--f-mono);color:var(--ok);margin-left:4px}
+.cat{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.item{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:4px;cursor:grab;background:var(--panel);touch-action:pan-y;user-select:none;-webkit-user-select:none;position:relative}
+.item:hover{border-color:var(--accent)}
+.item .nm{font:700 15px/1.25 var(--f-display)}
+.item .sp{font-size:13px;color:var(--muted);line-height:1.4}
+.item .pr{font:600 14px var(--f-mono)}
+.item.inst{border-color:var(--ok);background:var(--ok-bg)}
+.item.inst::after{content:"✓ montada";position:absolute;top:8px;right:10px;font:600 11px var(--f-mono);color:var(--ok)}
+.ghost{position:fixed;z-index:50;pointer-events:none;background:var(--panel);border:2px solid var(--accent);border-radius:10px;padding:6px 10px;font:700 14px var(--f-display);box-shadow:0 8px 24px rgba(0,0,0,.25);transform:translate(-50%,-120%)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;max-width:min(560px,calc(100vw - 32px));padding:12px 16px;border-radius:12px;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast.bad{background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad)}
+.toast.ok{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok)}
+
+/* estado */
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;font-size:14px}
+@media (max-width:520px){.checks{grid-template-columns:1fr}}
+.checks span{display:flex;gap:8px;align-items:baseline}
+.checks .y{color:var(--ok);font-weight:700}.checks .no{color:var(--muted)}
+.meter{display:grid;gap:4px}
+.meter .top{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.meter .top b{font-family:var(--f-mono);font-weight:600}
+.bar{height:12px;border-radius:999px;background:var(--btn);overflow:hidden;position:relative}
+.bar i{display:block;height:100%;border-radius:999px;background:var(--accent)}
+.bar i.ok{background:var(--ok)}.bar i.warn{background:var(--warn)}.bar i.bad{background:var(--bad)}
+.bar u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink)}
+.alerts{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.alerts li{padding:8px 10px;border-radius:9px;font-size:14px}
+.alerts .w{background:var(--warn-bg);color:var(--warn)}
+.alerts .b{background:var(--bad-bg);color:var(--bad)}
+.alerts .g{background:var(--ok-bg);color:var(--ok)}
+.reto{border-left:5px solid var(--accent);padding:10px 14px;background:var(--paper);border-radius:10px;display:grid;gap:6px}
+.reto h3{margin:0;font:700 17px var(--f-display)}
+.reto p{margin:0}
+.req{margin:0;padding-left:1.2em;font-size:14px}
+.eval{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.eval li{display:flex;gap:10px;font-size:15px}
+.stars{font-size:28px;letter-spacing:4px}
+details.gl summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.gl summary::-webkit-details-marker{display:none}
+details.gl summary::after{content:"+";font:300 24px/1 var(--f-body);color:var(--muted)}
+details.gl[open] summary::after{content:"−"}
+.gl dl{margin:0;display:grid;gap:8px}
+.gl dt{font:700 14px var(--f-display)}
+.gl dd{margin:0 0 4px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Informática · Hardware</div>
+    <h1>Monta tu PC</h1>
+    <p>Arrastra cada pieza a su sitio dentro de la caja (en el móvil, tócala). Si no es compatible, no encaja y te explica por qué. Después enciéndelo y comprueba si arranca, cuánto consume, cuánto cuesta y para qué sirve.</p>
+  </header>
+
+  <div class="main">
+    <div class="left">
+      <div class="card">
+        <svg id="bench" viewBox="0 0 800 620" aria-label="Interior de la caja del ordenador"></svg>
+        <div class="selbar" id="selbar"></div>
+        <div class="row"><button class="primary" id="bOn">⏻ Encender</button><button id="bEmpty">Vaciar la caja</button><span class="note" id="hint"></span></div>
+        <div class="monitor" id="mon" aria-live="polite"><span class="dim">Pantalla apagada.</span></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <details class="card gl">
+        <summary><h2>Glosario</h2></summary>
+        <dl>
+          <dt>Socket</dt><dd>El zócalo de la placa donde va el procesador. Procesador y placa deben tener el mismo: AM4, AM5 (AMD) o LGA1700 (Intel).</dd>
+          <dt>DDR4 / DDR5</dt><dd>Generaciones de memoria RAM. Tienen la muesca en distinto sitio: una placa DDR5 no admite módulos DDR4 ni al revés.</dd>
+          <dt>ATX, micro-ATX, Mini-ITX</dt><dd>Formatos (tamaños) de placa base. Una caja grande admite placas pequeñas, pero no al revés.</dd>
+          <dt>TDP</dt><dd>Calor que produce el procesador, en vatios. El disipador debe poder evacuar al menos ese calor.</dd>
+          <dt>Gráficos integrados</dt><dd>Algunos procesadores pueden dar imagen sin tarjeta gráfica. Si el tuyo no los tiene, necesitas una gráfica para ver algo en pantalla.</dd>
+          <dt>M.2 NVMe / SATA</dt><dd>El SSD M.2 NVMe va directamente en la placa y es mucho más rápido. Los discos SATA (SSD de 2,5″ o disco duro de 3,5″) van en las bahías de la caja.</dd>
+          <dt>Fuente y 80 Plus</dt><dd>La fuente debe dar más vatios de los que consume el equipo, con margen (≈30 %). El sello 80 Plus (Bronze, Gold, Platinum) indica su eficiencia.</dd>
+        </dl>
+      </details>
+
+      <div class="card">
+        <h2>1 · Encargo</h2>
+        <select id="retoS" aria-label="Encargo"></select>
+        <div id="retoBox"></div>
+      </div>
+
+      <div class="card">
+        <h2>2 · Piezas</h2>
+        <div class="tabs" id="tabs" role="tablist"></div>
+        <div class="cat" id="cat"></div>
+        <p class="note">Precios orientativos. Arrastra una pieza a la caja o tócala para montarla en el primer hueco libre.</p>
+      </div>
+
+      <div class="card">
+        <h2>3 · Comprobaciones</h2>
+        <div class="checks" id="checks"></div>
+        <div id="meters" style="display:grid;gap:12px"></div>
+        <ul class="alerts" id="alerts"></ul>
+      </div>
+
+      <div class="card" id="result">
+        <h2>4 · Resultado</h2>
+        <p class="note" id="resNote">Monta el equipo, enciéndelo y entrégalo al cliente.</p>
+        <div><button class="primary" id="bDeliver">📦 Entregar al cliente</button></div>
+        <div id="evalBox"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const eur = n => n.toLocaleString('es-ES') + ' €';
+
+/* =====================================================================
+   Catálogo (precios orientativos)
+   ===================================================================== */
+const CATS = [
+  ['caja', 'Caja'], ['placa', 'Placa base'], ['cpu', 'Procesador'], ['disip', 'Disipador'],
+  ['ram', 'Memoria RAM'], ['gpu', 'Gráfica'], ['alm', 'Almacenamiento'], ['fuente', 'Fuente'],
+];
+const ITEMS = [
+  // cajas
+  { id: 'c-atx', cat: 'caja', name: 'Semitorre ATX', price: 75, boards: ['ATX', 'mATX', 'ITX'], gpuMax: 360, coolMax: 165, rad: true, b35: 2, b25: 2, psu: ['ATX', 'SFX'], W: 760, H: 580, sp: 'Placas ATX, micro-ATX y Mini-ITX · gráficas hasta 360 mm · disipador hasta 165 mm · admite líquida 240 mm' },
+  { id: 'c-matx', cat: 'caja', name: 'Compacta micro-ATX', price: 50, boards: ['mATX', 'ITX'], gpuMax: 300, coolMax: 155, rad: true, b35: 1, b25: 2, psu: ['ATX', 'SFX'], W: 660, H: 500, sp: 'Placas micro-ATX y Mini-ITX · gráficas hasta 300 mm · disipador hasta 155 mm' },
+  { id: 'c-itx', cat: 'caja', name: 'Mini-ITX de salón', price: 90, boards: ['ITX'], gpuMax: 280, coolMax: 60, rad: false, b35: 0, b25: 1, psu: ['SFX'], W: 540, H: 440, sp: 'Solo Mini-ITX · gráficas hasta 280 mm · disipador hasta 60 mm · fuente SFX' },
+  // placas
+  { id: 'p-b650', cat: 'placa', name: 'B650 ATX', price: 170, socket: 'AM5', mem: 'DDR5', ff: 'ATX', slots: 4, m2: 2, sp: 'Socket AM5 · DDR5 · 4 ranuras RAM · 2 M.2 · ATX' },
+  { id: 'p-a620', cat: 'placa', name: 'A620M micro-ATX', price: 100, socket: 'AM5', mem: 'DDR5', ff: 'mATX', slots: 2, m2: 1, sp: 'Socket AM5 · DDR5 · 2 ranuras RAM · 1 M.2 · micro-ATX' },
+  { id: 'p-b760', cat: 'placa', name: 'B760 ATX', price: 160, socket: 'LGA1700', mem: 'DDR5', ff: 'ATX', slots: 4, m2: 2, sp: 'Socket LGA1700 · DDR5 · 4 ranuras RAM · 2 M.2 · ATX' },
+  { id: 'p-h610', cat: 'placa', name: 'H610M micro-ATX', price: 85, socket: 'LGA1700', mem: 'DDR4', ff: 'mATX', slots: 2, m2: 1, sp: 'Socket LGA1700 · DDR4 · 2 ranuras RAM · 1 M.2 · micro-ATX' },
+  { id: 'p-a520', cat: 'placa', name: 'A520M micro-ATX', price: 70, socket: 'AM4', mem: 'DDR4', ff: 'mATX', slots: 2, m2: 1, sp: 'Socket AM4 · DDR4 · 2 ranuras RAM · 1 M.2 · micro-ATX' },
+  { id: 'p-b550i', cat: 'placa', name: 'B550 Mini-ITX', price: 150, socket: 'AM4', mem: 'DDR4', ff: 'ITX', slots: 2, m2: 1, sp: 'Socket AM4 · DDR4 · 2 ranuras RAM · 1 M.2 · Mini-ITX' },
+  // procesadores (of: ofimática, ga: juegos, vi: vídeo, sobre 10)
+  { id: 'r5-5600', cat: 'cpu', name: 'Ryzen 5 5600', price: 110, socket: 'AM4', w: 65, igpu: false, of: 7, ga: 7, vi: 6, sp: 'AM4 · 6 núcleos · 65 W · sin gráficos integrados' },
+  { id: 'r5-5600g', cat: 'cpu', name: 'Ryzen 5 5600G', price: 130, socket: 'AM4', w: 65, igpu: true, of: 7, ga: 6.5, vi: 5.5, sp: 'AM4 · 6 núcleos · 65 W · con gráficos integrados' },
+  { id: 'r5-7600', cat: 'cpu', name: 'Ryzen 5 7600', price: 190, socket: 'AM5', w: 65, igpu: true, of: 8, ga: 8, vi: 7, sp: 'AM5 · 6 núcleos · 65 W · con gráficos integrados' },
+  { id: 'r7-7800x3d', cat: 'cpu', name: 'Ryzen 7 7800X3D', price: 380, socket: 'AM5', w: 120, igpu: true, of: 8.5, ga: 10, vi: 8, sp: 'AM5 · 8 núcleos · 120 W · el mejor para juegos' },
+  { id: 'r9-7950x', cat: 'cpu', name: 'Ryzen 9 7950X', price: 550, socket: 'AM5', w: 170, igpu: true, of: 9, ga: 9, vi: 10, sp: 'AM5 · 16 núcleos · 170 W · ideal para vídeo y 3D' },
+  { id: 'i3-12100', cat: 'cpu', name: 'Core i3-12100', price: 100, socket: 'LGA1700', w: 60, igpu: true, of: 7, ga: 6, vi: 4.5, sp: 'LGA1700 · 4 núcleos · 60 W · con gráficos integrados' },
+  { id: 'i5-13400f', cat: 'cpu', name: 'Core i5-13400F', price: 180, socket: 'LGA1700', w: 65, igpu: false, of: 8, ga: 8, vi: 7, sp: 'LGA1700 · 10 núcleos · 65 W · sin gráficos integrados (F)' },
+  { id: 'i7-14700k', cat: 'cpu', name: 'Core i7-14700K', price: 400, socket: 'LGA1700', w: 253, igpu: true, of: 9, ga: 9.5, vi: 9, sp: 'LGA1700 · 20 núcleos · hasta 253 W · con gráficos integrados' },
+  // disipadores
+  { id: 'd-basic', cat: 'disip', name: 'Disipador básico', price: 15, tdp: 65, h: 54, liquid: false, sp: 'Hasta 65 W · 54 mm de alto' },
+  { id: 'd-low', cat: 'disip', name: 'Bajo perfil', price: 40, tdp: 95, h: 47, liquid: false, sp: 'Hasta 95 W · 47 mm de alto' },
+  { id: 'd-tower', cat: 'disip', name: 'Torre de aire', price: 45, tdp: 180, h: 155, liquid: false, sp: 'Hasta 180 W · 155 mm de alto' },
+  { id: 'd-aio', cat: 'disip', name: 'Refrigeración líquida 240 mm', price: 110, tdp: 260, h: 0, liquid: true, sp: 'Hasta 260 W · radiador de 240 mm en el techo de la caja' },
+  // RAM (kits)
+  { id: 'm-d4-8', cat: 'ram', name: 'DDR4 8 GB (1 × 8)', price: 25, mem: 'DDR4', gb: 8, n: 1, sp: '1 módulo DDR4 de 8 GB' },
+  { id: 'm-d4-16', cat: 'ram', name: 'DDR4 16 GB (2 × 8)', price: 45, mem: 'DDR4', gb: 16, n: 2, sp: '2 módulos DDR4 de 8 GB' },
+  { id: 'm-d4-32', cat: 'ram', name: 'DDR4 32 GB (2 × 16)', price: 80, mem: 'DDR4', gb: 32, n: 2, sp: '2 módulos DDR4 de 16 GB' },
+  { id: 'm-d5-16', cat: 'ram', name: 'DDR5 16 GB (2 × 8)', price: 60, mem: 'DDR5', gb: 16, n: 2, sp: '2 módulos DDR5 de 8 GB' },
+  { id: 'm-d5-32', cat: 'ram', name: 'DDR5 32 GB (2 × 16)', price: 100, mem: 'DDR5', gb: 32, n: 2, sp: '2 módulos DDR5 de 16 GB' },
+  { id: 'm-d5-64', cat: 'ram', name: 'DDR5 64 GB (2 × 32)', price: 190, mem: 'DDR5', gb: 64, n: 2, sp: '2 módulos DDR5 de 32 GB' },
+  // gráficas
+  { id: 'g-1650', cat: 'gpu', name: 'GeForce GTX 1650', price: 150, w: 75, len: 170, ga: 4.5, vi: 4, sp: '75 W · 170 mm · gama de entrada' },
+  { id: 'g-4060', cat: 'gpu', name: 'GeForce RTX 4060', price: 300, w: 115, len: 240, ga: 7.5, vi: 6.5, sp: '115 W · 240 mm · juegos a 1080p' },
+  { id: 'g-7800xt', cat: 'gpu', name: 'Radeon RX 7800 XT', price: 500, w: 263, len: 270, ga: 9, vi: 8, sp: '263 W · 270 mm · juegos a 1440p' },
+  { id: 'g-4090', cat: 'gpu', name: 'GeForce RTX 4090', price: 1800, w: 450, len: 336, ga: 10, vi: 10, sp: '450 W · 336 mm · gama más alta' },
+  // almacenamiento
+  { id: 's-hdd2', cat: 'alm', name: 'Disco duro 2 TB', price: 60, kind: 'hdd', tb: 2, sp: 'HDD SATA 3,5″ · lento pero barato' },
+  { id: 's-sata05', cat: 'alm', name: 'SSD SATA 500 GB', price: 35, kind: 'sata', tb: 0.5, sp: 'SSD SATA 2,5″' },
+  { id: 's-sata1', cat: 'alm', name: 'SSD SATA 1 TB', price: 60, kind: 'sata', tb: 1, sp: 'SSD SATA 2,5″' },
+  { id: 's-nvme1', cat: 'alm', name: 'SSD M.2 NVMe 1 TB', price: 75, kind: 'nvme', tb: 1, sp: 'M.2 NVMe · muy rápido · va en la placa' },
+  { id: 's-nvme2', cat: 'alm', name: 'SSD M.2 NVMe 2 TB', price: 130, kind: 'nvme', tb: 2, sp: 'M.2 NVMe · muy rápido · va en la placa' },
+  // fuentes
+  { id: 'f-450', cat: 'fuente', name: 'Fuente 450 W Bronze', price: 45, watts: 450, ff: 'ATX', sp: 'ATX · 450 W · 80 Plus Bronze' },
+  { id: 'f-650', cat: 'fuente', name: 'Fuente 650 W Gold', price: 85, watts: 650, ff: 'ATX', sp: 'ATX · 650 W · 80 Plus Gold' },
+  { id: 'f-850', cat: 'fuente', name: 'Fuente 850 W Gold', price: 120, watts: 850, ff: 'ATX', sp: 'ATX · 850 W · 80 Plus Gold' },
+  { id: 'f-1000', cat: 'fuente', name: 'Fuente 1000 W Platinum', price: 200, watts: 1000, ff: 'ATX', sp: 'ATX · 1000 W · 80 Plus Platinum' },
+  { id: 'f-sfx600', cat: 'fuente', name: 'Fuente SFX 600 W Gold', price: 110, watts: 600, ff: 'SFX', sp: 'SFX (pequeña) · 600 W · 80 Plus Gold' },
+];
+const BY = Object.fromEntries(ITEMS.map(i => [i.id, i]));
+
+const RETOS = [
+  { id: 'libre', t: 'Montaje libre', d: 'Monta lo que quieras y comprueba si funciona.' },
+  { id: 'secre', t: 'Ordenador para la secretaría', d: 'La secretaría del colegio necesita un equipo para ofimática, correo y gestión. Que vaya fluido, pero sin gastar de más.', budget: 500, req: { of: 7 } },
+  { id: 'barato', t: 'Lo más barato que funcione', d: 'Un alumno quiere un ordenador para hacer trabajos y navegar con el menor presupuesto posible.', budget: 400, req: { of: 5 } },
+  { id: 'gamer', t: 'PC para jugar a 1080p', d: 'Un cliente quiere jugar a juegos actuales a 1080p con buena fluidez.', budget: 1000, req: { ga: 7 } },
+  { id: 'video', t: 'Estación de edición de vídeo 4K', d: 'Una productora necesita editar vídeo 4K: mucho procesador, mucha memoria y mucho espacio.', budget: 2000, req: { vi: 8 }, ram: 32, tb: 2 },
+  { id: 'salon', t: 'PC pequeño para el salón', d: 'Un cliente quiere un ordenador que quepa en el mueble de la tele (caja Mini-ITX) y que sirva para jugar.', budget: 1100, req: { ga: 5 }, itx: true },
+  { id: 'top', t: 'El más potente', d: 'Un estudio de 3D quiere lo máximo en juegos y vídeo, sin límite de presupuesto, pero que la fuente vaya sobrada.', req: { ga: 9.5, vi: 9.5 } },
+];
+const USES = [['of', 'Ofimática'], ['ga', 'Juegos'], ['vi', 'Edición de vídeo']];
+
+/* =====================================================================
+   Estado
+   ===================================================================== */
+const st = { tab: 'caja', reto: 'libre', sel: null };
+let B = emptyBuild();
+function emptyBuild() { return { caja: null, placa: null, cpu: null, disip: null, ram: [], gpu: null, m2: [], b35: [], b25: [], fuente: null }; }
+const it = id => id ? BY[id] : null;
+
+/* =====================================================================
+   Reglas de montaje
+   ===================================================================== */
+// ¿dónde puede ir esta pieza? → lista de huecos {slot, idx} o un mensaje de por qué no
+function whereFits(item) {
+  const c = it(B.caja), p = it(B.placa), cpu = it(B.cpu);
+  switch (item.cat) {
+    case 'caja':
+      if (B.caja && B.placa) return 'Antes de cambiar la caja, quita la placa base.';
+      return [{ slot: 'caja' }];
+    case 'placa':
+      if (!c) return 'Primero necesitas una caja donde montar la placa.';
+      if (B.placa) return 'Ya hay una placa base. Quítala primero para cambiarla.';
+      if (!c.boards.includes(item.ff)) return `No cabe: la caja «${c.name}» solo admite placas ${yList(c.boards.map(ffName))}, y esta es ${ffName(item.ff)}.`;
+      return [{ slot: 'placa' }];
+    case 'cpu':
+      if (!p) return 'El procesador va en el socket de la placa base: monta antes la placa.';
+      if (B.cpu) return 'Ya hay un procesador montado.';
+      if (item.socket !== p.socket) return `No encaja: el procesador es ${item.socket} y la placa tiene socket ${p.socket}.`;
+      return [{ slot: 'cpu' }];
+    case 'disip':
+      if (!cpu) return 'El disipador va encima del procesador: monta antes el procesador.';
+      if (B.disip) return 'Ya hay un disipador montado.';
+      if (item.liquid && !c.rad) return `La caja «${c.name}» no tiene sitio para el radiador de 240 mm.`;
+      if (!item.liquid && item.h > c.coolMax) return `No cabe: mide ${item.h} mm de alto y la caja admite disipadores de hasta ${c.coolMax} mm.`;
+      return [{ slot: 'disip' }];
+    case 'ram': {
+      if (!p) return 'La memoria va en las ranuras de la placa base: monta antes la placa.';
+      if (item.mem !== p.mem) return `No encaja: el módulo es ${item.mem} y la placa es ${p.mem} (la muesca está en otro sitio).`;
+      const used = B.ram.reduce((a, id) => a + BY[id].n, 0);
+      if (used + item.n > p.slots) return `No quedan ranuras: la placa tiene ${p.slots} y ya hay ${used} ocupada${used === 1 ? '' : 's'}.`;
+      return [{ slot: 'ram' }];
+    }
+    case 'gpu':
+      if (!p) return 'La gráfica va en la ranura PCIe de la placa: monta antes la placa.';
+      if (B.gpu) return 'Ya hay una tarjeta gráfica.';
+      if (item.len > c.gpuMax) return `No cabe: mide ${item.len} mm y en la caja caben gráficas de hasta ${c.gpuMax} mm.`;
+      return [{ slot: 'gpu' }];
+    case 'alm':
+      if (item.kind === 'nvme') {
+        if (!p) return 'El SSD M.2 va en la placa base: monta antes la placa.';
+        if (B.m2.length >= p.m2) return `No quedan ranuras M.2: la placa tiene ${p.m2}.`;
+        return [{ slot: 'm2' }];
+      }
+      if (!c) return 'Primero necesitas una caja.';
+      if (!p) return 'Los discos SATA se conectan a la placa: monta antes la placa.';
+      if (item.kind === 'hdd') { if (B.b35.length >= c.b35) return c.b35 ? 'No quedan bahías de 3,5″ libres.' : `La caja «${c.name}» no tiene bahías de 3,5″ para discos duros.`; return [{ slot: 'b35' }]; }
+      if (B.b25.length < c.b25) return [{ slot: 'b25' }];
+      if (B.b35.length < c.b35) return [{ slot: 'b35' }];
+      return 'No quedan bahías libres para el SSD.';
+    case 'fuente':
+      if (!c) return 'Primero necesitas una caja.';
+      if (B.fuente) return 'Ya hay una fuente. Quítala primero para cambiarla.';
+      if (!c.psu.includes(item.ff)) return `No cabe: la caja «${c.name}» solo admite fuentes ${c.psu.join(' o ')}.`;
+      return [{ slot: 'fuente' }];
+  }
+}
+const yList = a => a.length > 1 ? a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1] : a[0];
+const ffName = f => ({ ATX: 'ATX', mATX: 'micro-ATX', ITX: 'Mini-ITX' })[f];
+function install(item, slot) {
+  const w = whereFits(item);
+  if (typeof w === 'string') { toast(w, 'bad'); return false; }
+  const s = slot && w.some(x => x.slot === slot) ? slot : w[0].slot;
+  if (s === 'caja') B.caja = item.id;
+  else if (s === 'ram') B.ram.push(item.id);
+  else if (s === 'm2') B.m2.push(item.id);
+  else if (s === 'b35') B.b35.push(item.id);
+  else if (s === 'b25') B.b25.push(item.id);
+  else B[s] = item.id;
+  st.sel = null; booted = null; refresh(); toast(`✓ ${item.name} montada.`, 'ok'); return true;
+}
+function removePart(slot, idx) {
+  if (slot === 'caja') B = emptyBuild();
+  else if (slot === 'placa') { Object.assign(B, { placa: null, cpu: null, disip: null, ram: [], gpu: null, m2: [], b35: [], b25: [] }); }
+  else if (slot === 'cpu') { B.cpu = null; B.disip = null; }
+  else if (['ram', 'm2', 'b35', 'b25'].includes(slot)) B[slot].splice(idx, 1);
+  else B[slot] = null;
+  st.sel = null; booted = null; refresh();
+}
+
+/* =====================================================================
+   Análisis: consumo, precio, rendimiento, avisos
+   ===================================================================== */
+function analyze() {
+  const c = it(B.caja), p = it(B.placa), cpu = it(B.cpu), d = it(B.disip), g = it(B.gpu), f = it(B.fuente);
+  const ram = B.ram.map(it), gb = ram.reduce((a, r) => a + r.gb, 0), sticks = ram.reduce((a, r) => a + r.n, 0);
+  const drives = [...B.m2, ...B.b35, ...B.b25].map(it), tb = drives.reduce((a, s) => a + s.tb, 0);
+  const all = [c, p, cpu, d, g, f, ...ram, ...drives].filter(Boolean);
+  const price = all.reduce((a, x) => a + x.price, 0);
+  const watts = (cpu ? cpu.w : 0) + (g ? g.w : 0) + (p ? 40 : 0) + sticks * 4 + drives.reduce((a, s) => a + (s.kind === 'hdd' ? 8 : s.kind === 'nvme' ? 6 : 4), 0) + (c ? 15 : 0);
+  const R = { c, p, cpu, d, g, f, gb, sticks, tb, drives, price, watts, alerts: [] };
+  // ¿arrancaría?
+  R.missing = [];
+  if (!c) R.missing.push('caja'); if (!p) R.missing.push('placa base'); if (!cpu) R.missing.push('procesador'); if (!d) R.missing.push('disipador');
+  if (!ram.length) R.missing.push('memoria RAM'); if (!drives.length) R.missing.push('almacenamiento'); if (!f) R.missing.push('fuente');
+  R.video = !!(g || (cpu && cpu.igpu));
+  R.hot = cpu && d && d.tdp < cpu.w;
+  R.margin = f ? f.watts / watts - 1 : null;
+  R.powerOk = f ? f.watts >= watts : false;
+  R.boots = !R.missing.length && R.video && R.powerOk;
+  // rendimiento (sobre 10)
+  if (cpu && ram.length && drives.length) {
+    const k = R.hot ? 0.8 : 1;
+    const boot = drives.some(s => s.kind === 'nvme') ? 'nvme' : drives.some(s => s.kind === 'sata') ? 'sata' : 'hdd';
+    const sf = { nvme: [1, 1, 1], sata: [0.97, 0.97, 0.93], hdd: [0.7, 0.85, 0.8] }[boot];
+    const rf = [gb < 8 ? 0.6 : gb < 16 ? 0.9 : 1, gb < 16 ? 0.75 : 1, gb < 16 ? 0.6 : gb < 32 ? 0.85 : 1];
+    const gG = g ? g.ga : cpu.igpu ? 2 : 0, gV = g ? g.vi : cpu.igpu ? 2.5 : 0;
+    const cG = cpu.ga * k, lo = Math.min(cG, gG), hi = Math.max(cG, gG);
+    R.perf = {
+      of: Math.min(10, cpu.of * k * rf[0] * sf[0]),
+      ga: Math.min(10, (lo + 0.2 * (hi - lo)) * rf[1] * sf[1]),
+      vi: Math.min(10, (0.6 * cpu.vi * k + 0.4 * gV) * rf[2] * sf[2]),
+    };
+    R.boot = boot;
+    if (g && cG < g.ga - 2) R.alerts.push(['w', `Cuello de botella: el procesador frena a la gráfica ${g.name} en juegos.`]);
+    if (g && gG < cG - 3 && g.ga < 6) R.alerts.push(['w', 'Cuello de botella: la gráfica se queda corta para este procesador en juegos.']);
+    if (boot === 'hdd') R.alerts.push(['w', 'Solo hay disco duro: el sistema arrancará y abrirá programas despacio. Un SSD lo cambia todo.']);
+    if (gb < 16 && gb > 0) R.alerts.push(['w', `${gb} GB de RAM se quedan cortos para juegos y edición.`]);
+    if (sticks === 1) R.alerts.push(['w', 'Un solo módulo de RAM funciona en canal simple: con dos módulos iguales (doble canal) va más rápido.']);
+  }
+  if (R.hot) R.alerts.push(['b', `El disipador (hasta ${d.tdp} W) no puede con el procesador (${cpu.w} W): se calentará y bajará su velocidad.`]);
+  if (cpu && !R.video && R.missing.length < 7) R.alerts.push(['b', `${cpu.name} no tiene gráficos integrados y no hay tarjeta gráfica: no habrá imagen.`]);
+  if (f && !R.powerOk) R.alerts.push(['b', `La fuente de ${f.watts} W no llega a los ${watts} W que necesita el equipo.`]);
+  else if (f && R.margin < 0.3) R.alerts.push(['w', `La fuente va justa: solo un ${Math.round(R.margin * 100)} % de margen. Se recomienda en torno al 30 %.`]);
+  return R;
+}
+
+/* =====================================================================
+   Dibujo del banco de trabajo (SVG)
+   ===================================================================== */
+const NS = 'http://www.w3.org/2000/svg', svg = $('bench');
+const BOARD = { ATX: { w: 400, h: 420, sock: [150, 60, 90, 90], ram: [272, 36, 160], m2: [[90, 215, 150], [90, 352, 150]], pcie: [24, 262, 300] },
+                mATX: { w: 400, h: 350, sock: [150, 60, 90, 90], ram: [272, 36, 160], m2: [[90, 215, 150]], pcie: [24, 262, 300] },
+                ITX: { w: 290, h: 290, sock: [96, 46, 80, 80], ram: [206, 26, 140], m2: [[70, 178, 130]], pcie: [20, 228, 240] } };
+const PXMM = 1.2;
+let zones = [];
+function el(tag, attrs, parent = svg) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+function label(x, y, s, size = 12, fill = '#e7ecf5', anchor = 'middle', w = 600) { const t = el('text', { x, y, 'font-size': size, fill, 'text-anchor': anchor, 'font-weight': w, 'dominant-baseline': 'middle' }); t.textContent = s; return t; }
+function part(slot, idx, draw) { const g = el('g', { class: 'part', 'data-slot': slot, 'data-idx': idx ?? 0 }); draw(g); return g; }
+function zone(slot, x, y, w, h) { zones.push({ slot, x, y, w, h }); }
+function geom() {
+  const c = it(B.caja); if (!c) return null;
+  const cx = (800 - c.W) / 2, cy = (620 - c.H) / 2;
+  const G = { c, cx, cy };
+  const p = it(B.placa);
+  const ff = p ? p.ff : c.boards[0];
+  const L = BOARD[ff]; G.L = L; G.bx = cx + 30; G.by = cy + 40;
+  G.psu = [cx + 30, cy + c.H - 100, 190, 80];
+  G.bays35 = Array.from({ length: c.b35 }, (_, i) => [cx + c.W - 165, cy + 60 + i * 66, 140, 54]);
+  G.bays25 = Array.from({ length: c.b25 }, (_, i) => [cx + c.W - 150, cy + 60 + c.b35 * 66 + i * 50, 110, 38]);
+  return G;
+}
+function draw(dragItem) {
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light' || document.documentElement.dataset.theme === 'dark';
+  svg.innerHTML = ''; zones = [];
+  const G = geom();
+  svg.setAttribute('viewBox', G ? `${G.cx - 16} ${G.cy - 16} ${G.c.W + 32} ${G.c.H + 32}` : '0 0 800 620');
+  if (!G) {
+    el('rect', { x: 120, y: 90, width: 560, height: 440, rx: 18, fill: 'none', stroke: dark ? '#3a4862' : '#b9c3d3', 'stroke-width': 3, 'stroke-dasharray': '10 8' });
+    label(400, 290, 'Empieza por la caja', 26, dark ? '#9aa5ba' : '#5a6479', 'middle', 700);
+    label(400, 326, 'Arrástrala aquí o tócala en «2 · Piezas»', 16, dark ? '#9aa5ba' : '#5a6479', 'middle', 400);
+    zone('caja', 120, 90, 560, 440);
+  } else {
+    const { c, cx, cy, L, bx, by } = G;
+    part('caja', 0, g => {
+      el('rect', { x: cx - 8, y: cy - 8, width: c.W + 16, height: c.H + 16, rx: 16, fill: '#2a3142' }, g);
+      el('rect', { x: cx, y: cy, width: c.W, height: c.H, rx: 10, fill: dark ? '#121826' : '#1b2130' }, g);
+      label(cx + c.W - 12, cy + 16, c.name.toUpperCase(), 12, '#7d8799', 'end');
+      // ventilador trasero
+      el('circle', { cx: cx + 16, cy: cy + 120, r: 0 }, g);
+    });
+    if (it(B.caja).rad && B.disip && it(B.disip).liquid) {
+      part('disip', 0, g => { el('rect', { x: cx + 120, y: cy + 6, width: 260, height: 26, rx: 4, fill: '#3b4256' }, g); for (let i = 0; i < 2; i++) el('circle', { cx: cx + 185 + i * 130, cy: cy + 19, r: 11, fill: '#596079' }, g); label(cx + 250, cy + 19, 'radiador 240 mm', 11, '#e7ecf5'); });
+    }
+    // fuente
+    const [px, py, pw, ph] = G.psu;
+    if (B.fuente) { const f = it(B.fuente); part('fuente', 0, g => { el('rect', { x: px, y: py, width: f.ff === 'SFX' ? 140 : pw, height: ph, rx: 6, fill: '#0b0d12', stroke: '#3a4256' }, g); el('circle', { cx: px + (f.ff === 'SFX' ? 70 : 95), cy: py + 40, r: 28, fill: '#1c2130', stroke: '#3a4256' }, g); label(px + (f.ff === 'SFX' ? 70 : 95), py + 40, `${f.watts} W`, 13, '#e7ecf5'); }); }
+    else { el('rect', { x: px, y: py, width: pw, height: ph, rx: 6, fill: 'none', stroke: '#5a6479', 'stroke-dasharray': '6 5' }); label(px + pw / 2, py + ph / 2, 'fuente', 13, '#7d8799', 'middle', 400); }
+    zone('fuente', px, py, pw, ph);
+    // bahías
+    G.bays35.forEach((b, i) => { const id = B.b35[i]; drawBay(b, id, 'b35', i, '3,5″'); zone('b35', ...b); });
+    G.bays25.forEach((b, i) => { const id = B.b25[i]; drawBay(b, id, 'b25', i, '2,5″'); zone('b25', ...b); });
+    // placa
+    if (B.placa) {
+      const p = it(B.placa);
+      part('placa', 0, g => {
+        el('rect', { x: bx, y: by, width: L.w, height: L.h, rx: 6, fill: '#1e5a43', stroke: '#2f7a5d', 'stroke-width': 2 }, g);
+        for (let i = 0; i < 6; i++) el('path', { d: `M${bx + 10} ${by + 180 + i * 18} h${L.w * .25} l12 12 h${L.w * .2}`, stroke: '#2f7a5d', fill: 'none', 'stroke-width': 1.4 }, g);
+        el('rect', { x: bx, y: by + 8, width: 22, height: 120, fill: '#8a93a6' }, g);
+        label(bx + L.w - 8, by + 14, `${p.name} · ${p.socket}`, 11, '#bfe8d6', 'end');
+      });
+      // socket / CPU
+      const [sx, sy, sw, sh] = L.sock;
+      if (B.cpu) part('cpu', 0, g => { el('rect', { x: bx + sx, y: by + sy, width: sw, height: sh, rx: 4, fill: '#c9ced8', stroke: '#8a93a6' }, g); label(bx + sx + sw / 2, by + sy + sh / 2 - 8, it(B.cpu).name.split(' ').slice(0, 2).join(' '), 11, '#15203a'); label(bx + sx + sw / 2, by + sy + sh / 2 + 9, it(B.cpu).name.split(' ').slice(2).join(' '), 11, '#15203a'); });
+      else { el('rect', { x: bx + sx, y: by + sy, width: sw, height: sh, rx: 4, fill: '#0f2a20', stroke: '#c9ced8', 'stroke-dasharray': '4 3' }); label(bx + sx + sw / 2, by + sy + sh / 2, p.socket, 13, '#c9ced8'); }
+      zone('cpu', bx + sx, by + sy, sw, sh);
+      if (B.disip && !it(B.disip).liquid || (B.disip && it(B.disip).liquid)) {
+        const d = it(B.disip);
+        part('disip', 0, g => {
+          if (d.liquid) { el('circle', { cx: bx + sx + sw / 2, cy: by + sy + sh / 2, r: sw * .38, fill: '#2a3142', stroke: '#6e9dff', 'stroke-width': 3 }, g); el('path', { d: `M${bx + sx + sw / 2} ${by + sy + sh / 2 - sw * .38} V${by - 10}`, stroke: '#596079', 'stroke-width': 5 }, g); label(bx + sx + sw / 2, by + sy + sh / 2, 'bomba', 11, '#e7ecf5'); }
+          else { const big = d.id === 'd-tower' ? 1.5 : 1.1; const W2 = sw * big, X2 = bx + sx + sw / 2 - W2 / 2, Y2 = by + sy + sh / 2 - W2 / 2; el('rect', { x: X2, y: Y2, width: W2, height: W2, rx: d.id === 'd-tower' ? 4 : W2 / 2, fill: '#3b4256', stroke: '#9aa5ba' }, g); el('circle', { cx: X2 + W2 / 2, cy: Y2 + W2 / 2, r: W2 * .38, fill: '#596079' }, g); label(X2 + W2 / 2, Y2 + W2 / 2, d.name.split(' ')[0].toLowerCase() === 'disipador' ? 'básico' : d.name.toLowerCase(), 10, '#e7ecf5'); }
+        });
+      }
+      zone('disip', bx + sx - 12, by + sy - 12, sw + 24, sh + 24);
+      // RAM
+      const [rx, ry, rh] = L.ram; let k = 0;
+      const sticks = []; B.ram.forEach((id, ki) => { for (let j = 0; j < BY[id].n; j++) sticks.push([id, ki]); });
+      for (let i = 0; i < p.slots; i++) {
+        const x = bx + rx + i * 20, y = by + ry;
+        if (sticks[i]) { const [id, ki] = sticks[i], m = it(id); part('ram', ki, g => { el('rect', { x: x - 2, y, width: 14, height: rh, rx: 2, fill: m.mem === 'DDR5' ? '#7c4dd8' : '#2f6fd6', stroke: '#c9ced8' }, g); }); }
+        else el('rect', { x, y, width: 10, height: rh, rx: 2, fill: '#0f2a20', stroke: '#bfe8d6', 'stroke-width': 1 });
+      }
+      label(bx + rx + (p.slots * 20) / 2 - 5, by + ry + rh + 12, p.mem, 11, '#bfe8d6');
+      zone('ram', bx + rx - 6, by + ry - 4, p.slots * 20 + 6, rh + 8);
+      // M.2
+      L.m2.forEach(([mx, my, mw], i) => {
+        if (i >= p.m2) return;
+        const id = B.m2[i];
+        if (id) part('m2', i, g => { el('rect', { x: bx + mx, y: by + my, width: mw, height: 20, rx: 3, fill: '#111827', stroke: '#6e9dff' }, g); label(bx + mx + mw / 2, by + my + 10, it(id).name.replace('SSD M.2 NVMe ', 'NVMe '), 10, '#e7ecf5'); });
+        else { el('rect', { x: bx + mx, y: by + my, width: mw, height: 16, rx: 3, fill: '#0f2a20', stroke: '#bfe8d6', 'stroke-dasharray': '3 3' }); label(bx + mx + mw / 2, by + my + 8, 'M.2', 10, '#bfe8d6'); }
+        zone('m2', bx + mx - 4, by + my - 6, mw + 8, 28);
+      });
+      // PCIe / GPU
+      const [gx0, gy0, gw] = L.pcie;
+      el('rect', { x: bx + gx0, y: by + gy0, width: gw, height: 12, rx: 2, fill: '#0f2a20', stroke: '#bfe8d6' });
+      label(bx + gx0 + gw + 6, by + gy0 + 6, 'PCIe x16', 10, '#bfe8d6', 'start');
+      if (B.gpu) { const gpu = it(B.gpu), len = gpu.len * PXMM; part('gpu', 0, g => { el('rect', { x: bx + gx0, y: by + gy0 + 4, width: len, height: 58, rx: 6, fill: '#20242e', stroke: '#9aa5ba' }, g); const nf = gpu.len > 250 ? 3 : gpu.len > 200 ? 2 : 1; for (let i = 0; i < nf; i++) el('circle', { cx: bx + gx0 + len * (i + .5) / nf, cy: by + gy0 + 33, r: 22, fill: '#2f3542', stroke: '#596079' }, g); label(bx + gx0 + 12, by + gy0 + 54, gpu.name, 10, '#c9ced8', 'start'); }); }
+      zone('gpu', bx + gx0, by + gy0 - 6, gw, 40);
+    } else {
+      el('rect', { x: bx, y: by, width: L.w, height: L.h, rx: 6, fill: 'none', stroke: '#5a6479', 'stroke-dasharray': '8 6' });
+      label(bx + L.w / 2, by + L.h / 2, 'placa base', 15, '#7d8799', 'middle', 400);
+      zone('placa', bx, by, L.w, L.h);
+    }
+  }
+  // zonas de destino (encima de todo)
+  for (const z of zones) el('rect', { class: 'zone', x: z.x, y: z.y, width: z.w, height: z.h, rx: 6, 'data-z': z.slot });
+  if (dragItem) markZones(dragItem);
+  // selección
+  svg.querySelectorAll('.part').forEach(g => g.addEventListener('click', ev => { if (dragging) return; ev.stopPropagation(); st.sel = { slot: g.dataset.slot, idx: +g.dataset.idx }; renderSel(); }));
+}
+function drawBay(b, id, slot, i, txt) {
+  const [x, y, w, h] = b;
+  if (id) { const s = it(id); part(slot, i, g => { el('rect', { x, y, width: w, height: h, rx: 4, fill: s.kind === 'hdd' ? '#9aa5ba' : '#111827', stroke: '#c9ced8' }, g); label(x + w / 2, y + h / 2, s.name.replace('Disco duro', 'HDD').replace('SSD SATA', 'SSD'), 10, s.kind === 'hdd' ? '#15203a' : '#e7ecf5'); }); }
+  else { el('rect', { x, y, width: w, height: h, rx: 4, fill: 'none', stroke: '#5a6479', 'stroke-dasharray': '5 4' }); label(x + w / 2, y + h / 2, `bahía ${txt}`, 10, '#7d8799', 'middle', 400); }
+}
+const SLOT_CAT = { caja: 'caja', placa: 'placa', cpu: 'cpu', disip: 'disip', ram: 'ram', gpu: 'gpu', m2: 'alm', b35: 'alm', b25: 'alm', fuente: 'fuente' };
+function markZones(item) {
+  const w = whereFits(item), ok = typeof w === 'string' ? [] : w.map(x => x.slot);
+  svg.querySelectorAll('.zone').forEach(z => {
+    const s = z.dataset.z; if (SLOT_CAT[s] !== item.cat) return;
+    if (item.cat === 'alm' && !(item.kind === 'nvme' ? s === 'm2' : s !== 'm2')) return;
+    z.classList.add('cand'); if (!ok.includes(s)) z.classList.add('bad');
+  });
+}
+
+/* =====================================================================
+   Arrastrar y soltar
+   ===================================================================== */
+let dragging = null, ghost = null;
+function svgPoint(cx, cy) { const p = svg.createSVGPoint(); p.x = cx; p.y = cy; return p.matrixTransform(svg.getScreenCTM().inverse()); }
+function zoneAt(cx, cy) {
+  const r = svg.getBoundingClientRect(); if (cx < r.left || cx > r.right || cy < r.top || cy > r.bottom) return null;
+  const p = svgPoint(cx, cy); const hits = zones.filter(z => p.x >= z.x && p.x <= z.x + z.w && p.y >= z.y && p.y <= z.y + z.h && SLOT_CAT[z.slot] === dragging.item.cat);
+  return hits.length ? hits[hits.length - 1] : (r && 'bench');
+}
+function startDrag(item, e) {
+  dragging = { item }; ghost = document.createElement('div'); ghost.className = 'ghost'; ghost.textContent = item.name; document.body.appendChild(ghost);
+  moveDrag(e); draw(item);
+}
+function moveDrag(e) {
+  ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px';
+  const z = zoneAt(e.clientX, e.clientY);
+  svg.querySelectorAll('.zone').forEach(r => r.classList.toggle('over', z && z !== 'bench' && r.dataset.z === z.slot && +r.getAttribute('x') === z.x && +r.getAttribute('y') === z.y));
+}
+function endDrag(e) {
+  const z = zoneAt(e.clientX, e.clientY), item = dragging.item;
+  ghost.remove(); ghost = null;
+  setTimeout(() => { dragging = null; }, 0);
+  if (z) install(item, z === 'bench' ? null : z.slot); else draw();
+}
+
+/* =====================================================================
+   Interfaz
+   ===================================================================== */
+function renderTabs() {
+  const count = { caja: +!!B.caja, placa: +!!B.placa, cpu: +!!B.cpu, disip: +!!B.disip, ram: B.ram.length, gpu: +!!B.gpu, alm: B.m2.length + B.b35.length + B.b25.length, fuente: +!!B.fuente };
+  $('tabs').innerHTML = CATS.map(([k, n]) => `<button role="tab" data-tab="${k}" aria-pressed="${st.tab === k}">${n}${count[k] ? `<span class="n">✓${count[k] > 1 ? count[k] : ''}</span>` : ''}</button>`).join('');
+  $('tabs').querySelectorAll('button').forEach(b => b.addEventListener('click', () => { st.tab = b.dataset.tab; renderTabs(); renderCat(); }));
+}
+function installedIds() { return [B.caja, B.placa, B.cpu, B.disip, B.gpu, B.fuente, ...B.ram, ...B.m2, ...B.b35, ...B.b25].filter(Boolean); }
+function renderCat() {
+  const inst = installedIds();
+  $('cat').innerHTML = ITEMS.filter(i => i.cat === st.tab).map(i => `<div class="item${inst.includes(i.id) ? ' inst' : ''}" data-id="${i.id}" tabindex="0" role="button" aria-label="Montar ${i.name}"><div class="nm">${i.name}</div><div class="sp">${i.sp}</div><div class="pr">${eur(i.price)}</div></div>`).join('');
+  $('cat').querySelectorAll('.item').forEach(card => {
+    const item = BY[card.dataset.id]; let down = null;
+    card.addEventListener('pointerdown', e => { if (e.pointerType === 'touch' || e.button) return; down = { x: e.clientX, y: e.clientY, id: e.pointerId }; });
+    card.addEventListener('pointermove', e => {
+      if (!down) return;
+      if (!dragging && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) { card.setPointerCapture(down.id); startDrag(item, e); }
+      else if (dragging) moveDrag(e);
+    });
+    card.addEventListener('pointerup', e => { if (dragging) endDrag(e); down = null; });
+    card.addEventListener('pointercancel', () => { if (dragging) { ghost?.remove(); dragging = null; draw(); } down = null; });
+    card.addEventListener('click', () => { if (dragging) return; install(item); });
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); install(item); } });
+  });
+}
+const SLOT_NAME = { caja: 'Caja', placa: 'Placa base', cpu: 'Procesador', disip: 'Disipador', ram: 'Memoria', gpu: 'Gráfica', m2: 'SSD M.2', b35: 'Disco', b25: 'SSD', fuente: 'Fuente' };
+function selId(s) { if (!s) return null; const v = B[s.slot]; return Array.isArray(v) ? v[s.idx] : v; }
+function renderSel() {
+  const id = selId(st.sel);
+  if (!id) { $('selbar').innerHTML = `<span class="note">Toca una pieza montada para ver sus datos o quitarla.</span>`; return; }
+  const i = it(id), extra = st.sel.slot === 'placa' ? ' (se quitará todo lo que hay en ella)' : st.sel.slot === 'caja' ? ' (se vaciará todo)' : st.sel.slot === 'cpu' && B.disip ? ' (y su disipador)' : '';
+  $('selbar').innerHTML = `<span><b>${SLOT_NAME[st.sel.slot]}:</b> ${i.name} · ${i.sp} · ${eur(i.price)}</span><button id="bRm">Quitar${extra}</button>`;
+  $('bRm').addEventListener('click', () => removePart(st.sel.slot, st.sel.idx));
+}
+function meter(lbl, val, max, cls, mark, txt) {
+  return `<div class="meter"><div class="top"><span>${lbl}</span><b>${txt}</b></div><div class="bar"><i class="${cls}" style="width:${Math.max(0, Math.min(100, val / max * 100))}%"></i>${mark != null ? `<u style="left:${Math.min(100, mark / max * 100)}%"></u>` : ''}</div></div>`;
+}
+function renderStatus() {
+  const R = analyze(), reto = RETOS.find(r => r.id === st.reto);
+  const need = [['Caja', R.c], ['Placa base', R.p], ['Procesador', R.cpu], ['Disipador', R.d], ['Memoria RAM', R.gb], ['Almacenamiento', R.drives.length], ['Fuente', R.f], ['Imagen (gráfica o integrada)', R.video]];
+  $('checks').innerHTML = need.map(([n, ok]) => `<span><span class="${ok ? 'y' : 'no'}">${ok ? '✓' : '○'}</span>${n}${n === 'Memoria RAM' && R.gb ? ` · ${R.gb} GB` : n === 'Almacenamiento' && R.tb ? ` · ${String(R.tb).replace('.', ',')} TB` : ''}</span>`).join('');
+  let m = '';
+  if (R.f) { const cls = !R.powerOk ? 'bad' : R.margin < .3 ? 'warn' : 'ok'; m += meter('Consumo / potencia de la fuente', R.watts, Math.max(R.f.watts, R.watts) * 1.05, cls, R.f.watts, `${R.watts} W de ${R.f.watts} W`); }
+  else m += meter('Consumo estimado', R.watts, 1000, '', null, `${R.watts} W (sin fuente)`);
+  if (reto.budget) m += meter('Precio / presupuesto', R.price, Math.max(reto.budget, R.price) * 1.05, R.price > reto.budget ? 'bad' : 'ok', reto.budget, `${eur(R.price)} de ${eur(reto.budget)}`);
+  else m += `<div class="meter"><div class="top"><span>Precio total</span><b>${eur(R.price)}</b></div></div>`;
+  for (const [k, n] of USES) {
+    const v = R.perf ? R.perf[k] : 0, need = reto.req && reto.req[k];
+    m += meter(n, v, 10, !R.perf ? '' : need ? (v >= need ? 'ok' : 'bad') : '', need ?? null, R.perf ? `${String(v.toFixed(1)).replace('.', ',')} / 10${need ? ` (pide ${String(need).replace('.', ',')})` : ''}` : '—');
+  }
+  $('meters').innerHTML = m;
+  $('alerts').innerHTML = R.alerts.map(([c, t]) => `<li class="${c}">${t}</li>`).join('');
+  $('hint').textContent = R.missing.length ? `Falta: ${R.missing.join(', ')}.` : '';
+}
+function renderReto() {
+  const r = RETOS.find(x => x.id === st.reto);
+  if (r.id === 'libre') { $('retoBox').innerHTML = `<p class="note">${r.d} Elige un encargo para que un cliente te pida un ordenador concreto.</p>`; $('result').hidden = true; return; }
+  $('result').hidden = false;
+  const reqs = [];
+  if (r.budget) reqs.push(`Presupuesto máximo: ${eur(r.budget)}`);
+  for (const [k, n] of USES) if (r.req[k]) reqs.push(`${n}: al menos ${String(r.req[k]).replace('.', ',')} / 10`);
+  if (r.ram) reqs.push(`Al menos ${r.ram} GB de RAM`);
+  if (r.tb) reqs.push(`Al menos ${r.tb} TB de almacenamiento`);
+  if (r.itx) reqs.push('Caja Mini-ITX');
+  if (r.id === 'top') reqs.push('Fuente con al menos un 30 % de margen');
+  $('retoBox').innerHTML = `<div class="reto"><h3>${r.t}</h3><p>${r.d}</p><ul class="req">${reqs.map(x => `<li>${x}</li>`).join('')}</ul></div>`;
+}
+function evaluate() {
+  const r = RETOS.find(x => x.id === st.reto), R = analyze(), L = [];
+  L.push([R.boots, R.boots ? 'El ordenador arranca.' : `No arranca: ${R.missing.length ? 'falta ' + R.missing.join(', ') : !R.video ? 'no hay salida de vídeo' : 'la fuente no tiene potencia suficiente'}.`]);
+  if (r.budget) L.push([R.price <= r.budget, `Precio: ${eur(R.price)} (máximo ${eur(r.budget)}).`]);
+  for (const [k, n] of USES) if (r.req[k]) { const v = R.perf ? R.perf[k] : 0; L.push([R.boots && v >= r.req[k], `${n}: ${String(v.toFixed(1)).replace('.', ',')} / 10 (pide ${String(r.req[k]).replace('.', ',')}).`]); }
+  if (r.ram) L.push([R.gb >= r.ram, `RAM: ${R.gb} GB (pide ${r.ram} GB).`]);
+  if (r.tb) L.push([R.tb >= r.tb, `Almacenamiento: ${String(R.tb).replace('.', ',')} TB (pide ${r.tb} TB).`]);
+  if (r.itx) L.push([R.c && R.c.id === 'c-itx', 'Caja Mini-ITX.']);
+  L.push([!R.hot, R.hot ? 'La refrigeración no es suficiente para el procesador.' : 'Refrigeración adecuada.']);
+  const mreq = r.id === 'top' ? 0.3 : 0.15;
+  L.push([R.f && R.margin >= mreq, R.f ? `Margen de la fuente: ${Math.round(R.margin * 100)} %${R.margin < mreq ? ` (conviene al menos un ${Math.round(mreq * 100)} %)` : ''}.` : 'Sin fuente.']);
+  const ok = L.every(x => x[0]);
+  let stars = 0, extra = '';
+  if (ok) {
+    stars = 2;
+    if (r.budget) { const slack = 1 - R.price / r.budget; if (slack >= 0.05) { stars = 3; extra = `Además te han sobrado ${eur(r.budget - R.price)}: buen ajuste del presupuesto.`; } else extra = 'Cumple, aunque has apurado el presupuesto: ¿podrías ahorrar en alguna pieza sin perder lo que pide el cliente?'; }
+    else { stars = 3; extra = 'Equipo de primera.'; }
+  } else stars = L.filter(x => x[0]).length >= L.length - 1 && R.boots ? 1 : 0;
+  $('evalBox').innerHTML = `<div class="stars" aria-label="${stars} de 3 estrellas">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
+    <p style="margin:0;font:700 17px var(--f-display)">${ok ? '¡Cliente satisfecho!' : 'El cliente no lo acepta todavía.'}</p>
+    <ul class="eval">${L.map(([o, t]) => `<li><span style="color:var(--${o ? 'ok' : 'bad'});font-weight:700">${o ? '✓' : '✗'}</span><span>${t}</span></li>`).join('')}</ul>${extra ? `<p class="note">${extra}</p>` : ''}`;
+}
+
+/* ---------- encendido ---------- */
+let booted = null, bootTimer = [];
+function bootSeq() {
+  bootTimer.forEach(clearTimeout); bootTimer = [];
+  const R = analyze(), out = [];
+  const add = (t, c = '') => out.push([t, c]);
+  if (!R.c || !R.p) add('No hay nada que encender todavía.', 'dim');
+  else if (!R.f) add('Pulsas el botón… y no pasa nada: falta la fuente de alimentación.', 'bad');
+  else if (!R.cpu) add('Los ventiladores giran, pero la pantalla sigue negra: falta el procesador.', 'bad');
+  else if (!R.d) { add('Los ventiladores giran…'); add('El equipo se apaga a los pocos segundos: el procesador se sobrecalienta porque falta el disipador.', 'bad'); }
+  else if (!B.ram.length) { add('Los ventiladores giran…'); add('🔊 Biiip… biiip… biiip… (pitidos largos)', 'warn'); add('No se detecta memoria RAM.', 'bad'); }
+  else if (!R.video) { add('Los ventiladores giran y la placa enciende sus luces…'); add(`Sin señal de vídeo: ${R.cpu.name} no tiene gráficos integrados y no hay tarjeta gráfica.`, 'bad'); }
+  else {
+    add('BIOS · Autoprueba de arranque (POST)', 'dim');
+    add(`CPU ............ ${R.cpu.name}`); add(`Memoria ........ ${R.gb} GB ${it(B.ram[0]).mem}${R.sticks > 1 ? ` (${R.sticks} módulos)` : ''}`);
+    add(`Gráficos ....... ${R.g ? R.g.name : 'integrados en el procesador'}`);
+    R.drives.forEach(s => add(`Unidad ......... ${s.name}`));
+    if (!R.drives.length) { add('No se encuentra ninguna unidad de arranque. Instala un disco o SSD.', 'bad'); }
+    else {
+      add(`Arrancando el sistema operativo${R.boot === 'hdd' ? ' (disco duro: paciencia…)' : '…'}`, 'dim');
+      if (!R.powerOk) { add('Escritorio cargado. Abres un juego…', 'dim'); add(`⚡ Apagón: la fuente de ${R.f.watts} W no da los ${R.watts} W que pide el equipo a plena carga.`, 'bad'); }
+      else {
+        add('✓ Sistema listo.', 'ok');
+        if (R.hot) add('⚠ El procesador llega a 100 °C y baja su velocidad (thermal throttling).', 'warn');
+        if (R.margin < .3) add(`⚠ La fuente va al ${Math.round(R.watts / R.f.watts * 100)} % con el equipo a tope.`, 'warn');
+      }
+    }
+  }
+  $('mon').innerHTML = '';
+  out.forEach(([t, c], i) => bootTimer.push(setTimeout(() => { const s = document.createElement('div'); s.className = c; s.textContent = t; $('mon').appendChild(s); }, 350 * i + 200)));
+  booted = true;
+}
+
+/* ---------- avisos flotantes ---------- */
+let toastT = 0;
+function toast(msg, cls) { document.querySelector('.toast')?.remove(); const t = document.createElement('div'); t.className = `toast ${cls}`; t.textContent = msg; t.setAttribute('role', 'status'); document.body.appendChild(t); clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 4200); }
+
+function refresh() {
+  draw(); renderTabs(); renderCat(); renderSel(); renderStatus();
+  if (!booted) { bootTimer.forEach(clearTimeout); $('mon').innerHTML = '<span class="dim">Pantalla apagada.</span>'; }
+  $('evalBox').innerHTML = '';
+}
+$('retoS').innerHTML = RETOS.map(r => `<option value="${r.id}">${r.id === 'libre' ? r.t : `Encargo: ${r.t}`}</option>`).join('');
+$('retoS').addEventListener('change', e => { st.reto = e.target.value; renderReto(); renderStatus(); $('evalBox').innerHTML = ''; });
+$('bOn').addEventListener('click', bootSeq);
+$('bEmpty').addEventListener('click', () => { B = emptyBuild(); st.sel = null; booted = null; st.tab = 'caja'; refresh(); });
+$('bDeliver').addEventListener('click', evaluate);
+svg.addEventListener('click', () => { if (!dragging && st.sel) { st.sel = null; renderSel(); } });
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => draw());
+new MutationObserver(() => draw()).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+renderReto(); refresh();
+</script>
+</body>
+</html>
