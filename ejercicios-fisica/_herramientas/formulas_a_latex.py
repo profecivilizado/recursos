@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convierte las imágenes de fórmulas de una carpeta del repositorio a LaTeX, sin internet
+r"""Convierte las imágenes de fórmulas de una carpeta del repositorio a LaTeX, sin internet
 (salvo la primera vez, que descarga el modelo), y genera una página para revisarlas.
 
 Instalación (una vez):
