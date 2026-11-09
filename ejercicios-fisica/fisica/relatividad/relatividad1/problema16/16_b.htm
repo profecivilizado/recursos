@@ -41,6 +41,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('b','')">
@@ -48,10 +51,16 @@ onload="nuevoTitulo('b','')">
   <tr>
     <td><p class="m50"><b><font color="#0000FF">b)</font></b></p>
       <p class="m50">La constante de desintegraci&oacute;n valdr&aacute;:</p>
-      <p class="m150"><img src="formulas/16_03.gif" width="232" height="81" border="0" /> 
+      <p class="m150">$$\begin{aligned}
+&amp;-\ln 0{,}5=\lambda\,T\;\rightarrow\;\lambda=\frac{-\ln 0{,}5}{T}\\[6pt]
+&amp;\lambda=\frac{-\ln 0{,}5}{29\ \mathrm{a}}
+\end{aligned}$$ 
       </p>
       <p class="m50">Aplicando la ecuaci&oacute;n de la desintegraci&oacute;n:</p>
-      <p class="m150"> <img src="formulas/16_04.gif" width="245" height="73" align="top" /></p>
+      <p class="m150"> $$\begin{aligned}
+&amp;m=m_0\,e^{-\lambda t}\\[6pt]
+&amp;m=2\ \mathrm{g}\cdot e^{-\left(\frac{-\ln 0{,}5}{29\ \mathrm{a}}\right)(19{,}4\ \mathrm{a})}=1{,}26\ \mathrm{g}
+\end{aligned}$$</p>
       <p class="m50">Cuando la nave llega a su destino quedan 1.26 g de muestra 
         radiactiva</p>
       </td>

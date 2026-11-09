@@ -40,6 +40,9 @@ function siguiente(celda) {
 </script>
 <link href="../../../../js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 
 <body bgcolor="#FFFFFF" 
@@ -50,23 +53,23 @@ onload ="self.moveTo(20,20);self.resizeTo(540,230)">
     <td id="celda0" onclick="verHasta(tabla.cells.length)" width="36"> <div align="center"> 
         <input type="button" name="Submit" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda1" width="18"><img src="formulas/3_1_01.gif" width="213" height="116" /></td>
+    <td id="celda1" width="18">$$\left.\begin{aligned}E_0&amp;=m_0\,c^{2}\\[4pt] E&amp;=m\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\xrightarrow{\;(3)\;} m_0=\gamma\,m$$</td>
     <td id="celda2" onclick="siguiente(this.id)" width="36"> <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda3" style="visibility:hidden" width="18"><img src="formulas/3_1_02.gif" width="202" height="57" /></td>
+    <td id="celda3" style="visibility:hidden" width="18">$$\left.\begin{aligned}E_0&amp;=\gamma\,m\,c^{2}\\[4pt] E&amp;=m\,c^{2}\end{aligned}\right\}\xrightarrow{\;(2)\;} m=\frac{E}{c^{2}}$$</td>
   </tr>
   <tr> 
     <td id="celda4" style="visibility:hidden" onclick="siguiente(this.id)" width="36"> 
       <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda5" style="visibility:hidden" width="18" ><img src="formulas/3_1_03.gif" width="182" height="41" /></td>
+    <td id="celda5" style="visibility:hidden" width="18" >$$E_0=\gamma\,\frac{E}{c^{2}}\,c^{2}\;\rightarrow\;E=\frac{E_0}{\gamma}$$</td>
     <td id="celda6" style="visibility:hidden" onclick="siguiente(this.id)" width="36"> 
       <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda7" style="visibility:hidden" width="18" ><img src="formulas/3_1_04.gif" width="120" height="44" /></td>
+    <td id="celda7" style="visibility:hidden" width="18" >$$m=\frac{E_0/\gamma}{c^{2}}=\frac{E_0}{\gamma\,c^{2}}$$</td>
   </tr>
 </table>
 </body>

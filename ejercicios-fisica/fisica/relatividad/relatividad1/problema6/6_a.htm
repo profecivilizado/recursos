@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('a','../ayuda/1.htm');">
@@ -59,7 +62,11 @@ onload="nuevoTitulo('a','../ayuda/1.htm');">
         = 1 s<br />
         Este tiempo es propio</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
-      <p class="m150"><img src="formulas/6_01.gif" width="260" height="144" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\Delta t_1=\frac{\Delta t_2}{\gamma}\\[6pt]
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}9\,c}{c}\right)^{2}}=\sqrt{0{,}19}\\[6pt]
+&amp;\Delta t_1=\frac{1\ \mathrm{s}}{\sqrt{0{,}19}}=2{,}29\ \mathrm{s}
+\end{aligned}$$</p>
       <p class="m50">Para el controlador el latido del corazon del piloto dura 
         m&aacute;s de lo que dura para este &uacute;ltimo. O sea: en el avi&oacute;n 
         el tiempo transcurre m&aacute;s despacio que en tierra</p>

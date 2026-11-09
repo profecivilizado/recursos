@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm');">
@@ -61,13 +64,17 @@ onload="nuevoTitulo('','../ayuda/1.htm');">
         obtiene:&Delta;t<sub>2</sub><br />
         Este tiempo es propio</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
-      <p class="m150"><img src="formulas/13_01.gif" width="198" height="41" /></p>
+      <p class="m150">$$\Delta t_1=\frac{\Delta t_2}{\gamma}\;\rightarrow\;\gamma=\frac{\Delta t_2}{\Delta t_1}=\frac{1}{2}$$</p>
       <p class="m50">Conociendo &gamma; se puede calcular la velocidad del recinto</p>
-      <p class="m150"><img src="formulas/13_02.gif" width="204" height="138" /> 
+      <p class="m150">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{x\,c}{c}\right)^{2}}=\sqrt{1-x^{2}}\\[6pt]
+&amp;\gamma^{2}=1-x^{2}\;\rightarrow\;x=\sqrt{1-\gamma^{2}}\\[6pt]
+&amp;x=\sqrt{1-\left(\frac{1}{2}\right)^{2}}=0{,}866
+\end{aligned}$$ 
       </p>
       <p class="m50">La velocidad de la nave espacial es un 86.6% de la velocidad 
         de la luz.</p>
-      <p class="m150"><img src="formulas/13_03.gif" width="290" height="37" /></p>
+      <p class="m150">$$v=x\cdot c=0{,}866\cdot3\cdot10^{8}\ \mathrm{\frac{m}{s}}=2{,}60\cdot10^{8}\ \mathrm{\frac{m}{s}}$$</p>
       </td>
   </tr>
 </table>

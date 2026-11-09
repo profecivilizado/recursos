@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('b','../ayuda/1.htm')"
@@ -55,7 +58,11 @@ onunload="cerrarVentanas()">
       <p class="m50">Conversi&oacute;n de masas: m = m<sub>0</sub>/&gamma;</p>
       <p class="m50">Combinando estas dos expresiones resulta un sistema con inc&oacute;gnitas: 
         m, E<sub>C</sub></p>
-      <p class="m150"><img src="formulas/6_04.gif" width="338" height="176" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}E_C&amp;=(m-m_0)\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[8pt]
+&amp;E_C=\left(\frac{m_0}{\gamma}-m_0\right)c^{2}=m_0\left(\frac{1}{\gamma}-1\right)c^{2}\\[8pt]
+&amp;E_C=5000\ \mathrm{kg}\left(\frac{1}{1/2}-1\right)\left(3\cdot10^{8}\ \mathrm{\frac{m}{s}}\right)^{2}=4{,}5\cdot10^{20}\ \mathrm{J}
+\end{aligned}$$</p>
       </td>
   </tr>
 </table>

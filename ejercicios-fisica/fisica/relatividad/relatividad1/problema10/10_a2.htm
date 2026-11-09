@@ -53,6 +53,9 @@ function MM_goToURL() { //v3.0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')">
@@ -82,11 +85,15 @@ onload="nuevoTitulo('','../ayuda/1.htm')">
         Ve el conjunto Sol-Tierra en movimiento. Midiendo la distancia entre ellos 
         obtiene: L<sub>2</sub></p>
       <p class="m50">Aplicando la conversi&oacute;n de longitudes:</p>
-      <p class="m150"><img src="formulas/10_03.gif" width="246" height="108" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;L_2=\gamma\,L_1\\[6pt]
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}6\,c}{c}\right)^{2}}=0{,}8\\[6pt]
+&amp;L_2=0{,}8\cdot1{,}5\cdot10^{11}\ \mathrm{m}=1{,}2\cdot10^{11}\ \mathrm{m}
+\end{aligned}$$</p>
       <p class="m50"> Vista desde el observador 2, en el momento de nacer el neutr&oacute;n 
         la Tierra estaba a una distancia de 1.2&middot;10<sup>11</sup> m acerc&aacute;ndose 
         con una velocidad 0.6c. Entonces tardar&aacute; en llegar:</p>
-      <p class="m150"><img src="formulas/10_04.gif" width="301" height="44" /></p>
+      <p class="m150">$$\Delta t_2=\frac{L_2}{v}=\frac{1{,}2\cdot10^{11}\ \mathrm{m}}{0{,}6\cdot3\cdot10^{8}\ \mathrm{m/s}}=667\ \mathrm{s}=11{,}1\ \mathrm{min}$$</p>
       <p class="m50">Para el observador 2 el neutr&oacute;n vive 15 min y la Tierra 
         tarda en llegar 11.1 min. El neutr&oacute;n seguir&aacute; existiendo 
         cuando la Tierra llegue hasta &eacute;l</p>

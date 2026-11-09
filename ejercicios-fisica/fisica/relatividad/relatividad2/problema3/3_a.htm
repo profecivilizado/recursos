@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -56,8 +59,15 @@ onunload="cerrarVentanas()">
       <p class="m50">Conversi&oacute;n de masas: m = m<sub>0</sub>/&gamma;</p>
       <p class="m50">Combinando estas tres expresiones resulta un sistema con 
         inc&oacute;gnitas: m<sub>0</sub>, m, E</p>
-      <p class="m150"><img src="formulas/3_01.gif" width="168" height="172" border="0" usemap="#Map" style="cursor:pointer"/></p>
-      <p class="m150"><img src="formulas/3_02.gif" width="474" height="160" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}E_0&amp;=m_0\,c^{2}\\[4pt] E&amp;=m\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[10pt]
+&amp;\htmlData{pc-map=Map, pc-area=0}{\boxed{E=\frac{E_0}{\gamma}\quad,\quad m=\frac{E_0}{\gamma\,c^{2}}}}
+\end{aligned}$$</p>
+      <p class="m150">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}8 c}{c}\right)^{2}}=0{,}6\\[6pt]
+&amp;E=\frac{E_0}{\gamma}=\frac{0{,}51\ \mathrm{MeV}}{0{,}6}=0{,}85\ \mathrm{MeV}\\[6pt]
+&amp;m=\frac{E_0}{\gamma\,c^{2}}=\frac{0{,}51\ \mathrm{MeV}}{0{,}6\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}=\frac{0{,}51\cdot10^{6}\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}{0{,}6\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}=1{,}51\cdot10^{-30}\ \mathrm{kg}
+\end{aligned}$$</p>
       </td>
   </tr>
 </table>

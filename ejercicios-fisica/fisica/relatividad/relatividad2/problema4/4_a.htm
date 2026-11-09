@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -53,15 +56,24 @@ onunload="cerrarVentanas()">
       <p class="m50">Conversi&oacute;n de masas: m = m<sub>0</sub>/&gamma;</p>
       <p class="m50">Combinando estas dos expresiones resulta un sistema con inc&oacute;gnitas: 
         m, &gamma;</p>
-      <p class="m150"><img src="formulas/4_01.gif" width="334" height="308" border="0" usemap="#Map" style="cursor:pointer" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}E_C&amp;=(m-m_0)\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[10pt]
+&amp;\htmlData{pc-map=Map, pc-area=0}{\boxed{\gamma=\left(\frac{E_C}{m_0\,c^{2}}+1\right)^{-1}}}\\[10pt]
+&amp;\gamma=\left(\frac{3\cdot10^{10}\ \mathrm{eV}}{1{,}67\cdot10^{-27}\ \mathrm{kg}\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}+1\right)^{-1}\\[10pt]
+&amp;\gamma=\left(\frac{3\cdot10^{10}\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}{1{,}67\cdot10^{-27}\ \mathrm{kg}\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}+1\right)^{-1}=0{,}0304
+\end{aligned}$$</p>
       <p class="m50">Conociendo &gamma; se puede calcular la velocidad del prot&oacute;n. 
         Este c&aacute;lculo resultar&aacute; m&aacute;s f&aacute;cil si expresamos 
         la velocidad como un porcentaje de la velocidad de la luz: v = x&middot;c</p>
       <p></p>
-      <p class="m150"><img src="formulas/4_02.gif" width="205" height="121" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{x\,c}{c}\right)^{2}}=\sqrt{1-x^{2}}\\[6pt]
+&amp;\gamma^{2}=1-x^{2}\;\rightarrow\;x=\sqrt{1-\gamma^{2}}\\[6pt]
+&amp;x=\sqrt{1-(0{,}0304)^{2}}=0{,}9995
+\end{aligned}$$</p>
       <p class="m50">La velocidad del prot&oacute;n tendr&iacute;a que ser un 
         99.95% de la velocidad de la luz, es decir:</p>
-      <p class="m150"><img src="formulas/4_03.gif" width="338" height="37" /></p>
+      <p class="m150">$$v=0{,}9995\cdot c=0{,}9995\cdot3\cdot10^{8}\ \mathrm{\frac{m}{s}}=2{,}999\cdot10^{8}\ \mathrm{\frac{m}{s}}$$</p>
       </td>
   </tr>
 </table>

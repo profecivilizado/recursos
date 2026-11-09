@@ -27,6 +27,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="self.resizeTo(480,650)"
@@ -43,8 +46,11 @@ onUnload="cerrarVentanas()">
       <p> Relaci&oacute;n entre valores propios y no propios:</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
-          <td width="57%"><div align="center"><img src="formulas/1_01.gif" width="177" height="76" /></div></td>
-          <td width="43%"><div align="center"><img src="formulas/1_02.gif" width="97" height="48" /></div></td>
+          <td width="57%"><div align="center">$$\begin{aligned}
+&amp;L=\gamma\,L_{\text{propia}},\quad H=H_{\text{propia}}\\[6pt]
+&amp;m=\frac{m_{\text{propia}}}{\gamma}
+\end{aligned}$$</div></td>
+          <td width="43%"><div align="center">$$\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}$$</div></td>
         </tr>
       </table>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
@@ -66,8 +72,8 @@ onUnload="cerrarVentanas()">
       <p>Relaci&oacute;n entre tiempo propio y no-propio</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
-          <td width="53%"><div align="center"><img src="formulas/1_03.gif" width="89" height="41" /></div></td>
-          <td width="47%"><div align="center"><img src="formulas/1_02.gif" width="97" height="48" /></div></td>
+          <td width="53%"><div align="center">$$\Delta t=\frac{\Delta t_{\text{propio}}}{\gamma}$$</div></td>
+          <td width="47%"><div align="center">$$\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}$$</div></td>
         </tr>
       </table>
       

@@ -42,5 +42,9 @@
     document.querySelectorAll('img').forEach(function (im) { if (!im.complete) im.addEventListener('load', window.pcFit); });
     if (_pctop.pcPageLoaded) try { _pctop.pcPageLoaded(window); } catch (e) {}
   });
+  // Zonas pulsables dentro de fórmulas KaTeX (sustituyen a los <map>/<area> de las antiguas imágenes)
+  function pcArea(el) { var m = document.querySelector('map[name="' + el.getAttribute('data-pc-map') + '"]'); return m && m.areas[+el.getAttribute('data-pc-area')]; }
+  document.addEventListener('click', function (e) { var el = e.target.closest && e.target.closest('[data-pc-area]'), a = el && pcArea(el); if (a && a.onclick) a.onclick.call(a, e); });
+  document.addEventListener('mouseover', function (e) { var el = e.target.closest && e.target.closest('[data-pc-area]'), a = el && pcArea(el); if (a && !el.title) el.title = a.title || ''; });
   addEventListener('keydown', function (e) { if (e.key === 'F1') { e.preventDefault(); _pctop.pcHelp && _pctop.pcHelp(); } });
 })();

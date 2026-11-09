@@ -40,6 +40,9 @@ function siguiente(celda) {
 </script>
 <link href="../../../../js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 
 <body bgcolor="#FFFFFF" 
@@ -50,18 +53,18 @@ onload ="self.moveTo(20,20);self.resizeTo(440,180)">
     <td id="celda0" onclick="verHasta(tabla.cells.length)" width="36"> <div align="center"> 
         <input type="button" name="Submit" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda1" width="18"><img src="formulas/1_01.gif" width="200" height="65" /></td>
+    <td id="celda1" width="18">$$\left.\begin{aligned}E_C&amp;=\frac{1}{2}\,m\,v^{2}\\[4pt] p&amp;=m\,v\end{aligned}\right\}\xrightarrow{\;(2)\;} v=\frac{p}{m}$$</td>
     <td id="celda2" onclick="siguiente(this.id)" width="36"> <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda3" style="visibility:hidden" width="18"><img src="formulas/1_02.gif" width="105" height="45" /></td>
+    <td id="celda3" style="visibility:hidden" width="18">$$E_C=\frac{1}{2}\,m\left(\frac{p}{m}\right)^{2}$$</td>
   </tr>
   <tr> 
     <td id="celda4" style="visibility:hidden" onclick="siguiente(this.id)" width="36"> 
       <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td id="celda5" style="visibility:hidden" width="18" ><img src="formulas/1_03.gif" width="204" height="42" /></td>
+    <td id="celda5" style="visibility:hidden" width="18" >$$E_C=\frac{p^{2}}{2\,m}\;\rightarrow\; p=\sqrt{2\,m\,E_C}$$</td>
     <td id="celda6" style="visibility:hidden" onclick="siguiente(this.id)" width="36">&nbsp;</td>
     <td id="celda7" style="visibility:hidden" width="18" >&nbsp;</td>
   </tr>

@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('b','../ayuda/1.htm')">
@@ -58,7 +61,12 @@ onload="nuevoTitulo('b','../ayuda/1.htm')">
         H<sub>2</sub><br />
         Estas dimensiones son propias</p>
       <p class="m50">Aplicando la conversi&oacute;n de longitudes resulta:</p>
-      <p class="m150"><img src="formulas/1_02.gif" width="258" height="169" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;L_1=\gamma\,L_2\;\rightarrow\;L_2=\frac{L_1}{\gamma}\quad,\quad H_2=H_1\\[6pt]
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}8\,c}{c}\right)^{2}}=0{,}6\\[6pt]
+&amp;L_2=\frac{150\ \mathrm{m}}{0{,}6}=250\ \mathrm{m}\\[6pt]
+&amp;H_2=18\ \mathrm{m}
+\end{aligned}$$</p>
       <p class="m50">El observador 2 ve su avi&oacute;n m&aacute;s largo de lo 
         que lo ve el observador 1 y con la misma altura </p>
       </td>

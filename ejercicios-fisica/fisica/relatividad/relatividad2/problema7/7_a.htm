@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')">
@@ -49,13 +52,20 @@ onload="nuevoTitulo('','../ayuda/1.htm')">
   <tr>
     <td><p class="m50"> F&iacute;sica cl&aacute;sica (La energ&iacute;a cin&eacute;tica 
         est&aacute; asociada al aumento de velocidad):</p>
-      <p class="m150"><img src="formulas/7_01.gif" width="205" height="36" /></p>
+      <p class="m150">$$E'_C=\frac{1}{2}\,m_0\,v^{2}=\frac{1}{2}\,m_0\,(x\,c)^{2}$$</p>
       <p class="m50"> F&iacute;sica relativista (La energ&iacute;a cin&eacute;tica 
         est&aacute; asociada al aumento de masa):</p>
-      <p class="m150"><img src="formulas/7_02.gif" width="238" height="124" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}E_C&amp;=(m-m_0)\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[8pt]
+&amp;E_C=\left(\frac{m_0}{\gamma}-m_0\right)c^{2}=m_0\,c^{2}\left(\frac{1}{\gamma}-1\right)
+\end{aligned}$$</p>
       <p class="m50">Entonces la relaci&oacute;n entre las energ&iacute;as relativista 
         y cl&aacute;sica ser&aacute;:</p>
-      <p class="m150"><img src="formulas/7_04.gif" width="233" height="160" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\frac{E_C}{E'_C}=\frac{m_0\,c^{2}\,(1/\gamma-1)}{1/2\ m_0\,x^{2}\,c^{2}}=\frac{2\,(1-\gamma)}{x^{2}\,\gamma}\\[6pt]
+&amp;\gamma=\sqrt{1-\left(\frac{x\,c}{c}\right)^{2}}=\sqrt{1-0{,}8^{2}}=0{,}6\\[6pt]
+&amp;\frac{E_C}{E'_C}=\frac{2\,(1-0{,}6)}{(0{,}8)^{2}\ 0{,}6}=2{,}08
+\end{aligned}$$</p>
       <p class="m50">A esta velocidad, la energ&iacute;a cin&eacute;tica relativista 
         es el doble de la cl&aacute;sica</p>
       </td>

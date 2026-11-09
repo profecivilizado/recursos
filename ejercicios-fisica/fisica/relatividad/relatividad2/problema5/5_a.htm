@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')">
@@ -56,9 +59,12 @@ onload="nuevoTitulo('','../ayuda/1.htm')">
       <p class="m50">Combinando estas dos expresiones resulta un sistema con dos 
         inc&oacute;gnitas: E<sub>C</sub>, m<br />
       </p>
-      <p class="m150"><img src="formulas/5_01.gif" width="234" height="124" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}E_C&amp;=(m-m_0)\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[8pt]
+&amp;E_C=\left(\frac{m_0}{\gamma}-m_0\right)c^{2}=m_0\left(\frac{1}{\gamma}-1\right)c^{2}
+\end{aligned}$$</p>
       <p class="m150">Siendo &gamma;:</p>
-      <p class="m150"><img src="formulas/5_02.gif" width="260" height="48" /></p>
+      <p class="m150">$$\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}9\,c}{c}\right)^{2}}=0{,}436$$</p>
       <p class="m50">Sustituyendo los datos de cada part&iacute;cula:</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
@@ -71,15 +77,15 @@ onload="nuevoTitulo('','../ayuda/1.htm')">
                 Prot&oacute;n</p>
             </form></td>
           <td width="84%" id="texto"> 
-            <p class="m50"><img src="formulas/5_03.gif" width="412" height="45" /></p></td></tr>
+            <p class="m50">$$E_C=9{,}11\cdot10^{-31}\ \mathrm{kg}\left(\frac{1}{0{,}436}-1\right)\left(3\cdot10^{8}\ \mathrm{\frac{m}{s}}\right)^{2}=1{,}06\cdot10^{-13}\ \mathrm{J}$$</p></td></tr>
         <tr> 
           <td>&nbsp;</td>
           <td id="texto1" style="visibility:hidden"> 
-            <p class="m50"><img src="formulas/5_03.gif" width="412" height="45" /></p></td></tr>
+            <p class="m50">$$E_C=9{,}11\cdot10^{-31}\ \mathrm{kg}\left(\frac{1}{0{,}436}-1\right)\left(3\cdot10^{8}\ \mathrm{\frac{m}{s}}\right)^{2}=1{,}06\cdot10^{-13}\ \mathrm{J}$$</p></td></tr>
         <tr>
           <td>&nbsp;</td>
           <td id="texto2" style="visibility:hidden"> 
-            <p class="m50"><img src="formulas/5_04.gif" width="412" height="45" /></p></td></tr>
+            <p class="m50">$$E_C=1{,}67\cdot10^{-27}\ \mathrm{kg}\left(\frac{1}{0{,}436}-1\right)\left(3\cdot10^{8}\ \mathrm{\frac{m}{s}}\right)^{2}=1{,}94\cdot10^{-10}\ \mathrm{J}$$</p></td></tr>
       </table>
       
     </td>

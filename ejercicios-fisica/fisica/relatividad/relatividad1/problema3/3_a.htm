@@ -41,6 +41,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -59,15 +62,19 @@ onunload="cerrarVentanas()">
         m<br />
         Esta longitud es propia</p>
       <p class="m50">Aplicando la conversi&oacute;n de longitudes resulta:</p>
-      <p class="m150"><img src="formulas/3_01.gif" width="249" height="41" /></p>
+      <p class="m150">$$L_1=\gamma\,L_2\;\rightarrow\;\gamma=\frac{L_1}{L_2}=\frac{100\ \mathrm{m}}{120\ \mathrm{m}}=\frac{5}{6}$$</p>
       <p class="m50">Conociendo &gamma; se puede calcular la velocidad de la nave. 
         Este c&aacute;lculo resultar&aacute; m&aacute;s f&aacute;cil si expresamos 
         la velocidad como un porcentaje de la velocidad de la luz: v = x&middot;c</p>
-      <p class="m150"><img src="formulas/3_02.gif" width="204" height="138" /> 
+      <p class="m150">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{x\,c}{c}\right)^{2}}=\sqrt{1-x^{2}}\\[6pt]
+&amp;\gamma^{2}=1-x^{2}\;\rightarrow\;x=\sqrt{1-\gamma^{2}}\\[6pt]
+&amp;x=\sqrt{1-\left(\frac{5}{6}\right)^{2}}=0{,}553
+\end{aligned}$$ 
       </p>
       <p class="m50">La velocidad de la nave espacial es un 55.3% de la velocidad 
         de la luz.</p>
-      <p class="m150"><img src="formulas/3_03.gif" width="285" height="37" /></p>
+      <p class="m150">$$v=x\,c=0{,}553\cdot3\cdot10^{8}\ \mathrm{\frac{m}{s}}=1{,}66\cdot10^{8}\ \mathrm{\frac{m}{s}}$$</p>
       </td>
   </tr>
 </table>

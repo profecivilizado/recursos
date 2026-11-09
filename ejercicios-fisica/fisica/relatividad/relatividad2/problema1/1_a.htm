@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../../relatividad1/ayuda/1.htm')"
@@ -51,7 +54,7 @@ onunload="cerrarVentanas()">
     <td><p align="left" class="m50">El electr&oacute;n visto en reposo tiene una 
         masa m<sub>0</sub> y visto en movimiento tiene una masa m</p>
       <p align="left" class="m50">Conversi&oacute;n de masas:</p>
-      <p class="m150"><img src="formulas/1_01.gif" width="185" height="48" /></p>
+      <p class="m150">$$m=\frac{m_0}{\gamma}\qquad\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}$$</p>
       <p class="m50">Sustituyendo los datos de cada caso:</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
@@ -64,15 +67,24 @@ onunload="cerrarVentanas()">
                 v = 0.9&middot;c</p>
             </form></td>
           <td width="81%" id="texto"> 
-            <p align="left" class="m100"><img src="formulas/1_02.gif" width="293" height="105" /></p></td></tr>
+            <p align="left" class="m100">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{10^{7}\ \mathrm{m/s}}{3\cdot10^{8}\ \mathrm{m/s}}\right)^{2}}=0{,}999\\[8pt]
+&amp;m=\frac{9{,}11\cdot10^{-31}\ \mathrm{kg}}{0{,}999}=9{,}12\cdot10^{-31}\ \mathrm{kg}
+\end{aligned}$$</p></td></tr>
       </table>
       
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
-          <td id="texto1" style="visibility:hidden"><p class="m100"><img src="formulas/1_02.gif" name="imagen1" width="309" height="113" id="imagen1" /></p></td>
+          <td id="texto1" style="visibility:hidden"><p class="m100">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{10^{7}\ \mathrm{m/s}}{3\cdot10^{8}\ \mathrm{m/s}}\right)^{2}}=0{,}999\\[8pt]
+&amp;m=\frac{9{,}11\cdot10^{-31}\ \mathrm{kg}}{0{,}999}=9{,}12\cdot10^{-31}\ \mathrm{kg}
+\end{aligned}$$</p></td>
         </tr>
         <tr>
-          <td id="texto2" style="visibility:hidden"><p class="m100"><img src="formulas/1_03.gif" name="imagen1" width="264" height="105" id="imagen1" /></p></td>
+          <td id="texto2" style="visibility:hidden"><p class="m100">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}9\,c}{c}\right)^{2}}=0{,}436\\[8pt]
+&amp;m=\frac{9{,}11\cdot10^{-31}\ \mathrm{kg}}{0{,}436}=2{,}09\cdot10^{-30}\ \mathrm{kg}
+\end{aligned}$$</p></td>
         </tr>
       </table>
       <p>&nbsp;</p></td>

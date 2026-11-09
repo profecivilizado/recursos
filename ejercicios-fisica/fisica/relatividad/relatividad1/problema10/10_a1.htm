@@ -53,6 +53,9 @@ function MM_goToURL() { //v3.0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm');">
@@ -84,11 +87,15 @@ onload="nuevoTitulo('','../ayuda/1.htm');">
         Este tiempo no es propio porque la posici&oacute;n del neutr&oacute;n 
         al nacer y al morir no es la misma</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
-      <p class="m150"><img src="formulas/10_01.gif" width="242" height="140" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\Delta t_1=\frac{\Delta t_2}{\gamma}\\[6pt]
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}6\,c}{c}\right)^{2}}=0{,}8\\[6pt]
+&amp;\Delta t_1=\frac{15\ \mathrm{min}}{0{,}8}=18{,}75\ \mathrm{min}
+\end{aligned}$$</p>
       <p class="m50"> Para el observador colocado en el Sol el neutr&oacute;n 
         tarda 18.75 min en desintegrarse, durante este tiempo le ver&aacute; alejarse 
         una distancia:</p>
-      <p class="m150"><img src="formulas/10_02.gif" width="353" height="37" /></p>
+      <p class="m150">$$x_1=v\,\Delta t_1=0{,}6\cdot3\cdot10^{8}\ \mathrm{\frac{m}{s}}\ 18{,}75\cdot60\ \mathrm{s}=2{,}03\cdot10^{11}\ \mathrm{m}$$</p>
       <p class="m50">Esta distancia es mayor que la distancia Sol-Tierra, por 
         tanto s&iacute; que llegar&aacute; el neutr&oacute;n a la Tierra</p>
       </td>
