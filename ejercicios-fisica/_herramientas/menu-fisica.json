@@ -450,27 +450,27 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Reacciones nucleares",
-     "u": "fisica/nuclear/nuclear1/0.htm"
+     "u": "fisica/nuclear/problemas.htm#nuclear1"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Desintegraciones radiactivas",
-     "u": "fisica/nuclear/nuclear2/0.htm"
+     "u": "fisica/nuclear/problemas.htm#nuclear2"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/nuclear/faq/0.htm"
+     "u": "fisica/nuclear/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/nuclear/buscar/0.htm"
+     "u": "fisica/nuclear/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/nuclear/buscar2/0.htm"
+     "u": "fisica/nuclear/problemas.htm#acceso"
     }
    ]
   }
