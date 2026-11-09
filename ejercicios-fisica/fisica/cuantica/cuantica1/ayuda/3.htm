@@ -26,6 +26,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="self.moveTo(20,20);self.resizeTo(480,520)"
@@ -45,12 +48,12 @@ onUnload="cerrarVentanas()">
             <p>E<sub>P fin</sub> = q&middot;V<sub>B</sub></p></td>
         </tr>
       </table>
-      <p class="m100"><img src="formulas/3_03.gif" width="218" height="52" border="0" /></p>
+      <p class="m100">$$\begin{aligned}&amp;\Delta E_C=0-E_C=-E_C\\[8pt] &amp;\Delta E_P=q\,V_B-q\,V_A=q\,(V_B-V_A)\end{aligned}$$</p>
       <p>Durante el recorrido el electr&oacute;n s&oacute;lo est&aacute; sometido 
         a la fuerza el&eacute;ctrica cuyo trabajo ya est&aacute; contado en la 
         variaci&oacute;n de ener-g&iacute;a potencial, por tanto <b><i>T</i></b> 
         = 0.</p>
-      <p class="m100"><img src="formulas/3_04.gif" width="145" height="80" align="middle" border="0" /> 
+      <p class="m100">$$\begin{aligned}&amp;T=\Delta E_C+\Delta E_P\\[8pt] &amp;0=-E_C+q\,(V_B-V_A)\\[8pt] &amp;E_C=q\,(V_B-V_A)\end{aligned}$$ 
       </p>
       <p align="left">Llamando V a la diferencia de potencial queda:</p>
       <p class="m100">E<sub>C</sub> = q&middot;V</p>

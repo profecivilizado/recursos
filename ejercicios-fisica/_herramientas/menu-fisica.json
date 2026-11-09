@@ -414,27 +414,27 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Fotones",
-     "u": "fisica/cuantica/cuantica1/0.htm"
+     "u": "fisica/cuantica/problemas.htm#cuantica1"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Dualidad",
-     "u": "fisica/cuantica/cuantica2/0.htm"
+     "u": "fisica/cuantica/problemas.htm#cuantica2"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/cuantica/faq/0.htm"
+     "u": "fisica/cuantica/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/cuantica/buscar/0.htm"
+     "u": "fisica/cuantica/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/cuantica/buscar2/0.htm"
+     "u": "fisica/cuantica/problemas.htm#acceso"
     }
    ]
   },
