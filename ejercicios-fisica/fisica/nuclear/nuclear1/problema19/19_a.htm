@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -57,10 +60,14 @@ onunload="cerrarVentanas()">
       <p class="m50"> Se puede tomar como masa del n&uacute;clido la masa at&oacute;mica: 
         235 (Despreciando el defecto de masa). Entonces la cantidad de n&uacute;clidos 
         que hay en 1 kg de U-235 ser&aacute;:</p>
-      <p class="m150"><img src="formulas/19_01.gif" width="222" height="42" /></p>
+      <p class="m150">$$\frac{10^{3}\cdot6{,}023\cdot10^{23}\ \mathrm{u}}{235\ \mathrm{u}}=2{,}56\cdot10^{24}$$</p>
       <p class="m50">Por cada uno de estos &aacute;tomos se liberan 200 MeV, as&iacute; 
         que la energ&iacute;a producida ser&aacute;:</p>
-      <p class="m50"><img src="formulas/19_02.gif" width="436" height="100" border="0" style="cursor:pointer"/> 
+      <p class="m50">$$\begin{aligned}
+&amp;E=2{,}56\cdot10^{24}\cdot200\ \mathrm{MeV}\\[6pt]
+&amp;E=512\cdot10^{24}\cdot10^{6}\ \mathrm{eV}=512\cdot10^{30}\ 1{,}6\cdot10^{-19}\ \mathrm{J}=819\cdot10^{11}\ \mathrm{W\,s}\\[6pt]
+&amp;E=819\cdot10^{11}\ \frac{1}{10^{3}}\,\mathrm{kW}\ \frac{1}{3600}\,\mathrm{h}=2{,}28\cdot10^{7}\ \mathrm{kWh}
+\end{aligned}$$ 
       </p>
       </td>
   </tr>

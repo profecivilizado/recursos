@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -54,7 +57,7 @@ onunload="cerrarVentanas()">
       <p class="m50">Conservaci&oacute;n del n&uacute;mero at&oacute;mico:</p>
       <p class="m150">15 = Z - 1,&nbsp; Z = 16</p>
       <p class="m50">Reacci&oacute;n ajustada:</p>
-      <p class="m150"><img src="formulas/5_01.gif" width="141" height="26" /></p>
+      <p class="m150">$${}^{32}_{15}\mathrm{P}\;\rightarrow\;{}^{32}_{16}\mathrm{X}+{}^{0}_{-1}\mathrm{e}$$</p>
       <p class="m50">Para curiosos: el n&uacute;mero at&oacute;mico 16 corresponde 
         al azufre</p>
       <p class="m50">En esta reacci&oacute;n desaparece masa que se convierte 
@@ -64,7 +67,10 @@ onunload="cerrarVentanas()">
         practic&aacute;mente toda la energ&iacute;a liberada en la reacci&oacute;n</p>
       <p class="m50">Entonces la energ&iacute;a liberada en la reacci&oacute;n 
         es 1,71 MeV y la masa desaparecida ser&aacute;:</p>
-      <p class="m150"><img src="formulas/5_02.gif" width="396" height="102" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150">$$\begin{aligned}
+&amp;E=\Delta m\,c^{2}\;\rightarrow\;\Delta m=\frac{E}{c^{2}}\\[10pt]
+&amp;\Delta m=\frac{171\ \mathrm{MeV}}{c^{2}}=\frac{171\ \htmlData{pc-map=Map, pc-area=0}{\boxed{c^{2}/931\ \mathrm{u}}}}{c^{2}}=\frac{171}{931}\ \mathrm{u}=0{,}0018367\ \mathrm{u}
+\end{aligned}$$</p>
       <p class="m50">Suponiendo despreciable la masa del electr&oacute;n, la masa 
         del n&uacute;clido X-32 se obtendr&aacute; restando a la masa del n&uacute;clido 
         P-32 la masa desaparecida: </p>

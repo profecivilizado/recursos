@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/2.htm')"
@@ -56,8 +59,14 @@ onunload="cerrarVentanas()">
         La planta al morir conten&iacute;a N<sub>0</sub> &aacute;tomos de C-14, 
         hoy, al cabo de un tiempo t, quedan 0,225&middot;N<sub>0</sub></p>
       <p class="m50">Aplicando la ecuaci&oacute;n de la desintegraci&oacute;n:</p>
-      <p class="m150"><img src="formulas/9_01.gif" width="293" height="62" /></p>
-      <p class="m150"><img src="formulas/9_02.gif" width="349" height="108" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;N=N_0\,e^{-\lambda t}\\[8pt]
+&amp;0{,}225\,N_0=N_0\,e^{-\lambda t}\;\rightarrow\;\ln 0{,}225=-\lambda\,t
+\end{aligned}$$</p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}\ln 0{,}225&amp;=-\lambda\,t\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\;\rightarrow\;\frac{\ln 0{,}225}{\ln 2}=\frac{-t}{T}\\[8pt]
+&amp;t=-\frac{\ln 0{,}225}{\ln 2}\,T=-\frac{\ln 0{,}225}{\ln 2}\,5730\ \mathrm{a}=1{,}23\cdot10^{4}\ \mathrm{a}
+\end{aligned}$$</p>
       <p class="m50">Entonces la planta muri&oacute; hace 1,23&middot;10<sup>4</sup> 
         a&ntilde;os</p>
       </td>

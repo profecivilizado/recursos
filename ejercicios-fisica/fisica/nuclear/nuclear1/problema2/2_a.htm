@@ -45,6 +45,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','ayuda/1.htm')"
@@ -73,7 +76,10 @@ onunload="cerrarVentanas()">
         masa de 35,279679 u. Al formarse el n&uacute;clido desapareci&oacute; 
         parte de esta masa convirti&eacute;ndose en 289 MeV de energ&iacute;a 
         de enlace. Vamos a calcular la masa desparecida</p>
-      <p class="m150"><img src="formulas/2_01.gif" width="398" height="102" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150">$$\begin{aligned}
+&amp;E=\Delta m\,c^{2}\;\rightarrow\;\Delta m=\frac{E}{c^{2}}\\[10pt]
+&amp;\Delta m=\frac{289\ \mathrm{MeV}}{c^{2}}=\frac{289\ \htmlData{pc-map=Map, pc-area=0}{\boxed{c^{2}/931\ \mathrm{u}}}}{c^{2}}=\frac{289}{931}\ \mathrm{u}=0{,}3104189\ \mathrm{u}
+\end{aligned}$$</p>
       <p class="m50">La masa del n&uacute;clido se obtendr&aacute; restando la 
         masa desaparecida a la masa del conjunto de sus componentes: 35,27968 
         - 0,3104189 = 34,96926 u</p>

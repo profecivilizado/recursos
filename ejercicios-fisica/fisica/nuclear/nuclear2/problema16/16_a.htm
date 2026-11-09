@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/2.htm')"
@@ -53,7 +56,11 @@ onunload="cerrarVentanas()">
         de un tiempo t (Tiempo transcurrido hasta hoy), esta proporci&oacute;n 
         se ha reducido al 58% de la inicial lo que significa que quedan el 58% 
         de los &aacute;tomos de C-14 que hab&iacute;a inicialmente</p>
-      <p class="m150"><img src="formulas/16_01.gif" width="460" height="165" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}0{,}58\,N_0&amp;=N_0\,e^{-\lambda t}\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\;\rightarrow\;\left.\begin{aligned}\ln 0{,}58&amp;=-\lambda\,t\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\xrightarrow{\;(1,2)\;}\frac{\ln 0{,}58}{\ln 2}=-\frac{t}{T}\\[8pt]
+&amp;t=-\frac{\ln 0{,}58}{\ln 2}\,T\\[8pt]
+&amp;t=-\frac{\ln 0{,}58}{\ln 2}\,5570\ \mathrm{a}=4377\ \mathrm{a}
+\end{aligned}$$</p>
       <p class="m50">El &aacute;rbol del que procede la madera se tal&oacute; 
         hace 4377 a&ntilde;os</p>
       </td>

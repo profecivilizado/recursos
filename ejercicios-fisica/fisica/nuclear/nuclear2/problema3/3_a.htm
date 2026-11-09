@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -49,7 +52,11 @@ onUnload="cerrarVentanas()">
 <table width="760" border="0" cellspacing="0" cellpadding="10">
   <tr>
     <td>
-<p class="m150"><img src="formulas/3_01.gif" width="436" height="190" border="0" style="cursor:pointer"/> 
+<p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}N&amp;=N_0\,e^{-\lambda t}\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\;\rightarrow\;\left.\begin{aligned}\ln\left(\frac{N}{N_0}\right)&amp;=-\lambda\,t\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\xrightarrow{\;(1,2)\;}\frac{\ln(N/N_0)}{\ln 2}=-\frac{t}{T}\\[8pt]
+&amp;t=\frac{\ln(N/N_0)}{\ln 2}\,T\\[8pt]
+&amp;t=\frac{\ln(0{,}01\,N_0/N_0)}{\ln 2}\,2\ \mathrm{d}=13{,}3\ \mathrm{d}
+\end{aligned}$$ 
       </p>
       <p class="m50">Vamos a justificar el resultado:</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">

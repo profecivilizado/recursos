@@ -45,6 +45,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -52,9 +55,12 @@ onunload="cerrarVentanas()">
 <table width="760" border="0" cellspacing="0" cellpadding="10">
   <tr>
     <td>
-<p class="m150"><img src="formulas/20_01.gif" width="222" height="108" /></p>
+<p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}m&amp;=m_0\,e^{-\lambda t}\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\xrightarrow{\;(2)\;}\lambda=\frac{\ln 2}{T}\\[8pt]
+&amp;\frac{m}{m_0}=e^{-\frac{\ln 2}{T}\,t}
+\end{aligned}$$</p>
       <p class="m50">Sustituyendo valores:</p>
-      <p class="m150"><img src="formulas/20_02.gif" width="288" height="52" border="0" style="cursor:pointer"/></p>
+      <p class="m150">$$\frac{m}{m_0}=e^{-\left(-\frac{\ln 2}{3\ \mathrm{min}}\right)(9\ \mathrm{min})}=0{,}125\quad(12{,}5\,\%)$$</p>
       <p class="m50">Vamos a justificar el resultado:</p>
       <p class="m50">Cada 3 minutos que pasan, la cantidad de sustancia radiactiva 
         se reduce a la mitad, por tanto la cantidad de sustancia restante ser&aacute;: 

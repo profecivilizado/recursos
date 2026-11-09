@@ -27,6 +27,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="self.resizeTo(480,620)"
@@ -52,17 +55,17 @@ onUnload="cerrarVentanas()">
             <p><font color="#0000FF">Par&aacute;metros relacionados con &lambda;</font></p>
             <p>T: Per&iacute;odo de semidesintegraci&oacute;n<br />
               Tiempo que tarda en reducirse a la mitad cualquier cantidad de &aacute;tomos</p>
-            <p align="left" class="m100"> <img src="formulas/1_01.gif" width="73" height="20" class="enlace_imagen" onclick="abrirVentana('4.htm',1)"/></p>
+            <p align="left" class="m100"> $$\ln 2=\lambda\,T$$</p>
             <p align="left">&tau;: Vida media o per&iacute;odo<br />
               Promedio de los tiempos que viven los &aacute;tomos</p>
-            <p align="left" class="m100"><img src="formulas/1_02.gif" width="40" height="37" /><br />
+            <p align="left" class="m100">$$\tau=\frac{1}{\lambda}$$<br />
             </p>
             </td>
         </tr>
       </table>
       <p>La ecuaci&oacute;n de la desintengraci&oacute;n tambi&eacute;n se puede 
         expresar en funci&oacute;n de la masa</p>
-      <p class="m100"><img src="formulas/1_03.gif" width="93" height="24" /></p></td>
+      <p class="m100">$$m=m_0\,e^{-\lambda t}$$</p></td>
   </tr>
 </table>
 </body>

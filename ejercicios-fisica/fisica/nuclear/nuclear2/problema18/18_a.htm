@@ -43,20 +43,29 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/3.htm')"
 onunload="cerrarVentanas()">
 <table width="760" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td> <p class="m150"><img src="formulas/18_01.gif" width="213" height="92" align="middle" onclick="abrirVentana('../desarrollos/1.htm')" border="0" /> 
+    <td> <p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}A&amp;=\lambda\,N\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\xrightarrow{\;(1,2)\;}\frac{A}{\ln 2}=\frac{N}{T}\\[8pt]
+&amp;A=\frac{N}{T}\,\ln 2
+\end{aligned}$$ 
       </p>
       <p class="m50">Calculamos N (N&uacute;cleos de Co-60 que hay en 1 g de muestra) 
         tomando como masa at&oacute;mica el n&uacute;mero m&aacute;sico (Despreciamos 
         el defecto de masa)</p>
-      <p class="m150"><img src="formulas/18_02.gif" width="366" height="42" /></p>
+      <p class="m150">$$N=\frac{0{,}5\ \mathrm{g}}{60\ \mathrm{u}}=\frac{0{,}5\cdot6{,}023\cdot10^{23}\ \mathrm{u}}{60\ \mathrm{u}}=5{,}02\cdot10^{21}\ (\text{átomos})$$</p>
       <p class="m50">Sustituyendo en la expresi&oacute;n obtenida:</p>
-      <p class="m100"><img src="formulas/18_03.gif" width="317" height="86" /></p>
+      <p class="m100">$$\begin{aligned}
+&amp;A=\frac{N}{T}\ \ln 2\\[8pt]
+&amp;A=\frac{5{,}02\cdot10^{21}}{5{,}27\cdot365\cdot24\cdot3600\ \mathrm{s}}=4{,}19\cdot10^{13}\ \mathrm{\frac{1}{s}}\ (\mathrm{Bq})
+\end{aligned}$$</p>
       <p class="m50">Se producen 4,19&middot;10<sup>13</sup> desintegraciones 
         por segundo</p>
       </td>
