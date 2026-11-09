@@ -7,7 +7,7 @@ body{margin:0!important;padding:4px 2px 10px!important;font:17px/1.6 "Atkinson H
 body.pc-fs{padding:0!important;display:grid;gap:12px}
 iframe.pc-frame{display:block;width:100%;border:0;height:60px;background:transparent}
 iframe.pc-hide{display:none}
-p,td,li,span,div,b,strong,font{font-family:inherit!important}
+p,td,li,b,strong,font,span:not(.katex,.katex *),div:not(.katex,.katex *){font-family:inherit!important}
 p{margin:.35em 0}
 .m50,.m100,.m150{margin-left:0!important}
 p.m100{padding-left:12px}p.m150{padding-left:4px}

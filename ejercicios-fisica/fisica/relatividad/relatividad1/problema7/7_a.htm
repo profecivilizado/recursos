@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('a','../ayuda/1.htm');"
@@ -61,7 +64,11 @@ onunload="cerrarVentanas()">
         = 8.4 s<br />
         Este intervalo de tiempo es propio</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
-      <p class="m150"><img src="formulas/7_01.gif" width="244" height="140" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\Delta t_1=\frac{\Delta t_2}{\gamma}\\[6pt]
+&amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}8\,c}{c}\right)^{2}}=0{,}6\\[6pt]
+&amp;\Delta t=\frac{8{,}4\ \mathrm{s}}{0{,}6}=14\ \mathrm{s}
+\end{aligned}$$</p>
       <p class="m50">Para el observador en la estaci&oacute;n el per&iacute;odo 
         del p&eacute;ndulo es de 14 s (Dura m&aacute;s que en el tren)</p>
       </td>

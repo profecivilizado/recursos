@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm');">
@@ -60,15 +63,19 @@ onload="nuevoTitulo('','../ayuda/1.htm');">
         Este tiempo es propio</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
       <p class="m150"></p>
-      <p class="m150"><img src="formulas/8_01.gif" width="262" height="41" /></p>
+      <p class="m150">$$\Delta t_1=\frac{\Delta t_2}{\gamma}\;\rightarrow\;\gamma=\frac{\Delta t_2}{\Delta t_1}=\frac{10\ \mathrm{min}}{15\ \mathrm{min}}=\frac{2}{3}$$</p>
       <p class="m50">Conociendo &gamma; se puede calcular la velocidad de la nave. 
         Este c&aacute;lculo resultar&aacute; m&aacute;s f&aacute;cil si expresamos 
         la velocidad como un porcentaje de la velocidad de la luz: v =x&middot;c</p>
-      <p class="m150"><img src="formulas/8_02.gif" width="202" height="138" /> 
+      <p class="m150">$$\begin{aligned}
+&amp;\gamma=\sqrt{1-\left(\frac{x\,c}{c}\right)^{2}}=\sqrt{1-x^{2}}\\[6pt]
+&amp;\gamma^{2}=1-x^{2}\;\rightarrow\;x=\sqrt{1-\gamma^{2}}\\[6pt]
+&amp;x=\sqrt{1-\left(\frac{2}{3}\right)^{2}}=0{,}745
+\end{aligned}$$ 
       </p>
       <p class="m50">La velocidad de la nave espacial es un 74.5% de la velocidad 
         de la luz.</p>
-      <p class="m150"><img src="formulas/8_03.gif" width="285" height="37" /></p>
+      <p class="m150">$$v=x\,c=0{,}745\cdot3\cdot10^{8}\ \mathrm{\frac{m}{s}}=2{,}24\cdot10^{8}\ \mathrm{\frac{m}{s}}$$</p>
       </td>
   </tr>
 </table>

@@ -54,6 +54,9 @@ function MM_goToURL() { //v3.0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')">
@@ -76,14 +79,18 @@ onload="nuevoTitulo('','../ayuda/1.htm')">
         Ve la estrella a una distancia de 1 a&ntilde;o-luz y la nave movi&eacute;ndose 
         hacia ella con velocidad 0.6c<br />
         Midiendo la duraci&oacute;n del viaje obtendr&aacute;:</p>
-      <p class="m150"><img src="formulas/14_03.gif" width="58" height="34" /></p>
+      <p class="m150">$$\Delta t_1=\frac{L_1}{v}$$</p>
       <p class="m50">Este tiempo no es propio porque la nave no est&aacute; en 
         la misma posici&oacute;n al principio que al final</p>
       <p class="m50">Observador 2 (Nave)<br />
         Midiendo la duraci&oacute;n del viaje obtiene &Delta;t<sub>2</sub> (Propio, 
         para el observador 2 la nave no cambia de sitio)</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos:</p>
-      <p class="m150"><img src="formulas/14_04.gif" width="233" height="140" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\Delta t_1=\frac{\Delta t_2}{\gamma}\;\rightarrow\;\frac{L_1}{v}=\frac{\Delta t_2}{\gamma}\\[6pt]
+&amp;\Delta t_2=\gamma\,\frac{L_1}{v}\\[6pt]
+&amp;\Delta t_2=\sqrt{1-\left(\frac{0{,}6\,c}{c}\right)^{2}}\ \frac{1\ \mathrm{a}\cdot c}{0{,}6\,c}=1{,}33\ \mathrm{a}
+\end{aligned}$$</p>
       </td>
   </tr>
 </table>

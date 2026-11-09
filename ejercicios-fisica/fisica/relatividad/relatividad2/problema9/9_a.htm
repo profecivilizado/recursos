@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','')"
@@ -52,10 +55,16 @@ onunload="cerrarVentanas()">
     <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
       <p class="m50">Sobre el electr&oacute;n no act&uacute;a ninguna fuerza salvo 
         la del campo el&eacute;ctrico. Aplicando el principio de conservaci&oacute;n:</p>
-      <p class="m150"><img src="formulas/9_01.gif" width="333" height="68" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;0=\Delta E_C+\Delta E_P\\[6pt]
+&amp;0=(E_C-0)+q\,(V_B-V_A)\;\rightarrow\;(V_B-V_A)=-\frac{E_C}{q}
+\end{aligned}$$</p>
       <p class="m50">Y la energ&iacute;a cin&eacute;tica ser&iacute;a la correspondiente 
         a la velocidad de la luz: 1/2&middot;m&middot;c<sup>2</sup></p>
-      <p class="m150"><img src="formulas/9_02.gif" width="382" height="116" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;(V_B-V_A)=-\frac{m\,c^{2}/2}{q}\\[8pt]
+&amp;(V_B-V_A)=-\frac{9{,}11\cdot10^{-31}\ \mathrm{kg}\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}{2\left(-1{,}6\cdot10^{-19}\ \mathrm{C}\right)}=2{,}56\cdot10^{5}\ \mathrm{V}
+\end{aligned}$$</p>
       <p class="m50">Para adquirir la velocidad de la luz el electr&oacute;n tendr&iacute;a 
         que atravesar una d.d.p de 2.56&middot;10<sup>5</sup> V</p>
       <p class="m50">Pero este c&aacute;lculo es incorrecto porque no se ha tenido 

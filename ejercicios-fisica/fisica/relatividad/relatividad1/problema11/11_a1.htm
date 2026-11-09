@@ -54,6 +54,9 @@ function MM_goToURL() { //v3.0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')">
@@ -84,11 +87,15 @@ onload="nuevoTitulo('','../ayuda/1.htm')">
         = 2&middot;10<sup>-8</sup> s<br />
         Este tiempo es propio</p>
       <p class="m50">Aplicando la conversi&oacute;n de tiempos resulta:</p>
-      <p class="m150"><img src="formulas/11_01.gif" width="261" height="144" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;\Delta t_1=\frac{\Delta t_2}{\gamma}\\[6pt]
+&amp;\beta=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}9\,c}{c}\right)^{2}}=0{,}436\\[6pt]
+&amp;\Delta t_1=\frac{2{,}6\cdot10^{-8}\ \mathrm{s}}{0{,}436}=5{,}96\cdot10^{-8}\ \mathrm{s}
+\end{aligned}$$</p>
       <p class="m50"> Para el observador 1 (Laboratorio), el pi&oacute;n vive 
         5.96&middot;10<sup>-8</sup> s y durante este tiempo se mueve con velocidad 
         0.9c. La distancia recorrida ser&aacute;:</p>
-      <p class="m150"><img src="formulas/11_02.gif" width="317" height="37" /></p>
+      <p class="m150">$$d_1=v\,\Delta t_1=0{,}9\cdot3\cdot10^{8}\ \mathrm{\frac{m}{s}}\ 5{,}96\cdot10^{-8}\ \mathrm{s}=16{,}1\ \mathrm{m}$$</p>
       <p class="m50">El pi&oacute;n, visto desde el laboratorio recorre 16.1 m</p>
       </td>
   </tr>
