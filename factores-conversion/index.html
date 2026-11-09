@@ -46,7 +46,7 @@ body{margin:0}
 }
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--f-body)}
-.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 40px}
+.wrap{max-width:1080px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left))}
 header .eyebrow{font:600 13px var(--f-mono);color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
 header h1{font:800 clamp(28px,5vw,40px)/1.1 var(--f-display);margin:4px 0 8px}
 header p{color:var(--muted);margin:0 0 18px;max-width:70ch}
