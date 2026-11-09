@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Notación científica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8; --soft:#eef2f8;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --accent:#1f55d6; --cancel:#d0312d; --final:#1f55d6;
+  --ok:#e7f6ee; --ok-ink:#0b6b48; --warn:#fdeee7; --warn-ink:#a3360f; --tile:#fff8e6; --tile-line:#e9cf86;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --soft:#1b2433;
+    --btn:#1d2738; --btn-hover:#253148; --accent:#6e9dff; --cancel:#ff6b66; --final:#6e9dff;
+    --ok:#12301f; --ok-ink:#7be0b0; --warn:#3a1d12; --warn-ink:#ffab88; --tile:#2a2414; --tile-line:#6b5a2a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --soft:#1b2433;
+  --btn:#1d2738; --btn-hover:#253148; --accent:#6e9dff; --cancel:#ff6b66; --final:#6e9dff;
+  --ok:#12301f; --ok-ink:#7be0b0; --warn:#3a1d12; --warn-ink:#ffab88; --tile:#2a2414; --tile-line:#6b5a2a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--f-body)}
+.wrap{max-width:1080px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left))}
+header .eyebrow{font:600 13px var(--f-mono);color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+header h1{font:800 clamp(28px,5vw,40px)/1.1 var(--f-display);margin:4px 0 8px}
+header p{color:var(--muted);margin:0 0 18px;max-width:70ch}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.seg{display:inline-flex;background:var(--btn);border-radius:12px;padding:3px;gap:2px}
+.seg button{border:0;background:none;color:var(--ink);font:600 15px var(--f-body);padding:7px 12px;border-radius:9px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--panel);box-shadow:0 1px 3px rgba(0,0,0,.15);color:var(--accent)}
+.sp{flex:1}
+button.b{border:1px solid var(--line);background:var(--btn);color:var(--ink);font:600 15px var(--f-body);padding:8px 14px;border-radius:10px;cursor:pointer}
+button.b:hover{background:var(--btn-hover)}
+button.b.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:20px}
+@media (max-width:520px){.card{padding:18px 16px}}
+.enun{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;justify-content:space-between}
+.enun h2{font:700 22px var(--f-display);margin:0}
+.enun .q{font:700 22px var(--f-mono)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);font:14px var(--f-mono)}
+.nav button{min-width:34px;height:34px;padding:0 10px}
+.score{font:600 14px var(--f-mono);color:var(--muted)}
+.lbl{font:700 13px var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:26px 0 10px}
+/* cadena */
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-height:104px;padding:16px;border:2px dashed var(--line);border-radius:14px;background:var(--soft)}
+.op{font:600 22px var(--f-mono);color:var(--muted)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-family:var(--f-mono);font-size:19px;line-height:1.25}
+.frac>span{padding:2px 6px;white-space:nowrap}
+.frac>span:first-child{border-bottom:2px solid currentColor}
+.fcard{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 10px 8px 10px;display:flex;align-items:center;gap:6px}
+.fcard .tools{display:flex;flex-direction:column;gap:4px}
+.fcard .tools button{border:1px solid var(--line);background:var(--btn);color:var(--ink);border-radius:8px;width:30px;height:28px;cursor:pointer;font-size:15px;padding:0}
+.fcard .tools button:hover{background:var(--btn-hover)}
+.u{white-space:nowrap}
+.u.x{color:var(--cancel);text-decoration:line-through;text-decoration-thickness:2px}
+.u.f{color:var(--final);font-weight:700}
+.start{font-weight:700}
+.empty{color:var(--muted);font-size:15px}
+.state{margin-top:16px;padding:12px 14px;border-radius:10px;font-size:16px}
+.state.ok{background:var(--ok);color:var(--ok-ink)}
+.state.warn{background:var(--warn);color:var(--warn-ink)}
+/* fichas */
+.tiles{display:flex;flex-wrap:wrap;gap:10px}
+.tile{border:1.5px solid var(--tile-line);background:var(--tile);color:var(--ink);border-radius:12px;padding:8px 12px;font:600 17px var(--f-mono);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.tile:hover{filter:brightness(.97)}
+.tile.locked{cursor:default}
+.tile input{width:7.5em;font:600 16px var(--f-mono);padding:3px 6px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink)}
+.tile input.good{border-color:var(--ok-ink);background:var(--ok)}
+.tile input.bad{border-color:var(--warn-ink);background:var(--warn)}
+.hint{color:var(--muted);font-size:15px;margin:12px 0 0}
+/* resultado */
+.res{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.res input.u1{width:6.5em}
+#exBox.sep{margin-top:26px;padding-top:4px;border-top:1px solid var(--line)}
+.res input{font:600 18px var(--f-mono);width:12em;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink)}
+.dev{margin-top:18px;overflow-x:auto;padding:12px;border-radius:12px;background:var(--soft);display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--f-mono);font-size:18px}
+.dev .big{font-size:18px}
+.dev b.final{color:var(--final)}
+/* ayudas */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.ladder{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-end;margin:6px 0}
+.step{display:flex;flex-direction:column;align-items:center;min-width:46px}
+.step b{font:700 16px var(--f-mono);padding:6px 4px;border-radius:8px;background:var(--btn);width:100%;text-align:center}
+.step b.from{background:var(--accent);color:#fff}
+.step b.to{background:var(--ok-ink);color:#fff}
+.step small{color:var(--muted);font:12px var(--f-mono);height:16px}
+details.cheat summary{cursor:pointer;font:700 17px var(--f-display);color:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0}
+th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left}
+th{font:700 13px var(--f-mono);text-transform:uppercase;color:var(--muted)}
+td.m{font-family:var(--f-mono);font-weight:600}
+</style>
+<style>
+/* propio de notación científica */
+.num{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:0;padding:22px 10px 14px;border:2px dashed var(--line);border-radius:14px;background:var(--soft);min-height:110px;font-family:var(--f-mono)}
+.dg{font:700 clamp(22px,4.6vw,34px) var(--f-mono);min-width:.95em;text-align:center;padding:4px 1px;border-radius:7px}
+.dg.z{color:var(--muted);opacity:.55}
+.dg.g{margin-left:.32em}
+.comma{font:800 clamp(26px,5vw,38px) var(--f-mono);color:var(--cancel);padding:0 1px;align-self:flex-end;line-height:1}
+.pow{font:700 clamp(22px,4.6vw,34px) var(--f-mono);margin-left:.35em;white-space:nowrap}
+.pow sup{font-size:.6em;color:var(--final)}
+.moves{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin-top:16px}
+.moves button.b{font-size:17px;padding:10px 16px}
+.count{font:600 15px var(--f-mono);color:var(--muted);text-align:center;margin-top:12px}
+.sci-in{display:inline-flex;align-items:baseline;gap:6px;font:700 20px var(--f-mono)}
+.sci-in input{font:600 18px var(--f-mono);padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink)}
+.sci-in input.m{width:8em}.sci-in input.e{width:4.2em;transform:translateY(-.55em);font-size:15px;padding:5px 7px}
+.ctx{color:var(--muted);font-size:16px;margin:6px 0 0}
+.rule{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:8px 0}
+.rule b{font-family:var(--f-mono)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow" data-t="eyebrow"></div>
+    <h1 data-t="title"></h1>
+    <p data-t="intro"></p>
+  </header>
+
+  <div class="bar">
+    <div class="seg" id="sections"></div>
+    <div class="seg" id="levels"></div>
+    <div class="seg" id="modes"></div>
+    <span class="sp"></span>
+    <div class="seg" id="lang"><button data-l="es">ES</button><button data-l="en">EN</button></div>
+  </div>
+
+  <div class="card">
+    <div id="own" hidden>
+      <div class="lbl" style="margin-top:0" data-t="ownLbl"></div>
+      <form class="res" id="ownForm" style="margin-top:0">
+        <input id="ownN" inputmode="decimal" autocomplete="off" style="width:16em">
+        <button class="b pri" data-t="ownGo"></button>
+      </form>
+      <p class="hint" data-t="ownHelp"></p>
+      <div id="ownMsg"></div>
+    </div>
+    <div id="exBox">
+      <div class="enun">
+        <div><span class="q" id="q"></span><p class="ctx" id="ctx"></p></div>
+        <div class="nav"><button class="b" id="prev" aria-label="Anterior">‹</button><span id="numLbl"></span><button class="b" id="next" aria-label="Siguiente">›</button><button class="b" id="rnd" data-t="random"></button></div>
+      </div>
+      <div id="work"></div>
+      <div id="fb"></div>
+      <div id="dev"></div>
+    </div>
+    <div class="score" id="score" style="margin-top:14px"></div>
+  </div>
+
+  <div class="card">
+    <details class="cheat" id="cheat">
+      <summary data-t="cheatLbl"></summary>
+      <div id="cheatBody"></div>
+    </details>
+  </div>
+</div>
+
+<script>
+/* ---------- textos ---------- */
+const T = {
+  es: {
+    eyebrow:'Física y Química · Matemáticas', title:'Notación científica',
+    intro:'Las cantidades muy grandes o muy pequeñas se escriben con una potencia de 10. Mueve la coma hasta que quede una sola cifra distinta de cero delante de ella, y cuenta los saltos: ese es el exponente.',
+    sections:['Ejemplos','Plántealo tú'], levels:['Decimal → científica','Científica → decimal'], modes:['Mueve la coma','Escríbelo tú'],
+    random:'Aleatorio', toSci:'Escríbelo en notación científica', toDec:'Escríbelo como número decimal',
+    left:'← Coma a la izquierda', right:'Coma a la derecha →', reset:'Empezar de nuevo',
+    jumps:(n,d)=> n === 0 ? 'La coma está en su sitio de partida.' : `La coma se ha movido ${n} ${n === 1 ? 'lugar' : 'lugares'} hacia la ${d === 'L' ? 'izquierda' : 'derecha'}.`,
+    goalSci:'Objetivo: una sola cifra distinta de cero delante de la coma.', goalDec:'Objetivo: que el exponente llegue a 0.',
+    doneSci:'¡Ya está en notación científica!', doneDec:'¡Ya está como número decimal! (10⁰ = 1)',
+    write:'Escribe el resultado', check:'Comprobar', show:'Ver solución',
+    good:'¡Correcto!',
+    badMant:'La parte de delante (la mantisa) debe tener una sola cifra distinta de cero antes de la coma: entre 1 y 9,99…',
+    badDigits:'Revisa las cifras: tienen que ser las mismas que en el número de partida.',
+    badSign:'Casi: revisa el signo del exponente. Números grandes → exponente positivo; números pequeños (menores que 1) → negativo.',
+    badExp:'Revisa el exponente: cuenta cuántos lugares se mueve la coma.',
+    badDec:'No es correcto. Cuenta los lugares que se mueve la coma y rellena con ceros.',
+    devSci:(n,d,P)=>`La coma se mueve ${Math.abs(P)} ${Math.abs(P) === 1 ? 'lugar' : 'lugares'} hacia la ${d === 'L' ? 'izquierda' : 'derecha'} → el exponente es ${P}.`,
+    devZero:'La coma ya está en su sitio → el exponente es 0.',
+    devDec:(P)=> P > 0 ? `Exponente ${P} positivo → la coma se mueve ${P} lugares a la derecha (el número se hace grande).` : P < 0 ? `Exponente ${P} negativo → la coma se mueve ${-P} lugares a la izquierda (el número se hace pequeño).` : 'Exponente 0 → la coma no se mueve.',
+    score:(a,b)=>`Aciertos: ${a} de ${b}`,
+    ownLbl:'Escribe un número', ownGo:'Empezar',
+    ownHelp:'Escribe un número decimal (0,0000267 o 5 972 000) para pasarlo a notación científica, o uno en notación científica (2,67·10^-5, 2,67e-5 o 2,67x10^-5) para pasarlo a decimal.',
+    ownErr:'No entiendo ese número. Ejemplos: 0,000015 · 384400000 · 6,4·10^6 · 1,6e-19', ownWait:'Escribe arriba el número con el que quieres trabajar.',
+    ownZero:'El 0 no se puede escribir en notación científica: prueba con otro número.', ownBig:'Ese número es demasiado largo para el applet (máximo 40 cifras).',
+    cheatLbl:'Chuleta: notación científica',
+    cheat:`<div class="rule"><b>a · 10<sup>n</sup></b><span>a (la mantisa) tiene una sola cifra distinta de cero delante de la coma: 1 ≤ a &lt; 10. n es un número entero.</span>
+<b>n &gt; 0</b><span>Número grande: la coma se ha movido n lugares a la izquierda. 150 000 000 000 = 1,5 · 10<sup>11</sup></span>
+<b>n &lt; 0</b><span>Número pequeño (menor que 1): la coma se ha movido |n| lugares a la derecha. 0,000 015 = 1,5 · 10<sup>−5</sup></span>
+<b>n = 0</b><span>Números entre 1 y 10: 3,4 = 3,4 · 10<sup>0</sup></span></div>
+<table><tr><th>Potencia</th><th>Valor</th><th>Prefijo</th></tr>
+<tr><td class="m">10<sup>9</sup></td><td>1 000 000 000</td><td>giga (G)</td></tr><tr><td class="m">10<sup>6</sup></td><td>1 000 000</td><td>mega (M)</td></tr>
+<tr><td class="m">10<sup>3</sup></td><td>1000</td><td>kilo (k)</td></tr><tr><td class="m">10<sup>0</sup></td><td>1</td><td>—</td></tr>
+<tr><td class="m">10<sup>−3</sup></td><td>0,001</td><td>mili (m)</td></tr><tr><td class="m">10<sup>−6</sup></td><td>0,000 001</td><td>micro (µ)</td></tr>
+<tr><td class="m">10<sup>−9</sup></td><td>0,000 000 001</td><td>nano (n)</td></tr></table>`
+  },
+  en: {
+    eyebrow:'Physics and Chemistry · Maths', title:'Scientific notation',
+    intro:'Very large or very small quantities are written with a power of ten. Move the decimal comma until there is only one non-zero digit in front of it, and count the jumps: that is the exponent.',
+    sections:['Examples','Set your own'], levels:['Decimal → scientific','Scientific → decimal'], modes:['Move the comma','Write it yourself'],
+    random:'Random', toSci:'Write it in scientific notation', toDec:'Write it as a decimal number',
+    left:'← Comma to the left', right:'Comma to the right →', reset:'Start again',
+    jumps:(n,d)=> n === 0 ? 'The comma is where it started.' : `The comma has moved ${n} ${n === 1 ? 'place' : 'places'} to the ${d === 'L' ? 'left' : 'right'}.`,
+    goalSci:'Goal: only one non-zero digit in front of the comma.', goalDec:'Goal: get the exponent down to 0.',
+    doneSci:'It is in scientific notation now!', doneDec:'It is a decimal number now! (10⁰ = 1)',
+    write:'Write the result', check:'Check', show:'Show solution',
+    good:'Correct!',
+    badMant:'The first part (the mantissa) must have only one non-zero digit in front of the comma: between 1 and 9.99…',
+    badDigits:'Check the digits: they must be the same as in the starting number.',
+    badSign:'Nearly: check the sign of the exponent. Large numbers → positive exponent; small numbers (less than 1) → negative.',
+    badExp:'Check the exponent: count how many places the comma moves.',
+    badDec:'Not correct. Count how many places the comma moves and fill in with zeros.',
+    devSci:(n,d,P)=>`The comma moves ${Math.abs(P)} ${Math.abs(P) === 1 ? 'place' : 'places'} to the ${d === 'L' ? 'left' : 'right'} → the exponent is ${P}.`,
+    devZero:'The comma is already in place → the exponent is 0.',
+    devDec:(P)=> P > 0 ? `Positive exponent ${P} → the comma moves ${P} places to the right (the number gets bigger).` : P < 0 ? `Negative exponent ${P} → the comma moves ${-P} places to the left (the number gets smaller).` : 'Exponent 0 → the comma does not move.',
+    score:(a,b)=>`Correct: ${a} of ${b}`,
+    ownLbl:'Write a number', ownGo:'Start',
+    ownHelp:'Write a decimal number (0,0000267 or 5 972 000) to convert it into scientific notation, or a number in scientific notation (2,67·10^-5, 2,67e-5 or 2,67x10^-5) to convert it into a decimal number.',
+    ownErr:'I cannot read that number. Examples: 0,000015 · 384400000 · 6,4·10^6 · 1,6e-19', ownWait:'Write above the number you want to work with.',
+    ownZero:'0 cannot be written in scientific notation: try another number.', ownBig:'That number is too long for this applet (40 digits at most).',
+    cheatLbl:'Cheat sheet: scientific notation',
+    cheat:`<div class="rule"><b>a · 10<sup>n</sup></b><span>a (the mantissa) has only one non-zero digit in front of the comma: 1 ≤ a &lt; 10. n is a whole number.</span>
+<b>n &gt; 0</b><span>Large number: the comma has moved n places to the left. 150 000 000 000 = 1,5 · 10<sup>11</sup></span>
+<b>n &lt; 0</b><span>Small number (less than 1): the comma has moved |n| places to the right. 0,000 015 = 1,5 · 10<sup>−5</sup></span>
+<b>n = 0</b><span>Numbers between 1 and 10: 3,4 = 3,4 · 10<sup>0</sup></span></div>
+<table><tr><th>Power</th><th>Value</th><th>Prefix</th></tr>
+<tr><td class="m">10<sup>9</sup></td><td>1 000 000 000</td><td>giga (G)</td></tr><tr><td class="m">10<sup>6</sup></td><td>1 000 000</td><td>mega (M)</td></tr>
+<tr><td class="m">10<sup>3</sup></td><td>1000</td><td>kilo (k)</td></tr><tr><td class="m">10<sup>0</sup></td><td>1</td><td>—</td></tr>
+<tr><td class="m">10<sup>−3</sup></td><td>0,001</td><td>milli (m)</td></tr><tr><td class="m">10<sup>−6</sup></td><td>0,000 001</td><td>micro (µ)</td></tr>
+<tr><td class="m">10<sup>−9</sup></td><td>0,000 000 001</td><td>nano (n)</td></tr></table>`
+  }
+};
+let lang = 'es';
+try { if (localStorage.getItem('fc-lang') === 'en') lang = 'en'; } catch (e) {}
+const t = k => T[lang][k];
+const $ = id => document.getElementById(id);
+
+/* ---------- números como cifras (sin perder precisión) ----------
+   Un número = {S, P, u}: S = cifras significativas sin ceros a la izquierda ni a la derecha,
+   valor = S[0],S[1..] · 10^P;  u = unidad (texto). */
+function parse(str){
+  let s = String(str).trim().replace(/\s| /g,'').replace(/−/g,'-');
+  if (!s) return null;
+  let P = 0; const m = s.match(/^(.*?)(?:[·x×*]10\^?|e|E)([+-]?\d+)$/);
+  if (m) { s = m[1]; P = +m[2]; }
+  if (!/^\d*[,.]?\d*$/.test(s) || !/\d/.test(s)) return null;
+  s = s.replace('.', ',');
+  let [ip, fp = ''] = s.split(','); ip = ip || '0';
+  let all = ip + fp, k = ip.length;                       // coma tras k cifras
+  const lead = all.match(/^0*/)[0].length; if (lead === all.length) return {zero:true};
+  all = all.slice(lead); k -= lead;
+  all = all.replace(/0+$/, '');
+  return {S: all, P: P + k - 1};
+}
+const grp = (s, fromLeft) => fromLeft ? s.replace(/(\d{3})(?=\d)/g, '$1 ') : s.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+function decStr(S, P){ // número decimal escrito
+  const k = P + 1;
+  if (k <= 0) return '0,' + grp('0'.repeat(-k) + S, true);
+  if (k >= S.length) return grp(S + '0'.repeat(k - S.length), false);
+  return grp(S.slice(0, k), false) + ',' + grp(S.slice(k), true);
+}
+const mant = S => S.length > 1 ? S[0] + ',' + S.slice(1) : S;
+const sciStr = (S, P) => `${mant(S)} · 10<sup>${P}</sup>`;
+const sciPlain = (S, P) => `${mant(S)}·10^${P}`;
+
+/* ---------- ejemplos ---------- */
+const BANK = [
+  // [nivel, número, unidad, contexto es, contexto en]
+  [0,'150000000000','m','Distancia de la Tierra al Sol','Distance from the Earth to the Sun'],
+  [0,'0,000000000000897','kg','Masa de un glóbulo rojo','Mass of a red blood cell'],
+  [0,'5972000000000000000000000','kg','Masa de la Tierra','Mass of the Earth'],
+  [0,'299792458','m/s','Velocidad de la luz','Speed of light'],
+  [0,'0,0000015','m','Tamaño de una bacteria','Size of a bacterium'],
+  [0,'0,0000267','kg','Masa de un grano de arena','Mass of a grain of sand'],
+  [0,'384400000','m','Distancia de la Tierra a la Luna','Distance from the Earth to the Moon'],
+  [0,'6371000','m','Radio de la Tierra','Radius of the Earth'],
+  [0,'0,0000000001','m','Tamaño de un átomo','Size of an atom'],
+  [0,'8000000000','','Personas en la Tierra','People on Earth'],
+  [0,'0,00000000000000000016','C','Carga del electrón','Charge of an electron'],
+  [0,'602200000000000000000000','','Número de Avogadro','Avogadro constant'],
+  [0,'340','m/s','Velocidad del sonido en el aire','Speed of sound in air'],
+  [0,'0,0035','s','Duración de un parpadeo rápido','Duration of a quick blink'],
+  [0,'1989000000000000000000000000000','kg','Masa del Sol','Mass of the Sun'],
+  [0,'3,7','','Un número entre 1 y 10','A number between 1 and 10'],
+  [1,'1,5e11','m','Distancia de la Tierra al Sol','Distance from the Earth to the Sun'],
+  [1,'8,97e-13','kg','Masa de un glóbulo rojo','Mass of a red blood cell'],
+  [1,'3e8','m/s','Velocidad de la luz (redondeada)','Speed of light (rounded)'],
+  [1,'6,4e6','m','Radio de la Tierra (redondeado)','Radius of the Earth (rounded)'],
+  [1,'1,6e-19','C','Carga del electrón','Charge of an electron'],
+  [1,'2,5e-3','s','Tiempo de reacción de un ordenador','Reaction time of a computer'],
+  [1,'7e4','','Espectadores en un estadio','Spectators in a stadium'],
+  [1,'4,56e-5','m','Grosor de un pelo','Thickness of a hair'],
+  [1,'9,11e-31','kg','Masa del electrón','Mass of an electron'],
+  [1,'1,2e3','kg','Masa de un coche','Mass of a car'],
+  [1,'3,84e8','m','Distancia de la Tierra a la Luna','Distance from the Earth to the Moon'],
+  [1,'5e-7','m','Longitud de onda de la luz verde','Wavelength of green light'],
+];
+
+/* ---------- estado ---------- */
+let level = 0, lastLvl = 0, modeBy = [0, 0], mode = 0, idx = {0:0, 1:0}, own = null;
+let ex, k, done, solved, stats = {ok:0, tot:0};
+// k = cifras delante de la coma en lo que se ve; se ve: S con la coma tras k cifras, por 10^(P-k+1)
+
+function load(){
+  mode = modeBy[level === 2 ? 1 : 0];
+  if (level === 2) { ex = own; }
+  else { const list = BANK.filter(b => b[0] === level), b = list[idx[level] % list.length]; const n = parse(b[1]);
+         ex = {S:n.S, P:n.P, u:b[2], ctx:{es:b[3], en:b[4]}, dir: level === 0 ? 'sci' : 'dec'}; }
+  if (ex) k = ex.dir === 'sci' ? ex.P + 1 : 1;
+  solved = false; $('fb').innerHTML = ''; $('dev').innerHTML = ''; render();
+}
+const nPow = () => ex.P - k + 1;
+const isGoal = () => ex.dir === 'sci' ? k === 1 : nPow() === 0;
+
+function digitsHTML(){
+  const S = ex.S; let ds = S, kk = k;
+  if (kk <= 0) { ds = '0'.repeat(1 - kk) + S; kk = 1; }        // 0,000S
+  if (kk > ds.length) ds = ds + '0'.repeat(kk - ds.length);     // S000
+  let h = '';
+  for (let i = 0; i < ds.length; i++) {
+    const before = i < kk, dist = before ? kk - i : i - kk;    // distancia a la coma
+    const sig = (k <= 0 ? i >= ds.length - S.length : i < S.length);
+    const g = i > 0 && (before ? dist % 3 === 0 : dist % 3 === 0 && dist > 0);
+    h += `<span class="dg ${sig ? '' : 'z'} ${g ? 'g' : ''}">${ds[i]}</span>`;
+    if (i === kk - 1 && kk < ds.length) h += '<span class="comma">,</span>';
+  }
+  const n = nPow();
+  return h + `<span class="pow">· 10<sup>${n}</sup></span>`;
+}
+
+function render(){
+  document.querySelectorAll('[data-t]').forEach(el => el.innerHTML = t(el.dataset.t));
+  document.documentElement.lang = lang;
+  $('sections').innerHTML = t('sections').map((s,i) => `<button aria-pressed="${(level===2)===(i===1)}" data-i="${i}">${s}</button>`).join('');
+  $('levels').innerHTML = t('levels').map((s,i) => `<button aria-pressed="${i===level}" data-i="${i}">${s}</button>`).join('');
+  $('modes').innerHTML = t('modes').map((s,i) => `<button aria-pressed="${i===mode}" data-i="${i}">${s}</button>`).join('');
+  document.querySelectorAll('#lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === lang));
+  $('levels').hidden = level === 2; $('own').hidden = level !== 2; $('exBox').hidden = level === 2 && !ex;
+  $('exBox').classList.toggle('sep', level === 2); document.querySelector('.nav').style.display = level === 2 ? 'none' : '';
+  $('ownN').placeholder = '0,0000267  ·  6,4·10^6';
+  $('score').textContent = stats.tot ? t('score')(stats.ok, stats.tot) : '';
+  $('cheatBody').innerHTML = t('cheat');
+  if (level === 2 && !ex) { if (!$('ownMsg').innerHTML) $('ownMsg').innerHTML = `<p class="hint">${t('ownWait')}</p>`; return; }
+  if (level !== 2) { const n = BANK.filter(b => b[0] === level).length; $('numLbl').textContent = `${idx[level] % n + 1} / ${n}`; }
+  const u = ex.u ? ' ' + ex.u : '';
+  $('q').innerHTML = (ex.dir === 'sci' ? decStr(ex.S, ex.P) : sciStr(ex.S, ex.P)) + u;
+  $('ctx').textContent = ex.ctx ? ex.ctx[lang] + ' · ' + (ex.dir === 'sci' ? t('toSci') : t('toDec')) : (ex.dir === 'sci' ? t('toSci') : t('toDec'));
+  const typedM = $('am') ? $('am').value : '', typedE = $('ae') ? $('ae').value : '', typedD = $('ad') ? $('ad').value : '';
+  let h = '';
+  if (mode === 0) {
+    const moved = ex.dir === 'sci' ? (ex.P + 1) - k : 1 - k;     // >0: a la izquierda
+    h += `<div class="lbl">${ex.dir === 'sci' ? t('goalSci') : t('goalDec')}</div><div class="num" id="numBox">${digitsHTML()}</div>
+      <div class="moves"><button class="b" id="mvL">${t('left')}</button><button class="b" id="mvR">${t('right')}</button><button class="b" id="rst">${t('reset')}</button></div>
+      <div class="count">${t('jumps')(Math.abs(moved), moved > 0 ? 'L' : 'R')}</div>`;
+    if (isGoal()) h += `<div class="state ok">${ex.dir === 'sci' ? t('doneSci') : t('doneDec')}</div>`;
+  }
+  if (mode === 1 || isGoal()) {
+    h += `<div class="lbl">${t('write')}</div><form class="res" id="ansForm" style="margin-top:0">` +
+      (ex.dir === 'sci'
+        ? `<span class="sci-in"><input class="m" id="am" inputmode="decimal" autocomplete="off"> · 10<input class="e" id="ae" inputmode="numeric" autocomplete="off"></span>${u}`
+        : `<span class="sci-in"><input id="ad" inputmode="decimal" autocomplete="off" style="width:16em"></span>${u}`) +
+      `<button class="b pri">${t('check')}</button><button class="b" type="button" id="sol">${t('show')}</button></form>`;
+  }
+  $('work').innerHTML = h;
+  if ($('am')) { $('am').value = typedM; $('ae').value = typedE; } if ($('ad')) $('ad').value = typedD;
+  if (solved) showDev();
+}
+
+function showDev(){
+  const u = ex.u ? ' ' + ex.u : '', P = ex.P;
+  const txt = ex.dir === 'sci' ? (P === 0 ? t('devZero') : t('devSci')(0, P > 0 ? 'L' : 'R', P)) : t('devDec')(P);
+  $('dev').innerHTML = `<div class="dev"><span>${decStr(ex.S, P)}${u}</span><span>=</span><b class="final">${sciStr(ex.S, P)}${u}</b></div><p class="hint">${txt}</p>`;
+}
+
+function check(){
+  let good = false, msg = '';
+  if (ex.dir === 'sci') {
+    const m = parse($('am').value), e = $('ae').value.trim().replace('−','-');
+    if (!m || m.zero || !/^[+-]?\d+$/.test(e)) return;
+    const mantOk = m.P === 0 && /^\s*[1-9]/.test($('am').value.trim());
+    const P = +e;
+    if (!mantOk) msg = t('badMant');
+    else if (m.S !== ex.S) msg = t('badDigits');
+    else if (P === ex.P) good = true;
+    else if (P === -ex.P) msg = t('badSign');
+    else msg = t('badExp');
+  } else {
+    const d = parse($('ad').value); if (!d || d.zero) return;
+    if (/[·xe×*]/i.test($('ad').value)) msg = t('badDec');
+    else if (d.S === ex.S && d.P === ex.P) good = true;
+    else if (d.S !== ex.S) msg = t('badDigits'); else msg = t('badDec');
+  }
+  stats.tot++; if (good) stats.ok++;
+  $('fb').innerHTML = `<div class="state ${good ? 'ok' : 'warn'}">${good ? t('good') : msg}</div>`;
+  $('score').textContent = t('score')(stats.ok, stats.tot);
+  if (good) { solved = true; showDev(); }
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.closest('#sections')) { const i = +b.dataset.i; if (i === 1 && level !== 2) { lastLvl = level; level = 2; } else if (i === 0 && level === 2) level = lastLvl; load(); return; }
+  if (b.closest('#levels')) { level = +b.dataset.i; load(); return; }
+  if (b.closest('#modes')) { modeBy[level === 2 ? 1 : 0] = +b.dataset.i; load(); return; }
+  if (b.closest('#lang')) { lang = b.dataset.l; try { localStorage.setItem('fc-lang', lang); } catch (_) {} render(); return; }
+  const n = BANK.filter(x => x[0] === level).length;
+  if (b.id === 'prev') { idx[level] = idx[level] + n - 1; load(); return; }
+  if (b.id === 'next') { idx[level]++; load(); return; }
+  if (b.id === 'rnd') { let r; do r = Math.floor(Math.random() * n); while (n > 1 && r === idx[level] % n); idx[level] = r; load(); return; }
+  if (b.id === 'mvL') { if (k > -40) { k--; render(); } return; }
+  if (b.id === 'mvR') { if (k < 45) { k++; render(); } return; }
+  if (b.id === 'rst') { k = ex.dir === 'sci' ? ex.P + 1 : 1; render(); return; }
+  if (b.id === 'sol') { solved = true; showDev(); return; }
+});
+document.addEventListener('submit', e => {
+  e.preventDefault();
+  if (e.target.id === 'ansForm') { check(); return; }
+  if (e.target.id === 'ownForm') {
+    const raw = $('ownN').value, n = parse(raw);
+    const err = m => { $('ownMsg').innerHTML = `<div class="state warn">${m}</div>`; };
+    if (!n) return err(t('ownErr')); if (n.zero) return err(t('ownZero'));
+    if (n.S.length > 40 || Math.abs(n.P) > 40) return err(t('ownBig'));
+    $('ownMsg').innerHTML = '';
+    own = {S:n.S, P:n.P, u:'', dir: /[·xe×*]|10\^/i.test(raw) ? 'dec' : 'sci'}; load();
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.target.matches('input')) return;
+  if (e.key === 'ArrowLeft' && $('mvL')) { e.preventDefault(); $('mvL').click(); }
+  if (e.key === 'ArrowRight' && $('mvR')) { e.preventDefault(); $('mvR').click(); }
+});
+load();
+</script>
+</body>
+</html>
