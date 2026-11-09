@@ -378,9 +378,9 @@ function drawWave() {
   for (let x = 0; x <= XW + 1e-9; x += 0.5) ctx.fillText(fmt(x, x % 1 ? 1 : 0), X(x), last.bottom + 6);
   ctx.textAlign = 'right'; ctx.fillText('x / m', R, last.bottom + 18 > H - 12 ? last.bottom + 6 : last.bottom + 18);
 
-  const curve = (fn, Y, color, w, dash) => {
+  const curve = (fn, Y, color, w, dash, off = 0) => {
     ctx.save(); ctx.beginPath(); XSW.forEach((x, i) => i ? ctx.lineTo(X(x), Y(fn(x))) : ctx.moveTo(X(x), Y(fn(x))));
-    ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineJoin = 'round'; ctx.setLineDash(dash || []); ctx.stroke(); ctx.restore();
+    ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineJoin = 'round'; ctx.setLineDash(dash || []); ctx.lineDashOffset = off; ctx.stroke(); ctx.restore();
   };
   const arrow = (x0, y, dir, color) => {
     const x = X(x0), len = 34; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
@@ -409,14 +409,14 @@ function drawWave() {
   }
   if (wv.view === 'over') {
     const Y = LS[0].Y;
-    if (wv.ind) { if (wv.A1) curve(wy1, Y, col.p1, 2, [7, 5]); if (wv.A2) curve(wy2, Y, col.p2, 2, [7, 5]); }
+    if (wv.ind) { if (wv.A1) curve(wy1, Y, col.p1, 2.5, [10, 10]); if (wv.A2) curve(wy2, Y, col.p2, 2.5, [10, 10], 10); }
     if (wv.res) curve(wyr, Y, col.res, 3.5);
     if (wv.A1) arrow(0.55, LS[0].top - 18, 1, col.p1); if (wv.A2) arrow(1.45, LS[0].top - 18, -1, col.p2);
   } else {
     const [a, b, c] = LS;
     if (wv.A1) curve(wy1, a.Y, col.p1, 3); if (wv.A2) curve(wy2, b.Y, col.p2, 3);
     if (wv.res) curve(wyr, c.Y, col.res, 3.5);
-    if (wv.ind && wv.res) { if (wv.A1) curve(wy1, c.Y, col.p1, 1.3, [6, 5]); if (wv.A2) curve(wy2, c.Y, col.p2, 1.3, [6, 5]); }
+    if (wv.ind && wv.res) { if (wv.A1) curve(wy1, c.Y, col.p1, 1.6, [8, 8]); if (wv.A2) curve(wy2, c.Y, col.p2, 1.6, [8, 8], 8); }
     if (wv.A1) arrow(XW - .25, a.top + 12, 1, col.p1); if (wv.A2) arrow(XW - .25, b.top + 12, -1, col.p2);
   }
   // sonda
@@ -424,15 +424,15 @@ function drawWave() {
   ctx.strokeStyle = col.ink; ctx.lineWidth = 1.5; ctx.globalAlpha = .7;
   ctx.beginPath(); ctx.moveTo(px, LS[0].top); ctx.lineTo(px, last.bottom); ctx.stroke(); ctx.globalAlpha = 1;
   ctx.fillStyle = col.ink; ctx.beginPath(); ctx.moveTo(px, last.bottom - 1); ctx.lineTo(px - 6, last.bottom + 8); ctx.lineTo(px + 6, last.bottom + 8); ctx.closePath(); ctx.fill();
-  const dot = (y, Y, color) => { ctx.beginPath(); ctx.arc(px, Y(y), 5, 0, 7); ctx.fillStyle = color; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = col.panel; ctx.stroke(); };
+  const dot = (y, Y, color, r = 5) => { ctx.beginPath(); ctx.arc(px, Y(y), r, 0, 7); ctx.fillStyle = color; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = col.panel; ctx.stroke(); };
   const p = wv.probe;
-  if (wv.view === 'over') { if (wv.ind) { if (wv.A1) dot(wy1(p), LS[0].Y, col.p1); if (wv.A2) dot(wy2(p), LS[0].Y, col.p2); } if (wv.res) dot(wyr(p), LS[0].Y, col.res); }
+  if (wv.view === 'over') { if (wv.ind) { if (wv.A1) dot(wy1(p), LS[0].Y, col.p1, 7); if (wv.A2) dot(wy2(p), LS[0].Y, col.p2, 4); } if (wv.res) dot(wyr(p), LS[0].Y, col.res); }
   else { if (wv.A1) dot(wy1(p), LS[0].Y, col.p1); if (wv.A2) dot(wy2(p), LS[1].Y, col.p2); if (wv.res) dot(wyr(p), LS[2].Y, col.res); }
 }
 
 function readoutsWave() {
   const T = wT(), ph = wv.t / T;
-  $('tval').textContent = `t = ${fmt(wv.t, 2)} s = ${fmt(ph, 2)} T`;
+  $('tval').textContent = `t = ${fmt(wv.t, 2)} s`;
   $('scrub').value = Math.round((wv.t % (2 * T)) / T * 20);
   const chip = $('state');
   if (!wv.A1 || !wv.A2) { chip.textContent = 'Una sola onda viajera: las crestas avanzan'; chip.className = 'chip'; }
