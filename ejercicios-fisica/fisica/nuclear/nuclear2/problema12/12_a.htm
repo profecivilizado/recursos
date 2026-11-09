@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','')"
@@ -52,22 +55,25 @@ onunload="cerrarVentanas()">
     <td> <p class="m50">Llamando N<sub>0</sub> a la cantidad de &aacute;tomos 
         de U-238 que hab&iacute;a al crearse la piedra y N a la cantidad de &aacute;tomos 
         de U-238 que hay hoy (Pasado un tiempo t):</p>
-      <p class="m50"><img src="formulas/12_01.gif" width="432" height="78" /></p>
+      <p class="m50">$$\left.\begin{aligned}N&amp;=N_0\,e^{-\lambda t}\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\;\rightarrow\;\left.\begin{aligned}\ln\left(\frac{N}{N_0}\right)&amp;=-\lambda\,t\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\xrightarrow{\;(1,2)\;}t=\ln\left(\frac{N}{N_0}\right)\frac{T}{\ln 2}$$</p>
       <p class="m50">La cantidad de &aacute;tomos de U-238 que hay actualmente 
         es:</p>
-      <p class="m150"><img src="formulas/12_02.gif" width="312" height="42" /></p>
+      <p class="m150">$$N=\frac{2{,}740\cdot6{,}023\cdot10^{23}\ \mathrm{u}}{238{,}050\ \mathrm{u}}=6{,}933\cdot10^{21}\ \text{átomos}$$</p>
       <p class="m50">La cantidad de &aacute;tomos de Pb-206 que hay actualmente 
         es:</p>
-      <p class="m150"><img src="formulas/12_03.gif" width="321" height="42" /></p>
+      <p class="m150">$$N'=\frac{1{,}120\cdot6{,}023\cdot10^{23}\ \mathrm{u}}{205{,}974\ \mathrm{u}}=3{,}275\cdot10^{21}\ \text{átomos}$$</p>
       <p class="m50">Cada uno de estos &aacute;tomos de Pb procede de un &aacute;tomos 
         de U-238 que se desintegr&oacute;.</p>
       <p class="m50">La cantidad de &aacute;tomos de U-238 que inicialmente hab&iacute;a 
         (N<sub>0</sub>) ser&aacute; la suma de la cantidad de &aacute;tomos que 
         quedan hoy (N) y de la cantidad de &aacute;tomos que se desintegraron 
         hasta hoy (N')</p>
-      <p class="m150"><img src="formulas/12_04.gif" width="368" height="24" /></p>
+      <p class="m150">$$N_0=6{,}933\cdot10^{21}+3{,}275\cdot10^{21}=10{,}208\cdot10^{21}\ \text{átomos}$$</p>
       <p class="m50">Sustituyendo estos valores en la expresi&oacute;n obtenida:</p>
-      <p class="m150"><img src="formulas/12_05.gif" width="396" height="105" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;t=-\ln\left(\frac{N}{N_0}\right)\frac{T}{\ln 2}\\[8pt]
+&amp;t=-\ln\left(\frac{6{,}933\cdot10^{21}\ \text{átomos}}{10{,}208\cdot10^{21}\ \text{átomos}}\right)\frac{4{,}47\cdot10^{9}\ \mathrm{a}}{\ln 2}=2{,}49\cdot10^{9}\ \mathrm{a}
+\end{aligned}$$</p>
       </td>
   </tr>
 </table>

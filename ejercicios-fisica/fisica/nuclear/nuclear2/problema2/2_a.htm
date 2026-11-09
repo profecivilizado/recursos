@@ -46,6 +46,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('a','../ayuda/1.htm')"
@@ -55,10 +58,13 @@ onUnload="cerrarVentanas()">
     <td><p class="m50"><b><font color="#0000FF">a)</font></b></p>
       <p class="m50">Ecuaci&oacute;n de desintegraci&oacute;n en funci&oacute;n 
         de la masa:</p>
-      <p class="m150"><img src="formulas/2_00.gif" width="93" height="24" /></p>
+      <p class="m150">$$m=m_0\,e^{-\lambda t}$$</p>
       <p class="m50">Si se desintegra un 20% en un d&iacute;a quedar&aacute; el 
         80% sin desintegrar.</p>
-      <p class="m150"><img src="formulas/2_01.gif" width="282" height="70" border="0" style="cursor:pointer"/></p>
+      <p class="m150">$$\begin{aligned}
+&amp;0{,}8\,m_0=m_0\,e^{-\lambda t}\;\rightarrow\;\ln 0{,}8=-\lambda\,t\\[8pt]
+&amp;\lambda=\frac{-\ln 0{,}8}{1\ \mathrm{d}}=\frac{-\ln 0{,}8}{24\cdot3600\ \mathrm{s}}=2{,}58\cdot10^{-6}\ \mathrm{\frac{1}{s}}
+\end{aligned}$$</p>
       <p class="m50"> La probabilidad de que, en un segundo, se desintegre uno 
         de los &aacute;tomos de la muestra es 2,58&middot;10<sup>-6</sup></p>
       <p class="m50">Otra interpretaci&oacute;n: cada segundo se desintegra el 

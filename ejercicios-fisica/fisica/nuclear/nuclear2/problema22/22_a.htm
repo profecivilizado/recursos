@@ -45,6 +45,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('a','../ayuda/3.htm')"
@@ -55,9 +58,12 @@ onunload="cerrarVentanas()">
       <p class="m50">Si no se conoce la masa at&oacute;mica se puede utilizar 
         en su lugar el n&uacute;mero m&aacute;sico (Esto equivale a despreciar 
         el defecto de masa):</p>
-      <p class="m150"><img src="formulas/22_01.gif" width="362" height="46" /></p>
+      <p class="m150">$$N=\frac{5\ \mathrm{g}}{200\ \mathrm{u}}=\frac{5\cdot6{,}023\cdot10^{23}\ \mathrm{u}}{200\ \mathrm{u}}=1{,}51\cdot10^{22}\quad(\text{átomos})$$</p>
       <p class="m50">La actividad ser&aacute; entonces:</p>
-      <p class="m150"><img src="formulas/22_02.gif" width="305" height="62" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;A=\lambda\,N\\[8pt]
+&amp;A=3\cdot10^{-9}\ \mathrm{\frac{1}{s}}\ 1{,}51\cdot10^{22}=4{,}53\cdot10^{13}\ \mathrm{\frac{1}{s}}\ (\mathrm{Bq})
+\end{aligned}$$</p>
       <p class="m50">Se producen 4,52&middot;10<sup>13</sup> desintegraciones 
         por segundo</p>
       </td>

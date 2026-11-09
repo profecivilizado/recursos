@@ -42,19 +42,25 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/3.htm')"
 onunload="cerrarVentanas()">
 <table width="760" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td><p class="m150"><img src="formulas/8_01.gif" width="158" height="105" /> 
+    <td><p class="m150">$$\begin{aligned}
+&amp;\left.\begin{aligned}A&amp;=\lambda\,N\\[6pt] \ln 2&amp;=\lambda\,T\end{aligned}\right\}\quad\frac{A}{\ln 2}=\frac{N}{T}\\[8pt]
+&amp;T=\frac{N}{A}\,\ln 2
+\end{aligned}$$ 
       </p>
       <p class="m50">Calculamos N, cantidad de n&uacute;cleos que hay en 1 g de 
         radio:</p>
-      <p class="m150"><img src="formulas/8_02.gif" width="275" height="42" /></p>
+      <p class="m150">$$N=\frac{1\ \mathrm{g}}{226\ \mathrm{u}}=\frac{6{,}023\cdot10^{23}\ \mathrm{u}}{226\ \mathrm{u}}=2{,}67\cdot10^{21}$$</p>
       <p class="m50">Sustituyendo valores resulta:</p>
-      <p class="m150"><img src="formulas/8_03.gif" width="301" height="46" /></p>
+      <p class="m150">$$T=\frac{2{,}67\cdot10^{21}}{3{,}7\cdot10^{10}\ \mathrm{1/s}}\ \ln 2=5\cdot10^{10}\ \mathrm{s}=1586\ \mathrm{a}$$</p>
       <p class="m50">Una muestra de 1 g de radio tardar&iacute;a 1586 a&ntilde;os 
         en reducirse a la mitad</p>
       </td>

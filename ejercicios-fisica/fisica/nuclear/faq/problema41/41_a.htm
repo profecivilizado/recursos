@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','')"
@@ -50,14 +53,14 @@ onunload="cerrarVentanas()">
   <tr>
     <td><p class="m50"><span class="enlace_texto" onclick="abrirVentana('../../nuclear1/ayuda/4.htm')">N&uacute;clidos 
         y part&iacute;culas que conviene saberse</span></p>
-      <p class="m150"><img src="formulas/41_01.gif" width="229" height="29" /></p>
+      <p class="m150">$${}^{235}_{92}\mathrm{U}+{}^{1}_{0}\mathrm{n}\;\rightarrow\;{}^{A}_{54}\mathrm{Xe}+{}^{94}_{Z}\mathrm{Sr}+2\,{}^{1}_{0}\mathrm{n}$$</p>
       <p class="m50">Conservaci&oacute;n del n&uacute;mero at&oacute;mico:</p>
       <p class="m150">92 + 0 = 54 + Z + 2&middot;0, &nbsp;&nbsp;Z = 38</p>
       <p class="m50">Conservaci&oacute;n del n&uacute;mero m&aacute;sico:</p>
       <p class="m150">235 + 1 = A + 94 + 2&middot;1, &nbsp;&nbsp;&nbsp;&nbsp;A 
         = 140</p>
       <p class="m50">Reacci&oacute;n completa:</p>
-      <p class="m150"><img src="formulas/41_02.gif" width="234" height="28" /></p>
+      <p class="m150">$${}^{235}_{92}\mathrm{U}+{}^{1}_{0}\mathrm{n}\;\rightarrow\;{}^{140}_{54}\mathrm{Xe}+{}^{94}_{38}\mathrm{Sr}+2\,{}^{1}_{0}\mathrm{n}$$</p>
       </td>
   </tr>
 </table>

@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('b','../ayuda/1.htm')"
@@ -51,7 +54,10 @@ onunload="cerrarVentanas()">
     <td><p class="m50"><font color="#0000FF"><b>b)</b></font></p>
       <p class="m50">La masa que desaparece en la reacci&oacute;n se convierte 
         en energ&iacute;a cin&eacute;tica de los n&uacute;clidos formados </p>
-      <p class="m150"><img src="formulas/4_01.gif" width="370" height="62" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150">$$\begin{aligned}
+&amp;E=\Delta m\,c^{2}\\[6pt]
+&amp;E=0{,}01859\ \mathrm{u}\cdot c^{2}=0{,}01859\ \htmlData{pc-map=Map, pc-area=0}{\boxed{931\ \mathrm{MeV}}}=17{,}31\ \mathrm{MeV}
+\end{aligned}$$</p>
       <p class="m50">Esta es la energ&iacute;a que se produce al reaccionar un 
         solo n&uacute;clido Li-7. Si reacciona un mol de litio que contiene 6,023 
         10<sup>23</sup> n&uacute;cleos, la energ&iacute;a ser&aacute;:</p>

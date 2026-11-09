@@ -42,6 +42,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('a','../ayuda/1.htm')"
@@ -69,18 +72,24 @@ onunload="cerrarVentanas()">
       <p class="m50">El segundo miembro tiene 0,02561 u menos de masa que el primer 
         miembro. Esta masa que falta se ha convertido en energ&iacute;a que libera 
         la reacci&oacute;n</p>
-      <p class="m150"><img src="formulas/8_01.gif" width="370" height="62" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150">$$\begin{aligned}
+&amp;E=\Delta m\,c^{2}\\[6pt]
+&amp;E=0{,}02561\ \mathrm{u}\cdot c^{2}=0{,}02561\ \htmlData{pc-map=Map, pc-area=0}{\boxed{931\ \mathrm{MeV}}}=23{,}84\ \mathrm{MeV}
+\end{aligned}$$</p>
       <p class="m50">Esta es la energ&iacute;a que se produce al reaccionar dos 
         n&uacute;cleos de deuterio. </p>
       <p class="m50">La energ&iacute;a que produce en un d&iacute;a una central 
         de 500 MW es: </p>
-      <p class="m150"><img src="formulas/8_02.gif" width="512" height="89" /></p>
+      <p class="m150">$$\begin{aligned}
+&amp;E=500\ \mathrm{MW}\cdot1\ \mathrm{d}=500\cdot10^{6}\ \mathrm{\frac{J}{s}}\ 24\cdot3600\ \mathrm{s}=4{,}32\cdot10^{13}\ \mathrm{J}\\[8pt]
+&amp;E=4{,}32\cdot10^{13}\ \frac{1}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=4{,}32\cdot10^{13}\ \frac{10^{-6}}{1{,}6\cdot10^{-19}}\ \mathrm{MeV}=2{,}7\cdot10^{26}\ \mathrm{MeV}
+\end{aligned}$$</p>
       <p class="m50">Si dos n&uacute;cleos de deuterio producen 23,84 MeV para 
         obtener 2,7&middot;10<sup>26</sup> MeV se necesitar&aacute;n (Regla de 
         tres, con perd&oacute;n):</p>
-      <p class="m150"><img src="formulas/8_03.gif" width="88" height="42" />&nbsp;</p>
+      <p class="m150">$$\frac{2\cdot2{,}7\cdot10^{26}}{23{,}84}$$&nbsp;</p>
       <p class="m50">La masa de todos estos n&uacute;cleos de deuterio ser&aacute;:</p>
-      <p class="m150"><img src="formulas/8_04.gif" width="524" height="45" /></p>
+      <p class="m150">$$m=\frac{2\cdot2{,}7\cdot10^{26}}{23{,}84}\cdot2{,}01474\ \mathrm{u}=\frac{2\cdot2{,}7\cdot10^{26}}{23{,}84}\cdot2{,}01474\ \frac{1}{6{,}023\cdot10^{23}}\ \mathrm{g}=75{,}8\ \mathrm{g}$$</p>
       </td>
   </tr>
 </table>

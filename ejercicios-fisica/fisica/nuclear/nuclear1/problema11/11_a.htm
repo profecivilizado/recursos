@@ -43,6 +43,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -71,7 +74,11 @@ onunload="cerrarVentanas()">
         primer miembro. Esta masa que falta se ha convertido en energ&iacute;a 
         cin&eacute;tica de los n&uacute;clidos formados (Adem&aacute;s se lleva 
         m&aacute;s energ&iacute;a el que menos masa tiene, es decir el neutr&oacute;n)</p>
-      <p class="m150"><img src="formulas/11_01.gif" width="386" height="101" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p class="m150">$$\begin{aligned}
+&amp;E=\Delta m\,c^{2}\\[6pt]
+&amp;E=0{,}012165\ \mathrm{u}\cdot c^{2}=0{,}012165\ \htmlData{pc-map=Map, pc-area=0}{\boxed{931\ \mathrm{MeV}}}=11{,}33\ \mathrm{MeV}\\[6pt]
+&amp;E=11{,}33\cdot10^{6}\ \mathrm{eV}
+\end{aligned}$$</p>
       </td>
   </tr>
 </table>
