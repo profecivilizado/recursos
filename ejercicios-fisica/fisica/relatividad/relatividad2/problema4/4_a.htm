@@ -44,7 +44,7 @@ function cerrarVentanas() {
 <link rel="stylesheet" href="../../../../_pc/pc.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -58,7 +58,7 @@ onunload="cerrarVentanas()">
         m, &gamma;</p>
       <p class="m150">$$\begin{aligned}
 &amp;\left.\begin{aligned}E_C&amp;=(m-m_0)\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[10pt]
-&amp;\boxed{\gamma=\left(\frac{E_C}{m_0\,c^{2}}+1\right)^{-1}}\\[10pt]
+&amp;\htmlData{pc-map=Map, pc-area=0}{\boxed{\gamma=\left(\frac{E_C}{m_0\,c^{2}}+1\right)^{-1}}}\\[10pt]
 &amp;\gamma=\left(\frac{3\cdot10^{10}\ \mathrm{eV}}{1{,}67\cdot10^{-27}\ \mathrm{kg}\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}+1\right)^{-1}\\[10pt]
 &amp;\gamma=\left(\frac{3\cdot10^{10}\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}{1{,}67\cdot10^{-27}\ \mathrm{kg}\,(3\cdot10^{8}\ \mathrm{m/s})^{2}}+1\right)^{-1}=0{,}0304
 \end{aligned}$$</p>

@@ -45,7 +45,7 @@ function cerrarVentanas() {
 <link rel="stylesheet" href="../../../../_pc/pc.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});window.pcFit&&pcFit()"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="nuevoTitulo('','../ayuda/1.htm')"
@@ -61,7 +61,7 @@ onunload="cerrarVentanas()">
         inc&oacute;gnitas: m<sub>0</sub>, m, E</p>
       <p class="m150">$$\begin{aligned}
 &amp;\left.\begin{aligned}E_0&amp;=m_0\,c^{2}\\[4pt] E&amp;=m\,c^{2}\\[4pt] m&amp;=\frac{m_0}{\gamma}\end{aligned}\right\}\\[10pt]
-&amp;\boxed{E=\frac{E_0}{\gamma}\quad,\quad m=\frac{E_0}{\gamma\,c^{2}}}
+&amp;\htmlData{pc-map=Map, pc-area=0}{\boxed{E=\frac{E_0}{\gamma}\quad,\quad m=\frac{E_0}{\gamma\,c^{2}}}}
 \end{aligned}$$</p>
       <p class="m150">$$\begin{aligned}
 &amp;\gamma=\sqrt{1-\left(\frac{v}{c}\right)^{2}}=\sqrt{1-\left(\frac{0{,}8 c}{c}\right)^{2}}=0{,}6\\[6pt]

@@ -29,3 +29,5 @@ hr{border:0;border-top:1px solid var(--line)}
 /* fórmulas e imágenes (fondo blanco): en modo oscuro se invierten */
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) img{filter:invert(.9) hue-rotate(180deg)}}
 :root[data-theme="dark"] img{filter:invert(.9) hue-rotate(180deg)}
+[data-pc-area]{cursor:pointer}
+[data-pc-area]:hover{color:#0040c0}
