@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<style>
+body{margin:0}
+.embed body{padding-block:4px 16px}
+.embed .wrap > header{display:none}
+</style>
+<title>Factores de conversión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#f3f6fa; --panel:#ffffff; --ink:#15203a; --muted:#5a6479; --line:#d6dde8; --soft:#eef2f8;
+  --btn:#eef2f8; --btn-hover:#e2e8f2; --accent:#1f55d6; --cancel:#d0312d; --final:#1f55d6;
+  --ok:#e7f6ee; --ok-ink:#0b6b48; --warn:#fdeee7; --warn-ink:#a3360f; --tile:#fff8e6; --tile-line:#e9cf86;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --soft:#1b2433;
+    --btn:#1d2738; --btn-hover:#253148; --accent:#6e9dff; --cancel:#ff6b66; --final:#6e9dff;
+    --ok:#12301f; --ok-ink:#7be0b0; --warn:#3a1d12; --warn-ink:#ffab88; --tile:#2a2414; --tile-line:#6b5a2a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1420; --panel:#151d2b; --ink:#e7ecf5; --muted:#9aa5ba; --line:#28344a; --soft:#1b2433;
+  --btn:#1d2738; --btn-hover:#253148; --accent:#6e9dff; --cancel:#ff6b66; --final:#6e9dff;
+  --ok:#12301f; --ok-ink:#7be0b0; --warn:#3a1d12; --warn-ink:#ffab88; --tile:#2a2414; --tile-line:#6b5a2a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--f-body)}
+.wrap{max-width:1080px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left))}
+header .eyebrow{font:600 13px var(--f-mono);color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+header h1{font:800 clamp(28px,5vw,40px)/1.1 var(--f-display);margin:4px 0 8px}
+header p{color:var(--muted);margin:0 0 18px;max-width:70ch}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.seg{display:inline-flex;background:var(--btn);border-radius:12px;padding:3px;gap:2px}
+.seg button{border:0;background:none;color:var(--ink);font:600 15px var(--f-body);padding:7px 12px;border-radius:9px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--panel);box-shadow:0 1px 3px rgba(0,0,0,.15);color:var(--accent)}
+.sp{flex:1}
+button.b{border:1px solid var(--line);background:var(--btn);color:var(--ink);font:600 15px var(--f-body);padding:8px 14px;border-radius:10px;cursor:pointer}
+button.b:hover{background:var(--btn-hover)}
+button.b.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:20px}
+@media (max-width:520px){.card{padding:18px 16px}}
+.enun{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;justify-content:space-between}
+.enun h2{font:700 22px var(--f-display);margin:0}
+.enun .q{font:700 22px var(--f-mono)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);font:14px var(--f-mono)}
+.nav button{min-width:34px;height:34px;padding:0 10px}
+.score{font:600 14px var(--f-mono);color:var(--muted)}
+.lbl{font:700 13px var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:26px 0 10px}
+/* cadena */
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:12px;min-height:104px;padding:16px;border:2px dashed var(--line);border-radius:14px;background:var(--soft)}
+.op{font:600 22px var(--f-mono);color:var(--muted)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-family:var(--f-mono);font-size:19px;line-height:1.25}
+.frac>span{padding:2px 6px;white-space:nowrap}
+.frac>span:first-child{border-bottom:2px solid currentColor}
+.fcard{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 10px 8px 10px;display:flex;align-items:center;gap:6px}
+.fcard .tools{display:flex;flex-direction:column;gap:4px}
+.fcard .tools button{border:1px solid var(--line);background:var(--btn);color:var(--ink);border-radius:8px;width:30px;height:28px;cursor:pointer;font-size:15px;padding:0}
+.fcard .tools button:hover{background:var(--btn-hover)}
+.u{white-space:nowrap}
+.u.x{color:var(--cancel);text-decoration:line-through;text-decoration-thickness:2px}
+.u.f{color:var(--final);font-weight:700}
+.start{font-weight:700}
+.empty{color:var(--muted);font-size:15px}
+.state{margin-top:16px;padding:12px 14px;border-radius:10px;font-size:16px}
+.state.ok{background:var(--ok);color:var(--ok-ink)}
+.state.warn{background:var(--warn);color:var(--warn-ink)}
+/* fichas */
+.tiles{display:flex;flex-wrap:wrap;gap:10px}
+.tile{border:1.5px solid var(--tile-line);background:var(--tile);color:var(--ink);border-radius:12px;padding:8px 12px;font:600 17px var(--f-mono);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.tile:hover{filter:brightness(.97)}
+.tile.locked{cursor:default}
+.tile input{width:7.5em;font:600 16px var(--f-mono);padding:3px 6px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink)}
+.tile input.good{border-color:var(--ok-ink);background:var(--ok)}
+.tile input.bad{border-color:var(--warn-ink);background:var(--warn)}
+.hint{color:var(--muted);font-size:15px;margin:12px 0 0}
+/* resultado */
+.res{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.res input.u1{width:6.5em}
+#exBox.sep{margin-top:26px;padding-top:4px;border-top:1px solid var(--line)}
+.res input{font:600 18px var(--f-mono);width:12em;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink)}
+.dev{margin-top:18px;overflow-x:auto;padding:12px;border-radius:12px;background:var(--soft);display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--f-mono);font-size:18px}
+.dev .big{font-size:18px}
+.dev b.final{color:var(--final)}
+/* ayudas */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.ladder{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-end;margin:6px 0}
+.step{display:flex;flex-direction:column;align-items:center;min-width:46px}
+.step b{font:700 16px var(--f-mono);padding:6px 4px;border-radius:8px;background:var(--btn);width:100%;text-align:center}
+.step b.from{background:var(--accent);color:#fff}
+.step b.to{background:var(--ok-ink);color:#fff}
+.step small{color:var(--muted);font:12px var(--f-mono);height:16px}
+details.cheat summary{cursor:pointer;font:700 17px var(--f-display);color:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0}
+th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left}
+th{font:700 13px var(--f-mono);text-transform:uppercase;color:var(--muted)}
+td.m{font-family:var(--f-mono);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow" data-t="eyebrow">Física y Química · Unidades</div>
+    <h1 data-t="title">Factores de conversión</h1>
+    <p data-t="intro">Construye la cadena de factores: elige las relaciones entre unidades, dales la vuelta hasta que las unidades de partida se tachen y solo quede la unidad que te piden. Después calcula el resultado.</p>
+  </header>
+
+  <div class="bar">
+    <div class="seg" id="sections"></div>
+    <div class="seg" id="levels"></div>
+    <div class="seg" id="modes"></div>
+    <span class="sp"></span>
+    <div class="seg" id="lang"><button data-l="es">ES</button><button data-l="en">EN</button></div>
+  </div>
+
+  <div class="card">
+    <div id="own" hidden>
+      <div class="lbl" style="margin-top:0" data-t="ownLbl"></div>
+      <form class="res" id="ownForm" style="margin-top:0">
+        <input id="ownV" inputmode="decimal" autocomplete="off" style="width:8em">
+        <input id="ownU1" autocomplete="off" autocapitalize="off" spellcheck="false" style="width:7em">
+        <span class="op">→</span>
+        <input id="ownU2" autocomplete="off" autocapitalize="off" spellcheck="false" style="width:7em">
+        <button class="b pri" data-t="ownGo"></button>
+      </form>
+      <p class="hint" data-t="ownHelp"></p>
+      <div id="ownMsg"></div>
+    </div>
+    <div id="exBox">
+    <div class="enun">
+      <div><span class="q" id="q"></span></div>
+      <div class="nav"><button class="b" id="prev" aria-label="Anterior">‹</button><span id="num"></span><button class="b" id="next" aria-label="Siguiente">›</button><button class="b" id="rnd" data-t="random">Aleatorio</button></div>
+    </div>
+    <div class="lbl" data-t="chainLbl">Tu cadena de factores</div>
+    <div class="chain" id="chain"></div>
+    <div id="state"></div>
+    <div class="lbl" data-t="tilesLbl">Relaciones (pulsa para añadir)</div>
+    <div class="tiles" id="tiles"></div>
+    <form class="res" id="builder" hidden style="margin-top:0">
+      <span class="op">1</span><input class="u1" id="rA" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <span class="op">=</span><input id="rK" inputmode="decimal" autocomplete="off" style="width:8em">
+      <input class="u1" id="rB" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="b pri" data-t="addRel"></button>
+    </form>
+    <div id="relMsg"></div>
+    <p class="hint" id="hint"></p>
+    <div id="resBox"></div>
+    </div>
+    <div class="score" id="score" style="margin-top:12px"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card" id="ladderCard">
+      <div class="lbl" style="margin-top:0" data-t="ladderLbl">Escalera de prefijos</div>
+      <div id="ladders"></div>
+      <p class="hint" data-t="ladderHint">Cada escalón multiplica o divide por 10. En unidades de superficie (²), por 100; en unidades de volumen (³), por 1000.</p>
+    </div>
+    <div class="card">
+      <details class="cheat" id="cheat">
+        <summary data-t="cheatLbl">Chuleta: Sistema Internacional</summary>
+        <div id="cheatBody"></div>
+      </details>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- textos ---------- */
+const T = {
+  es: {
+    eyebrow:'Física y Química · Unidades', title:'Factores de conversión',
+    intro:'Construye la cadena de factores: elige las relaciones entre unidades, dales la vuelta hasta que las unidades de partida se tachen y solo quede la unidad que te piden. Después calcula el resultado.',
+    convert:'Convierte', random:'Aleatorio', chainLbl:'Tu cadena de factores', tilesLbl:'Relaciones (pulsa para añadir)',
+    ladderLbl:'Escalera de prefijos', ladderHint:'Cada escalón multiplica o divide por 10. En unidades de superficie (²), por 100; en unidades de volumen (³), por 1000.',
+    cheatLbl:'Chuleta: Sistema Internacional', sections:['Ejemplos','Plántealo tú'], levels:['Simples','Superficie y volumen','Compuestas'], modes:['Con fichas','Completa el número','Escríbelas tú'],
+    relLbl:'Plantea las relaciones entre unidades', phU:'unidad', phN:'número', addRel:'Añadir factor',
+    hintFree:'Escribe una relación entre dos unidades, por ejemplo 1 km = 1000 m. Si es correcta, se añade a la cadena como factor; después dale la vuelta si hace falta.',
+    relErrSingle:'Escribe una sola unidad a cada lado (por ejemplo km, m², L o h).', relErrDim:'Esas dos unidades no miden lo mismo.',
+    relErrNum:(a,b)=>`No es correcto: 1 ${a} no son esos ${b}. Mira la escalera de prefijos o la chuleta.`,
+    ownLbl:'Plantea tu conversión', ownGo:'Resolver', ownPh1:'72', ownPh2:'km/h', ownPh3:'m/s',
+    ownHelp:'Ejemplos de unidades: g, mg, km, cm², m³, L, mL, h, min, s, día, km/h, g/L, kg/m³. Para elevar al cuadrado o al cubo escribe m2 o m3.',
+    ownErrNum:'Escribe un número (puedes usar coma decimal o notación científica: 3,4e4 o 3,4·10^4).',
+    ownErrUnit:u=>`No conozco la unidad «${u}».`, ownErrDim:'Esas dos unidades no miden lo mismo: no se puede pasar de una a otra.',
+    ownErrSame:'La unidad de partida y la de llegada son la misma.', ownWait:'Escribe arriba la cantidad, su unidad y la unidad a la que quieres pasarla.',
+    to:'a', empty:'Pulsa una relación de abajo para añadir un factor de conversión.',
+    flip:'Dar la vuelta', del:'Quitar',
+    left:u=>`Todavía quedan sin tachar: <b>${u}</b>. Añade otra relación o dale la vuelta a alguna.`,
+    wrong:u=>`Te sobran o faltan unidades: ahora tienes <b>${u}</b>. Prueba a dar la vuelta a algún factor.`,
+    done:'¡Las unidades de partida están tachadas! Solo queda la unidad que te piden. Ahora calcula el resultado.',
+    resLbl:'Resultado', check:'Comprobar', show:'Ver solución',
+    good:'¡Correcto!', bad:'No es correcto. Revisa las multiplicaciones y divisiones (o usa «Ver solución»).',
+    hintHelp:'Las fracciones valen 1 porque arriba y abajo hay la misma cantidad: por eso puedes multiplicar por ellas sin cambiar el valor.',
+    hintNo:'Escribe el número que falta en cada relación. Cuando sea correcto, podrás usarla.',
+    score:(a,b)=>`Aciertos: ${a} de ${b}`, day:'día', sci:'en notación científica',
+    cheat:`<p class="hint">Unidades fundamentales del SI</p>
+<table><tr><th>Magnitud</th><th>Unidad</th><th>Símbolo</th></tr>
+<tr><td>Longitud</td><td>metro</td><td class="m">m</td></tr><tr><td>Masa</td><td>kilogramo</td><td class="m">kg</td></tr>
+<tr><td>Tiempo</td><td>segundo</td><td class="m">s</td></tr><tr><td>Temperatura</td><td>kelvin</td><td class="m">K</td></tr>
+<tr><td>Intensidad de corriente</td><td>amperio</td><td class="m">A</td></tr><tr><td>Cantidad de sustancia</td><td>mol</td><td class="m">mol</td></tr>
+<tr><td>Intensidad luminosa</td><td>candela</td><td class="m">cd</td></tr></table>
+<p class="hint">Algunas unidades derivadas</p>
+<table><tr><th>Magnitud</th><th>Unidad SI</th></tr>
+<tr><td>Superficie</td><td class="m">m²</td></tr><tr><td>Volumen</td><td class="m">m³</td></tr>
+<tr><td>Velocidad</td><td class="m">m/s</td></tr><tr><td>Densidad</td><td class="m">kg/m³</td></tr></table>
+<p class="hint">Prefijos</p>
+<table><tr><th>Prefijo</th><th>Símbolo</th><th>Valor</th></tr>
+<tr><td>kilo</td><td class="m">k</td><td>1000</td></tr><tr><td>hecto</td><td class="m">h</td><td>100</td></tr><tr><td>deca</td><td class="m">da</td><td>10</td></tr>
+<tr><td>deci</td><td class="m">d</td><td>0,1</td></tr><tr><td>centi</td><td class="m">c</td><td>0,01</td></tr><tr><td>mili</td><td class="m">m</td><td>0,001</td></tr></table>
+<p class="hint">Equivalencias útiles</p>
+<table><tr><td class="m">1 L = 1 dm³</td><td class="m">1 mL = 1 cm³</td></tr><tr><td class="m">1 m³ = 1000 L</td><td class="m">1 t = 1000 kg</td></tr>
+<tr><td class="m">1 h = 60 min = 3600 s</td><td class="m">1 día = 24 h</td></tr></table>`
+  },
+  en: {
+    eyebrow:'Physics and Chemistry · Units', title:'Conversion factors',
+    intro:'Build the chain of conversion factors: pick the relationships between units and flip them until the starting units cancel out and only the target unit is left. Then work out the result.',
+    convert:'Convert', random:'Random', chainLbl:'Your chain of factors', tilesLbl:'Relationships (tap to add)',
+    ladderLbl:'Prefix ladder', ladderHint:'Each step multiplies or divides by 10. For area units (²), by 100; for volume units (³), by 1000.',
+    cheatLbl:'Cheat sheet: International System', sections:['Examples','Set your own'], levels:['Simple','Area and volume','Compound'], modes:['Tiles','Fill in the number','Write them yourself'],
+    relLbl:'Write the relationships between units', phU:'unit', phN:'number', addRel:'Add factor',
+    hintFree:'Write a relationship between two units, for example 1 km = 1000 m. If it is right, it is added to the chain as a factor; then flip it if needed.',
+    relErrSingle:'Write a single unit on each side (for example km, m², L or h).', relErrDim:'These two units do not measure the same quantity.',
+    relErrNum:(a,b)=>`Not correct: 1 ${a} is not that many ${b}. Check the prefix ladder or the cheat sheet.`,
+    ownLbl:'Set your conversion', ownGo:'Solve', ownPh1:'72', ownPh2:'km/h', ownPh3:'m/s',
+    ownHelp:'Unit examples: g, mg, km, cm², m³, L, mL, h, min, s, day, km/h, g/L, kg/m³. For squared or cubed units type m2 or m3.',
+    ownErrNum:'Type a number (you can use a decimal comma or scientific notation: 3,4e4 or 3,4·10^4).',
+    ownErrUnit:u=>`I do not know the unit “${u}”.`, ownErrDim:'These two units do not measure the same quantity: you cannot convert one into the other.',
+    ownErrSame:'The starting unit and the target unit are the same.', ownWait:'Write above the quantity, its unit and the unit you want to convert it to.',
+    to:'to', empty:'Tap a relationship below to add a conversion factor.',
+    flip:'Flip', del:'Remove',
+    left:u=>`These units are not cancelled yet: <b>${u}</b>. Add another relationship or flip one.`,
+    wrong:u=>`You have extra or missing units: right now you have <b>${u}</b>. Try flipping a factor.`,
+    done:'The starting units are cancelled! Only the target unit is left. Now work out the result.',
+    resLbl:'Result', check:'Check', show:'Show solution',
+    good:'Correct!', bad:'Not correct. Check your multiplications and divisions (or use “Show solution”).',
+    hintHelp:'Each fraction is equal to 1 because the top and the bottom are the same quantity, so multiplying by it does not change the value.',
+    hintNo:'Write the missing number in each relationship. When it is right, you can use it.',
+    score:(a,b)=>`Correct: ${a} of ${b}`, day:'day', sci:'in scientific notation',
+    cheat:`<p class="hint">SI base units</p>
+<table><tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr>
+<tr><td>Length</td><td>metre</td><td class="m">m</td></tr><tr><td>Mass</td><td>kilogram</td><td class="m">kg</td></tr>
+<tr><td>Time</td><td>second</td><td class="m">s</td></tr><tr><td>Temperature</td><td>kelvin</td><td class="m">K</td></tr>
+<tr><td>Electric current</td><td>ampere</td><td class="m">A</td></tr><tr><td>Amount of substance</td><td>mole</td><td class="m">mol</td></tr>
+<tr><td>Luminous intensity</td><td>candela</td><td class="m">cd</td></tr></table>
+<p class="hint">Some derived units</p>
+<table><tr><th>Quantity</th><th>SI unit</th></tr>
+<tr><td>Area</td><td class="m">m²</td></tr><tr><td>Volume</td><td class="m">m³</td></tr>
+<tr><td>Speed</td><td class="m">m/s</td></tr><tr><td>Density</td><td class="m">kg/m³</td></tr></table>
+<p class="hint">Prefixes</p>
+<table><tr><th>Prefix</th><th>Symbol</th><th>Value</th></tr>
+<tr><td>kilo</td><td class="m">k</td><td>1000</td></tr><tr><td>hecto</td><td class="m">h</td><td>100</td></tr><tr><td>deca</td><td class="m">da</td><td>10</td></tr>
+<tr><td>deci</td><td class="m">d</td><td>0.1</td></tr><tr><td>centi</td><td class="m">c</td><td>0.01</td></tr><tr><td>milli</td><td class="m">m</td><td>0.001</td></tr></table>
+<p class="hint">Useful equivalences</p>
+<table><tr><td class="m">1 L = 1 dm³</td><td class="m">1 mL = 1 cm³</td></tr><tr><td class="m">1 m³ = 1000 L</td><td class="m">1 t = 1000 kg</td></tr>
+<tr><td class="m">1 h = 60 min = 3600 s</td><td class="m">1 day = 24 h</td></tr></table>`
+  }
+};
+let lang = 'es';
+try { if (localStorage.getItem('fc-lang') === 'en') lang = 'en'; } catch (e) {}
+const t = k => T[lang][k];
+
+/* ---------- unidades ---------- */
+const FAM = {
+  len:{km:3,hm:2,dam:1,m:0,dm:-1,cm:-2,mm:-3},
+  mass:{t:6,kg:3,hg:2,dag:1,g:0,dg:-1,cg:-2,mg:-3},
+  cap:{kL:3,hL:2,daL:1,L:0,dL:-1,cL:-2,mL:-3},
+  time:{d:86400,h:3600,min:60,s:1}
+};
+const famOf = s => Object.keys(FAM).find(f => s in FAM[f]);
+// valor de 1 unidad en la base (m, g, m³, s)
+const base = s => { const f = famOf(s); return f === 'time' ? FAM.time[s] : f === 'cap' ? 10 ** (FAM.cap[s] - 3) : 10 ** FAM[f][s]; };
+const symName = s => s === 'd' ? t('day') : s;
+const SUP = {1:'',2:'²',3:'³'};
+// "km/h" → {km:1,h:-1};  "m3" → {m:3}
+function parseUnit(str){
+  const out = {}; const [n, d] = str.split('/');
+  for (const [part, sg] of [[n,1],[d,-1]]) { if (!part) continue; const m = part.match(/^(.+?)(\d?)$/); out[m[1]] = (out[m[1]]||0) + sg*(+m[2]||1); }
+  return out;
+}
+const uHTML = (s, e, cls='') => `<span class="u ${cls}">${symName(s)}${SUP[Math.abs(e)]||''}</span>`;
+function unitStr(map){ // {km:1,h:-1} → km/h
+  const n = Object.entries(map).filter(([,e])=>e>0), d = Object.entries(map).filter(([,e])=>e<0);
+  const f = a => a.map(([s,e])=>symName(s)+(SUP[Math.abs(e)]||'')).join('·');
+  return (n.length ? f(n) : '1') + (d.length ? '/' + f(d) : '');
+}
+
+const ALIAS = {dia:'d',día:'d',day:'d',days:'d',dias:'d',días:'d',seg:'s',sec:'s',hora:'h',horas:'h',hr:'h',hour:'h',mins:'min',minuto:'min',minutos:'min',minute:'min',ton:'t',l:'L',ml:'mL',cl:'cL',dl:'dL',dal:'daL',hl:'hL',kl:'kL'};
+function readUnit(str){ // texto del alumno → {sym:exp} o {err}
+  const clean = String(str).trim().replace(/²/g,'2').replace(/³/g,'3').replace(/\^/g,'').replace(/\s+/g,'');
+  if (!clean) return {err:''};
+  const parts = clean.split('/'); if (parts.length > 2) return {err:clean};
+  const out = {};
+  for (const [i, part] of parts.entries()) {
+    const m = part.match(/^([A-Za-zÁÉÍÓÚáéíóú]+)([23]?)$/); if (!m) return {err:part};
+    let sym = m[1]; if (!famOf(sym)) sym = ALIAS[sym] || ALIAS[sym.toLowerCase()] || sym;
+    if (!famOf(sym)) { const c = Object.values(FAM).flatMap(Object.keys).filter(x => x.toLowerCase() === sym.toLowerCase()); if (c.length === 1) sym = c[0]; }
+    const f = famOf(sym); if (!f) return {err:m[1]};
+    const e = +m[2] || 1; if ((f === 'cap' || f === 'time' || f === 'mass') && e > 1) return {err:part};
+    out[sym] = (out[sym]||0) + (i ? -e : e);
+  }
+  return {map:out};
+}
+function dims(map){ let L=0,M=0,Ti=0; for (const [s,e] of Object.entries(map)) { const f=famOf(s); if (f==='len') L+=e; else if (f==='cap') L+=3*e; else if (f==='mass') M+=e; else Ti+=e; } return L+','+M+','+Ti; }
+
+/* ---------- números ---------- */
+const parseNum = s => { s = String(s).trim().replace(/^10\^/, '1e').replace(/\s/g,'').replace(/,/g,'.').replace(/[·x×\*]10\^?/i,'e').replace(/\^/,''); return s === '' ? NaN : Number(s); };
+function fmt(x, sig=6){
+  if (x === 0) return '0';
+  const a = Math.abs(x), ex = Math.floor(Math.log10(a));
+  if (ex >= 7 || ex <= -4) { const m = +(x / 10**ex).toPrecision(4); return `${String(m).replace('.',',')}·10<sup>${ex}</sup>`; }
+  let s = String(+x.toPrecision(sig)); if (s.includes('e')) s = x.toFixed(Math.max(0, -ex + 3));
+  const [i, d] = s.split('.');
+  return i.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + (d ? ',' + d : '');
+}
+const sci = x => { const ex = Math.floor(Math.log10(Math.abs(x))); const m = +(x/10**ex).toPrecision(4); return `${String(m).replace('.',',')}·10<sup>${ex}</sup>`; };
+
+/* ---------- ejercicios (de las fichas) ---------- */
+const BANK = [
+ ['25,8','g','cg'],['0,05','hg','dg'],['3,5','dag','kg'],['450','mg','dag'],['8,15','km','dam'],['1,45','dam','dm'],['0,04','hm','m'],['59','mm','cm'],
+ ['16','L','hL'],['0,25','daL','mL'],['7,5','kL','cL'],['50','dL','hL'],['500','cm','m'],['800','mL','cL'],['6700','g','kg'],['1200','mg','g'],
+ ['56,88','min','d'],['9,26e-6','kg','mg'],['2,5','h','s'],['0,015','kg','g'],
+].map(x=>[0,...x]).concat([
+ ['1,25','m2','cm2'],['0,082','km2','dm2'],['1,007','dam2','mm2'],['500','cm2','dm2'],['73,357','cm3','mm3'],['1,0576','dam3','dm3'],
+ ['3','m3','L'],['300','L','dm3'],['500','mL','cm3'],['5','hm2','m2'],['5000','cm2','m2'],['6,56','m3','mL'],['6,5e-4','m3','cm3'],['85,6','cm3','hL'],['1432','cm2','m2'],
+].map(x=>[1,...x])).concat([
+ ['72','km/h','m/s'],['126','km/h','m/s'],['36','km/h','m/s'],['7067,52','km/d','m/s'],['90','dam/h','m/s'],['934,8','hm/min','m/s'],['2,97e7','mm/h','m/s'],
+ ['5,7','km/min','m/s'],['140,4','km/h','m/s'],['4,02e5','cm/min','m/s'],['3,456','m/s','km/h'],['60','km/h','cm/min'],
+ ['346','g/L','kg/m3'],['34,7','g/dm3','kg/m3'],['730','mg/L','kg/m3'],['35','cg/dL','kg/m3'],['3,4e4','kg/L','kg/m3'],['3,46e-2','mg/L','kg/m3'],
+ ['950','hg/mm3','kg/m3'],['6,9e-7','hg/cm','kg/m'],['7000','kg/m3','g/mL'],['3450','t/m3','g/L'],
+].map(x=>[2,...x]));
+
+/* ---------- relaciones (fichas) ---------- */
+// ficha: 1 A^e = k B^e   →  {a:{sym:e}, b:{sym:e}, k}
+function famTile(A, B, e){
+  const f = famOf(A); let pA = FAM[f][A], pB = FAM[f][B];
+  if (pA < pB) [A, B, pA, pB] = [B, A, pB, pA];
+  return {a:{[A]:e}, b:{[B]:e}, k: Math.round(10 ** ((pA - pB) * e) * 1e9) / 1e9};
+}
+function timeTiles(A, B){
+  const order = ['d','h','min','s']; let i = order.indexOf(A), j = order.indexOf(B); if (i > j) [i, j] = [j, i];
+  let path = order.slice(i, j + 1);
+  if (!path.includes('min') || (order[i] !== 'min' && order[j] !== 'min')) path = path.filter(x => x !== 'min' || order[i] === 'min' || order[j] === 'min');
+  const tiles = [];
+  for (let k = 0; k < path.length - 1; k++) tiles.push({a:{[path[k]]:1}, b:{[path[k+1]]:1}, k: FAM.time[path[k]] / FAM.time[path[k+1]]});
+  return tiles;
+}
+function cat(map){ // agrupa por magnitud: M, T, V (longitud con exponente o capacidad)
+  const o = {};
+  for (const [s, e] of Object.entries(map)) {
+    const f = famOf(s), c = f === 'mass' ? 'M' : f === 'time' ? 'T' : 'V';
+    o[c] = {s, e: Math.abs(e), f};
+  }
+  return o;
+}
+function neededTiles(from, to){
+  const A = cat(from), B = cat(to), out = [];
+  for (const c of Object.keys(A)) {
+    const a = A[c], b = B[c]; if (!b || (a.s === b.s && a.e === b.e)) continue;
+    if (c === 'M') out.push(famTile(a.s, b.s, 1));
+    else if (c === 'T') out.push(...timeTiles(a.s, b.s));
+    else if (a.f === b.f) out.push(famTile(a.s, b.s, a.e));
+    else { // capacidad ↔ volumen: pasar por 1 dm³ = 1 L
+      const [len, cap] = a.f === 'len' ? [a, b] : [b, a];
+      if (len.s !== 'dm') out.push(famTile(len.s, 'dm', 3));
+      out.push({a:{dm:3}, b:{L:1}, k:1});
+      if (cap.s !== 'L') out.push(famTile('L', cap.s, 1));
+    }
+  }
+  return out;
+}
+function distractors(from, to, need){
+  const pool = [], used = new Set(need.map(key));
+  for (const s of Object.keys(from)) {
+    const f = famOf(s);
+    if (f === 'time') pool.push(...timeTiles('h','min'), ...timeTiles('min','s'), {a:{d:1}, b:{h:1}, k:24});
+    else { const e = Math.abs(from[s]) ; const others = Object.keys(FAM[f]).filter(x => x !== s);
+      for (const o of others.sort(() => Math.random() - .5).slice(0, 2)) pool.push(famTile(s, o, f === 'cap' ? 1 : e)); }
+  }
+  const out = [];
+  for (const p of pool.sort(() => Math.random() - .5)) { if (!used.has(key(p)) && out.length < 2) { used.add(key(p)); out.push(p); } }
+  return out;
+}
+const key = tl => JSON.stringify([tl.a, tl.b]);
+const side = (n, map) => `${n === null ? '' : fmt(n) + ' '}${Object.entries(map).map(([s,e]) => symName(s) + (SUP[e]||'')).join('')}`;
+
+/* ---------- estado ---------- */
+let level = 0, lastLvl = 0, modeBy = [0, 2], mode = 0, idx = {0:0,1:0,2:0}, ex, chain, tiles, solved, stats = {ok:0, tot:0};
+const $ = id => document.getElementById(id);
+
+let own = null;
+function load(){
+  mode = modeBy[level === 3 ? 1 : 0];
+  if (level === 3) { ex = own; if (!ex) { chain = []; tiles = []; render(); return; } }
+  else { const list = BANK.filter(b => b[0] === level); const [ , v, u1, u2] = list[idx[level] % list.length];
+  ex = {v: parseNum(v), from: parseUnit(u1), to: parseUnit(u2)}; }
+  const need = neededTiles(ex.from, ex.to);
+  tiles = [...need, ...distractors(ex.from, ex.to, need)].sort(() => Math.random() - .5).map(x => ({...x, open: mode === 0}));
+  chain = []; solved = false; render();
+}
+
+function totals(){ // exponentes netos de toda la cadena
+  const tot = {...ex.from};
+  for (const c of chain) { const [num, den] = c.flip ? [c.a, c.b] : [c.b, c.a];
+    for (const [s,e] of Object.entries(num)) tot[s] = (tot[s]||0) + e;
+    for (const [s,e] of Object.entries(den)) tot[s] = (tot[s]||0) - e; }
+  for (const s in tot) if (!tot[s]) delete tot[s];
+  return tot;
+}
+const same = (a, b) => Object.keys(a).length === Object.keys(b).length && Object.entries(a).every(([s,e]) => b[s] === e);
+function value(){
+  let v = ex.v; for (const c of chain) { const [nk, dk] = c.flip ? [1, c.k] : [c.k, 1]; v *= nk / dk; } return v;
+}
+function cls(s, tot){ return !tot[s] ? 'x' : (ex.to[s] === tot[s] ? 'f' : ''); }
+
+function startHTML(tot){
+  const n = Object.entries(ex.from).filter(([,e])=>e>0), d = Object.entries(ex.from).filter(([,e])=>e<0);
+  const top = `${fmt(ex.v)} ${n.map(([s,e]) => uHTML(s,e,cls(s,tot))).join('')}`;
+  if (!d.length) return `<span class="frac start"><span style="border:0">${top}</span></span>`;
+  return `<span class="frac start"><span>${top}</span><span>1 ${d.map(([s,e]) => uHTML(s,e,cls(s,tot))).join('')}</span></span>`;
+}
+function fracHTML(c, tot){
+  const [num, nk, den, dk] = c.flip ? [c.a, 1, c.b, c.k] : [c.b, c.k, c.a, 1];
+  const part = (k, m) => `${fmt(k)} ${Object.entries(m).map(([s,e]) => uHTML(s,e,cls(s,tot))).join('')}`;
+  return `<span class="frac"><span>${part(nk, num)}</span><span>${part(dk, den)}</span></span>`;
+}
+
+function render(){
+  const typed = {}; document.querySelectorAll('[data-in]').forEach(x => typed[x.dataset.in] = x.value);
+  document.querySelectorAll('[data-t]').forEach(el => el.innerHTML = t(el.dataset.t));
+  $('sections').innerHTML = t('sections').map((s,i) => `<button aria-pressed="${(level===3)===(i===1)}" data-i="${i}">${s}</button>`).join('');
+  $('levels').hidden = level === 3; $('exBox').classList.toggle('sep', level === 3);
+  $('levels').innerHTML = t('levels').map((s,i) => `<button aria-pressed="${i===level}" data-i="${i}">${s}</button>`).join('');
+  $('modes').innerHTML = t('modes').map((s,i) => `<button aria-pressed="${i===mode}" data-i="${i}">${s}</button>`).join('');
+  document.querySelectorAll('#lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === lang));
+  document.documentElement.lang = lang;
+  $('own').hidden = level !== 3; $('exBox').hidden = level === 3 && !ex;
+  ['ownV','ownU1','ownU2'].forEach((id,i) => $(id).placeholder = t(['ownPh1','ownPh2','ownPh3'][i]));
+  document.querySelector('.nav').style.display = level === 3 ? 'none' : '';
+  if (level === 3 && !ex) { $('ownMsg').innerHTML = $('ownMsg').innerHTML || `<p class="hint">${t('ownWait')}</p>`; $('score').textContent = stats.tot ? t('score')(stats.ok, stats.tot) : ''; $('ladders').innerHTML = ''; $('cheatBody').innerHTML = t('cheat'); return; }
+  const n = BANK.filter(b => b[0] === level).length;
+  $('num').textContent = `${idx[level] % n + 1} / ${n}`;
+  $('q').innerHTML = `${fmt(ex.v)} ${unitStr(ex.from)} <span style="color:var(--muted);font-weight:400">→</span> ${unitStr(ex.to)}`;
+  const tot = totals();
+  // cadena
+  let h = startHTML(tot);
+  chain.forEach((c, i) => { h += `<span class="op">×</span><span class="fcard">${fracHTML(c, tot)}<span class="tools"><button data-flip="${i}" title="${t('flip')}">⇅</button><button data-del="${i}" title="${t('del')}">✕</button></span></span>`; });
+  if (!chain.length) h += `<span class="empty">${t('empty')}</span>`;
+  $('chain').innerHTML = h;
+  // estado
+  const ok = same(tot, ex.to);
+  const leftover = Object.keys(ex.from).filter(s => tot[s] && ex.to[s] !== tot[s]).map(s => symName(s)).join(', ');
+  $('state').innerHTML = !chain.length ? '' : ok ? `<div class="state ok">${t('done')}</div>`
+    : leftover ? `<div class="state warn">${t('left')(leftover)}</div>` : `<div class="state warn">${t('wrong')(unitStr(tot))}</div>`;
+  // fichas
+  $('tiles').innerHTML = tiles.map((tl, i) => {
+    const right = tl.open ? side(tl.k, tl.b) : `<input data-in="${i}" inputmode="decimal" aria-label="?"> ${side(null, tl.b)}`;
+    return `<span class="tile ${tl.open ? '' : 'locked'}" data-tile="${i}">${side(1, tl.a)} = ${right}</span>`;
+  }).join('');
+  $('rA').placeholder = $('rB').placeholder = t('phU'); $('rK').placeholder = t('phN');
+  const free = mode === 2; $('tiles').hidden = free; $('builder').hidden = !free;
+  document.querySelector('[data-t="tilesLbl"]').innerHTML = free ? t('relLbl') : t('tilesLbl');
+  $('hint').textContent = free ? t('hintFree') : mode === 0 ? t('hintHelp') : t('hintNo');
+  // resultado
+  $('resBox').innerHTML = ok ? `<div class="res"><b>${t('resLbl')}:</b> ${fmt(ex.v)} ${unitStr(ex.from)} = <input id="ans" inputmode="decimal" autocomplete="off"> ${unitStr(ex.to)}
+    <button class="b pri" id="chk">${t('check')}</button><button class="b" id="sol">${t('show')}</button></div><div id="fb"></div><div id="dev"></div>` : '';
+  if (solved && ok) showDev();
+  $('score').textContent = stats.tot ? t('score')(stats.ok, stats.tot) : '';
+  document.querySelectorAll('[data-in]').forEach(x => { if (typed[x.dataset.in]) x.value = typed[x.dataset.in]; });
+  renderLadders(); $('cheatBody').innerHTML = t('cheat');
+}
+
+function showDev(){
+  const tot = totals(), all = [ {num:Object.fromEntries(Object.entries(ex.from).filter(([,e])=>e>0)), nk:ex.v, den:Object.fromEntries(Object.entries(ex.from).filter(([,e])=>e<0).map(([s,e])=>[s,-e])), dk:1} ];
+  for (const c of chain) all.push(c.flip ? {num:c.a, nk:1, den:c.b, dk:c.k} : {num:c.b, nk:c.k, den:c.a, dk:1});
+  const us = m => Object.entries(m).map(([s,e]) => uHTML(s,e,cls(s,tot))).join('');
+  const prod = (k, m) => all.map(x => `${fmt(x[k])} ${us(x[m])}`).join(' × ');
+  const N = all.reduce((p,x) => p * x.nk, 1), D = all.reduce((p,x) => p * x.dk, 1), v = value();
+  $('dev').innerHTML = `<div class="dev"><span>${startHTML(tot)}</span><span>${chain.map(c => '× ' + fracHTML(c, tot)).join(' ')}</span>
+    <span>=</span><span class="frac big"><span>${prod('nk','num')}</span><span>${prod('dk','den')}</span></span>
+    <span>=</span><span class="frac"><span>${fmt(N)}</span><span>${fmt(D)}</span></span><span>${unitStr(ex.to)}</span>
+    <span>=</span><b class="final">${fmt(v)} ${unitStr(ex.to)}</b>${Math.abs(Math.log10(Math.abs(v))) >= 3 ? `<span>= <b class="final">${sci(v)} ${unitStr(ex.to)}</b></span>` : ''}</div>`;
+}
+
+function renderLadders(){
+  if (!ex) return;
+  const fams = [...new Set([...Object.keys(ex.from), ...Object.keys(ex.to)].map(famOf))];
+  let h = '';
+  for (const f of fams) {
+    if (f === 'time') { h += `<p class="m" style="font-family:var(--f-mono);margin:8px 0">1 ${symName('d')} = 24 h · 1 h = 60 min · 1 min = 60 s · 1 h = 3600 s</p>`; continue; }
+    const e = Math.max(...[ex.from, ex.to].flatMap(m => Object.entries(m).filter(([s]) => famOf(s) === f).map(([,x]) => Math.abs(x))));
+    const syms = Object.keys(FAM[f]).filter(s => s !== 't');
+    const mul = f === 'cap' ? '×10' : ['×10','×100','×1000'][e-1];
+    h += `<div class="ladder">${syms.map((s,i) => `<div class="step"><small>${i ? mul : ''}</small><b class="${ex.from[s] ? 'from' : ex.to[s] ? 'to' : ''}">${s}${f === 'cap' ? '' : SUP[e]}</b></div>`).join('')}</div>`;
+    if (f === 'cap' && fams.includes('len')) h += `<p class="hint">1 L = 1 dm³ · 1 mL = 1 cm³</p>`;
+  }
+  $('ladders').innerHTML = h;
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener('click', e => {
+  const b = e.target.closest('button, .tile'); if (!b) return;
+  if (b.closest('#levels')) { level = +b.dataset.i; load(); return; }
+  if (b.closest('#sections')) { const i = +b.dataset.i; if (i === 1 && level !== 3) { lastLvl = level; level = 3; } else if (i === 0 && level === 3) level = lastLvl; load(); return; }
+  if (b.closest('#modes')) { modeBy[level === 3 ? 1 : 0] = +b.dataset.i; load(); return; }
+  if (b.closest('#lang')) { lang = b.dataset.l; try { localStorage.setItem('fc-lang', lang); } catch (_) {} render(); return; }
+  if (b.id === 'prev') { idx[level] = (idx[level] + BANK.filter(x=>x[0]===level).length - 1); load(); return; }
+  if (b.id === 'next') { idx[level]++; load(); return; }
+  if (b.id === 'rnd') { const n = BANK.filter(x=>x[0]===level).length; let r; do r = Math.floor(Math.random()*n); while (n > 1 && r === idx[level] % n); idx[level] = r; load(); return; }
+  if (b.dataset.flip) { chain[+b.dataset.flip].flip ^= 1; solved = false; render(); return; }
+  if (b.dataset.del) { chain.splice(+b.dataset.del, 1); solved = false; render(); return; }
+  if (b.dataset.tile !== undefined && !e.target.matches('input')) { const tl = tiles[+b.dataset.tile]; if (!tl.open) return; chain.push({...tl, flip:0}); solved = false; render(); return; }
+  if (b.id === 'chk') {
+    const a = parseNum($('ans').value), v = value(); if (isNaN(a)) return;
+    const good = Math.abs(a - v) <= Math.abs(v) * 5e-3;
+    stats.tot++; if (good) stats.ok++;
+    $('fb').innerHTML = `<div class="state ${good ? 'ok' : 'warn'}">${good ? t('good') : t('bad')}</div>`;
+    $('score').textContent = t('score')(stats.ok, stats.tot);
+    if (good) { solved = true; showDev(); }
+    return;
+  }
+  if (b.id === 'sol') { solved = true; showDev(); }
+});
+document.addEventListener('submit', e => {
+  if (e.target.id === 'builder') {
+    e.preventDefault(); const msg = m => { $('relMsg').innerHTML = m ? `<div class="state warn">${m}</div>` : ''; };
+    const A = readUnit($('rA').value), B = readUnit($('rB').value), k = parseNum($('rK').value);
+    if (A.err !== undefined) return msg(A.err ? t('ownErrUnit')(A.err) : t('relErrSingle'));
+    if (B.err !== undefined) return msg(B.err ? t('ownErrUnit')(B.err) : t('relErrSingle'));
+    const ea = Object.entries(A.map), eb = Object.entries(B.map);
+    if (ea.length !== 1 || eb.length !== 1 || ea[0][1] < 0 || eb[0][1] < 0) return msg(t('relErrSingle'));
+    if (dims(A.map) !== dims(B.map)) return msg(t('relErrDim'));
+    if (isNaN(k)) return msg(t('ownErrNum'));
+    const kk = base(ea[0][0]) ** ea[0][1] / base(eb[0][0]) ** eb[0][1];
+    if (Math.abs(k - kk) > Math.abs(kk) * 1e-9) return msg(t('relErrNum')(unitStr(A.map), unitStr(B.map)));
+    chain.push({a:A.map, b:B.map, k:kk, flip:0}); solved = false; msg('');
+    $('rA').value = $('rK').value = $('rB').value = ''; render(); $('rA').focus(); return;
+  }
+  if (e.target.id !== 'ownForm') return; e.preventDefault();
+  const v = parseNum($('ownV').value), a = readUnit($('ownU1').value), b = readUnit($('ownU2').value);
+  const err = m => { $('ownMsg').innerHTML = `<div class="state warn">${m}</div>`; };
+  if (isNaN(v)) return err(t('ownErrNum'));
+  if (a.err !== undefined) return err(t('ownErrUnit')(a.err || $('ownU1').value || '?'));
+  if (b.err !== undefined) return err(t('ownErrUnit')(b.err || $('ownU2').value || '?'));
+  if (dims(a.map) !== dims(b.map) || Object.keys(cat(a.map)).length !== Object.keys(a.map).length || Object.keys(cat(b.map)).length !== Object.keys(b.map).length) return err(t('ownErrDim'));
+  if (same(a.map, b.map)) return err(t('ownErrSame'));
+  $('ownMsg').innerHTML = ''; own = {v, from:a.map, to:b.map}; load();
+});
+document.addEventListener('input', e => {
+  if (!e.target.dataset.in) return;
+  const i = +e.target.dataset.in, v = parseNum(e.target.value), k = tiles[i].k;
+  const good = !isNaN(v) && Math.abs(v - k) <= Math.abs(k) * 1e-9;
+  e.target.classList.toggle('good', good); e.target.classList.toggle('bad', !good && e.target.value.trim() !== '');
+  if (good) { tiles[i].open = true; setTimeout(render, 350); }
+});
+document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.id === 'ans') $('chk').click(); });
+load();
+</script>
+</body>
+</html>
