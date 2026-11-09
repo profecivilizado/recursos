@@ -94,6 +94,9 @@ input[type=range]{accent-color:var(--ink);height:24px}
 .chip.warn{background:var(--chip-warn);color:var(--chip-warn-ink)}
 .c1{color:var(--p1);font-weight:600}.c2{color:var(--p2);font-weight:600}.cr{color:var(--res);font-weight:600}
 
+.modebar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.modebar .seg{flex:0 1 380px}
+.modebar .seg button{font-weight:600;padding-block:9px}
 .presets{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .presets .lab{font-size:14px;color:var(--muted);margin-right:4px}
 
@@ -127,13 +130,20 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
   <header>
     <div class="eyebrow">Ondas · Principio de superposición</div>
     <h1>Superposición de pulsos <span class="eq">y = y₁ + y₂</span></h1>
-    <p>Dos pulsos viajan por la misma cuerda en sentidos opuestos. Arriba los ves como rectángulos, como en el libro; abajo, los mismos pulsos con forma de onda. Mueve el tiempo, arrastra la sonda y comprueba que en los dos casos el desplazamiento es la suma algebraica.</p>
+    <p>Dos pulsos viajan por la misma cuerda en sentidos opuestos. Arriba los ves como rectángulos, como en el libro; abajo, los mismos pulsos con forma de onda. Mueve el tiempo, arrastra la sonda y comprueba que en los dos casos el desplazamiento es la suma algebraica. En «Ondas viajeras», dos ondas armónicas que viajan en sentidos opuestos forman una onda estacionaria.</p>
   </header>
+
+  <div class="modebar">
+    <div class="seg" role="group" aria-label="Qué viaja por la cuerda">
+      <button data-mode="pulse" aria-pressed="true">Pulsos</button>
+      <button data-mode="wave" aria-pressed="false">Ondas viajeras</button>
+    </div>
+  </div>
 
   <div class="sim" id="sim">
     <div class="legend" aria-hidden="true">
-      <span class="c1"><i class="sw d"></i>Pulso 1 (→)</span>
-      <span class="c2"><i class="sw d"></i>Pulso 2 (←)</span>
+      <span class="c1"><i class="sw d"></i><span id="lg1">Pulso 1 (→)</span></span>
+      <span class="c2"><i class="sw d"></i><span id="lg2">Pulso 2 (←)</span></span>
       <span class="cr"><i class="sw"></i>Cuerda: y = y₁ + y₂</span>
       <span>│ sonda (arrástrala)</span>
     </div>
@@ -154,13 +164,21 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
     </div>
 
     <div class="readouts">
-      <div class="ro"><div class="k">Estado</div><div class="v"><span class="chip" id="state">Se acercan</span></div></div>
-      <div class="ro"><div class="k">Desplazamiento máximo |y|</div><div class="v" id="maxv"></div></div>
-      <div class="ro"><div class="k">Sonda</div><div class="v" id="probe"></div></div>
+      <div class="ro"><div class="k" id="k1">Estado</div><div class="v"><span class="chip" id="state">Se acercan</span></div></div>
+      <div class="ro"><div class="k" id="k2">Desplazamiento máximo |y|</div><div class="v" id="maxv"></div></div>
+      <div class="ro"><div class="k" id="k3">Sonda</div><div class="v" id="probe"></div></div>
     </div>
   </div>
 
-  <div class="presets">
+  <div class="presets" id="presetsWave" hidden>
+    <span class="lab">Situaciones:</span>
+    <button data-wpreset="0">Onda estacionaria (fig. 15.1)</button>
+    <button data-wpreset="1">Amplitudes distintas</button>
+    <button data-wpreset="2">Longitudes de onda distintas</button>
+    <button data-wpreset="3">Una sola onda viajera</button>
+  </div>
+
+  <div class="presets" id="presetsPulse">
     <span class="lab">Situaciones:</span>
     <button data-preset="0">Dos pulsos positivos (fig. 14.17)</button>
     <button data-preset="1">Positivo y negativo iguales (fig. 14.19)</button>
@@ -168,7 +186,38 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
     <button data-preset="3">Positivo y negativo distintos</button>
   </div>
 
-  <div class="controls">
+  <div class="controls" id="ctrlWave" hidden>
+    <div class="card">
+      <h2 class="c1"><i class="sw"></i>Onda 1 · hacia la derecha</h2>
+      <div class="field"><div class="top"><label for="wA1">Amplitud</label><output id="owA1"></output></div>
+        <input type="range" id="wA1" min="0" max="2" step="0.1" value="1"></div>
+      <div class="field"><div class="top"><label for="wL1">Longitud de onda λ₁</label><output id="owL1"></output></div>
+        <input type="range" id="wL1" min="0.4" max="2" step="0.1" value="1"></div>
+    </div>
+    <div class="card">
+      <h2 class="c2"><i class="sw"></i>Onda 2 · hacia la izquierda</h2>
+      <div class="field"><div class="top"><label for="wA2">Amplitud</label><output id="owA2"></output></div>
+        <input type="range" id="wA2" min="0" max="2" step="0.1" value="1"></div>
+      <div class="field"><div class="top"><label for="wL2">Longitud de onda λ₂</label><output id="owL2"></output></div>
+        <input type="range" id="wL2" min="0.4" max="2" step="0.1" value="1"></div>
+    </div>
+    <div class="card">
+      <h2>Cuerda y vista</h2>
+      <div class="field"><div class="top"><label for="wv">Velocidad de las ondas</label><output id="owv"></output></div>
+        <input type="range" id="wv" min="0.5" max="4" step="0.5" value="1">
+        <p class="note">Las dos ondas viajan por la misma cuerda, así que van a la misma velocidad.</p></div>
+      <div class="seg" role="group" aria-label="Vista">
+        <button id="wOver" aria-pressed="true">Juntas</button>
+        <button id="wSep" aria-pressed="false">Por separado</button>
+      </div>
+      <label class="check"><input type="checkbox" id="wNodes" checked> Marcar nodos y vientres</label>
+      <label class="check"><input type="checkbox" id="wEnv"> Mostrar la envolvente (amplitud en cada punto)</label>
+      <label class="check"><input type="checkbox" id="wInd" checked> Mostrar las dos ondas viajeras</label>
+      <label class="check"><input type="checkbox" id="wRes" checked> Mostrar resultante (desmárcalo para predecir)</label>
+    </div>
+  </div>
+
+  <div class="controls" id="ctrlPulse">
     <div class="card">
       <h2 class="c1"><i class="sw"></i>Pulso 1 · hacia la derecha</h2>
       <div class="field"><div class="top"><label for="A1">Amplitud</label><output id="oA1"></output></div>
@@ -205,7 +254,21 @@ kbd{font:12px var(--f-mono);border:1px solid var(--line);border-bottom-width:2px
     </div>
   </div>
 
-  <div class="theory">
+  <div class="theory" id="thWave" hidden>
+    <section>
+      <h2>Dos ondas que viajan en sentidos opuestos</h2>
+      <p>Por la cuerda viajan dos ondas armónicas: una hacia la derecha y otra hacia la izquierda. En cada punto el desplazamiento es la suma de los dos, como con los pulsos:</p>
+      <p class="big-eq">y = A sen(kx − ωt) + A sen(kx + ωt) = 2A sen(kx) · cos(ωt)</p>
+      <p>Si las dos ondas tienen la <b>misma amplitud, la misma longitud de onda y la misma velocidad</b>, el resultado es una <b>onda estacionaria</b>: las crestas y los valles no avanzan, solo suben y bajan en el mismo sitio.</p>
+      <h2>Nodos y vientres</h2>
+      <p><b>Nodos:</b> puntos que no se mueven nunca, porque allí las dos ondas siempre se anulan (interferencia destructiva). Están separados <b>λ/2</b>.</p>
+      <p><b>Vientres (antinodos):</b> puntos a mitad de camino entre dos nodos. Allí la interferencia es constructiva y la amplitud es máxima, 2A, aunque solo alcanzan ese desplazamiento un instante en cada oscilación.</p>
+      <p>Cada punto de la cuerda oscila con la misma frecuencia, pero con una amplitud distinta según dónde esté: 2A·|sen(kx)|. Activa «Mostrar la envolvente» para verla.</p>
+      <p>Una onda estacionaria no transporta energía: está formada por dos ondas que la transportan en sentidos opuestos.</p>
+      <p class="note">Atajos: <kbd>espacio</kbd> iniciar/pausar · <kbd>←</kbd> <kbd>→</kbd> avanzar o retroceder T/20 · <kbd>R</kbd> inicio. Pulsa o arrastra sobre la cuerda para mover la sonda.</p>
+    </section>
+  </div>
+  <div class="theory" id="thPulse">
     <section>
       <h2>El principio</h2>
       <p>Cuando dos o más ondas del mismo tipo llegan a un punto al mismo tiempo, el desplazamiento del medio en ese punto es la <b>suma algebraica</b> de los desplazamientos individuales:</p>
@@ -264,12 +327,161 @@ const sr = x => s1(x) + s2(x);
 const XS = Array.from({ length: 401 }, (_, i) => X0 + i * (X1 - X0) / 400);
 const maxWave = () => { let m = 0; for (const x of XS) m = Math.max(m, Math.abs(sr(x))); for (const x of [c1(), c2()]) if (x >= X0 && x <= X1) m = Math.max(m, Math.abs(sr(x))); return m; };
 
+/* ---------- Ondas viajeras ---------- */
+const XW = 2;   // cuerda de 2 m
+const WPRESETS = [
+  { A1: 1, A2: 1, l1: 1, l2: 1 },
+  { A1: 1.5, A2: 0.6, l1: 1, l2: 1 },
+  { A1: 1, A2: 1, l1: 1, l2: 0.6 },
+  { A1: 1, A2: 0, l1: 1, l2: 1 },
+];
+const wv = { A1: 1, A2: 1, l1: 1, l2: 1, v: 1, t: 0, view: 'over', nodes: true, env: false, ind: true, res: true, probe: 0.25 };
+const wT = () => wv.l1 / wv.v;                       // periodo de la onda 1
+const wy1 = x => wv.A1 * Math.sin(2 * Math.PI / wv.l1 * (x - wv.v * wv.t));
+const wy2 = x => wv.A2 * Math.sin(2 * Math.PI / wv.l2 * (x + wv.v * wv.t));
+const wyr = x => wy1(x) + wy2(x);
+const standing = () => wv.A1 > 0 && Math.abs(wv.A1 - wv.A2) < 1e-9 && Math.abs(wv.l1 - wv.l2) < 1e-9;
+const XSW = Array.from({ length: 601 }, (_, i) => i * XW / 600);
+
+function drawWave() {
+  const css = getComputedStyle(document.documentElement), C = k => css.getPropertyValue(k).trim();
+  const col = { ink: C('--ink'), muted: C('--muted'), minor: C('--grid-minor'), major: C('--grid-major'), p1: C('--p1'), p2: C('--p2'), res: C('--res'), fill: C('--res-fill'), panel: C('--panel') };
+  ctx.clearRect(0, 0, W, H); ctx.fillStyle = col.panel; ctx.fillRect(0, 0, W, H);
+  const L = 48, R = W - 14, X = x => L + x / XW * (R - L);
+  const mono = (sz, wt = 400) => `${wt} ${sz}px "JetBrains Mono", ui-monospace, monospace`;
+  const Rr = Math.max(2, Math.ceil(wv.A1 + wv.A2)), Ri = Math.max(1, Math.ceil(Math.max(wv.A1, wv.A2)));
+  const top = 38, bottom = H - 30;
+  let LS;
+  if (wv.view === 'over') LS = [{ top, bottom, R: Rr, kind: 'all', name: 'y / cm' }];
+  else { const gap = 18, u = (bottom - top - 2 * gap) / 3.6, h1 = u;
+    LS = [{ top, bottom: top + h1, R: Ri, kind: 'p1', name: 'y₁ →' }, { top: top + h1 + gap, bottom: top + 2 * h1 + gap, R: Ri, kind: 'p2', name: 'y₂ ←' },
+          { top: top + 2 * h1 + 2 * gap, bottom, R: Rr, kind: 'res', name: 'y = y₁ + y₂' }]; }
+  for (const ln of LS) {
+    const Y = y => ln.top + (ln.R - y) / (2 * ln.R) * (ln.bottom - ln.top); ln.Y = Y;
+    ctx.lineWidth = 1; ctx.strokeStyle = col.minor; ctx.beginPath();
+    for (let x = 0.1; x < XW; x += 0.1) { ctx.moveTo(Math.round(X(x)) + .5, ln.top); ctx.lineTo(Math.round(X(x)) + .5, ln.bottom); }
+    ctx.stroke();
+    ctx.strokeStyle = col.major; ctx.beginPath();
+    for (let x = 0; x <= XW + 1e-9; x += 0.5) { ctx.moveTo(Math.round(X(x)) + .5, ln.top); ctx.lineTo(Math.round(X(x)) + .5, ln.bottom); }
+    for (let y = -ln.R; y <= ln.R; y++) { ctx.moveTo(L, Math.round(Y(y)) + .5); ctx.lineTo(R, Math.round(Y(y)) + .5); }
+    ctx.stroke();
+    ctx.fillStyle = col.muted; ctx.font = mono(11); ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (let y = -ln.R; y <= ln.R; y++) if (ln.R <= 2 || y % 2 === 0 || Math.abs(y) === ln.R) ctx.fillText(fmt(y, 0), L - 6, Y(y));
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.font = mono(12, 600);
+    ctx.fillStyle = ln.kind === 'p1' ? col.p1 : ln.kind === 'p2' ? col.p2 : ln.kind === 'res' ? col.res : col.muted;
+    ctx.fillText(ln.name, L + 6, ln.top + 4);
+    ctx.strokeStyle = col.muted; ctx.globalAlpha = .55; ctx.setLineDash([2, 4]);
+    ctx.beginPath(); ctx.moveTo(L, Y(0)); ctx.lineTo(R, Y(0)); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  }
+  const last = LS[LS.length - 1];
+  ctx.fillStyle = col.muted; ctx.font = mono(11); ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  for (let x = 0; x <= XW + 1e-9; x += 0.5) ctx.fillText(fmt(x, x % 1 ? 1 : 0), X(x), last.bottom + 6);
+  ctx.textAlign = 'right'; ctx.fillText('x / m', R, last.bottom + 18 > H - 12 ? last.bottom + 6 : last.bottom + 18);
+
+  const curve = (fn, Y, color, w, dash) => {
+    ctx.save(); ctx.beginPath(); XSW.forEach((x, i) => i ? ctx.lineTo(X(x), Y(fn(x))) : ctx.moveTo(X(x), Y(fn(x))));
+    ctx.strokeStyle = color; ctx.lineWidth = w; ctx.lineJoin = 'round'; ctx.setLineDash(dash || []); ctx.stroke(); ctx.restore();
+  };
+  const arrow = (x0, y, dir, color) => {
+    const x = X(x0), len = 34; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(x - dir * len / 2, y); ctx.lineTo(x + dir * len / 2 - dir * 7, y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x + dir * len / 2, y); ctx.lineTo(x + dir * len / 2 - dir * 9, y - 5); ctx.lineTo(x + dir * len / 2 - dir * 9, y + 5); ctx.closePath(); ctx.fill();
+  };
+  const st_ = standing(), k = 2 * Math.PI / wv.l1;
+  const resLane = LS[LS.length - 1];
+  // envolvente y nodos (solo onda estacionaria)
+  if (st_ && wv.res) {
+    if (wv.env) { const e = x => 2 * wv.A1 * Math.abs(Math.sin(k * x)); curve(e, resLane.Y, col.res, 1.5, [5, 5]); curve(x => -e(x), resLane.Y, col.res, 1.5, [5, 5]); }
+    if (wv.nodes) {
+      ctx.font = mono(12, 700); ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      for (let n = 0; n * wv.l1 / 2 <= XW + 1e-9; n++) {            // nodos
+        const x = n * wv.l1 / 2, px = X(x), py = resLane.Y(0);
+        ctx.beginPath(); ctx.arc(px, py, 6, 0, 7); ctx.fillStyle = col.panel; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = col.ink; ctx.stroke();
+        ctx.fillStyle = col.ink; ctx.fillText('N', px, resLane.bottom - 2);
+      }
+      for (let n = 0; (n + .5) * wv.l1 / 2 <= XW + 1e-9; n++) {      // vientres
+        const x = (n + .5) * wv.l1 / 2, px = X(x);
+        ctx.strokeStyle = col.res; ctx.globalAlpha = .35; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
+        ctx.beginPath(); ctx.moveTo(px, resLane.Y(2 * wv.A1)); ctx.lineTo(px, resLane.Y(-2 * wv.A1)); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+        ctx.fillStyle = col.res; ctx.fillText('V', px, resLane.bottom - 2);
+      }
+    }
+  }
+  if (wv.view === 'over') {
+    const Y = LS[0].Y;
+    if (wv.ind) { if (wv.A1) curve(wy1, Y, col.p1, 2, [7, 5]); if (wv.A2) curve(wy2, Y, col.p2, 2, [7, 5]); }
+    if (wv.res) curve(wyr, Y, col.res, 3.5);
+    if (wv.A1) arrow(0.55, LS[0].top - 18, 1, col.p1); if (wv.A2) arrow(1.45, LS[0].top - 18, -1, col.p2);
+  } else {
+    const [a, b, c] = LS;
+    if (wv.A1) curve(wy1, a.Y, col.p1, 3); if (wv.A2) curve(wy2, b.Y, col.p2, 3);
+    if (wv.res) curve(wyr, c.Y, col.res, 3.5);
+    if (wv.ind && wv.res) { if (wv.A1) curve(wy1, c.Y, col.p1, 1.3, [6, 5]); if (wv.A2) curve(wy2, c.Y, col.p2, 1.3, [6, 5]); }
+    if (wv.A1) arrow(XW - .25, a.top + 12, 1, col.p1); if (wv.A2) arrow(XW - .25, b.top + 12, -1, col.p2);
+  }
+  // sonda
+  const px = X(wv.probe);
+  ctx.strokeStyle = col.ink; ctx.lineWidth = 1.5; ctx.globalAlpha = .7;
+  ctx.beginPath(); ctx.moveTo(px, LS[0].top); ctx.lineTo(px, last.bottom); ctx.stroke(); ctx.globalAlpha = 1;
+  ctx.fillStyle = col.ink; ctx.beginPath(); ctx.moveTo(px, last.bottom - 1); ctx.lineTo(px - 6, last.bottom + 8); ctx.lineTo(px + 6, last.bottom + 8); ctx.closePath(); ctx.fill();
+  const dot = (y, Y, color) => { ctx.beginPath(); ctx.arc(px, Y(y), 5, 0, 7); ctx.fillStyle = color; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = col.panel; ctx.stroke(); };
+  const p = wv.probe;
+  if (wv.view === 'over') { if (wv.ind) { if (wv.A1) dot(wy1(p), LS[0].Y, col.p1); if (wv.A2) dot(wy2(p), LS[0].Y, col.p2); } if (wv.res) dot(wyr(p), LS[0].Y, col.res); }
+  else { if (wv.A1) dot(wy1(p), LS[0].Y, col.p1); if (wv.A2) dot(wy2(p), LS[1].Y, col.p2); if (wv.res) dot(wyr(p), LS[2].Y, col.res); }
+}
+
+function readoutsWave() {
+  const T = wT(), ph = wv.t / T;
+  $('tval').textContent = `t = ${fmt(wv.t, 2)} s = ${fmt(ph, 2)} T`;
+  $('scrub').value = Math.round((wv.t % (2 * T)) / T * 20);
+  const chip = $('state');
+  if (!wv.A1 || !wv.A2) { chip.textContent = 'Una sola onda viajera: las crestas avanzan'; chip.className = 'chip'; }
+  else if (standing()) { const flat = Math.abs(Math.cos(2 * Math.PI * ph)) < 1e-6;
+    chip.textContent = flat ? 'Onda estacionaria · ahora la cuerda está plana' : 'Onda estacionaria: nodos y vientres fijos'; chip.className = 'chip ok'; }
+  else { chip.textContent = wv.A1 !== wv.A2 && wv.l1 === wv.l2 ? 'No es estacionaria: amplitudes distintas (no hay nodos de verdad)' : 'No es estacionaria: longitudes de onda distintas'; chip.className = 'chip warn'; }
+  const f1 = wv.v / wv.l1, f2 = wv.v / wv.l2;
+  $('maxv').innerHTML = `<span class="c1">λ₁ = ${fmt(wv.l1)} m · f₁ = ${fmt(f1, 2)} Hz</span><br><span class="c2">λ₂ = ${fmt(wv.l2)} m · f₂ = ${fmt(f2, 2)} Hz</span>` +
+    (standing() ? `<br>Distancia entre nodos: λ/2 = <span class="cr">${fmt(wv.l1 / 2, 2)} m</span>` : '');
+  const p = wv.probe, a = wy1(p), b = wy2(p);
+  let amp = '';
+  if (standing()) { const A = 2 * wv.A1 * Math.abs(Math.sin(2 * Math.PI / wv.l1 * p));
+    amp = `<br>amplitud aquí: <span class="cr">${fmt(A, 2)} cm</span>` + (A < 1e-6 ? ' (nodo)' : Math.abs(A - 2 * wv.A1) < 1e-6 ? ' (vientre)' : ''); }
+  $('probe').innerHTML = `x = ${fmt(p, 2)} m → y = <span class="c1">(${sgn(a, 2)})</span> + <span class="c2">(${sgn(b, 2)})</span> = ` +
+    (wv.res ? `<span class="cr">${sgn(a + b, 2)} cm</span>` : `<span class="cr">?</span>`) + amp;
+}
+
+let mode = 'pulse';
+function setMode(m) {
+  mode = m; st.playing = false;
+  document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+  const W_ = m === 'wave';
+  $('presetsPulse').hidden = W_; $('ctrlPulse').hidden = W_; $('thPulse').hidden = W_;
+  $('presetsWave').hidden = !W_; $('ctrlWave').hidden = !W_; $('thWave').hidden = !W_;
+  $('lg1').textContent = W_ ? 'Onda 1 (→)' : 'Pulso 1 (→)'; $('lg2').textContent = W_ ? 'Onda 2 (←)' : 'Pulso 2 (←)';
+  $('k2').textContent = W_ ? 'Las dos ondas' : 'Desplazamiento máximo |y|';
+  $('bBack').title = W_ ? 'Retroceder T/20 (←)' : 'Retroceder 1 cm (←)'; $('bFwd').title = W_ ? 'Avanzar T/20 (→)' : 'Avanzar 1 cm (→)';
+  $('bMeet').textContent = W_ ? 'Ir a t = T/4' : 'Ir al solape total';
+  $('bMeet').title = W_ ? 'Un cuarto de periodo: en la onda estacionaria la cuerda queda plana' : 'Saltar al instante en que los centros coinciden';
+  $('scrub').max = W_ ? 40 : SMAX; $('scrub').step = W_ ? 1 : 0.1;
+  syncInputs(); resize();
+}
+function syncWave() {
+  for (const [id, k] of [['wA1','A1'],['wA2','A2'],['wL1','l1'],['wL2','l2'],['wv','v']]) $(id).value = wv[k];
+  $('owA1').textContent = fmt(wv.A1) + ' cm'; $('owA2').textContent = fmt(wv.A2) + ' cm';
+  $('owL1').textContent = fmt(wv.l1) + ' m'; $('owL2').textContent = fmt(wv.l2) + ' m'; $('owv').textContent = fmt(wv.v) + ' m/s';
+  $('wOver').setAttribute('aria-pressed', wv.view === 'over'); $('wSep').setAttribute('aria-pressed', wv.view === 'sep');
+  $('wNodes').checked = wv.nodes; $('wEnv').checked = wv.env; $('wInd').checked = wv.ind; $('wRes').checked = wv.res;
+  $('bPlay').textContent = st.playing ? '⏸ Pausa' : wv.t > 0 ? '▶ Seguir' : '▶ Iniciar';
+  dirty = true;
+}
+const wStep = d => { const T = wT(); wv.t = Math.max(0, Math.round(wv.t / T * 20 + d) * T / 20); dirty = true; };
+
 /* ---------- Dibujo ---------- */
 const cv = $('cv'), ctx = cv.getContext('2d');
 let W = 0, H = 0, dirty = true;
 function resize() {
   W = $('canvasWrap').clientWidth;
-  let h = st.view === 'over' ? Math.min(440, Math.max(250, W * 0.42)) : st.view === 'both' ? Math.min(720, Math.max(470, W * 0.68)) : Math.min(660, Math.max(420, W * 0.66));
+  let h = mode === 'wave' ? (wv.view === 'over' ? Math.min(460, Math.max(280, W * 0.45)) : Math.min(660, Math.max(420, W * 0.66))) : st.view === 'over' ? Math.min(440, Math.max(250, W * 0.42)) : st.view === 'both' ? Math.min(720, Math.max(470, W * 0.68)) : Math.min(660, Math.max(420, W * 0.66));
   if (document.fullscreenElement) h = Math.max(h, Math.min(window.innerHeight - 260, W * (st.view === 'over' ? 0.5 : 0.75)));
   H = Math.round(h);
   const dpr = window.devicePixelRatio || 1;
@@ -434,6 +646,7 @@ function readouts() {
 
 /* ---------- Controles ---------- */
 function syncInputs() {
+  if (mode === 'wave') { syncWave(); return; }
   for (const k of ['A1', 'w1', 'A2', 'w2', 'v']) $(k).value = st[k];
   $('oA1').textContent = sgn(st.A1) + ' cm'; $('oA2').textContent = sgn(st.A2) + ' cm';
   $('ow1').textContent = fmt(st.w1, 0) + ' cm'; $('ow2').textContent = fmt(st.w2, 0) + ' cm';
@@ -457,15 +670,16 @@ document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('clic
   Object.assign(st, PRESETS[+b.dataset.preset]); st.s = 0; st.playing = false; st.probe = 50; peakReset(); syncInputs();
 }));
 $('bPlay').addEventListener('click', () => {
+  if (mode === 'wave') { st.playing = !st.playing; syncInputs(); return; }
   if (st.s >= SMAX) { st.s = 0; peakReset(); }
   st.playing = !st.playing; syncInputs();
 });
-$('bReset').addEventListener('click', () => { st.playing = false; setS(0); peakReset(); syncInputs(); });
-$('bBack').addEventListener('click', () => { pause(); setS(st.s - 1); });
-$('bFwd').addEventListener('click', () => { pause(); setS(st.s + 1); });
-$('bMeet').addEventListener('click', () => { pause(); setS(SMAX / 2); });
+$('bReset').addEventListener('click', () => { if (mode === 'wave') { st.playing = false; wv.t = 0; syncInputs(); return; } st.playing = false; setS(0); peakReset(); syncInputs(); });
+$('bBack').addEventListener('click', () => { if (mode === 'wave') { pause(); wStep(-1); return; } pause(); setS(st.s - 1); });
+$('bFwd').addEventListener('click', () => { if (mode === 'wave') { pause(); wStep(1); return; } pause(); setS(st.s + 1); });
+$('bMeet').addEventListener('click', () => { if (mode === 'wave') { pause(); wv.t = wT() / 4; dirty = true; return; } pause(); setS(SMAX / 2); });
 $('bSlow').addEventListener('click', () => { st.slow = !st.slow; syncInputs(); });
-$('scrub').addEventListener('input', e => { st.playing = false; setS(+e.target.value); syncInputs(); });
+$('scrub').addEventListener('input', e => { if (mode === 'wave') { st.playing = false; wv.t = +e.target.value * wT() / 20; syncInputs(); return; } st.playing = false; setS(+e.target.value); syncInputs(); });
 $('vBoth').addEventListener('click', () => { st.view = 'both'; syncInputs(); resize(); });
 $('vOver').addEventListener('click', () => { st.view = 'over'; syncInputs(); resize(); });
 document.querySelectorAll('[data-shape]').forEach(b => b.addEventListener('click', () => { st.shape = b.dataset.shape; peakReset(); syncInputs(); }));
@@ -477,7 +691,8 @@ $('showRes').addEventListener('change', e => { st.showRes = e.target.checked; di
 let dragging = false;
 const probeFrom = e => {
   const r = cv.getBoundingClientRect(), L = 48, R = r.width - 14;
-  st.probe = Math.round(Math.min(X1, Math.max(X0, (e.clientX - r.left - L) / (R - L) * (X1 - X0))) * 2) / 2;
+  if (mode === 'wave') wv.probe = Math.round(Math.min(XW, Math.max(0, (e.clientX - r.left - L) / (R - L) * XW)) * 100) / 100;
+  else st.probe = Math.round(Math.min(X1, Math.max(X0, (e.clientX - r.left - L) / (R - L) * (X1 - X0))) * 2) / 2;
   dirty = true;
 };
 cv.addEventListener('pointerdown', e => { dragging = true; cv.setPointerCapture(e.pointerId); probeFrom(e); });
@@ -510,14 +725,21 @@ new MutationObserver(() => { dirty = true; }).observe(document.documentElement, 
 let lastT = performance.now();
 function frame(now) {
   const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
-  if (st.playing) {
+  if (st.playing && mode === 'wave') { wv.t += dt * (st.slow ? 0.25 : 1); dirty = true; }
+  else if (st.playing) {
     st.s += st.v * dt * (st.slow ? 0.25 : 1);
     if (st.s >= SMAX) { st.s = SMAX; st.playing = false; syncInputs(); }
     dirty = true;
   }
-  if (dirty && W > 0) { draw(); readouts(); dirty = false; }
+  if (dirty && W > 0) { if (mode === 'wave') { drawWave(); readoutsWave(); } else { draw(); readouts(); } dirty = false; }
   requestAnimationFrame(frame);
 }
+for (const [id, k] of [['wA1','A1'],['wA2','A2'],['wL1','l1'],['wL2','l2'],['wv','v']]) $(id).addEventListener('input', e => { wv[k] = +e.target.value; syncInputs(); });
+$('wOver').addEventListener('click', () => { wv.view = 'over'; syncInputs(); resize(); });
+$('wSep').addEventListener('click', () => { wv.view = 'sep'; syncInputs(); resize(); });
+for (const [id, k] of [['wNodes','nodes'],['wEnv','env'],['wInd','ind'],['wRes','res']]) $(id).addEventListener('change', e => { wv[k] = e.target.checked; dirty = true; });
+document.querySelectorAll('[data-wpreset]').forEach(b => b.addEventListener('click', () => { Object.assign(wv, WPRESETS[+b.dataset.wpreset]); wv.t = 0; st.playing = false; syncInputs(); }));
+document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
 syncInputs(); resize(); requestAnimationFrame(frame);
 </script>
 </body>
