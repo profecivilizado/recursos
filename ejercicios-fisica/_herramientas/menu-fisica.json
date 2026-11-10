@@ -321,27 +321,27 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Refracción. Dioptrio plano",
-     "u": "fisica/optica/snell/0.htm"
+     "u": "fisica/optica/problemas.htm#snell"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Láminas. Prismas",
-     "u": "fisica/optica/prismas/0.htm"
+     "u": "fisica/optica/problemas.htm#prismas"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/optica/faq/0.htm"
+     "u": "fisica/optica/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/optica/buscar/0.htm"
+     "u": "fisica/optica/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/optica/buscar2/0.htm"
+     "u": "fisica/optica/problemas.htm#acceso"
     }
    ]
   },
@@ -357,27 +357,27 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Espejos",
-     "u": "fisica/optica/espejos/0.htm"
+     "u": "fisica/optica/problemas.htm#espejos"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Dioptrio esférico. Lentes delgadas",
-     "u": "fisica/optica/lentes/0.htm"
+     "u": "fisica/optica/problemas.htm#lentes"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/optica/faq/0.htm"
+     "u": "fisica/optica/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/optica/buscar/0.htm"
+     "u": "fisica/optica/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/optica/buscar2/0.htm"
+     "u": "fisica/optica/problemas.htm#acceso"
     }
    ]
   },
