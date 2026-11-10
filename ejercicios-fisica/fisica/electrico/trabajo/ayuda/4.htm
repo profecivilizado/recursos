@@ -27,8 +27,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.resizeTo(480,600)" 
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellpadding="10" cellspacing="0">
@@ -48,9 +53,9 @@ onUnload="cerrarVentanas()">
       <p class="m50"><strong><em>T</em></strong><sub>AB</sub> = -&Delta;EP = -q&middot;(V<sub>B</sub> 
         - V<sub>A</sub>) = -q&middot;&Delta;V</p>
       <p>Igualando las dos expresiones:</p>
-      <p class="m50"><img src="formulas/4_01.gif" width="229" height="36" /></p>
+      <p class="m50">$$q\,E_x\,\Delta x=-q\,\Delta V\;\rightarrow\;E_x=-\frac{\Delta V}{\Delta x}$$</p>
       <p>Analogamente se puede obtener:</p>
-      <p class="m150"><img src="formulas/4_02.gif" width="69" height="38" /> </p>
+      <p class="m150">$$E_y=-\frac{\Delta V}{\Delta y}$$ </p>
       <p><font color="#FF0000">La componente x | y del campo es el cociente, cambiado 
         de signo, del cambio de potencial y entre el cambio y<br />
         El signo negativo indica que la componente del campo apunta en el sentido 
@@ -58,7 +63,7 @@ onUnload="cerrarVentanas()">
       <p>Las relaciones obtenidas para el campo uniforme sirven para otro no uniforme 
         sin m&aacute;s que tomar los cambios de coordenada y potencial muy, muy 
         peque&ntilde;os (Diferencial)</p>
-      <p align="center"><img src="formulas/4_03.gif" width="160" height="38" align="middle" /> 
+      <p align="center">$$E_x=-\frac{dV}{dx},\qquad E_y=-\frac{dV}{dy}$$ 
         &nbsp; </p>
       <p align="left"><font color="#FF0000">La componente x | y del campo es la 
         derivada del potencial respecto a la coordenada x | y<br />

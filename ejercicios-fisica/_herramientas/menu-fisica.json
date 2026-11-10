@@ -96,32 +96,37 @@
     {
      "grupo": "Problemas por apartados",
      "t": "General",
-     "u": "fisica/electrico/general/0.htm"
+     "u": "fisica/electrico/problemas.htm#general"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Campo eléctrico",
-     "u": "fisica/electrico/campo/0.htm"
+     "u": "fisica/electrico/problemas.htm#campo"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Trabajo, d.d.p., potencial",
-     "u": "fisica/electrico/trabajo/0.htm"
+     "u": "fisica/electrico/problemas.htm#trabajo"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Movimiento de cargas",
+     "u": "fisica/electrico/problemas.htm#movimientos"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/electrico/faq/0.htm"
+     "u": "fisica/electrico/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/electrico/buscar/0.htm"
+     "u": "fisica/electrico/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/electrico/buscar2/0.htm"
+     "u": "fisica/electrico/problemas.htm#acceso"
     }
    ]
   },
