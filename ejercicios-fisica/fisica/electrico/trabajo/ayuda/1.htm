@@ -13,8 +13,13 @@
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.resizeTo(480,500)" >
 <table width="451" border="0" cellpadding="10" cellspacing="0">
   <tr> 
@@ -24,7 +29,7 @@ onload ="self.resizeTo(480,500)" >
       <p>Sea una carga q que se mueve, sometida a la fuerza ejercida por otra 
         carga Q, desde un punto A hasta otro B. El trabajo que realiza el campo 
         el&eacute;ctrico viene dado por:</p>
-      <p align="center"><img src="formulas/1_01.gif" width="181" height="44" align="middle" border="0"/></p>
+      <p align="center">$$\mathcal{T}_{AB}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{r_B}\right)$$</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
           <td width="10%"><p align="right">Q </p></td>
@@ -53,17 +58,17 @@ onload ="self.resizeTo(480,500)" >
         A, como el trabajo que hace el campo el&eacute;ctrico cuando la carga 
         q se desplaza desde el punto A hasta un punto O elegido arbitrariamente 
         como origen de potencial.</p>
-      <p class="m100"><img src="formulas/1_04.gif" width="224" height="44" border="0" /> 
+      <p class="m100">$$E_{PA}=\mathcal{T}_{AO}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{r_O}\right)$$ 
       </p>
       <p>Cuando se trabaja con cargas puntuales se toma como origen de potencial 
         el punto del infinito</p>
-      <p class="m100"><img src="formulas/1_05.gif" width="266" height="44" /></p>
+      <p class="m100">$$E_{PA}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{\infty}\right)=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_A}$$</p>
       <p>En la expresi&oacute;n de la energ&iacute;a potencial las cargas Q, q 
         se ponen con signo</p>
       <p><b><font color="#FF0000">Importante</font></b></p>
       <p><font color="#FF0000">El trabajo del campo es igual a la variaci&oacute;n 
         de energ&iacute;a potencial cambiada de signo</font></p>
-      <p class="m50"><img src="formulas/1_06.gif" width="357" height="73" /></p>
+      <p class="m50">$$\begin{aligned}&\mathcal{T}_{AB}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{r_B}\right)=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_A}-\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_B}\\[6pt] &\mathcal{T}_{AB}=E_{PA}-E_{PB}=-(E_{PB}-E_{PA})=-\Delta E_P\end{aligned}$$</p>
       <p  ><b><font color="#0000FF">Potencial</font></b> <b></b> </p>
       <p>Se define potencial en un punto A de un campo el&eacute;ctrico, al trabajo 
         que realiza el campo por cada unidad de carga positiva (+1 C) que se desplaza 
@@ -71,7 +76,7 @@ onload ="self.resizeTo(480,500)" >
         potencial)</p>
       <p>El potencial en un punto A se obtiene dividiendo la energ&iacute;a potencial 
         de una carga q, colocada en dicho punto, entre la propia carga</p>
-      <p class="m50"><img src="formulas/1_09.gif" width="274" height="89" /></p>
+      <p class="m50">$$\left.\begin{aligned}&E_{PA}=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_A}\\[4pt]&V_A=\frac{E_{PA}}{q}\end{aligned}\right\}\;\rightarrow\;V_A=\frac{1}{4\pi\varepsilon_0}\,\frac{Q}{r_A}$$</p>
       <p>En la expresi&oacute;n del potencial la carga Q se pone con signo</p>
       <p><b><font color="#0000FF">Diferencia de potencial (En campo de carga puntual)</font></b></p>
       <p>Se define diferencia de potencial entre dos puntos A, B como la diferencia 
@@ -79,7 +84,7 @@ onload ="self.resizeTo(480,500)" >
       <p class="m100">(V<sub>A</sub> - V<sub>B</sub>) = V<sub>A</sub> - V<sub>B</sub></p>
       <p>La diferencia de potencial mide el trabajo que realiza el campo por cada 
         unidad de carga positiva (+1 C) que se desplaza desde A hasta B</p>
-      <p align="center"><img src="formulas/1_02.gif" width="269" height="150" border="0" align="middle" /></p>
+      <p align="center">$$\begin{aligned}&\left.\begin{aligned}&V_A=\frac{\mathcal{T}_{AO}}{q}\\[4pt]&V_B=\frac{\mathcal{T}_{BO}}{q}\end{aligned}\right\}\;\rightarrow\;V_A-V_B=\frac{\mathcal{T}_{AO}}{q}-\frac{\mathcal{T}_{BO}}{q}\\[6pt] &V_A-V_B=\frac{1}{q}\,(\mathcal{T}_{AO}+\mathcal{T}_{OB})=\frac{\mathcal{T}_{AB}}{q}\end{aligned}$$</p>
       <p  ><b><font color="#FF0000">Importante<br />
         </font></b><font color="#FF0000">El campo apunta en el sentido de los 
         potenciales decrecientes. La d.d.p entre dos puntos tomados en el sentido 

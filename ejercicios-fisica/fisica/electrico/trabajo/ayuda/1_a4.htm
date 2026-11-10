@@ -13,8 +13,13 @@
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.moveTo(20,20);self.resizeTo(480,500)" >
 <table width="451" border="0" cellpadding="10" cellspacing="0">
   <tr> 
@@ -24,17 +29,17 @@ onload ="self.moveTo(20,20);self.resizeTo(480,500)" >
         en un punto A, como el trabajo que hace el campo el&eacute;ctrico cuando 
         la carga q se desplaza desde el punto A hasta un punto O elegido arbitrariamente 
         (Origen de potencial).</p>
-      <p class="m100"><img src="formulas/1_04.gif" width="224" height="44" border="0" /> 
+      <p class="m100">$$E_{PA}=\mathcal{T}_{AO}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{r_O}\right)$$ 
       </p>
       <p>Cuando se trabaja con cargas puntuales se toma como origen de potencial 
         el punto del infinito</p>
-      <p class="m100"><img src="formulas/1_05.gif" width="266" height="44" /></p>
+      <p class="m100">$$E_{PA}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{\infty}\right)=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_A}$$</p>
       <p>En la expresi&oacute;n de la energ&iacute;a potencial las cargas Q, q 
         se ponen con signo</p>
       <p><b><font color="#FF0000">Importante</font></b></p>
       <p><font color="#FF0000">El trabajo del campo es igual a la variaci&oacute;n 
         de energ&iacute;a potencial cambiada de signo</font></p>
-      <p class="m50"><img src="formulas/1_06.gif" width="357" height="73" /></p>
+      <p class="m50">$$\begin{aligned}&\mathcal{T}_{AB}=\frac{1}{4\pi\varepsilon_0}\, Q\,q\left(\frac{1}{r_A}-\frac{1}{r_B}\right)=\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_A}-\frac{1}{4\pi\varepsilon_0}\,\frac{Q\,q}{r_B}\\[6pt] &\mathcal{T}_{AB}=E_{PA}-E_{PB}=-(E_{PB}-E_{PA})=-\Delta E_P\end{aligned}$$</p>
       </td>
   </tr>
 </table>

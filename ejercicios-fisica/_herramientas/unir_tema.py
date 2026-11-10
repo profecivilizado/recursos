@@ -19,7 +19,7 @@ Uso:
 Las figuras (carpetas imagenes/) y las ayudas (que usa la página de Teoría) no se tocan.
 Después edita _herramientas/menu-fisica.json y ejecuta actualizar_indice.py.
 """
-import re, sys, html, posixpath
+import re, sys, html, posixpath, json
 from pathlib import Path
 from bs4 import BeautifulSoup, NavigableString, Comment, Tag
 
@@ -34,6 +34,17 @@ TEMAS = {
                    ('m', 'Preguntas malvadas', 'fisica/cuantica/faq')],
         hojas=[('curso', 'Propuestos en el curso', 'fisica/cuantica/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/cuantica/buscar2')],
+    ),
+    'electrico': dict(
+        salida='fisica/electrico/problemas.htm',
+        titulo='Tema 3. Campo eléctrico',
+        secciones=[('g', 'General', 'fisica/electrico/general'),
+                   ('c', 'Campo eléctrico', 'fisica/electrico/campo'),
+                   ('t', 'Trabajo, d.d.p., potencial', 'fisica/electrico/trabajo'),
+                   ('v', 'Movimiento de cargas', 'fisica/electrico/movimientos'),
+                   ('m', 'Preguntas malvadas', 'fisica/electrico/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/electrico/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/electrico/buscar2')],
     ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
@@ -109,6 +120,33 @@ class Generador:
                 return 'data-go', sid
         return None
 
+    def pasos_boton(self, on, pref, srcdir):
+        """Traduce un onclick con MM_swapImage / mostrarObjetos / innerHTML a una lista de pasos.
+
+        Cada paso es una lista de operaciones: ['h', destino, origen] (copiar contenido),
+        ['i', figura, src] (cambiar la imagen) y ['v', id, 0|1] (ocultar/mostrar).
+        Con «switch(n){case 0: … case 1: …}» hay un paso por caso (el botón avanza de uno en uno);
+        sin switch, un solo paso que se aplica en cada clic."""
+        if not re.search(r'MM_swapImage|mostrarObjetos', on) or re.search(r"eval\('|switch\s*\(\s*activo", on):
+            return None
+        m = re.search(r'switch\s*\(\s*\w+\s*\)\s*\{(.*)\}', on, re.S)
+        cuerpos = re.split(r'case\s+\d+\s*:', m.group(1))[1:] if m else [on]
+        pasos = []
+        for c in cuerpos:
+            ops = []
+            for mm in re.finditer(r"(\w+)\.innerHTML\s*=\s*(\w+)\.innerHTML|MM_swapImage\(([^)]*)\)|mostrarObjetos\(([^)]*)\)", c):
+                if mm.group(1):
+                    ops.append(['h', f'{pref}_{mm.group(1)}', f'{pref}_{mm.group(2)}'])
+                elif mm.group(3) is not None:
+                    for fid, src in re.findall(r"'([^']*)'\s*,\s*'[^']*'\s*,\s*'([^']*)'", mm.group(3)):
+                        ops.append(['i', f'{pref}_{fid}', posixpath.relpath(norm(posixpath.join(srcdir, src)), self.out_dir)])
+                else:
+                    args = [a.strip().strip("'\"") for a in mm.group(4).split(',')]
+                    for k in range(1, len(args) - 1, 2):
+                        ops.append(['v', f'{pref}_{args[0]}{args[k]}', 0 if args[k + 1] == '0' else 1])
+            pasos.append(ops)
+        return pasos if any(pasos) else None
+
     def fragmento(self, ruta, ctx=None, raiz='auto'):
         """Lee una página antigua y devuelve (soup, nodo raíz del contenido, onload del body)."""
         self.usados.add(ruta)
@@ -140,6 +178,11 @@ class Generador:
                 on = el.attrs.pop(at)
                 if at.lower() != 'onclick':
                     continue
+                pasos = self.pasos_boton(on, pref, srcdir)
+                if pasos:      # botón «0, 1, 2…» o selector que cambia figuras y muestra celdas
+                    el['data-pc-steps'] = json.dumps(pasos, ensure_ascii=False, separators=(',', ':'))
+                    el['class'] = (el.get('class') or []) + ['pc-swap']
+                    continue
                 pares = re.findall(r'(\w+)\.innerHTML\s*=\s*(\w+)\.innerHTML', on)
                 if pares:      # selector: copia una celda oculta en otra visible
                     el['data-pc-swap'] = ';'.join(f'{pref}_{x}:{pref}_{y}' for x, y in pares)
@@ -152,6 +195,8 @@ class Generador:
                         el['class'] = (el.get('class') or []) + ['enlace_texto'] if 'enlace_texto' not in (el.get('class') or []) else el['class']
                 elif not re.search(r"cambiar\(|_pctop|problema\(|nuevoTitulo|cerrar|siguiente\(|verHasta\(", on):
                     self.aviso(f'{ruta}: onclick sin traducir: {on[:80]}')
+            if el.name == 'img' and el.get('name') and not el.get('id'):
+                el['id'] = el['name']           # MM_swapImage busca la figura por su nombre
             for at in ('usemap', 'name') if el.name == 'img' else ('usemap',):
                 el.attrs.pop(at, None)
             if el.get('style', '').replace(' ', '').find('cursor:pointer') >= 0 and not any(k.startswith('data-') for k in el.attrs):
@@ -169,6 +214,19 @@ class Generador:
         # celdas de origen de los selectores: ocultas sin ocupar sitio
         origen = {y for el in body.find_all(attrs={'data-pc-swap': True})
                   for par in el['data-pc-swap'].split(';') for y in [par.split(':')[1][len(pref) + 1:]]}
+        mostradas = set()
+        for el in body.find_all(attrs={'data-pc-steps': True}):
+            for paso in json.loads(el['data-pc-steps']):
+                for op in paso:
+                    if op[0] == 'h':
+                        origen.add(op[2][len(pref) + 1:]); mostradas.add(op[1][len(pref) + 1:])
+                    elif op[0] == 'v':
+                        mostradas.add(op[1][len(pref) + 1:])
+        # lo que solo aparecía al pasar el ratón por la figura queda siempre visible
+        for el in body.find_all(style=re.compile(r'visibility\s*:\s*hidden', re.I)):
+            if el.get('id') not in mostradas and el.get('id') not in origen:
+                el['style'] = re.sub(r'visibility\s*:\s*hidden;?', '', el['style'], flags=re.I).strip() or None
+                if el['style'] is None: del el['style']
         for el in body.find_all(id=True):
             if el['id'] in origen:
                 el['style'] = 'display:none'
@@ -220,6 +278,12 @@ class Generador:
             if (RAIZ / alt).exists():
                 self.aviso(f'enlace roto {ruta}: uso {alt}')
                 return self.aclaracion(alt)
+            # ayudas escritas relativas a la carpeta del bloque («campo/ayuda/3.htm» desde problema2/)
+            mb = re.match(r'(fisica/[^/]+)/[^/]+/problema\d+/(.*)$', ruta)
+            if mb and (RAIZ / mb.group(1) / mb.group(2)).exists():
+                otra = f'{mb.group(1)}/{mb.group(2)}'
+                self.aviso(f'enlace roto {ruta}: uso {otra}')
+                return self.aclaracion(otra)
             if copias and len(textos) == 1:
                 otra = copias[0].relative_to(RAIZ).as_posix()
                 self.aviso(f'enlace roto {ruta}: uso {otra} (mismo contenido en todos los problemas)')
@@ -525,6 +589,21 @@ JS = r"""
   }
 
   document.addEventListener('click', function (e) {
+    var st = e.target.closest('[data-pc-steps]');
+    if (st) {
+      var lista = JSON.parse(st.dataset.pcSteps), i = +(st.dataset.i || 0);
+      (lista[i] || []).forEach(function (op) {
+        var el = document.getElementById(op[1]); if (!el) return;
+        if (op[0] === 'h') { var src = document.getElementById(op[2]); if (src) { el.innerHTML = src.innerHTML; el.style.visibility = 'visible'; } }
+        else if (op[0] === 'i') el.src = op[2];
+        else el.style.visibility = op[2] ? 'visible' : 'hidden';
+      });
+      if (lista.length > 1) {
+        st.dataset.i = (i + 1) % lista.length;
+        if (st.tagName === 'INPUT' && st.type === 'button') st.value = '    ' + st.dataset.i + '    ';
+      }
+      window.pcFit && pcFit(); return;
+    }
     var sw = e.target.closest('[data-pc-swap]');
     if (sw) {
       sw.dataset.pcSwap.split(';').forEach(function (par) {
@@ -560,8 +639,19 @@ if __name__ == '__main__':
     lista = Path('/tmp') / f'usados-{sys.argv[1]}.txt'
     lista.write_text('\n'.join(sorted(g.usados)) + '\n', encoding='utf-8')
     if '--borrar' in sys.argv:
-        for u in g.usados:
-            if '/ayuda/' in u or '/buscarAyudas/' in u:
-                continue
+        borrar = {u for u in g.usados if '/ayuda/' not in u and '/buscarAyudas/' not in u}
+        # no borrar lo que siguen enlazando las páginas que se quedan (p. ej. las ayudas de la Teoría)
+        ref = re.compile(r"""(?:src|href)\s*=\s*["']([^"'#?]+)|(?:abrirVentana|MM_openBrWindow|cambiar)\(\s*'(?:[^']*'\s*,\s*')?([^'#?]+\.htm)""")
+        quedan = [p for p in RAIZ.joinpath('fisica').rglob('*.htm') if p.relative_to(RAIZ).as_posix() not in borrar]
+        while quedan:
+            nuevas = []
+            for p in quedan:
+                for m in ref.finditer(p.read_text(encoding='utf-8', errors='replace')):
+                    u = norm(posixpath.join(posixpath.dirname(p.relative_to(RAIZ).as_posix()), m.group(1) or m.group(2)))
+                    if u in borrar:
+                        borrar.discard(u); nuevas.append(RAIZ / u)
+                        print('Se conserva', u, '(lo enlaza', p.relative_to(RAIZ).as_posix() + ')')
+            quedan = nuevas
+        for u in borrar:
             (RAIZ / u).unlink(missing_ok=True)
         print('Borrados los archivos antiguos (salvo ayudas)')

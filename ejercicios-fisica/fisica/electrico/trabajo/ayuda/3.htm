@@ -39,8 +39,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onLoad="self.resizeTo(480,500)">
 <table width="451" border="0" cellpadding="10" cellspacing="0">
   <tr>
@@ -69,11 +75,11 @@ onLoad="self.resizeTo(480,500)">
           <td width="44%" id="imagen"> 
             <p align="center"><img src="imagenes/3_01.PNG" width="193" height="68" /></p></td>
           <td width="44%" id="formula1"> 
-            <div align="center"><img src="formulas/3_01.gif" width="181" height="70" /></div></td></tr>
+            <div align="center">$$\left.\begin{aligned}&\frac{1}{4\pi\varepsilon_0}\,\frac{Q_1}{r_1}+\frac{1}{4\pi\varepsilon_0}\,\frac{Q_2}{r_2}=0\\[4pt]&r_1+r_2=d\end{aligned}\right\}$$</div></td></tr>
         <tr> 
           <td colspan="2" id="formula2"> 
             <div align="center"> 
-              <p><img src="formulas/3_02.gif" width="258" height="45" border="0" usemap="#Map" style="cursor:pointer"/></p>
+              <p>$$\htmlData{pc-map=Map, pc-area=0}{\boxed{r_1=\frac{d}{1-Q_2/Q_1},\qquad r_2=\frac{d}{1-Q_1/Q_2}}}$$</p>
             </div></td></tr>
         <tr> 
           <td colspan="2"><p align="center">En la expresi&oacute;n del potencial 
@@ -91,19 +97,19 @@ onLoad="self.resizeTo(480,500)">
                   <div align="center"><img src="imagenes/3_02.PNG" width="186" height="70" /></div></td></tr>
               <tr> 
                 <td id="formula10"> 
-                  <div align="center"><img src="formulas/3_01.gif" width="181" height="70" /></div></td>
+                  <div align="center">$$\left.\begin{aligned}&\frac{1}{4\pi\varepsilon_0}\,\frac{Q_1}{r_1}+\frac{1}{4\pi\varepsilon_0}\,\frac{Q_2}{r_2}=0\\[4pt]&r_1+r_2=d\end{aligned}\right\}$$</div></td>
                 <td id="formula11"> 
-                  <div align="center"><img src="formulas/3_03.gif" width="181" height="70" /></div></td></tr>
+                  <div align="center">$$\left.\begin{aligned}&\frac{1}{4\pi\varepsilon_0}\,\frac{Q_1}{r_1}+\frac{1}{4\pi\varepsilon_0}\,\frac{Q_2}{r_2}=0\\[4pt]&r_1=r_2+d\end{aligned}\right\}$$</div></td></tr>
               <tr> 
                 <td colspan="2" id="formula20"> 
-                  <div align="center"><img src="formulas/3_02.gif" width="258" height="45" border="0" usemap="#Map2" style="cursor:pointer"/> 
+                  <div align="center">$$\htmlData{pc-map=Map2, pc-area=0}{\boxed{r_1=\frac{d}{1-Q_2/Q_1},\qquad r_2=\frac{d}{1-Q_1/Q_2}}}$$ 
                     <map name="Map2" id="Map2">
                       <area shape="rect" coords="3,4,255,43" onclick="abrirVentana('../../desarrollos/5.htm')" />
                     </map>
                   </div></td></tr>
               <tr> 
                 <td colspan="2" id="formula21"> 
-                  <div align="center"><img src="formulas/3_04.gif" width="270" height="45" border="0" usemap="#Map3" style="cursor:pointer"/> 
+                  <div align="center">$$\htmlData{pc-map=Map3, pc-area=0}{\boxed{r_1=\frac{d}{1+Q_2/Q_1},\qquad r_2=-\frac{d}{1+Q_1/Q_2}}}$$ 
                     <map name="Map3" id="Map3">
                       <area shape="rect" coords="3,3,267,43" onclick="abrirVentana('../../desarrollos/6.htm')" />
                     </map>

@@ -26,8 +26,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,510)"
 onunload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -38,7 +44,7 @@ onunload="cerrarVentanas()">
       <p><span  ><b><font color="#0000FF">Din&aacute;mica</font></b></span></p>
       <p>Se determina la aceleraci&oacute;n constante que tiene la carga dentro 
         del campo el&eacute;ctrico </p>
-      <p class="m100"> <img src="formulas/1_01.gif" width="140" height="36" align="middle" />&nbsp; 
+      <p class="m100"> $\displaystyle q\,E=m\,a\;\rightarrow\;a=\frac{q\,E}{m}$&nbsp; 
         (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../mensajes/2.htm')">&#149;</span>) 
       </p>
       <p>En la expresi&oacute;n del m&oacute;dulo de la fuerza, la carga <span onclick="abrirVentana('../../mensajes/1.htm')" class="enlace_texto" >va 
