@@ -46,6 +46,17 @@ TEMAS = {
         hojas=[('curso', 'Propuestos en el curso', 'fisica/electrico/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/electrico/buscar2')],
     ),
+    'ondas': dict(
+        salida='fisica/ondas/problemas.htm',
+        titulo='Tema 7. Movimiento ondulatorio',
+        secciones=[('g', 'General', 'fisica/ondas/general'),
+                   ('p', 'Ecuaciones de onda', 'fisica/ondas/planteo'),
+                   ('e', 'Energía de las ondas', 'fisica/ondas/energia'),
+                   ('i', 'Interferencias', 'fisica/ondas/interferencias'),
+                   ('m', 'Preguntas malvadas', 'fisica/ondas/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/ondas/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/ondas/buscar2')],
+    ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
         titulo='Tema 12. Física nuclear',
@@ -77,6 +88,7 @@ def texto(el):
 def resumen_html(h, maximo=150):
     """Principio del enunciado para las listas: sin etiquetas salvo <sub>/<sup>, sin cortar fórmulas."""
     h = re.sub(r'<span class="num">.*?</span>', '', h, flags=re.S)
+    h = re.sub(r'\$\$(.*?)\$\$', r'$\1$', h, flags=re.S)        # fórmulas de bloque, en línea
     h = re.sub(r'<(?!/?su[bp]\b)[^>]+>', ' ', h)
     h = re.sub(r'\s+', ' ', html.unescape(h)).strip()
     trozos = re.split(r'(\$[^$]*\$|<su[bp]>.*?</su[bp]>)', h)

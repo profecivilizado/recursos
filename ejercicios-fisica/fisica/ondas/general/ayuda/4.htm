@@ -14,8 +14,14 @@
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onLoad="self.resizeTo(480,640)">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
   <tr>
@@ -27,7 +33,7 @@ onLoad="self.resizeTo(480,640)">
         la fase tendr&aacute; el mismo valor</p>
       <p align="left"><strong><font color="#0000FF">Fase:&nbsp; &omega;&middot;t 
         - k&middot;x</font></strong></p>
-      <p align="center" class="mimimo"><img src="formulas/4_01.gif" width="330" height="81" /></p>
+      <p align="center" class="mimimo">$$\begin{aligned}&\left.\begin{aligned}&\Phi=\omega\,t_1-k\,x_1\\[4pt]&\Phi=\omega\,t_2-k\,x_2\end{aligned}\right\}\;\rightarrow\;\omega\,t_1-k\,x_1=\omega\,t_2-k\,x_2\\[6pt] &k\,(x_2-x_1)=\omega\,(t_2-t_1)\end{aligned}$$</p>
       <p class="mimimo">Como el segundo miembro es positivo, el primero tambi&eacute;n 
         tendr&aacute; que serlo luego x<sub>2</sub> &gt; x<sub>1</sub>, la onda 
         se propaga en sentido de x cre-ciente</p>
@@ -35,7 +41,7 @@ onLoad="self.resizeTo(480,640)">
         - &omega;&middot;t</p>
       <p align="left" class="mimimo"><strong><font color="#0000FF">Fase:&nbsp; 
         &omega;&middot;t + k&middot;x</font></strong></p>
-      <p align="center" class="mimimo"><img src="formulas/4_03.gif" width="330" height="81" /></p>
+      <p align="center" class="mimimo">$$\begin{aligned}&\left.\begin{aligned}&\Phi=\omega\,t_1+k\,x_1\\[4pt]&\Phi=\omega\,t_2+k\,x_2\end{aligned}\right\}\;\rightarrow\;\omega\,t_1+k\,x_1=\omega\,t_2+k\,x_2\\[6pt] &k\,(x_1-x_2)=\omega\,(t_2-t_1)\end{aligned}$$</p>
       <p class="mimimo">Como el segundo miembro es positivo, el primero tambi&eacute;n 
         tendr&aacute; que serlo luego x<sub>2</sub> &lt; x<sub>1</sub> ,la onda 
         se propaga en sentido de x de-creciente </p>
