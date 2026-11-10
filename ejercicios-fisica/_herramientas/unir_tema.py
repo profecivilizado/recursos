@@ -69,6 +69,17 @@ TEMAS = {
         hojas=[('curso', 'Propuestos en el curso', 'fisica/vibraciones/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/vibraciones/buscar2')],
     ),
+    'optica': dict(
+        salida='fisica/optica/problemas.htm',
+        titulo='Temas 8 y 9. La luz y óptica geométrica',
+        secciones=[('r', 'Refracción. Dioptrio plano', 'fisica/optica/snell'),
+                   ('l', 'Láminas. Prismas', 'fisica/optica/prismas'),
+                   ('e', 'Espejos', 'fisica/optica/espejos'),
+                   ('d', 'Dioptrio esférico. Lentes delgadas', 'fisica/optica/lentes'),
+                   ('m', 'Preguntas malvadas', 'fisica/optica/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/optica/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/optica/buscar2')],
+    ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
         titulo='Tema 12. Física nuclear',
