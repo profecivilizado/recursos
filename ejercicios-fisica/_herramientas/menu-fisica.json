@@ -224,32 +224,42 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Aplicar las ecuaciones",
-     "u": "fisica/vibraciones/armonico1/0.htm"
+     "u": "fisica/vibraciones/problemas.htm#armonico1"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Obtener las ecuaciones",
-     "u": "fisica/vibraciones/armonico2/0.htm"
+     "u": "fisica/vibraciones/problemas.htm#armonico2"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Energía del movimiento armónico",
-     "u": "fisica/vibraciones/energia/0.htm"
+     "u": "fisica/vibraciones/problemas.htm#energia"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Dinámica: muelles",
+     "u": "fisica/vibraciones/problemas.htm#dinamica5"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Péndulo simple",
+     "u": "fisica/vibraciones/problemas.htm#periodos"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/vibraciones/faq/0.htm"
+     "u": "fisica/vibraciones/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/vibraciones/buscar/0.htm"
+     "u": "fisica/vibraciones/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/vibraciones/buscar2/0.htm"
+     "u": "fisica/vibraciones/problemas.htm#acceso"
     }
    ]
   },

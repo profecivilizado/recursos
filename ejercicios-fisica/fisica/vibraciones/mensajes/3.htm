@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,10 +13,15 @@
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 
 <body bgcolor="#FFFFFF" 
-leftmargin="0" topmargin="0" 
+leftmargin="0" topmargin="0" 
+
+
 onLoad ="window.moveTo(20,20);window.resizeTo(370,260)" >
 <table width="361" border="0" cellspacing="0" cellpadding="10">
   <tr> 
@@ -24,7 +30,7 @@ onLoad ="window.moveTo(20,20);window.resizeTo(370,260)" >
       <p>Son los valores m&aacute;ximos de los m&oacute;dulos de estas magnitudes. 
         Se obtienen tomando el valor absoluto de la magnitud cuando la raz&oacute;n 
         trigonom&eacute;trica es 1</p>
-      <p align="center"><img src="formulas/3_01.gif" width="309" height="92"></p>
+      <p align="center">$$\left.\begin{aligned}&x=A\operatorname{sen}(\omega\,t+\varphi_0)\\[4pt]&v=A\,\omega\cos(\omega\,t+\varphi_0)\\[4pt]&a=-A\,\omega^2\operatorname{sen}(\omega\,t+\varphi_0)\end{aligned}\right\}\;\rightarrow\;\begin{aligned}x_{\text{max}}&=A\\v_{\text{max}}&=A\,\omega\\a_{\text{max}}&=A\,\omega^2\end{aligned}$$</p>
       </td>
   </tr>
 </table>

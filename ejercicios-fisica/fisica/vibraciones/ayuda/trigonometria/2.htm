@@ -26,8 +26,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.moveTo(20,20);self.resizeTo(480,380)" 
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellpadding="10" cellspacing="0">
@@ -41,7 +46,7 @@ onUnload="cerrarVentanas()">
         en k&middot;2&pi; rad (En este caso k es el n&uacute;mero de oscilaci&oacute;n 
         que vale: 0, 1, 2,...)</p>
       <p>Ejemplo: Hallar los &aacute;ngulos cuyo coseno vale -0,7</p>
-      <p align="center"><img src="formulas/4_01.gif" width="336" height="37" /></p>
+      <p align="center">$$\operatorname{acos}(-0{,}7)=2{,}35\ \mathrm{rad}=\frac{2{,}35}{\pi}\,\pi\ \mathrm{rad}=0{,}748\pi\ \mathrm{rad}$$</p>
       <p align="left">El otro &aacute;ngulo que tiene el mismo coseno:</p>
       <p align="center">(2&pi; - 0,748&pi;) rad = <font color="#0000FF">1,25&pi; 
         rad</font></p>
