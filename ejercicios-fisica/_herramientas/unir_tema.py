@@ -26,6 +26,15 @@ from bs4 import BeautifulSoup, NavigableString, Comment, Tag
 RAIZ = Path(__file__).resolve().parent.parent          # carpeta ejercicios-fisica
 
 TEMAS = {
+    'cuantica': dict(
+        salida='fisica/cuantica/problemas.htm',
+        titulo='Tema 11. Física cuántica',
+        secciones=[('f', 'Fotones', 'fisica/cuantica/cuantica1'),
+                   ('d', 'Dualidad', 'fisica/cuantica/cuantica2'),
+                   ('m', 'Preguntas malvadas', 'fisica/cuantica/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/cuantica/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/cuantica/buscar2')],
+    ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
         titulo='Tema 12. Física nuclear',
@@ -124,11 +133,17 @@ class Generador:
                     return ''
                 return r'\htmlData{pc-%s=%s}' % ('ac' if a[0] == 'data-ac' else 'go', a[1])
             t.replace_with(re.sub(r'\\htmlData\{pc-map=([^,}]+),\s*pc-area=(\d+)\}', rep, str(t)))
+        pref = re.sub(r'\W', '_', ruta)
         # manejadores antiguos
         for el in body.find_all(True):
             for at in [k for k in list(el.attrs) if k.lower().startswith('on')]:
                 on = el.attrs.pop(at)
                 if at.lower() != 'onclick':
+                    continue
+                pares = re.findall(r'(\w+)\.innerHTML\s*=\s*(\w+)\.innerHTML', on)
+                if pares:      # selector: copia una celda oculta en otra visible
+                    el['data-pc-swap'] = ';'.join(f'{pref}_{x}:{pref}_{y}' for x, y in pares)
+                    el['class'] = (el.get('class') or []) + ['pc-swap']
                     continue
                 a = self.accion(on, srcdir, ctx)
                 if a:
@@ -151,8 +166,13 @@ class Generador:
         for a in body.find_all('a', href=True):
             if not re.match(r'^(https?:|#|mailto:|javascript:)', a['href']):
                 self.aviso(f'{ruta}: enlace interno {a["href"]}')
+        # celdas de origen de los selectores: ocultas sin ocupar sitio
+        origen = {y for el in body.find_all(attrs={'data-pc-swap': True})
+                  for par in el['data-pc-swap'].split(';') for y in [par.split(':')[1][len(pref) + 1:]]}
+        for el in body.find_all(id=True):
+            if el['id'] in origen:
+                el['style'] = 'display:none'
         # ids: únicos en la página nueva
-        pref = re.sub(r'\W', '_', ruta)
         for el in body.find_all(id=True):
             el['id'] = pref + '_' + el['id']
         if raiz == 'auto':
@@ -426,6 +446,8 @@ details.sub{{margin:.6em 0 .2em 0}}
 .ac-box .ctl{{margin:.3em 0 0}}
 [data-pc-ac],[data-pc-go]{{cursor:pointer}}
 [data-pc-ac]:hover,[data-pc-go]:hover{{color:var(--red)}}
+.pc-swap{{cursor:pointer;color:var(--accent);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}}
+.pc-swap.sel{{color:var(--red);font-weight:700}}
 .hojas ol{{margin:.2em 0 .6em 1.6em;padding:0}}
 .hojas li{{margin:.25em 0}}
 </style>
@@ -503,6 +525,16 @@ JS = r"""
   }
 
   document.addEventListener('click', function (e) {
+    var sw = e.target.closest('[data-pc-swap]');
+    if (sw) {
+      sw.dataset.pcSwap.split(';').forEach(function (par) {
+        var p = par.split(':'), dst = document.getElementById(p[0]), src = document.getElementById(p[1]);
+        if (dst && src) { dst.innerHTML = src.innerHTML; dst.style.visibility = 'visible'; }
+      });
+      var grupo = sw.closest('table') || document;
+      grupo.querySelectorAll('.pc-swap.sel').forEach(function (x) { x.classList.remove('sel'); });
+      sw.classList.add('sel'); window.pcFit && pcFit(); return;
+    }
     var t = e.target.closest('[data-cmd], [data-ac], [data-pc-ac], [data-go], [data-pc-go], .ac-h button');
     if (!t) return;
     if (t.matches('.ac-h button')) { t.closest('.ac-box').remove(); window.pcFit && pcFit(); return; }

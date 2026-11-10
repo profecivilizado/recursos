@@ -27,6 +27,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="self.resizeTo(480,470)"
@@ -43,11 +46,11 @@ onUnload="cerrarVentanas()">
       <p> Heisemberg encontr&oacute; parejas de magnitudes donde el producto de 
         sus imprecisiones, al medirse a la vez, no puede ser inferior a h/2&pi; 
       </p>
-      <p align="left" class="m100"><img src="formulas/2_01.gif" width="84" height="37" /></p>
+      <p align="left" class="m100">$$\Delta x\,\Delta p\geq\frac{h}{2\pi}$$</p>
       <p align="left"> Cuanto menor sea la imprecisi&oacute;n en la posici&oacute;n 
         mayor ser&aacute; la imprecisi&oacute;n en el momento (No se pueden conocer 
         ambos exac-tamente a la vez)</p>
-      <p align="left" class="m100"><img src="formulas/2_02.gif" width="81" height="37" /></p>
+      <p align="left" class="m100">$$\Delta E\,\Delta t\geq\frac{h}{2\pi}$$</p>
       <p align="left">Cuanto menor sea la imprecisi&oacute;n en el tiempo mayor 
         ser&aacute; la im-precisi&oacute;n en la energ&iacute;a. Dicho de otra 
         forma: en intervalos pe-que&ntilde;os de tiempo la energ&iacute;a deja 

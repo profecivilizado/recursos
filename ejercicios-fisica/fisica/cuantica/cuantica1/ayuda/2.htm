@@ -26,6 +26,9 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
 onload="self.moveTo(20,20);self.resizeTo(480,420)"
@@ -42,7 +45,7 @@ onUnload="cerrarVentanas()">
       <p align="left"> La d.d.p para la cual los fotoelectrones llegan a B con 
         velocidad cero se denomina 'potencial de frenado'. Su valor viene dado 
         por</p>
-      <p align="center"><img src="formulas/2_01.gif" width="80" height="28" border="0" usemap="#Map" style="cursor:pointer"/></p>
+      <p align="center">$$\htmlData{pc-map=Map, pc-area=0}{E_C=q\,V}$$</p>
       <p>Como la energ&iacute;a cin&eacute;tica es positiva y el electr&oacute;n 
         tiene carga negativa la d.d.p V tendr&aacute; que ser negativa. Sin embargo 
         suele darse sin signo y t&uacute; tendr&aacute;s que ponerla negativa</p>

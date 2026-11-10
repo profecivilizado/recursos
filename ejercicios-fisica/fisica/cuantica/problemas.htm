@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/unir_tema.py a partir de los problemas originales. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../_pc/compat.js"></script>
+<title>Tema 11. Física cuántica · Problemas</title>
+<link href="../../fisica/comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../_pc/pc.css">
+<link rel="stylesheet" href="../../_pc/problemas.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer}
+.chip:hover{background:var(--hover)}
+h2{font-size:1.2em;color:var(--accent);border-top:2px solid var(--line);padding-top:14px;margin:22px 0 2px}
+h3{font-size:1em;color:var(--red);margin:14px 0 4px}
+.enun p:first-child{margin-top:0}
+.enun table{width:auto!important}
+p.meta{margin:.2em 0 0 1.8em}
+.var{font-size:14px;margin-left:8px}
+.ap{border-top:1px dashed var(--line);padding:8px 0 4px}
+.ap:first-child{border-top:0}
+.aph{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:30px}
+.aph>b{color:var(--accent);font-size:1.05em}
+.ctl{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.ctl button{font:inherit;font-size:13px;color:var(--accent);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+.ctl button:hover{background:var(--hover)}
+.ctl button.ayuda{color:var(--red)}
+.pasos>.oculto{display:none}
+.pasos>.nuevo-paso{animation:aparece .35s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+details.sub{margin:.6em 0 .2em 0}
+.ac-box{border:1px solid var(--accent);border-left-width:4px;border-radius:10px;background:var(--card);margin:.4em 0 .6em;padding:4px 12px 8px}
+.ac-h{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--accent);font-size:14px}
+.ac-h button{font:inherit;font-size:13px;background:none;border:0;color:var(--muted);cursor:pointer}
+.ac-box .ctl{margin:.3em 0 0}
+[data-pc-ac],[data-pc-go]{cursor:pointer}
+[data-pc-ac]:hover,[data-pc-go]:hover{color:var(--red)}
+.pc-swap{cursor:pointer;color:var(--accent);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.pc-swap.sel{color:var(--red);font-weight:700}
+.hojas ol{margin:.2em 0 .6em 1.6em;padding:0}
+.hojas li{margin:.25em 0}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="pcKatex()"></script>
+</head>
+<body>
+<div class="cab"><b>Tema 11. Física cuántica</b><span class="nuevo">Problemas</span></div>
+<nav class="chips"><a class="chip" data-go="cuantica1">Fotones</a> <a class="chip" data-go="cuantica2">Dualidad</a> <a class="chip" data-go="faq">Preguntas malvadas</a> <a class="chip" data-go="curso">Propuestos en el curso</a> <a class="chip" data-go="acceso">Propuestos en la prueba de acceso</a></nav>
+<section class="seccion" id="cuantica1"><h2>Fotones</h2>
+<div class="prob" id="f1">
+<div class="enun"><p><span class="num">1</span><strong><font color="#0000FF">Al incidir 
+        sobre un metal una radiación de λ = 200 nm, los fotoelectrones 
+        son emitidos con una velo-cidad máxima de 10<sup>6</sup> m/s. Calcula 
+        la energía mínima necesaria para arrancar un electrón 
+        del metal y la frecuencia umbral. Masa del electrón:  9.11·10<sup>-31</sup> 
+        Kg </font></strong></p></div>
+<p class="meta"><a class="enlace_texto var" data-go="f7">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$<span><b><font color="#0000FF"><b><span><b><font color="#0000FF"><b><span><b><font color="#0000FF"><b><span><b><font color="#0000FF"><b><span><b></b></span></b></font></b></span></b></font></b></span></b></font></b></span></b></font></b></span></p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal</p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, f<sub>0</sub></p><p class="m100">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac1}{\boxed{W_0=h\,f-E_C,\quad f_0=f-\frac{E_C}{h}}}\\[8pt] &amp;W_0=\frac{h\,c}{\lambda}-\frac{1}{2}\,m\,v^{2}=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{200\cdot10^{-9}\ \mathrm{m}}-\frac{1}{2}\,9{,}11\cdot10^{-31}\ \mathrm{kg}\left(10^{6}\ \mathrm{\frac{m}{s}}\right)^{2}\\[8pt] &amp;W_0=\htmlData{pc-ac=ac2}{\boxed{5{,}39\cdot10^{-19}\ \mathrm{J}}}=\frac{5{,}39\cdot10^{-19}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=3{,}37\ \mathrm{eV}\\[8pt] &amp;f_0=\frac{c}{\lambda}-\frac{m\,v^{2}}{2\,h}=\frac{3\cdot10^{8}\ \mathrm{m/s}}{200\cdot10^{-9}\ \mathrm{m}}-\frac{9{,}11\cdot10^{-31}\ \mathrm{kg}\,(10^{6}\ \mathrm{m/s})^{2}}{2\cdot6{,}63\cdot10^{-34}\ \mathrm{J\,s}}=8{,}13\cdot10^{14}\ \mathrm{Hz}\end{aligned}$$ 
+        
+</p><p class="m50">Extraer un electrón del metal requiere una energía 
+        de 3.37 eV (Como poco). <br/>
+        La frecuencia umbral a la que corresponde esta energía es: 8.13·10<sup>14</sup> 
+        Hz</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f2">
+<div class="enun"><p><span class="num">2</span><strong><font color="#0000FF">Si el bario tiene una función 
+        de trabajo de 2.48 eV, calcular la energía cinética máxima 
+        de los electro-nes que emitirá al ser iluminado con luz de longitud 
+        de onda de 480 nm ¿Cuál es la velocidad de estos electrones? 
+        Masa del electrón:  9.11·10<sup>-31</sup> Kg </font></strong></p></div>
+<p class="meta"><a class="enlace_texto var" data-go="f3">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$\begin{aligned}&amp;h\,f=W_0+E_C\;\rightarrow\;E_C=h\,f-W_0\\[8pt] &amp;E_C=h\,\frac{c}{\lambda}-W_0\\[8pt] &amp;E_C=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{480\cdot10^{-9}\ \mathrm{m}}-2{,}48\ \mathrm{eV}\\[8pt] &amp;E_C=4{,}144\cdot10^{-19}\ \mathrm{J}-2{,}48\cdot1{,}6\cdot10^{-19}\ \mathrm{J}=1{,}76\cdot10^{-20}\ \mathrm{J}\end{aligned}$$ 
+      </p><p class="m150">$$\begin{aligned}&amp;E_C=\frac{1}{2}\,m\,v^{2}\;\rightarrow\;v=\sqrt{\frac{2\,E_C}{m}}\\[8pt] &amp;v=\sqrt{\frac{2\cdot1{,}76\cdot10^{-20}\ \mathrm{J}}{9{,}11\cdot10^{-31}\ \mathrm{kg}}}=\htmlData{pc-ac=ac5}{\boxed{1{,}97\cdot10^{5}\ \mathrm{\frac{m}{s}}}}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f6">
+<div class="enun"><p><span class="num">3</span><b><font color="#0000FF">En una célula 
+        fotoeléctrica con cátodo de wolframio, los electrones poseen 
+        una energía cinética de 8·10<sup>-19</sup> J cuando 
+        son arrancados por luz de 1250 Å. Calcular la máxima longitud 
+        de onda de la luz que puede hacer funcionar la célula</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, f<sub>0</sub></p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac6}{\boxed{f_0=f-\frac{E_C}{h}}}\\[8pt] &amp;\frac{c}{\lambda_0}=\frac{c}{\lambda}-\frac{E_C}{h}\;\rightarrow\;\frac{1}{\lambda_0}=\frac{1}{\lambda}-\frac{E_C}{h\,c}\\[8pt] &amp;\frac{1}{\lambda_0}=\frac{1}{1250\cdot10^{-10}\ \mathrm{m}}-\frac{8\cdot10^{-19}\ \mathrm{J}}{6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{m/s}}=3{,}98\cdot10^{6}\ \mathrm{\frac{1}{m}}\\[8pt] &amp;\lambda_0=2{,}51\cdot10^{-7}\ \mathrm{m}=251\ \mathrm{nm}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f5">
+<div class="enun"><p><span class="num">4</span><b><font color="#0000FF">Se desea construir una célula 
+        fotoeléctrica que emita electrones con una energía cinética 
+        de 3 eV cuando incida sobre ella un haz de radiación ultravioleta 
+        de longitud de onda 300 nm. calcular la longitud de onda umbral del material 
+        a utilizar en la construcción de la célula ¿Qué 
+        ocurriría si se utilizara un material con una longitud de onda 
+        umbral inferior a la calculada?</font></b></p></div>
+<p class="meta"><span class="tag">SEP 1999</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, f<sub>0</sub></p><p class="m100">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac7}{\boxed{f_0=f-\frac{E_C}{h}}}\\[8pt] &amp;\frac{c}{\lambda_0}=\frac{c}{\lambda}-\frac{E_C}{h}\;\rightarrow\;\frac{1}{\lambda_0}=\frac{1}{\lambda}-\frac{E_C}{h\,c}\\[8pt] &amp;\frac{1}{\lambda_0}=\frac{1}{300\cdot10^{-9}\ \mathrm{m}}-\frac{3\ \mathrm{eV}}{6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{m/s}}\\[8pt] &amp;\frac{1}{\lambda_0}=\frac{1}{300\cdot10^{-9}\ \mathrm{m}}-\frac{3\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}{6{,}63\cdot10^{-34}\ \mathrm{J}\ 3\cdot10^{8}\ \mathrm{m}}=9{,}20\cdot10^{5}\ \mathrm{\frac{1}{m}}\\[8pt] &amp;\lambda_0=1{,}087\cdot10^{-6}\ \mathrm{m}=1087\ \mathrm{nm}\end{aligned}$$ 
+      </p><p class="m50">Si la longitud de onda umbral fuera inferior a esta, el trabajo 
+        de extracción del material sería mayor y (W<sub>0</sub> 
+        = h·c/ λ<sub>0</sub>). Entonces los electrones saldrían 
+        con menos energía cinética o puede que ni salieran 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f4">
+<div class="enun"><p><span class="num">5</span><strong><font color="#0000FF">Sobre una superficie 
+        de potasio situada en el vacío incide luz amarilla (λ = 
+        5.89·10<sup>-7</sup> m), producién-dose emisión fotoeléctrica:<br/>
+        a) ¿Qué trabajo se requiere para arrancar un electrón 
+        de la capa más externa?<br/>
+        b) ¿Qué energía cinética tienen los electrones 
+        arrancados del potasio?<br/>
+        Datos  Longitud de onda umbral para el potasio: 7.1·10<sup>-7</sup> 
+        m</font></strong></p></div>
+<p class="meta"><span class="tag">JUN 1995</span> <a class="enlace_texto var" data-go="f9">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, E<sub>C</sub></p><p class="m100">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac8}{\boxed{W_0=h\,f_0,\quad E_C=h\,(f-f_0)}}\\[8pt] &amp;W_0=\frac{h\,c}{\lambda_0},\quad E_C=h\left(\frac{c}{\lambda}-\frac{c}{\lambda_0}\right)=h\,c\left(\frac{1}{\lambda}-\frac{1}{\lambda_0}\right)\\[8pt] &amp;W_0=h\,f_0=\frac{h\,c}{\lambda_0}=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{m/s}}{7{,}1\cdot10^{-7}\ \mathrm{m}}=2{,}80\cdot10^{-19}\ \mathrm{J}\\[8pt] &amp;W_0=\frac{2{,}80\cdot10^{-19}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=1{,}75\ \mathrm{eV}\\[8pt] &amp;E_C=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{\frac{m}{s}}\left(\frac{1}{5{,}89\cdot10^{-7}\ \mathrm{m}}-\frac{1}{7{,}1\cdot10^{-7}\ \mathrm{m}}\right)=5{,}75\cdot10^{-20}\ \mathrm{J}\\[8pt] &amp;E_C=\frac{5{,}75\cdot10^{-20}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=0{,}36\ \mathrm{eV}\end{aligned}$$ 
+        
+</p><p class="m50"> Extraer un electrón del metal cuesta un trabajo de 
+        1.75 eV</p><p class="m50">Los fotones de luz amarilla extraen electrones del potasio 
+        y les comunican una energía cinética de 0.36 eV.</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f8">
+<div class="enun"><p><span class="num">6</span><strong><font color="#0000FF">Con luz de longitud de 
+        onda λ = 600·10<sup>-9</sup> m se ilumina un metal que tiene 
+        una función de trabajo fotoeléctrico de 2 eV. Hallar: <br/>
+<span class="enlace_texto" data-go="f8a">a</span>) Energía 
+        cinética máxima de los fotoelectrones<br/>
+<span class="enlace_texto" data-go="f8b">b</span>) El 
+        potencial de frenado</font></strong></p></div>
+<p class="meta"><span class="tag">SEP 1995</span> <a class="enlace_texto var" data-go="f11">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f8a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m150">$$\begin{aligned}&amp;h\,f=W_0+E_C\;\rightarrow\;E_C=h\,f-W_0\\[8pt] &amp;E_C=h\,\frac{c}{\lambda}-W_0\\[8pt] &amp;E_C=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{600\cdot10^{-9}\ \mathrm{m}}-2\cdot1{,}6\cdot10^{-19}\ \mathrm{J}=1{,}15\cdot10^{-20}\ \mathrm{J}\end{aligned}$$</p></div></section>
+<section class="ap" id="f8b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Relación entre energía cinética y potencial 
+        de frenado:</p><p class="m150">$$\begin{aligned}&amp;\htmlData{pc-ac=ac9}{\boxed{E_C=q\,V}}\\[8pt] &amp;V=\frac{E_C}{q}\\[8pt] &amp;V=\frac{1{,}15\cdot10^{-20}\ \mathrm{J}}{-1{,}6\cdot10^{-19}\ \mathrm{C}}=-0{,}072\ \mathrm{V}\end{aligned}$$</p><p class="m50">El potencial de frenado suele darse sin signo, por tanto 
+        valdrá: 0,072 V</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f12">
+<div class="enun"><p><span class="num">7</span><strong><font color="#0000FF">El trabajo de extracción 
+        del platino es 1.01·10<sup>-18</sup> J. El efecto fotoeléctrico 
+        se produce en el platino cuando la luz que incide tiene una longitud de 
+        onda menor que 198 nm. <br/>
+<span class="enlace_texto" data-go="f12a">a</span>)  Calcula 
+        la energía cinética máxima de los electrones emitidos 
+        en caso de iluminar el platino con luz de 150 nm.<br/>
+<span class="enlace_texto" data-go="f12b">b</span>)  Por 
+        otra parte, el trabajo de extracción del níquel es 8·10<sup>-19</sup> 
+        J ¿Se observará el efecto fotoeléctrico en el níquel 
+        con luz de 480 nm?</font></strong></p></div>
+<p class="meta"><span class="tag">JUN 2003</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f12a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        platino y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema de 
+        ecuaciones</p><p class="m150">$$\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}$$</p><p class="m50"><font color="#FF0000">¿Cuáles son las incógnitas? 
+        <br/>
+        Aparentemente no hay más que una incógnita: E<sub>C</sub> 
+        porque W<sub>0</sub>, f, f<sub>0</sub> se conocen. En este problema, propuesto 
+        en la prueba de acceso, no se da como dato la constante de Planck (h) 
+        lo cual no es fre-cuente. Por tanto habrá que pensar que h es incógnita 
+        (Tú por si acaso pregunta si se da por sabida)</font></p><p class="m50">Resolviendo el sistema:</p><p class="m150"> $$\begin{aligned}&amp;\htmlData{pc-ac=ac11}{\boxed{E_C=W_0\left(\frac{f}{f_0}-1\right),\quad h=\frac{W_0}{f_0}}}\\[8pt] &amp;E_C=W_0\left(\frac{c/\lambda}{c/\lambda_0}-1\right)=W_0\left(\frac{\lambda_0}{\lambda}-1\right)\\[8pt] &amp;E_C=1{,}01\cdot10^{-18}\ \mathrm{J}\left(\frac{198\ \mathrm{nm}}{150\ \mathrm{nm}}-1\right)=3{,}23\cdot10^{-19}\ \mathrm{J}\\[8pt] &amp;h=\frac{W_0}{c/\lambda_0}=\frac{W_0\,\lambda_0}{c}\\[8pt] &amp;h=\frac{1{,}01\cdot10^{-18}\ \mathrm{J}\ 198\cdot10^{-9}\ \mathrm{m}}{3\cdot10^{8}\ \mathrm{m/s}}=6{,}67\cdot10^{-34}\ \mathrm{J\cdot s}\end{aligned}$$ 
+      </p></div></section>
+<section class="ap" id="f12b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        níquel y les dan energía cinética:</p><p class="m150">$$\begin{aligned}&amp;h\,f=W_0+E_C\;\rightarrow\;E_C=h\,f-W_0\\[8pt] &amp;E_C=h\,\frac{c}{\lambda}-W_0\\[8pt] &amp;E_C=\frac{6{,}67\cdot10^{-34}\ \mathrm{J\cdot s}\ 3\cdot10^{8}\ \mathrm{m/s}}{480\cdot10^{-9}\ \mathrm{m}}-8\cdot10^{-19}\ \mathrm{J}=-3{,}83\cdot10^{-19}\ \mathrm{J}\end{aligned}$$</p><p class="m50">(Observa que se utiliza el valor h calculado en el apartado 
+        anterior)</p><p class="m50">Una energía cinética negativa significa que 
+        los electrones no escapan del metal porque los fotones no tienen la energía 
+        suficiente</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f13">
+<div class="enun"><p><span class="num">8</span><strong><font color="#0000FF">Al iluminar una superficie 
+        metálica con luz de dos longitudes de onda se arrancan electrones 
+        que sa-len con diferentes energías. En el experimento se miden 
+        los potenciales de frenado de los electrones producidos que resultan ser 
+        de 0.24 V para una longitud de onda de 0.579 μm y de 0.32 V para la 
+        longitud de onda de 0.558 μm Se pide:<br/>
+        a) Utilizando exclusivamente los datos del problema determina la frecuencia 
+        umbral del metal<br/>
+        b) El cociente h/e entre la constante de Planck y la carga del electrón<br/>
+        Dato: c = 3·10<sup>8</sup> m/s </font></strong><br/>
+</p></div>
+<p class="meta"><span class="tag">SEP 2004</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f13a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal</p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Relación entre energía cinética y potencial 
+        de frenado:</p><p class="m150">$$E_C=q\,V$$</p><p class="m50">Combinando estas tres expresiones resulta:</p><p class="m150">$$h\,f=h\,f_0+q\,V$$</p><p class="m50">Aplicamos esta expresión a las dos experiencias:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="12%"><p align="right">1: </p></td>
+<td width="24%"><p> λ<sub>1</sub> = 0.579 μm</p></td>
+<td width="64%"><p> V<sub>1</sub> = - 0.24 V</p></td>
+</tr>
+<tr>
+<td><p align="right">2: </p></td>
+<td><p>λ<sub>2</sub> = 0.558 μm</p></td>
+<td><p> V<sub>2</sub> = - 0.32 V</p></td>
+</tr>
+</table><p class="m150">$$\left.\begin{aligned}h\,f_1&amp;=h\,f_0+q\,V_1\\[6pt] h\,f_2&amp;=h\,f_0+q\,V_2\end{aligned}\right\}$$</p><p class="m50">Tenemos un sistema de dos ecuaciones con tres incógnitas: 
+        f<sub>0</sub>, h ,q, pero ocurre que no nos piden los valores de h y q 
+        sino el del cociente h/q. Hábilmente transformamos el sistema:</p><p class="m100">$$\left.\begin{aligned}f_1&amp;=f_0+\frac{q}{h}\,V_1\\[6pt] f_2&amp;=f_0+\frac{q}{h}\,V_2\end{aligned}\right\}\quad\htmlData{pc-ac=ac12}{\boxed{\frac{q}{h}=\frac{f_2-f_1}{V_2-V_1},\quad f_0=f_1-\frac{f_2-f_1}{V_2-V_1}\,V_1}}$$</p><p class="m100">$$\begin{aligned}&amp;f_0=c/\lambda_1-\frac{c/\lambda_2-c/\lambda_1}{V_2-V_1}\,V_1\\[8pt] &amp;f_0=c\left(\frac{1}{\lambda_1}-\left(\frac{1}{\lambda_2}-\frac{1}{\lambda_1}\right)\frac{V_1}{V_2-V_1}\right)\\[8pt] &amp;f_0=3\cdot10^{8}\ \mathrm{\frac{m}{s}}\left(\frac{1}{5{,}79\cdot10^{-7}\ \mathrm{m}}-\left(\frac{1}{5{,}58\cdot10^{-7}\ \mathrm{m}}-\frac{1}{5{,}79\cdot10^{-7}\ \mathrm{m}}\right)\frac{-0{,}24\ \mathrm{V}}{-0{,}32\ \mathrm{V}-(-0{,}24\ \mathrm{V})}\right)\\[8pt] &amp;f_0=4{,}60\cdot10^{14}\ \mathrm{Hz}\end{aligned}$$</p><p class="m100">$$\begin{aligned}&amp;\frac{q}{h}=\frac{c/\lambda_2-c/\lambda_1}{V_2-V_1}=c\left(\frac{1}{\lambda_2}-\frac{1}{\lambda_1}\right)\frac{1}{V_2-V_1}\\[8pt] &amp;\frac{q}{h}=3\cdot10^{8}\ \mathrm{\frac{m}{s}}\left(\frac{1}{5{,}58\cdot10^{-7}\ \mathrm{m}}-\frac{1}{5{,}79\cdot10^{-7}\ \mathrm{m}}\right)\frac{1}{(-0{,}32\ \mathrm{V})-(-0{,}24\ \mathrm{V})}=-2{,}44\cdot10^{14}\ \mathrm{\frac{1}{V\,s}}\\[8pt] &amp;\frac{h}{q}=\left(-2{,}44\cdot10^{14}\ \mathrm{\frac{C}{J\,s}}\right)^{-1}=-4{,}10\cdot10^{-15}\ \mathrm{V\,s}\end{aligned}$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f10">
+<div class="enun"><p><span class="num">9</span><strong><font color="#0000FF">Si la frecuencia mínima 
+        que ha de tener la luz para extraer electrones de un cierto metal es 8.5·10<sup>14 </sup>Hz, 
+        se pide:<br/>
+<span class="enlace_texto" data-go="f10a">a</span>) Hallar 
+        la energía cinética máxima de los electrones, expresada 
+        en eV, que emite el metal cuando se ilumina con luz de 1.3·10<sup>15</sup> 
+        Hz<br/>
+<span class="enlace_texto" data-go="f10b">b</span>) 
+         ¿Cuál es la longitud de onda de De Broglie asociada 
+        a esos electrones?</font></strong></p></div>
+<p class="meta"><span class="tag">JUN 2002</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f10a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, E<sub>C</sub> </p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f_0&amp;=W_0\\[6pt] h\,f&amp;=W_0+E_C\end{aligned}\right\}\\[8pt] &amp;h\,f=h\,f_0+E_C\;\rightarrow\;E_C=h\,(f-f_0)\\[8pt] &amp;E_C=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\,\left(1{,}3\cdot10^{15}\ \mathrm{Hz}-8{,}5\cdot10^{14}\ \mathrm{Hz}\right)=2{,}98\cdot10^{-19}\ \mathrm{J}\\[8pt] &amp;E_C=\frac{2{,}98\cdot10^{-19}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=1{,}86\ \mathrm{eV}\end{aligned}$$ 
+      </p></div></section>
+<section class="ap" id="f10b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m150">$$\lambda=\frac{h}{p}$$</p><p class="m50">La fórmula de De Broglie relaciona el momento de una 
+        partícula con la longitud de onda asociada</p><p class="m50">Relación entre momento lineal y energía cinética:</p><p class="m150">$$E_C=\frac{p^{2}}{2\,m}$$</p><p class="m150">$$\begin{aligned}&amp;p=\sqrt{2\,m\,E_C}\\[8pt] &amp;\lambda=\frac{h}{\sqrt{2\,m\,E_C}}=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{\sqrt{2\cdot9{,}11\cdot10^{-31}\ \mathrm{kg}\ 2{,}98\cdot10^{-19}\ \mathrm{J}}}=\htmlData{pc-ac=ac13}{\boxed{9{,}0\cdot10^{-10}\ \mathrm{m}}}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f4">
+<div class="enun"><p><span class="num">10</span><strong><font color="#0000FF">Sobre una superficie 
+        de potasio situada en el vacío incide luz amarilla (λ = 
+        5.89·10<sup>-7</sup> m), producién-dose emisión fotoeléctrica:<br/>
+        a) ¿Qué trabajo se requiere para arrancar un electrón 
+        de la capa más externa?<br/>
+        b) ¿Qué energía cinética tienen los electrones 
+        arrancados del potasio?<br/>
+        Datos  Longitud de onda umbral para el potasio: 7.1·10<sup>-7</sup> 
+        m</font></strong></p></div>
+<p class="meta"><span class="tag">JUN 1995</span> <a class="enlace_texto var" data-go="f9">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, E<sub>C</sub></p><p class="m100">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac8}{\boxed{W_0=h\,f_0,\quad E_C=h\,(f-f_0)}}\\[8pt] &amp;W_0=\frac{h\,c}{\lambda_0},\quad E_C=h\left(\frac{c}{\lambda}-\frac{c}{\lambda_0}\right)=h\,c\left(\frac{1}{\lambda}-\frac{1}{\lambda_0}\right)\\[8pt] &amp;W_0=h\,f_0=\frac{h\,c}{\lambda_0}=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{m/s}}{7{,}1\cdot10^{-7}\ \mathrm{m}}=2{,}80\cdot10^{-19}\ \mathrm{J}\\[8pt] &amp;W_0=\frac{2{,}80\cdot10^{-19}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=1{,}75\ \mathrm{eV}\\[8pt] &amp;E_C=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{\frac{m}{s}}\left(\frac{1}{5{,}89\cdot10^{-7}\ \mathrm{m}}-\frac{1}{7{,}1\cdot10^{-7}\ \mathrm{m}}\right)=5{,}75\cdot10^{-20}\ \mathrm{J}\\[8pt] &amp;E_C=\frac{5{,}75\cdot10^{-20}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=0{,}36\ \mathrm{eV}\end{aligned}$$ 
+        
+</p><p class="m50"> Extraer un electrón del metal cuesta un trabajo de 
+        1.75 eV</p><p class="m50">Los fotones de luz amarilla extraen electrones del potasio 
+        y les comunican una energía cinética de 0.36 eV.</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f9">
+<div class="enun"><p><span class="num">11</span><b><font color="#0000FF">El cesio emite electrones 
+        para una longitud de onda máxima de 579 nm. Calcula la energía 
+        cinética de los fotoelectrones emitidos si se ilumina con luz verde 
+        de 500 nm </font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f9a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, E<sub>C</sub></p><p class="m100">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac14}{\boxed{E_C=h\,(f-f_0)}}\\[8pt] &amp;E_C=h\left(\frac{c}{\lambda}-\frac{c}{\lambda_0}\right)=h\,c\left(\frac{1}{\lambda}-\frac{1}{\lambda_0}\right)\\[8pt] &amp;E_C=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ 3\cdot10^{8}\ \mathrm{\frac{m}{s}}\left(\frac{1}{500\cdot10^{-9}\ \mathrm{m}}-\frac{1}{579\cdot10^{-9}\ \mathrm{m}}\right)=5{,}43\cdot10^{-20}\ \mathrm{J}\\[8pt] &amp;E_C=\frac{5{,}43\cdot10^{-20}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=0{,}34\ \mathrm{eV}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f7">
+<div class="enun"><p><span class="num">12</span><b><font color="#0000FF">La frecuencia umbral para 
+        la emisión de fotoelectrones por parte del wolframio es de 1.19·10<sup>15</sup> 
+        Hz. Calcula la longitud de onda que se necesitará emplear si se 
+        pretende que los electrones sean emitidos con energía cinética 
+        igual a dos veces la que posean los arrancados con λ = 2000 Å 
+        </font> </b> </p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación 1 (<font color="#000000">λ</font>1 
+        = 2000 Å) arrancan electrones del metal y les dan energía 
+        cinética:</p><p class="m150">$$h\,f_1=W_0+E_C$$</p><p class="m50">Los fotones de la radiación 2 arrancan electrones 
+        del metal y les dan el doble de energía cinética:</p><p class="m150">$$h\,f_2=W_0+2\,E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas tres expresiones se obtiene un sistema con 
+        tres incógnitas: W<sub>0</sub>, E<sub>C</sub>, f<sub>2</sub></p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f_1&amp;=W_0+E_C\\[6pt] h\,f_2&amp;=W_0+2\,E_C\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac15}{\boxed{f_2=2\,f_1-f_0}}\\[8pt] &amp;\frac{c}{\lambda_2}=2\,\frac{c}{\lambda_1}-f_0\;\rightarrow\;\frac{1}{\lambda_2}=2\,\frac{1}{\lambda_1}-\frac{f_0}{c}\\[8pt] &amp;\frac{1}{\lambda_2}=\frac{2}{2000\cdot10^{-10}\ \mathrm{m}}-\frac{1{,}19\cdot10^{15}\ (1/\mathrm{s})}{3\cdot10^{8}\ \mathrm{m/s}}=6{,}03\cdot10^{6}\ \mathrm{\frac{1}{m}}\\[8pt] &amp;\lambda_2=1{,}658\cdot10^{-7}\ \mathrm{m}=1658\ \text{Å}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f11">
+<div class="enun"><p><span class="num">13</span><strong><font color="#0000FF">Cuando se ilumina un 
+        cierto metal con luz monocromática de frecuencia 1.2·10<sup>15</sup> 
+        Hz es necesario aplicar un potencial de frenado de 2 V para anular la 
+        fotocorriente que se produce. Se pide:<br/>
+<span class="enlace_texto" data-go="f11a">a</span>) 
+         Determinar la frecuencia mínima de la luz para que extraiga 
+        electrones de dicho metal<br/>
+<span class="enlace_texto" data-go="f11b">b</span>) 
+         Si la luz fuese de 150 nm de longitud de onda, calcular la tensión 
+        necesaria para anular la fotoco-rriente</font></strong></p></div>
+<p class="meta"><span class="tag">JUN 2002</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f11a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">La energía cinética de los electrones se puede 
+        determinar a partir del potencial de frenado:</p><p class="m150">$$E_C=q\,V$$</p><p class="m50">En esta expresión q = -1.6·10<sup>-19</sup> 
+        C y (V<sub>B</sub> - V<sub>A</sub>) = -2 V </p><p class="m50">Observa la astucia: el potencial de frenado debe ser negativo 
+        porque la energía cinética es positiva</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0$$</p><p class="m50">Combinando estas tres expresiones se obtiene un sistema con 
+        tres incógnitas: W<sub>0</sub>, E<sub>C</sub>, f<sub>0</sub></p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] E_C&amp;=q\,V\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac16}{\boxed{f_0=f-\frac{q\,V}{h}}}\\[8pt] &amp;f_0=1{,}2\cdot10^{15}\ \mathrm{Hz}-\frac{\left(-1{,}6\cdot10^{-19}\ \mathrm{C}\right)(-2\ \mathrm{V})}{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}=7{,}17\cdot10^{14}\ \mathrm{Hz}\end{aligned}$$ 
+      </p></div></section>
+<section class="ap" id="f11b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">La energía cinética de los electrones se puede 
+        determinar a partir del potencial de frenado:</p><p class="m150">$$E_C=q\,V$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0$$</p><p class="m50">Combinando estas tres expresiones se obtiene un sistema con 
+        tres incógnitas: W<sub>0</sub>, E<sub>C</sub>, (V<sub>B</sub> - 
+        V<sub>A</sub>)</p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] E_C&amp;=q\,V\\[6pt] h\,f_0&amp;=W_0\end{aligned}\right\}\quad\htmlData{pc-ac=ac17}{\boxed{V=\frac{h}{q}\,(f-f_0)}}\\[8pt] &amp;V=\frac{h}{q}\left(\frac{c}{\lambda}-f_0\right)\\[8pt] &amp;V=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{-1{,}6\cdot10^{-19}\ \mathrm{C}}\left(\frac{3\cdot10^{8}\ \mathrm{m/s}}{150\cdot10^{-9}\ \mathrm{m}}-7{,}17\cdot10^{14}\ \mathrm{\frac{1}{s}}\right)=-5{,}3\ \mathrm{V}\end{aligned}$$ 
+      </p><p class="m50">El potencial de frenado suele darse sin signo, por tanto 
+        valdrá: 5,3 V</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f15">
+<div class="enun"><span class="num">14</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="128" src="cuantica1/problema15/imagenes/15_00.gif" width="165"/></div></td>
+<td width="74%"><p><strong><font color="#0000FF">La gráfica de 
+              la figura adjunta representa el potencial de frenado (V) de una 
+              célula fotoeléctrica en función de la frecuencia 
+              de la luz incidente (f). La ordenada en el origen tiene un valor 
+              de -2 V<br/>
+<span class="enlace_texto" data-go="f15a">a</span>) 
+              Deduce la expresión teórica de V en función 
+              de f<br/>
+<span class="enlace_texto" data-go="f15b">b</span>) 
+              ¿Qué parámetro característico de la 
+              célula fotoeléctrica podemos de-terminar a partir 
+              de la ordenada en el origen? Determina su valor y razona la respuesta<br/>
+<span class="enlace_texto" data-go="f15c">c</span>) 
+              ¿Qué valor tendrá la pendiente de la recta 
+              de la figura? Dedúcelo </font></strong><br/>
+</p></td>
+</tr>
+</table></div>
+<p class="meta"><span class="tag">JUN 2006</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f15a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">La energía cinética de los electrones se puede 
+        determinar a partir del potencial de frenado:</p><p class="m150">$$E_C=q\,V$$</p><p class="m50">Combinando las dos expresiones anteriores resulta:</p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f&amp;=W_0+E_C\\[6pt] E_C&amp;=q\,V\end{aligned}\right\}\xrightarrow{\;(2)\;}E_C=q\,V\\[8pt] &amp;h\,f=W_0+q\,V\\[8pt] &amp;V=-\frac{W_0}{q}+\frac{h}{q}\,f\end{aligned}$$</p><p class="m50"><font color="#FF0000">La gráfica de esta ecuación 
+        es una recta de pendiente negativa (q es negativa) cuya ordenada en el 
+        origen es positiva (q es negativa). La gráfica que nos da el problema 
+        es justo al revés.<br/>
+        La única forma de arreglar el estropicio es suponer que se está 
+        tomando la carga del electrón sin signo</font></p></div></section>
+<section class="ap" id="f15b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m150">$$\begin{aligned}&amp;V=-\frac{W_0}{q}+\frac{h}{q}\,f\\[8pt] &amp;f=0\;\rightarrow\;V=-\frac{W_0}{q}\\[8pt] &amp;W_0=-q\,V=-\left(1{,}6\cdot10^{-19}\ \mathrm{C}\right)(-2\ \mathrm{V})=2\ \mathrm{eV}\end{aligned}$$</p><p class="m50"><font color="#FF0000">Recuerda que hemos quedado en que la 
+        carga del electrón se toma sin signo</font></p><p class="m50">A partir de la ordenada en el origen se puede determinar 
+        el trabajo de extracción del material que constituye la célula</p></div></section>
+<section class="ap" id="f15c"><div class="aph"><b>c)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m150">$$\begin{aligned}&amp;V=-\frac{W_0}{q}+\frac{h}{q}\,f\\[8pt] &amp;\operatorname{tg}\alpha=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{1{,}6\cdot10^{-19}\ \mathrm{C}}=4{,}14\cdot10^{-15}\ \mathrm{V\,s}\end{aligned}$$</p><p class="m50"><font color="#FF0000">Recuerda que hemos quedado en que la 
+        carga del electrón se toma sin signo</font></p><p class="m50">La pendiente de la recta es el cociente Constante de Planck 
+        / Carga del electrón</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f14">
+<div class="enun"><p><span class="num">15</span><b><font color="#0000FF">El trabajo de extracción 
+        para un metal es 2.5 eV. Calcula la frecuencia umbral y la longitud de 
+        onda correspondiente </font> </b> </p></div>
+<p class="meta"><span class="tag">SEP 2005</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f14a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$\begin{aligned}&amp;h\,f_0=W_0+0\\[8pt] &amp;f_0=\frac{W_0}{h}=\frac{2{,}5\ \mathrm{eV}}{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}=\frac{2{,}5\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}\\[8pt] &amp;f_0=6{,}03\cdot10^{14}\ \mathrm{\frac{1}{s}}\end{aligned}$$</p><p class="m150">$$\lambda_0=\frac{c}{f_0}=\frac{3\cdot10^{8}\ \mathrm{m/s}}{6{,}03\cdot10^{14}\ \mathrm{1/s}}=4{,}97\cdot10^{-7}\ \mathrm{m}$$ 
+      </p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f16">
+<div class="enun"><p><span class="num">16</span> <font color="#0000FF"><strong>El trabajo de extracción 
+        de un metal es 3.3 eV. Calcula:<br/>
+<span class="enlace_texto" data-go="f16a">a</span>) 
+        La velocidad máxima con la que son emitidos los electrones de un 
+        metal cuando sobre su superfi-cie incide un haz de luz cuya longitud de 
+        onda es 0.3 μm<br/>
+<span class="enlace_texto" data-go="f16b">b</span>) 
+        La frecuencia umbral y la longitud de onda correspondiente<br/>
+        Datos del electrón: m =  9.11·10<sup>-31</sup> Kg, 
+        q = -1.6·10<sup>-19</sup> C</strong></font><br/>
+</p></div>
+<p class="meta"><span class="tag">JUN 2007</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f16a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones del 
+        metal y les dan energía cinética:</p><p class="m100">$$\begin{aligned}&amp;h\,f=W_0+E_C\\[8pt] &amp;h\,\frac{c}{\lambda}=W_0+\frac{1}{2}\,m\,v^{2}\;\rightarrow\;v=\sqrt{\frac{2}{m}\left(h\,\frac{c}{\lambda}-W_0\right)}\\[8pt] &amp;v=\sqrt{\frac{2}{9{,}11\cdot10^{-31}\ \mathrm{kg}}\left(6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{0{,}3\cdot10^{-6}\ \mathrm{m}}-3{,}3\cdot1{,}6\cdot10^{-19}\ \mathrm{J}\right)}=\htmlData{pc-ac=ac18}{\boxed{5{,}44\cdot10^{5}\ \mathrm{\frac{m}{s}}}}\end{aligned}$$</p></div></section>
+<section class="ap" id="f16b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$\begin{aligned}&amp;h\,f_0=W_0\;\rightarrow\;f_0=\frac{W_0}{h}\\[8pt] &amp;f_0=\frac{3{,}3\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}=7{,}96\cdot10^{14}\ \mathrm{Hz}\\[8pt] &amp;\lambda_0=\frac{c}{f_0}=\frac{3\cdot10^{8}\ \mathrm{m/s}}{7{,}96\cdot10^{14}\ \mathrm{1/s}}=3{,}77\cdot10^{-7}\ \mathrm{m}=377\ \mathrm{nm}\end{aligned}$$ 
+      </p></div></section>
+</div></details>
+</div>
+<div class="prob" id="f3" hidden>
+<div class="enun"><p><span class="num">0</span><strong><font color="#0000FF">Sobre la superficie de 
+        un metal cuya frecuencia umbral es de 7·10<sup>14</sup> Hz incide 
+        una radiación de 1.4·10<sup>15</sup> Hz. Calcula la velocidad 
+        máxima de los electrones emitidos Masa del electrón: 9.11·10<sup>-31</sup> 
+        Kg </font></strong><font color="#0000FF"><span></span></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="f3a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Los fotones de la radiación arrancan electrones 
+        del metal y les dan energía cinética:</p><p class="m150">$$h\,f=W_0+E_C$$</p><p class="m50">En el caso crítico (Umbral) los fotones sólo 
+        tienen energía para extraer los electrones del metal sin darles 
+        energía cinética: </p><p class="m150">$$h\,f_0=W_0+0$$</p><p class="m50">Combinando estas dos expresiones se obtiene un sistema con 
+        dos incógnitas: W<sub>0</sub>, E<sub>C</sub></p><p class="m100">$$\begin{aligned}&amp;\left.\begin{aligned}h\,f_0&amp;=W_0\\[6pt] h\,f&amp;=W_0+E_C\end{aligned}\right\}\quad\htmlData{pc-ac=ac19}{\boxed{E_C=h\,(f-f_0)}}\\[8pt] &amp;\frac{1}{2}\,m\,v^{2}=h\,(f-f_0)\;\rightarrow\;v=\sqrt{\frac{2\,h\,(f-f_0)}{m}}\\[8pt] &amp;v=\sqrt{\frac{2\cdot6{,}63\cdot10^{-34}\ \mathrm{J\,s}\,\left(1{,}4\cdot10^{15}-7\cdot10^{14}\right)\mathrm{Hz}}{9{,}11\cdot10^{-31}\ \mathrm{kg}}}=\htmlData{pc-ac=ac5}{\boxed{10^{6}\ \mathrm{\frac{m}{s}}}}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+</section>
+<section class="seccion" id="cuantica2"><h2>Dualidad</h2>
+<div class="prob" id="d1">
+<div class="enun"><p><span class="num">1</span><strong><font color="#0000FF">Indica como se comportará 
+        la luz visible, cuya longitud de onda es del orden de 500 nm, frente a: 
+        <br/>
+        a) Átomos cuyo tamaño es del orden de 1 Å<sup><br/>
+</sup>b) Microbios cuyo tamaño es del orden de 1 μ m<br/>
+        c) Una red cristalina de NaCl (Separación entre iones vecinos 5.63·10<sup>-10</sup> 
+        m)</font></strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac20" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Longitud de onda de la luz visible: <span id="fisica_cuantica_cuantica2_problema1_1_a_htm_mensaje2">λ 
+        </span>= 500 nm</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="22%">
+<form action="" class="formulario" id="fisica_cuantica_cuantica2_problema1_1_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="fisica_cuantica_cuantica2_problema1_1_a_htm_texto:fisica_cuantica_cuantica2_problema1_1_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                Átomo </p>
+<p>
+<input class="pc-swap" data-pc-swap="fisica_cuantica_cuantica2_problema1_1_a_htm_texto:fisica_cuantica_cuantica2_problema1_1_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                Microbio </p>
+<p>
+<input class="pc-swap" data-pc-swap="fisica_cuantica_cuantica2_problema1_1_a_htm_texto:fisica_cuantica_cuantica2_problema1_1_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                Red cristalina</p>
+</form></td>
+<td id="fisica_cuantica_cuantica2_problema1_1_a_htm_texto" width="78%"><p>L = 1 Å = 10<sup>-10</sup> m = 
+              0,1 nm</p>
+<p><span id="fisica_cuantica_cuantica2_problema1_1_a_htm_mensaje2">λ</span><span> es unas 5000 veces mayor 
+              que L. Frente al átomo la luz se comportará como un 
+              chorro de partículas (No iluminará, golpeará)</span>
+</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="fisica_cuantica_cuantica2_problema1_1_a_htm_texto1" style="display:none"> <p>L = 1 Å = 10<sup>-10</sup> 
+              m = 0,1 nm</p>
+<p><span id="fisica_cuantica_cuantica2_problema1_1_a_htm_mensaje2">λ</span><span> es unas 5000 veces mayor 
+              que L. Frente al átomo la luz se comportará como un 
+              chorro de partículas (No iluminará, golpeará)</span><br/>
+</p>
+</td></tr>
+<tr>
+<td id="fisica_cuantica_cuantica2_problema1_1_a_htm_texto2" style="display:none">
+<p>L = 1 μm = 10<sup>-6</sup> m = 1000 nm</p>
+<p><span id="fisica_cuantica_cuantica2_problema1_1_a_htm_mensaje2">λ</span><span> es la mitad de L. Frente 
+              al microbio la luz se comportará como onda (Iluminará)</span>
+</p>
+</td></tr>
+<tr>
+<td id="fisica_cuantica_cuantica2_problema1_1_a_htm_texto3" style="display:none">
+<p>L = 5,63·10<sup>-10</sup> m = 0,563 nm</p>
+<p><span id="fisica_cuantica_cuantica2_problema1_1_a_htm_mensaje2">λ</span><span> es unas 1000 veces mayor 
+              que L. Frente a la red cristalina la luz se comportará como 
+              un chorro de partículas (No iluminará, golpeará)</span>
+</p>
+</td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="d15">
+<div class="enun"><p><span class="num">2</span><b><font color="#0000FF">Calcular la relación 
+        entre las longitudes de onda de De Broglie de un grano de polen de 1 g 
+        de masa dotado de una velocidad de 80 m/s y de un neutrón que lleva 
+        una velocidad de 2.5·10<sup>4</sup> m/s. <br/>
+        Masa del neutrón: 1.67·10<sup>-27</sup> kg</font></b></p></div>
+<p class="meta"><span class="tag">SEP 1998</span> <a class="enlace_texto var" data-go="d3">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d15a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Aplicamos la relación de De Broglie al grano (1) y 
+        al neutrón (2):</p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}\lambda_1&amp;=\frac{h}{m_1\,v_1}\\[6pt] \lambda_2&amp;=\frac{h}{m_2\,v_2}\end{aligned}\right\}\;\rightarrow\;\frac{\lambda_1}{\lambda_2}=\frac{m_2\,v_2}{m_1\,v_1}\\[8pt] &amp;\frac{\lambda_1}{\lambda_2}=\frac{1{,}67\cdot10^{-27}\ \mathrm{kg}\ 2{,}5\cdot10^{4}\ \mathrm{m/s}}{10^{-3}\ \mathrm{kg}\ 80\ \mathrm{m/s}}=5{,}22\cdot10^{-22}\end{aligned}$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d4">
+<div class="enun"><p><span class="num">3</span><b><font color="#0000FF">Un haz de electrones es acelerado 
+        hasta una energía de 68 eV. Calcula la longitud de su onda asociada. 
+        Masa del electrón: 9.11·10<sup>-31</sup> kg</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La fórmula de De Broglie relaciona el momento de 
+        una partícula con la longitud de onda asociada: </p><p class="m150">$$\begin{aligned}&amp;\lambda=\frac{h}{p}\\[8pt] &amp;\lambda=\frac{h}{\htmlData{pc-ac=ac22}{\sqrt{2\,m\,E_C}}}\\[8pt] &amp;\lambda=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{\sqrt{2\cdot9{,}11\cdot10^{-31}\ \mathrm{kg}\ 68\cdot1{,}6\cdot10^{-19}\ \mathrm{J}}}=\htmlData{pc-ac=ac13}{\boxed{1{,}49\cdot10^{-10}\ \mathrm{m}}}\end{aligned}$$ 
+      </p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d2">
+<div class="enun"><p><span class="num">4</span><b><font color="#0000FF">Un electrón tiene una 
+        longitud de onda de De Broglie de 200 nm. Calcular:<br/>
+</font></b><font color="#0000FF"><b>a) Momento lineal del electrón<br/>
+</b></font><font color="#0000FF"><b>b) Energía cinética 
+        del electrón<br/>
+</b></font><font color="#0000FF"><b>Masa del electrón: 9.11·10<sup>-31</sup> 
+        kg</b></font></p></div>
+<p class="meta"><span class="tag">SEP 2000</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La fórmula de De Broglie relaciona el momento de una 
+        partícula con la longitud de onda asociada:</p><p class="m150">$$\begin{aligned}&amp;\lambda=\frac{h}{p}\;\rightarrow\;p=\frac{h}{\lambda}\\[8pt] &amp;p=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{200\cdot10^{-9}\ \mathrm{m}}=\htmlData{pc-ac=ac23}{\boxed{3{,}32\cdot10^{-27}\ \mathrm{kg\,\frac{m}{s}}}}\end{aligned}$$ 
+      </p><p class="m50"><b><font color="#0000FF">b)</font></b></p><p class="m50">Relación entre momento lineal y energía cinética:</p><p class="m150">$$\begin{aligned}&amp;\htmlData{pc-ac=ac24}{\boxed{E_C=\frac{p^{2}}{2\,m}}}\\[8pt] &amp;E_C=\frac{(h/\lambda)^{2}}{2\,m}=\frac{h^{2}}{2\,m\,\lambda^{2}}\\[8pt] &amp;E_C=\frac{\left(6{,}63\cdot10^{-34}\ \mathrm{J\,s}\right)^{2}}{2\cdot9{,}11\cdot10^{-31}\ \mathrm{kg}\left(200\cdot10^{-9}\ \mathrm{m}\right)^{2}}=\htmlData{pc-ac=ac25}{\boxed{6{,}03\cdot10^{-24}\ \mathrm{J}}}\end{aligned}$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d11">
+<div class="enun"><p><span class="num">5</span><b><font color="#0000FF">Considérense las longitudes 
+        de onda de un electrón y de un protón. ¿Cuál 
+        es menor si las partículas tienen: a) la misma velocidad b) la 
+        misma energía cinética y c) el mismo momento lineal?</font></b></p></div>
+<p class="meta"><span class="tag">JUN 2004</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d11a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Utilizando la relación de De Broglie:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"><form action="" class="formulario" id="fisica_cuantica_cuantica2_problema11_11_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="fisica_cuantica_cuantica2_problema11_11_a_htm_texto:fisica_cuantica_cuantica2_problema11_11_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                Misma v</p>
+<p>
+<input class="pc-swap" data-pc-swap="fisica_cuantica_cuantica2_problema11_11_a_htm_texto:fisica_cuantica_cuantica2_problema11_11_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                Misma E<sub>C</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="fisica_cuantica_cuantica2_problema11_11_a_htm_texto:fisica_cuantica_cuantica2_problema11_11_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mismo p</p>
+</form></td>
+<td id="fisica_cuantica_cuantica2_problema11_11_a_htm_texto" width="81%"> <p class="m100">$$\lambda=\frac{h}{p}=\frac{h}{m\,v}$$ 
+            </p>
+<p class="m50">La menor longitud de onda corresponderá al protón 
+              (Mayor masa)</p>
+</td></tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"> </td>
+<td id="fisica_cuantica_cuantica2_problema11_11_a_htm_texto1" style="display:none" width="81%">
+<p class="m100">$$\lambda=\frac{h}{p}=\frac{h}{m\,v}$$ 
+            </p>
+<p class="m50">La menor longitud de onda corresponderá al protón 
+              (Mayor masa)</p></td></tr>
+<tr>
+<td> </td>
+<td id="fisica_cuantica_cuantica2_problema11_11_a_htm_texto2" style="display:none">
+<p class="m100">$$\lambda=\frac{h}{p}=\frac{h}{\htmlData{pc-ac=ac26}{\sqrt{2\,m\,E_C}}}$$</p>
+<p class="m50">La menor longitud de onda corresponderá al protón 
+              (Mayor masa)</p></td></tr>
+<tr>
+<td> </td>
+<td id="fisica_cuantica_cuantica2_problema11_11_a_htm_texto3" style="display:none">
+<p class="m100">$$\lambda=\frac{h}{p}$$</p>
+<p class="m50">Ambas partículas tendrán la misma longitud 
+              de onda</p></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="d5">
+<div class="enun"><p><span class="num">6</span><b><font color="#0000FF">Calcula la velocidad que deberían 
+        tener los electrones para que la longitud de su onda asociada fuera 0.01 
+        nm (Despreciar el efecto relativista)</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La fórmula de De Broglie relaciona el momento de 
+        una partícula con la longitud de onda asociada:</p><p class="m150">$$\begin{aligned}&amp;\lambda=\frac{h}{p}\\[8pt] &amp;\lambda=\frac{h}{m\,v}\;\rightarrow\;v=\frac{h}{m\,\lambda}\\[8pt] &amp;v=\frac{h}{m\,\lambda}=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{9{,}11\cdot10^{-31}\ \mathrm{kg}\ 10^{-11}\ \mathrm{m}}=\htmlData{pc-ac=ac27}{\boxed{7{,}28\cdot10^{7}\ \mathrm{\frac{m}{s}}}}\end{aligned}$$ 
+      </p><p class="m50">Observa que esta velocidad es 0.24c y esto afectará 
+        a la masa del electrón 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d6">
+<div class="enun"><p><span class="num">7</span><b><font color="#0000FF">La separación 
+        entre los iones vecinos más próximos en el NaCl es 5.63·10<sup>-10</sup> 
+        m. </font></b><font color="#0000FF"><b>¿Qué velocidad deberían 
+        tener los electrones de un haz para que este se difractara al pasar por 
+        una red de NaCl?</b></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Para que el haz de electrones se comporte como una onda 
+        y se difracte, la longitud de su onda asociada tiene que ser del orden 
+        de la separación entre iones: 5·10<sup>-10</sup> m</p><p class="m50">Utilizando la relación de De Broglie:</p><p class="m150">$$\begin{aligned}&amp;\lambda=\frac{h}{p}=\frac{h}{m\,v}\;\rightarrow\;v=\frac{h}{m\,\lambda}\\[8pt] &amp;v=\frac{h}{m\,\lambda}=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{9{,}11\cdot10^{-31}\ \mathrm{kg}\ 5\cdot10^{-10}\ \mathrm{m}}=\htmlData{pc-ac=ac27}{\boxed{1{,}46\cdot10^{6}\ \mathrm{\frac{m}{s}}}}\end{aligned}$$ 
+        
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d9">
+<div class="enun"><p><span class="num">8</span><b><font color="#0000FF">Calcula la longitud de la onda 
+        de De Broglie para una bola de billar de 600 g moviéndose a 1 m/s 
+        </font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d9a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La fórmula de De Broglie relaciona el momento de 
+        una partícula con la longitud de onda asociada:</p><p class="m150">$$\begin{aligned}&amp;\lambda=\frac{h}{p}=\frac{h}{m\,v}\\[8pt] &amp;\lambda=\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{0{,}6\ \mathrm{kg}\ 1\ \mathrm{m/s}}=\htmlData{pc-ac=ac28}{\boxed{1{,}10\cdot10^{-33}\ \mathrm{m}}}\end{aligned}$$</p><p class="m50"><strong><font color="#FF0000">Meditación</font></strong><font color="#FF0000"><br/>
+        Con esta longitud de onda la bola se comportará como una onda frente 
+        a objetos de tamaño corriente, como por ejemplo al pasar por una 
+        puerta.<br/>
+        Como la longitud de onda es muchisímo menor que el tamaño 
+        de la puerta no habrá efectos de difrac-ción y la bola atravesará 
+        la puerta en línea recta igual que hace la luz al pasar por un 
+        agujero grande</font></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d7">
+<div class="enun"><p><span class="num">9</span><b><font color="#0000FF">Determinamos la posición 
+        de un electrón con una imprecisión de 1 Å. Cuál 
+        será la imprecisión en su momento lineal y en su velocidad. 
+        Masa del electrón: 9.11·10<sup>-31</sup> kg</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac29" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Relación de Heisemberg:</p><p class="m150">$$\begin{aligned}&amp;\Delta p\,\Delta x\geq\frac{h}{2\pi}\;\rightarrow\;\Delta p\geq\frac{h}{2\pi\,\Delta x}\\[8pt] &amp;\Delta p\geq\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{2\pi\cdot10^{-10}\ \mathrm{m}}=\htmlData{pc-ac=ac23}{\boxed{1{,}06\cdot10^{-24}\ \mathrm{kg\,\frac{m}{s}}}}\end{aligned}$$ 
+        
+</p><p class="m50">Una imprecisión en el momento lineal implica una imprecisión 
+        en la velocidad.<br/>
+        La relación entre las imprecisiones Δp, Δv es la misma 
+        que hay entre dp, dv, entonces resulta:</p><p class="m150"> $$\begin{aligned}&amp;p=m\,v\\[8pt] &amp;dp=m\,dv\;\rightarrow\;dv=\frac{1}{m}\,dp\\[8pt] &amp;\Delta v=\frac{\Delta p}{m}\\[8pt] &amp;\Delta v\geq\frac{1{,}06\cdot10^{-24}\ \mathrm{kg\,m/s}}{9{,}11\cdot10^{-31}\ \mathrm{kg}}=1{,}16\cdot10^{6}\ \mathrm{\frac{m}{s}}\end{aligned}$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d8">
+<div class="enun"><p><span class="num">10</span><span class="enlace_texto" data-go="d8a"><b><font color="#0000FF">a</font></b></span><font color="#0000FF"><b>) 
+        Se mide la velocidad de una bola de billar (m = 600 g) con una imprecisión 
+        de 1 m/s. Halla la imprecisión en su posición <br/>
+</b></font><font color="#0000FF"><b><span class="enlace_texto" data-go="d8b">b</span>) 
+        La velocidad de un electrón es de 300 m/s con una imprecisión 
+        del 0.01% ¿Con qué precisión se puede determinar 
+        la posición de este electrón? <br/>
+        Masa del electrón: 9.11·10<sup>-31</sup> kg</b></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d8a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac29" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Relación de Heisemberg:</p><p class="m150">
+	  $$\Delta p\,\Delta x\geq\frac{h}{2\pi}$$ 
+      </p><p class="m50">Una imprecisión en la velocidad implica una imprecisión 
+        en el momento lineal. La relación entre las imprecisiones Δp, 
+        Δv es la misma que hay entre dp, dv, entonces resulta:</p><p class="m150">$$\begin{aligned}&amp;p=m\,v\;\rightarrow\;dp=m\,dv\\[8pt] &amp;\Delta p=m\,\Delta v\\[8pt] &amp;m\,\Delta v\,\Delta x\geq\frac{h}{2\pi}\;\rightarrow\;\Delta x\geq\frac{h}{2\pi\,m\,\Delta v}\\[8pt] &amp;\Delta x\geq\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{2\,\pi\ 0{,}6\ \mathrm{kg}\ 1\ \mathrm{m/s}}=\htmlData{pc-ac=ac30}{\boxed{1{,}76\cdot10^{-34}\ \mathrm{m}}}\end{aligned}$$</p><p class="m50">La imprecisión en la posición es mucho menor 
+        que el tamaño que la bola, es decir: en la práctica se conoce 
+        perfectamente la posición de la bola</p></div></section>
+<section class="ap" id="d8b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac29" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La imprecisión en la velocidad es el 0.01% de su valor 
+        es decir: 3·10<sup>-2</sup> m/s </p><p class="m50">Relación de Heisemberg:</p><p class="m150">
+	  $$\Delta p\,\Delta x\geq\frac{h}{2\pi}$$ 
+      </p><p class="m50">Una imprecisión en la velocidad implica una imprecisión 
+        en el momento lineal. La relación entre las imprecisiones Δp, 
+        Δv es la misma que hay entre dp, dv, entonces resulta:</p><p class="m150">$$\begin{aligned}&amp;p=m\,v\;\rightarrow\;dp=m\,dv\\[8pt] &amp;\Delta p=m\,\Delta v\\[8pt] &amp;m\,\Delta v\,\Delta x\geq\frac{h}{2\pi}\;\rightarrow\;\Delta x\geq\frac{h}{2\pi\,m\,\Delta v}\\[8pt] &amp;\Delta x\geq\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{2\,\pi\ 9{,}11\cdot10^{-31}\ \mathrm{kg}\ 3\cdot10^{-2}\ \mathrm{m/s}}=\htmlData{pc-ac=ac30}{\boxed{3{,}86\cdot10^{-3}\ \mathrm{m}}}\end{aligned}$$</p><p class="m50">Esta imprecisión comparada con el tamaño del 
+        electrón es grandísima: en la práctica ni se sabe 
+        donde anda</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d12">
+<div class="enun"><p><span class="num">11</span><font color="#0000FF"><b>El principio de indeterminación 
+        de Heisemberg establece para la energía y el tiempo la relación 
+        <br/>
+        ΔE·Δt &gt;= h/2·π siendo h la constante de Planck. 
+        Se tiene un láser que emite impulsos de luz cuyo espectro de longitudes 
+        de onda se extiende de 783 nm a 817 nm. Calcula la anchura en frecuencias 
+        Δf y la duración temporal mínima de esos impulsos. 
+        Tómese c = 3·10<sup>8</sup> m/s</b></font></p></div>
+<p class="meta"><span class="tag">JUN 2004</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d12a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac29" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Normalmente se dice que la luz láser 
+        es monocromática (Una única longitud de onda) pero el hecho 
+        de que se emita por pulsos de corta duración hace que la luz tenga 
+        una banda de longitudes de onda, es decir que se indetermine la longitud 
+        de onda</font></p><p class="m150">$$f=\frac{c}{\lambda}\;\rightarrow\;\begin{cases}f_1=\dfrac{3\cdot10^{8}\ \mathrm{m/s}}{783\cdot10^{-9}\ \mathrm{m}}=3{,}83\cdot10^{8}\ \mathrm{MHz}\\[14pt] f_2=\dfrac{3\cdot10^{8}\ \mathrm{m/s}}{817\cdot10^{-9}\ \mathrm{m}}=3{,}67\cdot10^{8}\ \mathrm{MHz}\end{cases}$$</p><p class="m50">Una fluctuación en la longitud de onda de 783 a 817 
+        nm equivale a una fluctuación en frecuencia de 3,67·10<sup>8</sup> 
+        a 3,83·10<sup>8</sup> MHz</p><p class="m50">Relación de Heisemberg:</p><p class="m150">$$\Delta E\,\Delta t\geq\frac{h}{2\,\pi}$$ 
+      </p><p class="m50">Una imprecisión en la energía implica una imprecisión 
+        en la longitud de onda (E = h·c/λ)<br/>
+        La relación entre las imprecisiones ΔE, Δλ es 
+        la misma que hay entre las diferenciales dE, dλ:</p><p class="m150">$$\begin{aligned}&amp;E=h\,\frac{c}{\lambda}\;\rightarrow\;dE=-\frac{h\,c}{\lambda^{2}}\,d\lambda\\[8pt] &amp;\Delta E=\frac{h\,c}{\lambda^{2}}\,\Delta\lambda\end{aligned}$$</p><p class="m50">Al pasar de diferencial a indeterminación se ha quitado 
+        el signo menos porque lo que cuenta es la cantidad de indeterminación 
+        no su sentido (El signo menos indica que un aumento en la longitud de 
+        onda produce una disminución en la energía)</p><p class="m50">Sustituyendo en la relación de Heisemberg:</p><p class="m150">$$\left(\frac{h\,c}{\lambda^{2}}\,\Delta\lambda\right)\Delta t\geq\frac{h}{2\,\pi}\;\rightarrow\;\Delta t\geq\frac{\lambda^{2}}{2\,\pi\,c\,\Delta\lambda}$$</p><p class="m50"><font color="#000000">Si la longitud de onda fluctúa 
+        entre 783 y 817 nm podemos expresarla como:</font></p><p class="m150"><font color="#000000">λ = (800 ± 17) nm</font></p><p class="m50">El pulso del láser tiene una longitud de onda de 800 
+        nm con una indeterminación de 17 nm</p><p class="m150">$$\Delta t\geq\frac{\left(800\cdot10^{-9}\ \mathrm{m}\right)^{2}}{2\,\pi\ 3\cdot10^{8}\ \mathrm{m/s}\ 17\cdot10^{-9}\ \mathrm{m}}=2\cdot10^{-14}\ \mathrm{s}$$</p><p class="m50">Como poco el pulso de láser tiene que durar 2·10<sup>-14</sup> 
+        s </p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d3">
+<div class="enun"><p><span class="num">12</span><b><font color="#0000FF">Dos partículas 
+        tienen asociada la misma longitud de onda de De Broglie. Sabiendo que 
+        la masa de una de ellas es triple que la de la otra, calcula la relación 
+        entre las velocidades de ambas partículas</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2005</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d3a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Aplicamos la relación de De Broglie a las partículas 
+        (1) y (2):</p><p class="m150">$$\begin{aligned}&amp;\left.\begin{aligned}\lambda_1&amp;=\frac{h}{m_1\,v_1}\\[6pt] \lambda_2&amp;=\frac{h}{m_2\,v_2}\end{aligned}\right\}\;\rightarrow\;1=\frac{m_2}{m_1}\,\frac{v_2}{v_1}\\[8pt] &amp;\frac{v_1}{v_2}=\frac{m_2}{m_1}=\frac{1}{3}\end{aligned}$$</p><p class="m50">La partícula cuya masa es tres veces mayor tendrá 
+        una velocidad tres veces menor</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d10">
+<div class="enun"><p><span class="num">13</span><b><font color="#0000FF">Si la posición del electrón 
+        puede medirse con una imprecisión de 1.6·10<sup>-8</sup> 
+        m ¿con qué imprecisión se puede conocer su velocidad? 
+        Masa del electrón: 9.11·10<sup>-31</sup> kg </font></b></p></div>
+<p class="meta"><span class="tag">SEP 1998</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d10a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac29" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Relación de Heisemberg:</p><p class="m150">$$\Delta p\,\Delta x\geq\frac{h}{2\pi}$$ 
+      </p><p class="m50">Una imprecisión en el momento lineal implica una imprecisión 
+        en la velocidad (p = m·v)<br/>
+        La relación entre las imprecisiones Δp, Δv es la misma 
+        que hay entre las diferenciales dp, dv:</p><p class="m150"> $$\begin{aligned}&amp;p=m\,v\\[8pt] &amp;dp=m\,dv\;\rightarrow\;dv=\frac{1}{m}\,dp\\[8pt] &amp;\Delta p=m\,\Delta v\\[8pt] &amp;m\,\Delta v\,\Delta x\geq\frac{h}{2\pi}\;\rightarrow\;\Delta v\geq\frac{h}{2\pi\,m\,\Delta x}\\[8pt] &amp;\Delta v\geq\frac{6{,}63\cdot10^{-34}\ \mathrm{J\,s}}{2\pi\ 9{,}11\cdot10^{-31}\ \mathrm{kg}\ 1{,}6\cdot10^{-8}\ \mathrm{m}}=\htmlData{pc-ac=ac27}{\boxed{7{,}24\cdot10^{3}\ \mathrm{\frac{m}{s}}}}\end{aligned}$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d16">
+<div class="enun"><p><span class="num">14</span><b><font color="#0000FF">Se lleva a cabo un 
+        experimento de interferencias con un haz de electrones que incide en el 
+        dispositivo experimental con velocidad v y se obtiene que la longitud 
+        de onda de estos electrones es λ<sub>e</sub>. <br/>
+        Posteriormente se repite el experimento pero con un haz de protones que 
+        incide con la misma veloci-dad v, obteniéndose un valor λ<sub>p</sub> 
+        para la longitud de onda. <br/>
+        Sabiendo que la masa del protón es aproximadamente 1838 veces mayor 
+        que la masa del electrón ¿qué valdrá la relación 
+        entre las longitudes de onda medidas λ<sub>e</sub> /λ<sub>p</sub></font></b><font color="#0000FF"><b></b></font></p></div>
+<p class="meta"><span class="tag">SEP 1998</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d16a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Aplicamos la relación de De Broglie al electrón 
+        (1) y al protón (2):</p><p class="m150">$$\left.\begin{aligned}\lambda_1&amp;=\frac{h}{m_1\,v}\\[6pt] \lambda_2&amp;=\frac{h}{m_2\,v}\end{aligned}\right\}\;\rightarrow\;\frac{\lambda_1}{\lambda_2}=\frac{m_2}{m_1}=1838$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="d13">
+<div class="enun"><p><span class="num">15</span><b><font color="#0000FF">Consideremos una partícula 
+        α y un protón que poseen la misma energía cinética, 
+        moviéndose am-bos a velocidades mucho menores que la de la luz 
+        ¿Qué relación existe entre la longitud de onda de 
+        De Broglie del protón y de la partícula α?</font></b></p></div>
+<p class="meta"><span class="tag">JUN 2007</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="d13a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac21" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"> Relación de De Broglie en función de la 
+        energía cinética:</p><p class="m150">$$\lambda=\frac{h}{p}=\frac{h}{\htmlData{pc-ac=ac31}{\sqrt{2\,m\,E_C}}}$$</p><p class="m50">Aplicamos la relación de De Broglie a las partículas 
+        <b>α </b>(1) y protón (2):</p><p class="m150">$$\left.\begin{aligned}\lambda_1&amp;=\frac{h}{\sqrt{2\,m_1\,E_C}}\\[6pt] \lambda_2&amp;=\frac{h}{\sqrt{2\,m_2\,E_C}}\end{aligned}\right\}\xrightarrow{\;(1,2)\;}\frac{\lambda_1}{\lambda_2}=\sqrt{\frac{m_2}{m_1}}$$</p><p class="m50">La relación entre las longitudes de onda es la raíz 
+        de la relación inversa entre las masas</p></div></section>
+</div></details>
+</div>
+</section>
+<section class="seccion" id="faq"><h2>Preguntas malvadas</h2>
+<div class="prob" id="m13">
+<div class="enun"><p><span class="num">1</span><b><font color="#0000FF">Determina la energía, 
+        en eV, de un fotón de luz verde cuya longitud de onda es λ 
+        = 670 nm </font></b></p></div>
+<p class="meta"><span class="tag">SEP 1997</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m13a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m150">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{670\cdot10^{-9}\ \mathrm{m}}=2{,}97\cdot10^{-19}\ \mathrm{J}\\[8pt] &amp;E=\frac{2{,}97\cdot10^{-19}\ \mathrm{J}}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=1{,}85\ \mathrm{eV}\end{aligned}$$</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m9">
+<div class="enun"><p><span class="num">2</span><span class="enlace_texto" data-go="m9a"><b><font color="#0000FF">a</font></b></span><font color="#0000FF"><b>) 
+        ¿Cuál es la menor energía posible de una radiación 
+        luminosa de λ = 500 nm? <br/>
+<span class="enlace_texto" data-go="m9b">b</span>) ¿Podría 
+        existir una radiación de esta longitud de onda con una energía 
+        de 5·10<sup>-19</sup> J?<br/>
+</b></font><font color="#0000FF"><b>Dato  h = 6,63·10<sup>-34</sup> 
+        S.I </b></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m9a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Una onda luminosa consiste en un conjunto de fotones cuya 
+        energía viene dada por E = h·f.</p><p class="m150">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E=6{,}63\cdot10^{-34}\ \mathrm{J\cdot s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{500\cdot10^{-9}\ \mathrm{m}}=3{,}98\cdot10^{-19}\ \mathrm{J}\end{aligned}$$</p><p class="m50"> La onda de menor energía posible tendrá un 
+        sólo fotón, por tanto su energía será: 3.98·10<sup>-19</sup> 
+        J</p></div></section>
+<section class="ap" id="m9b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">La cantidad de fotones que tendría una onda de energía 
+        5·10<sup>-19</sup> J sería:</p><p class="m150">$$n=\frac{5\cdot10^{-19}\ \mathrm{J}}{3{,}98\cdot10^{-19}\ \mathrm{J}/\text{fotón}}=1{,}25\ \text{fotones}$$</p><p class="m50">No puede haber un número fraccionario de fotones</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m10">
+<div class="enun"><p><span class="num">3</span><b><font color="#0000FF">La luz solar que llega a la 
+        Tierra tiene una intensidad de 1800 W/m<sup>2</sup> ¿Cuántos 
+        fotones por metro cua-drado y por segundo representa esta radiación? 
+        Suponer una longitud de onda media para la luz solar de 550 nm.  Dato: 
+        h = 6,63·10<sup>-34</sup> J·s</font></b></p></div>
+<p class="meta"><a class="enlace_texto var" data-go="m11">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m10a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Una intensidad de 1800 W/m<sup>2</sup> significa que cada 
+        segundo, en cada m<sup></sup><sup>2</sup>, la luz solar lleva 1800 J.<br/>
+        Esta energía es transportada por fotones cada uno de los cuales 
+        lleva una energía E = h·f</p><p class="m50">Vamos a calcular la energía que transporta un fotón 
+        de la luz solar suponiendo esta monocromática con λ = 550·10<sup>-9</sup> 
+        m:</p><p class="m150">$$E=h\,f=h\,\frac{c}{\lambda}=6{,}63\cdot10^{-34}\ \mathrm{J\cdot s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{550\cdot10^{-9}\ \mathrm{m}}=3{,}62\cdot10^{-19}\ \mathrm{J}$$</p><p class="m50"> La cantidad de fotones necesaria para transportar 1800 J 
+        será:</p><p class="m150">$$n=\frac{1800\ \mathrm{J}}{3{,}62\cdot10^{-19}\ \mathrm{J}}=4{,}97\cdot10^{21}$$</p><p class="m50">(Recuerda que las cantidades de cosas no tienen dimensiones)</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m33">
+<div class="enun"><p><span class="num">4</span><b><font color="#0000FF">¿Cómo explicó 
+        Einstein la existencia de una longitud de onda crítica, λ<sub>c</sub>, 
+        por encima de la cual los electrones no serían emitidos? </font></b></p></div>
+<p class="meta"><span class="tag">SEP 1995</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m33a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">En el efecto fotoeléctrico un electrón absorbe 
+        un fotón y utiliza su energía (h·f) para escapar 
+        del metal (W<sub>0</sub>) y adquirir energía cinética:</p><p class="m150">$$h\,f=W_0+E_C\;\rightarrow\;\frac{h\,c}{\lambda}=W_0+E_C$$</p><p class="m50">Como el trabajo de extracción del metal (W<sub>0</sub>) 
+        es constante a medida que aumente λ disminuirá la energía 
+        cinética hasta anularse. Caso crítico:</p><p class="m150">$$\frac{h\,c}{\lambda_C}=W_0$$</p><p class="m50">Para valores de λ superiores a λ<sub>c</sub> 
+        no se cumplirá la expresión y cesará la emisión.<br/>
+        Dicho de otra forma los fotones de una radiación de longitud de 
+        onda λ &gt; λ<sub>c</sub>  no tienen energía 
+        para sacar el electrón del metal </p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m17">
+<div class="enun"><p><span class="num">5</span><b><font color="#0000FF">Una superficie metálica 
+        emite electrones por efecto fotoeléctrico cuando sobre ella incide 
+        luz verde (500 nm), pero no lo hace cuando la luz es amarilla (600 nm) 
+        ¿Emitirá electrones cuando sobre ella incida luz azul (400 
+        nm)? ¿Y si es roja (700 nm). Razona la respuesta </font></b></p></div>
+<p class="meta"><span class="tag">JUN 2000</span> <a class="enlace_texto var" data-go="m7">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m17a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m150">E = h·f = h·c /λ</p><p class="m50">La energía de los fotones es inversamente proporcional 
+        a su longitud de onda</p><p class="m50">Si una radiación de λ = 600 nm no produce fotoemisión 
+        tampoco lo hará una de λ = 700 nm cuyos fotones son menos 
+        energéticos</p><p class="m50">Si una radiación de λ = 500 nm produce fotoemisión 
+        también lo hará una de λ = 400 nm cuyos fotones son 
+        más energéticos (Expulsará electrones con más 
+        velocidad)</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m36">
+<div class="enun"><p><span class="num">6</span><b><font color="#0000FF">¿Por qué el espectro 
+        del hidrógeno tiene muchas líneas si el átomo de 
+        hidrógeno tiene un sólo electrón?</font></b></p></div>
+<p class="meta"><span class="tag">JUN 2000</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m36a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Para ver el espectro del hidrógeno hay que aplicar 
+        una d.d.p elevada a un tubo que contiene gas hidrógeno a baja presión 
+        que son muchos millones de átomos.</p><p class="m50">En los átomos de hidrógeno, excitados por el 
+        campo eléctrico, el único electrón sube a un nivel 
+        más alto para caer después emitiendo un fotón (Línea 
+        espectral).</p><p class="m50"> Ahora viene el truco: los electrones no suben todos al mismo 
+        nivel unos suben más y otros menos y los fotones que emiten al 
+        volver al nivel de partida tienen diferente energía (Distinta línea 
+        espectral)  Cuantos más electrones hayan subido a un determinado 
+        nivel, más brillante será la línea espectral correspondiente</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m14">
+<div class="enun"><p><span class="num">7</span><strong><font color="#0000FF">La transición electrónica 
+        del sodio que ocurre entre dos de sus niveles energéticos tiene 
+        una energía E = 3,37·10<sup>-19</sup> J. Supongamos que 
+        se ilumina un átomo de sodio con luz monocrómática 
+        cuya longitud de onda puede ser λ<sub>1</sub> = 685,7 nm, λ<sub>2</sub> 
+        = 642,2 nm o λ<sub>3</sub> = 589,6 nm <br/>
+        ¿Se conseguirá excitar un electrón desde el nivel 
+        de menor energía al de mayor energía con alguna de estas 
+        radiaciones? ¿Con cuál o cuáles de ellas? Razona 
+        la respuesta</font></strong></p></div>
+<p class="meta"><span class="tag">JUN 2003</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m14a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Lo que pregunta el problema es: ¿un electrón, 
+        situado en un nivel bajo, puede capturar un fotón y uti-lizar su 
+        energía para subir a un nivel más alto? <br/>
+        El truco del asunto está en que la energía del fotón 
+        tiene que ser exactamente igual a la diferencia de energía entre 
+        los niveles</p><p class="m50">Veamos la energía de cada uno de los fotones:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"><form action="" class="formulario" id="fisica_cuantica_faq_problema14_14_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="fisica_cuantica_faq_problema14_14_a_htm_texto:fisica_cuantica_faq_problema14_14_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                λ = 685.7 nm</p>
+<p>
+<input class="pc-swap" data-pc-swap="fisica_cuantica_faq_problema14_14_a_htm_texto:fisica_cuantica_faq_problema14_14_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                λ = 642.2 nm</p>
+<p>
+<input class="pc-swap" data-pc-swap="fisica_cuantica_faq_problema14_14_a_htm_texto:fisica_cuantica_faq_problema14_14_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                λ = 589.6 nm</p>
+</form></td>
+<td id="fisica_cuantica_faq_problema14_14_a_htm_texto" width="73%">
+<p class="m50">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E_1=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{685{,}7\cdot10^{-9}\ \mathrm{m}}=2{,}90\cdot10^{-19}\ \mathrm{J}\end{aligned}$$</p>
+<p class="m50"><span id="fisica_cuantica_faq_problema14_14_a_htm_mensaje">Este fotón no tiene suficiente 
+              energía</span></p></td></tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="23%"> </td>
+<td id="fisica_cuantica_faq_problema14_14_a_htm_texto1" style="display:none" width="77%">
+<p class="m50">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E_1=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{685{,}7\cdot10^{-9}\ \mathrm{m}}=2{,}90\cdot10^{-19}\ \mathrm{J}\end{aligned}$$</p>
+<p class="m50"><span id="fisica_cuantica_faq_problema14_14_a_htm_mensaje">Este fotón no tiene suficiente 
+              energía</span></p></td></tr>
+<tr>
+<td> </td>
+<td id="fisica_cuantica_faq_problema14_14_a_htm_texto2" style="display:none">
+<p class="m50">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E_2=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{642{,}2\cdot10^{-9}\ \mathrm{m}}=3{,}10\cdot10^{-19}\ \mathrm{J}\end{aligned}$$</p>
+<p class="m50"><span id="fisica_cuantica_faq_problema14_14_a_htm_mensaje">Este fotón no tiene suficiente energía</span></p></td></tr>
+<tr>
+<td> </td>
+<td id="fisica_cuantica_faq_problema14_14_a_htm_texto3" style="display:none">
+<p class="m50">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E_3=6{,}63\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{589{,}6\cdot10^{-9}\ \mathrm{m}}=3{,}37\cdot10^{-19}\ \mathrm{J}\end{aligned}$$</p>
+<p class="m50">Este fotón tiene la energía justa para 
+              subir al electrón</p></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="m34">
+<div class="enun"><p><span class="num">8</span><b><font color="#0000FF">¿Por qué los rayos 
+        ultravioleta (invisibles) al incidir sobre una pantalla fluorescente se 
+        transforman en azules y verdes?</font></b></p></div>
+<p class="meta"><span class="tag">SEP 1995</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m34a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="30%"><img height="92" src="faq/problema34/imagenes/34_01.png" width="180"/></td>
+<td width="70%"><p>Los electrones de la pantalla absorben los fotones 
+              de la luz ultravioleta y suben a niveles más altos. A continuación 
+              estos electrones deberían volver a su nivel original emitiendo 
+              fotones iguales a los absorbidos.</p>
+<p>Pero el material de las pantallas fluorescentes tiene una estructura 
+              que permite al electrón caer a un nivel algo más bajo 
+              que el original perdiendo energía como calor. </p>
+<p>Y desde este nivel, el electrón cae al nivel original emitiendo 
+              un fotón de menor energía que el absorbido, por tanto 
+              de menor frecuencia y visible</p></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="m32">
+<div class="enun"><p><span class="num">9</span><b><font color="#0000FF"><span class="enlace_texto" data-go="m32a">a</span>) 
+        Comenta dos fenómenos físicos a favor de la teoría 
+        ondulatoria de la luz<br/>
+<span class="enlace_texto" data-go="m32b">b</span>) Comenta 
+        dos fenómenos físicos a favor de la teoría corpuscular 
+        de la luz</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2003 , SEP 2003</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m32a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Interferencia en doble rendija</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="33%"><div align="center"><img height="153" src="faq/problema32/imagenes/32_01.png" width="176"/></div></td>
+<td width="67%"><p>Una onda luminosa plana llega a un plano opaco con 
+              dos rendijas muy finas a continuación del cual está 
+              colocada una pantalla. En la pantalla aparece una distribución 
+              de líneas luminosas y oscuras alternadas</p>
+<p>La distribución de líneas se explica como resultado 
+              de la interferencia de los rayos emitidos por los focos secundarios 
+              correspondientes a cada rendija. En la figura se han trazado los 
+              rayos que interfieren construc-tivamente</p></td>
+</tr>
+</table><p class="m50">Difracción por una rendija ancha</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="33%"><div align="center"><img height="153" src="faq/problema32/imagenes/32_02.png" width="201"/></div></td>
+<td width="67%"><p>Una onda luminosa plana llega a un plano opaco (Procedente 
+              de un foco lejano) con un orificio circular detrás del cual 
+              está colocada una pantalla. En la pantalla aparece un círculo 
+              luminoso y una distribución concéntrica de anillos 
+              luminosos y oscuros alternados</p>
+<p>La distribución de anillos se explica como resultado de 
+              la interferencia de los rayos emitidos por todos los focos secundarios 
+              que hay en el área de la rendija.</p></td>
+</tr>
+</table></div></section>
+<section class="ap" id="m32b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Efecto Compton</p><p class="m50">Los rayos X que se envían a través de un gas 
+        de electrones libres, cambian su dirección de propaga-ción 
+        y aumentan su longitud de onda mientras que los electrones son impulsados 
+        con velocidad v</p><p class="m50">Admitiendo que la radiación estaba formada por fotones 
+        de energía E = h·f y momento lineal p = h·f/c 
+        se podía interpretar el efecto Compton como un choque oblicuo entre 
+        un fotón y un electrón</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="80" src="faq/problema32/imagenes/32_03.png" width="130"/></div></td>
+<td width="73%"><p>El fotón choca con el electrón y le 
+              cede parte de su energía con lo que el elec-trón empieza 
+              a moverse. Al perder energía el fotón disminuye la 
+              frecuencia y el momento lineal</p></td>
+</tr>
+</table><p class="m50">Efecto fotoeléctrico</p><p class="m50">Iluminando un metal este emite electrones con una cierta 
+        energía cinética. Esta energía cinética no 
+        depende de la intensidad de la radiación sino de su frecuencia 
+        (A mayor frecuencia, más energía cinética)</p><p class="m50">Admitiendo que la radiación estaba formada por fotones 
+        de energía E = h·f se podía interpretar el efecto 
+        fotoeléctrico como la absorción de un fotón por parte 
+        de un electrón. La energía que gana el electrón se 
+        reparte en trabajo de extracción del metal y energía cinética:</p><p class="m150">h·f = W<sub>0</sub> + E<sub>C</sub></p><p class="m50">Evidentemente cuanto mayor sea la frecuencia de la radiación 
+        mayor será la energía cinética</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m40">
+<div class="enun"><p><span class="num">10</span><b><font color="#0000FF">Enuncia el principio de indeterminación 
+        de Heisemberg ¿Cuál es su expresión matemática?</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2005</span> <a class="enlace_texto var" data-go="m30">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m40a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Cuando se midan a la vez la posición y el momento 
+        de una partícula, el producto de las indetermina-ciones en dichas 
+        medidas tendrá que ser mayor que h/(2π). Es decir: cuanto mejor 
+        se conozca la posición peor se conocerá el momento.</p><p class="m50">Esto matemáticamente se expresa así:</p><p class="m150">$$\Delta x\,\Delta p\geq\frac{h}{2\pi}$$</p><p class="m50"><font color="#FF0000">El principio de Heisemberg confirma 
+        la dualidad onda-partícula y la imposibilidad de observarla simul-táneamente. 
+        La posición define el aspecto corpuscular y el momento define el 
+        aspecto ondulatorio<br/>
+        (λ = h/p), cuanto mejor se conozca un aspecto, peor se conocerá 
+        el otro</font></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m35">
+<div class="enun"><p><span class="num">11</span><b><font color="#0000FF">Describir el efecto fotoeléctrico 
+        y enumerar alguna de sus aplicaciones</font></b></p></div>
+<p class="meta"><span class="tag">JUN 2000</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m35a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Iluminando un metal este emite electrones con una cierta 
+        energía cinética. Esta energía cinética no 
+        depende de la intensidad de la radiación sino de su frecuencia 
+        (A mayor frecuencia, más energía cinética)</p><p class="m50">Se puede interpretar el efecto fotoeléctrico como 
+        la absorción de un fotón por parte de un electrón. 
+        La energía que gana el electrón se reparte en trabajo de 
+        extracción del metal y energía cinética:</p><p class="m150">h·f = W<sub>0</sub> + E<sub>C</sub></p><p class="m50">Evidentemente cuanto mayor sea la frecuencia de la radiación 
+        mayor será la energía cinética de los fotoelectrones</p><p class="m50">Las células fotoeléctricas se utilizan para 
+        impedir que las puertas deslizantes de los ascensores se cierren cuando 
+        se interpone un objeto entre ellas.<br/>
+        En el canto de uno de los paneles hay un foco de luz ultravioleta (Invisible) 
+        y justo enfrente, en el canto del otro panel, hay una célula fotoeléctrica. 
+        Mientras esta célula reciba luz permitirá que fun-cione 
+        el motor de cierre. <br/>
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m45">
+<div class="enun"><p><span class="num">12</span><b><font color="#0000FF">Define el trabajo de extracción 
+        de los electrones de un metal cuando recibe radiación electromag-nética. 
+        Explica de que magnitudes depende la energía máxima de los 
+        electrones emitidos en el efecto fotoeléctrico</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2006</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m45a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">El trabajo de extracción (W<sub>0</sub>) es la 
+        energía que necesita un electrón para poder escapar de un 
+        metal. Depende sólo de la naturaleza del metal</p><p class="m50">En el efecto fotoeléctrico un electrón absorbe 
+        un fotón y utiliza su energía (h·f) para escapar 
+        del metal (W<sub>0</sub>) y adquirir energía cinética:</p><p class="m150">$$h\,f=W_0+E_C\;\rightarrow\;E_C=h\,f-W_0$$</p><p class="m50">La energía cinética depende del trabajo de 
+        extracción (A menor trabajo de extracción mayor energía 
+        cinética) y de la frecuencia de la radiación (A mayor frecuencia 
+        mayor energía cinética).</p><p class="m50">Si la frecuencia es inferior a W<sub>0</sub>/h la energía 
+        cinética será negativa lo que significa que no se produce 
+        la emisión fotoeléctrica <br/>
+</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m39">
+<div class="enun"><p><span class="num">13</span><b><font color="#0000FF">La energía de disociación 
+        de la molécula de monóxido de carbono es 11 eV. ¿Es 
+        posible disociar esta molécula utilizando la radiación de 
+        632.8 nm procedente de un láser de He-Ne?<br/>
+        Dato: h = 6,6·10<sup>-34</sup> J s</font></b></p></div>
+<p class="meta"><span class="tag">JUN 2005</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m39a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Lo que pregunta el problema es: ¿una molécula 
+        puede capturar un fotón del láser y utilizar su energía 
+        para disociarse? <br/>
+        El truco del asunto está en que la energía del fotón 
+        tiene que ser exactamente igual a la energía de disociación</p><p class="m50">Veamos la energía del fotón:</p><p class="m150">$$\begin{aligned}&amp;E=h\,f=h\,\frac{c}{\lambda}\\[8pt] &amp;E=6{,}6\cdot10^{-34}\ \mathrm{J\,s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{632{,}8\cdot10^{-9}\ \mathrm{m}}=3{,}12\cdot10^{-19}\ \mathrm{J}\\[8pt] &amp;E=3{,}12\cdot10^{-19}\ \frac{1}{1{,}6\cdot10^{-19}}\ \mathrm{eV}=1{,}95\ \mathrm{eV}&lt;11\ \mathrm{eV}\end{aligned}$$</p><p class="m50">El fotón no tiene energía suficiente para disociar 
+        la molécula y no será capturado</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m11" hidden>
+<div class="enun"><p><span class="num">0</span><b><font color="#0000FF">La potencia mínima que 
+        puede ser percibida por un ojo normal en luz amarilla de 589 nm es <br/>
+        3,1·10<sup>-16</sup> W. Calcula el mínimo número 
+        de fotones de esta longitud de onda que deben incidir por segundo en la 
+        retina para producir la visión. Dato h = 6,63·10<sup><sup>-34</sup></sup> 
+        J·s</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m11a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Una potencia de 3.1·10<sup>-16</sup> W significa que 
+        cada segundo llega una energía de 3.1·10<sup>-16</sup> J<br/>
+        Esta energía es transportada por fotones cada uno de los cuales 
+        lleva una energía E = h·f.</p><p class="m50">Vamos a calcular la energía que transporta un fotón 
+        de la luz solar amarilla con λ = 589·10<sup>-9</sup> m:</p><p class="m150">$$E=h\,f=h\,\frac{c}{\lambda}=6{,}63\cdot10^{-34}\ \mathrm{J\cdot s}\ \frac{3\cdot10^{8}\ \mathrm{m/s}}{589\cdot10^{-9}\ \mathrm{m}}=3{,}38\cdot10^{-19}\ \mathrm{J}$$</p><p class="m50">Los fotones necesarios para transportar una energía 
+        de 3.1·10<sup>-16</sup> J serán: </p><p class="m150">$$n=\frac{3{,}1\cdot10^{-16}\ \mathrm{J}}{3{,}38\cdot10^{-19}\ \mathrm{J}}=917$$</p><p class="m50">Unos 900 fotones tienen que llegar a la vez al ojo para que 
+        este perciba luz amarilla</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m30">
+<div class="enun"><p><span class="num">14</span><b><font color="#0000FF">Razonar la siguiente expresión: 
+        La indeterminación de la cantidad de movimiento de una partícula 
+        debe ser siempre mayor que h, según el Principio de Indeterminación 
+        de Heisemberg</font></b></p></div>
+<p class="meta"><span class="tag">JUN 1994</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m30a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Principio de Heisemberg:</p><p class="m150">$$\Delta x\,\Delta p\geq\frac{h}{2\pi}$$</p><p class="m50">La expresión dada es incorrecta. El principio de Heisemberg 
+        no establece el valor mínimo de la indeter-minación de una 
+        magnitud (p) sino el valor mínimo del producto de las indeterminaciones 
+        de dos magni-tudes (p, x) medidas a la vez. Es decir cuanto menos imprecisa 
+        sea la medida de una más imprecisa será la medida de la 
+        otra</p><p class="m50">Y ya puestos a criticar, el valor mínimo que establece 
+        Heisemberg no es h sino h/2π</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m31">
+<div class="enun"><p><span class="num">15</span><b><font color="#0000FF">Explicar brevemente el efecto 
+        Compton y su relación con la naturaleza de la luz</font></b></p></div>
+<p class="meta"><span class="tag">JUN 1995 , JUN 2001</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m31a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="116" src="faq/problema31/imagenes/31_01.png" width="138"/></div></td>
+<td width="73%"><p>Los rayos X que se envían a través 
+              de un gas de electrones libres, cambian su dirección de propagación 
+              en un ángulo θ y aumentan su longitud de onda mientras 
+              que los electrones son impulsados con velocidad v</p>
+<p>Experimentalmente se obtiene la siguiente relación:</p>
+<p class="m100">$$\lambda'-\lambda=\frac{h}{m\,c}\,(1-\cos\theta)$$</p></td>
+</tr>
+</table><p class="m50">No había manera de justificar la fórmula abordando 
+        el problema como la dispersión de una radiación luminosa 
+        por partículas materiales (Lo que ocurre en el cielo con la luz 
+        del Sol: la radiación azul es desviada en todas direcciones por 
+        las moléculas de nitrógeno)</p><p class="m50">Admitiendo que la radiación estaba formada por fotones 
+        de energía E = h·f y momento lineal p = h·f/c 
+        se podía interpretar el efecto Compton como un choque oblicuo entre 
+        un fotón y un electrón</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="80" src="faq/problema31/imagenes/31_02.png" width="130"/></div></td>
+<td width="73%"><p>El fotón choca con el electrón y le 
+              cede parte de su energía con lo que el electrón empieza 
+              a moverse. Al perder energía el fotón disminuye la 
+              frecuencia y el momento lineal</p></td>
+</tr>
+</table><p class="m50">Aplicando las ecuaciones del choque oblicuo a esta situación 
+        se obtenía sin problemas la relación experimental de Compton. 
+      </p><p class="m50">Este resultado confirmó la hipòtesis del carácter 
+        corpuscular de las radiaciones luminosas</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m20">
+<div class="enun"><p><span class="num">16</span><b><font color="#0000FF">Enuncia la hipótesis 
+        de Broglie y comenta algún resultado experimental que dé 
+        soporte a dicha hipótesis</font></b></p></div>
+<p class="meta"><span class="tag">JUN 2001</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m20a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Una partícula puede comportarse como una onda cuya 
+        longitud de onda vale:</p><p class="m150">$$\lambda=\frac{h}{p}=\frac{h}{m\,v}$$</p><p class="m50">Para que se muestre el aspecto ondulatorio de la partícula 
+        esta debe interaccionar con objetos mayo-res que su longitud de onda. 
+        Si lanzamos un chorro de electrones a alta velocidad contra una red cris-talina 
+        estos se difractarán igual que lo harían los rayos X.</p><p class="m50"><font color="#FF0000">El tamaño de los agujeros de 
+        una red cristalina es del orden de 10<sup>-10</sup> m, por tanto la longitud 
+        de onda del electrón, para se comporte como una onda, tiene que 
+        ser 10<sup>-10</sup> m como mucho. Para el electrón el cociente 
+        h/m es del orden de 10<sup>3</sup> m/(m/s) por tanto la velocidad tendrá 
+        que ser del orden de 10<sup>7</sup> m/s</font></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m8" hidden>
+<div class="enun"><p><span class="num">0</span><b><font color="#0000FF">Un horno de microondas doméstico 
+        utiliza radiación de frecuencia 2.5·10<sup>3</sup> MHz. 
+        La frecuencia de la luz ultravioleta es 7.5·10<sup>8</sup> MHz 
+        ¿Cuántos fotones de microondas necesitamos para obtener 
+        la misma energía que con un solo fotón de luz ultravioleta?</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2007</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m8a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Calculamos la energía un fotón ultravioleta 
+        (1) y de un fotón de microondas (2)</p><p class="m150"> $$\begin{aligned}&amp;\left.\begin{aligned}E_1&amp;=h\,f_1\\[6pt] E_2&amp;=h\,f_2\end{aligned}\right\}\xrightarrow{\;(1,2)\;}\frac{E_1}{E_2}=\frac{f_1}{f_2}\\[8pt] &amp;\frac{E_1}{E_2}=\frac{7{,}5\cdot10^{8}\ \mathrm{MHz}}{2{,}5\cdot10^{3}\ \mathrm{MHz}}=300000\end{aligned}$$</p><p class="m50">La energía del fotón ultravioleta es 300000 
+        veces mayor que la del fotón de microondas por tanto se necesitarán 
+        300000 fotones de microondas para igualar la energía de un solo 
+        fotón ultravioleta</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m7">
+<div class="enun"><p><span class="num">17</span><b><font color="#0000FF">Un metal emite electrones por 
+        efecto fotoeléctrico cuando se ilumina con luz azul pero no lo 
+        hace cuando la luz es amarilla. Sabiendo que la longitud de onda de la 
+        luz roja es mayor que la de la ama-rilla ¿Qué ocurrirá 
+        al iluminar el metal con luz roja?</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2007</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Umbral para el efecto fotoeléctrico</p><p class="m150">$$h\,f_0=W_0\;\rightarrow\;\frac{h\,c}{\lambda_0}=W_0$$</p><p class="m50">Las radiaciones cuya longitud de onda sea mayor que λ<sub>0</sub> 
+        no producirán fotoemisión</p><p class="m50">Si la luz amarilla no produce fotoemisión es porque 
+        su longitud de onda es mayor que λ<sub>0</sub></p><p class="m50">La longitud de onda de la luz roja es aún mayor que 
+        la de la luz amarilla y por tanto mucho mayor que λ<sub>0</sub> 
+        por lo que tampoco producirá fotoemisión</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="m41">
+<div class="enun"><p><span class="num">18</span><b><font color="#0000FF">Enuncia el principio de indeterminación 
+        de Heisemberg ¿Cuál es su expresión matemática?</font></b></p></div>
+<p class="meta"><span class="tag">SEP 2007</span></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="m41a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Cuando se midan a la vez la posición y el momento 
+        de una partícula, el producto de las indetermina-ciones en dichas 
+        medidas tendrá que ser mayor que h/(2π). Es decir: cuanto mejor 
+        se conozca la posición peor se conocerá el momento.</p><p class="m50">Esto matemáticamente se expresa así:</p><p class="m150">$$\Delta x\,\Delta p\geq\frac{h}{2\pi}$$</p><p class="m50">El principio de Heisemberg confirma la dualidad onda-partícula 
+        y la imposibilidad de observarla simul-táneamente. La posición 
+        define el aspecto corpuscular y el momento define el aspecto ondulatorio<br/>
+        (λ = h/p), cuanto mejor se conozca un aspecto, peor se conocerá 
+        el otro</p></div></section>
+</div></details>
+</div>
+</section>
+<section class="hojas" id="curso"><h2>Propuestos en el curso</h2>
+<h3>Hoja 1</h3><ol>
+<li><a class="enlace_texto" data-go="m9">a ) ¿Cuál es la menor energía posible de una radiación luminosa de λ = 500 nm? b ) ¿Podría existir una radiación de esta longitud de onda con una…</a></li>
+<li><a class="enlace_texto" data-go="m10">La luz solar que llega a la Tierra tiene una intensidad de 1800 W/m<sup>2</sup> ¿Cuántos fotones por metro cua-drado y por segundo representa esta radiación?…</a></li>
+<li><a class="enlace_texto" data-go="f1">Al incidir sobre un metal una radiación de λ = 200 nm, los fotoelectrones son emitidos con una velo-cidad máxima de 10<sup>6</sup> m/s. Calcula la energía…</a></li>
+<li><a class="enlace_texto" data-go="f2">Si el bario tiene una función de trabajo de 2.48 eV, calcular la energía cinética máxima de los electro-nes que emitirá al ser iluminado con luz de…</a></li>
+<li><a class="enlace_texto" data-go="f6">En una célula fotoeléctrica con cátodo de wolframio, los electrones poseen una energía cinética de 8·10<sup>-19</sup> J cuando son arrancados por luz de 1250 Å.…</a></li>
+<li><a class="enlace_texto" data-go="f9">El cesio emite electrones para una longitud de onda máxima de 579 nm. Calcula la energía cinética de los fotoelectrones emitidos si se ilumina con…</a></li>
+<li><a class="enlace_texto" data-go="f7">La frecuencia umbral para la emisión de fotoelectrones por parte del wolframio es de 1.19·10<sup>15</sup> Hz. Calcula la longitud de onda que se necesitará…</a></li>
+<li><a class="enlace_texto" data-go="f5">Se desea construir una célula fotoeléctrica que emita electrones con una energía cinética de 3 eV cuando incida sobre ella un haz de radiación…</a></li>
+<li><a class="enlace_texto" data-go="f8">Con luz de longitud de onda λ = 600·10<sup>-9</sup> m se ilumina un metal que tiene una función de trabajo fotoeléctrico de 2 eV. Hallar: a ) Energía cinética…</a></li>
+<li><a class="enlace_texto" data-go="f11">Cuando se ilumina un cierto metal con luz monocromática de frecuencia 1.2·10<sup>15</sup> Hz es necesario aplicar un potencial de frenado de 2 V para anular la…</a></li>
+</ol>
+<h3>Hoja 2</h3><ol>
+<li><a class="enlace_texto" data-go="d1">Indica como se comportará la luz visible, cuya longitud de onda es del orden de 500 nm, frente a: a) Átomos cuyo tamaño es del orden de 1 Å<sup> </sup>b)…</a></li>
+<li><a class="enlace_texto" data-go="d4">Un haz de electrones es acelerado hasta una energía de 68 eV. Calcula la longitud de su onda asociada. Masa del electrón: 9.11·10<sup>-31</sup> kg</a></li>
+<li><a class="enlace_texto" data-go="d2">Un electrón tiene una longitud de onda de De Broglie de 200 nm. Calcular: a) Momento lineal del electrón b) Energía cinética del electrón Masa del…</a></li>
+<li><a class="enlace_texto" data-go="d15">Calcular la relación entre las longitudes de onda de De Broglie de un grano de polen de 1 g de masa dotado de una velocidad de 80 m/s y de un neutrón…</a></li>
+<li><a class="enlace_texto" data-go="d11">Considérense las longitudes de onda de un electrón y de un protón. ¿Cuál es menor si las partículas tienen: a) la misma velocidad b) la misma energía…</a></li>
+<li><a class="enlace_texto" data-go="d5">Calcula la velocidad que deberían tener los electrones para que la longitud de su onda asociada fuera 0.01 nm (Despreciar el efecto relativista)</a></li>
+<li><a class="enlace_texto" data-go="d6">La separación entre los iones vecinos más próximos en el NaCl es 5.63·10<sup>-10</sup> m. ¿Qué velocidad deberían tener los electrones de un haz para que este…</a></li>
+<li><a class="enlace_texto" data-go="d7">Determinamos la posición de un electrón con una imprecisión de 1 Å. Cuál será la imprecisión en su momento lineal y en su velocidad. Masa del…</a></li>
+<li><a class="enlace_texto" data-go="d8">a ) Se mide la velocidad de una bola de billar (m = 600 g) con una imprecisión de 1 m/s. Halla la imprecisión en su posición b ) La velocidad de un…</a></li>
+<li><a class="enlace_texto" data-go="d10">Si la posición del electrón puede medirse con una imprecisión de 1.6·10<sup>-8</sup> m ¿con qué imprecisión se puede conocer su velocidad? Masa del electrón:…</a></li>
+</ol>
+</section>
+<section class="hojas" id="acceso"><h2>Propuestos en la prueba de acceso</h2>
+<h3>Hoja 1</h3><ol>
+<li><a class="enlace_texto" data-go="m30">Razonar la siguiente expresión: La indeterminación de la cantidad de movimiento de una partícula debe ser siempre mayor que h, según el Principio de…</a></li>
+<li><a class="enlace_texto" data-go="f4">Sobre una superficie de potasio situada en el vacío incide luz amarilla (λ = 5.89·10<sup>-7</sup> m), producién-dose emisión fotoeléctrica: a) ¿Qué trabajo se…</a></li>
+<li><a class="enlace_texto" data-go="m31">Explicar brevemente el efecto Compton y su relación con la naturaleza de la luz</a></li>
+<li><a class="enlace_texto" data-go="m33">¿Cómo explicó Einstein la existencia de una longitud de onda crítica, λ<sub>c</sub>, por encima de la cual los electrones no serían emitidos?</a></li>
+<li><a class="enlace_texto" data-go="m34">¿Por qué los rayos ultravioleta (invisibles) al incidir sobre una pantalla fluorescente se transforman en azules y verdes?</a></li>
+<li><a class="enlace_texto" data-go="f8">Con luz de longitud de onda λ = 600·10<sup>-9</sup> m se ilumina un metal que tiene una función de trabajo fotoeléctrico de 2 eV. Hallar: a ) Energía cinética…</a></li>
+<li><a class="enlace_texto" data-go="m20">Enuncia la hipótesis de Broglie y comenta algún resultado experimental que dé soporte a dicha hipótesis</a></li>
+<li><a class="enlace_texto" data-go="m10">La luz solar que llega a la Tierra tiene una intensidad de 1800 W/m<sup>2</sup> ¿Cuántos fotones por metro cua-drado y por segundo representa esta radiación?…</a></li>
+<li><a class="enlace_texto" data-go="m13">Determina la energía, en eV, de un fotón de luz verde cuya longitud de onda es λ = 670 nm</a></li>
+<li><a class="enlace_texto" data-go="f2">Si el bario tiene una función de trabajo de 2.48 eV, calcular la energía cinética máxima de los electro-nes que emitirá al ser iluminado con luz de…</a></li>
+<li><a class="enlace_texto" data-go="d15">Calcular la relación entre las longitudes de onda de De Broglie de un grano de polen de 1 g de masa dotado de una velocidad de 80 m/s y de un neutrón…</a></li>
+<li><a class="enlace_texto" data-go="f10">Si la frecuencia mínima que ha de tener la luz para extraer electrones de un cierto metal es 8.5·10<sup>14 </sup>Hz, se pide: a ) Hallar la energía cinética…</a></li>
+</ol>
+<h3>Hoja 2</h3><ol>
+<li><a class="enlace_texto" data-go="f5">Se desea construir una célula fotoeléctrica que emita electrones con una energía cinética de 3 eV cuando incida sobre ella un haz de radiación…</a></li>
+<li><a class="enlace_texto" data-go="m35">Describir el efecto fotoeléctrico y enumerar alguna de sus aplicaciones</a></li>
+<li><a class="enlace_texto" data-go="m36">¿Por qué el espectro del hidrógeno tiene muchas líneas si el átomo de hidrógeno tiene un sólo electrón?</a></li>
+<li><a class="enlace_texto" data-go="m17">Una superficie metálica emite electrones por efecto fotoeléctrico cuando sobre ella incide luz verde (500 nm), pero no lo hace cuando la luz es…</a></li>
+<li><a class="enlace_texto" data-go="m32">a ) Comenta dos fenómenos físicos a favor de la teoría ondulatoria de la luz b ) Comenta dos fenómenos físicos a favor de la teoría corpuscular de la…</a></li>
+<li><a class="enlace_texto" data-go="m32">a ) Comenta dos fenómenos físicos a favor de la teoría ondulatoria de la luz b ) Comenta dos fenómenos físicos a favor de la teoría corpuscular de la…</a></li>
+<li><a class="enlace_texto" data-go="d2">Un electrón tiene una longitud de onda de De Broglie de 200 nm. Calcular: a) Momento lineal del electrón b) Energía cinética del electrón Masa del…</a></li>
+<li><a class="enlace_texto" data-go="m20">Enuncia la hipótesis de Broglie y comenta algún resultado experimental que dé soporte a dicha hipótesis</a></li>
+<li><a class="enlace_texto" data-go="m31">Explicar brevemente el efecto Compton y su relación con la naturaleza de la luz</a></li>
+<li><a class="enlace_texto" data-go="f10">Si la frecuencia mínima que ha de tener la luz para extraer electrones de un cierto metal es 8.5·10<sup>14 </sup>Hz, se pide: a ) Hallar la energía cinética…</a></li>
+<li><a class="enlace_texto" data-go="f11">Cuando se ilumina un cierto metal con luz monocromática de frecuencia 1.2·10<sup>15</sup> Hz es necesario aplicar un potencial de frenado de 2 V para anular la…</a></li>
+<li><a class="enlace_texto" data-go="f12">El trabajo de extracción del platino es 1.01·10<sup>-18</sup> J. El efecto fotoeléctrico se produce en el platino cuando la luz que incide tiene una longitud de…</a></li>
+</ol>
+<h3>Hoja 3</h3><ol>
+<li><a class="enlace_texto" data-go="m14">La transición electrónica del sodio que ocurre entre dos de sus niveles energéticos tiene una energía E = 3,37·10<sup>-19</sup> J. Supongamos que se ilumina un…</a></li>
+<li><a class="enlace_texto" data-go="d16">Se lleva a cabo un experimento de interferencias con un haz de electrones que incide en el dispositivo experimental con velocidad v y se obtiene que…</a></li>
+<li><a class="enlace_texto" data-go="d12">El principio de indeterminación de Heisemberg establece para la energía y el tiempo la relación ΔE·Δt &gt;= h/2·π siendo h la constante de Planck. Se…</a></li>
+<li><a class="enlace_texto" data-go="f13">Al iluminar una superficie metálica con luz de dos longitudes de onda se arrancan electrones que sa-len con diferentes energías. En el experimento se…</a></li>
+<li><a class="enlace_texto" data-go="m39">La energía de disociación de la molécula de monóxido de carbono es 11 eV. ¿Es posible disociar esta molécula utilizando la radiación de 632.8 nm…</a></li>
+<li><a class="enlace_texto" data-go="m40">Enuncia el principio de indeterminación de Heisemberg ¿Cuál es su expresión matemática?</a></li>
+<li><a class="enlace_texto" data-go="f14">El trabajo de extracción para un metal es 2.5 eV. Calcula la frecuencia umbral y la longitud de onda correspondiente</a></li>
+<li><a class="enlace_texto" data-go="d3">Dos partículas tienen asociada la misma longitud de onda de De Broglie. Sabiendo que la masa de una de ellas es triple que la de la otra, calcula la…</a></li>
+</ol>
+<h3>Hoja 4</h3><ol>
+<li><a class="enlace_texto" data-go="f15">La gráfica de la figura adjunta representa el potencial de frenado (V) de una célula fotoeléctrica en función de la frecuencia de la luz incidente…</a></li>
+<li><a class="enlace_texto" data-go="m45">Define el trabajo de extracción de los electrones de un metal cuando recibe radiación electromag-nética. Explica de que magnitudes depende la energía…</a></li>
+<li><a class="enlace_texto" data-go="f16">El trabajo de extracción de un metal es 3.3 eV. Calcula: a ) La velocidad máxima con la que son emitidos los electrones de un metal cuando sobre su…</a></li>
+<li><a class="enlace_texto" data-go="d13">Consideremos una partícula α y un protón que poseen la misma energía cinética, moviéndose am-bos a velocidades mucho menores que la de la luz ¿Qué…</a></li>
+<li><a class="enlace_texto" data-go="m9">a ) ¿Cuál es la menor energía posible de una radiación luminosa de λ = 500 nm? b ) ¿Podría existir una radiación de esta longitud de onda con una…</a></li>
+<li><a class="enlace_texto" data-go="m7">Un metal emite electrones por efecto fotoeléctrico cuando se ilumina con luz azul pero no lo hace cuando la luz es amarilla. Sabiendo que la longitud…</a></li>
+<li><a class="enlace_texto" data-go="m41">Enuncia el principio de indeterminación de Heisemberg ¿Cuál es su expresión matemática?</a></li>
+</ol>
+</section>
+<template id="ac1" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}W_0=h\,f-E_C$$</div><div>$$h\,f_0=h\,f-E_C$$</div><div>$$f_0=f-\frac{E_C}{h}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac2" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[W_0]=\mathrm{J\,s}\,\frac{\mathrm{m/s}}{\mathrm{m}}-\mathrm{kg}\left(\frac{\mathrm{m}}{\mathrm{s}}\right)^{2}$$</div><div>$$[W_0]=\mathrm{J}-\mathrm{kg}\,\frac{\mathrm{m^{2}}}{\mathrm{s^{2}}}$$</div><div>$$[W_0]=\mathrm{J}-\mathrm{kg}\,\frac{\mathrm{m}}{\mathrm{s^{2}}}\,\mathrm{m}$$</div><div>$$[W_0]=\mathrm{J}-\mathrm{N\,m}=\mathrm{J}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac4" data-t="Ayuda"><div class="pasos"><p><strong><font color="#0000FF">Fotones</font></strong><br/>
+        Una onda electromagnética se puede comportar como un chorro de 
+        particulas (Fotones) que transportan una energía:</p><p class="m150">E = h·f</p><p align="left">Aunque la masa en reposo del fotón es cero, tiene 
+        momento li-neal (Cosas de la relatividad)</p><p align="left" class="m150">$$p=\frac{E}{c}$$</p><p align="left">El hecho de tener momento implica que puede chocar con otras 
+        partículas y cambiarles su movimiento</p><p align="left">Los fotones nacen cuando un electrón pierde energía 
+        (Cae a una órbita mas baja) y mueren cuando un electrón 
+        les absorbe (Y sube a una órbita mas alta o escapa del átomo)</p></div></template>
+<template id="ac3" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Efecto fotoeléctrico<br/>
+</font></b>Un electrón de un metal puede absorber un <span class="enlace_texto" data-ac="ac4">fotón</span> 
+        y utilizar su e-nergía para escapar del metal y ganar velocidad. 
+        En el caso más favorable el electrón estará en el 
+        nivel energético más alto del metal y la energía 
+        del fotón se repartirá así:</p><p class="m100">h·f = W<sub>0</sub> + E<sub>C</sub></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="12%">
+<p align="right">h·f </p></td>
+<td width="88%"><p>Energía del fotón<br/>
+              f: Frecuencia de la radiación</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="right">W<sub>0</sub> </p></td>
+<td><p>Función de trabajo (Trabajo de extracción)<br/>
+              Energía necesaria para extraer un electrón situado 
+              en el nivel más alto del metal</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p align="right">E<sub>C </sub></p></td>
+<td><p>Energía cinética máxima del electrón 
+              emitido</p></td>
+</tr>
+</table><p>Al disminuir la frecuencia de la radiación disminuirá la 
+        energía ci-nética de los electrones emitidos. En el caso 
+        crítico (Umbral) es-ta velocidad será cero</p><p class="m100">h·f<sub>0</sub> = W<sub>0 </sub></p><p> f<sub>0</sub> se denomina frecuencia umbral, para frecuencias menores 
+        que ella no se producirá emisión fotoeléctrica </p></div></template>
+<template id="ac5" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[v]=\sqrt{\frac{\mathrm{J}}{\mathrm{kg}}}$$</div><div>$$[v]=\sqrt{\frac{\mathrm{N\,m}}{\mathrm{kg}}}$$</div><div>$$[v]=\sqrt{\frac{\mathrm{kg\,m/s^{2}\ m}}{\mathrm{kg}}}$$</div><div>$$[v]=\sqrt{\frac{\mathrm{m^{2}}}{\mathrm{s^{2}}}}=\frac{\mathrm{m}}{\mathrm{s}}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac6" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}W_0=h\,f-E_C$$</div><div>$$h\,f_0=h\,f-E_C$$</div><div>$$E_C=h\,f-h\,f_0\;\rightarrow\;f_0=f-\frac{E_C}{h}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac7" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}W_0=h\,f-E_C$$</div><div>$$h\,f_0=h\,f-E_C$$</div><div>$$E_C=h\,f-h\,f_0\;\rightarrow\;f_0=f-\frac{E_C}{h}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac8" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}W_0=h\,f_0$$</div><div>$$h\,f=h\,f_0+E_C$$</div><div>$$E_C=h\,(f-f_0)$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac10" data-t="Ayuda"><div class="pasos"><p>Un electrón sale de A con energía cinética, es frenado 
+        por el campo eléctrico y llega a B sin velocidad</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="fisica_cuantica_cuantica1_ayuda_3_htm_imagen" width="53%"><img height="80" src="cuantica1/ayuda/imagenes/3_01.png" width="205"/></td>
+<td id="fisica_cuantica_cuantica1_ayuda_3_htm_texto" width="22%"> <p>E<sub>C in</sub> = E<sub>C</sub> </p>
+<p>E<sub>P in</sub> = q·V<sub>A</sub> </p>
+</td>
+<td id="fisica_cuantica_cuantica1_ayuda_3_htm_texto" width="25%"><p>E<sub>C fin</sub> = 0 </p>
+<p>E<sub>P fin</sub> = q·V<sub>B</sub></p></td>
+</tr>
+</table><p class="m100">$$\begin{aligned}&amp;\Delta E_C=0-E_C=-E_C\\[8pt] &amp;\Delta E_P=q\,V_B-q\,V_A=q\,(V_B-V_A)\end{aligned}$$</p><p>Durante el recorrido el electrón sólo está sometido 
+        a la fuerza eléctrica cuyo trabajo ya está contado en la 
+        variación de ener-gía potencial, por tanto <b><i>T</i></b> 
+        = 0.</p><p class="m100">$$\begin{aligned}&amp;T=\Delta E_C+\Delta E_P\\[8pt] &amp;0=-E_C+q\,(V_B-V_A)\\[8pt] &amp;E_C=q\,(V_B-V_A)\end{aligned}$$ 
+      </p><p align="left">Llamando V a la diferencia de potencial queda:</p><p class="m100">E<sub>C</sub> = q·V</p></div></template>
+<template id="ac9" data-t="Ayuda"><div class="pasos"><p><strong><font color="#0000FF">Potencial de frenado</font></strong></p><p align="center"><img height="63" src="cuantica1/ayuda/imagenes/2_01.png" width="196"/></p><p align="left">Cuando se ilumina el metal A, se emiten fotoelectrones que 
+        se mueven por el vacío y llegan al electrodo B donde se recogen. 
+        Para medir la energía cinética de los fotoelectrones se 
+        aplica un campo eléctrico para frenarlos de forma que no lleguen 
+        a B</p><p align="left"> La d.d.p para la cual los fotoelectrones llegan a B con 
+        velocidad cero se denomina 'potencial de frenado'. Su valor viene dado 
+        por</p><p align="center">$$\htmlData{pc-ac=ac10}{E_C=q\,V}$$</p><p>Como la energía cinética es positiva y el electrón 
+        tiene carga negativa la d.d.p V tendrá que ser negativa. Sin embargo 
+        suele darse sin signo y tú tendrás que ponerla negativa</p></div></template>
+<template id="ac11" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}h=\frac{W_0}{f_0}$$</div><div>$$\frac{W_0}{f_0}\,f=W_0+E_C$$</div><div>$$E_C=W_0\left(\frac{f}{f_0}-1\right)$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac12" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}f_1&=f_0+\frac{q}{h}\,V_1\\[6pt] f_2&=f_0+\frac{q}{h}\,V_2\end{aligned}\right\}\xrightarrow{\;(1)\;}f_0=f_1-\frac{q}{h}\,V_1$$</div><div>$$f_2=f_1-\frac{q}{h}\,V_1+\frac{q}{h}\,V_2$$</div><div>$$f_2-f_1=\frac{q}{h}\,(V_2-V_1)$$</div><div>$$\frac{q}{h}=\frac{f_2-f_1}{(V_2-V_1)}$$</div><div>$$f_0=f_1-\frac{f_2-f_1}{(V_2-V_1)}\,V_1$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac13" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[\lambda]=\frac{\mathrm{J\,s}}{\sqrt{\mathrm{kg\,J}}}$$</div><div>$$[\lambda]=\frac{\mathrm{N\,m\,s}}{\sqrt{\mathrm{kg\,N\,m}}}$$</div><div>$$[\lambda]=\frac{\mathrm{kg\,m/s^{2}\ m\,s}}{\sqrt{\mathrm{kg\,kg\,m/s^{2}\ m}}}$$</div><div>$$[\lambda]=\frac{\mathrm{kg\,m^{2}/s}}{\mathrm{kg\,m/s}}=\mathrm{m}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac14" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}W_0=h\,f_0$$</div><div>$$h\,f=h\,f_0+E_C$$</div><div>$$E_C=h\,(f-f_0)$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac15" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f_1&=W_0+E_C\\[6pt] h\,f_2&=W_0+2\,E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(3)\;}W_0=h\,f_0$$</div><div>$$\left.\begin{aligned}h\,f_1&=h\,f_0+E_C\\[6pt] h\,f_2&=h\,f_0+2\,E_C\end{aligned}\right\}\xrightarrow{\;(2)\;}E_C=h\,f_1-h\,f_0$$</div><div>$$h\,f_2=h\,f_0+2\,(h\,f_1-h\,f_0)$$</div><div>$$f_2=2\,f_1-f_0$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac16" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] E_C&=q\,V\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(3)\;}W_0=h\,f_0$$</div><div>$$\left.\begin{aligned}h\,f&=h\,f_0+E_C\\[6pt] E_C&=q\,V\end{aligned}\right\}\xrightarrow{\;(2)\;}E_C=q\,V$$</div><div>$$h\,f=h\,f_0+q\,V$$</div><div>$$f_0=f-\frac{q\,V}{h}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac17" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] E_C&=q\,V\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(3)\;}W_0=h\,f_0$$</div><div>$$\left.\begin{aligned}h\,f&=h\,f_0+E_C\\[6pt] E_C&=q\,V\end{aligned}\right\}\xrightarrow{\;(2)\;}E_C=q\,V$$</div><div>$$h\,f=h\,f_0+q\,V$$</div><div>$$V=\frac{h}{q}\,(f-f_0)$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac18" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[v]=\sqrt{\frac{1}{\mathrm{kg}}\left(\mathrm{J\,s}\,\frac{\mathrm{m/s}}{\mathrm{m}}-\mathrm{J}\right)}$$</div><div>$$[v]=\sqrt{\frac{1}{\mathrm{kg}}\,\mathrm{J}}$$</div><div>$$[v]=\sqrt{\frac{1}{\mathrm{kg}}\,\mathrm{N\,m}}$$</div><div>$$[v]=\sqrt{\frac{1}{\mathrm{kg}}\,\mathrm{kg}\,\frac{\mathrm{m}}{\mathrm{s^{2}}}\,\mathrm{m}}=\frac{\mathrm{m}}{\mathrm{s}}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac19" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}h\,f&=W_0+E_C\\[6pt] h\,f_0&=W_0\end{aligned}\right\}\xrightarrow{\;(2)\;}W_0=h\,f-E_C$$</div><div>$$h\,f_0=h\,f-E_C$$</div><div>$$E_C=h\,(f-f_0)$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac20" data-t="Ayuda"><div class="pasos"><p><strong><font color="#0000FF">Dualidad</font></strong><br/>
+        La luz puede comportarse como un chorro de particulas y obe-decer las 
+        leyes de la Mecánica<br/>
+        Y las partículas pueden comportarse como ondas y seguir las leyes 
+        ondulatorias </p><p align="left">El comportamiento que muestren estos entes duales dependerá 
+        de la relación entre la longitud de onda (λ) y el tamaño 
+        (L) del objeto con el que interaccionen</p><p align="left">Si λ es aproximadamente mil o más veces mayor 
+        que L mos-trarán el carácter corpuscular</p></div></template>
+<template id="ac21" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Relación de De Broglie</font></b><br/>
+        Una particula de masa m y momento lineal p puede comportarse como una 
+        onda cuya longitud de onda es:</p><p align="left" class="m100">$$\lambda=\frac{h}{p}=\frac{h}{m\,v}$$</p><p align="left">La magnitud que propaga esta onda no tiene interpretación 
+        pero el cuadrado de la misma permite obtener la probabilidad de en-contrar 
+        la partícula en una región (Por eso se llama onda de pro-babilidad)</p></div></template>
+<template id="ac22" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}p&=m\,v\\[6pt] E_C&=\frac{1}{2}\,m\,v^{2}\end{aligned}\right\}\xrightarrow{\;(1)\;}v=\frac{p}{m}$$</div><div>$$E_C=\frac{1}{2}\,m\left(\frac{p}{m}\right)^{2}$$</div><div>$$E_C=\frac{p^{2}}{2\,m}\;\rightarrow\;p=\sqrt{2\,m\,E_C}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac23" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[p]=\frac{\mathrm{J\,s}}{\mathrm{m}}$$</div><div>$$[p]=\frac{\mathrm{N\,m\,s}}{\mathrm{m}}=\mathrm{N\,s}$$</div><div>$$[p]=\mathrm{kg}\,\frac{\mathrm{m}}{\mathrm{s^{2}}}\,\mathrm{s}=\mathrm{kg}\,\frac{\mathrm{m}}{\mathrm{s}}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac24" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}p&=m\,v\\[6pt] E_C&=\frac{1}{2}\,m\,v^{2}\end{aligned}\right\}\xrightarrow{\;(1)\;}v=\frac{p}{m}$$</div><div>$$E_C=\frac{1}{2}\,m\left(\frac{p}{m}\right)^{2}$$</div><div>$$E_C=\frac{p^{2}}{2\,m}\;\rightarrow\;p=\sqrt{2\,m\,E_C}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac25" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[E]=\frac{(\mathrm{J\,s})^{2}}{\mathrm{kg\,m^{2}}}$$</div><div>$$[E]=\frac{\mathrm{N^{2}m^{2}s^{2}}}{\mathrm{kg\,m^{2}}}=\frac{\mathrm{N^{2}s^{2}}}{\mathrm{kg}}$$</div><div>$$[E]=\frac{\mathrm{N\,kg\,m/s^{2}\ s^{2}}}{\mathrm{kg}}$$</div><div>$$[E]=\mathrm{N\,m}=\mathrm{J}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac26" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}p&=m\,v\\[6pt] E_C&=\frac{1}{2}\,m\,v^{2}\end{aligned}\right\}\xrightarrow{\;(1)\;}v=\frac{p}{m}$$</div><div>$$E_C=\frac{1}{2}\,m\left(\frac{p}{m}\right)^{2}$$</div><div>$$E_C=\frac{p^{2}}{2\,m}\;\rightarrow\;p=\sqrt{2\,m\,E_C}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac27" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[v]=\frac{\mathrm{J\,s}}{\mathrm{kg\,m}}$$</div><div>$$[v]=\frac{\mathrm{N\,m\,s}}{\mathrm{kg\,m}}=\frac{\mathrm{N\,s}}{\mathrm{kg}}$$</div><div>$$[v]=\frac{\mathrm{kg\,m/s^{2}\ s}}{\mathrm{kg}}=\frac{\mathrm{m}}{\mathrm{s}}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac28" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[\lambda]=\frac{\mathrm{J\,s}}{\mathrm{kg\,m/s}}$$</div><div>$$[\lambda]=\frac{\mathrm{J\,s^{2}}}{\mathrm{kg\,m}}=\frac{\mathrm{N\,m\,s^{2}}}{\mathrm{kg\,m}}$$</div><div>$$[\lambda]=\frac{\mathrm{N\,s^{2}}}{\mathrm{kg}}$$</div><div>$$[\lambda]=\frac{\mathrm{kg\,m/s^{2}\ s^{2}}}{\mathrm{kg}}=\mathrm{m}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac29" data-t="Potencial de frenado"><div class="pasos"><p><b><font color="#0000FF">Indeterminación<br/>
+</font></b>Cuando se mide una magnitud lo que se hace en realidad es acotarla 
+        entre dos valores. La anchura del intervalo donde se encuentra el valor 
+        de la magnitud se denomina 'imprecisión' o 'indeterminación'. 
+        Evidentemente cuanto menor sea la impreci-sión mejor se conocerá 
+        el valor de la magnitud</p><p> Heisemberg encontró parejas de magnitudes donde el producto de 
+        sus imprecisiones, al medirse a la vez, no puede ser inferior a h/2π 
+      </p><p align="left" class="m100">$$\Delta x\,\Delta p\geq\frac{h}{2\pi}$$</p><p align="left"> Cuanto menor sea la imprecisión en la posición 
+        mayor será la imprecisión en el momento (No se pueden conocer 
+        ambos exac-tamente a la vez)</p><p align="left" class="m100">$$\Delta E\,\Delta t\geq\frac{h}{2\pi}$$</p><p align="left">Cuanto menor sea la imprecisión en el tiempo mayor 
+        será la im-precisión en la energía. Dicho de otra 
+        forma: en intervalos pe-queños de tiempo la energía deja 
+        de conservarse</p></div></template>
+<template id="ac30" data-t="Unidades"><div class="pasos" data-modo="pasos"><div>$$[\Delta x]=\frac{\mathrm{J\,s}}{\mathrm{kg\,m/s}}$$</div><div>$$[\Delta x]=\frac{\mathrm{N\,m\,s}}{\mathrm{kg\,m/s}}=\frac{\mathrm{N\,s^{2}}}{\mathrm{kg}}$$</div><div>$$[\Delta x]=\frac{\mathrm{kg\,m/s^{2}\ s^{2}}}{\mathrm{kg}}=\mathrm{m}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<template id="ac31" data-t="Desarrollo"><div class="pasos" data-modo="pasos"><div>$$\left.\begin{aligned}p&=m\,v\\[6pt] E_C&=\frac{1}{2}\,m\,v^{2}\end{aligned}\right\}\xrightarrow{\;(1)\;}v=\frac{p}{m}$$</div><div>$$E_C=\frac{1}{2}\,m\left(\frac{p}{m}\right)^{2}$$</div><div>$$E_C=\frac{p^{2}}{2\,m}\;\rightarrow\;p=\sqrt{2\,m\,E_C}$$</div></div><div class="ctl"><button data-cmd="sig">Siguiente paso</button> <button data-cmd="todo">Ver todo</button></div></template>
+<script>
+(function () {
+  var OPT = { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
+              trust: function (c) { return c.command === '\\htmlData'; }, strict: 'ignore' };
+  function render(el) {
+    if (!window.renderMathInElement || !el || el.dataset.r) return;
+    el.dataset.r = 1; renderMathInElement(el, OPT);
+  }
+  // al cargar KaTeX: solo lo visible (enunciados y hojas); cada solución se dibuja al abrirla
+  window.pcKatex = function () {
+    document.querySelectorAll('.enun, .hojas, .cab, details[open]').forEach(render);
+    irAHash(); window.pcFit && pcFit();
+  };
+  document.addEventListener('toggle', function (e) { if (e.target.open) { render(e.target); window.pcFit && pcFit(); } }, true);
+
+  // desplazar la página aunque esté dentro del visor (es el visor quien hace scroll)
+  function verEl(el) {
+    try { var y = el.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({ top: y - 12, behavior: 'smooth' }); }
+    catch (_) { el.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function ir(id) {
+    var el = document.getElementById(id); if (!el) return;
+    el.hidden = false;
+    for (var p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS') { p.open = true; render(p); }
+    if (el.tagName === 'DETAILS') { el.open = true; render(el); }
+    setTimeout(function () { verEl(el); el.classList.add('nuevo-paso'); }, 30);
+  }
+  function irAHash() { var h = decodeURIComponent(location.hash.slice(1)); if (h) ir(h); }
+  addEventListener('hashchange', irAHash);
+
+  // paso a paso
+  function modo(cont, m) {
+    var ps = cont.querySelector(':scope > .pasos'); if (!ps) return;
+    var hs = [].slice.call(ps.children), b = function (c) { return cont.querySelector(':scope > .aph [data-cmd="' + c + '"], :scope > .ctl [data-cmd="' + c + '"]'); };
+    if (m === 'pasos') { hs.forEach(function (h, i) { h.classList.toggle('oculto', i > 0); }); }
+    else if (m === 'sig') { var o = ps.querySelector(':scope > .oculto'); if (o) { o.classList.remove('oculto'); o.classList.add('nuevo-paso'); } }
+    else { hs.forEach(function (h) { h.classList.remove('oculto'); }); }
+    var quedan = !!ps.querySelector(':scope > .oculto');
+    if (b('sig')) { b('sig').hidden = !quedan; }
+    if (b('todo')) { b('todo').hidden = !quedan; }
+    if (b('pasos')) { b('pasos').hidden = quedan; }
+    window.pcFit && pcFit();
+  }
+
+  // aclaraciones (antes, ventanas): se despliegan debajo del párrafo
+  function aclarar(src, k) {
+    var tpl = document.getElementById(k); if (!tpl) return;
+    var a = src;
+    while (a.parentElement && !a.parentElement.matches('.pasos, .enun, .ac-body, .sol, .aph')) a = a.parentElement;
+    if (a.parentElement && a.parentElement.matches('.aph')) a = a.parentElement;
+    var sig = a.nextElementSibling;
+    if (sig && sig.classList.contains('ac-box') && sig.dataset.k === k) { sig.remove(); window.pcFit && pcFit(); return; }
+    var box = document.createElement('div'); box.className = 'ac-box'; box.dataset.k = k;
+    box.innerHTML = '<div class="ac-h"><span></span><button aria-label="Cerrar">✕</button></div><div class="ac-body"></div>';
+    box.querySelector('span').textContent = tpl.dataset.t;
+    box.querySelector('.ac-body').appendChild(tpl.content.cloneNode(true));
+    a.after(box); render(box);
+    var ps = box.querySelector('.ac-body > .pasos[data-modo="pasos"]'); if (ps) modo(box.querySelector('.ac-body'), 'pasos');
+    window.pcFit && pcFit();
+  }
+
+  document.addEventListener('click', function (e) {
+    var sw = e.target.closest('[data-pc-swap]');
+    if (sw) {
+      sw.dataset.pcSwap.split(';').forEach(function (par) {
+        var p = par.split(':'), dst = document.getElementById(p[0]), src = document.getElementById(p[1]);
+        if (dst && src) { dst.innerHTML = src.innerHTML; dst.style.visibility = 'visible'; }
+      });
+      var grupo = sw.closest('table') || document;
+      grupo.querySelectorAll('.pc-swap.sel').forEach(function (x) { x.classList.remove('sel'); });
+      sw.classList.add('sel'); window.pcFit && pcFit(); return;
+    }
+    var t = e.target.closest('[data-cmd], [data-ac], [data-pc-ac], [data-go], [data-pc-go], .ac-h button');
+    if (!t) return;
+    if (t.matches('.ac-h button')) { t.closest('.ac-box').remove(); window.pcFit && pcFit(); return; }
+    e.preventDefault();
+    if (t.dataset.cmd) return modo(t.closest('.ap, .ac-body'), t.dataset.cmd);
+    if (t.dataset.ac || t.dataset.pcAc) return aclarar(t, t.dataset.ac || t.dataset.pcAc);
+    var id = t.dataset.go || t.dataset.pcGo;
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    ir(id);
+  });
+  try { _pctop.document.title = 'Tema 11. Física cuántica'; _pctop.archivoAyuda = null; } catch (e) {}
+})();
+</script>
+</body>
+</html>
