@@ -57,6 +57,18 @@ TEMAS = {
         hojas=[('curso', 'Propuestos en el curso', 'fisica/ondas/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/ondas/buscar2')],
     ),
+    'vibraciones': dict(
+        salida='fisica/vibraciones/problemas.htm',
+        titulo='Tema 6. Movimientos vibratorios',
+        secciones=[('a', 'Aplicar las ecuaciones', 'fisica/vibraciones/armonico1'),
+                   ('o', 'Obtener las ecuaciones', 'fisica/vibraciones/armonico2'),
+                   ('e', 'Energía del movimiento armónico', 'fisica/vibraciones/energia'),
+                   ('d', 'Dinámica: muelles', 'fisica/vibraciones/dinamica5'),
+                   ('p', 'Péndulo simple', 'fisica/vibraciones/periodos'),
+                   ('m', 'Preguntas malvadas', 'fisica/vibraciones/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/vibraciones/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/vibraciones/buscar2')],
+    ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
         titulo='Tema 12. Física nuclear',
@@ -612,7 +624,7 @@ JS = r"""
       });
       if (lista.length > 1) {
         st.dataset.i = (i + 1) % lista.length;
-        if (st.tagName === 'INPUT' && st.type === 'button') st.value = '    ' + st.dataset.i + '    ';
+        if (st.tagName === 'INPUT' && st.type === 'button' && /^\s*\d+\s*$/.test(st.value)) st.value = '    ' + st.dataset.i + '    ';
       }
       window.pcFit && pcFit(); return;
     }

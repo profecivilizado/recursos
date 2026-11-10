@@ -54,10 +54,15 @@ function siguiente(celda) {
 //-->
 </script>
 <link rel="stylesheet" href="../../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 
 <body bgcolor="#FFFFFF" 
-leftmargin="0" topmargin="0" 
+leftmargin="0" topmargin="0" 
+
+
 onload ="window.moveTo(20,20);window.resizeTo(670,240)" 
 onunload="cerrarVentanas()">
 <table border="0" cellspacing="0" cellpadding="10" id="tabla">
@@ -66,24 +71,24 @@ onunload="cerrarVentanas()">
       <div align="center"> 
         <input type="button" name="Submit" value=" " class="boton" />
       </div></td>
-    <td id="celda1"><img src="formulas/3_01.gif" width="178" height="65" /></td>
+    <td id="celda1">$$\left.\begin{aligned}&v=A\,\omega\cos(\omega\,t+\varphi_0)\\[4pt]&a=-A\,\omega^2\operatorname{sen}(\omega\,t+\varphi_0)\end{aligned}\right\}$$</td>
     <td id="celda2" onclick="siguiente(this.id)"> 
       <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" />
       </div></td>
-    <td id="celda3" style="visibility:hidden"><img src="formulas/3_02.gif" width="362" height="97" /></td>
+    <td id="celda3" style="visibility:hidden">$$\left.\begin{aligned}&\cos(\omega\,t+\varphi_0)=\frac{v}{A\,\omega}\\[4pt]&\operatorname{sen}(\omega\,t+\varphi_0)=-\frac{a}{A\,\omega^2}\end{aligned}\right\}\;\rightarrow\;1=\left(\frac{v}{A\,\omega}\right)^2+\left(\frac{a}{A\,\omega^2}\right)^2$$</td>
   </tr>
   <tr> 
     <td id="celda4" style="visibility:hidden" onclick="siguiente(this.id)"> 
       <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" />
       </div></td>
-    <td id="celda5" style="visibility:hidden" ><img src="formulas/3_03.gif" width="138" height="56" /></td>
+    <td id="celda5" style="visibility:hidden" >$$\frac{v}{A\,\omega}=\sqrt{1-\left(\frac{a}{A\,\omega^2}\right)^2}$$</td>
     <td id="celda6" style="visibility:hidden" onclick="siguiente(this.id)"> 
       <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" />
       </div></td>
-    <td id="celda7" style="visibility:hidden" ><img src="formulas/3_04.gif" width="149" height="56" /></td>
+    <td id="celda7" style="visibility:hidden" >$$v=A\,\omega\sqrt{1-\left(\frac{a}{A\,\omega^2}\right)^2}$$</td>
   </tr>
 </table>
 </body>
