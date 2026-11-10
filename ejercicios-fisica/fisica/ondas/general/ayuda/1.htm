@@ -24,8 +24,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.resizeTo(480,600)" 
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellpadding="10" cellspacing="0">
@@ -36,7 +41,7 @@ onUnload="cerrarVentanas()">
         magnitud f&iacute;sica, cuyo valor est&aacute; oscilando.<br />
         La ecuaci&oacute;n de onda describe el conjunto de todas estas oscila-ciones 
       </p>
-      <p align="center" class="peque&ntilde;o"><img src="formulas/1_01.gif" width="148" height="22" align="middle" />&nbsp; 
+      <p align="center" class="peque&ntilde;o">$\displaystyle \varphi=\varphi_0\operatorname{sen}(\omega\,t\pm k\,x)$&nbsp; 
         (La funci&oacute;n puede ser coseno)</p>
       <table width="100%" border="0" cellpadding="5" cellspacing="0">
         <tr valign="top"> 
@@ -48,7 +53,7 @@ onUnload="cerrarVentanas()">
           <td> <p>Amplitud: M&aacute;ximo valor (M&oacute;dulo) de la magnitud</p></td>
         </tr>
         <tr valign="top"> 
-          <td><p align="right"><img src="formulas/1_02.gif" width="73" height="22" align="middle" onClick="abrirVentana('../../mensajes/5.htm')"/>&nbsp;</p></td>
+          <td><p align="right"><div class="enlace_imagen" onclick="abrirVentana(&#x27;../../mensajes/5.htm&#x27;)">$$(\omega\,t\pm k\,x)$$</div>&nbsp;</p></td>
           <td><p>Fase espacio-temporal: Determina el valor de la magnitud en cada 
               punto x en cada instante t</p></td>
         </tr>
@@ -58,7 +63,7 @@ onUnload="cerrarVentanas()">
               Relaci&oacute;n entre cambio de fase y cambio de tiem-po. En un 
               punto fijo, al pasar un tiempo T (Per&iacute;o-do) la fase cambia 
               en 2&pi;</p>
-            <p align="left" class="m100"><img src="formulas/1_03.gif" width="49" height="36" /></p></td>
+            <p align="left" class="m100">$$\omega=\frac{2\pi}{T}$$</p></td>
         </tr>
         <tr> 
           <td valign="top"><div align="right"> 
@@ -68,7 +73,7 @@ onUnload="cerrarVentanas()">
               Relaci&oacute;n entre cambio de fase y cambio de posi-ci&oacute;n. 
               En un instante dado, al cambiar la posici&oacute;n en &lambda; (Longitud 
               de onda) la fase cambia en 2&pi;</p>
-            <p align="left" class="m100"><font color="#FF0000"><img src="formulas/1_04.gif" width="48" height="37" /><br />
+            <p align="left" class="m100"><font color="#FF0000">$$k=\frac{2\pi}{\lambda}$$<br />
               </font></p></td>
         </tr>
         <tr> 
@@ -77,7 +82,7 @@ onUnload="cerrarVentanas()">
               <p align="left">Velocidad de propagaci&oacute;n (M&oacute;dulo)<br />
                 En un per&iacute;odo T la onda avanza &lambda;:</p>
             </div>
-            <p class="m50"><img src="formulas/1_05.gif" width="129" height="38" border="0" style="cursor:pointer"/></p></td>
+            <p class="m50">$$c=\frac{\lambda}{T}=\frac{2\pi/k}{2\pi/\omega}=\frac{\omega}{k}$$</p></td>
         </tr>
         <tr> 
           <td colspan="2" valign="top"><p>Seg&uacute;n los t&eacute;rminos de 
@@ -89,7 +94,7 @@ onUnload="cerrarVentanas()">
         , la fase espacio-temporal ser&aacute;: (&omega;&middot;t &plusmn; k·x 
         + &delta;)</p>
       <p><b><font color="#0000FF">Otra forma de la ecuaci&oacute;n de onda:</font></b></p>
-      <p align="center"><b><font color="#FF0000"><img src="formulas/1_08.gif" width="148" height="22" align="middle" /></font></b></p>
+      <p align="center"><b><font color="#FF0000">$$\varphi=\varphi_0\operatorname{sen}(k\,x\pm\omega\,t)$$</font></b></p>
       
     </td>
   </tr>

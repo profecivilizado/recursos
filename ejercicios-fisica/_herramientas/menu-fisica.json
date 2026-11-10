@@ -265,37 +265,37 @@
     {
      "grupo": "Problemas por apartados",
      "t": "General",
-     "u": "fisica/ondas/general/0.htm"
+     "u": "fisica/ondas/problemas.htm#general"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Ecuaciones de onda",
-     "u": "fisica/ondas/planteo/0.htm"
+     "u": "fisica/ondas/problemas.htm#planteo"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Energía de las ondas",
-     "u": "fisica/ondas/energia/0.htm"
+     "u": "fisica/ondas/problemas.htm#energia"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Interferencias",
-     "u": "fisica/ondas/interferencias/0.htm"
+     "u": "fisica/ondas/problemas.htm#interferencias"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/ondas/faq/0.htm"
+     "u": "fisica/ondas/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/ondas/buscar/0.htm"
+     "u": "fisica/ondas/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/ondas/buscar2/0.htm"
+     "u": "fisica/ondas/problemas.htm#acceso"
     }
    ]
   },

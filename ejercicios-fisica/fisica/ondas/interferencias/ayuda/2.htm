@@ -27,8 +27,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.resizeTo(480,600)" 
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellpadding="10" cellspacing="0">
@@ -39,7 +44,7 @@ onUnload="cerrarVentanas()">
         &phi; con los mismos par&aacute;metros k y &omega;<br />
         La perturbaci&oacute;n resultante ser&aacute; la suma de las perturbaciones 
         de cada onda:</p>
-      <p align="center"><img src="formulas/2_01.gif" width="378" height="22" /></p>
+      <p align="center">$$\varphi=\varphi_1+\varphi_2=\varphi_{01}\operatorname{sen}(\omega\,t-k\,x_1)+\varphi_{02}\operatorname{sen}(\omega\,t-k\,x_2)$$</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
           <td width="13%"><p>x<sub>1</sub>, x<sub>2</sub> </p></td>
@@ -50,7 +55,7 @@ onUnload="cerrarVentanas()">
       <p align="center">&phi; = &phi;<sub>0</sub> sen (&omega;t + &Phi;)</p>
       <p>siendo &Phi; la fase inicial y &phi;<sub>0</sub> la amplitud que viene 
         dada por</p>
-      <p class="m50"><img src="formulas/2_02.gif" width="305" height="32" /></p>
+      <p class="m50">$$\varphi_0=\sqrt{\varphi_{01}^2+\varphi_{02}^2-2\,\varphi_{01}\,\varphi_{02}\cos k\,(x_2-x_1)}$$</p>
       <p>La amplitud de oscilaci&oacute;n depende de la diferencia de camino de 
         cada onda hasta el punto (&delta;: = x<sub>2</sub> - x<sub>1</sub>)</p>
       <p align="left"><strong><font color="#0000FF">Casos extremos</font></strong></p>
