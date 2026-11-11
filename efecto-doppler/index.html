@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<title>Efecto Doppler · Simulador | Profe Civilizado</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f5f7;--card:#fff;--tx:#1d1d1f;--mu:#6e6e73;--ln:#d2d2d7;--ac:#0071e3;--ca:#ff9f0a;--cb:#30d158;--ok:#1f8f4a;--bad:#d70015;--soft:#f0f0f3}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#1c1c1e;--tx:#f5f5f7;--mu:#a1a1a6;--ln:#3a3a3c;--ac:#2997ff;--soft:#2c2c2e;--ok:#30d158;--bad:#ff453a}}
+:root[data-theme="dark"]{--bg:#000;--card:#1c1c1e;--tx:#f5f5f7;--mu:#a1a1a6;--ln:#3a3a3c;--ac:#2997ff;--soft:#2c2c2e;--ok:#30d158;--bad:#ff453a}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+.embed header{display:none}
+.embed .wrap{padding-top:8px}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 16px 60px}
+header{text-align:center;margin:8px 0 22px}
+.eyebrow{color:var(--ac);font-weight:600;font-size:14px;margin:0 0 4px;letter-spacing:.02em}
+h1{font-size:clamp(32px,6vw,52px);letter-spacing:-.03em;line-height:1.05;margin:0 0 10px}
+.lead{color:var(--mu);max-width:640px;margin:0 auto;font-size:17px}
+.seg{display:flex;gap:2px;background:var(--soft);padding:3px;border-radius:12px;width:fit-content;margin:0 auto 18px;max-width:100%}
+.seg button{border:0;background:none;color:var(--tx);font:inherit;font-size:15px;font-weight:500;padding:7px 20px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.seg.small button{padding:4px 14px;font-size:14px}
+.card{background:var(--card);border-radius:20px;padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.05)}
+.card h2{font-size:19px;letter-spacing:-.01em;margin:0 0 10px}
+.stage{padding:0;overflow:hidden;background:#07080b}
+#cv{display:block;width:100%;height:auto}
+.bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:10px 14px;background:#111216;color:#e8e8ed;font-size:14px}
+.bar label{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn{border:0;background:var(--soft);color:var(--tx);font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:980px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn.pri{background:var(--ac);color:#fff}
+.bar .btn{background:#2a2b31;color:#f5f5f7}
+.presets{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.lbl{color:var(--mu);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 26px}
+.ctl{display:block;font-size:14px;color:var(--mu)}
+.ctl span{display:flex;justify-content:space-between;margin-bottom:2px}
+.ctl b{color:var(--tx);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--ac)}
+input[type=number],input[type=text]{width:100%;font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--ln);background:var(--bg);color:var(--tx)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.two{grid-template-columns:1fr}}
+.obs{border-left:5px solid var(--ca)}
+.obs.b{border-left-color:var(--cb)}
+.obs h3{margin:0 0 6px;font-size:16px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--ln);font-size:15px}
+.row:last-child{border:0}
+.row span:first-child{color:var(--mu)}
+.row b{font-variant-numeric:tabular-nums;text-align:right}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:980px;background:var(--soft);margin-left:6px;vertical-align:1px}
+.tag.hi{background:rgba(255,55,95,.15);color:#ff375f}.tag.lo{background:rgba(10,132,255,.15);color:var(--ac)}
+.note{background:var(--soft);border-radius:14px;padding:12px 14px;font-size:14.5px;color:var(--tx)}
+.note b{font-weight:600}
+.formula{font-size:19px;text-align:center;padding:8px 0;letter-spacing:.01em}
+canvas.strip{display:block;width:100%;height:112px;border-radius:10px}
+canvas.chart{display:block;width:100%;height:180px}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--ac);font-weight:500}
+.sol{margin:8px 0 0;padding:12px 14px;background:var(--soft);border-radius:12px;font-size:15px}
+.sol ol{margin:6px 0 0;padding-left:20px}
+.ex h2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ex .badge{font-size:12px;font-weight:600;color:var(--ac);background:rgba(0,113,227,.12);padding:3px 10px;border-radius:980px}
+.ans{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin:10px 0 4px}
+.ans label{flex:1 1 220px;font-size:13.5px;color:var(--mu)}
+.fb{font-size:14px;margin:2px 0;min-height:20px}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}
+.foot{color:var(--mu);font-size:13px;text-align:center;margin-top:26px}
+sub,sup{line-height:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">Profe Civilizado · Física · Ondas</p>
+  <h1>Efecto Doppler</h1>
+  <p class="lead">¿Por qué cambia la frecuencia que se percibe cuando fuente y observador se mueven uno respecto al otro? Experimenta con los frentes de onda, con el sonido y con la luz.</p>
+</header>
+
+<nav class="seg" id="tabs">
+  <button data-tab="sound" class="on">Sonido</button>
+  <button data-tab="light">Luz</button>
+  <button data-tab="ex">Ejercicios</button>
+</nav>
+
+<!-- ESCENARIO (sonido y luz) -->
+<section class="card stage" id="simcard">
+  <canvas id="cv"></canvas>
+  <div class="bar">
+    <button class="btn" id="bPause">⏸ Pausa</button>
+    <button class="btn" id="bReset">↺ Reiniciar</button>
+    <label>Cámara lenta <input type="range" id="speed" min="0.25" max="2" step="0.05" value="1" style="width:120px"> <b id="o-speed">×1</b></label>
+  </div>
+</section>
+
+<!-- SONIDO -->
+<section id="p-sound">
+  <div class="card">
+    <div class="presets">
+      <span class="lbl">Situaciones:</span>
+      <button class="btn" data-ps="rest">Fuente en reposo</button>
+      <button class="btn" data-ps="src">Fuente en movimiento</button>
+      <button class="btn" data-ps="obs">Observadores en movimiento</button>
+      <button class="btn" data-ps="both">Fuente y observadores a 10 m/s</button>
+    </div>
+    <div class="grid">
+      <label class="ctl"><span>Frecuencia emitida f <b id="o-f"></b></span><input type="range" id="f" min="100" max="2000" step="10" value="500"></label>
+      <label class="ctl"><span>Velocidad del sonido v <b id="o-v"></b></span><input type="range" id="v" min="100" max="1600" step="10" value="340"></label>
+      <label class="ctl"><span>Velocidad de la fuente (→ positiva) <b id="o-us"></b></span><input type="range" id="us" min="-800" max="800" step="1" value="0"></label>
+      <label class="ctl"><span>Velocidad de los observadores <b id="o-uo"></b></span><input type="range" id="uo" min="-800" max="800" step="1" value="0"></label>
+    </div>
+    <p class="lbl" style="margin:10px 0 0">Los observadores A y B se mueven juntos. Con velocidades pequeñas (10 m/s) el efecto real es sutil: ¡es parte del ejercicio!</p>
+  </div>
+
+  <div class="two">
+    <div class="card obs"><h3>Observador A <span class="lbl">(detrás de la fuente)</span></h3>
+      <div class="row"><span>Frecuencia percibida f′</span><b id="ta">—</b></div>
+      <div class="row"><span>Distancia entre frentes</span><b id="la">—</b></div>
+    </div>
+    <div class="card obs b"><h3>Observador B <span class="lbl">(delante de la fuente)</span></h3>
+      <div class="row"><span>Frecuencia percibida f′</span><b id="tb">—</b></div>
+      <div class="row"><span>Distancia entre frentes</span><b id="lb">—</b></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Lo que ocurre, en una fórmula</h2>
+    <div class="formula">f′ = f · (v ∓ v<sub>o</sub>) / (v ∓ v<sub>f</sub>)</div>
+    <p class="note">Convenio de la fórmula: el signo de arriba (−) en el numerador y el de abajo en el denominador corresponden a un observador <b>delante</b> de la fuente (B); para uno <b>detrás</b> (A) los signos son +. En la práctica: si el observador y la fuente se <b>acercan</b>, f′ &gt; f; si se <b>alejan</b>, f′ &lt; f. Si la fuente se mueve, cambia la <b>distancia entre frentes</b>; si solo se mueve el observador, la distancia entre frentes no cambia, pero él los encuentra con otra cadencia.</p>
+  </div>
+
+  <div class="card">
+    <h2>Frecuencia frente a intensidad</h2>
+    <div class="presets">
+      <span class="lbl">Observador:</span>
+      <span class="seg small" style="margin:0"><button data-sel="A">A</button><button data-sel="B" class="on">B</button></span>
+    </div>
+    <canvas id="chart" class="chart"></canvas>
+    <p class="note" style="margin-top:8px"><b>Error típico:</b> confundir frecuencia con intensidad (volumen). Con la fuente acercándose a velocidad constante, la intensidad <b>sube</b> porque cada vez está más cerca, pero la frecuencia percibida es <b>constante</b> y mayor que la emitida.</p>
+  </div>
+</section>
+
+<!-- LUZ -->
+<section id="p-light" hidden>
+  <div class="card">
+    <div class="presets">
+      <span class="lbl">Casos:</span>
+      <button class="btn" data-pl="656,689">Hidrógeno 656 → 689 nm</button>
+      <button class="btn" data-pl="548,565">Galaxia 548 → 565 nm</button>
+      <button class="btn" data-pl="657,654">Galaxia cercana 657 → 654 nm</button>
+      <button class="btn" data-pl="650,530">Rojo que parece verde</button>
+      <button class="btn" data-pl="sun">Borde del Sol</button>
+      <button class="btn" data-pl="658,650">Estrella binaria: se acerca</button>
+      <button class="btn" data-pl="658,670">Estrella binaria: se aleja</button>
+    </div>
+    <div class="grid">
+      <label class="ctl"><span>λ emitida (nm)</span><input type="number" id="lam0" min="100" max="2000" step="any" value="656"></label>
+      <label class="ctl"><span>Velocidad de la fuente (km/s) · positiva = se aleja</span><input type="number" id="vk" step="any" value="0"></label>
+      <label class="ctl"><span>λ observada (nm)</span><input type="number" id="lamo" min="1" step="any" value="656"></label>
+    </div>
+    <label class="ctl" style="margin-top:12px"><span>Ajuste rápido de la velocidad <b id="o-vk"></b></span><input type="range" id="vkr" min="-90000" max="90000" step="10" value="0"></label>
+    <p class="lbl" style="margin:8px 0 0">Puedes editar cualquiera de los tres datos: si cambias λ observada, el simulador calcula la velocidad.</p>
+  </div>
+
+  <div class="card">
+    <h2>Resultado</h2>
+    <div class="grid">
+      <div><div class="row"><span>Tipo de desplazamiento</span><b id="l-tipo">—</b></div></div>
+      <div><div class="row"><span>Δλ = λ observada − λ emitida</span><b id="l-dl">—</b></div></div>
+      <div><div class="row"><span>Velocidad v = c · Δλ/λ</span><b id="l-vms">—</b></div></div>
+    </div>
+    <p class="note" style="margin-top:12px">Fórmula usada: <b>Δλ/λ ≈ v/c</b>, válida cuando v es mucho menor que c. «Corrimiento al azul» quiere decir que la longitud de onda <b>disminuye</b> (la línea se desplaza hacia el extremo azul del espectro), aunque el color siga pareciendo rojo si el cambio es pequeño.</p>
+  </div>
+
+  <div class="card">
+    <h2>Espectro</h2>
+    <div class="lbl" style="margin-bottom:4px">Rango visible (380–780 nm)</div>
+    <canvas id="spec1" class="strip"></canvas>
+    <div class="lbl" style="margin:12px 0 4px">Ampliación alrededor de la línea</div>
+    <canvas id="spec2" class="strip"></canvas>
+    <p class="note" style="margin-top:10px">Si la fuente se <b>aleja</b>, la longitud de onda aumenta: <b>corrimiento al rojo</b>. Si se <b>acerca</b>, disminuye: <b>corrimiento al azul</b>. La luz de galaxias lejanas llega desplazada al rojo: se alejan de nosotros, y por eso el universo está en expansión.</p>
+  </div>
+</section>
+
+<!-- EJERCICIOS -->
+<section id="p-ex" hidden>
+  <div id="exlist"></div>
+</section>
+
+<p class="foot">Simulador del efecto Doppler · Tema 16 de Física · c = 3,00 × 10⁸ m/s</p>
+</div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const W=960,H=380,CS=110,CC=3e8;           // mundo en px, velocidad de las ondas en px/s, c
+const dpr=Math.min(2,window.devicePixelRatio||1);
+const cv=$('#cv'),g=cv.getContext('2d');
+cv.width=W*dpr;cv.height=H*dpr;g.setTransform(dpr,0,0,dpr,0,0);
+
+/* ---------- utilidades de formato ---------- */
+const SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+const es=s=>String(s).replace('.',',');
+function sci(x,d=3){if(x===0||!isFinite(x))return es(x);const[m,e]=x.toExponential(d-1).split('e');return es(m)+' × 10'+[...String(+e)].map(c=>SUP[c]||'').join('');}
+function nice(x,d=3){if(x===0)return '0';const a=Math.abs(x);return (a>=1e5||a<1e-2)?sci(x,d):es(Number(x.toPrecision(d)));}
+const fHz=x=>x==null?'—':es(x.toFixed(x<1000?1:0))+' Hz';
+
+/* ---------- estado ---------- */
+const S={tab:'sound',f:500,v:340,us:0,uo:0,speed:1,paused:false,sel:'B',lam0:656,vk:0};
+const sim={};
+
+function kin(){
+  if(S.tab==='light'){const b=S.vk*1000/CC,gain=b===0?1:Math.max(1,14/(Math.abs(b)*CS)); // movimiento exagerado para que se vea
+    return{ps:b*CS*gain,po:0,fsim:1.4,light:true,beta:b,gain};}
+  return{ps:S.us/S.v*CS,po:S.uo/S.v*CS,fsim:Math.max(.5,Math.min(3.5,1.4*S.f/500)),light:false};
+}
+function resetSim(keep){
+  const k=kin();
+  sim.t=0;sim.k=0;sim.next=0;sim.fronts=[];
+  sim.xs=k.ps>80?190:k.ps<-80?770:k.ps>1?330:k.ps<-1?630:480;sim.xa=90;sim.xb=870;
+  if(!k.light){ // dar recorrido a los observadores según hacia dónde se mueven
+    if(k.po>0.5)sim.xb=Math.max(sim.xs+60,Math.min(870,920-12*k.po));
+    if(k.po<-0.5)sim.xa=Math.min(sim.xs-60,Math.max(90,40-12*k.po));
+  }
+  sim.arr={A:[],B:[]};sim.hist=[];sim.hn=0;
+  if(!keep)sim.last={A:null,B:null};
+}
+function paramChanged(){sim.arr={A:[],B:[]};sim.last={A:null,B:null};sim.hist=[];sim.hn=0;}
+
+/* ---------- motor de simulación ---------- */
+function step(dt){
+  const k=kin(),t1=sim.t+dt;
+  sim.xs+=k.ps*dt;
+  if(!k.light){sim.xa+=k.po*dt;sim.xb+=k.po*dt;}
+  while(sim.next<=t1){const te=sim.next;sim.fronts.push({cx:sim.xs-k.ps*(t1-te),t0:te,sA:null,sB:null});sim.next+=1/k.fsim;}
+  for(const fr of sim.fronts){
+    const r=CS*(t1-fr.t0);
+    for(const o of ['A','B']){
+      if(k.light&&o==='B')continue;
+      const x=o==='A'?sim.xa:sim.xb,s=Math.abs(x-fr.cx)-r,key='s'+o;
+      if(fr[key]!==null&&fr[key]>0&&s<=0){
+        const ta=sim.t+dt*fr[key]/(fr[key]-s),a=sim.arr[o];a.push(ta);if(a.length>7)a.shift();
+        if(a.length>=3){const n=a.length-1;sim.last[o]=n/(a[n]-a[0])/k.fsim;} // f'/f medido (adimensional)
+      }
+      fr[key]=s;
+    }
+  }
+  sim.t=t1;
+  sim.fronts=sim.fronts.filter(fr=>CS*(sim.t-fr.t0)<1300);
+  if(sim.t>=sim.hn){sim.hn+=.1;const th=theory(),ob=th[S.sel],xo=S.sel==='A'?sim.xa:sim.xb;
+    sim.hist.push({t:sim.t,f:ob?ob.f:null,I:1/Math.pow(Math.max(15,Math.abs(xo-sim.xs)),2)});if(sim.hist.length>600)sim.hist.shift();}
+  const bad=sim.xs<30||sim.xs>W-30||sim.xa<25||sim.xa>W-25||Math.abs(sim.xs-sim.xa)<16||(!k.light&&(sim.xb<25||sim.xb>W-25||Math.abs(sim.xs-sim.xb)<16));
+  if(bad)resetSim(true);
+}
+
+/* ---------- teoría ---------- */
+function theory(){
+  if(S.tab==='light'){
+    const b=S.vk*1000/CC;return{A:{f:1/(1+b),lam:S.lam0*(1+b)},B:null};
+  }
+  const{f,v,us,uo}=S;
+  const B=(v-uo>0&&v-us>0)?{f:f*(v-uo)/(v-us),lam:(v-us)/f}:null;
+  const A=(v+uo>0&&v+us>0)?{f:f*(v+uo)/(v+us),lam:(v+us)/f}:null;
+  return{A,B};
+}
+
+/* ---------- color de la luz ---------- */
+function lam2rgb(w){
+  if(w<380||w>780)return null;
+  let r=0,gr=0,b=0;
+  if(w<440){r=(440-w)/60;b=1}else if(w<490){gr=(w-440)/50;b=1}else if(w<510){gr=1;b=(510-w)/20}
+  else if(w<580){r=(w-510)/70;gr=1}else if(w<645){r=1;gr=(645-w)/65}else{r=1}
+  const f=w<420?.3+.7*(w-380)/40:w>700?.3+.7*(780-w)/80:1,G=.8;
+  return[r,gr,b].map(c=>Math.round(255*Math.pow(c*f,G)));
+}
+function lamCss(w,a=1){const c=lam2rgb(w);return c?`rgba(${c[0]},${c[1]},${c[2]},${a})`:`rgba(110,110,125,${a*.55})`;}
+
+/* ---------- dibujo del escenario ---------- */
+function arrow(x,y,dir,len,col){
+  g.strokeStyle=col;g.fillStyle=col;g.lineWidth=2;g.beginPath();g.moveTo(x,y);g.lineTo(x+dir*len,y);g.stroke();
+  g.beginPath();g.moveTo(x+dir*len,y);g.lineTo(x+dir*(len-8),y-5);g.lineTo(x+dir*(len-8),y+5);g.closePath();g.fill();
+}
+function label(t,x,y,col,sz=15,al='center'){g.fillStyle=col;g.font=`600 ${sz}px -apple-system,system-ui,sans-serif`;g.textAlign=al;g.fillText(t,x,y);}
+function draw(){
+  const k=kin(),my=H/2;
+  const gr=g.createRadialGradient(W/2,H/2,40,W/2,H/2,620);gr.addColorStop(0,'#171922');gr.addColorStop(1,'#07080b');
+  g.fillStyle=gr;g.fillRect(0,0,W,H);
+  g.strokeStyle='rgba(255,255,255,.08)';g.lineWidth=1;g.setLineDash([4,6]);g.beginPath();g.moveTo(0,my);g.lineTo(W,my);g.stroke();g.setLineDash([]);
+  g.lineWidth=2;
+  for(const fr of sim.fronts){
+    const r=CS*(sim.t-fr.t0);if(r<1.5)continue;const al=Math.max(0,1-r/760);
+    if(k.light){
+      const bx=k.beta,N=48;
+      for(let i=0;i<N;i++){const a0=i/N*6.2832,a1=(i+1)/N*6.2832+.02,phi=(a0+a1)/2;
+        g.strokeStyle=lamCss(S.lam0*(1-bx*Math.cos(phi)),.2+.8*al);g.beginPath();g.arc(fr.cx,my,r,a0,a1);g.stroke();}
+    }else{g.strokeStyle=`rgba(100,210,255,${.12+.78*al})`;g.beginPath();g.arc(fr.cx,my,r,0,6.2832);g.stroke();}
+  }
+  // fuente
+  g.fillStyle='#fff';g.beginPath();g.arc(sim.xs,my,8,0,6.2832);g.fill();
+  label(k.light?'Galaxia':'Fuente',sim.xs,my-20,'#fff',14);
+  if(Math.abs(k.ps)>.3)arrow(sim.xs,my+24,Math.sign(k.ps),Math.min(70,16+Math.abs(k.ps)/2),'#fff');
+  // observadores
+  const obs=[['A',sim.xa,'#ff9f0a',k.light?'Tierra':'A']];if(!k.light)obs.push(['B',sim.xb,'#30d158','B']);
+  for(const[o,x,c,t]of obs){
+    g.fillStyle=c;g.beginPath();g.roundRect?g.roundRect(x-9,my-9,18,18,5):g.rect(x-9,my-9,18,18);g.fill();
+    label(t,x,my-18,c,15);
+    if(Math.abs(k.po)>.3)arrow(x,my+24,Math.sign(k.po),Math.min(70,16+Math.abs(k.po)/2),c);
+  }
+  if(!k.light&&S.us>=S.v)label('Fuente supersónica: onda de choque (la fórmula ya no vale)',W/2,28,'#ffd60a',15);
+}
+
+/* ---------- gráficas y espectros ---------- */
+function prep(c){
+  const r=c.getBoundingClientRect(),w=r.width,h=r.height;
+  if(!w)return null;
+  if(c.width!==Math.round(w*dpr)||c.height!==Math.round(h*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);}
+  const x=c.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);return{x,w,h};
+}
+function plot(x,ox,oy,w,h,pts,title,col,fmt,fixLo,minSpan){
+  const cs=getComputedStyle(document.body),tx=cs.color,mu=cs.getPropertyValue('--mu')||'#888';
+  x.fillStyle='rgba(127,127,127,.08)';x.fillRect(ox,oy,w,h);
+  x.fillStyle=tx;x.font='600 13px -apple-system,system-ui,sans-serif';x.textAlign='left';x.fillText(title,ox+10,oy+20);
+  const v=pts.filter(p=>p.y!=null);if(v.length<2){x.fillStyle=mu;x.font='13px system-ui';x.fillText('esperando datos…',ox+10,oy+h/2);return;}
+  let lo=Math.min(...v.map(p=>p.y)),hi=Math.max(...v.map(p=>p.y));
+  if(fixLo!=null)lo=fixLo;
+  const mid=(lo+hi)/2;if(hi-lo<minSpan*Math.abs(mid||1)){if(fixLo==null)lo=mid-minSpan*Math.abs(mid||1)/2;hi=mid+minSpan*Math.abs(mid||1)/2;if(fixLo!=null)hi=Math.max(hi,lo+minSpan);}
+  const t1=Math.max(6,v[v.length-1].x),px=t=>ox+44+(t/t1)*(w-56),py=y=>oy+h-22-(y-lo)/(hi-lo)*(h-52);
+  x.fillStyle=mu;x.font='11px system-ui';x.textAlign='right';x.fillText(fmt(hi),ox+40,oy+34);x.fillText(fmt(lo),ox+40,oy+h-18);
+  x.textAlign='center';x.fillText('t (simulado)',ox+w/2,oy+h-4);
+  x.strokeStyle=col;x.lineWidth=2.5;x.beginPath();v.forEach((p,i)=>i?x.lineTo(px(p.x),py(p.y)):x.moveTo(px(p.x),py(p.y)));x.stroke();
+}
+function drawChart(){
+  const p=prep($('#chart'));if(!p)return;const{x,w,h}=p,gw=(w-12)/2;
+  const I0=sim.hist.length?sim.hist[0].I:1;
+  plot(x,0,0,gw,h,sim.hist.map(d=>({x:d.t,y:d.f})),'Frecuencia percibida (Hz)',S.sel==='A'?'#ff9f0a':'#30d158',v=>Math.round(v),null,.2);
+  plot(x,gw+12,0,gw,h,sim.hist.map(d=>({x:d.t,y:d.I/I0})),'Intensidad relativa','#ff375f',v=>es(v.toFixed(1)),0,1);
+}
+function stripe(c,lo,hi,l0,l1,tickFmt){
+  const p=prep(c);if(!p)return;const{x,w,h}=p,by=24,bh=h-64,px=l=>Math.max(3,Math.min(w-3,(l-lo)/(hi-lo)*w));
+  for(let i=0;i<w;i++){x.fillStyle=lamCss(lo+(hi-lo)*i/(w-1));x.fillRect(i,by,1.5,bh);}
+  const mu=getComputedStyle(document.body).getPropertyValue('--mu'),tx=getComputedStyle(document.body).color;
+  x.font='12px system-ui';x.fillStyle=mu;x.textAlign='left';x.fillText(tickFmt(lo),2,h-4);x.textAlign='right';x.fillText(tickFmt(hi),w-2,h-4);
+  const a=px(l0),b=px(l1);
+  x.setLineDash([5,4]);x.strokeStyle='rgba(255,255,255,.95)';x.lineWidth=2;x.beginPath();x.moveTo(a,by);x.lineTo(a,by+bh);x.stroke();x.setLineDash([]);
+  x.strokeStyle='#000';x.lineWidth=5;x.beginPath();x.moveTo(b,by);x.lineTo(b,by+bh);x.stroke();
+  x.strokeStyle='#fff';x.lineWidth=2.5;x.beginPath();x.moveTo(b,by);x.lineTo(b,by+bh);x.stroke();
+  x.fillStyle=tx;x.font='600 12px system-ui';x.textAlign=Math.abs(a-b)<70?(a<=b?'right':'left'):'center';x.fillText('λ emitida',Math.abs(a-b)<70?a+(a<=b?-4:4):a,14);
+  x.textAlign=Math.abs(a-b)<70?(a<=b?'left':'right'):'center';x.fillText("λ observada",Math.abs(a-b)<70?b+(a<=b?4:-4):b,h-24);
+}
+
+/* ---------- panel de luz ---------- */
+function lightCalc(){const b=S.vk*1000/CC;return{b,lam:S.lam0*(1+b),dl:S.lam0*b,ex:S.lam0*Math.sqrt((1+b)/(1-b))};}
+function lightSync(src){
+  S.vk=Math.max(-.9*CC/1000,Math.min(.9*CC/1000,S.vk||0));
+  const L=lightCalc();
+  if(src!=='lamo')$('#lamo').value=+L.lam.toFixed(4);
+  if(src!=='vk')$('#vk').value=+S.vk.toPrecision(5);
+  if(src!=='lam0')$('#lam0').value=S.lam0;
+  $('#vkr').value=S.vk;$('#o-vk').textContent=nice(S.vk)+' km/s';
+  paramChanged();renderLight();
+}
+function renderLight(){
+  const L=lightCalc(),v=S.vk*1000;
+  $('#l-tipo').textContent=Math.abs(S.vk)<1e-9?'sin desplazamiento':S.vk>0?'corrimiento al rojo (se aleja)':'corrimiento al azul (se acerca)';
+  $('#l-dl').textContent=nice(L.dl)+' nm ('+sci(L.dl*1e-9)+' m)';
+  $('#l-vms').textContent=nice(Math.abs(v))+' m/s';
+  stripe($('#spec1'),380,780,S.lam0,L.lam,v=>v+' nm');
+  const sp=Math.max(Math.abs(L.dl)*2.5,S.lam0*0.003);
+  stripe($('#spec2'),S.lam0-sp,S.lam0+sp,S.lam0,L.lam,v=>es(v.toFixed(sp<5?3:1))+' nm');
+}
+
+/* ---------- panel de sonido ---------- */
+function tagFor(f){if(f==null)return'';const d=f-S.f;return Math.abs(d)<.05?'':(d>0?' <span class="tag hi">más agudo</span>':' <span class="tag lo">más grave</span>');}
+function renderSound(){
+  const th=theory(),k=kin();
+  for(const[o,id]of[['A','a'],['B','b']]){
+    const t=th[o];
+    $('#t'+id).innerHTML=t?fHz(t.f)+tagFor(t.f):'— (no hay onda que llegue)';
+    $('#l'+id).textContent=t?nice(t.lam,3)+' m (en reposo: '+nice(S.v/S.f,3)+' m)':'—';
+  }
+  $('#o-f').textContent=S.f+' Hz';$('#o-v').textContent=S.v+' m/s';
+  $('#o-us').textContent=(S.us>0?'+':'')+S.us+' m/s';$('#o-uo').textContent=(S.uo>0?'+':'')+S.uo+' m/s';
+}
+
+/* ---------- bucle ---------- */
+let last=performance.now(),acc=0;const HH=1/240;
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(S.tab!=='ex'){
+    if(!S.paused){acc+=dt*S.speed;let n=0;while(acc>=HH&&n++<40){step(HH);acc-=HH;}}
+    draw();
+  }
+  requestAnimationFrame(frame);
+}
+setInterval(()=>{
+  if(S.tab==='sound'){renderSound();drawChart();}
+  else if(S.tab==='light'){renderLight();}
+},120);
+
+/* ---------- controles ---------- */
+function setTab(t){
+  S.tab=t;$$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
+  $('#p-sound').hidden=t!=='sound';$('#p-light').hidden=t!=='light';$('#p-ex').hidden=t!=='ex';$('#simcard').hidden=t==='ex';
+  resetSim();paramChanged();
+  if(t==='sound')renderSound();if(t==='light'){lightSync('');}
+  if(!document.documentElement.classList.contains('embed'))window.scrollTo({top:0,behavior:'smooth'});
+}
+$$('#tabs button').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+function limitSliders(){const m=Math.floor(S.v*0.95);['us','uo'].forEach(id=>{const el=$('#'+id);el.min=-m;el.max=m;if(Math.abs(S[id])>m){S[id]=Math.sign(S[id])*m;el.value=S[id];}});}
+[['f','f'],['v','v'],['us','us'],['uo','uo']].forEach(([id,key])=>$('#'+id).oninput=e=>{S[key]=+e.target.value;if(key==='v')limitSliders();paramChanged();renderSound();});
+$('#speed').oninput=e=>{S.speed=+e.target.value;$('#o-speed').textContent='×'+es(S.speed);};
+$('#bPause').onclick=e=>{S.paused=!S.paused;e.target.textContent=S.paused?'▶ Reanudar':'⏸ Pausa';};
+$('#bReset').onclick=()=>{resetSim();};
+$$('[data-sel]').forEach(b=>b.onclick=()=>{S.sel=b.dataset.sel;$$('[data-sel]').forEach(x=>x.classList.toggle('on',x===b));sim.hist=[];sim.hn=0;});
+
+function loadSound(p){setTab('sound');Object.assign(S,{f:500,v:340,us:0,uo:0},p);limitSliders();['f','v','us','uo'].forEach(k=>$('#'+k).value=S[k]);resetSim();paramChanged();renderSound();}
+const PS={rest:{us:0,uo:0},src:{us:120,uo:0},obs:{us:0,uo:120},both:{us:10,uo:10}};
+$$('[data-ps]').forEach(b=>b.onclick=()=>loadSound(PS[b.dataset.ps]));
+
+$('#lam0').oninput=e=>{S.lam0=+e.target.value||0;if(S.lam0>0)lightSync('lam0');};
+$('#vk').oninput=e=>{S.vk=+e.target.value;lightSync('vk');};
+$('#vkr').oninput=e=>{S.vk=+e.target.value;lightSync('');};
+$('#lamo').oninput=e=>{const lo=+e.target.value;if(S.lam0>0&&lo>0){S.vk=(lo/S.lam0-1)*CC/1000;lightSync('lamo');}};
+function loadLight(l0,lo,vk){setTab('light');S.lam0=l0;S.vk=vk!=null?vk:(lo/l0-1)*CC/1000;resetSim();lightSync('');}
+$$('[data-pl]').forEach(b=>b.onclick=()=>{const d=b.dataset.pl;if(d==='sun')loadLight(500,null,2.0778);else{const[a,c]=d.split(',').map(Number);loadLight(a,c);}});
+
+/* ---------- ejercicios ---------- */
+const EX=[
+{badge:'Compruébalo',title:'Altavoz y oyente que se mueven a la vez',
+ text:'Un altavoz emite un tono de 500 Hz. Tanto el altavoz como un oyente se desplazan hacia la derecha a 10 m/s, con el altavoz detrás del oyente. La velocidad del sonido es 340 m/s. ¿Qué frecuencia percibe el oyente?',
+ qs:[{l:'Frecuencia percibida (Hz)',val:500,tol:.01}],
+ steps:['La fuente se acerca al oyente y el oyente se aleja de la fuente: ambos efectos se contrarrestan.','f′ = f · (v − v<sub>o</sub>)/(v − v<sub>f</sub>) = 500 · (340 − 10)/(340 − 10) = <b>500 Hz</b>.','No hay cambio de frecuencia, porque el oyente se aleja justo a la misma velocidad a la que la fuente lo persigue.'],
+ acts:[['Ver en el simulador',()=>loadSound({us:10,uo:10})]]},
+{badge:'Ejemplo resuelto',title:'¿Se acerca o se aleja el hidrógeno de una galaxia?',
+ text:'El hidrógeno de una galaxia lejana emite luz de longitud de onda 656 nm, pero en la Tierra se mide 689 nm. Indica si la galaxia se acerca o se aleja y calcula su velocidad.',
+ qs:[{l:'Velocidad (m/s)',val:1.509e7,tol:.03}],
+ steps:['La longitud de onda recibida es mayor que la emitida: hay <b>corrimiento al rojo</b> y la galaxia <b>se aleja</b>.','Δλ = 689 − 656 = 33 nm.','v = c · Δλ/λ = 3,00 × 10⁸ · 33/656 ≈ <b>1,5 × 10⁷ m/s</b>.'],
+ acts:[['Ver en el simulador',()=>loadLight(656,689)]]},
+{badge:'1',title:'Frentes de onda con fuente u observador móvil',
+ text:'Describe, con diagramas de frentes de onda, el efecto Doppler en dos situaciones: (a) fuente en reposo y observador en movimiento; (b) fuente en movimiento y observador en reposo.',
+ qs:[],
+ steps:['<b>(a)</b> Fuente en reposo: los frentes son circunferencias concéntricas y separadas λ = v/f. Un observador que se acerca atraviesa más frentes por segundo (f′ &gt; f); uno que se aleja, menos (f′ &lt; f). La distancia entre frentes no cambia.','<b>(b)</b> Fuente en movimiento: cada frente nace centrado en la posición de la fuente en ese instante, así que los centros se desplazan. Delante de la fuente los frentes se aprietan (λ menor, f′ &gt; f); detrás se separan (λ mayor, f′ &lt; f).','Lo puedes comprobar con el simulador: mira la separación de los frentes y la frecuencia que mide cada observador.'],
+ acts:[['(a) Observadores en movimiento',()=>loadSound(PS.obs)],['(b) Fuente en movimiento',()=>loadSound(PS.src)]]},
+{badge:'2',title:'Velocidad de una galaxia',
+ text:'Una galaxia emite luz de 5,48 × 10⁻⁷ m. En la Tierra se mide 5,65 × 10⁻⁷ m. Calcula su velocidad.',
+ qs:[{l:'Velocidad (m/s)',val:9.307e6,tol:.03}],
+ steps:['Δλ = 5,65 × 10⁻⁷ − 5,48 × 10⁻⁷ = 1,7 × 10⁻⁸ m (corrimiento al rojo: se aleja).','v = c · Δλ/λ = 3,00 × 10⁸ · 1,7 × 10⁻⁸ / 5,48 × 10⁻⁷ ≈ <b>9,3 × 10⁶ m/s</b>.'],
+ acts:[['Ver en el simulador',()=>loadLight(548,565)]]},
+{badge:'3',title:'El semáforo de Feynman',
+ text:'Cuenta una anécdota que un conductor se defendió ante un juez diciendo que, por el efecto Doppler, el semáforo en rojo se le veía verde al acercarse. El juez, que sabía física, lo multó con una cantidad muy alta de todas formas. ¿Por qué? Toma λ(rojo) ≈ 650 nm y λ(verde) ≈ 530 nm y calcula la velocidad necesaria.',
+ qs:[{l:'Velocidad necesaria (m/s)',val:5.54e7,tol:.12}],
+ steps:['Para ver verde lo que es rojo, λ debe disminuir 120 nm: Δλ/λ = 120/650 ≈ 0,185.','v ≈ 0,185 · c ≈ <b>5,5 × 10⁷ m/s</b> (unos 2 × 10⁸ km/h).','Esa velocidad es absurdamente mayor que cualquier límite: la defensa implica confesar un exceso de velocidad gigantesco, y de ahí la multa.'],
+ acts:[['Ver en el simulador',()=>loadLight(650,530)]]},
+{badge:'4',title:'Una galaxia cercana',
+ text:'La luz de una galaxia cercana se emite a 657 nm y se recibe en la Tierra a 654 nm. (a) Deduce su velocidad. (b) ¿Qué puede decirse de la dirección de su movimiento?',
+ qs:[{l:'(a) Velocidad (m/s)',val:1.37e6,tol:.04}],
+ steps:['Δλ = 654 − 657 = −3 nm.','(a) v = c · |Δλ|/λ = 3,00 × 10⁸ · 3/657 ≈ <b>1,4 × 10⁶ m/s</b>.','(b) La longitud de onda disminuye: <b>corrimiento al azul</b>, luego la galaxia <b>se acerca</b> a la Tierra. Solo conocemos la componente de la velocidad en la línea de visión.'],
+ acts:[['Ver en el simulador',()=>loadLight(657,654)]]},
+{badge:'5',title:'Desplazamiento Doppler en el Sol',
+ text:'El Sol gira sobre su eje con un periodo de 24,5 días en el ecuador y su radio es 7,00 × 10⁸ m. Analiza los desplazamientos en la longitud de onda de la luz emitida en su ecuador (λ = 5,00 × 10⁻⁷ m) y recibida en la Tierra. Calcula el desplazamiento máximo.',
+ qs:[{l:'Δλ máximo (m)',val:3.463e-12,tol:.04}],
+ steps:['Velocidad del borde: v = 2πR/T = 2π · 7,00 × 10⁸ / (24,5 · 86 400 s) ≈ 2,08 × 10³ m/s.','Δλ = λ · v/c = 5,00 × 10⁻⁷ · 2,08 × 10³ / 3,00 × 10⁸ ≈ <b>3,5 × 10⁻¹² m</b>.','El borde que gira <b>hacia</b> la Tierra muestra corrimiento al azul (λ menor en 3,5 × 10⁻¹² m); el que se <b>aleja</b>, corrimiento al rojo (λ mayor en la misma cantidad). En el centro del disco no hay desplazamiento. Es un cambio minúsculo (una parte en 10⁻⁵).'],
+ acts:[['Ver en el simulador',()=>loadLight(500,null,2.0778)]]},
+{badge:'6',title:'Estrella binaria',
+ text:'Dos estrellas giran alrededor de un punto común, siempre en posiciones diametralmente opuestas, y ambas emiten luz de 6,58 × 10⁻⁷ m. (a) En la configuración en que la Tierra mide 6,58 × 10⁻⁷ m para las dos, explica por qué no hay desplazamiento Doppler. (b) En la configuración en que se miden 6,50 × 10⁻⁷ m y 6,70 × 10⁻⁷ m, calcula la velocidad de cada estrella.',
+ qs:[{l:'(b) Estrella que se acerca (m/s)',val:3.647e6,tol:.04},{l:'(b) Estrella que se aleja (m/s)',val:5.471e6,tol:.04}],
+ steps:['<b>(a)</b> Cuando las velocidades de las estrellas son perpendiculares a la línea de visión, no tienen componente hacia o desde la Tierra, y el efecto Doppler (en la aproximación no relativista) depende solo de esa componente radial.','<b>(b)</b> Estrella con λ = 6,50 × 10⁻⁷ m: Δλ = −8 × 10⁻⁹ m → v = 3,00 × 10⁸ · 8/658 ≈ <b>3,6 × 10⁶ m/s</b> (se acerca).','Estrella con λ = 6,70 × 10⁻⁷ m: Δλ = +1,2 × 10⁻⁸ m → v = 3,00 × 10⁸ · 12/658 ≈ <b>5,5 × 10⁶ m/s</b> (se aleja).','Las velocidades son distintas: las masas son diferentes y la más ligera se mueve más rápido.'],
+ acts:[['Estrella que se acerca',()=>loadLight(658,650)],['Estrella que se aleja',()=>loadLight(658,670)]]},
+{badge:'7',title:'Ultrasonido en una arteria',
+ text:'Un ultrasonido de 5,000 MHz se refleja en glóbulos rojos que se mueven por una arteria y se detecta un desplazamiento de frecuencia de 2,4 kHz. La velocidad del ultrasonido en la sangre es 1500 m/s. (a) Explica por qué el desplazamiento viene dado por Δf/f = 2u/v, con u la velocidad de los glóbulos. (b) Estima u. (c) ¿Por qué en la práctica se observa un rango de desplazamientos?',
+ qs:[{l:'(b) Velocidad de los glóbulos (m/s)',val:0.36,tol:.03}],
+ steps:['<b>(a)</b> Hay <b>dos</b> efectos Doppler seguidos. Primero, el glóbulo actúa como observador en movimiento y recibe f₁ = f(1 + u/v). Después reemite como fuente en movimiento: f₂ = f₁/(1 − u/v) ≈ f(1 + 2u/v) para u ≪ v. Por tanto Δf/f ≈ 2u/v.','<b>(b)</b> u = v · Δf/(2f) = 1500 · 2400/(2 · 5,000 × 10⁶) = <b>0,36 m/s</b>.','<b>(c)</b> No todos los glóbulos van a la misma velocidad: en la sangre el flujo es más rápido en el centro del vaso y más lento junto a las paredes, el haz abarca varias capas y además el ángulo con que incide cambia. Resultado: un espectro de desplazamientos, no uno solo.'], 
+ acts:[]}
+];
+function parseNum(s){s=String(s).trim().toLowerCase().replace(/\s/g,'').replace(',','.').replace(/[×x·*]10\^?\(?(-?[\d.]+)\)?/,'e$1').replace(/−/g,'-');return Number(s);}
+function renderEx(){
+  const el=$('#exlist');el.innerHTML='';
+  EX.forEach((e,i)=>{
+    const c=document.createElement('div');c.className='card ex';
+    c.innerHTML=`<h2><span class="badge">${e.badge}</span>${e.title}</h2><p style="margin:0 0 6px">${e.text}</p>
+    ${e.qs.length?`<div class="ans">${e.qs.map((q,j)=>`<label>${q.l}<input type="text" inputmode="decimal" placeholder="p. ej. 1,5 × 10^7" data-q="${i}-${j}"></label>`).join('')}<button class="btn pri" data-chk="${i}">Comprobar</button></div><div class="fb" id="fb${i}"></div>`:''}
+        <div class="presets" style="margin:8px 0 0">${e.acts.map((a,j)=>`<button class="btn" data-act="${i}-${j}">${a[0]}</button>`).join('')}</div>
+    <details><summary>Ver solución paso a paso</summary><div class="sol"><ol>${e.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div></details>`;
+    el.appendChild(c);
+  });
+  $$('[data-act]').forEach(b=>b.onclick=()=>{const[i,j]=b.dataset.act.split('-');EX[i].acts[j][1]();});
+  $$('[data-chk]').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.chk,e=EX[i];let ok=0,tot=e.qs.length,bad=false,empty=false;
+    e.qs.forEach((q,j)=>{const v=parseNum($(`[data-q="${i}-${j}"]`).value);if(!isFinite(v)||$(`[data-q="${i}-${j}"]`).value.trim()===''){empty=true;return;}if(Math.abs(v-q.val)/Math.abs(q.val)<=q.tol)ok++;else bad=true;});
+    const fb=$('#fb'+i);fb.className='fb '+(ok===tot?'ok':'no');
+    fb.textContent=empty?'Escribe un valor (puedes usar notación como 1,5×10^7 o 1.5e7).':ok===tot?'✓ ¡Correcto!':ok>0?`Vas bien: ${ok} de ${tot} correctas. Revisa el resto.`:'No coincide. Revisa las unidades (SI) y la fórmula, o mira la solución.';
+  });
+}
+
+/* ---------- arranque ---------- */
+if(window.ResizeObserver)new ResizeObserver(()=>{if(S.tab==='light')renderLight();if(S.tab==='sound')drawChart();}).observe(document.body);
+renderEx();limitSliders();resetSim();renderSound();requestAnimationFrame(frame);
+window.DOP={S,sim,step,kin,theory,resetSim,paramChanged,lightCalc,parseNum,EX};
+</script>
+</body>
+</html>
