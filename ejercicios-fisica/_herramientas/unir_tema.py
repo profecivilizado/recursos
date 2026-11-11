@@ -105,6 +105,15 @@ TEMAS = {
         hojas=[('curso', 'Propuestos en el curso', 'fisica/magnetico/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/magnetico/buscar2')],
     ),
+    'relatividad': dict(
+        salida='fisica/relatividad/problemas.htm',
+        titulo='Tema 10. Física relativista',
+        secciones=[('l', 'Longitud y tiempo', 'fisica/relatividad/relatividad1'),
+                   ('e', 'Masa y energía', 'fisica/relatividad/relatividad2'),
+                   ('m', 'Preguntas malvadas', 'fisica/relatividad/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/relatividad/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/relatividad/buscar2')],
+    ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
         titulo='Tema 12. Física nuclear',

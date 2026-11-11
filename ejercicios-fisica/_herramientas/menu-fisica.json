@@ -398,27 +398,27 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Longitud y tiempo",
-     "u": "fisica/relatividad/relatividad1/0.htm"
+     "u": "fisica/relatividad/problemas.htm#relatividad1"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Masa y energía",
-     "u": "fisica/relatividad/relatividad2/0.htm"
+     "u": "fisica/relatividad/problemas.htm#relatividad2"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/relatividad/faq/0.htm"
+     "u": "fisica/relatividad/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/relatividad/buscar/0.htm"
+     "u": "fisica/relatividad/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/relatividad/buscar2/0.htm"
+     "u": "fisica/relatividad/problemas.htm#acceso"
     }
    ]
   },
