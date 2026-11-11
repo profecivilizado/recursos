@@ -19,27 +19,32 @@
     {
      "grupo": "Problemas por apartados",
      "t": "General",
-     "u": "fisica/gravitatorio/general/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#general"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Órbitas de planetas y satélites",
-     "u": "fisica/gravitatorio/orbitas/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#orbitas"
+    },
+    {
+     "grupo": "Problemas por apartados",
+     "t": "Movimientos de masas en campos gravitatorios",
+     "u": "fisica/gravitatorio/problemas.htm#movimientos"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/gravitatorio/faq/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/gravitatorio/buscar/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/gravitatorio/buscar2/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#acceso"
     }
    ]
   },
@@ -55,32 +60,32 @@
     {
      "grupo": "Problemas por apartados",
      "t": "Campo de masas puntuales",
-     "u": "fisica/gravitatorio/campo/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#campo"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Campo gravitatorio de planetas",
-     "u": "fisica/gravitatorio/planetas/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#planetas"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Trabajo, d.d.p., potencial",
-     "u": "fisica/gravitatorio/trabajo/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#trabajo"
     },
     {
      "grupo": "Problemas por apartados",
      "t": "Preguntas malvadas",
-     "u": "fisica/gravitatorio/faq/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#faq"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en el curso",
-     "u": "fisica/gravitatorio/buscar/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#curso"
     },
     {
      "grupo": "Problemas sueltos",
      "t": "Propuestos en la prueba de acceso",
-     "u": "fisica/gravitatorio/buscar2/0.htm"
+     "u": "fisica/gravitatorio/problemas.htm#acceso"
     }
    ]
   },

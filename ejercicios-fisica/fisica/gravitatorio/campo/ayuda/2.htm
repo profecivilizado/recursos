@@ -25,8 +25,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+ 
+
 onLoad="self.resizeTo(480,350)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellpadding="10" cellspacing="0">
@@ -38,7 +43,7 @@ onUnload="cerrarVentanas()">
         de los campos que crea cada una por separado en dicho punto (Principio 
         de superposici&oacute;n)</p>
       <p>En el caso de una distribuci&oacute;n de dos masas ser&iacute;a:</p>
-      <p class="m50"><img src="formulas/3_01.gif" name="imagen3" width="265" height="45" border="0" id="imagen3" /></p>
+      <p class="m50">$$\vec{E}_A=\vec{E}_{A1}+\vec{E}_{A2}=\frac{G\,M_1}{r_1^2}\,(-\vec{u}_1)+\frac{G\,M_2}{r_2^2}\,(-\vec{u}_2)$$</p>
       <p>&iquest;Sabes <span class="enlace_texto" onclick="abrirVentana('desarrollos/1.htm')">sumar 
         vectores</span> en esta forma? </p>
       <p>En algunas distribuciones de masas puede que se compensen entre si los 

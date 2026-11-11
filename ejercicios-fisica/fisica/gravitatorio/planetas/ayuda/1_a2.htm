@@ -62,8 +62,14 @@ var n=0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="MM_preloadImages('imagenes/2_01.png','imagenes/2_02.png')"
 onunload="cerrarVentanas()">
 <table width="480" border="0" cellspacing="0" cellpadding="10">
@@ -85,10 +91,10 @@ onunload="cerrarVentanas()">
 			}"  />
             </div></td>
           <td width="19%" rowspan="2"><img src="imagenes/2_01.png" name="imagen1" width="199" height="151" id="imagen1" /></td>
-          <td width="63%" height="47" id="celda1" style="visibility:hidden"><p class="m50"><img src="formulas/2_01.gif" width="82" height="45" onClick="abrirVentana('../../mensajes/8.htm')" class="enlace_imagen" /></p></td>
+          <td width="63%" height="47" id="celda1" style="visibility:hidden"><p class="m50"><div class="enlace_imagen" onclick="abrirVentana(&#x27;../../mensajes/8.htm&#x27;)">$$M'=M\left(\frac{r}{R}\right)^3$$</div></p></td>
         </tr>
         <tr>
-          <td id="celda2" style="visibility:hidden"><img src="formulas/2_02.gif" width="201" height="70" /></td>
+          <td id="celda2" style="visibility:hidden">$$\begin{aligned}&E=\frac{G\,M'}{r^2}=\frac{G}{r^2}\,M\left(\frac{r}{R}\right)^3\\[6pt] &E=\frac{G\,M}{R^3}\,r\end{aligned}$$</td>
         </tr>
       </table>
       

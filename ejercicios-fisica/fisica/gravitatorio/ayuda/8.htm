@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +14,14 @@
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+ 
+
 onLoad ="self.resizeTo(480,490)" >
 <table width="451" border="0" cellspacing="0" cellpadding="10">
   <tr> 
@@ -31,11 +37,11 @@ onLoad ="self.resizeTo(480,490)" >
                 <img src="imagenes/8_02.png" width="141" height="121" ></p>
             </div></td>
           <td width="59%" valign="top"> <p>Densidad del planeta:</p>
-            <p align="center"><img  src="formulas/8_01.gif" width="126" height="42" ></p>
+            <p align="center">$$d=\frac{M}{V}=\frac{M}{4/3\,\pi R^3}$$</p>
             <p align="left">Densidad del subplaneta</p>
-            <p align="center"><img src="formulas/8_02.gif" width="134" height="42" ></p>
+            <p align="center">$$d'=\frac{M'}{V'}=\frac{M'}{4/3\,\pi r^3}$$</p>
             <p align="left">Igualando las densidades:</p>
-            <p align="center"><img  src="formulas/8_03.gif" width="150" height="100"></p></td>
+            <p align="center">$$\begin{aligned}&\frac{M}{4/3\,\pi R^3}=\frac{M'}{4/3\,\pi r^3}\\[6pt] &M'=M\left(\frac{r}{R}\right)^3\end{aligned}$$</p></td>
         </tr>
       </table></td>
   </tr>
