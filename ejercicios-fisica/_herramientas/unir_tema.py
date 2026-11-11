@@ -220,7 +220,11 @@ class Generador:
         """Lee una página antigua y devuelve (soup, nodo raíz del contenido, onload del body)."""
         self.usados.add(ruta)
         srcdir = posixpath.dirname(ruta)
-        s = BeautifulSoup(leer(ruta), 'html.parser')
+        # «<a <area …>» (etiqueta rota del original) se tragaba los mapas siguientes
+        src = re.sub(r'<a\s+(?=<area)', '', leer(ruta))
+        # y un <map> sin cerrar dejaba dentro a los siguientes
+        src = re.sub(r'(<map\b(?:(?!</map>).)*?)(?=<map\b)', r'\1</map>', src, flags=re.S | re.I)
+        s = BeautifulSoup(src, 'html.parser')
         for c in s.find_all(string=lambda x: isinstance(x, Comment)):
             c.extract()
         mapas = {}
