@@ -25,8 +25,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+ 
+
+
 onload="self.resizeTo(480,370);">
 <table width="450" border="0" cellpadding="10" cellspacing="0">
   <tr> 
@@ -36,7 +42,7 @@ onload="self.resizeTo(480,370);">
         vectorial de los <span class="enlace_texto" onclick="abrirVentana('4.htm',1)">campos 
         que crea cada uno</span> por separado en dicho punto (Principio de superposici&oacute;n)</p>
       <p>En el caso de una distribuci&oacute;n de dos conductores ser&iacute;a:</p>
-      <p class="m100"><img src="formulas/2_03.gif" name="imagen3" width="208" height="70" border="0" id="imagen3" /></p>
+      <p class="m100">$$\begin{aligned}&\vec{B}=\vec{B}_1+\vec{B}_2\\[6pt] &\vec{B}=\frac{\mu_0}{4\pi}\,\frac{2\,I_1}{r_1}\,(\vec{u}_1)+\frac{\mu_0}{4\pi}\,\frac{2\,I_2}{r_2}\,(\vec{u}_2)\end{aligned}$$</p>
       <p>&iquest;Sabes <span class="enlace_texto" onclick="abrirVentana('desarrollos/1.htm')">sumar 
         vectores</span> en esta forma? </p>
       <p>En algunas distribuciones de conductores puede que se compensen entre 

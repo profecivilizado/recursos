@@ -44,8 +44,14 @@ function MM_preloadImages() { //v3.0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+ 
+
+
 onload="self.moveTo(20,20);self.resizeTo(490,540);"
 onUnload="cerrarVentanas()">
 <table width="460" border="0" cellpadding="10" cellspacing="0">
@@ -61,9 +67,9 @@ onUnload="cerrarVentanas()">
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
           <td width="45%"><img src="imagenes/1_04.png" name="imagen1" width="188" height="175" id="imagen1" /></td>
-          <td width="55%"><p class="m50"><img src="formulas/1_02.gif" width="158" height="41" /></p>
+          <td width="55%"><p class="m50">$$d\vec{B}=\frac{\mu_0}{4\pi}\,\frac{dq}{r^2}\,(\vec{u}_v\times\vec{u}_r)$$</p>
             <p>Esta f&oacute;rmula equivale a:</p>
-            <p class="m50"><img src="formulas/1_03.gif" width="165" height="41" /></p>
+            <p class="m50">$$d\vec{B}=\frac{\mu_0}{4\pi}\,\frac{I\,dL}{r^2}\,(\vec{u}_I\times\vec{u}_r)$$</p>
             </td>
         </tr>
       </table>

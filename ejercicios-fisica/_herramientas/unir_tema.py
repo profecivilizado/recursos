@@ -80,6 +80,18 @@ TEMAS = {
         hojas=[('curso', 'Propuestos en el curso', 'fisica/optica/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/optica/buscar2')],
     ),
+    'magnetico': dict(
+        salida='fisica/magnetico/problemas.htm',
+        titulo='Temas 4 y 5. Campo magnético e inducción',
+        secciones=[('c', 'Campos creados por cargas y corrientes', 'fisica/magnetico/campo'),
+                   ('l', 'Fuerza sobre cargas', 'fisica/magnetico/lorentz'),
+                   ('f', 'Fuerza sobre cables y espiras', 'fisica/magnetico/fuerzas'),
+                   ('u', 'Fuerzas entre cargas y corrientes', 'fisica/magnetico/f_mutuas'),
+                   ('i', 'Inducción magnética', 'fisica/magnetico/induccion'),
+                   ('m', 'Preguntas malvadas', 'fisica/magnetico/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/magnetico/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/magnetico/buscar2')],
+    ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
         titulo='Tema 12. Física nuclear',
@@ -360,10 +372,15 @@ class Generador:
 
     def orden(self, carpeta):
         """[(número, oculto)] según el índice original de la sección."""
-        t = BeautifulSoup(leer(f'{carpeta}/0_a.htm'), 'html.parser')
         out = []
-        for td in t.find_all('td', id=re.compile(r'^\d+$')):
-            out.append((int(td['id']), 'hidden' in td.get('style', '').replace(' ', '')))
+        # 0i_a.htm: segundo índice de la misma carpeta (p. ej. preguntas malvadas de inducción)
+        for idx in ('0_a', '0i_a'):
+            if idx == '0i_a' and not (RAIZ / carpeta / '0i_a.htm').exists():
+                continue
+            t = BeautifulSoup(leer(f'{carpeta}/{idx}.htm'), 'html.parser')
+            for td in t.find_all('td', id=re.compile(r'^\d+$')):
+                out.append((int(td['id']), 'hidden' in td.get('style', '').replace(' ', '')))
+            self.usados.update({f'{carpeta}/{idx}.htm', f'{carpeta}/{idx[:-2]}.htm'})
         hay = sorted(int(p.name[8:]) for p in (RAIZ / carpeta).glob('problema*') if p.name[8:].isdigit())
         refs = self.en_hojas()
         out = [(n, o and f'{carpeta}/problema{n}' not in refs) for n, o in out]
