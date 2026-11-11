@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras,estado) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	if (estado) atributos=atributos+',status=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+onLoad="self.resizeTo(480,520)"  
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="600" valign="top"> 
+      <p><b><font color="#0000FF">Din&aacute;mica del movimiento 
+        rectil&iacute;neo</font></b></p>
+      <p>En los movimientos rectil&iacute;neos solo puede haber aceleraci&oacute;n 
+        tan-gencial (Direcci&oacute;n la del movimiento y sentido igual o contrario). 
+        <br />
+        En estos casos se toma un eje en la direcci&oacute;n del movimiento (Tangencial) 
+        y otro perpendicular (Normal). </p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <p>Se hace el diagrama libre del cuerpo incluyendo las fuerzas da-das, el 
+        peso y las fuerzas de <span class="enlace_texto" onclick="abrirVentana('2.htm')">ligadura</span>&nbsp;Si 
+        es necesario se des-componen estas fuerzas sobre los ejes establecidos</p>
+      <p>Si hay fuerza de rozamiento y el cuerpo est&aacute; inicialmente en re-poso 
+        no se puede saber el sentido de la fuerza de rozamiento. En este caso 
+        se supone que la <span class="enlace_texto" onClick="abrirVentana('3.htm',1)">resultante</span> 
+        de las fuerzas tangen-ciales es mayor que la fuerza de rozamiento por 
+        lo que el cuerpo comenzar&aacute; a moverse en el sentido de la primera 
+        y por tanto el sentido de la fuerza de rozamiento ser&aacute; el contrario</p>
+      <p>La <span class="enlace_texto" onclick="abrirVentana('3.htm',1)"> resultante</span> 
+        de las fuerzas normales se iguala a cero</p>
+      <p>La <span class="enlace_texto" onclick="abrirVentana('3.htm',1)">resultante</span> 
+        de todas las fuerzas tangenciales se iguala a m&middot;a</p>
+      <p><font color="#FF0000">Importante<strong>: </strong>&nbsp; Si se obtiene 
+        una aceleraci&oacute;n negativa significar&aacute; que el cuerpo no se 
+        mueve porque la fuerza de rozamiento se lo impide</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

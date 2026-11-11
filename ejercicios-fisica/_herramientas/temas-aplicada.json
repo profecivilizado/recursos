@@ -1,0 +1,589 @@
+{
+ "mua": {
+  "salida": "aplicada/mua/problemas.htm",
+  "titulo": "Cinemática del punto. Movimiento rectilíneo",
+  "indice": "aplicada/indices/tema1/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/mua/mua1"
+   ],
+   [
+    "b",
+    "Faltan parámetros",
+    "aplicada/mua/mua2"
+   ],
+   [
+    "c",
+    "Recorridos parciales",
+    "aplicada/mua/mua3"
+   ],
+   [
+    "d",
+    "Choques",
+    "aplicada/mua/mua4"
+   ],
+   [
+    "e",
+    "Preguntas malvadas",
+    "aplicada/mua/faq"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/mua/buscar"
+   ]
+  ]
+ },
+ "tiros": {
+  "salida": "aplicada/tiros/problemas.htm",
+  "titulo": "Cinemática del punto. Tiros",
+  "indice": "aplicada/indices/tema2/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/tiros/tiros1"
+   ],
+   [
+    "b",
+    "Tiros con viento",
+    "aplicada/tiros/tiros2"
+   ],
+   [
+    "c",
+    "Problemas de barreras",
+    "aplicada/tiros/tiros3"
+   ],
+   [
+    "d",
+    "Faltan parámetros",
+    "aplicada/tiros/tiros4"
+   ],
+   [
+    "e",
+    "Choques",
+    "aplicada/tiros/tiros5"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/tiros/buscar"
+   ]
+  ]
+ },
+ "circular": {
+  "salida": "aplicada/circular/problemas.htm",
+  "titulo": "Cinemática del punto. Movimiento circular",
+  "indice": "aplicada/indices/tema3/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Movimiento circular uniforme",
+    "aplicada/circular/circular1"
+   ],
+   [
+    "b",
+    "Movimiento circular acelerado",
+    "aplicada/circular/circular3"
+   ],
+   [
+    "c",
+    "Aceleración del movimiento circular",
+    "aplicada/circular/circular4"
+   ],
+   [
+    "d",
+    "Choques",
+    "aplicada/circular/circular5"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/circular/buscar"
+   ]
+  ]
+ },
+ "dinamica": {
+  "salida": "aplicada/dinamica/problemas.htm",
+  "titulo": "Dinámica del punto. Dinámica",
+  "indice": "aplicada/indices/tema4/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/dinamica/dinamica0"
+   ],
+   [
+    "b",
+    "Fuerzas alineadas con el movimiento",
+    "aplicada/dinamica/dinamica1"
+   ],
+   [
+    "c",
+    "Fuerzas no alineadas con el movimiento",
+    "aplicada/dinamica/dinamica2"
+   ],
+   [
+    "d",
+    "Cuerpos que se mueven juntos",
+    "aplicada/dinamica/dinamica3"
+   ],
+   [
+    "e",
+    "Dinámica del movimiento circular",
+    "aplicada/dinamica/dinamica4"
+   ],
+   [
+    "f",
+    "Dinámica del movimiento armónico",
+    "aplicada/dinamica/dinamica5"
+   ],
+   [
+    "g",
+    "Péndulos y relojes",
+    "aplicada/dinamica/periodos"
+   ],
+   [
+    "h",
+    "Preguntas malvadas",
+    "aplicada/dinamica/faq"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/dinamica/buscar"
+   ]
+  ]
+ },
+ "trabajo": {
+  "salida": "aplicada/trabajo/problemas.htm",
+  "titulo": "Dinámica del punto. Conservación de la energía",
+  "indice": "aplicada/indices/tema5/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/trabajo/trabajo1"
+   ],
+   [
+    "b",
+    "Recorridos no homogéneos",
+    "aplicada/trabajo/trabajo2"
+   ],
+   [
+    "c",
+    "Problemas mixtos",
+    "aplicada/trabajo/trabajo3"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/trabajo/buscar"
+   ]
+  ]
+ },
+ "cdm": {
+  "salida": "aplicada/cdm/problemas.htm",
+  "titulo": "Dinámica de sistemas. Centro de masas",
+  "indice": "aplicada/indices/tema6/0.htm",
+  "secciones": [
+   [
+    "a",
+    "c.d.m de distribuciones puntuales y continuas",
+    "aplicada/cdm/cdm"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/cdm/buscar"
+   ]
+  ]
+ },
+ "choques": {
+  "salida": "aplicada/choques/problemas.htm",
+  "titulo": "Dinámica de sistemas. Conservación del momento lineal",
+  "indice": "aplicada/indices/tema8/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Choques frontales",
+    "aplicada/choques/choques1"
+   ],
+   [
+    "b",
+    "Choques oblicuos | Explosiones",
+    "aplicada/choques/choques2"
+   ],
+   [
+    "c",
+    "Problemas mixtos",
+    "aplicada/choques/choques3"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/choques/buscar"
+   ]
+  ]
+ },
+ "dinamica_s": {
+  "salida": "aplicada/dinamica_s/problemas.htm",
+  "titulo": "Dinámica de sistemas. Dinámica",
+  "indice": "aplicada/indices/tema7/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Cuerpos en contacto",
+    "aplicada/dinamica_s/ds1"
+   ],
+   [
+    "b",
+    "Máquinas de Atwood",
+    "aplicada/dinamica_s/ds2"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/dinamica_s/buscar"
+   ]
+  ]
+ },
+ "trabajo_s": {
+  "salida": "aplicada/trabajo_s/problemas.htm",
+  "titulo": "Dinámica de sistemas. Conservación de la energía",
+  "indice": "aplicada/indices/tema9/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Máquinas de Atwood",
+    "aplicada/trabajo_s/trabajo1"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/trabajo_s/buscar"
+   ]
+  ]
+ },
+ "dinamica_r": {
+  "salida": "aplicada/dinamica_r/problemas.htm",
+  "titulo": "Dinámica del sólido rígido. Dinámica de la rotación",
+  "indice": "aplicada/indices/tema10/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/dinamica_r/dr1"
+   ],
+   [
+    "b",
+    "Máquinas de Atwood",
+    "aplicada/dinamica_r/dr2"
+   ],
+   [
+    "c",
+    "Momentos de inercia",
+    "aplicada/dinamica_r/mdi"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/dinamica_r/buscar"
+   ]
+  ]
+ },
+ "trabajo_r": {
+  "salida": "aplicada/trabajo_r/problemas.htm",
+  "titulo": "Dinámica del sólido rígido. Conservación de la energía",
+  "indice": "aplicada/indices/tema11/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/trabajo_r/trabajo1"
+   ],
+   [
+    "b",
+    "Máquinas de Atwood",
+    "aplicada/trabajo_r/trabajo2"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/trabajo_r/buscar"
+   ]
+  ]
+ },
+ "choques_r": {
+  "salida": "aplicada/choques_r/problemas.htm",
+  "titulo": "Dinámica del sólido rígido. Conservación del momento angular",
+  "indice": "aplicada/indices/tema12/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/choques_r/choques1"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/choques_r/buscar"
+   ]
+  ]
+ },
+ "estatica": {
+  "salida": "aplicada/estatica/problemas.htm",
+  "titulo": "Estática. Equilibrio de cuerpos",
+  "indice": "aplicada/indices/tema13/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Equilibrio de traslación",
+    "aplicada/estatica/estatica1"
+   ],
+   [
+    "b",
+    "Equilibrio de traslación y rotación",
+    "aplicada/estatica/estatica2"
+   ],
+   [
+    "c",
+    "Ruptura del equilibrio",
+    "aplicada/estatica/estatica3"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/estatica/buscar"
+   ]
+  ]
+ },
+ "fluidos": {
+  "salida": "aplicada/fluidos/problemas.htm",
+  "titulo": "Hidrostática",
+  "indice": "aplicada/indices/tema14/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/fluidos/fluidos1"
+   ],
+   [
+    "b",
+    "Flotación",
+    "aplicada/fluidos/fluidos2"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/fluidos/buscar"
+   ]
+  ]
+ },
+ "termo/calor": {
+  "salida": "aplicada/termo/calor/problemas.htm",
+  "titulo": "Termodinámica. Calorimetría",
+  "indice": "aplicada/indices/tema16/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Equilibrio térmico",
+    "aplicada/termo/calor/calor1"
+   ],
+   [
+    "b",
+    "Conversión trabajo-calor",
+    "aplicada/termo/calor/calor2"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/termo/calor/buscar"
+   ]
+  ]
+ },
+ "termo/gases": {
+  "salida": "aplicada/termo/gases/problemas.htm",
+  "titulo": "Termodinámica. Gases ideales",
+  "indice": "aplicada/indices/tema17/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/termo/gases/gases1"
+   ],
+   [
+    "b",
+    "Transformaciones gaseosas",
+    "aplicada/termo/gases/gases2"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/termo/gases/buscar"
+   ]
+  ]
+ },
+ "termo/principio": {
+  "salida": "aplicada/termo/principio/problemas.htm",
+  "titulo": "Termodinámica. Primer principio",
+  "indice": "aplicada/indices/tema18/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Primer principio",
+    "aplicada/termo/principio/principio1"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/termo/principio/buscar"
+   ]
+  ]
+ },
+ "termo/ciclos": {
+  "salida": "aplicada/termo/ciclos/problemas.htm",
+  "titulo": "Termodinámica. Máquinas térmicas",
+  "indice": "aplicada/indices/tema19/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Máquinas térmicas",
+    "aplicada/termo/ciclos/ciclos1"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/termo/ciclos/buscar"
+   ]
+  ]
+ },
+ "termo/entropia": {
+  "salida": "aplicada/termo/entropia/problemas.htm",
+  "titulo": "Termodinámica. Entropía",
+  "indice": "aplicada/indices/tema20/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/termo/entropia/entropia1"
+   ]
+  ],
+  "hojas": []
+ },
+ "continua": {
+  "salida": "aplicada/continua/problemas.htm",
+  "titulo": "Corriente eléctrica. Corriente continua",
+  "indice": "aplicada/indices/tema21/0.htm",
+  "secciones": [
+   [
+    "a",
+    "Resistencia",
+    "aplicada/continua/Ohm"
+   ],
+   [
+    "b",
+    "Trabajo eléctrico",
+    "aplicada/continua/Joule"
+   ],
+   [
+    "c",
+    "Circuitos con pila",
+    "aplicada/continua/pilas"
+   ],
+   [
+    "d",
+    "Resistencia equivalente",
+    "aplicada/continua/equivalente"
+   ],
+   [
+    "e",
+    "Análisis de circuitos sencillos",
+    "aplicada/continua/analisis"
+   ],
+   [
+    "f",
+    "Lemas de Kirchoff",
+    "aplicada/continua/kirchoff"
+   ],
+   [
+    "g",
+    "Instrumentos de medida",
+    "aplicada/continua/instrumentos"
+   ],
+   [
+    "h",
+    "Circuitos con motor",
+    "aplicada/continua/motores"
+   ],
+   [
+    "i",
+    "Preguntas malvadas",
+    "aplicada/continua/faq"
+   ]
+  ],
+  "hojas": [
+   [
+    "curso",
+    "Propuestos en el curso",
+    "aplicada/continua/buscar"
+   ]
+  ]
+ },
+ "alterna": {
+  "salida": "aplicada/alterna/problemas.htm",
+  "titulo": "Corriente eléctrica. Corriente alterna",
+  "indice": "aplicada/indices/tema22/0.htm",
+  "secciones": [
+   [
+    "a",
+    "General",
+    "aplicada/alterna/general"
+   ],
+   [
+    "b",
+    "Análisis de circuitos",
+    "aplicada/alterna/analisis"
+   ]
+  ],
+  "hojas": []
+ }
+}

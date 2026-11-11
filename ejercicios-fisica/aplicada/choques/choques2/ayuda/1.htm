@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,600)">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p  ><b><font color="#0000FF">Choque oblicuo<br />
+        </font></b>Las velocidades de los cuerpos que chocan no tienen la misma 
+        direcci&oacute;n. Se toma un eje en la direcci&oacute;n de una de las 
+        veloci-dades </p>
+      <p> Conservaci&oacute;n del momento lineal (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../ayuda/1.htm',1)">&#149;</span>)</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="60%"><div align="center"><img src="formulas/1_01.gif" width="236" height="60" /></div></td>
+          <td width="40%"><p class="peque&ntilde;o">(Eje x en la direcci&oacute;n 
+              de v1)</p></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="31%" valign="top">
+<p align="right">v<sub>1</sub> v<sub>2x</sub> v<sub>2y</sub> </p></td>
+          <td width="69%"><p>Comp. de velocidades antes del choque</p></td>
+        </tr>
+        <tr> 
+          <td><p align="left">v'<sub>1x</sub> v'<sub>1y</sub> v'<sub>2x</sub> 
+              v'<sub>2y</sub>&nbsp;</p></td>
+          <td><p>Comp. de velocidades d&eacute;spues del choque</p></td>
+        </tr>
+      </table>
+      <p align="left"  ><font color="#FF0000">No se pone signo a las componentes 
+        de la velocidad pues estas lo llevan incluido. Cuando sean inc&oacute;gnitas, 
+        al despejarlas se ob-tendr&aacute; el valor con su signo y cuando sean 
+        datos habr&aacute; que sustituir la variable por el valor con su signo</font></p>
+      <p  > <strong><font color="#0000FF">Choque oblicuo totalmente inel&aacute;stico</font></strong><br />
+        Se aplica el principio de conservaci&oacute;n teniendo en cuenta que los 
+        cuerpos quedan incrustados y tienen la misma velocidad</p>
+      <p class="m100"  ><img src="formulas/1_02.gif" width="218" height="62" /></p>
+      <p  ><strong><font color="#0000FF">Choque oblicuo con pared o suelo (Masa 
+        infinita) </font></strong> <br />
+        <font color="#000000">Se conserva la componente de la velocidad paralela 
+        a la super-ficie (La fuerza de contacto con la superficie es normal a 
+        esta y solo cambia la componente normal de la velocidad)</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="30%" valign="middle"><p>&nbsp;</p>
+            <p align="center"><img src="imagenes/1_01.png" width="121" height="110" /></p></td>
+          <td width="30%" valign="middle"><div align="center"><img src="imagenes/1_02.png" width="119" height="70" /></div></td>
+          <td width="40%" valign="middle"><p align="center">v'<sub>x</sub> = v<sub>x</sub></p>
+            <p align="center">v'&middot;sen &alpha;' = v sen &alpha;</p></td>
+        </tr>
+      </table>
+      <p  >Aunque se conserva el momento lineal no se puede aplicar la ecuaci&oacute;n 
+        porque el momento lineal de la pared o suelo es inde-terminado (&infin;&middot;0)</p>
+      <p  ><font color="#FF0000"><strong>Importante<br />
+        </strong>Si en cualquiera de los casos se necesitaran mas ecuaciones habr&iacute;a 
+        que acudir al balance de energ&iacute;a cin&eacute;tica antes y des-pu&eacute;s 
+        del choque</font></p>
+      <p  ><span class="enlace_texto" onclick="abrirVentana('../../ayuda/4.htm', 1)">Conservaci&oacute;n 
+        de la energ&iacute;a cin&eacute;tica</span></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

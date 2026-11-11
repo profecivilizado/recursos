@@ -80,6 +80,19 @@ TEMAS = {
         hojas=[('curso', 'Propuestos en el curso', 'fisica/optica/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/optica/buscar2')],
     ),
+    'gravitatorio': dict(
+        salida='fisica/gravitatorio/problemas.htm',
+        titulo='Temas 1 y 2. Interacción y campo gravitatorio',
+        secciones=[('g', 'General', 'fisica/gravitatorio/general'),
+                   ('o', 'Órbitas de planetas y satélites', 'fisica/gravitatorio/orbitas'),
+                   ('c', 'Campo de masas puntuales', 'fisica/gravitatorio/campo'),
+                   ('p', 'Campo gravitatorio de planetas', 'fisica/gravitatorio/planetas'),
+                   ('t', 'Trabajo, d.d.p., potencial', 'fisica/gravitatorio/trabajo'),
+                   ('v', 'Movimientos de masas en campos gravitatorios', 'fisica/gravitatorio/movimientos'),
+                   ('m', 'Preguntas malvadas', 'fisica/gravitatorio/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/gravitatorio/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/gravitatorio/buscar2')],
+    ),
     'magnetico': dict(
         salida='fisica/magnetico/problemas.htm',
         titulo='Temas 4 y 5. Campo magnético e inducción',
@@ -91,6 +104,15 @@ TEMAS = {
                    ('m', 'Preguntas malvadas', 'fisica/magnetico/faq')],
         hojas=[('curso', 'Propuestos en el curso', 'fisica/magnetico/buscar'),
                ('acceso', 'Propuestos en la prueba de acceso', 'fisica/magnetico/buscar2')],
+    ),
+    'relatividad': dict(
+        salida='fisica/relatividad/problemas.htm',
+        titulo='Tema 10. Física relativista',
+        secciones=[('l', 'Longitud y tiempo', 'fisica/relatividad/relatividad1'),
+                   ('e', 'Masa y energía', 'fisica/relatividad/relatividad2'),
+                   ('m', 'Preguntas malvadas', 'fisica/relatividad/faq')],
+        hojas=[('curso', 'Propuestos en el curso', 'fisica/relatividad/buscar'),
+               ('acceso', 'Propuestos en la prueba de acceso', 'fisica/relatividad/buscar2')],
     ),
     'nuclear': dict(
         salida='fisica/nuclear/problemas.htm',
@@ -203,6 +225,8 @@ class Generador:
             c.extract()
         mapas = {}
         for m in s.find_all('map'):
+            if m.attrs is None:   # mapa anidado dentro de otro ya quitado
+                continue
             mapas[m.get('name') or m.get('id')] = [a.get('onclick') or a.get('onmouseover') or '' for a in m.find_all('area')]
             m.decompose()
         body = s.body or s
@@ -326,7 +350,7 @@ class Generador:
                 self.aviso(f'enlace roto {ruta}: uso {alt}')
                 return self.aclaracion(alt)
             # ayudas escritas relativas a la carpeta del bloque («campo/ayuda/3.htm» desde problema2/)
-            mb = re.match(r'(fisica/[^/]+)/[^/]+/problema\d+/(.*)$', ruta)
+            mb = re.match(r'((?:fisica|aplicada)/(?:termo/)?[^/]+)/[^/]+/problema\d+/(.*)$', ruta)
             if mb and (RAIZ / mb.group(1) / mb.group(2)).exists():
                 otra = f'{mb.group(1)}/{mb.group(2)}'
                 self.aviso(f'enlace roto {ruta}: uso {otra}')
@@ -680,6 +704,10 @@ JS = r"""
 })();
 """
 
+# Física aplicada: un tema por bloque, configurado en temas-aplicada.json (sale de los índices originales)
+for _k, _v in json.loads((RAIZ / '_herramientas' / 'temas-aplicada.json').read_text(encoding='utf-8')).items():
+    TEMAS['aplicada/' + _k] = {**_v, 'secciones': [tuple(x) for x in _v['secciones']], 'hojas': [tuple(x) for x in _v['hojas']]}
+
 if __name__ == '__main__':
     if len(sys.argv) < 2 or sys.argv[1] not in TEMAS:
         sys.exit('Uso: unir_tema.py <tema> [--borrar]   temas: ' + ', '.join(TEMAS))
@@ -688,13 +716,13 @@ if __name__ == '__main__':
     print(f"Generada {g.cfg['salida']}: {len(g.ac_html)} aclaraciones, {len(g.usados)} archivos antiguos usados")
     for a in g.avisos:
         print('AVISO', a)
-    lista = Path('/tmp') / f'usados-{sys.argv[1]}.txt'
+    lista = Path('/tmp') / f"usados-{sys.argv[1].replace('/', '_')}.txt"
     lista.write_text('\n'.join(sorted(g.usados)) + '\n', encoding='utf-8')
     if '--borrar' in sys.argv:
         borrar = {u for u in g.usados if '/ayuda/' not in u and '/buscarAyudas/' not in u}
         # no borrar lo que siguen enlazando las páginas que se quedan (p. ej. las ayudas de la Teoría)
         ref = re.compile(r"""(?:src|href)\s*=\s*["']([^"'#?]+)|(?:abrirVentana|MM_openBrWindow|cambiar)\(\s*'(?:[^']*'\s*,\s*')?([^'#?]+\.htm)""")
-        quedan = [p for p in RAIZ.joinpath('fisica').rglob('*.htm') if p.relative_to(RAIZ).as_posix() not in borrar]
+        quedan = [p for p in RAIZ.joinpath(g.cfg['salida'].split('/')[0]).rglob('*.htm') if p.relative_to(RAIZ).as_posix() not in borrar]
         while quedan:
             nuevas = []
             for p in quedan:

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(440,640)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431" height="309"> <p><strong><font color="#0000FF">Adiab&aacute;tica 
+        (No se intercambia calor:)</font></strong></p>
+      <p><font color="#FF0000">Esta forma de calcular no suele utilizarse en la 
+        pr&aacute;ctica</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="50%"><div align="center"><img src="imagenes/3_04.png" width="151" height="138" /></div></td>
+          <td width="50%"> <p><img src="formulas/3_4_03.gif" width="188" height="112" border="0" usemap="#Map" style="cursor:pointer"/></p>
+            </td>
+        </tr>
+      </table>  
+      <p align="left">Parece que hay dos f&oacute;rmulas del trabajo en una adiab&aacute;tica</p>
+      <p align="left" class="m100"><font color="#FF0000"><em><strong><font color="#000000">T</font></strong></em><font color="#000000"> 
+        = (P<sub>2</sub>&middot;V<sub>2</sub> - P<sub>1</sub>&middot;V<sub>1</sub>)/(1 
+        - &gamma;)</font></font></p>
+      <p align="left" class="m100"><font color="#000000"><em><strong>T</strong></em> 
+        = -n&middot;cv&middot;(T<sub>2</sub> - T<sub>1</sub>)</font></p>
+      <p align="left"><font color="#000000">Pero por increible que parezca las 
+        dos expresiones</font> <span class="enlace_texto" onClick="abrirVentana('desarrollos/6.htm')">son 
+        iguales</span></p>
+      </td>
+  </tr>
+</table>
+<map name="Map" id="Map">
+  <area shape="rect" coords="3,38,177,74" title="Clic para aclaraci&oacute;n" onClick="abrirVentana('desarrollos/4.htm')"/>
+</map>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,610)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p><b><font color="#0000FF">Din&aacute;mica de la rotaci&oacute;n</font></b></p>
+      <p><strong><font color="#FF0000">M&eacute;todo</font></strong></p>
+      <p><font color="#FF0000">Conviene dibujar el cuerpo de forma que se vea 
+        el eje de frente</font></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="8%" valign="top"> <p align="right">1 </p></td>
+          <td width="92%" valign="top"> <p>Se hace el diagrama libre del cuerpo 
+              incluyendo todas las fuerzas que &eacute;ste sufre: peso, normal 
+              en el eje y las de otros agentes que se indiquen<strong><font color="#FF0000"> 
+              </font></strong> poniendo cada una en el punto donde est&eacute; 
+              aplicada<br />
+              Hay que tener en cuenta que la normal en el eje debe compensar las 
+              restantes fuerzas sobre la polea porque no hay traslaci&oacute;n</p>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top"><p align="right">2&nbsp;</p></td>
+          <td valign="top"> <p>Se calcula el <span class="enlace_texto" onClick="abrirVentana('3.htm',1)"> 
+              momento resultante</span> sobre el sistema. <br />
+              El sentido de la aceleraci&oacute;n angular ser&aacute; el del momento 
+              resultante</p></td>
+        </tr>
+        <tr> 
+          <td height="36" valign="top"> <p align="right">3 </p>
+            <p align="right">&nbsp;</p></td>
+          <td valign="top"> <p>Se aplica el principio de la Din&aacute;mica de 
+              la rotaci&oacute;n</p>
+            <p class="m50">M = I&middot;&alpha;</p>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td height="26" valign="top"> <p align="right">M&nbsp;</p></td>
+                <td valign="top"> <p>M&oacute;dulo del momento resultante<br />
+                  </p></td>
+              </tr>
+              <tr> 
+                <td valign="top"> <p align="right">&alpha;&nbsp;</p></td>
+                <td valign="top"> <p>M&oacute;dulo de la aceleraci&oacute;n angular</p></td>
+              </tr>
+              <tr> 
+                <td valign="top"><p align="right">I&nbsp;</p></td>
+                <td valign="top"><p>Momento de inercia del cuerpo respecto al 
+                    eje de rotaci&oacute;n</p></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>  
+      <p><strong><font color="#FF0000">Importante<br />
+        </font></strong><font color="#FF0000">En Din&aacute;mica se trabaja con 
+        m&oacute;dulos, por tanto una soluci&oacute;n ne-gativa significar&aacute; 
+        que no puede darse la situaci&oacute;n planteada</font></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

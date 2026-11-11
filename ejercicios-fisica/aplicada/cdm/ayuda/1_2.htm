@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p><b><font color="#0000FF">c.d.m de un cuerpo homog&eacute;neo<br />
+        </font></b>Cuerpo homog&eacute;neo es el que tiene la misma <span class="enlace_texto" onclick="abrirVentana('2.htm',1)"> 
+        densidad</span> en todos sus puntos </p>
+      <p><strong><font color="#FF0000">C</font><font color="#FF0000">uerpo regular<br />
+        </font></strong>Un cuerpo regular es el que tiene centro de simetr&iacute;a. 
+        El c.d.m coincide con el centro de simetria</p>
+      <p><strong><font color="#FF0000">Cuerpo irregular</font></strong></p>
+      <p><strong><font color="#0000FF">M&eacute;todo 1</font></strong></p>
+      <p>Se descompone el cuerpo dado en cuerpos regulares</p>
+      <p>Se calcula la masa y el c.d.m de cada cuerpo regular <font color="#FF0000">(Si 
+        no se conoce la densidad del cuerpo se deja como par&aacute;metro porque 
+        no aparecer&aacute; en el resultado final)</font></p>
+      <p>Se sutituye cada cuerpo regular por su c.d.m concentrando la masa en 
+        este punto</p>
+      <p>Se calcula el c.d.m de la distribuci&oacute;n de puntos obtenida apli-cando 
+        la formulita</p>
+      <p><strong><font color="#0000FF">M&eacute;todo 2</font></strong></p>
+      <p>Se a&ntilde;ade un cuerpo regular al cuerpo dado para hacerlo regular</p>
+      <p>Se calcula la masa y c.d.m del cuerpo regular a&ntilde;adido y del cuerpo 
+        regular obtenido <font color="#FF0000">(Si no se conoce la densidad del 
+        cuerpo se deja como par&aacute;metro porque no aparecer&aacute; en el 
+        resultado final)</font>. Se calcula la masa del cuerpo dado (Diferencia 
+        de las masas del cuerpo regular obtenido y del a&ntilde;adido) y se deja 
+        su c.d.m como inc&oacute;gnita (x<sub>0</sub>, y<sub>0</sub>)</p>
+      <p>Se sutituye cada cuerpo regular y el cuerpo dado por su c.d.m concentrando 
+        la masa en este punto</p>
+      <p>Se aplican las formulitas del c.d.m de la distribuci&oacute;n de puntos 
+        obtenida y en ellas se despejan x<sub>0</sub>, y<sub>0</sub></p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

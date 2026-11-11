@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,340)"
+onunload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p  ><b><font color="#0000FF">Energ&iacute;a potencial de un cuerpo</font></b></p>
+      <p>La energ&iacute;a potencial de un cuerpo es la energ&iacute;a potencial 
+        que tendr&iacute;a su c.d.m si toda la masa se concentrar&aacute; en &eacute;l</p>
+      <p align="center">E<sub>P</sub> = M&middot;g&middot;h<sub>o</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="12%"><p align="right">M&nbsp;</p></td>
+          <td width="88%"><p>Masa del cuerpo</p></td>
+        </tr>
+        <tr> 
+          <td><p align="right">h<sub>o</sub>&nbsp;</p></td>
+          <td><p>Altura del c.d.m del cuerpo</p></td>
+        </tr>
+      </table>
+      <p>Si el cuerpo consiste en una distribuci&oacute;n de masas puntuales se 
+        puede calcular la energ&iacute;a potencial sumando las energ&iacute;as 
+        poten-ciales de las masas puntuales:</p>
+      <p align="center">E<sub>P</sub> = m<sub>1</sub>&middot;g&middot;h<sub>1</sub> 
+        + m<sub>2</sub>&middot;g&middot;h<sub>2</sub> + m<sub>3</sub>&middot;g&middot;h<sub>3</sub> 
+        + ...</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

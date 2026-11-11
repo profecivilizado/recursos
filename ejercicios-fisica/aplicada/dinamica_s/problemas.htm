@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/unir_tema.py a partir de los problemas originales. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../_pc/compat.js"></script>
+<title>Dinámica de sistemas. Dinámica · Problemas</title>
+<link href="../../fisica/comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../_pc/pc.css">
+<link rel="stylesheet" href="../../_pc/problemas.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer}
+.chip:hover{background:var(--hover)}
+h2{font-size:1.2em;color:var(--accent);border-top:2px solid var(--line);padding-top:14px;margin:22px 0 2px}
+h3{font-size:1em;color:var(--red);margin:14px 0 4px}
+.enun p:first-child{margin-top:0}
+.enun table{width:auto!important}
+p.meta{margin:.2em 0 0 1.8em}
+.var{font-size:14px;margin-left:8px}
+.ap{border-top:1px dashed var(--line);padding:8px 0 4px}
+.ap:first-child{border-top:0}
+.aph{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:30px}
+.aph>b{color:var(--accent);font-size:1.05em}
+.ctl{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.ctl button{font:inherit;font-size:13px;color:var(--accent);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+.ctl button:hover{background:var(--hover)}
+.ctl button.ayuda{color:var(--red)}
+.pasos>.oculto{display:none}
+.pasos>.nuevo-paso{animation:aparece .35s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+details.sub{margin:.6em 0 .2em 0}
+.ac-box{border:1px solid var(--accent);border-left-width:4px;border-radius:10px;background:var(--card);margin:.4em 0 .6em;padding:4px 12px 8px}
+.ac-h{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--accent);font-size:14px}
+.ac-h button{font:inherit;font-size:13px;background:none;border:0;color:var(--muted);cursor:pointer}
+.ac-box .ctl{margin:.3em 0 0}
+[data-pc-ac],[data-pc-go]{cursor:pointer}
+[data-pc-ac]:hover,[data-pc-go]:hover{color:var(--red)}
+.pc-swap{cursor:pointer;color:var(--accent);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.pc-swap.sel{color:var(--red);font-weight:700}
+.hojas ol{margin:.2em 0 .6em 1.6em;padding:0}
+.hojas li{margin:.25em 0}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="pcKatex()"></script>
+</head>
+<body>
+<div class="cab"><b>Dinámica de sistemas. Dinámica</b><span class="nuevo">Problemas</span></div>
+<nav class="chips"><a class="chip" data-go="ds1">Cuerpos en contacto</a> <a class="chip" data-go="ds2">Máquinas de Atwood</a> <a class="chip" data-go="curso">Propuestos en el curso</a></nav>
+<section class="seccion" id="ds1"><h2>Cuerpos en contacto</h2>
+<div class="prob" id="a1">
+<div class="enun"><span class="num">1</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="18%"><div align="center"><img height="49" src="ds1/problema1/imagenes/1_00.gif" width="117"/></div></td>
+<td width="82%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la fuerza de contacto entre ellos<br/>
+</font></strong><strong><font color="#0000FF">El coeficiente de 
+              rozamiento entre bloques y superficie vale μ .<br/>
+</font></strong></p>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"> <p align="center">   <img height="111" src="ds1/problema1/imagenes/1_01.png" width="160"/></p></td>
+<td width="23%"> <p align="center"><img border="0" height="57" src="ds1/problema1/formulas/1_01.gif" style="" width="146"/></p></td>
+<td rowspan="2" width="51%"> <p><font color="#000000">Las fuerzas interiores 
+              son:</font></p>
+<p><font color="#000000"> F<sub>12</sub>, F<sub>21</sub> que corresponden 
+              a la normal de las superfi-cies laterales en contacto. Estas dos 
+              fuerzas tienen el mismo módulo: N'</font></p>
+</td>
+</tr>
+<tr>
+<td><p align="center"><img height="111" src="ds1/problema1/imagenes/1_02.png" width="160"/></p></td>
+<td><p align="center"><img height="57" src="ds1/problema1/formulas/1_02.gif" width="124"/></p></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: a, N', N<sub>1</sub>, N<sub>2</sub></p><p class="m150"><img border="0" height="126" src="ds1/problema1/formulas/1_03.gif" style="" width="490"/></p><p class="m50">La fuerza útil que actúa sobre el bloque 2 
+        vale: m<sub>2</sub>·F/(m<sub>1</sub> + m<sub>2</sub>) y la fuerza 
+        útil que actúa sobre el bloque 1 vale: F - N' es decir:</p><p class="m150"><img height="41" src="ds1/problema1/formulas/1_04.gif" width="225"/></p><p class="m50">La fuerza útil aplicada al sistema se reparte entre 
+        los bloques en la misma proporción en que están sus masas. 
+        Por ejemplo, si uno de los bloques tiene el 30% de la masa del conjunto 
+        se quedará con el 30% de la fuerza y el otro bloque se quedará 
+        con el 70%</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a2">
+<div class="enun"><span class="num">2</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="18%"><div align="center"><img height="63" src="ds1/problema2/imagenes/2_00.gif" width="106"/></div></td>
+<td width="82%"><p><strong><font color="#0000FF"> <br/>
+<b><font color="#0000FF"> a)</font></b> Calcula la aceleración 
+              de los bloques suponiendo que se mueven juntos<br/>
+<b><font color="#0000FF"> b)</font></b> Determina la máxima 
+              fuerza que podría aplicarse para que siguieran juntos</font></strong></p>
+<p><b><strong><font color="#0000FF">Se considera l</font></strong></b><strong><font color="#0000FF">a 
+              superficie lisa. Coeficiente de rozamiento entre bloques: μ'</font></strong></p>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="29%"><div align="center">          <img height="112" src="ds1/problema2/imagenes/2_01.png" width="112"/></div></td>
+<td width="17%"><div align="center"><img height="57" src="ds1/problema2/formulas/2_01.gif" width="78"/></div></td>
+<td rowspan="2" width="54%"><p>Las fuerzas interiores son:</p>
+<p> N<sub>12</sub>, N<sub>21</sub> que corresponden a la normal de 
+              las superficies en contacto. Estas dos fuerzas tienen el mismo módulo: 
+              N'</p>
+<p>F<sub>12</sub>, F<sub>21</sub> que corresponden a la fuerza de 
+              rozamiento entre los bloques. Estas dos fuerzas tienen el mismo 
+              módulo: F<sub>R</sub> (La fuerza de rozamiento es indeterminada 
+              porque no hay movimiento relativo entre los bloques)</p>
+<p><span class="enlace_texto" data-ac="ac2">Sentido 
+              de las fuerzas de rozamiento</span></p>
+</td>
+</tr>
+<tr>
+<td><div align="center"><img height="125" src="ds1/problema2/imagenes/2_02.png" width="160"/></div></td>
+<td><div align="center"><img height="57" src="ds1/problema2/formulas/2_02.gif" width="102"/></div></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: a, N', N, F<sub>R</sub></p><p class="m150"><img border="0" height="57" src="ds1/problema2/formulas/2_03.gif" style="" width="381"/></p><p class="m50">Observa que cuanto mayor sea la fuerza aplicada F mayor será 
+        la fuerza de rozamiento F<sub>R</sub> Pero la fuerza de rozamiento no 
+        puede pasar de un valor máximo: μ'·N'. <br/>
+        Calculamos el valor de F correspondiente a este valor máximo de 
+        la fuerza de rozamiento</p><p class="m150"><img height="76" src="ds1/problema2/formulas/2_04.gif" width="321"/></p><p class="m50">Si la fuerza F supera este valor crítico los bloques 
+        se moverán con aceleraciones diferentes</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a3">
+<div class="enun"><span class="num">3</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"><div align="center"><img height="63" src="ds1/problema3/imagenes/3_00.gif" width="106"/></div></td>
+<td width="81%"><p><strong><font color="#0000FF">Determina la aceleración 
+              de los bloques</font></strong></p>
+<p><strong><font color="#0000FF">m<sub>1</sub> = m<sub>2</sub> = 5 
+              kg,   F = 30 N,   μ' = 0.1,   μ 
+              = 0.15 </font></strong></p></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a3a1"><div class="aph"><b>a)</b> <span class="nota">forma 1</span><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="7%"> </td>
+<td width="73%"><form action="" class="formulario" id="aplicada_dinamica_s_ds1_problema3_3_a1_htm_form1" method="post" name="form1">
+              Hipótesis: 
+              <input checked="checked" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques van juntos  
+              <input class="enlace_texto" data-go="a3a2" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques no van juntos 
+            </form></td>
+<td width="20%"> </td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="23%"><div align="center">  <img height="112" src="ds1/problema3/imagenes/3_01.png" width="143"/></div></td>
+<td width="20%"><div align="center"><img height="57" src="ds1/problema3/formulas/3_01.gif" width="94"/></div></td>
+<td rowspan="2" width="57%"><p>Las fuerzas interiores son:</p>
+<p> N<sub>12</sub>, N<sub>21</sub> que corresponden a la normal de 
+              las superficies en contacto. Estas dos fuerzas tienen el mismo módulo: 
+              N'</p>
+<p>F<sub>12</sub>, F<sub>21</sub> que corresponden a la fuerza de 
+              rozamiento entre los bloques. Estas dos fuerzas tienen el mismo 
+              módulo: F<sub>R</sub> (La fuerza de rozamiento es indeterminada 
+              porque no hay movi-miento relativo entre los bloques)</p>
+<p><span class="enlace_texto" data-ac="ac4">Sentido 
+              de las fuerzas de rozamiento</span></p></td>
+</tr>
+<tr>
+<td><img height="125" src="ds1/problema3/imagenes/3_02.png" width="160"/></td>
+<td><div align="center"><img height="57" src="ds1/problema3/formulas/3_02.gif" width="108"/></div></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: a, N', N, F<sub>R</sub></p><p class="m150"><img border="0" height="234" src="ds1/problema3/formulas/3_03.gif" style="" width="372"/></p><p class="m50">Para que los bloques vayan juntos la fuerza de rozamiento 
+        entre ellos tiene que ser de 22,4 N. Vamos a ver si este valor es posible:</p><p class="m50">El valor máximo de la fuerza de rozamiento es:</p><p class="m150"><img height="73" src="ds1/problema3/formulas/3_04.gif" width="228"/></p><p class="m50">No hay fuerza de rozamiento suficiente para que los bloques 
+        vayan juntos</p></div></section>
+<section class="ap" id="a3a2"><div class="aph"><b>a)</b> <span class="nota">forma 2</span><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="7%"> </td>
+<td width="73%"><form action="" class="formulario" id="aplicada_dinamica_s_ds1_problema3_3_a2_htm_form1" method="post" name="form1">
+              Hipótesis: 
+              <input class="enlace_texto" data-go="a3a1" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques van juntos  
+              <input checked="checked" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques no van juntos 
+            </form></td>
+<td width="20%"> </td>
+</tr>
+</table><p class="m50">Si los bloques tienen aceleraciones diferentes no sirve para 
+        nada utilizar el c.d.m, hay que aplicar las ecuaciones de la dinámica 
+        a cada bloque</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"> <p align="center">   <img height="112" src="ds1/problema3/imagenes/3_03.png" width="143"/></p></td>
+<td width="21%"> <p align="center"><img border="0" height="57" src="ds1/problema3/formulas/3_05.gif" style="" width="120"/></p></td>
+<td rowspan="2" width="53%"> <p>Las fuerzas interiores son:</p>
+<p> N<sub>12</sub>, N<sub>21</sub> que corresponden a la normal de 
+              las super-ficies en contacto. Estas dos fuerzas tienen el mismo 
+              módulo: N'</p>
+<p>F<sub>12</sub>, F<sub>21</sub> que corresponden a la fuerza de 
+              rozamiento en-tre los bloques. Estas dos fuerzas tienen el mismo 
+              módu- lo: <font color="#FF0000"><font color="#000000">μ</font>N'</font> 
+              (La fuerza de rozamiento tiene el valor máximo porque hay 
+              movimiento relativo entre los bloques)</p>
+<p><span class="enlace_texto" data-ac="ac4">Sentido 
+              de las fuerzas de rozamiento</span></p>
+</td>
+</tr>
+<tr>
+<td><p align="center"><img height="125" src="ds1/problema3/imagenes/3_04.png" width="160"/></p></td>
+<td><p align="center"><img height="57" src="ds1/problema3/formulas/3_06.gif" width="133"/></p></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: a<sub>1</sub>, a<sub>2</sub></p><p class="m150"><img border="0" height="124" src="ds1/problema3/formulas/3_07.gif" style="" width="437"/></p><p class="m150"><img height="97" src="ds1/problema3/formulas/3_08.gif" width="290"/></p><p class="m50">La aceleración negativa del bloque 1 indica que este 
+        no se mueve porque lo sujeta el rozamiento con el suelo. Únicamente 
+        se moverá, respecto al suelo, el bloque 2</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a6">
+<div class="enun"><span class="num">4</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="63" src="ds1/problema6/imagenes/6_00.gif" width="144"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda<br/>
+</font></strong><strong><font color="#0000FF">Coeficiente de rozamiento 
+              entre bloques: µ' <br/>
+              Coeficiente de rozamiento con la superficie: µ </font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_problema6_6_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds1_problema6_6_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds1_problema6_6_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac3" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">El bloque 2 se moverá hacia la derecha y el bloque 
+        1 permanecera quieto</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="112" src="ds1/problema6/imagenes/6_02.png" width="117"/></div></td>
+<td width="24%"><div align="center"><img border="0" height="57" src="ds1/problema6/formulas/6_01.gif" width="76"/></div></td>
+<td rowspan="2" width="49%"><p>Las fuerzas interiores son:</p>
+<p> N<sub>12</sub>, N<sub>21</sub> que corresponden a la normal de 
+              las su-perficies en contacto. Estas dos fuerzas tienen el mismo 
+              módulo: N'</p>
+<p>F<sub>12</sub>, F<sub>21</sub> que corresponden a la fuerza de 
+              rozamiento entre los bloques. Estas dos fuerzas tienen el mismo 
+              módulo: <font color="#FF0000"><font color="#000000">μ</font>N'</font> 
+              (La fuerza de rozamiento tiene el va-lor máximo porque hay 
+              movimiento relativo entre los bloques)</p>
+<p><span class="enlace_texto" data-ac="ac2">Sentidos 
+              de las fuerzas de rozamiento</span></p>
+</td>
+</tr>
+<tr>
+<td><div align="center"><img height="125" src="ds1/problema6/imagenes/6_03.png" width="164"/></div></td>
+<td><div align="center"><img height="57" src="ds1/problema6/formulas/6_02.gif" width="157"/></div></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: N, N', T, a</p><p class="m150"><img border="0" height="126" src="ds1/problema6/formulas/6_03.gif" style="" width="497"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a7">
+<div class="enun"><span class="num">5</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="18%"><div align="center"><img height="159" src="ds1/problema7/imagenes/7_00.gif" width="59"/></div></td>
+<td width="82%"><p><strong><font color="#0000FF">La fuerza F hace ascender 
+              verticalmente al sistema mostrado en la figura. Sabiendo que la 
+              cuerda que une los bloques tiene una masa m<sub>3</sub>, calcula 
+              la acele-ración del sistema y las tensiones en los extremos 
+              de la cuerda</font></strong></p>
+<p> </p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_problema7_7_0_htm_celda1" width="34%">  </td>
+<td id="aplicada_dinamica_s_ds1_problema7_7_0_htm_celda2" width="33%">
+<p align="center">  </p></td>
+<td id="aplicada_dinamica_s_ds1_problema7_7_0_htm_celda3" width="33%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table> </td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"><div align="center"><img height="121" src="ds1/problema7/imagenes/7_01.png" width="91"/></div></td>
+<td width="24%"><div align="center"><img height="20" src="ds1/problema7/formulas/7_01.gif" width="138"/></div></td>
+<td rowspan="3" width="57%"><p>Las fuerzas interiores son:</p>
+<p> T<sub>13</sub>, T<sub>31</sub> que corresponden a la interacción 
+              entre la cuerda y el bloque 1. Estas dos fuerzas tienen el mismo 
+              módulo: T</p>
+<p>T<sub>23</sub>, T<sub>32</sub> que corresponden a la interacción 
+              entre la cuerda y el bloque 2. Estas dos fuerzas tienen el mismo 
+              módulo: T'</p>
+<p>Cuando la cuerda tiene masa las tensiones en sus extremos son forzosamente 
+              distintas. Observa que si fueran iguales las tensiones T<sub>31</sub>, 
+              T<sub>32</sub> resultaría que la cuerda tendría fuerza 
+              ha-cia abajo (Su peso) y aceleración hacia arriba</p>
+</td>
+</tr>
+<tr>
+<td><div align="center"><img height="146" src="ds1/problema7/imagenes/7_02.png" width="55"/></div></td>
+<td><div align="center"><img height="20" src="ds1/problema7/formulas/7_02.gif" width="148"/></div></td>
+</tr>
+<tr>
+<td><div align="center"><img height="111" src="ds1/problema7/imagenes/7_03.png" width="81"/></div></td>
+<td><div align="center"><img height="20" src="ds1/problema7/formulas/7_03.gif" width="121"/></div></td>
+</tr>
+</table><p class="m50">Combinan las ecuaciones obtenidas resulta un sistema de incógnitas: 
+        a, T, T'</p><p class="m150"><img border="0" height="105" src="ds1/problema7/formulas/7_04.gif" style="" width="489"/></p><p class="m50">Observa que si la masa de la cuerda fuera cero las tensiones 
+        en ambos extremos serían iguales</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a8">
+<div class="enun"><span class="num">6</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="20%"><div align="center"><img height="98" src="ds1/problema8/imagenes/8_00.gif" width="122"/></div></td>
+<td width="80%"><p><strong><font color="#0000FF">El sistema de la figura 
+              asciende por la rampa con velocidad constante, calcula la fuerza 
+              F necesaria y la deformación del muelle<br/>
+              Datos: Masas: m<sub>1</sub>, m<sub>2</sub>, Constante del muelle 
+              k, Coeficiente de rozamiento: μ </font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_problema8_8_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds1_problema8_8_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds1_problema8_8_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a8a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="25%"><div align="center"><img height="115" src="ds1/problema8/imagenes/8_01.png" width="158"/></div></td>
+<td width="28%"><div align="center"><img height="57" src="ds1/problema8/formulas/8_01.gif" width="192"/></div></td>
+<td rowspan="3" width="47%"><p>Las fuerzas interiores son: </p>
+<p> F<sub>13</sub>, F<sub>31</sub> que corresponden a la interacción entre 
+              muelle y bloque 1. Las dos fuerzas tienen el mismo módulo: 
+              F<sub>E</sub> </p>
+<p align="left">F<sub>23</sub>, F<sub>32</sub> que corresponden a 
+              la interacción entre muelle y bloque 2. Las dos fuerzas tienen 
+              el mismo módulo: F'<sub>E</sub></p>
+</td>
+</tr>
+<tr>
+<td><div align="center"><img height="83" src="ds1/problema8/imagenes/8_03.png" width="122"/></div></td>
+<td><div align="center"><img height="20" src="ds1/problema8/formulas/8_03.gif" width="56"/></div></td>
+</tr>
+<tr>
+<td><div align="center"><img height="115" src="ds1/problema8/imagenes/8_02.png" width="159"/></div></td>
+<td><div align="center"><img height="57" src="ds1/problema8/formulas/8_02.gif" width="176"/></div></td>
+</tr>
+</table><p align="left" class="m50">Combinando las ecuaciones obtenidas resulta 
+        un sistema de incógnitas: a, N', N<sub>1</sub>, N<sub>2</sub></p><p align="left" class="m150"><img border="0" height="161" src="ds1/problema8/formulas/8_04.gif" style="" width="461"/>
+</p><p align="left" class="m50">La deformación del muelle se obtiene 
+        a partir de la fuerza elástica:</p><p class="m150"><img height="38" src="ds1/problema8/formulas/8_05.gif" width="217"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a5">
+<div class="enun"><span class="num">7</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="18%"><div align="center"><img height="108" src="ds1/problema5/imagenes/5_00.gif" width="95"/></div></td>
+<td width="82%"><p><strong><font color="#0000FF">Determina la lectura 
+              de la bascula mientras el bloque desliza por la rampa</font></strong></p>
+<p><strong><font color="#0000FF"><span class="enlace_texto" data-go="a5a">a</span>) 
+              Suponiendo la superficie lisa  <span class="enlace_texto" data-go="a5b"> 
+              b</span>) Suponiendo un coeficente de rozamiento μ</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_problema5_5_0_htm_celda1" width="34%">  </td>
+<td id="aplicada_dinamica_s_ds1_problema5_5_0_htm_celda2" width="33%">
+<p align="center">  </p></td>
+<td id="aplicada_dinamica_s_ds1_problema5_5_0_htm_celda3" width="33%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table> </td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a5a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="29%"><div align="center"><img height="270" src="ds1/problema5/imagenes/5_01.png" width="135"/></div></td>
+<td width="71%"><p>Las fuerzas se han colocado en el c.d.m de cada cuerpo</p>
+<p>N es la fuerza de contacto entre bloque y rampa (Acción 
+              y reacción)</p>
+<p>N' es la fuerza de contacto entre rampa y bascula (Acción 
+              y reacción)</p>
+<p>La bascula marca el valor de N'</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="29%"><div align="center"><img height="145" src="ds1/problema5/imagenes/5_02.png" width="129"/></div></td>
+<td width="71%"><p>N = m<sub>1</sub>g·cos α</p></td>
+</tr>
+<tr>
+<td><div align="center"><img height="156" src="ds1/problema5/imagenes/5_04.png" width="110"/></div></td>
+<td><p>N' = N· cos α + m<sub>2</sub>g</p></td>
+</tr>
+</table><p class="m50">Combinando las expresiones obtenidas resulta un sistema con 
+        dos incógnitas N, N':</p><p class="m100"><img height="97" src="ds1/problema5/formulas/5_01.gif" width="366"/></p><p class="m50">Puesto que cos<sub><sup>2 </sup><sup></sup></sub>α 
+        &lt; 1 la bascula marcará menos de la suma de los pesos de rampa 
+        y bloque</p></div></section>
+<section class="ap" id="a5b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="29%"><div align="center"><img height="270" src="ds1/problema5/imagenes/5_06.png" width="135"/></div></td>
+<td width="71%"><p>Las fuerzas se han colocado en el c.d.m de cada cuerpo</p>
+<p>N es la fuerza de contacto entre bloque y rampa (Acción 
+              y reacción)</p>
+<p>μ·N es la fuerza de rozamiento entre bloque y rampa (Acción 
+              y reacción)</p>
+<p>N' es la fuerza de contacto entre rampa y bascula (Acción 
+              y reacción)</p>
+<p>La bascula marca el valor de N'</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="32%"><div align="center"><img height="145" src="ds1/problema5/imagenes/5_08.png" width="129"/></div></td>
+<td width="68%"><p>N = m<sub>1</sub>g·cos α</p></td>
+</tr>
+<tr>
+<td><div align="center"><img height="157" src="ds1/problema5/imagenes/5_07.png" width="118"/></div></td>
+<td><p>N' = N· cos α + μ·N· sen α 
+              + m<sub>2</sub>g</p></td>
+</tr>
+</table><p class="m50">Combinando las expresiones obtenidas resulta un sistema con 
+        dos incógnitas N, N':</p><p class="m100"><img height="129" src="ds1/problema5/formulas/5_02.gif" width="393"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a4" hidden>
+<div class="enun"><span class="num">0</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"><div align="center"><img height="63" src="ds1/problema4/imagenes/4_00.gif" width="116"/></div></td>
+<td width="81%"><p><strong><font color="#0000FF">Determina la aceleración 
+              de los bloques suponiendo lisa la superficie<br/>
+              Datos m<sub>1</sub> = 5 kg, F<sub>1</sub> = 12 N, m<sub>2</sub> 
+              = 10 kg, F<sub>2</sub> = 30 N<br/>
+              Coeficiente de rozamiento entre bloques: 0.2<br/>
+</font></strong></p></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a4a1"><div class="aph"><b>a)</b> <span class="nota">forma 1</span><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac0" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="5%"> </td>
+<td width="66%"><form action="" class="formulario" id="aplicada_dinamica_s_ds1_problema4_4_a1_htm_form1" method="post" name="form1">
+              Hipótesis: 
+              <input checked="checked" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques van juntos  
+              <input class="enlace_texto" data-go="a4a2" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques no van juntos 
+            </form></td>
+<td width="29%"> </td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"> <div align="center"><img height="238" src="ds1/problema4/imagenes/4_10.png" width="152"/></div></td>
+<td width="74%"> <p>Las fuerzas interiores son:</p>
+<p> N<sub>12</sub>, N<sub>21</sub> que corresponden a la normal de 
+              las superficies en contacto. Estas dos fuerzas tienen el mismo módulo: 
+              N'</p>
+<p>F<sub>12</sub>, F<sub>21</sub> que corresponden a la fuerza de 
+              rozamiento entre los bloques. Estas dos fuerzas tienen el mismo 
+              módulo: FR (La fuerza de rozamiento es indetermi-nada porque 
+              no hay movimiento relativo entre los bloques)</p>
+<p><span class="enlace_texto" data-ac="ac5">Sentido 
+              de las fuerzas de rozamiento</span></p></td>
+</tr>
+</table><p class="m50">Ecuación de la dinámica del c.d.m:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="143" src="ds1/problema4/imagenes/4_08.png" width="127"/></div></td>
+<td width="74%"><div align="left">
+<p class="m50"><img height="113" src="ds1/problema4/formulas/4_01.gif" width="290"/></p>
+</div></td>
+</tr>
+</table><p class="m50">Calculamos la fuerza de rozamiento entre bloques aplicando 
+        la dinámica a uno cualquiera de ellos</p><p class="m50">Para que los bloques vayan juntos la fuerza de rozamiento 
+        entre ellos tiene que ser de 8.2 N. Vamos a ver si este valor es posible:</p><p class="m50">El valor máximo de la fuerza de rozamiento entre bloques 
+        es:</p><p class="m150"><img height="73" src="ds1/problema4/formulas/4_04.gif" width="234"/></p><p class="m50">Hay fuerza de rozamiento suficiente para que los bloques 
+        vayan juntos... la aceleración calculada es correcta</p></div></section>
+<section class="ap" id="a4a2"><div class="aph"><b>a)</b> <span class="nota">forma 2</span><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac0" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="5%"> </td>
+<td width="67%"><form action="" class="formulario" id="aplicada_dinamica_s_ds1_problema4_4_a2_htm_form1" method="post" name="form1">
+              Hipótesis: 
+              <input class="enlace_texto" data-go="a4a1" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques van juntos  
+              <input checked="checked" name="radiobutton" type="radio" value="radiobutton"/>
+              Los bloques van separados </form></td>
+<td width="28%"> </td>
+</tr>
+</table><p class="m50">El bloque 1 tiene fuerza útil hacia la izquierda, 
+        su aceleración irá hacia la izquierda<br/>
+        El bloque 2 tiene fuerza útil hacia la derecha, su aceleración 
+        irá hacia la derecha</p><p class="m50">El bloque 2 roza con el bloque 1. El bloque 1 roza con el 
+        suelo y con el bloque 2</p><p class="m50"><span class="enlace_texto" data-ac="ac5">Sentidos 
+        de las fuerzas de rozamiento entre bloques</span></p><p class="m50">Ecuaciones de la dinámica</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"> <p align="center"><img height="111" src="ds1/problema4/imagenes/4_05.png" width="130"/></p></td>
+<td width="30%"> <p align="center"><img border="0" height="57" src="ds1/problema4/formulas/4_05.gif" style="" width="121"/></p></td>
+<td rowspan="2" width="44%"><p class="pequeño"><font color="#FF0000">Las 
+              fuerzas N12, N21 (Acción y reacción) tienen el mis-mo 
+              módulo: N'</font></p>
+<p class="pequeño"><font color="#FF0000">Las fuerzas F12, F21 
+              (Fuerza de rozamiento) tienen el mismo modulo: μN' (Módulo 
+              de la fuerza de roza-miento cuando hay movimiento relativo entre 
+              los blo-ques)</font></p>
+</td>
+</tr>
+<tr>
+<td><p align="center"><img height="125" src="ds1/problema4/imagenes/4_06.png" width="152"/></p></td>
+<td><p align="center"><img height="57" src="ds1/problema4/formulas/4_06.gif" width="157"/></p></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: N, N', a<sub>1</sub>, a<sub>2</sub></p><p class="m150"><img border="0" height="238" src="ds1/problema4/formulas/4_07.gif" style="" width="440"/></p><p class="m50">La aceleración negativa del bloque 1 indica que este 
+        no se mueve respecto al suelo porque le sujeta el rozamiento. Pero la 
+        aceleración negativa del bloque 2 indica que este no se mueve respecto 
+        al bloque 1 y hemos empezado suponiendo que los bloques se movían 
+        por separado</p></div></section>
+</div></details>
+</div>
+</section>
+<section class="seccion" id="ds2"><h2>Máquinas de Atwood</h2>
+<div class="prob" id="b1">
+<div class="enun"><span class="num">1</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="104" src="ds2/problema1/imagenes/1_00.gif" width="90"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda al dejar en libertad 
+              el sistema. Considerar m<sub>2 </sub>&gt; m<sub>1</sub></font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema1_1_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema1_1_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema1_1_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac8" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"> <font color="#FF0000">Si el problema no da la masa de 
+        la polea se sobreentiende que esta es cero. En estos casos solo se estudia 
+        la traslación de los bloques</font></p><p class="m50">La polea girará en el <span class="enlace_texto" data-ac="ac7">sentido 
+        horario</span>  El bloque 2 empezará a bajar y el bloque 1 
+        empezará a subir am-  bos con la misma aceleración</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema1_1_a_htm_imagen" width="23%"> <p align="center"><img height="111" src="ds2/problema1/imagenes/1_02.png" width="85"/></p></td>
+<td id="aplicada_dinamica_s_ds2_problema1_1_a_htm_formula" width="61%"> <p>T - m<sub>1</sub>g = m<sub>1</sub> 
+              a</p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema1_1_a_htm_imagen"><div align="center">             <img height="111" src="ds2/problema1/imagenes/1_03.png" width="67"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema1_1_a_htm_formula"><p>m<sub>2</sub>g - T = m<sub>2</sub> a</p></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T, a</p><p class="m150"><img border="0" height="57" src="ds2/problema1/formulas/1_01.gif" style="" width="392"/></p><p class="m50">Por curiosidad vamos a calcular la fuerza necesaria para 
+        sujetar la polea mientras los bloques se mueven:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="113" src="ds2/problema1/imagenes/1_04.png" width="61"/></div></td>
+<td width="73%"><img height="76" src="ds2/problema1/formulas/1_02.gif" width="220"/></td>
+</tr>
+</table><p class="m50">Si las masas fueran iguales los bloques no se moverían 
+        y la fuerza necesaria para sujetar la polea sería la suma de los 
+        pesos de los bloques (2·mg</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b2">
+<div class="enun"><span class="num">2</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="100" src="ds2/problema2/imagenes/2_00.gif" width="137"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda al dejar en libertad 
+              el sistema. Coeficiente de rozamiento entre bloque y superficie: μ
+              </font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema2_2_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema2_2_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema2_2_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac8" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da la masa de 
+        la polea se sobreentiende que esta es cero. En estos casos solo se estudia 
+        la traslación de los bloques</font></p><p class="m50">La polea girará en el <span class="enlace_texto" data-ac="ac10">sentido 
+        horario</span>  El bloque 2 empezará a bajar y el bloque 1 
+        irá hacia la derecha ambos con la misma aceleración</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="130" id="aplicada_dinamica_s_ds2_problema2_2_a_htm_imagen" width="23%"> <div align="center"><img height="111" src="ds2/problema2/imagenes/2_02.png" width="122"/>
+</div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema2_2_a_htm_formula" width="62%"> <div align="left"><img border="0" height="57" src="ds2/problema2/formulas/2_01.gif" style="" width="286"/></div></td>
+</tr>
+<tr>
+<td height="130" id="aplicada_dinamica_s_ds2_problema2_2_a_htm_imagen"><div align="center"><img height="111" src="ds2/problema2/imagenes/2_03.png" width="67"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema2_2_a_htm_formula"><img height="20" src="ds2/problema2/formulas/2_02.gif" width="120"/></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T, a</p><p class="m150"><img border="0" height="57" src="ds2/problema2/formulas/2_03.gif" style="" width="454"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b3">
+<div class="enun"><span class="num">3</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="92" src="ds2/problema3/imagenes/3_00.gif" width="163"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda al dejar en libertad 
+              el sistema. Coeficiente de rozamiento bloque-plano: μ</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema3_3_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema3_3_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema3_3_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b3a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac8" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da la masa de 
+        la polea se sobreentiende que esta es cero. En estos casos solo se estudia 
+        la traslación de los bloques</font></p><p class="m50">La polea girará en el <span class="enlace_texto" data-ac="ac11">sentido 
+        horario</span>  El bloque 2 empezará a bajar y el bloque 1 
+        subirá por la rampa ambos con la misma aceleración</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema3_3_a_htm_imagen" width="32%"> <div align="center"><img height="122" src="ds2/problema3/imagenes/3_02.png" width="144"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema3_3_a_htm_formula" width="68%"><img border="0" height="54" src="ds2/problema3/formulas/3_01.gif" width="450"/></td>
+</tr>
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema3_3_a_htm_imagen"><div align="center"><img height="111" src="ds2/problema3/imagenes/3_03.png" width="67"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema3_3_a_htm_formula"><img height="20" src="ds2/problema3/formulas/3_03.gif" width="98"/></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T, a</p><p class="m150"><img border="0" height="110" src="ds2/problema3/formulas/3_04.gif" style="" width="397"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b6">
+<div class="enun"><span class="num">4</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="95" src="ds2/problema6/imagenes/6_00.gif" width="162"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda al dejar en libertad 
+              el sistema. Coeficiente de rozamiento de los bloques con la superficie: 
+              μ </font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema6_6_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema6_6_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema6_6_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac8" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da la masa de 
+        la polea se sobreentiende que esta es cero. En estos casos solo se estudia 
+        la traslación de los bloques</font></p><p class="m50">La polea girará en el <span class="enlace_texto" data-ac="ac12">sentido 
+        antihorario</span>  El bloque 1 empezará a bajar por la rampa 
+        y el bloque 2 irá hacia la izquierda, ambos con la misma aceleración</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema6_6_a_htm_imagen" width="25%"> <div align="center"><img height="113" src="ds2/problema6/imagenes/6_02.png" width="161"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema6_6_a_htm_formula" width="66%"><img border="0" height="57" src="ds2/problema6/formulas/6_01.gif" width="478"/></td>
+</tr>
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema6_6_a_htm_imagen"><div align="center"><img height="111" src="ds2/problema6/imagenes/6_03.png" width="110"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema6_6_a_htm_formula"><img height="57" src="ds2/problema6/formulas/6_03.gif" width="262"/></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T, a</p><p class="m100"><img border="0" height="121" src="ds2/problema6/formulas/6_04.gif" style="" width="541"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b5">
+<div class="enun"><span class="num">5</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="67" src="ds2/problema5/imagenes/5_00.gif" width="186"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda al dejar en libertad 
+              el sistema. Considera β &gt; α<br/>
+</font></strong><strong><font color="#0000FF">Coeficiente de rozamiento 
+              de los bloques con la superficie: μ </font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema5_5_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema5_5_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema5_5_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac8" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da la masa de 
+        la polea se sobreentiende que esta es cero. En estos casos solo se estudia 
+        la traslación de los bloques</font></p><p class="m50">La polea girará en el <span class="enlace_texto" data-ac="ac13">sentido 
+        horario</span>  El bloque 2 empezará a bajar y el bloque 1 
+        subirá por la rampa ambos con la misma aceleración</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema5_5_a_htm_imagen" width="33%"> <div align="center"><img height="119" src="ds2/problema5/imagenes/5_02.png" width="174"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema5_5_a_htm_formula" width="67%"><img border="0" height="57" src="ds2/problema5/formulas/5_01.gif" width="457"/></td>
+</tr>
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema5_5_a_htm_imagen"><div align="center"><img height="108" src="ds2/problema5/imagenes/5_03.png" width="175"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema5_5_a_htm_formula"><img height="57" src="ds2/problema5/formulas/5_03.gif" width="453"/></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T, a</p><p class="m100"><img border="0" height="92" src="ds2/problema5/formulas/5_05.gif" style="" width="561"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b7">
+<div class="enun"><span class="num">6</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="111" src="ds2/problema7/imagenes/7_00.gif" width="145"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de la cuerda al dejar en libertad 
+              el sistema suponiendo m<sub>2 </sub>&gt; m1. <br/>
+              Coeficientes de rozamiento, 1 - 2: μ',  2 - rampa: μ</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema7_7_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema7_7_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema7_7_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac8" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da la masa de 
+        la polea se sobreentiende que esta es cero. En estos casos solo se estudia 
+        la traslación de los bloques</font></p><p class="m50">La polea girará en el <span class="enlace_texto" data-ac="ac14">sentido 
+        horario</span>  El bloque 1 empezará a subir y el bloque 2 
+        empezará a bajar, ambos con la misma aceleración</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema7_7_a_htm_imagen" width="30%"> <div align="center"><img height="113" src="ds2/problema7/imagenes/7_02.png" width="184"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema7_7_a_htm_formula" width="39%"><div align="left"><img height="57" src="ds2/problema7/formulas/7_01.gif" width="212"/>
+</div></td>
+<td id="aplicada_dinamica_s_ds2_problema7_7_a_htm_formula" rowspan="2" width="31%"><p>N' es la fuerza normal de 
+              con-tacto entre bloques </p></td>
+</tr>
+<tr>
+<td height="140" id="aplicada_dinamica_s_ds2_problema7_7_a_htm_imagen"><div align="center"><img height="122" src="ds2/problema7/imagenes/7_03.png" width="180"/></div></td>
+<td id="aplicada_dinamica_s_ds2_problema7_7_a_htm_formula"><img height="57" src="ds2/problema7/formulas/7_02.gif" width="250"/></td>
+</tr>
+</table><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: N, N', T, a</p><p class="m150"><img border="0" height="254" src="ds2/problema7/formulas/7_03.gif" style="" width="434"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b8">
+<div class="enun"><span class="num">7</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="117" src="ds2/problema8/imagenes/8_00.gif" width="96"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y las tensiones de las cuerdas al dejar en libertad 
+              el sistema. Datos: m<sub>1</sub> = 4 kg, m<sub>2</sub> = 6 kg</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema8_8_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema8_8_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema8_8_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b8a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac17" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da las masas de 
+        las poleas se sobreentiende que estas son cero. En estos casos solo se 
+        estudia la traslación de los bloques</font></p><p class="m50">La polea fija girará en <span class="enlace_texto" data-ac="ac15">sentido 
+        antihorario</span>  El bloque 1 comenzará a bajar y el bloque 
+        2 comenzará a subir siendo sus aceleraciones distintas</p><p class="m50">¿Te has dado cuenta de que un bloque de 4 kg hace 
+        subir otro de 6 kg?</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema8_8_a_htm_imagen" width="28%"> <div align="center"><img height="111" src="ds2/problema8/imagenes/8_02.png" width="72"/></div></td>
+<td colspan="2" height="130" id="aplicada_dinamica_s_ds2_problema8_8_a_htm_formula"> <p><img border="0" height="20" src="ds2/problema8/formulas/8_01.gif" style="" width="125"/></p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema8_8_a_htm_imagen"><div align="center"><img height="97" src="ds2/problema8/imagenes/8_03.png" width="113"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema8_8_a_htm_formula" width="28%"><img height="20" src="ds2/problema8/formulas/8_02.gif" width="112"/></td>
+<td id="aplicada_dinamica_s_ds2_problema8_8_a_htm_formula" width="44%"><p>La polea móvil no tiene masa</p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema8_8_a_htm_imagen"><div align="center"><img height="111" src="ds2/problema8/imagenes/8_04.png" width="72"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema8_8_a_htm_formula"><img height="20" src="ds2/problema8/formulas/8_03.gif" width="129"/></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema8_8_a_htm_formula"><p>La polea movíl y el bloque 2 
+              tienen la misma aceleración</p></td>
+</tr>
+</table><p class="m50">Relación entre las aceleraciones:</p><p class="m150"><img class="enlace_imagen enlace_texto" data-ac="ac16" height="20" src="ds2/problema8/formulas/8_04.gif" width="64"/></p><p class="m50">Observa: si la aceleración a<sub>1</sub> es el doble 
+        de la a<sub>2</sub>, la tensión T<sub>1</sub> es la mitad de la 
+        T<sub>2</sub></p><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T<sub>1</sub>, T<sub>2</sub>, a<sub>1</sub>, a<sub>2</sub></p><p class="m150"><img border="0" height="126" src="ds2/problema8/formulas/8_05.gif" style="" width="469"/></p><p class="m150"><img height="217" src="ds2/problema8/formulas/8_06.gif" width="297"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b9">
+<div class="enun"><span class="num">8</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="116" src="ds2/problema9/imagenes/9_00.gif" width="141"/></div></td>
+<td width="74%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de las cuerdas al dejar en libertad 
+              el sistema. Ambos bloques tienen la misma masa y el <br/>
+              coeficiente de rozamiento entre bloque 1 y superficie vale: μ</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema9_9_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema9_9_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b9a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac17" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da las masas de 
+        las poleas se sobreentiende que estas son cero. En estos casos solo se 
+        estudia la traslación de los bloques</font></p><p class="m50">La polea fija girará en <span class="enlace_texto" data-ac="ac19">sentido 
+        horario</span>  El bloque 2 comenzará a bajar y el bloque 
+        2 irá hacia la derecha siendo sus aceleraciones distintas</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_imagen" width="29%"> <div align="center"><img height="114" src="ds2/problema9/imagenes/9_02.png" width="122"/></div></td>
+<td colspan="2" height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula"> <p><img border="0" height="57" src="ds2/problema9/formulas/9_01.gif" style="" width="252"/></p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_imagen"><div align="center"><img height="97" src="ds2/problema9/imagenes/9_03.png" width="112"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula" width="24%"><img height="20" src="ds2/problema9/formulas/9_02.gif" width="117"/></td>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula" width="47%"><p>La polea móvil no tiene masa</p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_imagen"><div align="center"><img height="111" src="ds2/problema9/imagenes/9_04.png" width="72"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula"><img height="20" src="ds2/problema9/formulas/9_03.gif" width="112"/></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula"><p>La polea movíl y el bloque 2 
+              tienen la misma aceleración</p></td>
+</tr>
+</table><p class="m50">Relación entre las aceleraciones:</p><p class="m150"><img class="enlace_imagen enlace_texto" data-ac="ac16" height="20" src="ds2/problema9/formulas/9_04.gif" width="64"/></p><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T<sub>1</sub>, T<sub>2</sub>, a<sub>1</sub>, a<sub>2</sub></p><p class="m150"><img border="0" height="126" src="ds2/problema9/formulas/9_05.gif" style="" width="446"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="b9">
+<div class="enun"><span class="num">9</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="116" src="ds2/problema9/imagenes/9_00.gif" width="141"/></div></td>
+<td width="74%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              de los bloques y la tensión de las cuerdas al dejar en libertad 
+              el sistema. Ambos bloques tienen la misma masa y el <br/>
+              coeficiente de rozamiento entre bloque 1 y superficie vale: μ</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_s_ds2_problema9_9_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_s_ds2_problema9_9_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b9a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac17" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50"><font color="#FF0000">Si el problema no da las masas de 
+        las poleas se sobreentiende que estas son cero. En estos casos solo se 
+        estudia la traslación de los bloques</font></p><p class="m50">La polea fija girará en <span class="enlace_texto" data-ac="ac19">sentido 
+        horario</span>  El bloque 2 comenzará a bajar y el bloque 
+        2 irá hacia la derecha siendo sus aceleraciones distintas</p><p class="m50">Ecuaciones de la dinámica:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_imagen" width="29%"> <div align="center"><img height="114" src="ds2/problema9/imagenes/9_02.png" width="122"/></div></td>
+<td colspan="2" height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula"> <p><img border="0" height="57" src="ds2/problema9/formulas/9_01.gif" style="" width="252"/></p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_imagen"><div align="center"><img height="97" src="ds2/problema9/imagenes/9_03.png" width="112"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula" width="24%"><img height="20" src="ds2/problema9/formulas/9_02.gif" width="117"/></td>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula" width="47%"><p>La polea móvil no tiene masa</p></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_s_ds2_problema9_9_a_htm_imagen"><div align="center"><img height="111" src="ds2/problema9/imagenes/9_04.png" width="72"/></div></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula"><img height="20" src="ds2/problema9/formulas/9_03.gif" width="112"/></td>
+<td height="130" id="aplicada_dinamica_s_ds2_problema9_9_a_htm_formula"><p>La polea movíl y el bloque 2 
+              tienen la misma aceleración</p></td>
+</tr>
+</table><p class="m50">Relación entre las aceleraciones:</p><p class="m150"><img class="enlace_imagen enlace_texto" data-ac="ac16" height="20" src="ds2/problema9/formulas/9_04.gif" width="64"/></p><p class="m50">Combinando las ecuaciones obtenidas resulta un sistema de 
+        incógnitas: T<sub>1</sub>, T<sub>2</sub>, a<sub>1</sub>, a<sub>2</sub></p><p class="m150"><img border="0" height="126" src="ds2/problema9/formulas/9_05.gif" style="" width="446"/></p></div></section>
+</div></details>
+</div>
+</section>
+<section class="hojas" id="curso"><h2>Propuestos en el curso</h2>
+<h3>Hoja 1</h3><ol>
+<li><a class="enlace_texto" data-go="a1">Calcula la aceleración de los bloques y la fuerza de contacto entre ellos El coeficiente de rozamiento entre bloques y superficie vale μ .</a></li>
+<li><a class="enlace_texto" data-go="a2">a) Calcula la aceleración de los bloques suponiendo que se mueven juntos b) Determina la máxima fuerza que podría aplicarse para que siguieran juntos…</a></li>
+<li><a class="enlace_texto" data-go="a3">Determina la aceleración de los bloques m<sub>1</sub> = m<sub>2</sub> = 5 kg, F = 30 N, μ&#x27; = 0.1, μ = 0.15</a></li>
+<li><a class="enlace_texto" data-go="a6">Calcula la aceleración de los bloques y la tensión de la cuerda Coeficiente de rozamiento entre bloques: µ&#x27; Coeficiente de rozamiento con la…</a></li>
+<li><a class="enlace_texto" data-go="a7">La fuerza F hace ascender verticalmente al sistema mostrado en la figura. Sabiendo que la cuerda que une los bloques tiene una masa m<sub>3</sub>, calcula la…</a></li>
+<li><a class="enlace_texto" data-go="a8">El sistema de la figura asciende por la rampa con velocidad constante, calcula la fuerza F necesaria y la deformación del muelle Datos: Masas: m<sub>1</sub>, m<sub>2</sub>,…</a></li>
+<li><a class="enlace_texto" data-go="a5">Determina la lectura de la bascula mientras el bloque desliza por la rampa a ) Suponiendo la superficie lisa b ) Suponiendo un coeficente de…</a></li>
+</ol>
+<h3>Hoja 2</h3><ol>
+<li><a class="enlace_texto" data-go="b1">Calcula la aceleración de los bloques y la tensión de la cuerda al dejar en libertad el sistema. Considerar m<sub>2 </sub>&gt; m<sub>1</sub> Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="b2">Calcula la aceleración de los bloques y la tensión de la cuerda al dejar en libertad el sistema. Coeficiente de rozamiento entre bloque y superficie:…</a></li>
+<li><a class="enlace_texto" data-go="b3">Calcula la aceleración de los bloques y la tensión de la cuerda al dejar en libertad el sistema. Coeficiente de rozamiento bloque-plano: μ Lista…</a></li>
+<li><a class="enlace_texto" data-go="b5">Calcula la aceleración de los bloques y la tensión de la cuerda al dejar en libertad el sistema. Considera β &gt; α Coeficiente de rozamiento de los…</a></li>
+<li><a class="enlace_texto" data-go="b6">Calcula la aceleración de los bloques y la tensión de la cuerda al dejar en libertad el sistema. Coeficiente de rozamiento de los bloques con la…</a></li>
+<li><a class="enlace_texto" data-go="b7">Calcula la aceleración de los bloques y la tensión de la cuerda al dejar en libertad el sistema suponiendo m<sub>2 </sub>&gt; m1. Coeficientes de rozamiento, 1 -…</a></li>
+<li><a class="enlace_texto" data-go="b8">Calcula la aceleración de los bloques y las tensiones de las cuerdas al dejar en libertad el sistema. Datos: m<sub>1</sub> = 4 kg, m<sub>2</sub> = 6 kg Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="b9">Calcula la aceleración de los bloques y la tensión de las cuerdas al dejar en libertad el sistema. Ambos bloques tienen la misma masa y el…</a></li>
+</ol>
+</section>
+<template id="ac1" data-t="Ayuda"><div class="pasos"><p><b><strong><font color="#0000FF">Dinámica de bloques 
+        en contacto</font></strong></b><strong><font color="#0000FF"> lateral</font></strong></p><p>Evidentemente ambos bloques tendrán la misma aceleración 
+        y habrá entre ellos una fuerza mutua de contacto N'</p><p><strong><font color="#0000FF">Método</font></strong></p><p> Se hace el diagrama libre para cada bloque y se le aplica el prin-cipio 
+        de la Dinámica.<br/>
+        Se combinan las ecuaciones obtenidas para los bloques para formar un sistema 
+        de ecuaciones del cual se puede obtener la aceleración y la fuerza 
+        de contacto</p><p><strong><font color="#FF0000">Importante</font></strong></p><p><font color="#FF0000">Si se obtiene una aceleración negativa significará 
+        que los blo-ques no se mueven </font></p></div></template>
+<template id="ac2" data-t="Aclaración"><div class="pasos"><p><b><font color="#0000FF">S</font><font color="#0000FF">entido 
+        de las fuerzas de rozamiento</font></b></p><p>Supongamos que no hubiera rozamiento entre los bloques</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="middle"> <div align="center"></div>
+<div align="center">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_s_ds1_mensajes_1_htm_imagen:aplicada_dinamica_s_ds1_mensajes_1_htm_imagen0;aplicada_dinamica_s_ds1_mensajes_1_htm_imagen:aplicada_dinamica_s_ds1_mensajes_1_htm_imagen1" id="aplicada_dinamica_s_ds1_mensajes_1_htm_boton" name="boton" type="button" value="&gt;"/>
+</div></td>
+<td id="aplicada_dinamica_s_ds1_mensajes_1_htm_imagen"><img height="86" src="ds1/mensajes/imagenes/1_01.png" width="123"/></td>
+<td> <p> Al moverse el bloque 1, el bloque 2 no será arrastrado 
+              y seguirá en reposo respecto al suelo (Observa las marcas 
+              rojas)</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><p>El bloque 1 se ha movido hacia la derecha respecto al bloque 
+              2. Si hubiera rozamiento este se opondría a dicho movimiento 
+              y la fuerza de rozamiento sobre el bloque 1, F<sub>12</sub>, iría 
+              hacia la iz-quierda.</p>
+<p>Visto de otra forma, el bloque 2 se ha movido hacia la izquierda 
+              respecto al bloque 1. Si hubiera rozamiento este se opondría 
+              a dicho movimiento y la fuerza de rozamiento sobre el bloque 2, 
+              F<sub>21</sub>, iría hacia la derecha.</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_mensajes_1_htm_imagen0" style="display:none">
+<div align="center"><img height="86" src="ds1/mensajes/imagenes/1_01.png" width="123"/></div></td>
+<td id="aplicada_dinamica_s_ds1_mensajes_1_htm_imagen1" style="display:none">
+<div align="center"><img height="86" src="ds1/mensajes/imagenes/1_02.png" width="123"/></div></td></tr>
+</table></td>
+</tr>
+</table></div></template>
+<template id="ac3" data-t="Ayuda"><div class="pasos"><p><b><strong><font color="#0000FF">Dinámica de bloques en contacto</font></strong></b><strong><font color="#0000FF"> 
+        vertical</font></strong></p><p>Hay que escoger una de estas hipótesis:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="5%">
+<p>1 </p></td>
+<td width="95%"><p>Los bloques tienen la misma aceleración. La 
+              fuerza mutua de contacto entre ellos es N'. La fuerza de rozamiento 
+              mu-tua entre ellos es indeterminada (F<sub>R</sub>)</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>2</p></td>
+<td><p>Los bloques tienen aceleraciones distintas. La fuerza mutua de 
+              contacto entre ellos es N'. La fuerza de rozamiento mu-tua entre 
+              ellos es la máxima posible (μ·N')</p></td>
+</tr>
+</table><p><strong><font color="#0000FF">Método</font></strong></p><p> Se hace el diagrama libre para cada bloque y se le aplica el prin-cipio 
+        de la Dinámica.<br/>
+        Se combinan las ecuaciones obtenidas para los bloques para formar un sistema 
+        de ecuaciones del cual se puede obtener las aceleraciones de ca bloque, 
+        la fuerza de contacto y en su caso la fuerza de rozamiento F<sub>R</sub></p><p><strong><font color="#FF0000">Importante</font></strong></p><p><font color="#FF0000">En general, si se obtiene una aceleración 
+        negativa significará que el bloque no se mueve<br/>
+        Si se ha supuesto que los bloques van juntos y se obtiene una aceleración 
+        positiva puede que la solución no sea valida. Para confirmar el 
+        resultado hay que comprobar que el valor obtenido para la fuerza de rozamiento 
+        mutua no supera el valor máximo permitido: μ'·N'</font></p></div></template>
+<template id="ac4" data-t="Aclaración"><div class="pasos"><p><b><font color="#0000FF">S</font><font color="#0000FF">entido de las 
+        fuerzas de rozamiento</font></b></p><p>Supongamos que no hubiera rozamiento entre los bloques</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="middle"> <div align="center"></div>
+<div align="center">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_s_ds1_mensajes_2_htm_imagen:aplicada_dinamica_s_ds1_mensajes_2_htm_imagen0;aplicada_dinamica_s_ds1_mensajes_2_htm_imagen:aplicada_dinamica_s_ds1_mensajes_2_htm_imagen1" id="aplicada_dinamica_s_ds1_mensajes_2_htm_boton" name="boton" type="button" value="&gt;"/>
+</div></td>
+<td id="aplicada_dinamica_s_ds1_mensajes_2_htm_imagen"><img height="86" src="ds1/mensajes/imagenes/1_01.png" width="123"/></td>
+<td> <p>Al moverse el bloque 2 el bloque 1 no será arrastrado 
+              y seguirá en reposo respecto al suelo (Observa las marcas 
+              rojas)</p></td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><p>El bloque 2 se ha movido hacia la derecha respecto al bloque 
+              1. Si hubiera rozamiento este se opondría a dicho movimiento 
+              y la fuerza de rozamiento sobre el bloque 2, F<sub>21</sub>, iría 
+              hacia la iz-quierda.</p>
+<p>Visto de otra forma, el bloque 1 se ha movido hacia la izquierda 
+              respecto al bloque 2. Si hubiera rozamiento este se opondría 
+              a dicho movimiento y la fuerza de rozamiento sobre el bloque 1, 
+              F<sub>12</sub>, iría hacia la derecha.</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_mensajes_2_htm_imagen0" style="display:none">
+<div align="center"><img height="86" src="ds1/mensajes/imagenes/1_01.png" width="123"/></div></td>
+<td id="aplicada_dinamica_s_ds1_mensajes_2_htm_imagen1" style="display:none">
+<div align="center"><img height="86" src="ds1/mensajes/imagenes/2_02.png" width="123"/></div></td></tr>
+</table></td>
+</tr>
+</table></div></template>
+<template id="ac5" data-t="Aclaración"><div class="pasos"><p><b><font color="#0000FF">S</font><font color="#0000FF">entido de las 
+        fuerzas de rozamiento</font></b></p><p>Supongamos que no hubiera rozamiento entre los bloques</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="middle"> <div align="center"></div>
+<div align="center">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_s_ds1_mensajes_3_htm_imagen:aplicada_dinamica_s_ds1_mensajes_3_htm_imagen0;aplicada_dinamica_s_ds1_mensajes_3_htm_imagen:aplicada_dinamica_s_ds1_mensajes_3_htm_imagen1" id="aplicada_dinamica_s_ds1_mensajes_3_htm_boton" name="boton" type="button" value="&gt;"/>
+</div></td>
+<td id="aplicada_dinamica_s_ds1_mensajes_3_htm_imagen"><img height="94" src="ds1/mensajes/imagenes/3_02.png" width="122"/></td>
+<td> <p>El bloque 1 se mueve hacia la izquier-da respecto al suelo y 
+              el bloque 2 lo hace hacia la derecha (Observa las marcas rojas)</p></td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><p>El bloque 2 se ha movido hacia la derecha respecto al bloque 
+              1. Si hubiera rozamiento este se opondría a dicho movimiento 
+              y la fuerza de rozamiento sobre el bloque 2, F<sub>21</sub>, iría 
+              hacia la iz-quierda.</p>
+<p>Visto de otra forma, el bloque 1 se ha movido hacia la izquierda 
+              respecto al bloque 2. Si hubiera rozamiento este se opondría 
+              a dicho movimiento y la fuerza de rozamiento sobre el bloque 1, 
+              F<sub>12</sub>, iría hacia la derecha.</p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds1_mensajes_3_htm_imagen0" style="display:none">
+<div align="center"><img height="94" src="ds1/mensajes/imagenes/3_02.png" width="122"/></div></td>
+<td id="aplicada_dinamica_s_ds1_mensajes_3_htm_imagen1" style="display:none">
+<div align="center"><img height="94" src="ds1/mensajes/imagenes/3_01.png" width="122"/></div></td></tr>
+</table></td>
+</tr>
+</table></div></template>
+<template id="ac0" data-t="No disponible"><p>No disponible.</p></template>
+<template id="ac7" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="28%"><div align="center"><img height="177" src="ds2/problema1/mensajes/imagenes/1.png" width="76"/></div></td>
+<td width="72%"> <p>Mientras la mano sujete la polea se cumplirá:</p>
+<p align="left" class="m50">T<sub>1</sub> = m<sub>1</sub>g</p>
+<p align="left" class="m50">T<sub>2</sub> = m<sub>2</sub>g</p>
+<p align="left">Como T<sub>2</sub> &gt; T<sub>1</sub> al liberar la 
+              polea esta girará en sentido horario </p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac9" data-t="Ayuda"><div class="pasos"><p align="left"><strong><font color="#0000FF">Sentido de giro de la polea</font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="160" width="30%">
+<div align="center"><img height="150" src="ds2/ayuda/imagenes/6_01.png" width="96"/></div></td>
+<td width="70%"><p> Se considera que una mano sujeta la polea impidiendo 
+              su movimiento.<br/>
+              En esta situación se cumple:</p>
+<p align="center">T<sub>1</sub> = m<sub>1</sub>·g   
+              ,   T<sub>2</sub> = m<sub>2</sub>·g</p>
+</td>
+</tr>
+</table><p>Al retirar la mano la polea queda sometida a las fuerzas T<sub>1</sub> 
+        y T<sub>2</sub> (Iguales a m<sub>1</sub>g y m<sub>2</sub>g respectivamente) 
+        y girará en el sentido de la mayor </p><p><font color="#FF0000"><strong>Importante<br/>
+</strong></font><font color="#FF0000">En cuanto comience el movimiento 
+        cambiarán las tensiones en los extremos de la cuerda y no se cumplirán 
+        las igualdades ante-riores. </font></p></div></template>
+<template id="ac8" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Máquinas de Atwood (Polea 
+        fija)</font></b></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="25%"><img height="91" src="ds2/ayuda/imagenes/1_01.png" width="89"/></td>
+<td width="75%"><p>La cuerda no tiene masa y la polea tampoco por tanto 
+              la tensión es la misma en todos los puntos de la cuerda</p>
+<p>Los bloques tienen la misma aceleración</p></td>
+</tr>
+</table><p align="center" class="pequeño">(La configuración mostrada 
+        es una de las muchas posibles)</p><p><strong><font color="#FF0000">Método</font></strong></p><p>Considerando el sistema en reposo se predice el <span class="enlace_texto" data-ac="ac9">sentido 
+        de giro de la polea</span> que determinará el sentido del movimiento 
+        de los blo-ques</p><p>Se hace el diagrama libre para cada bloque y se le aplica el prin-cipio 
+        de la Dinámica.<br/>
+        Se combinan las ecuaciones obtenidas para los bloques para formar un sistema 
+        de ecuaciones del cual se puede obtener la aceleración y la tensión</p></div></template>
+<template id="ac10" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="34%"><div align="center"><img height="163" src="ds2/problema2/mensajes/imagenes/1.png" width="136"/></div></td>
+<td width="66%"><p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50">T<sub>1</sub> = 0   (El bloque 1 no se mueve)   
+            </p>
+<p class="m50">T<sub>2</sub> = m<sub>2</sub>g</p>
+<p>Como la polea solo está sometida a la fuerza T<sub>2</sub> 
+              al liberarla girará en sentido horario </p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac11" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="37%"><div align="center"><img height="152" src="ds2/problema3/mensajes/imagenes/1.png" width="158"/></div></td>
+<td width="63%"><p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50">T<sub>1</sub> = mg·sen α   </p>
+<p class="m50">T<sub>2</sub> = mg</p>
+<p>Como T<sub>2</sub> &gt; T<sub>1</sub> al liberar la polea esta 
+              girará en sentido horario</p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac12" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="42%"><div align="center"><img height="146" src="ds2/problema6/mensajes/imagenes/1.png" width="231"/></div></td>
+<td width="58%"><p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50">T<sub>1</sub> = m<sub>1</sub>g·sen α</p>
+<p class="m50">T<sub>2</sub> = 0  (El bloque no se mueve)</p>
+<p>Al liberar la polea esta girará en sentido antihorario</p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac13" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="44%"><div align="center"><img height="136" src="ds2/problema5/mensajes/imagenes/1.png" width="239"/></div></td>
+<td width="56%"><p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50">T<sub>1</sub> = mg·sen α   </p>
+<p class="m50">T<sub>2</sub> = mg·sen β</p>
+<p>Como T<sub>2</sub> &gt; T<sub>1</sub> al liberar la polea esta 
+              girará en sentido horario</p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac14" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="39%"><div align="center"><img height="144" src="ds2/problema7/mensajes/imagenes/1.png" width="219"/></div></td>
+<td width="61%"><p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50">T<sub>1</sub> = m<sub>1</sub>g·sen α</p>
+<p class="m50">T<sub>2</sub> = m<sub>2</sub>g·sen α</p>
+<p>Como m<sub>2</sub> &gt; m<sub>1</sub>, al liberar la polea esta 
+              girará en sen-tido antihorario</p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac15" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="28%"><div align="center"><img height="258" src="ds2/problema8/mensajes/imagenes/1.png" width="96"/></div></td>
+<td width="72%"><p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50"><img height="92" src="ds2/problema8/mensajes/formulas/1.gif" width="200"/></p>
+<p>Como m<sub>1 </sub> &gt; m<sub>2 </sub> / 2 al liberar la polea 
+              esta girará en sentido antihorario</p>
+</td>
+</tr>
+</table></div></template>
+<template id="ac16" data-t="Ayuda"><div class="pasos"><p><strong><font color="#0000FF">Relaciones 
+        entre los movimientos de los bloques</font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="180" valign="middle" width="7%"><div align="center">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_s_ds2_ayuda_4_htm_imagen:aplicada_dinamica_s_ds2_ayuda_4_htm_imagen0;aplicada_dinamica_s_ds2_ayuda_4_htm_imagen:aplicada_dinamica_s_ds2_ayuda_4_htm_imagen1" id="aplicada_dinamica_s_ds2_ayuda_4_htm_boton" name="boton" type="button" value="&gt;"/>
+</div></td>
+<td id="aplicada_dinamica_s_ds2_ayuda_4_htm_imagen" width="23%"> <div align="center"><img height="170" src="ds2/ayuda/imagenes/4_01.png" width="93"/></div></td>
+<td valign="middle" width="70%"> <p>Si el bloque 2 baja una distancia 
+              L, la po-lea móvil bajará la misma distancia.</p>
+<p>Si la polea móvil baja una distancia L ten-drá que 
+              aumentar en L la longitud de la cuerda a cada lado de la misma, 
+              por tanto el bloque 1 subirá una distancia 2·L.</p></td>
+</tr>
+<tr>
+<td colspan="3" valign="middle"><div align="center">
+<p align="left" class="m50"><font color="#000000">Relaciones </font></p>
+<p align="left" class="m100"><font color="#000000">L<sub>1</sub> 
+                = 2·L<sub>2</sub></font></p>
+</div>
+<p class="m50"><font color="#000000">Derivando sucesivamente respecto 
+              al tiempo: </font></p>
+<p align="left" class="m100"><font color="#000000">v<sub>1</sub> = 
+              2·v<sub>2</sub>    ,    a<sub>1</sub> 
+              = 2·a<sub>2</sub></font></p>
+<p align="left"><font color="#FF0000">Estas relaciones valen para 
+              cualquier polea móvil siendo el blo-que 1 el que está 
+              unido a la cuerda con el extremo fijo y el bloque 2 el que está 
+              unido a la polea móvil</font></p></td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_s_ds2_ayuda_4_htm_imagen0" style="display:none">
+<div align="center"><img height="170" src="ds2/ayuda/imagenes/4_01.png" width="93"/></div></td>
+<td id="aplicada_dinamica_s_ds2_ayuda_4_htm_imagen1" style="display:none">
+<div align="center"><img height="170" src="ds2/ayuda/imagenes/4_02.png" width="93"/></div></td></tr>
+</table></td>
+</tr>
+</table></div></template>
+<template id="ac18" data-t="Ayuda"><div class="pasos"><p align="left"><strong><font color="#0000FF">Sentido de giro de la polea 
+        fija </font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="28%"><div align="center"><img height="260" src="ds2/ayuda/imagenes/5_01.png" width="109"/></div></td>
+<td valign="middle" width="72%">
+<p>La polea está inicialmente en reposo porque la mano le sujeta. 
+              En cada bloque y en la polea móvil se cumple:</p>
+<p align="center"><img height="92" src="ds2/ayuda/formulas/3_2_01.gif" width="200"/></p>
+<p align="left">Al retirar la mano la polea queda sometida a las fuerzas 
+              T<sub>1</sub> y T<sub>3</sub> (Iguales a m<sub>1</sub>g y m<sub>2</sub>g/2 
+              respectivamente) y girará en el sentido de la mayor </p>
+</td>
+</tr>
+</table><p><font color="#FF0000"><strong>Importante</strong></font></p><p><font color="#FF0000">En cuanto comience el movimiento cambiarán 
+        las tensiones en los extremos de la cuerda y no valdrán las igualdades 
+        anteriores</font></p></div></template>
+<template id="ac17" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Máquinas de Atwood (Polea 
+        móvil)</font></b></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="25%"><img height="117" src="ds2/ayuda/imagenes/2_01.png" width="98"/></td>
+<td width="75%"><p>La cuerda no tiene masa y las poleas tampoco</p>
+<p>El sistema se encuentra inicialmente en reposo y al dejarlo en 
+              libertad los bloques adquieren aceleraciones diferentes</p>
+<p> Las aceleraciones de la polea móvil y del blo-que unido 
+              a su eje son iguales</p></td>
+</tr>
+</table><p align="center" class="pequeño">(La configuración mostrada 
+        es una de las muchas posibles)</p><p><strong><font color="#FF0000">Método</font></strong></p><p>Considerando el sistema en reposo se predice el <span class="enlace_texto" data-ac="ac18">sentido 
+        de giro de la polea</span> que determinará el sentido del movimiento 
+        de los blo-ques</p><p>Se hace el diagrama libre para cada bloque y se le aplica el prin-cipio 
+        de la Dinámica</p><p> Se <span class="enlace_texto" data-ac="ac16">relacionan 
+        las aceleraciones de los bloques</span></p><p>Se combinan las ecuaciones obtenidas para los bloques para for-mar un 
+        sistema de ecuaciones del cual se pueden obtener las aceleraciones y las 
+        tensiones</p></div></template>
+<template id="ac19" data-t="Sentido de giro"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="38%"><div align="center"><img height="279" src="ds2/problema9/mensajes/imagenes/1.png" width="167"/></div></td>
+<td>
+<p>Mientras la mano sujete la polea se cumplirá:</p>
+<p class="m50">T<sub>1</sub> = 0  (El bloque 1 no se mueve)</p>
+<p class="m50"><img height="57" src="ds2/problema9/mensajes/formulas/1.gif" width="165"/></p>
+<p>Evidentemente al liberar la polea esta girará en sentido 
+              horario</p>
+</td>
+</tr>
+</table></div></template>
+<script>
+(function () {
+  var OPT = { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
+              trust: function (c) { return c.command === '\\htmlData'; }, strict: 'ignore' };
+  function render(el) {
+    if (!window.renderMathInElement || !el || el.dataset.r) return;
+    el.dataset.r = 1; renderMathInElement(el, OPT);
+  }
+  // al cargar KaTeX: solo lo visible (enunciados y hojas); cada solución se dibuja al abrirla
+  window.pcKatex = function () {
+    document.querySelectorAll('.enun, .hojas, .cab, details[open]').forEach(render);
+    irAHash(); window.pcFit && pcFit();
+  };
+  document.addEventListener('toggle', function (e) { if (e.target.open) { render(e.target); window.pcFit && pcFit(); } }, true);
+
+  // desplazar la página aunque esté dentro del visor (es el visor quien hace scroll)
+  function verEl(el) {
+    try { var y = el.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({ top: y - 12, behavior: 'smooth' }); }
+    catch (_) { el.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function ir(id) {
+    var el = document.getElementById(id); if (!el) return;
+    el.hidden = false;
+    for (var p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS') { p.open = true; render(p); }
+    if (el.tagName === 'DETAILS') { el.open = true; render(el); }
+    setTimeout(function () { verEl(el); el.classList.add('nuevo-paso'); }, 30);
+  }
+  function irAHash() { var h = decodeURIComponent(location.hash.slice(1)); if (h) ir(h); }
+  addEventListener('hashchange', irAHash);
+
+  // paso a paso
+  function modo(cont, m) {
+    var ps = cont.querySelector(':scope > .pasos'); if (!ps) return;
+    var hs = [].slice.call(ps.children), b = function (c) { return cont.querySelector(':scope > .aph [data-cmd="' + c + '"], :scope > .ctl [data-cmd="' + c + '"]'); };
+    if (m === 'pasos') { hs.forEach(function (h, i) { h.classList.toggle('oculto', i > 0); }); }
+    else if (m === 'sig') { var o = ps.querySelector(':scope > .oculto'); if (o) { o.classList.remove('oculto'); o.classList.add('nuevo-paso'); } }
+    else { hs.forEach(function (h) { h.classList.remove('oculto'); }); }
+    var quedan = !!ps.querySelector(':scope > .oculto');
+    if (b('sig')) { b('sig').hidden = !quedan; }
+    if (b('todo')) { b('todo').hidden = !quedan; }
+    if (b('pasos')) { b('pasos').hidden = quedan; }
+    window.pcFit && pcFit();
+  }
+
+  // aclaraciones (antes, ventanas): se despliegan debajo del párrafo
+  function aclarar(src, k) {
+    var tpl = document.getElementById(k); if (!tpl) return;
+    var a = src;
+    while (a.parentElement && !a.parentElement.matches('.pasos, .enun, .ac-body, .sol, .aph')) a = a.parentElement;
+    if (a.parentElement && a.parentElement.matches('.aph')) a = a.parentElement;
+    var sig = a.nextElementSibling;
+    if (sig && sig.classList.contains('ac-box') && sig.dataset.k === k) { sig.remove(); window.pcFit && pcFit(); return; }
+    var box = document.createElement('div'); box.className = 'ac-box'; box.dataset.k = k;
+    box.innerHTML = '<div class="ac-h"><span></span><button aria-label="Cerrar">✕</button></div><div class="ac-body"></div>';
+    box.querySelector('span').textContent = tpl.dataset.t;
+    box.querySelector('.ac-body').appendChild(tpl.content.cloneNode(true));
+    a.after(box); render(box);
+    var ps = box.querySelector('.ac-body > .pasos[data-modo="pasos"]'); if (ps) modo(box.querySelector('.ac-body'), 'pasos');
+    window.pcFit && pcFit();
+  }
+
+  document.addEventListener('click', function (e) {
+    var st = e.target.closest('[data-pc-steps]');
+    if (st) {
+      var lista = JSON.parse(st.dataset.pcSteps), i = +(st.dataset.i || 0);
+      (lista[i] || []).forEach(function (op) {
+        var el = document.getElementById(op[1]); if (!el) return;
+        if (op[0] === 'h') { var src = document.getElementById(op[2]); if (src) { el.innerHTML = src.innerHTML; el.style.visibility = 'visible'; } }
+        else if (op[0] === 'i') el.src = op[2];
+        else el.style.visibility = op[2] ? 'visible' : 'hidden';
+      });
+      if (lista.length > 1) {
+        st.dataset.i = (i + 1) % lista.length;
+        if (st.tagName === 'INPUT' && st.type === 'button' && /^\s*\d+\s*$/.test(st.value)) st.value = '    ' + st.dataset.i + '    ';
+      }
+      window.pcFit && pcFit(); return;
+    }
+    var sw = e.target.closest('[data-pc-swap]');
+    if (sw) {
+      sw.dataset.pcSwap.split(';').forEach(function (par) {
+        var p = par.split(':'), dst = document.getElementById(p[0]), src = document.getElementById(p[1]);
+        if (dst && src) { dst.innerHTML = src.innerHTML; dst.style.visibility = 'visible'; }
+      });
+      var grupo = sw.closest('table') || document;
+      grupo.querySelectorAll('.pc-swap.sel').forEach(function (x) { x.classList.remove('sel'); });
+      sw.classList.add('sel'); window.pcFit && pcFit(); return;
+    }
+    var t = e.target.closest('[data-cmd], [data-ac], [data-pc-ac], [data-go], [data-pc-go], .ac-h button');
+    if (!t) return;
+    if (t.matches('.ac-h button')) { t.closest('.ac-box').remove(); window.pcFit && pcFit(); return; }
+    e.preventDefault();
+    if (t.dataset.cmd) return modo(t.closest('.ap, .ac-body'), t.dataset.cmd);
+    if (t.dataset.ac || t.dataset.pcAc) return aclarar(t, t.dataset.ac || t.dataset.pcAc);
+    var id = t.dataset.go || t.dataset.pcGo;
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    ir(id);
+  });
+  try { _pctop.document.title = 'Dinámica de sistemas. Dinámica'; _pctop.archivoAyuda = null; } catch (e) {}
+})();
+</script>
+</body>
+</html>

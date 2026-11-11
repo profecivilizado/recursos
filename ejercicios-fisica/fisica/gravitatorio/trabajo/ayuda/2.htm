@@ -18,8 +18,13 @@ function MM_goToURL() { //v3.0
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onload ="self.resizeTo(480,600)" >
 <table width="451" border="0" cellpadding="10" cellspacing="0">
   <tr> 
@@ -27,7 +32,7 @@ onload ="self.resizeTo(480,600)" >
         gravitatorio (Cerca de un planeta)</font></b></p>
       <p>Si la masa m se mueve cerca de un planeta, desde un punto A hasta otro 
         B el trabajo que realiza la fuerza gravitatoria vendr&aacute; dado por:</p>
-      <p align="center"><img src="formulas/2_01.gif" width="134" height="22" align="middle" border="0"  /></p>
+      <p align="center">$$\mathcal{T}_{AB}=m\,g\,(h_A-h_B)$$</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
           <td width="10%"><p align="right">g </p></td>
@@ -58,11 +63,11 @@ onload ="self.resizeTo(480,600)" >
         A, como el trabajo que hace el campo gravitatorio cuando la masa m se 
         desplaza desde dicho punto A hasta la superficie (Origen de potencial) 
       </p>
-      <p class="m100"><img src="formulas/2_02.gif" width="232" height="22" /></p>
+      <p class="m100">$$E_{PA}=\mathcal{T}_{AO}=m\,g\,(h_A-0)=m\,g\,h_A$$</p>
       <p><b><font color="#FF0000">Importante<br />
         </font></b><font color="#FF0000">El trabajo del campo es igual a la variaci&oacute;n 
         de energ&iacute;a potencial cambiada de signo</font></p>
-      <p class="m100"><img src="formulas/2_03.gif" width="257" height="52" /></p>
+      <p class="m100">$$\begin{aligned}&\mathcal{T}_{AB}=m\,g\,(h_A-h_B)=m\,g\,h_A-m\,g\,h_B\\[6pt] &\mathcal{T}_{AB}=E_{PA}-E_{PB}=-(E_{PB}-E_{PA})=-\Delta E_P\end{aligned}$$</p>
       <p><b><font color="#0000FF">Potencial</font></b> <b><font color="#0000FF">(Cerca 
         de un planeta)</font></b> </p>
       <p>Se define potencial en un punto A de un campo gravitatorio co-mo el trabajo 
@@ -70,7 +75,7 @@ onload ="self.resizeTo(480,600)" >
         punto A hasta la superficie (Origen de potencial)</p>
       <p>El potencial en un punto A se obtiene dividiendo la energ&iacute;a po-tencial 
         de una masa m, colocada en dicho punto, entre la propia masa</p>
-      <p class="m100"><img src="formulas/2_04.gif" width="177" height="37" /></p>
+      <p class="m100">$$V_A=\frac{E_{PA}}{m}=\frac{m\,g\,h_A}{m}=g\,h_A$$</p>
       </td>
   </tr>
 </table>

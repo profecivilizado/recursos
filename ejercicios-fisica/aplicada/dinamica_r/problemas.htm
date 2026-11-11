@@ -1,0 +1,2647 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/unir_tema.py a partir de los problemas originales. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../_pc/compat.js"></script>
+<title>Dinámica del sólido rígido. Dinámica de la rotación · Problemas</title>
+<link href="../../fisica/comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../_pc/pc.css">
+<link rel="stylesheet" href="../../_pc/problemas.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer}
+.chip:hover{background:var(--hover)}
+h2{font-size:1.2em;color:var(--accent);border-top:2px solid var(--line);padding-top:14px;margin:22px 0 2px}
+h3{font-size:1em;color:var(--red);margin:14px 0 4px}
+.enun p:first-child{margin-top:0}
+.enun table{width:auto!important}
+p.meta{margin:.2em 0 0 1.8em}
+.var{font-size:14px;margin-left:8px}
+.ap{border-top:1px dashed var(--line);padding:8px 0 4px}
+.ap:first-child{border-top:0}
+.aph{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:30px}
+.aph>b{color:var(--accent);font-size:1.05em}
+.ctl{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.ctl button{font:inherit;font-size:13px;color:var(--accent);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+.ctl button:hover{background:var(--hover)}
+.ctl button.ayuda{color:var(--red)}
+.pasos>.oculto{display:none}
+.pasos>.nuevo-paso{animation:aparece .35s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+details.sub{margin:.6em 0 .2em 0}
+.ac-box{border:1px solid var(--accent);border-left-width:4px;border-radius:10px;background:var(--card);margin:.4em 0 .6em;padding:4px 12px 8px}
+.ac-h{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--accent);font-size:14px}
+.ac-h button{font:inherit;font-size:13px;background:none;border:0;color:var(--muted);cursor:pointer}
+.ac-box .ctl{margin:.3em 0 0}
+[data-pc-ac],[data-pc-go]{cursor:pointer}
+[data-pc-ac]:hover,[data-pc-go]:hover{color:var(--red)}
+.pc-swap{cursor:pointer;color:var(--accent);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.pc-swap.sel{color:var(--red);font-weight:700}
+.hojas ol{margin:.2em 0 .6em 1.6em;padding:0}
+.hojas li{margin:.25em 0}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="pcKatex()"></script>
+</head>
+<body>
+<div class="cab"><b>Dinámica del sólido rígido. Dinámica de la rotación</b><span class="nuevo">Problemas</span></div>
+<nav class="chips"><a class="chip" data-go="dr1">General</a> <a class="chip" data-go="dr2">Máquinas de Atwood</a> <a class="chip" data-go="mdi">Momentos de inercia</a> <a class="chip" data-go="curso">Propuestos en el curso</a></nav>
+<section class="seccion" id="dr1"><h2>General</h2>
+<div class="prob" id="a1">
+<div class="enun"><span class="num">1</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="19%"><div align="center"><img height="48" src="dr1/problema1/imagenes/1_00.gif" width="108"/></div></td>
+<td width="81%"><p><b><font color="#0000FF">La masa puntual de 3 kg 
+              está unida a una varilla, de masa despreciable y longi-tud 
+              1 m, con un eje perpendicular al plano de la pantalla que pasa por 
+              su extre-mo libre. Calcula el momento sobre el sistema y su aceleración 
+              angular</font></b></p>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema1_1_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen:aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen:aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen1;aplicada_dinamica_r_dr1_problema1_1_a_htm_formula:aplicada_dinamica_r_dr1_problema1_1_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                mg </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen:aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen2;aplicada_dinamica_r_dr1_problema1_1_a_htm_formula:aplicada_dinamica_r_dr1_problema1_1_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen" width="37%"><div align="center"><img height="151" src="dr1/problema1/imagenes/1_01.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema1_1_a_htm_formula" width="47%"> <div align="center"></div></td>
+</tr>
+</table><p class="m50">Momento resultante:</p><p class="m150"><img align="middle" height="40" src="dr1/problema1/formulas/1_02.gif" width="272"/>  
+        <img align="middle" height="28" src="sentido/1_02.gif" width="24"/>
+</p><p class="m50">Este momento hará que la varilla comience a girar 
+        en el sentido de las agujas del reloj.</p><p class="m50">Aplicando la ecuación de la Dinámica:</p><p class="m150"><img height="36" src="dr1/problema1/formulas/1_04.gif" width="142"/></p><p class="m150"><img border="0" height="105" src="dr1/problema1/formulas/1_05.gif" style="" width="170"/>
+</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen0" style="display:none" width="32%"> <div align="center"><img height="151" src="dr1/problema1/imagenes/1_01.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen1" style="display:none" width="33%"> <div align="center"><img height="151" src="dr1/problema1/imagenes/1_02.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema1_1_a_htm_imagen2" style="display:none"> <div align="center"><img height="151" src="dr1/problema1/imagenes/1_03.png" width="151"/></div></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema1_1_a_htm_formula1" style="display:none"> <div align="center"></div>
+<div align="center">  <img align="middle" height="60" src="dr1/problema1/formulas/1_01.gif" width="136"/>   <img align="middle" height="28" src="sentido/1_02.gif" width="24"/>    </div></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema1_1_a_htm_formula2" style="display:none"> <p align="center">M<sub>N</sub> 
+                    = 0 (Está aplicada en el eje)</p></td>
+</tr>
+</table></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a4">
+<div class="enun"><p><span class="num">2</span><strong><font color="#0000FF">Una barra de 4 m y masa 
+        despreciable tiene un apoyo en su punto medio. En los extremos se suben 
+        un niño de masa m<sub>1</sub> = 30 kg y otro de masa m<sub>2</sub> 
+        = 40 kg. Se suelta la barra, calcular el momento sobre la barra y su aceleración 
+        angular</font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema4_4_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr1_problema4_4_0_htm_celda2" width="45%"> <p align="center"> </p></td>
+<td id="aplicada_dinamica_r_dr1_problema4_4_0_htm_celda3" width="35%"> <p align="right"><span class="enlace_texto">Lista 
+              problemas</span>    </p></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886"> <p class="m50">Momentos respecto al eje:</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema4_4_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen:aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen:aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen1;aplicada_dinamica_r_dr1_problema4_4_a_htm_formula:aplicada_dinamica_r_dr1_problema4_4_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>1</sub>g </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen:aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen2;aplicada_dinamica_r_dr1_problema4_4_a_htm_formula:aplicada_dinamica_r_dr1_problema4_4_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>2</sub>g</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen:aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen3;aplicada_dinamica_r_dr1_problema4_4_a_htm_formula:aplicada_dinamica_r_dr1_problema4_4_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen" width="37%"><div align="center"><img height="159" src="dr1/problema4/imagenes/4_01.png" width="204"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema4_4_a_htm_formula" width="47%"> <div align="center"></div></td>
+</tr>
+</table>
+<hr/>
+<p class="m150"><img align="middle" height="40" src="dr1/problema4/formulas/4_03.gif" width="248"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+<p class="m150"><img align="middle" height="40" src="dr1/problema4/formulas/4_04.gif" width="254"/> <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p>
+<p class="m50">Momento resultante:</p>
+<p class="m150"><img align="middle" height="22" src="dr1/problema4/formulas/4_05.gif" width="340"/>  
+        <img align="middle" height="28" src="sentido/1_01.gif" width="24"/>
+</p>
+<p class="m50">Este momento hará que la barra comience a girar en 
+        el sentido contrario al de las agujas del reloj.</p>
+<p class="m50">Aplicando la ecuación de la Dinámica:</p>
+<p class="m150"><img height="36" src="dr1/problema4/formulas/4_06.gif" width="142"/></p>
+<p class="m150"><img border="0" height="113" src="dr1/problema4/formulas/4_07.gif" style="" width="294"/>
+
+</p>
+<p class="m150"></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen0" style="display:none" width="32%"> <div align="center"><img height="159" src="dr1/problema4/imagenes/4_01.png" width="204"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen1" style="display:none" width="33%"> <div align="center"><img height="159" src="dr1/problema4/imagenes/4_02.png" width="204"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen2" style="display:none"> <div align="center"><img height="159" src="dr1/problema4/imagenes/4_03.png" width="204"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema4_4_a_htm_imagen3" rowspan="3" style="display:none"><div align="center"><img height="159" src="dr1/problema4/imagenes/4_04.png" width="204"/></div></td>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema4_4_a_htm_formula1" style="display:none"> <div align="center"><img align="middle" border="0" height="86" src="dr1/problema4/formulas/4_01.gif" style="" width="153"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema4_4_a_htm_formula2" style="display:none"> <div align="center">    <img align="middle" border="0" height="86" src="dr1/problema4/formulas/4_02.gif" style="" width="154"/> 
+                       <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema4_4_a_htm_formula3" style="display:none"> <p align="center">M<sub>N</sub> 
+                    = 0 (Está aplicada en el eje)</p></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<p class="m50">  </p>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a2">
+<div class="enun"><span class="num">3</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="105" src="dr1/problema2/imagenes/2_00.gif" width="141"/></div></td>
+<td width="76%"><p><b><font color="#0000FF">Suponiendo despreciable 
+              la masa de la varilla, calcula el momento sobre el sistema y su 
+              aceleración angular<br/>
+</font></b><font color="#0000FF"><b>Datos: m<sub>1</sub> = 3 kg, 
+              m<sub>2</sub> = 2 kg, L<sub>1</sub> = 1 m, L<sub>2</sub> = 2 m, 
+              φ= 30º</b></font></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema2_2_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr1_problema2_2_0_htm_celda2" width="45%"> <p align="center"><span class="enlace_texto">Variante</span></p></td>
+<td id="aplicada_dinamica_r_dr1_problema2_2_0_htm_celda3" width="35%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table></td>
+</tr>
+</table></div>
+<p class="meta"><a class="enlace_texto var" data-go="a3">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886"> <p class="m50">Momentos respecto al eje:</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema2_2_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen:aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen:aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen1;aplicada_dinamica_r_dr1_problema2_2_a_htm_formula:aplicada_dinamica_r_dr1_problema2_2_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>1</sub>g </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen:aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen2;aplicada_dinamica_r_dr1_problema2_2_a_htm_formula:aplicada_dinamica_r_dr1_problema2_2_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>2</sub>g</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen:aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen3;aplicada_dinamica_r_dr1_problema2_2_a_htm_formula:aplicada_dinamica_r_dr1_problema2_2_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen" width="37%"><div align="center"><img height="186" src="dr1/problema2/imagenes/2_01.png" width="221"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema2_2_a_htm_formula" width="47%"> <div align="center"></div></td>
+</tr>
+</table>
+<hr/>
+<p align="left" class="m150"><img align="middle" height="40" src="dr1/problema2/formulas/2_03.gif" width="288"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+<p align="left" class="m150"><img align="middle" height="40" src="dr1/problema2/formulas/2_04.gif" width="292"/>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p>
+<p class="m50">Momento resultante:</p>
+<p class="m150"><img align="middle" height="20" src="dr1/problema2/formulas/2_05.gif" width="244"/>  
+        <img align="middle" height="28" src="sentido/1_01.gif" width="24"/>
+</p>
+<p class="m50">Este momento hará que la varilla comience a girar 
+        en el sentido contrario al de las agujas del reloj.</p>
+<p class="m50">Aplicando la ecuación de la Dinámica:</p>
+<p class="m150"><img height="36" src="dr1/problema2/formulas/2_06.gif" width="142"/></p>
+<p class="m150"><img border="0" height="113" src="dr1/problema2/formulas/2_07.gif" style="" width="284"/>
+</p>
+<p class="m150"></p>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen0" style="display:none" width="32%"> <div align="center"><img height="186" src="dr1/problema2/imagenes/2_01.png" width="221"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen1" style="display:none" width="33%"> <div align="center"><img height="186" src="dr1/problema2/imagenes/2_02.png" width="221"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen2" style="display:none"> <div align="center"><img height="186" src="dr1/problema2/imagenes/2_03.png" width="222"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema2_2_a_htm_imagen3" rowspan="3" style="display:none"><div align="center"><img height="186" src="dr1/problema2/imagenes/2_04.png" width="221"/></div></td>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema2_2_a_htm_formula1" style="display:none"> <div align="center"><img align="middle" border="0" height="62" src="dr1/problema2/formulas/2_01.gif" style="" width="193"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema2_2_a_htm_formula2" style="display:none"> <div align="center">    <img align="middle" height="60" src="dr1/problema2/formulas/2_02.gif" width="196"/>   <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema2_2_a_htm_formula3" style="display:none"> <p align="center">M<sub>N</sub> 
+                    = 0 (Está aplicada en el eje)</p></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<p class="m50">  </p>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a5">
+<div class="enun"><p><span class="num">4</span><strong><font color="#0000FF">Una varilla homogénea 
+        de masa m y longitud L tiene un eje, perpendicular por un extremo, que 
+        le permite girar en un plano vertical. Calcula el momento sobre la varilla 
+        y su aceleración angular cuan-do esta forma un ángulo φ 
+        bajo la horizontal</font></strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886"> <p class="m50">Momentos respecto al eje:</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema5_5_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen:aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen:aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen1;aplicada_dinamica_r_dr1_problema5_5_a_htm_formula:aplicada_dinamica_r_dr1_problema5_5_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>1</sub>g </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen:aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen2;aplicada_dinamica_r_dr1_problema5_5_a_htm_formula:aplicada_dinamica_r_dr1_problema5_5_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen" width="37%"><div align="center"><img height="182" src="dr1/problema5/imagenes/5_01.png" width="158"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema5_5_a_htm_formula" width="47%"> <div align="center"></div></td>
+</tr>
+</table>
+<hr/>
+<p class="m50"> Momento resultante:</p>
+<p class="m150"><img align="middle" height="36" src="dr1/problema5/formulas/5_02.gif" width="158"/>  
+        <img align="middle" height="28" src="sentido/1_02.gif" width="24"/>
+</p>
+<p class="m50">Este momento hará que la varilla comience a girar 
+        en el sentido de las agujas del reloj.</p>
+<p class="m50">Aplicando la ecuación de la Dinámica:</p>
+<p class="m150"><img height="36" src="dr1/problema5/formulas/5_03.gif" width="142"/></p>
+<p class="m150"><img border="0" height="48" src="dr1/problema5/formulas/5_04.gif" style="" width="204"/>
+
+</p>
+<p class="m150"></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen0" style="display:none" width="32%"> <div align="center"><img height="182" src="dr1/problema5/imagenes/5_01.png" width="158"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen1" style="display:none" width="33%"> <div align="center"><img height="182" src="dr1/problema5/imagenes/5_02.png" width="158"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema5_5_a_htm_imagen2" style="display:none"> <div align="center"><img height="182" src="dr1/problema5/imagenes/5_03.png" width="158"/></div></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema5_5_a_htm_formula1" style="display:none"> <div align="center"><img align="middle" height="86" src="dr1/problema5/formulas/5_01.gif" width="174"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema5_5_a_htm_formula2" style="display:none"> <p align="center">M<sub>N</sub> 
+                    = 0 (Está aplicada en el eje)</p></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a6">
+<div class="enun"><p><span class="num">5</span><strong><font color="#0000FF">Un disco homogéneo, 
+        m = 5 kg, R = 1m, puede girar alrededor de un eje horizontal que pasa 
+        por su c.d.m. Tangencialmente al disco se aplica una fuerza de 4 N, calcula 
+        el momento sobre el disco y la aceleración angular que tomará 
+        este</font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema6_6_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_0_htm_celda2" width="45%"> <p align="center"><span class="enlace_texto">Variante</span></p></td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_0_htm_celda3" width="35%"> <p align="right"><span class="enlace_texto">Lista 
+              problemas</span>    </p></td>
+</tr>
+</table></div>
+<p class="meta"><a class="enlace_texto var" data-go="a7">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Observa que la normal está inclinada 
+        para compensar la fuerza hacia la derecha (F) y la fuerza hacia abajo 
+        (mg)</p><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema6_6_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen:aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen:aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen1;aplicada_dinamica_r_dr1_problema6_6_a_htm_formula:aplicada_dinamica_r_dr1_problema6_6_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                F</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen:aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen2;aplicada_dinamica_r_dr1_problema6_6_a_htm_formula:aplicada_dinamica_r_dr1_problema6_6_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen:aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen3;aplicada_dinamica_r_dr1_problema6_6_a_htm_formula:aplicada_dinamica_r_dr1_problema6_6_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen" width="23%"><div align="center"><img height="150" src="dr1/problema6/imagenes/6_01.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_a_htm_formula" width="61%"> <div align="center"></div></td>
+</tr>
+</table><p align="left" class="m150">Momento resultante:</p><p class="m150"><img align="middle" height="20" src="dr1/problema6/formulas/6_02.gif" width="90"/>  
+        <img align="middle" height="28" src="sentido/1_02.gif" width="24"/>
+</p><p class="m50">Este momento hará que el disco varilla comience a 
+        girar en el sentido de las agujas del reloj.</p><p class="m50">Aplicando la ecuación de la Dinámica:</p><p class="m150"><img height="36" src="dr1/problema6/formulas/6_03.gif" width="153"/></p><p class="m150"><img border="0" height="108" src="dr1/problema6/formulas/6_04.gif" style="" width="162"/>
+</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen0" style="display:none" width="24%"> <div align="center"><img height="150" src="dr1/problema6/imagenes/6_01.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen1" style="display:none" width="27%"> <div align="center"><img height="150" src="dr1/problema6/imagenes/6_02.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen2" style="display:none" width="26%"> <div align="center"><img height="150" src="dr1/problema6/imagenes/6_03.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema6_6_a_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="150" src="dr1/problema6/imagenes/6_04.png" width="152"/></div></td>
+</tr>
+<tr>
+<td colspan="4" id="aplicada_dinamica_r_dr1_problema6_6_a_htm_formula1" style="display:none">
+<div align="center"><img align="middle" height="54" src="dr1/problema6/formulas/6_01.gif" width="112"/>   <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td></tr>
+<tr>
+<td colspan="4" id="aplicada_dinamica_r_dr1_problema6_6_a_htm_formula2" style="display:none">
+<p align="center">M<sub>mg</sub> 
+                    = 0 (Está aplicada en el eje)</p></td></tr>
+<tr>
+<td colspan="4" id="aplicada_dinamica_r_dr1_problema6_6_a_htm_formula3" style="display:none">
+<p align="center">M<sub>N</sub> = 
+                    0 (Está aplicada en el eje)</p></td></tr>
+</table></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a3">
+<div class="enun"><span class="num">6</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="82" src="dr1/problema3/imagenes/3_00.gif" width="161"/></div></td>
+<td width="76%"><p><b><font color="#0000FF">Suponiendo despreciable 
+              la masa de la varilla, calcula el momento sobre el sistema y su 
+              aceleración angular<br/>
+</font></b><font color="#0000FF"><b>Datos: m<sub>1</sub> = 1 kg, 
+              m<sub>2</sub> = 2 kg, L<sub>1</sub> = 2 m, L<sub>2</sub> = 2 m, 
+              φ = 120º</b></font></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema3_3_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr1_problema3_3_0_htm_celda2" width="45%"> <p align="center"><span class="enlace_texto">Volver</span></p></td>
+<td id="aplicada_dinamica_r_dr1_problema3_3_0_htm_celda3" width="35%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a3a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886"> <p class="m50">Momentos respecto al eje:</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema3_3_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen:aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen:aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen1;aplicada_dinamica_r_dr1_problema3_3_a_htm_formula:aplicada_dinamica_r_dr1_problema3_3_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>1</sub>g </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen:aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen2;aplicada_dinamica_r_dr1_problema3_3_a_htm_formula:aplicada_dinamica_r_dr1_problema3_3_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                m<sub>2</sub>g</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen:aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen3;aplicada_dinamica_r_dr1_problema3_3_a_htm_formula:aplicada_dinamica_r_dr1_problema3_3_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen" width="37%"><div align="center"><img height="180" src="dr1/problema3/imagenes/3_01.png" width="221"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema3_3_a_htm_formula" width="47%"> <div align="center"></div></td>
+</tr>
+</table>
+<hr/>
+<p class="m150"><img height="92" src="dr1/problema3/formulas/3_03.gif" width="325"/></p>
+<p class="m50">Hay dos momentos de igual módulo y sentidos opuestos, 
+        el momento total será cero. No habrá aceleración 
+        angular</p>
+<p class="m150"></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen0" style="display:none" width="32%"> <div align="center"><img height="180" src="dr1/problema3/imagenes/3_01.png" width="221"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen1" style="display:none" width="33%"> <div align="center"><img height="180" src="dr1/problema3/imagenes/3_02.png" width="221"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen2" style="display:none"> <div align="center"><img height="180" src="dr1/problema3/imagenes/3_03.png" width="221"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema3_3_a_htm_imagen3" rowspan="3" style="display:none"><div align="center"><img height="180" src="dr1/problema3/imagenes/3_04.png" width="221"/></div></td>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema3_3_a_htm_formula1" style="display:none"> <div align="center"><img align="middle" border="0" height="60" src="dr1/problema3/formulas/3_01.gif" style="" width="157"/>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema3_3_a_htm_formula2" style="display:none"> <div align="center">    <img align="middle" border="0" height="65" src="dr1/problema3/formulas/3_02.gif" style="" width="196"/>
+
+                       <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr1_problema3_3_a_htm_formula3" style="display:none"> <p align="center">M<sub>N</sub> 
+                    = 0 (Está aplicada en el eje)</p></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<p class="m50">  </p>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a7">
+<div class="enun"><p><span class="num">7</span><strong><font color="#0000FF">Una rueda de 1 m de radio, 
+        lleva sujetos en los extremos de un diámetro dos cohetes que al 
+        arder ejercen fuerzas tangenciales de 0.25 kp en sentidos contrarios. 
+        Calcula el momento que actúa sobre la rueda y su aceleración 
+        angular. Momento de inercia de la rueda: 4 kg·m<sup>2</sup></font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema7_7_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_0_htm_celda2" width="45%"> <p align="center"><span class="enlace_texto">Volver</span></p></td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_0_htm_celda3" width="35%"> <p align="right"><span class="enlace_texto">Lista 
+              problemas</span>    </p></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886"> <p class="m50">Momentos respecto al eje:</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema7_7_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen:aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen:aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen1;aplicada_dinamica_r_dr1_problema7_7_a_htm_formula:aplicada_dinamica_r_dr1_problema7_7_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                F<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen:aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen2;aplicada_dinamica_r_dr1_problema7_7_a_htm_formula:aplicada_dinamica_r_dr1_problema7_7_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                F<sub>2</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen:aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen3;aplicada_dinamica_r_dr1_problema7_7_a_htm_formula:aplicada_dinamica_r_dr1_problema7_7_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                mg </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen:aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen4;aplicada_dinamica_r_dr1_problema7_7_a_htm_formula:aplicada_dinamica_r_dr1_problema7_7_a_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen" width="23%"><div align="center"><img height="165" src="dr1/problema7/imagenes/7_01.png" width="168"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_formula" width="61%"> <div align="center"></div></td>
+</tr>
+</table>
+<hr/>
+<p class="m150"><img align="middle" height="22" src="dr1/problema7/formulas/7_03.gif" width="256"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+<p class="m150"><img align="middle" height="22" src="dr1/problema7/formulas/7_04.gif" width="257"/> <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+<p class="m50">Momento resultante:</p>
+<p class="m150"><img align="middle" height="20" src="dr1/problema7/formulas/7_05.gif" width="253"/>  
+        <img align="middle" height="28" src="sentido/1_02.gif" width="24"/>
+</p>
+<p class="m50">Este momento hará que el disco comience a girar en 
+        el sentido de las agujas del reloj.</p>
+<p class="m50">Aplicando la ecuación de la Dinámica:</p>
+<p class="m150"><img border="0" height="94" src="dr1/problema7/formulas/7_06.gif" style="" width="178"/>
+
+</p>
+<p class="m150"></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen0" style="display:none" width="28%"> <div align="center"><img height="165" src="dr1/problema7/imagenes/7_01.png" width="168"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen1" style="display:none" width="27%"> <div align="center"><img height="165" src="dr1/problema7/imagenes/7_02.png" width="168"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen2" style="display:none" width="24%"> <div align="center"><img height="165" src="dr1/problema7/imagenes/7_03.png" width="168"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen3" style="display:none" width="21%"><div align="center"><img height="165" src="dr1/problema7/imagenes/7_04.png" width="168"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema7_7_a_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="165" src="dr1/problema7/imagenes/7_05.png" width="168"/></div></td>
+<td colspan="3" height="68" id="aplicada_dinamica_r_dr1_problema7_7_a_htm_formula1" style="display:none">
+<div align="center"><img align="middle" border="0" height="54" src="dr1/problema7/formulas/7_01.gif" style="" width="117"/>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema7_7_a_htm_formula2" style="display:none"> <div align="center">    <img align="middle" border="0" height="54" src="dr1/problema7/formulas/7_02.gif" style="" width="118"/> 
+                       <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema7_7_a_htm_formula3" style="display:none"> <p align="center">M<sub>mg</sub> 
+                    = 0 (Está aplicada en el eje)</p></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr1_problema7_7_a_htm_formula4" style="display:none">
+<p align="center">M<sub>N</sub> 
+                    = 0 (Está aplicada en el eje)</p></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a8">
+<div class="enun"><p><span class="num">8</span><b><font color="#0000FF">Una esfera homogénea, 
+        m = 50 kg, R = 1 m, gira alrededor de su diametro a 600 r.p.m. Tangencial-mente 
+        se le aplica una fuerza constante de frenado de 100 N. Calcular:<br/>
+</font></b><b><span class="enlace_texto" data-go="a8a"><font color="#0000FF">a</font></span><font color="#0000FF">) 
+        Aceleración angular de frenado<br/>
+<span class="enlace_texto" data-go="a8b">b</span>) Vueltas 
+        que da hasta pararse y tiempo que tarda en hacerlo</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a8a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886"> <p class="m50"><strong><font color="#0000FF">a)</font></strong></p>
+<p class="m50">Suponemos que la esfera inicialmente giraba en sentido contrario 
+        al de las agujas del reloj</p>
+<p class="m50">Momentos respecto al eje:</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="16%"><form action="" class="formulario" id="aplicada_dinamica_r_dr1_problema8_8_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen:aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen:aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen1;aplicada_dinamica_r_dr1_problema8_8_a_htm_formula:aplicada_dinamica_r_dr1_problema8_8_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                F</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen:aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen2;aplicada_dinamica_r_dr1_problema8_8_a_htm_formula:aplicada_dinamica_r_dr1_problema8_8_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen:aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen3;aplicada_dinamica_r_dr1_problema8_8_a_htm_formula:aplicada_dinamica_r_dr1_problema8_8_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N </p>
+</form></td>
+<td id="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen" width="27%"><div align="center"><img height="150" src="dr1/problema8/imagenes/8_01.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema8_8_a_htm_formula" width="57%"> <div align="center"></div></td>
+</tr>
+</table>
+<hr/>
+<p align="left" class="m50">Momento resultante:</p>
+<p class="m150"><img align="middle" height="20" src="dr1/problema8/formulas/8_02.gif" width="90"/>  
+        <img align="middle" height="28" src="sentido/1_02.gif" width="24"/>
+</p>
+<p class="m50">Este momento comunica a la esfera una aceleración 
+        en el sentido de las agujas del reloj, contraria por tanto a la velocidad</p>
+<p class="m50">Aplicando la ecuación de la Dinámica:</p>
+<p class="m150"><img border="0" height="150" src="dr1/problema8/formulas/8_03.gif" style="" width="176"/>
+</p>
+<p class="m150"></p>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen0" style="display:none" width="28%"> <div align="center"><img height="150" src="dr1/problema8/imagenes/8_01.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen1" style="display:none" width="25%"> <div align="center"><img height="150" src="dr1/problema8/imagenes/8_02.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen2" style="display:none" width="24%"> <div align="center"><img height="150" src="dr1/problema8/imagenes/8_03.png" width="152"/></div></td>
+<td id="aplicada_dinamica_r_dr1_problema8_8_a_htm_imagen3" style="display:none" width="23%">
+<div align="center"><img height="150" src="dr1/problema8/imagenes/8_04.png" width="152"/></div></td></tr>
+<tr>
+<td colspan="4" id="aplicada_dinamica_r_dr1_problema8_8_a_htm_formula1" style="display:none">
+<div align="center"><img align="middle" height="54" src="dr1/problema8/formulas/8_01.gif" width="112"/>   <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></div>
+</td></tr>
+<tr>
+<td colspan="4" id="aplicada_dinamica_r_dr1_problema8_8_a_htm_formula2" style="display:none">
+<p align="center">M<sub>mg</sub> 
+                    = 0 (Está aplicada en el eje)</p></td></tr>
+<tr>
+<td colspan="4" id="aplicada_dinamica_r_dr1_problema8_8_a_htm_formula3" style="display:none">
+<p align="center">M<sub>N</sub> = 
+                    0 (Está aplicada en el eje)</p></td></tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td> </td>
+</tr>
+</table></div></section>
+<section class="ap" id="a8b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="10" cellspacing="0" width="760">
+<tr>
+<td width="886">
+<p class="m50"><strong><font color="#0000FF">b)</font></strong></p>
+<p class="m50">Ecuaciones del movimiento</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="128" width="23%">
+<div align="center"><img height="83" src="dr1/problema8/imagenes/8_05.png" width="121"/></div></td>
+<td width="24%"><div align="right"><img height="73" src="dr1/problema8/formulas/8_05.gif" width="126"/></div></td>
+<td width="53%"><p class="m50">Parámetros:</p>
+<p class="m50"><img border="0" height="42" src="dr1/problema8/formulas/8_06.gif" style="" width="280"/></p></td>
+</tr>
+</table>
+<p class="m50">Aplicación: La esfera se detiene</p>
+<p class="m50">Datos: ω<sub>1</sub> = 0, Incógnitas: t<sub>1</sub>, 
+        φ<sub>1</sub></p>
+<p class="m150"><img border="0" height="73" src="dr1/problema8/formulas/8_07.gif" style="" width="312"/>
+</p>
+<p class="m50">Sustituyendo valores:</p>
+<p class="m150"><img height="105" src="dr1/problema8/formulas/8_08.gif" width="350"/></p>
+</td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+</section>
+<section class="seccion" id="dr2"><h2>Máquinas de Atwood</h2>
+<div class="prob" id="b1">
+<div class="enun"><span class="num">1</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="13%"><div align="center"><img height="110" src="dr2/problema1/imagenes/1_00.gif" width="52"/></div></td>
+<td width="87%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              angular de la polea, la lineal del bloque y la tensión de 
+              la cuerda<br/>
+</font></strong><strong><font color="#0000FF">La polea tiene radio 
+              R y masa M:</font></strong></p>
+<p><strong><font color="#0000FF"> a) Distribuída homogenéamente 
+               b) Concentrada en la periferia</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema1_1_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_0_htm_celda2" width="45%"> <p align="center"> </p></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_0_htm_celda3" width="35%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La polea comenzará a girar en el <span class="enlace_texto" data-go="b1-w">sentido 
+        de las agujas del reloj</span> y el bloque empezará a bajar</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="262" src="dr2/problema1/imagenes/1_06.png" width="108"/></div></td>
+<td width="73%"> <p>Traslación del bloque:</p>
+<p class="m50"><img height="20" src="dr2/problema1/formulas/1_03.gif" width="98"/></p>
+<p>Rotación de la polea:</p>
+<p class="m50"><img border="0" class="enlace_imagen enlace_texto" data-go="b1-z" height="20" src="dr2/problema1/formulas/1_04.gif" width="65"/></p>
+<p>Relación entre traslación del bloque y rotación 
+              de la polea: </p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-ac="ac5" height="20" src="dr2/problema1/formulas/1_05.gif" width="53"/></p>
+</td>
+</tr>
+</table><p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con tres incógnitas: T, a, α</p><p class="m100"><img border="0" height="89" src="dr2/problema1/formulas/1_06.gif" style="" width="450"/></p><p class="m50">Sustituyendo <span class="enlace_texto" data-ac="ac6">el 
+        momento de inercia</span>:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="9%"><form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema1_1_a_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_a_htm_formula:aplicada_dinamica_r_dr2_problema1_1_a_htm_formula0" name="radiobutton" type="radio" value="radiobutton"/>
+                a)</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_a_htm_formula:aplicada_dinamica_r_dr2_problema1_1_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                b)</p>
+</form></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_a_htm_formula" width="91%">
+<p class="m50"><img border="0" height="160" src="dr2/problema1/formulas/1_07.gif" style="" width="354"/></p></td></tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema1_1_a_htm_formula0" style="display:none">
+<p class="m50"><img border="0" height="160" src="dr2/problema1/formulas/1_07.gif" style="" width="354"/></p></td></tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema1_1_a_htm_formula1" style="display:none">
+<p class="m50"><img height="160" src="dr2/problema1/formulas/1_08.gif" width="285"/></p></td></tr>
+</table></div><details class="sub" id="b1-w"><summary>Sentido de giro</summary><div class="sol"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="164" src="dr2/problema1/imagenes/1_01.png" width="120"/></div></td>
+<td width="74%"><p>Mientras la mano sujete la polea:</p>
+<p class="m50">T = mg</p></td>
+</tr>
+</table><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen1;aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula:aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen2;aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula:aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen3;aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula:aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen" width="23%"><div align="center"><img height="137" src="dr2/problema1/imagenes/1_02.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante:</p><p class="m150">M = R·mg  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><p class="m50">Este momento hará que la polea comience a girar en 
+        el sentido de las agujas del reloj</p><p class="m50"><font color="#FF0000">Al girar la polea cambiará la 
+        tensión de la cuerda y dejará de ser igual al peso del bloque</font></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen0" style="display:none" width="29%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_02.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen1" style="display:none" width="26%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_03.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen2" style="display:none" width="22%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_04.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_imagen3" style="display:none" width="23%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_05.png" width="145"/></div></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula1" style="display:none">
+<p class="m50">M<sub>T</sub> = R·T·sen 90 = R·mg  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula2" style="display:none"> <p class="m50">M<sub>Mg</sub> = 0 (Está 
+              aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema1_1_wa_htm_formula3" style="display:none"> <p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td>
+<td colspan="2"> </td>
+</tr>
+</table></div></div></details><details class="sub" id="b1-z"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema1_1_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen1;aplicada_dinamica_r_dr2_problema1_1_za_htm_formula:aplicada_dinamica_r_dr2_problema1_1_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen2;aplicada_dinamica_r_dr2_problema1_1_za_htm_formula:aplicada_dinamica_r_dr2_problema1_1_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen:aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen3;aplicada_dinamica_r_dr2_problema1_1_za_htm_formula:aplicada_dinamica_r_dr2_problema1_1_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen" width="23%"><div align="center"><img height="137" src="dr2/problema1/imagenes/1_07.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_za_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante:</p><p class="m150">M = R·T  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><p class="m50">Observa que el sentido del momento coincide con el de la 
+        aceleración</p><p class="m50">Ecuación de la dinámica de rotación:</p><p class="m150"><img align="middle" height="20" src="dr2/problema1/formulas/1_12.gif" width="65"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen0" style="display:none" width="29%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_07.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen1" style="display:none" width="26%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_03.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen2" style="display:none" width="22%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_04.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema1_1_za_htm_imagen3" style="display:none" width="23%">
+<div align="center"><img height="137" src="dr2/problema1/imagenes/1_05.png" width="145"/></div></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema1_1_za_htm_formula1" style="display:none">
+<p class="m50">M<sub>T</sub> = R·T·sen 90  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema1_1_za_htm_formula2" style="display:none"> <p class="m50">M<sub>Mg</sub> = 0 (Está 
+              aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema1_1_za_htm_formula3" style="display:none"> <p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td>
+<td colspan="2"> </td>
+</tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b4">
+<div class="enun"><span class="num">2</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="152" width="16%">
+<div align="center"><img height="125" src="dr2/problema4/imagenes/4_00.gif" width="64"/></div></td>
+<td width="84%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              angular de la doble polea, la lineal de los bloques y las tensio-nes 
+              de las cuerdas</font></strong></p>
+<p><strong><font color="#0000FF">Datos: m<sub>1</sub> = 4 kg, m<sub>2</sub> 
+              = 2 kg, R<sub>1</sub> = 20 cm, R<sub>2</sub> = 60 cm<br/>
+</font></strong><font color="#0000FF"><strong>Momento de inercia 
+              de la doble polea: I = 2 kg·m<sup>2</sup></strong></font></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema4_4_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_0_htm_celda2" width="45%"> <p align="center"> </p></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_0_htm_celda3" width="35%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La polea comenzará a girar en el <span class="enlace_texto" data-go="b4-z">sentido 
+        de las agujas del reloj</span> el bloque 2 empezará a bajar 
+        y el bloque 1 empezará a subir</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="27%"><div align="center"><img height="265" src="dr2/problema4/imagenes/4_08.png" width="162"/></div></td>
+<td width="36%"> <p>Traslación de los bloques:</p>
+<p class="m100"><img height="54" src="dr2/problema4/formulas/4_04.gif" width="129"/></p></td>
+<td width="37%"><p class="pequeño">Los bloques no están 
+              directamente unidos y tienen aceleraciones diferentes</p></td>
+</tr>
+<tr>
+<td colspan="2"><p>Rotación de la polea:</p>
+<p class="m100"><img border="0" class="enlace_imagen enlace_texto" data-go="b4-w" height="20" src="dr2/problema4/formulas/4_05.gif" width="134"/></p>
+</td>
+</tr>
+<tr>
+<td colspan="2"><p>Relación entre traslación y rotación:</p>
+<p class="m100"><img class="enlace_imagen enlace_texto" data-ac="ac5" height="54" src="dr2/problema4/formulas/4_06.gif" width="68"/></p></td>
+</tr>
+</table><p class="m50">Combinando las tres expresiones resulta un sistema con cinco 
+        incógnitas: T<sub>1</sub>, T<sub>2</sub>, α, a<sub>1</sub>, 
+        a<sub>2</sub></p><p class="m100"><img border="0" height="180" src="dr2/problema4/formulas/4_07.gif" style="" width="606"/>
+</p><p class="m50">Sustituyendo valores:</p><p class="m150"><img height="246" src="dr2/problema4/formulas/4_08.gif" width="473"/>
+
+</p></div><details class="sub" id="b4-z"><summary>Sentido de giro de la polea</summary><div class="sol"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="177" src="dr2/problema4/imagenes/4_01.png" width="114"/></div></td>
+<td width="74%"><p>Mientras la mano sujete la polea:</p>
+<p class="m50">T<sub>1</sub> = m<sub>1</sub>g</p>
+<p class="m50">T<sub>2</sub> = m<sub>2</sub>g</p></td>
+</tr>
+</table><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema4_4_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen1;aplicada_dinamica_r_dr2_problema4_4_za_htm_formula:aplicada_dinamica_r_dr2_problema4_4_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen2;aplicada_dinamica_r_dr2_problema4_4_za_htm_formula:aplicada_dinamica_r_dr2_problema4_4_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub> </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen3;aplicada_dinamica_r_dr2_problema4_4_za_htm_formula:aplicada_dinamica_r_dr2_problema4_4_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen4;aplicada_dinamica_r_dr2_problema4_4_za_htm_formula:aplicada_dinamica_r_dr2_problema4_4_za_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen" width="23%"><div align="center"><img height="177" src="dr2/problema4/imagenes/4_02.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m150"><img align="middle" height="40" src="dr2/problema4/formulas/4_01.gif" width="322"/>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m150"><img align="middle" height="40" src="dr2/problema4/formulas/4_02.gif" width="322"/>   <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><p class="m50">Momento resultante:</p><p class="m150"><img align="middle" height="22" src="dr2/problema4/formulas/4_03.gif" width="224"/> <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><p class="m50">Este momento hará que la polea comience a girar en 
+        el sentido de las agujas del reloj</p><p class="m50"><font color="#FF0000">Al girar la polea cambiarán 
+        las tensiones de la cuerda y dejará de ser iguales respectivamente 
+        a los pesos de los bloques</font></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_02.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_03.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_04.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_05.png" width="134"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema4_4_za_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="177" src="dr2/problema4/imagenes/4_06.png" width="134"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema4_4_za_htm_formula1" style="display:none"> <p class="m50">M<sub>T1</sub> 
+              = R<sub>1</sub>·T<sub>1</sub>·sen 90 = R<sub>1</sub>·m<sub>1</sub>g  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema4_4_za_htm_formula2" style="display:none"> <p class="m50">M<sub>T2</sub> = R<sub>2</sub>·T<sub>2</sub>·sen 
+              90 = R<sub>2</sub>·m<sub>2</sub>g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema4_4_za_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" height="28" id="aplicada_dinamica_r_dr2_problema4_4_za_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details><details class="sub" id="b4-w"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen1;aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula:aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen2;aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula:aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub> </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen3;aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula:aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen:aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen4;aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula:aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen" width="23%"><div align="center"><img height="177" src="dr2/problema4/imagenes/4_09.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante</p><p class="m50">Como la aceleración tiene el sentido de las agujas 
+        del reloj M<sub>T2</sub> tiene que ser mayor que M<sub>T1</sub></p><p class="m150">M = R<sub>2</sub>·T<sub>2</sub> - R<sub>1</sub>·T<sub>1</sub>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_09.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_03.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_04.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="177" src="dr2/problema4/imagenes/4_05.png" width="134"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="177" src="dr2/problema4/imagenes/4_06.png" width="134"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula1" style="display:none">
+<p class="m50">M<sub>T1</sub> = R·T<sub>1</sub>·sen 
+              90 = R·T<sub>1</sub>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula2" style="display:none">
+<p class="m50">M<sub>T2</sub> = R·T<sub>2</sub>·sen 
+              90 = R·T<sub>2</sub>g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema4_4_wa_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b5">
+<div class="enun"><span class="num">3</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="114" width="16%">
+<div align="center"><img height="104" src="dr2/problema5/imagenes/5_00.gif" width="72"/></div></td>
+<td width="84%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              angular de la <span class="enlace_texto" data-ac="ac0">doble 
+              polea</span>, la lineal de los bloques y las tensiones en los extremos 
+              de la cuerda</font></strong></p>
+<p><strong><font color="#0000FF"> Datos de la doble polea: Radios: 
+              R<sub>1</sub>, R<sub>2</sub>, Momento de inercia: I</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema5_5_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_0_htm_celda2" width="45%"> <p align="center"> </p></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_0_htm_celda3" width="35%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La polea comenzará a girar en <span class="enlace_texto" data-go="b5-z">sentido 
+        contrario al de las agujas del reloj</span> y ambos bloques bajarán</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="27%"><div align="center"><img height="239" src="dr2/problema5/imagenes/5_01.png" width="128"/></div></td>
+<td width="36%"> <p>Traslación de los bloques:</p>
+<p class="m50"><img height="54" src="dr2/problema5/formulas/5_04.gif" width="128"/></p></td>
+<td width="37%"><p class="pequeño">Los bloques no están 
+              directamente unidos y tienen aceleraciones diferentes</p></td>
+</tr>
+<tr>
+<td colspan="2"><p>Rotación de la polea:</p>
+<p class="m50"><img border="0" class="enlace_imagen enlace_texto" data-go="b5-w" height="20" src="dr2/problema5/formulas/5_05.gif" width="134"/></p>
+</td>
+</tr>
+<tr>
+<td colspan="2"><p>Relación entre traslación y rotación:</p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-ac="ac5" height="54" src="dr2/problema5/formulas/5_06.gif" width="68"/></p></td>
+</tr>
+</table><p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con cinco incógnitas: T<sub>1</sub>, T<sub>2</sub>, α, a<sub>1</sub>, 
+        a<sub>2</sub></p><p class="m50"><img border="0" height="180" src="dr2/problema5/formulas/5_07.gif" style="" width="626"/>
+
+</p></div><details class="sub" id="b5-z"><summary>Sentido de giro de la polea</summary><div class="sol"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="238" src="dr2/problema5/imagenes/5_02.png" width="146"/></div></td>
+<td width="74%"><p>Mientras la mano sujete la polea:</p>
+<p class="m50">T<sub>1</sub> = m<sub>1</sub>g</p>
+<p class="m50">T<sub>2</sub> = m<sub>2</sub>g</p></td>
+</tr>
+</table><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema5_5_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen1;aplicada_dinamica_r_dr2_problema5_5_za_htm_formula:aplicada_dinamica_r_dr2_problema5_5_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen2;aplicada_dinamica_r_dr2_problema5_5_za_htm_formula:aplicada_dinamica_r_dr2_problema5_5_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub> </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen3;aplicada_dinamica_r_dr2_problema5_5_za_htm_formula:aplicada_dinamica_r_dr2_problema5_5_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen4;aplicada_dinamica_r_dr2_problema5_5_za_htm_formula:aplicada_dinamica_r_dr2_problema5_5_za_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen" width="23%"><div align="center"><img height="171" src="dr2/problema5/imagenes/5_03.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m150"><img align="middle" height="20" src="dr2/problema5/formulas/5_01.gif" width="205"/>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m150"><img align="middle" height="20" src="dr2/problema5/formulas/5_02.gif" width="210"/>   <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m50">Momento resultante:</p><p class="m150"><img height="20" src="dr2/problema5/formulas/5_03.gif" width="160"/> <img align="top" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m50">Este momento hará que la polea comience a girar en 
+        sentido contrario al de las agujas del reloj</p><p class="m50"><font color="#FF0000">Al girar la polea cambiarán 
+        las tensiones de la cuerda y dejará de ser iguales respectivamente 
+        a los pesos de los bloques</font></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_03.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_04.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_05.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_06.png" width="145"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema5_5_za_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="171" src="dr2/problema5/imagenes/5_07.png" width="145"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema5_5_za_htm_formula1" style="display:none"> <p class="m50">M<sub>T1</sub> 
+              = R<sub>1</sub>·T<sub>1</sub>·sen 90 = R<sub>1</sub>·m<sub>1</sub>g  <img align="top" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema5_5_za_htm_formula2" style="display:none"> <p class="m50">M<sub>T2</sub> = R<sub>2</sub>·T<sub>2</sub>·sen 
+              90 = R<sub>2</sub>·m<sub>2</sub>g  <img align="top" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema5_5_za_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" height="28" id="aplicada_dinamica_r_dr2_problema5_5_za_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details><details class="sub" id="b5-w"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen1;aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula:aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen2;aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula:aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub> </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen3;aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula:aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen:aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen4;aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula:aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen" width="23%"><div align="center"><img height="171" src="dr2/problema5/imagenes/5_03.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m150">M<sub>T1</sub> = R<sub>1</sub>·T<sub>1</sub>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/> </p><p class="m150">M<sub>T2</sub> = R<sub>2</sub>·T<sub>2</sub>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m50">Momento resultante:</p><p class="m150"><img align="middle" height="20" src="dr2/problema5/formulas/5_03.gif" width="160"/> <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m50">Observa que el sentido del momento coincide con el de la 
+        aceleración </p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_08.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_04.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_05.png" width="145"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="171" src="dr2/problema5/imagenes/5_06.png" width="145"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="171" src="dr2/problema5/imagenes/5_07.png" width="145"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula1" style="display:none"> <p class="m50">M<sub>T1</sub> 
+              = R<sub>1</sub>·T<sub>1</sub>·sen 90  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula2" style="display:none"> <p class="m50">M<sub>T2</sub> = R<sub>2</sub>·T<sub>2</sub>·sen 
+              90  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" height="28" id="aplicada_dinamica_r_dr2_problema5_5_wa_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b7">
+<div class="enun"><span class="num">4</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"><div align="center"><img height="100" src="dr2/problema7/imagenes/7_00.gif" width="137"/></div></td>
+<td width="85%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              angular de la polea, la lineal de los bloques y las tensiones en 
+              los extremos de la cuerda<br/>
+              Datos de la polea: Radio R, Momento de inercia I<br/>
+              Coeficiente de rozamiento entre bloque 1 y superficie: μ</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema7_7_0_htm_celda1" width="22%"> <id ="celda1"=""></id></td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_0_htm_celda2" width="35%">
+<p align="center"> </p></td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_0_htm_celda3" width="43%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La polea comenzará a girar en el sentido 
+        de las agujas del reloj y el bloque 2 empezará a bajar:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="37%"><div align="center"><img height="231" src="dr2/problema7/imagenes/7_06.png" width="241"/></div></td>
+<td width="63%"> <p>Traslación de los bloques:</p>
+<p class="m50"><img height="57" src="dr2/problema7/formulas/7_03.gif" width="265"/></p>
+<p class="m50"><img height="20" src="dr2/problema7/formulas/7_04.gif" width="126"/></p>
+</td>
+</tr>
+<tr>
+<td><p>Rotación de la polea:</p>
+<p class="m50"><img border="0" class="enlace_imagen enlace_texto" data-go="b7-z" height="20" src="dr2/problema7/formulas/7_05.gif" width="122"/></p>
+</td>
+</tr>
+<tr>
+<td><p>Relación entre traslación y rotación:</p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-ac="ac5" height="20" src="dr2/problema7/formulas/7_06.gif" width="53"/></p></td>
+</tr>
+</table><p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con cuatro incógnitas: T<sub>1</sub>, T<sub>2</sub>, a, α</p><p class="m150"><img border="0" height="192" src="dr2/problema7/formulas/7_07.gif" style="" width="502"/>
+
+</p><p class="m50">Observa que si la masa de la polea es cero (I = 0) las tensiones 
+        en los extremos de la cuerda, durante el movimiento, son iguales </p></div><details class="sub" id="b7-z"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema7_7_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen:aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen:aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen1;aplicada_dinamica_r_dr2_problema7_7_za_htm_formula:aplicada_dinamica_r_dr2_problema7_7_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen:aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen2;aplicada_dinamica_r_dr2_problema7_7_za_htm_formula:aplicada_dinamica_r_dr2_problema7_7_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen:aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen3;aplicada_dinamica_r_dr2_problema7_7_za_htm_formula:aplicada_dinamica_r_dr2_problema7_7_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen:aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen4;aplicada_dinamica_r_dr2_problema7_7_za_htm_formula:aplicada_dinamica_r_dr2_problema7_7_za_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen" width="24%"><div align="center"><img height="152" src="dr2/problema7/imagenes/7_01.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_formula" width="61%">  </td>
+</tr>
+</table><p class="m50">Como la aceleración tiene el sentido de las agujas 
+        del reloj M<sub>T2</sub> &gt; M<sub>T1</sub></p><p class="m50">Momento resultante:</p><p class="m150">M = R·T2 - R·T1 <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><p class="m50">Ecuación de la dinámica de rotación:</p><p class="m150"> R·T2 - R·T1 = I·α</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="152" src="dr2/problema7/imagenes/7_01.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="152" src="dr2/problema7/imagenes/7_02.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="152" src="dr2/problema7/imagenes/7_03.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="152" src="dr2/problema7/imagenes/7_04.png" width="148"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema7_7_za_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="152" src="dr2/problema7/imagenes/7_05.png" width="148"/></div></td>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema7_7_za_htm_formula1" style="display:none">
+<p class="m50">M<sub>T1</sub> = R·T<sub>1</sub>·sen 
+              90  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema7_7_za_htm_formula2" style="display:none"><p class="m50">M<sub>T2</sub> = R·T<sub>2</sub>·sen 
+              90  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td>
+</tr>
+<tr>
+<td colspan="3" height="40" id="aplicada_dinamica_r_dr2_problema7_7_za_htm_formula3" style="display:none"> <p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema7_7_za_htm_formula4" style="display:none"><p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td>
+</tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b10">
+<div class="enun"><p><span class="num">5</span><b><font color="#0000FF">Un bloque de 10 kg cuelga de 
+        una cuerda arrollada a una polea de radio 5 cm que está pegada 
+        a otra polea de radio 20 cm compartiendo ambas el mismo eje. En la polea 
+        de mayor radio se aplica tangen-cialmente una fuerza de 250 N para hacer 
+        subir el bloque. <br/>
+        Siendo el momento de inercia de la doble polea 750 kg·cm<sup>2</sup>, 
+        calcula la aceleración angular de la polea</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b10a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Para que el bloque suba la polea tendrá 
+        que girar en sentido contrario al de las agujas del reloj</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="2" width="27%"><div align="center"><img height="240" src="dr2/problema10/imagenes/10_01.png" width="141"/></div></td>
+<td> <p>Traslación del bloque:</p>
+<p class="m100"><img height="20" src="dr2/problema10/formulas/10_01.gif" width="98"/></p>
+<p class="pequeño"> </p></td>
+</tr>
+<tr>
+<td><p>Rotación de la polea:</p>
+<p class="m100"><img border="0" class="enlace_imagen enlace_texto" data-go="b10-z" height="20" src="dr2/problema10/formulas/10_02.gif" width="120"/></p>
+<p>Relación entre traslación y rotación:</p>
+<p class="m100"><img class="enlace_imagen enlace_texto" data-ac="ac0" height="20" src="dr2/problema10/formulas/10_03.gif" width="60"/></p></td>
+</tr>
+</table><p class="m50">Combinando las tres expresiones resulta un sistema con tres 
+        incógnitas: T, α, a</p><p class="m150"><img border="0" height="150" src="dr2/problema10/formulas/10_04.gif" style="" width="366"/>
+
+</p></div><details class="sub" id="b10-z"><summary>Dinámica de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema10_10_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen:aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen:aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen1;aplicada_dinamica_r_dr2_problema10_10_za_htm_formula:aplicada_dinamica_r_dr2_problema10_10_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                F</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen:aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen2;aplicada_dinamica_r_dr2_problema10_10_za_htm_formula:aplicada_dinamica_r_dr2_problema10_10_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen:aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen3;aplicada_dinamica_r_dr2_problema10_10_za_htm_formula:aplicada_dinamica_r_dr2_problema10_10_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen:aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen4;aplicada_dinamica_r_dr2_problema10_10_za_htm_formula:aplicada_dinamica_r_dr2_problema10_10_za_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen" width="23%"><div align="center"><img height="151" src="dr2/problema10/imagenes/10_02.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante</p><p class="m50">Como la aceleración tiene el sentido de las agujas 
+        del reloj M<sub>F</sub> tiene que ser mayor que M<sub>T</sub></p><p class="m150">M = R<sub>1</sub>·F - R<sub>2</sub>·T  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="151" src="dr2/problema10/imagenes/10_02.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="151" src="dr2/problema10/imagenes/10_03.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="151" src="dr2/problema10/imagenes/10_04.png" width="148"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="151" src="dr2/problema10/imagenes/10_05.png" width="148"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema10_10_za_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="151" src="dr2/problema10/imagenes/10_06.png" width="148"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema10_10_za_htm_formula1" style="display:none">
+<p class="m50">M<sub>F</sub> = R<sub>1</sub>·F·sen 90 
+              = R·T<sub>1</sub>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema10_10_za_htm_formula2" style="display:none">
+<p class="m50">M<sub>T</sub> = R<sub>2</sub>·T·sen 90 
+              = R·T<sub>2</sub>g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema10_10_za_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema10_10_za_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b8">
+<div class="enun"><span class="num">6</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="22%"><div align="center"><img height="103" src="dr2/problema8/imagenes/8_00.gif" width="109"/></div></td>
+<td width="78%"><p><strong><font color="#0000FF">El sistema se encuentra 
+              en equilibrio. Determina la elongación del muelle</font></strong></p>
+<p><font color="#0000FF"><strong> Datos: m =10 kg, R<sub>1</sub> = 
+              40 cm, R<sub>2</sub> = 20 cm, k = 5 kp/cm</strong></font></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema8_8_0_htm_celda1" width="18%"> </td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_0_htm_celda2" width="38%"> </td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_0_htm_celda3" width="44%">
+<div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td></tr>
+</table>
+</td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b8a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="33%"><img height="248" src="dr2/problema8/imagenes/8_06.png" width="280"/></td>
+<td width="67%"><p>Observa que la normal está inclinada para 
+              compensar la fuerza del muelle hacia la izquierda y los pesos hacia 
+              abajo </p>
+<p>Rotación de la polea:</p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-go="b8-z" height="20" src="dr2/problema8/formulas/8_01.gif" width="116"/></p>
+<p>Como el sistema está en equilibrio T = m·g</p>
+<p>La fuerza elástica del muelle es: F<sub>E</sub> = k·d 
+            </p></td>
+</tr>
+</table><p class="m150"><img align="middle" height="97" src="dr2/problema8/formulas/8_04.gif" width="238"/>  
+      </p><p class="m50">Curiosidad: si el bloque se hubiera colgado directamente 
+        del muelle éste se habría estirado 2 cm</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema8_8_a_htm_imagen0" width="29%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_01.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_a_htm_imagen1" width="26%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_02.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_a_htm_imagen2" width="22%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_03.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_a_htm_imagen3" width="23%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_04.png" width="151"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema8_8_a_htm_imagen4" rowspan="4">
+<div align="center"><img height="167" src="dr2/problema8/imagenes/8_05.png" width="151"/></div></td>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema8_8_a_htm_formula1"> <p class="m50">M<sub>FE</sub> = R<sub>1</sub>·F<sub>E</sub>·sen 
+              90  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p>
+<p class="m50">M<sub>FE</sub> = R<sub>1</sub>·k·d  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p>
+<p class="m50">d es la elongación del muelle</p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema8_8_a_htm_formula2"><p class="m50">M<sub>T</sub> = R<sub>2</sub>·T·sen 
+              90  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+<p class="m50">M<sub>T</sub> = R<sub>2</sub>·m·g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+<p class="m50">Si la polea está en equilibrio T = m·g</p>
+</td>
+</tr>
+<tr>
+<td colspan="3" height="40" id="aplicada_dinamica_r_dr2_problema8_8_a_htm_formula3"> <p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema8_8_a_htm_formula4"><p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td>
+</tr>
+</table></div><details class="sub" id="b8-z"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema8_8_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen:aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen:aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen1;aplicada_dinamica_r_dr2_problema8_8_za_htm_formula:aplicada_dinamica_r_dr2_problema8_8_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                F<sub>E</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen:aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen2;aplicada_dinamica_r_dr2_problema8_8_za_htm_formula:aplicada_dinamica_r_dr2_problema8_8_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen:aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen3;aplicada_dinamica_r_dr2_problema8_8_za_htm_formula:aplicada_dinamica_r_dr2_problema8_8_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen:aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen4;aplicada_dinamica_r_dr2_problema8_8_za_htm_formula:aplicada_dinamica_r_dr2_problema8_8_za_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen" width="24%"><div align="center"><img height="167" src="dr2/problema8/imagenes/8_01.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_formula" width="61%">  </td>
+</tr>
+</table><p class="m50">Momento resultante:</p><p class="m150">M = R<sub>1</sub>·F<sub>E</sub> - R<sub>2</sub>·T</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_01.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_02.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_03.png" width="151"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="167" src="dr2/problema8/imagenes/8_04.png" width="151"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema8_8_za_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="167" src="dr2/problema8/imagenes/8_05.png" width="151"/></div></td>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema8_8_za_htm_formula1" style="display:none"> <p class="m50">M<sub>FE</sub> = R<sub>1</sub>·F<sub>E</sub>·sen 
+              90  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p>
+</td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema8_8_za_htm_formula2" style="display:none"><p class="m50">M<sub>T</sub> = R<sub>2</sub>·T·sen 
+              90  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p>
+</td>
+</tr>
+<tr>
+<td colspan="3" height="40" id="aplicada_dinamica_r_dr2_problema8_8_za_htm_formula3" style="display:none"> <p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td>
+</tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema8_8_za_htm_formula4" style="display:none"><p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td>
+</tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b6">
+<div class="enun"><p><span class="num">7</span><strong><font color="#0000FF">Un volante adquiere rotación 
+        por el peso de un cuerpo de 8 kg, suspendido de una cuerda arrollada a 
+        su eje de 10 cm de radio. El peso recorre 2 m en 4 s. Calcula el momento 
+        de inercia del volante</font></strong></p></div>
+<p class="meta"><a class="enlace_texto var" data-go="b9">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Ecuaciones del movimiento del bloque</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="75" src="dr2/problema6/imagenes/6_05.png" width="49"/></div></td>
+<td width="23%"><div align="right"><img height="70" src="dr2/problema6/formulas/6_05.gif" width="90"/></div></td>
+<td width="53%"><p class="m50">Parámetros:</p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-go="b6-w" height="46" src="dr2/problema6/formulas/6_07.gif" width="89"/></p></td>
+</tr>
+</table><p class="m50">Aplicación:</p><p class="m50">Datos: t<sub>1</sub> = 4 s, y<sub>1</sub> = -2 m</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="93" src="dr2/problema6/imagenes/6_06.png" width="48"/></div></td>
+<td width="76%"><p><img height="36" src="dr2/problema6/formulas/6_06.gif" width="89"/></p>
+</td>
+</tr>
+</table><p class="m150"><img height="181" src="dr2/problema6/formulas/6_08.gif" width="373"/></p></div><details class="sub" id="b6-w"><summary>Aceleración del bloque</summary><div class="sol"><div class="pasos"><p class="m50">Evidentemente el bloque bajará y la 
+        polea girará en sentido contrario al de las agujas del reloj</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="27%"><div align="center"><img height="254" src="dr2/problema6/imagenes/6_01.png" width="107"/></div></td>
+<td width="73%"> <p>Traslación del bloque:</p>
+<p class="m50"><img height="20" src="dr2/problema6/formulas/6_01.gif" width="98"/></p>
+</td>
+</tr>
+<tr>
+<td><p>Rotación de la polea:</p>
+<p class="m50"><img border="0" class="enlace_imagen" height="20" src="dr2/problema6/formulas/6_02.gif" width="65"/></p>
+</td>
+</tr>
+<tr>
+<td><p>Relación entre traslación y rotación:</p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-ac="ac5" height="20" src="dr2/problema6/formulas/6_03.gif" width="53"/></p></td>
+</tr>
+</table><p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con tres incógnitas: T, a, α</p><p class="m150"><img border="0" height="156" src="dr2/problema6/formulas/6_04.gif" style="" width="106"/></p></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="b9" hidden>
+<div class="enun"><p><span class="num">0</span><b><font color="#0000FF">En una rueda de radio 50 cm, 
+        con un eje horizontal que pasa por su centro, se ha enrollado una cuer-da 
+        de la que cuelga un cuerpo de masa 5 kg. La rueda está formada 
+        por un anillo uniforme de 5 kg y varios radios de masa despreciable Calcula:</font></b></p><p><font color="#0000FF"><b> <span class="enlace_texto" data-go="b9a">a</span>) 
+        La tensión de la cuerda  <span class="enlace_texto" data-go="b9b">b</span> 
+        ) Tiempo que tarda en desenrollarse 1 m de cuerda</b></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b9a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Evidentemente la polea comenzará a girar en el sentido 
+        contrario al de las agujas del reloj </p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="27%"><div align="center"><img height="262" src="dr2/problema9/imagenes/9_04.png" width="85"/></div></td>
+<td height="86" width="73%">
+<p>Traslación del bloque:</p>
+<p class="m50"><img height="20" src="dr2/problema9/formulas/9_03.gif" width="98"/></p>
+</td>
+</tr>
+<tr>
+<td height="104">
+<p>Rotación de la polea:</p>
+<p class="m50"><img border="0" class="enlace_imagen enlace_texto" data-go="b9-z" height="20" src="dr2/problema9/formulas/9_04.gif" width="65"/></p>
+</td>
+</tr>
+<tr>
+<td><p class="enlace_texto" data-ac="ac0">Relación 
+              entre traslación y rotación:</p>
+<p align="left" class="m50"><img class="enlace_imagen enlace_texto" data-ac="ac0" height="20" src="dr2/problema9/formulas/9_05.gif" width="53"/></p></td>
+</tr>
+</table><p class="m50">Combinando las expresiones anteriores resulta un sistema 
+        con tres incógnitas: T, a, α</p><p class="m100"><img border="0" height="89" src="dr2/problema9/formulas/9_06.gif" style="" width="338"/></p><p class="m100"><img border="0" height="230" src="dr2/problema9/formulas/9_07.gif" style="" width="302"/>
+</p></div><details class="sub" id="b9-z"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema9_9_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen:aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen:aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen1;aplicada_dinamica_r_dr2_problema9_9_za_htm_formula:aplicada_dinamica_r_dr2_problema9_9_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen:aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen2;aplicada_dinamica_r_dr2_problema9_9_za_htm_formula:aplicada_dinamica_r_dr2_problema9_9_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen:aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen3;aplicada_dinamica_r_dr2_problema9_9_za_htm_formula:aplicada_dinamica_r_dr2_problema9_9_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen" width="23%"><div align="center"><img height="166" src="dr2/problema9/imagenes/9_05.png" width="126"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema9_9_za_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante:</p><p class="m150">M = R·T  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p><p class="m50">Observa que el sentido del momento coincide con el de la 
+        aceleración</p><p class="m50">Ecuación de la dinámica de rotación:</p><p class="m150"><img align="middle" height="20" src="dr2/problema9/formulas/9_10.gif" width="65"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen0" style="display:none" width="29%">
+<div align="center"><img height="166" src="dr2/problema9/imagenes/9_05.png" width="126"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen1" style="display:none" width="26%">
+<div align="center"><img height="166" src="dr2/problema9/imagenes/9_06.png" width="126"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen2" style="display:none" width="22%">
+<div align="center"><img height="166" src="dr2/problema9/imagenes/9_07.png" width="126"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema9_9_za_htm_imagen3" style="display:none" width="23%">
+<div align="center"><img height="166" src="dr2/problema9/imagenes/9_08.png" width="126"/></div></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema9_9_za_htm_formula1" style="display:none">
+<p class="m50">M<sub>T</sub> = R·T·sen 90  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema9_9_za_htm_formula2" style="display:none"> <p class="m50">M<sub>Mg</sub> = 0 (Está 
+              aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_dr2_problema9_9_za_htm_formula3" style="display:none"> <p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td>
+<td colspan="2"> </td>
+</tr>
+</table></div></div></details></section>
+<section class="ap" id="b9b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><p class="m50">Se desenrollará 1 m de cuerda cuando el bloque baje 
+        1 m</p><p class="m50">Ecuaciones del movimiento del bloque</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="75" src="dr2/problema9/imagenes/9_01.png" width="49"/></div></td>
+<td width="23%"><div align="right"><img height="70" src="dr2/problema9/formulas/9_11.gif" width="90"/></div></td>
+<td width="53%"><p class="m50">Parámetros</p>
+<p class="m50">a = 4.9 m/s<sup>2</sup></p></td>
+</tr>
+</table><p class="m50">Aplicación</p><p class="m50">Datos: y<sub>1</sub> = -1 m,  Incógnitas: t<sub>1</sub></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="93" src="dr2/problema9/imagenes/9_02.png" width="48"/></div></td>
+<td width="76%"><img height="105" src="dr2/problema9/formulas/9_12.gif" width="222"/></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="b3">
+<div class="enun"><span class="num">8</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="152" width="16%">
+<div align="center"><img height="122" src="dr2/problema3/imagenes/3_00.gif" width="63"/></div></td>
+<td width="84%"><p><strong><font color="#0000FF">Calcula la aceleración 
+              angular de la polea, la lineal de los bloques y las tensiones de 
+              la cuerda suponiendo m<sub>2</sub> &gt; m<sub>1</sub>. La polea 
+              tiene radio R y masa M:</font></strong></p>
+<p><strong><font color="#0000FF"> a) Distribuída homogenéamente 
+               b) Concentrada en la periferia</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema3_3_0_htm_celda1" width="20%"> </td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_0_htm_celda2" width="45%"> <p align="center"> </p></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_0_htm_celda3" width="35%">
+<p align="right"><span class="enlace_texto">Lista 
+                    problemas</span>    </p></td></tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="b3a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac7" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">La polea comenzará a girar en el <span class="enlace_texto" data-go="b3-z">sentido 
+        de las agujas del reloj</span> el bloque 2 empezará a bajar y el 
+        bloque 1 empezará a subir, ambos con igual aceleración</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="27%"><div align="center"><img height="262" src="dr2/problema3/imagenes/3_07.png" width="148"/></div></td>
+<td width="73%"> <p>Traslación de los bloques:</p>
+<p class="m50"><img height="54" src="dr2/problema3/formulas/3_01.gif" width="122"/></p>
+<p>Rotación de la polea:</p>
+<p class="m50"><img border="0" class="enlace_imagen enlace_texto" data-go="b3-w" height="20" src="dr2/problema3/formulas/3_02.gif" width="118"/></p>
+<p>Relación entre traslación y rotación: </p>
+<p class="m50"><img class="enlace_imagen enlace_texto" data-ac="ac5" height="20" src="dr2/problema3/formulas/3_03.gif" width="53"/></p>
+</td>
+</tr>
+</table><p class="m50">Combinando las tres expresiones resulta un sistema con tres 
+        incógnitas: T, a, α</p><p class="m150"><img border="0" height="126" src="dr2/problema3/formulas/3_04.gif" style="" width="556"/>
+
+</p><p class="m50">Sustituyendo <span class="enlace_texto" data-ac="ac6">el 
+        momento de inercia</span></p><p class="m150"><img border="0" height="233" src="dr2/problema3/formulas/3_05.gif" style="" width="349"/>
+</p><p class="m50">Observa que si la masa de la polea es cero las tensiones 
+        en los extremos de la cuerda, durante el movimiento, son iguales </p></div><details class="sub" id="b3-z"><summary>Sentido de giro de la polea</summary><div class="sol"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="174" src="dr2/problema3/imagenes/3_01.png" width="114"/></div></td>
+<td width="74%"><p>Mientras la mano sujete la polea:</p>
+<p class="m50">T<sub>1</sub> = m<sub>1</sub>g</p>
+<p class="m50">T<sub>2</sub> = m<sub>2</sub>g</p></td>
+</tr>
+</table><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema3_3_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen1;aplicada_dinamica_r_dr2_problema3_3_za_htm_formula:aplicada_dinamica_r_dr2_problema3_3_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen2;aplicada_dinamica_r_dr2_problema3_3_za_htm_formula:aplicada_dinamica_r_dr2_problema3_3_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub> </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen3;aplicada_dinamica_r_dr2_problema3_3_za_htm_formula:aplicada_dinamica_r_dr2_problema3_3_za_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen4;aplicada_dinamica_r_dr2_problema3_3_za_htm_formula:aplicada_dinamica_r_dr2_problema3_3_za_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen" width="23%"><div align="center"><img height="176" src="dr2/problema3/imagenes/3_02.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante:</p><p class="m150">M = R·m<sub>2</sub>g - R·m<sub>1</sub>g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><p class="m50">Este momento hará que la polea comience a girar en 
+        el sentido de las agujas del reloj</p><p class="m50"><font color="#FF0000">Al girar la polea cambiarán 
+        las tensiones de la cuerda y dejará de ser iguales respectivamente 
+        a los pesos de los bloques</font></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_02.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_03.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_04.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_05.png" width="147"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema3_3_za_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="176" src="dr2/problema3/imagenes/3_06.png" width="147"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema3_3_za_htm_formula1" style="display:none">
+<p class="m50">M<sub>T1</sub> = R·T<sub>1</sub>·sen 
+              90 = R·m<sub>1</sub>g  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema3_3_za_htm_formula2" style="display:none">
+<p class="m50">M<sub>T2</sub> = R·T<sub>2</sub>·sen 
+              90 = R·m<sub>2</sub>g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema3_3_za_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema3_3_za_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details><details class="sub" id="b3-w"><summary>Dinámica de rotación 
+        de la polea</summary><div class="sol"><div class="pasos"><p class="m50">Momentos respecto al eje:</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%"> <div align="left"></div>
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen1;aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula:aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>1</sub></p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen2;aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula:aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                T<sub>2</sub> </p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen3;aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula:aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                Mg</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen:aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen4;aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula:aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula4" name="radiobutton" type="radio" value="radiobutton"/>
+                N</p>
+</form>
+</td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen" width="23%"><div align="center"><img height="176" src="dr2/problema3/imagenes/3_08.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula" width="62%">  </td>
+</tr>
+</table><p class="m50">Momento resultante</p><p class="m50">Como la aceleración tiene el sentido de las agujas 
+        del reloj M<sub>T2</sub> tiene que ser mayor que M<sub>T1</sub></p><p class="m150">M = R·T<sub>2</sub> - R·T<sub>1</sub>  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen0" style="display:none" width="29%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_08.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen1" style="display:none" width="26%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_03.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen2" style="display:none" width="22%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_04.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen3" style="display:none" width="23%"> <div align="center"><img height="176" src="dr2/problema3/imagenes/3_05.png" width="147"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_imagen4" rowspan="4" style="display:none">
+<div align="center"><img height="176" src="dr2/problema3/imagenes/3_06.png" width="147"/></div></td>
+<td colspan="3" height="52" id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula1" style="display:none">
+<p class="m50">M<sub>T1</sub> = R·T<sub>1</sub>·sen 
+              90 = R·T<sub>1</sub>  <img align="middle" height="28" src="sentido/1_01.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula2" style="display:none">
+<p class="m50">M<sub>T2</sub> = R·T<sub>2</sub>·sen 
+              90 = R·T<sub>2</sub>g  <img align="middle" height="28" src="sentido/1_02.gif" width="24"/></p></td></tr>
+<tr>
+<td colspan="3" height="55" id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula3" style="display:none">
+<p class="m50">M<sub>Mg</sub> 
+              = 0 (Está aplicado en el eje)</p></td></tr>
+<tr>
+<td colspan="3" id="aplicada_dinamica_r_dr2_problema3_3_wa_htm_formula4" style="display:none">
+<p class="m50">M<sub>N</sub> = 0 (Está 
+              aplicada en el eje)</p></td></tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+</section>
+<section class="seccion" id="mdi"><h2>Momentos de inercia</h2>
+<div class="prob" id="c9">
+<div class="enun"><p><span class="num">1</span><b><font color="#0000FF">En los vértices de un 
+        triángulo rectángulo ABC están colocadas sendas masas 
+        puntuales mA = 50 g, mB = 30 g, mC = 40 g. Calcula el momento de inercia 
+        del sistema respecto a:<br/>
+</font></b><b><font color="#0000FF"><b><font color="#0000FF"><span class="enlace_texto" data-go="c9a">a</span></font></b>) 
+        Un eje perpendicular al plano del triángulo y que pasa por B <br/>
+<b><font color="#0000FF"><span class="enlace_texto" data-go="c9b">b</span></font></b>) 
+        Un eje que coincide con el lado AC<br/>
+</font></b><b><font color="#0000FF">Datos: (AB = 10, AC = 8 , BC = 6) 
+        cm</font></b><font color="#0000FF"></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c9a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac0" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="31%"><div align="center"><img height="151" src="mdi/problema9/imagenes/9_01.png" width="145"/></div></td>
+<td width="69%"><p class="m50"><img height="68" src="mdi/problema9/formulas/9_01.gif" width="330"/></p></td>
+</tr>
+</table></div></section>
+<section class="ap" id="c9b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac0" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="31%"><div align="center"><img height="160" src="mdi/problema9/imagenes/9_02.png" width="145"/></div></td>
+<td width="69%"><p class="m50"><img height="68" src="mdi/problema9/formulas/9_02.gif" width="220"/></p></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="c6">
+<div class="enun"><p><span class="num">2</span><b><font color="#0000FF">En los vértices de un 
+        rectángulo de dimensiones a, b (a &gt; b) están colocadas 
+        masas de valor m. Halla el momento de inercia del conjunto respecto a: 
+        <br/>
+</font></b><font color="#0000FF"><b><font color="#0000FF"><span class="enlace_texto" data-go="c6a">a</span></font>) 
+        Un eje que pasa por el lado mayor <br/>
+<font color="#0000FF"><span class="enlace_texto" data-go="c6b">b</span></font>) 
+        Un eje que pasa por el lado menor <br/>
+<font color="#0000FF"><span class="enlace_texto" data-go="c6c">c</span></font>) 
+        Un eje que coincide con la diagonal</b></font></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c6a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="31%"><img height="141" src="mdi/problema6/imagenes/6_01.png" width="205"/></td>
+<td width="69%"><p class="m50"><img height="60" src="mdi/problema6/formulas/6_01.gif" width="212"/></p></td>
+</tr>
+</table></div></section>
+<section class="ap" id="c6b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="31%"><div align="center"><img height="142" src="mdi/problema6/imagenes/6_02.png" width="162"/></div></td>
+<td width="69%"><p class="m50"><img height="60" src="mdi/problema6/formulas/6_02.gif" width="210"/></p></td>
+</tr>
+</table></div></section>
+<section class="ap" id="c6c"><div class="aph"><b>c)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="31%"><div align="center"><img height="144" src="mdi/problema6/imagenes/6_03.png" width="190"/></div></td>
+<td width="69%"><p class="m50"><img height="24" src="mdi/problema6/formulas/6_03.gif" width="212"/></p>
+<p class="m50"><img alt="Clic para aclaración" class="enlace_imagen enlace_texto" data-go="c6-z" height="46" src="mdi/problema6/formulas/6_04.gif" width="92"/></p>
+<p class="m50"><img height="61" src="mdi/problema6/formulas/6_05.gif" width="330"/></p></td>
+</tr>
+</table></div><details class="sub" id="c6-z"><summary>Cálculo de 
+        la distancia al eje</summary><div class="sol"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="17%"><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema6_6_za_htm_form1" method="post" name="form1">
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen:aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                Restaurar</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen:aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen1;aplicada_dinamica_r_mdi_problema6_6_za_htm_formula:aplicada_dinamica_r_mdi_problema6_6_za_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                1</p>
+<p>
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen:aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen2;aplicada_dinamica_r_mdi_problema6_6_za_htm_formula:aplicada_dinamica_r_mdi_problema6_6_za_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                2 </p>
+</form></td>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen" width="30%">
+<div align="center"><img height="149" src="mdi/problema6/imagenes/6_04.png" width="194"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_formula" width="53%"> </td>
+</tr>
+</table><p class="m150"><img height="46" src="mdi/problema6/formulas/6_08.gif" width="233"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen0" style="display:none" width="32%">
+<div align="center"><img height="149" src="mdi/problema6/imagenes/6_04.png" width="194"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen1" style="display:none" width="36%">
+<div align="center"><img height="149" src="mdi/problema6/imagenes/6_05.png" width="194"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_imagen2" style="display:none" width="32%"><div align="center"><img height="149" src="mdi/problema6/imagenes/6_06.png" width="194"/></div></td>
+</tr>
+</table>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_formula1" style="display:none" width="49%">
+<div align="center"><img height="46" src="mdi/problema6/formulas/6_06.gif" width="121"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema6_6_za_htm_formula2" style="display:none" width="51%">
+<div align="center"><img height="37" src="mdi/problema6/formulas/6_07.gif" width="69"/></div></td></tr>
+</table>
+</td>
+</tr>
+</table></div></div></details></section>
+</div></details>
+</div>
+<div class="prob" id="c3">
+<div class="enun"><p><span class="num">3</span><font color="#0000FF"><span class="enlace_texto" data-go="c3a"><strong>a</strong></span><strong>) 
+        Calcula el momento de inercia de una varilla (Masa m, longitud L) respecto 
+        a un eje perpendicular a distancia L/4 de un extremo<br/>
+<span class="enlace_texto" data-go="c3b">b</span>) Calcula 
+        el momento de inercia de un disco homogéneo (Masa m, radio R) respecto 
+        a un eje perpen-dicular por su extremo<br/>
+<span class="enlace_texto" data-go="c3c">c</span>) El 
+        momento de inercia de un cuerpo de masa 2 kg respecto a un eje que pasa 
+        a 0.5 m del c.d.m vale 1 kg·m<sup>2</sup>. Calcula el momento de 
+        inercia respecto a un eje paralelo situado 0.3 m al otro lado del c.d.m 
+        </strong></font><b><br/>
+</b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c3a"><div class="aph"><b>a)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="94" src="mdi/problema3/imagenes/3_01.gif" width="151"/></div></td>
+<td width="74%"><p>Aplicando el  <span class="enlace_texto" data-ac="ac12">teorema 
+              de Steiner</span></p>
+<p class="m50"><img height="84" src="mdi/problema3/formulas/3_01.gif" width="313"/></p></td>
+</tr>
+</table></div></section>
+<section class="ap" id="c3b"><div class="aph"><b>b)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac12" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="26%"><div align="center"><img height="93" src="mdi/problema3/imagenes/3_02.gif" width="111"/></div></td>
+<td width="74%"><p>Aplicando el  <span class="enlace_texto" data-ac="ac12">teorema 
+              de Steiner</span></p>
+<p class="m50"><img height="78" src="mdi/problema3/formulas/3_02.gif" width="184"/></p></td>
+</tr>
+</table></div></section>
+<section class="ap" id="c3c"><div class="aph"><b>c)</b><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="24%"><div align="center"><img height="125" src="mdi/problema3/imagenes/3_03.gif" width="152"/></div></td>
+<td width="76%"><p>El  <font color="#0000FF"> <span class="enlace_texto" data-ac="ac12">teorema 
+              de Steiner</span></font> no se puede aplicar entre dos ejes paralelos 
+              cualesquiera, uno de ellos tiene que pasar por el c.d.m del cuerpo, 
+              así que aplicamos dos veces el susodicho teorema:</p>
+<p class="m50"><img border="0" height="68" src="mdi/problema3/formulas/3_03.gif" style="" width="366"/></p></td>
+</tr>
+</table><p class="m150"><img height="25" src="mdi/problema3/formulas/3_04.gif" width="396"/></p></div></section>
+</div></details>
+</div>
+<div class="prob" id="c1">
+<div class="enun"><span class="num">4</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center"><img height="99" src="mdi/problema1/imagenes/1_00.gif" width="99"/></div></td>
+<td width="86%"><p><strong><font color="#0000FF">Calcular el momento 
+              de inercia del cuerpo respecto al eje indicado</font></strong></p>
+<p><strong><font color="#0000FF">La</font><font color="#0000FF">s 
+              varillas son iguales. Masa: m Longitud: L</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema1_1_0_htm_celda1" width="29%"> </td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_0_htm_celda2" width="26%"><p align="center"> </p></td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_0_htm_celda3" width="45%"> <div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Descomponemos el cuerpo dado en cuerpos regulares cuyo 
+        momento de inercia se conoce</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="17%"><div align="center">
+<p> </p><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema1_1_a_htm_form1" method="post" name="form1">
+<p align="left">
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen:aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Restaurar </p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen:aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen1;aplicada_dinamica_r_mdi_problema1_1_a_htm_formula:aplicada_dinamica_r_mdi_problema1_1_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen:aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen2;aplicada_dinamica_r_mdi_problema1_1_a_htm_formula:aplicada_dinamica_r_mdi_problema1_1_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2</p>
+</form>
+</div></td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen" width="21%">
+<div align="center"><img height="137" src="mdi/problema1/imagenes/1_01.png" width="142"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_formula" width="62%"> <p class="m50"> </p></td>
+</tr>
+</table><p class="m50">Los momentos de inercia respecto al mismo eje son aditivos:</p><p class="m150"><img height="94" src="mdi/problema1/formulas/1_03.gif" width="173"/></p><p class="m50">También se podría descomponer el cuerpo en 
+        cuatro varillas de masa m/2 y longitud L/2 unidas por sus extremos, el 
+        momento de inercia sería entonces:</p><p class="m150"><img height="54" src="mdi/problema1/formulas/1_04.gif" width="173"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen0" rowspan="2" style="display:none" width="20%"><img height="137" src="mdi/problema1/imagenes/1_01.png" width="142"/></td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen1" rowspan="2" style="display:none" width="20%"><img height="137" src="mdi/problema1/imagenes/1_02.png" width="142"/></td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_imagen2" rowspan="2" style="display:none" width="20%"><img height="137" src="mdi/problema1/imagenes/1_03.png" width="142"/></td>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_formula1" style="display:none" width="40%">
+<p class="m50"><img height="40" src="mdi/problema1/formulas/1_01.gif" width="69"/></p></td></tr>
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema1_1_a_htm_formula2" style="display:none">
+<p class="m50"><img height="40" src="mdi/problema1/formulas/1_02.gif" width="69"/></p></td></tr>
+</table></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="c2">
+<div class="enun"><span class="num">5</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center"><img height="105" src="mdi/problema2/imagenes/2_00.gif" width="82"/></div></td>
+<td width="86%"><p><strong><font color="#0000FF">Calcular el momento 
+              de inercia del conjunto respecto al eje indicado</font></strong></p>
+<p><strong><font color="#0000FF">La</font><font color="#0000FF">s 
+              varillas son iguales. Masa: m Longitud: L</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema2_2_0_htm_celda1" width="29%"> </td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_0_htm_celda2" width="26%"><p align="center"> </p></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_0_htm_celda3" width="45%"> <div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Descomponemos el cuerpo dado en cuerpos regulares cuyo 
+        momento de inercia se conoce</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="17%"><div align="center">
+<p> </p><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema2_2_a_htm_form1" method="post" name="form1">
+<p align="left">
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen:aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Restaurar </p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen:aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen1;aplicada_dinamica_r_mdi_problema2_2_a_htm_formula:aplicada_dinamica_r_mdi_problema2_2_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen:aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen2;aplicada_dinamica_r_mdi_problema2_2_a_htm_formula:aplicada_dinamica_r_mdi_problema2_2_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen:aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen3;aplicada_dinamica_r_mdi_problema2_2_a_htm_formula:aplicada_dinamica_r_mdi_problema2_2_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 </p>
+</form>
+</div></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen" width="21%">
+<div align="center"><img height="175" src="mdi/problema2/imagenes/2_01.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_formula" width="62%"> <p class="m50"> </p></td>
+</tr>
+</table><p class="m50">Los momentos de inercia respecto al mismo eje son aditivos:</p><p class="m150"><img height="94" src="mdi/problema2/formulas/2_04.gif" width="200"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td colspan="3"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen0" style="display:none" width="22%"><div align="center"><img height="175" src="mdi/problema2/imagenes/2_01.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen1" style="display:none" width="16%"><div align="center"><img height="175" src="mdi/problema2/imagenes/2_02.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen2" style="display:none" width="31%"><div align="center"><img height="175" src="mdi/problema2/imagenes/2_03.png" width="147"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_imagen3" style="display:none" width="31%">
+<div align="center"><img height="175" src="mdi/problema2/imagenes/2_04.png" width="147"/></div></td></tr>
+</table></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_formula1" style="display:none" width="29%">
+<p align="center">I<sub>1</sub> = 0</p>
+<p>Todos los puntos de la varilla están en el eje</p></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_formula2" style="display:none" width="19%">
+<div align="center"><img height="41" src="mdi/problema2/formulas/2_02.gif" width="72"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema2_2_a_htm_formula3" style="display:none" width="52%">
+<div align="center">
+<p>I<sub>3</sub> = m·L<sup>2</sup></p>
+<p align="left">Todos los puntos de la varilla están a distancia 
+                L del eje</p>
+<p align="left"> <strong><font color="#FF0000">Otra forma</font><br/>
+</strong>El momento de inercia de la varilla respecto a su eje 
+                longitudinal es 0. Aplicando el <span class="enlace_texto" data-ac="ac12">teorema 
+                de Steiner</span> resulta: I<sup><sub>3</sub></sup> = 0 + m·L<sup>2</sup></p>
+</div></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="c4">
+<div class="enun"><span class="num">6</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center"><img height="94" src="mdi/problema4/imagenes/4_00.gif" width="73"/></div></td>
+<td width="86%"><p><strong><font color="#0000FF">Calcular el momento 
+              de inercia del conjunto respecto al eje indicado</font></strong></p>
+<p><strong><font color="#0000FF">Cilindros Masas: m<sub>1</sub>, m<sub>2</sub>  
+              Radios: R<sub>1</sub> , R<sub>2</sub></font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema4_4_0_htm_celda1" width="29%"> </td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_0_htm_celda2" width="26%"><p align="center"> </p></td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_0_htm_celda3" width="45%"> <div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Descomponemos el cuerpo dado en cuerpos regulares cuyo 
+        momento de inercia se conoce </p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="17%"><div align="center">
+<p> </p><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema4_4_a_htm_form1" method="post" name="form1">
+<p align="left">
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen:aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Restaurar </p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen:aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen1;aplicada_dinamica_r_mdi_problema4_4_a_htm_formula:aplicada_dinamica_r_mdi_problema4_4_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen:aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen2;aplicada_dinamica_r_mdi_problema4_4_a_htm_formula:aplicada_dinamica_r_mdi_problema4_4_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2</p>
+</form>
+</div></td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen" width="21%">
+<div align="center"><img height="132" src="mdi/problema4/imagenes/4_01.png" width="144"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_formula" width="62%"> <p class="m50"> </p></td>
+</tr>
+</table><p class="m50">Los momentos de inercia respecto al mismo eje son aditivos:</p><p class="m150"><img height="92" src="mdi/problema4/formulas/4_03.gif" width="197"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="100%"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen0" rowspan="2" style="display:none" width="21%"><div align="center"><img height="132" src="mdi/problema4/imagenes/4_01.png" width="144"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen1" rowspan="2" style="display:none" width="21%"><div align="center"><img height="132" src="mdi/problema4/imagenes/4_02.png" width="144"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_imagen2" rowspan="2" style="display:none" width="19%"> <div align="center"><img height="132" src="mdi/problema4/imagenes/4_03.png" width="144"/></div>
+<div align="center"></div></td>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_formula1" style="display:none"> <div align="left">
+<p class="m50"><img height="42" src="mdi/problema4/formulas/4_01.gif" width="81"/></p>
+</div>
+<div align="center"></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema4_4_a_htm_formula2" style="display:none"><p class="m50"><img height="42" src="mdi/problema4/formulas/4_02.gif" width="81"/></p></td>
+</tr>
+</table></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="c5">
+<div class="enun"><span class="num">7</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center"><img height="110" src="mdi/problema5/imagenes/5_00.gif" width="51"/></div></td>
+<td width="86%"><p><strong><font color="#0000FF">Calcular el momento 
+              de inercia del conjunto respecto al eje indicado</font></strong></p>
+<p><strong><font color="#0000FF">Disco: Masa: m<sub>1</sub>  
+              Radio: R<br/>
+              Varilla:  Masa: m<sub>2</sub>  Longitud: L</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema5_5_0_htm_celda1" width="29%"> </td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_0_htm_celda2" width="26%"><p align="center"><span class="enlace_texto">Variante</span></p></td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_0_htm_celda3" width="45%"> <div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></div>
+<p class="meta"><a class="enlace_texto var" data-go="c8">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Descomponemos el cuerpo dado en cuerpos regulares cuyo 
+        momento de inercia se conoce</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="17%"><div align="center">
+<p> </p><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema5_5_a_htm_form1" method="post" name="form1">
+<p align="left">
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen:aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Restaurar </p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen:aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen1;aplicada_dinamica_r_mdi_problema5_5_a_htm_formula:aplicada_dinamica_r_mdi_problema5_5_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen:aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen2;aplicada_dinamica_r_mdi_problema5_5_a_htm_formula:aplicada_dinamica_r_mdi_problema5_5_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2</p>
+</form>
+</div></td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen" width="21%">
+<div align="center"><img height="160" src="mdi/problema5/imagenes/5_01.png" width="112"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_formula" width="62%"> <p class="m50"> </p></td>
+</tr>
+</table><p class="m50">Los momentos de inercia respecto al mismo eje son aditivos:</p><p class="m150"><img height="105" src="mdi/problema5/formulas/5_03.gif" width="301"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="100%"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen0" rowspan="2" style="display:none" width="21%"><div align="center"><img height="160" src="mdi/problema5/imagenes/5_01.png" width="112"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen1" rowspan="2" style="display:none" width="21%"><div align="center"><img height="160" src="mdi/problema5/imagenes/5_02.png" width="112"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_imagen2" rowspan="2" style="display:none" width="19%"> <div align="center"><img height="160" src="mdi/problema5/imagenes/5_03.png" width="112"/></div>
+<div align="center"></div></td>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_formula1" style="display:none"> <div align="left">
+<p>Aplicando el  <span class="enlace_texto" data-ac="ac12">teorema 
+                      de Steiner</span></p>
+<p class="m50"><img height="41" src="mdi/problema5/formulas/5_01.gif" width="172"/></p>
+</div>
+<div align="center"></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema5_5_a_htm_formula2" style="display:none"><p class="m50"><img height="41" src="mdi/problema5/formulas/5_02.gif" width="172"/></p></td>
+</tr>
+</table></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="c7">
+<div class="enun"><span class="num">8</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center"><img height="112" src="mdi/problema7/imagenes/7_00.gif" width="89"/></div></td>
+<td width="86%"><p><strong><font color="#0000FF">Calcular el momento 
+              de inercia del conjunto respecto al eje indicado</font></strong></p>
+<p><strong><font color="#0000FF">Los cilindros son iguales: Masa: 
+              m  Radio: R</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema7_7_0_htm_celda1" width="29%"> </td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_0_htm_celda2" width="26%"><p align="center"> </p></td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_0_htm_celda3" width="45%"> <div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Descomponemos el cuerpo dado en cuerpos regulares cuyo 
+        momento de inercia se conoce</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="17%"><div align="center">
+<p> </p><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema7_7_a_htm_form1" method="post" name="form1">
+<p align="left">
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen:aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Restaurar </p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen:aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen1;aplicada_dinamica_r_mdi_problema7_7_a_htm_formula:aplicada_dinamica_r_mdi_problema7_7_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen:aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen2;aplicada_dinamica_r_mdi_problema7_7_a_htm_formula:aplicada_dinamica_r_mdi_problema7_7_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2</p>
+</form>
+</div></td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen" width="26%">
+<div align="center"><img height="160" src="mdi/problema7/imagenes/7_01.png" width="137"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_formula" width="57%"> <p class="m50"> </p></td>
+</tr>
+</table><p class="m50">Los momentos de inercia respecto al mismo eje son aditivos:</p><p class="m150"><img height="85" src="mdi/problema7/formulas/7_03.gif" width="324"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="100%"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen0" rowspan="2" style="display:none" width="21%"><div align="center"><img height="160" src="mdi/problema7/imagenes/7_01.png" width="137"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen1" rowspan="2" style="display:none" width="21%"><div align="center"><img height="160" src="mdi/problema7/imagenes/7_02.png" width="137"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_imagen2" rowspan="2" style="display:none" width="19%"> <div align="center"><img height="160" src="mdi/problema7/imagenes/7_03.png" width="139"/></div>
+<div align="center"></div></td>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_formula1" style="display:none"> <div align="left">
+<p>Aplicando el  <span class="enlace_texto" data-ac="ac12">teorema 
+                      de Steiner</span></p>
+<p class="m50"><img height="40" src="mdi/problema7/formulas/7_01.gif" width="136"/></p>
+</div>
+<div align="center"></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema7_7_a_htm_formula2" style="display:none"><p>Aplicando el  <span class="enlace_texto" data-ac="ac12">teorema 
+                    de Steiner</span></p>
+<p class="m50"><img height="40" src="mdi/problema7/formulas/7_02.gif" width="146"/></p>
+</td>
+</tr>
+</table></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="c8">
+<div class="enun"><span class="num">9</span><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center"><img height="47" src="mdi/problema8/imagenes/8_00.gif" width="171"/></div></td>
+<td width="86%"><p><strong><font color="#0000FF">Calcular el momento 
+              de inercia del conjunto respecto al eje indicado</font></strong></p>
+<p><strong><font color="#0000FF">Las esferas son iguales: Masa: m  
+              Radio: R<br/>
+              Varilla: Masa M, Longitud: L</font></strong></p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema8_8_0_htm_celda1" width="29%"> </td>
+<td id="aplicada_dinamica_r_mdi_problema8_8_0_htm_celda2" width="26%"><p align="center"><span class="enlace_texto">Volver</span></p></td>
+<td id="aplicada_dinamica_r_mdi_problema8_8_0_htm_celda3" width="45%"> <div align="right">
+<p><span class="enlace_texto">Lista 
+                      problemas</span>    </p>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="c8a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac6" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Descomponemos el cuerpo dado en cuerpos regulares cuyo 
+        momento de inercia se conoce</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="18%"><div align="center">
+<p> </p><form action="" class="formulario" id="aplicada_dinamica_r_mdi_problema8_8_a_htm_form1" method="post" name="form1">
+<p align="left">
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen:aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Restaurar </p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen:aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen1;aplicada_dinamica_r_mdi_problema8_8_a_htm_formula:aplicada_dinamica_r_mdi_problema8_8_a_htm_formula1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen:aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen2;aplicada_dinamica_r_mdi_problema8_8_a_htm_formula:aplicada_dinamica_r_mdi_problema8_8_a_htm_formula2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen:aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen3;aplicada_dinamica_r_mdi_problema8_8_a_htm_formula:aplicada_dinamica_r_mdi_problema8_8_a_htm_formula3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 </p>
+</form>
+</div></td>
+<td id="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen" width="35%">
+<div align="center"><img height="104" src="mdi/problema8/imagenes/8_01.png" width="226"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema8_8_a_htm_formula" width="47%"> <p class="m50"> </p></td>
+</tr>
+</table><p class="m50">Los momentos de inercia respecto al mismo eje son aditivos:</p><p class="m150"><img height="154" src="mdi/problema8/formulas/8_04.gif" width="500"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="100%"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen0" style="display:none" width="21%"><div align="center"><img height="104" src="mdi/problema8/imagenes/8_01.png" width="226"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen1" style="display:none" width="21%"><div align="center"><img height="104" src="mdi/problema8/imagenes/8_02.png" width="231"/></div></td>
+<td id="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen2" style="display:none" width="19%"> <div align="center"><img height="104" src="mdi/problema8/imagenes/8_03.png" width="226"/></div>
+<div align="center"></div></td>
+</tr>
+<tr>
+<td id="aplicada_dinamica_r_mdi_problema8_8_a_htm_imagen3" rowspan="3" style="display:none"><img height="104" src="mdi/problema8/imagenes/8_04.png" width="226"/></td>
+<td colspan="2" id="aplicada_dinamica_r_mdi_problema8_8_a_htm_formula1" style="display:none">
+<p class="m50">Aplicando el  
+                    <span class="enlace_texto" data-ac="ac12">teorema 
+                    de Steiner</span></p>
+<p class="m50"><img height="45" src="mdi/problema8/formulas/8_01.gif" width="177"/></p></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_mdi_problema8_8_a_htm_formula2" style="display:none">
+<p class="m50"><img height="45" src="mdi/problema8/formulas/8_02.gif" width="177"/></p></td></tr>
+<tr>
+<td colspan="2" id="aplicada_dinamica_r_mdi_problema8_8_a_htm_formula3" style="display:none">
+<p class="m50">Aplicando el  
+                    <span class="enlace_texto" data-ac="ac12">teorema 
+                    de Steiner</span></p>
+<p class="m50"><img height="45" src="mdi/problema8/formulas/8_03.gif" width="177"/></p></td></tr>
+</table>
+<p> </p>
+<p> </p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="35%"><p> </p>
+</td>
+<td width="36%"><p> </p>
+<p><img height="45" src="mdi/problema8/formulas/8_01.gif" width="177"/></p></td>
+<td width="29%"> </td>
+</tr>
+</table>
+</td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+</section>
+<section class="hojas" id="curso"><h2>Propuestos en el curso</h2>
+<h3>hoja1</h3><ol>
+<li><a class="enlace_texto" data-go="a1">La masa puntual de 3 kg está unida a una varilla, de masa despreciable y longi-tud 1 m, con un eje perpendicular al plano de la pantalla que pasa por…</a></li>
+<li><a class="enlace_texto" data-go="a4">Una barra de 4 m y masa despreciable tiene un apoyo en su punto medio. En los extremos se suben un niño de masa m<sub>1</sub> = 30 kg y otro de masa m<sub>2</sub> = 40 kg.…</a></li>
+<li><a class="enlace_texto" data-go="a2">Suponiendo despreciable la masa de la varilla, calcula el momento sobre el sistema y su aceleración angular Datos: m<sub>1</sub> = 3 kg, m<sub>2</sub> = 2 kg, L<sub>1</sub> = 1 m, L<sub>2</sub>…</a></li>
+<li><a class="enlace_texto" data-go="a3">Suponiendo despreciable la masa de la varilla, calcula el momento sobre el sistema y su aceleración angular Datos: m<sub>1</sub> = 1 kg, m<sub>2</sub> = 2 kg, L<sub>1</sub> = 2 m, L<sub>2</sub>…</a></li>
+<li><a class="enlace_texto" data-go="a5">Una varilla homogénea de masa m y longitud L tiene un eje, perpendicular por un extremo, que le permite girar en un plano vertical. Calcula el…</a></li>
+<li><a class="enlace_texto" data-go="a6">Un disco homogéneo, m = 5 kg, R = 1m, puede girar alrededor de un eje horizontal que pasa por su c.d.m. Tangencialmente al disco se aplica una fuerza…</a></li>
+<li><a class="enlace_texto" data-go="a7">Una rueda de 1 m de radio, lleva sujetos en los extremos de un diámetro dos cohetes que al arder ejercen fuerzas tangenciales de 0.25 kp en sentidos…</a></li>
+<li><a class="enlace_texto" data-go="a8">Una esfera homogénea, m = 50 kg, R = 1 m, gira alrededor de su diametro a 600 r.p.m. Tangencial-mente se le aplica una fuerza constante de frenado de…</a></li>
+</ol>
+<h3>hoja2</h3><ol>
+<li><a class="enlace_texto" data-go="b1">Calcula la aceleración angular de la polea, la lineal del bloque y la tensión de la cuerda La polea tiene radio R y masa M: a) Distribuída…</a></li>
+<li><a class="enlace_texto" data-go="b3">Calcula la aceleración angular de la polea, la lineal de los bloques y las tensiones de la cuerda suponiendo m<sub>2</sub> &gt; m<sub>1</sub>. La polea tiene radio R y masa…</a></li>
+<li><a class="enlace_texto" data-go="b4">Calcula la aceleración angular de la doble polea, la lineal de los bloques y las tensio-nes de las cuerdas Datos: m<sub>1</sub> = 4 kg, m<sub>2</sub> = 2 kg, R<sub>1</sub> = 20 cm, R<sub>2</sub>…</a></li>
+<li><a class="enlace_texto" data-go="b5">Calcula la aceleración angular de la doble polea , la lineal de los bloques y las tensiones en los extremos de la cuerda Datos de la doble polea:…</a></li>
+<li><a class="enlace_texto" data-go="b7">Calcula la aceleración angular de la polea, la lineal de los bloques y las tensiones en los extremos de la cuerda Datos de la polea: Radio R, Momento…</a></li>
+<li><a class="enlace_texto" data-go="b8">El sistema se encuentra en equilibrio. Determina la elongación del muelle Datos: m =10 kg, R<sub>1</sub> = 40 cm, R<sub>2</sub> = 20 cm, k = 5 kp/cm Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="b10">Un bloque de 10 kg cuelga de una cuerda arrollada a una polea de radio 5 cm que está pegada a otra polea de radio 20 cm compartiendo ambas el mismo…</a></li>
+<li><a class="enlace_texto" data-go="b6">Un volante adquiere rotación por el peso de un cuerpo de 8 kg, suspendido de una cuerda arrollada a su eje de 10 cm de radio. El peso recorre 2 m en…</a></li>
+</ol>
+<h3>hoja3</h3><ol>
+<li><a class="enlace_texto" data-go="c9">En los vértices de un triángulo rectángulo ABC están colocadas sendas masas puntuales mA = 50 g, mB = 30 g, mC = 40 g. Calcula el momento de inercia…</a></li>
+<li><a class="enlace_texto" data-go="c6">En los vértices de un rectángulo de dimensiones a, b (a &gt; b) están colocadas masas de valor m. Halla el momento de inercia del conjunto respecto a: a…</a></li>
+<li><a class="enlace_texto" data-go="c3">a ) Calcula el momento de inercia de una varilla (Masa m, longitud L) respecto a un eje perpendicular a distancia L/4 de un extremo b ) Calcula el…</a></li>
+<li><a class="enlace_texto" data-go="c1">Calcular el momento de inercia del cuerpo respecto al eje indicado La s varillas son iguales. Masa: m Longitud: L Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="c2">Calcular el momento de inercia del conjunto respecto al eje indicado La s varillas son iguales. Masa: m Longitud: L Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="c4">Calcular el momento de inercia del conjunto respecto al eje indicado Cilindros Masas: m<sub>1</sub>, m<sub>2</sub> Radios: R<sub>1</sub> , R<sub>2</sub> Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="c5">Calcular el momento de inercia del conjunto respecto al eje indicado Disco: Masa: m<sub>1</sub> Radio: R Varilla: Masa: m<sub>2</sub> Longitud: L Variante Lista problemas</a></li>
+<li><a class="enlace_texto" data-go="c7">Calcular el momento de inercia del conjunto respecto al eje indicado Los cilindros son iguales: Masa: m Radio: R Lista problemas</a></li>
+</ol>
+</section>
+<template id="ac4" data-t="Ayuda"><div class="pasos"><p><strong><font color="#0000FF">Ángulo de vectores 
+        | Regla del sacacorchos</font></strong></p><p>El ángulo que forman dos vectores se determina cuando ambos tienen 
+        el mismo origen. Si no fuera así habría que deslizar uno 
+        de ellos hasta el origen del otro<br/>
+        Lo mismo ocurre para aplicar la regla del sacacorchos</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="35%"><img height="108" src="dr1/ayuda/imagenes/5_01.png" width="122"/></td>
+<td width="65%"><p>En la figura el vector gris es el vector <strong>r</strong> 
+              deslizado, entonces el ángulo que for-man <strong>r</strong> 
+              y <strong>F</strong> es φ y el sentido de giro de <strong>r</strong> 
+              a <strong>F</strong> es como el de las agujas del reloj</p></td>
+</tr>
+</table></div></template>
+<template id="ac3" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Momento de una fuerza respecto 
+        a un eje</font></b></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="23%">
+<div align="center"><img height="124" src="dr1/ayuda/imagenes/4_01.png" width="84"/></div></td>
+<td valign="middle" width="77%">
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" valign="top"> <p class="m50"><img height="22" src="dr1/ayuda/formulas/4_01.gif" width="73"/></p></td>
+</tr>
+<tr>
+<td valign="top" width="12%"> <p align="right"><strong>r</strong> </p></td>
+<td valign="top" width="88%"><p>Vector de posición (Perpendicular 
+                    al eje y va desde este al punto de aplicación de la 
+                    fuerza) </p></td>
+</tr>
+<tr>
+<td><p align="right"><strong>F</strong> </p></td>
+<td><p>Fuerza</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table><p>El módulo del momento vale M<sub>F</sub> = r ·F· 
+        sen φ siendo φ el <span class="enlace_texto" data-ac="ac4">ángulo 
+        que forman</span> <strong>r</strong> y <strong>F</strong></p><p>La dirección del momento es la del eje y su sentido es el de avance 
+        de un sacacorchos que <span class="enlace_texto" data-ac="ac4">gire</span> 
+        de <strong>r</strong> a <strong>F</strong> por el camino más corto<br/>
+        En lugar de dar el signo para especificar el sentido del momento se puede 
+        dar el sentido de giro del sacacorchos </p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="13%"><div align="center"><img height="28" src="sentido/1_02.gif" width="24"/></div></td>
+<td width="87%"><p>Sentido igual al de las agujas del reloj (-)</p></td>
+</tr>
+<tr>
+<td><div align="center"><img height="28" src="sentido/1_01.gif" width="24"/></div></td>
+<td><p>Sentido contrario al de las agujas del reloj (+)</p></td>
+</tr>
+</table></div></template>
+<template id="ac2" data-t="Resultante de momentos"><div class="pasos"><p><strong><font color="#0000FF">Momento resultante</font></strong></p><p>El momento resultante es la resultante de los <span class="enlace_texto" data-ac="ac3">momentos 
+        respec-to al eje</span> de todas las fuerzas que actúan sobre el 
+        sólido. Como todos los momentos tienen la dirección del 
+        eje, para calcular la resultante habrá que sumar o restar sus módulos</p><p><b><font color="#0000FF">Se conocen los módulos de los momentos</font></b></p><p>Se suman, por separado, los módulos de los momentos que tie-nen 
+        el mismo sentido. La diferencia de las dos sumas (Mayor - Menor) es el 
+        modulo del momento resultante. El sentido del mo-mento resultante es el 
+        correspondiente a los momentos cuya suma es mayor</p><p><b><font color="#0000FF">Se conoce el sentido de la aceleración 
+        angular</font></b></p><p>Se suman, por separado, los módulos de los momentos que tie-nen 
+        el mismo sentido. La diferencia de las dos sumas (Sentido de la aceleración 
+        - Sentido contrario a la aceleración) es el modulo del momento 
+        resultante.</p></div></template>
+<template id="ac1" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Dinámica de la rotación</font></b></p><p><strong><font color="#FF0000">Método</font></strong></p><p><font color="#FF0000">Conviene dibujar el cuerpo de forma que se vea 
+        el eje de frente</font></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="8%"> <p align="right">1 </p></td>
+<td valign="top" width="92%"> <p>Se hace el diagrama libre del cuerpo 
+              incluyendo todas las fuerzas que éste sufre: peso, normal 
+              en el eje y las de otros agentes que se indiquen<strong><font color="#FF0000">
+</font></strong> poniendo cada una en el punto donde esté 
+              aplicada<br/>
+              Hay que tener en cuenta que la normal en el eje debe compensar las 
+              restantes fuerzas sobre la polea porque no hay traslación</p>
+</td>
+</tr>
+<tr>
+<td valign="top"><p align="right">2 </p></td>
+<td valign="top"> <p>Se calcula el <span class="enlace_texto" data-ac="ac2"> 
+              momento resultante</span> sobre el sistema. <br/>
+              El sentido de la aceleración angular será el del momento 
+              resultante</p></td>
+</tr>
+<tr>
+<td height="36" valign="top"> <p align="right">3 </p>
+<p align="right"> </p></td>
+<td valign="top"> <p>Se aplica el principio de la Dinámica de 
+              la rotación</p>
+<p class="m50">M = I·α</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="26" valign="top"> <p align="right">M </p></td>
+<td valign="top"> <p>Módulo del momento resultante<br/>
+</p></td>
+</tr>
+<tr>
+<td valign="top"> <p align="right">α </p></td>
+<td valign="top"> <p>Módulo de la aceleración angular</p></td>
+</tr>
+<tr>
+<td valign="top"><p align="right">I </p></td>
+<td valign="top"><p>Momento de inercia del cuerpo respecto al 
+                    eje de rotación</p></td>
+</tr>
+</table></td>
+</tr>
+</table><p><strong><font color="#FF0000">Importante<br/>
+</font></strong><font color="#FF0000">En Dinámica se trabaja con 
+        módulos, por tanto una solución ne-gativa significará 
+        que no puede darse la situación planteada</font></p></div></template>
+<template id="ac5" data-t="Ayuda"><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td height="180" valign="middle" width="8%">
+<form action="" class="formulario" id="aplicada_dinamica_r_dr2_ayuda_3_htm_form1" method="post" name="form1">
+<input class="pequeño pc-swap" data-pc-swap="aplicada_dinamica_r_dr2_ayuda_3_htm_imagen:aplicada_dinamica_r_dr2_ayuda_3_htm_imagen1;aplicada_dinamica_r_dr2_ayuda_3_htm_imagen:aplicada_dinamica_r_dr2_ayuda_3_htm_imagen0" name="Submit" type="button" value=" "/>
+</form></td>
+<td id="aplicada_dinamica_r_dr2_ayuda_3_htm_imagen" width="29%">
+<div align="center"><img height="198" src="dr2/ayuda/imagenes/3_01.png" width="134"/></div></td>
+<td valign="middle" width="63%">
+<p>Al girar la polea un ángulo φ, recogerá una longitud 
+              de cuerda igual a la longitud del arco de radio y R ángulo 
+              φ. El blo-que subirá esta misma longitud</p>
+<p class="m50">L = φ·R</p>
+<p>Derivando sucesivamente respecto al tiempo: </p>
+<p align="center">v = ω·R    ,    
+              a = α·R </p></td>
+</tr>
+<tr>
+<td valign="middle"> </td>
+<td colspan="2"><p><font color="#FF0000">Las magnitudes de traslación 
+              del bloque se obtienen multipli-cando las magnitudes correspondientes 
+              de rotación de la polea por el radio de la circunferencia 
+              donde se enrolla la cuerda</font> </p>
+</td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_dinamica_r_dr2_ayuda_3_htm_imagen0" style="display:none" width="47%">
+<div align="center"><img height="198" src="dr2/ayuda/imagenes/3_01.png" width="134"/></div></td>
+<td id="aplicada_dinamica_r_dr2_ayuda_3_htm_imagen1" style="display:none" width="53%">
+<div align="center"><img height="198" src="dr2/ayuda/imagenes/3_02.png" width="134"/></div></td></tr>
+</table></div></template>
+<template id="ac6" data-t="Momentos de inercia"><div class="pasos"></div></template>
+<template id="ac8" data-t="Ayuda"><div class="pasos"><p align="left"><strong><font color="#0000FF">Sentido de giro de la polea</font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="35%"><div align="center"><img height="254" src="dr2/ayuda/imagenes/2_01.png" width="111"/></div></td>
+<td width="65%"><p> La polea está inicialmente en reposo porque 
+              la mano le sujeta. En esta si-tuación se cumplirá:</p>
+<p align="center">T<sub>1</sub> = F<sub>1  </sub>, T<sub>2</sub> 
+              = F<sub>2</sub></p>
+<p> F<sub>1</sub>, F<sub>2</sub> son las resultantes de las otras 
+              fuerzas tangenciales que actúan sobre cada bloque (Excepto 
+              el rozamiento)</p>
+<p>En el momento de liberar la polea ésta queda sometida al 
+              momento de las fuer-zas T<sub>1</sub> y T<sub>2</sub> cuya resultante 
+              determinará el sentido de la rotación</p>
+</td>
+</tr>
+</table><p><font color="#FF0000"><strong>Importante</strong></font></p><p><font color="#FF0000">En cuanto comience el movimiento cambiarán 
+        las tensiones en los extremos de la cuerda y no se cumplirán las 
+        igualdades anteriores. </font></p></div></template>
+<template id="ac7" data-t="Ayuda"><div class="pasos"><p><b><font color="#0000FF">Máquinas de Atwood</font></b></p><p>Una máquina de Atwood consiste en varios bloques unidos por una 
+        cuerda sin masa que pasa a través de una polea (Simple o doble) 
+        con masa<br/>
+        Los bloques se encuentran inicialmente en reposo y al dejar el sistema 
+        en libertad adquieren una aceleración</p><p><strong><font color="#FF0000">Método</font></strong></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="8%"> <p align="right">1 </p></td>
+<td valign="top" width="92%"> <p>Se hacen los diagramas libres de bloques 
+              y polea con el sistema en reposo</p>
+<p> Se determina el <span class="enlace_texto" data-ac="ac8">sentido 
+              de giro de la polea</span> y, a partir de este, el sentido 
+              del movimiento de los bloques. Como los bloques parten del reposo 
+              el sentido de su aceleración coincidirá con el del 
+              movimiento</p></td>
+</tr>
+<tr>
+<td valign="top"> <p align="right">2 </p></td>
+<td valign="top"> <p>Se hacen los diagramas libres de bloques y polea 
+              con el sistema en movimiento. <font color="#FF0000">Como la polea 
+              tiene masa las tensiones en los extremos de la misma cuerda son 
+              diferentes</font></p>
+<p> Se aplican las ecuaciones de la dinámica de traslación 
+              a cada bloque</p>
+<p>Se aplica la ecuación de la <span class="enlace_texto" data-ac="ac1">dinámica 
+              de la rotación</span> a la polea </p></td>
+</tr>
+<tr>
+<td valign="top"><p align="right">3 </p>
+</td>
+<td valign="top"><p class="enlace_texto" data-ac="ac5">Se 
+              relaciona la traslación de los bloques con la rota-ción 
+              de la polea</p></td>
+</tr>
+<tr>
+<td valign="top"> <p align="right">4 </p></td>
+<td valign="top"> <p>Se resuelve el sistema de ecuaciones formado por 
+              las ecuaciones de la dinámica (Traslación y rotación) 
+              y la relación entre aceleraciones lineal y angular</p></td>
+</tr>
+</table><p><strong><font color="#FF0000">Importante</font></strong></p><p><font color="#FF0000">Si se obtiene una aceleración negativa significará 
+        que el sistema no se mueve porque el rozamiento se lo impide</font></p></div></template>
+<template id="ac0" data-t="No disponible"><p>No disponible.</p></template>
+<template id="ac12" data-t="Ayuda"><div class="pasos"><p><strong><font color="#0000FF">Teorema de Steiner</font></strong></p><p align="center">I = I<sub>0</sub> + m·d<sup>2</sup></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="12%"> <p align="right">I<sub>0</sub></p></td>
+<td valign="top" width="88%"><p>Momento de inercia de un cuerpo respecto 
+              a un eje que pasa por su c.d.m</p></td>
+</tr>
+<tr>
+<td valign="top"><p align="right">I </p></td>
+<td valign="top"><p>Momento de inercia del cuerpo respecto a un eje 
+              para-lelo al que pasa por el c.d.m</p></td>
+</tr>
+<tr>
+<td valign="top"><p align="right">d </p></td>
+<td valign="top"><p>Distancia entre ambos ejes</p></td>
+</tr>
+</table></div></template>
+<script>
+(function () {
+  var OPT = { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
+              trust: function (c) { return c.command === '\\htmlData'; }, strict: 'ignore' };
+  function render(el) {
+    if (!window.renderMathInElement || !el || el.dataset.r) return;
+    el.dataset.r = 1; renderMathInElement(el, OPT);
+  }
+  // al cargar KaTeX: solo lo visible (enunciados y hojas); cada solución se dibuja al abrirla
+  window.pcKatex = function () {
+    document.querySelectorAll('.enun, .hojas, .cab, details[open]').forEach(render);
+    irAHash(); window.pcFit && pcFit();
+  };
+  document.addEventListener('toggle', function (e) { if (e.target.open) { render(e.target); window.pcFit && pcFit(); } }, true);
+
+  // desplazar la página aunque esté dentro del visor (es el visor quien hace scroll)
+  function verEl(el) {
+    try { var y = el.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({ top: y - 12, behavior: 'smooth' }); }
+    catch (_) { el.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function ir(id) {
+    var el = document.getElementById(id); if (!el) return;
+    el.hidden = false;
+    for (var p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS') { p.open = true; render(p); }
+    if (el.tagName === 'DETAILS') { el.open = true; render(el); }
+    setTimeout(function () { verEl(el); el.classList.add('nuevo-paso'); }, 30);
+  }
+  function irAHash() { var h = decodeURIComponent(location.hash.slice(1)); if (h) ir(h); }
+  addEventListener('hashchange', irAHash);
+
+  // paso a paso
+  function modo(cont, m) {
+    var ps = cont.querySelector(':scope > .pasos'); if (!ps) return;
+    var hs = [].slice.call(ps.children), b = function (c) { return cont.querySelector(':scope > .aph [data-cmd="' + c + '"], :scope > .ctl [data-cmd="' + c + '"]'); };
+    if (m === 'pasos') { hs.forEach(function (h, i) { h.classList.toggle('oculto', i > 0); }); }
+    else if (m === 'sig') { var o = ps.querySelector(':scope > .oculto'); if (o) { o.classList.remove('oculto'); o.classList.add('nuevo-paso'); } }
+    else { hs.forEach(function (h) { h.classList.remove('oculto'); }); }
+    var quedan = !!ps.querySelector(':scope > .oculto');
+    if (b('sig')) { b('sig').hidden = !quedan; }
+    if (b('todo')) { b('todo').hidden = !quedan; }
+    if (b('pasos')) { b('pasos').hidden = quedan; }
+    window.pcFit && pcFit();
+  }
+
+  // aclaraciones (antes, ventanas): se despliegan debajo del párrafo
+  function aclarar(src, k) {
+    var tpl = document.getElementById(k); if (!tpl) return;
+    var a = src;
+    while (a.parentElement && !a.parentElement.matches('.pasos, .enun, .ac-body, .sol, .aph')) a = a.parentElement;
+    if (a.parentElement && a.parentElement.matches('.aph')) a = a.parentElement;
+    var sig = a.nextElementSibling;
+    if (sig && sig.classList.contains('ac-box') && sig.dataset.k === k) { sig.remove(); window.pcFit && pcFit(); return; }
+    var box = document.createElement('div'); box.className = 'ac-box'; box.dataset.k = k;
+    box.innerHTML = '<div class="ac-h"><span></span><button aria-label="Cerrar">✕</button></div><div class="ac-body"></div>';
+    box.querySelector('span').textContent = tpl.dataset.t;
+    box.querySelector('.ac-body').appendChild(tpl.content.cloneNode(true));
+    a.after(box); render(box);
+    var ps = box.querySelector('.ac-body > .pasos[data-modo="pasos"]'); if (ps) modo(box.querySelector('.ac-body'), 'pasos');
+    window.pcFit && pcFit();
+  }
+
+  document.addEventListener('click', function (e) {
+    var st = e.target.closest('[data-pc-steps]');
+    if (st) {
+      var lista = JSON.parse(st.dataset.pcSteps), i = +(st.dataset.i || 0);
+      (lista[i] || []).forEach(function (op) {
+        var el = document.getElementById(op[1]); if (!el) return;
+        if (op[0] === 'h') { var src = document.getElementById(op[2]); if (src) { el.innerHTML = src.innerHTML; el.style.visibility = 'visible'; } }
+        else if (op[0] === 'i') el.src = op[2];
+        else el.style.visibility = op[2] ? 'visible' : 'hidden';
+      });
+      if (lista.length > 1) {
+        st.dataset.i = (i + 1) % lista.length;
+        if (st.tagName === 'INPUT' && st.type === 'button' && /^\s*\d+\s*$/.test(st.value)) st.value = '    ' + st.dataset.i + '    ';
+      }
+      window.pcFit && pcFit(); return;
+    }
+    var sw = e.target.closest('[data-pc-swap]');
+    if (sw) {
+      sw.dataset.pcSwap.split(';').forEach(function (par) {
+        var p = par.split(':'), dst = document.getElementById(p[0]), src = document.getElementById(p[1]);
+        if (dst && src) { dst.innerHTML = src.innerHTML; dst.style.visibility = 'visible'; }
+      });
+      var grupo = sw.closest('table') || document;
+      grupo.querySelectorAll('.pc-swap.sel').forEach(function (x) { x.classList.remove('sel'); });
+      sw.classList.add('sel'); window.pcFit && pcFit(); return;
+    }
+    var t = e.target.closest('[data-cmd], [data-ac], [data-pc-ac], [data-go], [data-pc-go], .ac-h button');
+    if (!t) return;
+    if (t.matches('.ac-h button')) { t.closest('.ac-box').remove(); window.pcFit && pcFit(); return; }
+    e.preventDefault();
+    if (t.dataset.cmd) return modo(t.closest('.ap, .ac-body'), t.dataset.cmd);
+    if (t.dataset.ac || t.dataset.pcAc) return aclarar(t, t.dataset.ac || t.dataset.pcAc);
+    var id = t.dataset.go || t.dataset.pcGo;
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    ir(id);
+  });
+  try { _pctop.document.title = 'Dinámica del sólido rígido. Dinámica de la rotación'; _pctop.archivoAyuda = null; } catch (e) {}
+})();
+</script>
+</body>
+</html>

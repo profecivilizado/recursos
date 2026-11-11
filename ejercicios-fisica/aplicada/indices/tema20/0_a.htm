@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title></title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz">
+<script language="JavaScript">
+<!--
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[\'solucion\']',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="status=no,resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+
+ 
+onLoad="_pctop.indice='../../../indices/tema20/0.htm'"
+onUnload="cerrarVentanas()">
+<table width="760" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td height="60" style="cursor:pointer" onClick="abrirVentana('../../termo/entropia/problemas.htm#buscarAyudas','')"><p class="m150"><strong><font color="#0000FF">Ayudas</font></strong></p></td>
+  </tr>
+  <tr> 
+    <td height="60"> <p class="m50"><b><font color="#FF0000">Problemas por temas</font></b>&nbsp;</p></td>
+  </tr>
+  <tr> 
+    <td height="60" style="cursor:pointer" onClick="cambiar('../../termo/entropia/problemas.htm#entropia1','')"> 
+      <p class="m150"><b><font color="#0000FF">General</font></b></p></td>
+  </tr>
+</table>
+</body>
+</html>

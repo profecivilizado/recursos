@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,390)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td> 
+      <p align="left"><strong><font color="#0000FF">Datos del calor&iacute;metro</font></strong></p>
+      <p align="left"> Para hallar el calor que intercambia el calor&iacute;metro 
+        pueden darnos</p>
+      <p align="left"><font color="#0000FF">Masa y calor espec&iacute;fico del 
+        calor&iacute;metro</font></p>
+      <p align="left"> Calor que intercambia el calor&iacute;metro: Q = M&middot;c&middot;&Delta;t</p>
+      <p align="left"><font color="#0000FF">Capacidad calorif&iacute;ca del calor&iacute;metro 
+        (C)<br />
+        </font>La capacidad calor&iacute;fica es el calor que intercambia el calor&iacute;metro 
+        para cambiar su temperatura en 1 &ordm;C</p>
+      <p align="left"> Calor que intercambia el calor&iacute;metro: Q = C&middot;&Delta;t</p>
+      <p align="left"><font color="#0000FF">Equivalente en agua del calor&iacute;metro 
+        (m<sub>0</sub>, c<sub>0</sub> = 1 cal/g &ordm;C)</font><font color="#FF0000"> 
+        <br />
+        </font>Es la cantidad de agua l&iacute;quida que intercambiar&iacute;a 
+        el mismo calor que el calor&iacute;metro para cambiar su temperatura en 
+        1 &ordm;C</p>
+      <p align="left"> Calor que intercambia el calor&iacute;metro: Q = m<sub>0</sub>&middot;c<sub>0</sub>&middot;&Delta;t<br />
+      </p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>
