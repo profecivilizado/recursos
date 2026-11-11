@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,230)"
+onunload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="431"><p  ><b><font color="#0000FF">Principio de Conservaci&oacute;n 
+        en la rotaci&oacute;n de un s&oacute;lido</font></b></p>
+      <p align="center"><strong><em>T</em></strong> = &Delta;E<sub>C</sub> + &Delta;E<sub>P</sub></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="15%" valign="top"> <p align="right"><strong><em>T</em></strong> 
+            </p></td>
+          <td width="85%"><p><span class="enlace_texto" onClick="abrirVentana('3.htm',1)">Trabajo de rotaci&oacute;n</span> 
+              de las fuerzas que act&uacute;an sobre el cuerpo excepto el peso</p></td>
+        </tr>
+        <tr> 
+          <td><p align="right">&Delta;<sub>EC </sub></p></td>
+          <td><p>Cambio en la <span class="enlace_texto" onClick="abrirVentana('2.htm',1)">energ&iacute;a cinetica</span> 
+              del cuerpo</p></td>
+        </tr>
+        <tr> 
+          <td><p align="right">&Delta;<sub>EP </sub></p></td>
+          <td><p>Cambio en la <span class="enlace_texto" onClick="abrirVentana('4.htm',1)">energ&iacute;a potencial</span> 
+              del cuerpo</p></td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

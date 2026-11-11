@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+function cambiar(pagina, solucion) {
+	if(!pagina)
+	{MM_goToURL('parent.frames[1]',solucion)}
+	if(!solucion)
+	{MM_goToURL('parent',pagina)}
+}
+
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(440,640)"
+onUnload="cerrarVentanas()">
+<table width="450" border="0" cellpadding="10" cellspacing="0" class="borde">
+  <tr>
+    <td width="430"><p align="left"><b><font color="#0000FF">Proceso:&nbsp;&nbsp; 
+        </font></b> 
+        <select name="select" onChange="cambiar('',select.value)">
+          <option value="3_1.htm" selected="selected">Cambio de fase</option>
+          <option value="3_2.htm">Intercambio de calor...</option>
+          <option value="3_3.htm">Isobara / Isocora</option>
+          <option value="3_4.htm">Isoterma</option>
+          <option value="3_5.htm">Adiabatica</option>
+        </select>
+      </p>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>

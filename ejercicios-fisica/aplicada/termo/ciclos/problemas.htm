@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<!-- Página generada por _herramientas/unir_tema.py a partir de los problemas originales. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+<title>Termodinámica. Máquinas térmicas · Problemas</title>
+<link href="../../../fisica/comunes/js/estilos.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="../../../_pc/problemas.css">
+<style>
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer}
+.chip:hover{background:var(--hover)}
+h2{font-size:1.2em;color:var(--accent);border-top:2px solid var(--line);padding-top:14px;margin:22px 0 2px}
+h3{font-size:1em;color:var(--red);margin:14px 0 4px}
+.enun p:first-child{margin-top:0}
+.enun table{width:auto!important}
+p.meta{margin:.2em 0 0 1.8em}
+.var{font-size:14px;margin-left:8px}
+.ap{border-top:1px dashed var(--line);padding:8px 0 4px}
+.ap:first-child{border-top:0}
+.aph{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:30px}
+.aph>b{color:var(--accent);font-size:1.05em}
+.ctl{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+.ctl button{font:inherit;font-size:13px;color:var(--accent);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+.ctl button:hover{background:var(--hover)}
+.ctl button.ayuda{color:var(--red)}
+.pasos>.oculto{display:none}
+.pasos>.nuevo-paso{animation:aparece .35s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+details.sub{margin:.6em 0 .2em 0}
+.ac-box{border:1px solid var(--accent);border-left-width:4px;border-radius:10px;background:var(--card);margin:.4em 0 .6em;padding:4px 12px 8px}
+.ac-h{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--accent);font-size:14px}
+.ac-h button{font:inherit;font-size:13px;background:none;border:0;color:var(--muted);cursor:pointer}
+.ac-box .ctl{margin:.3em 0 0}
+[data-pc-ac],[data-pc-go]{cursor:pointer}
+[data-pc-ac]:hover,[data-pc-go]:hover{color:var(--red)}
+.pc-swap{cursor:pointer;color:var(--accent);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.pc-swap.sel{color:var(--red);font-weight:700}
+.hojas ol{margin:.2em 0 .6em 1.6em;padding:0}
+.hojas li{margin:.25em 0}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="pcKatex()"></script>
+</head>
+<body>
+<div class="cab"><b>Termodinámica. Máquinas térmicas</b><span class="nuevo">Problemas</span></div>
+<nav class="chips"><a class="chip" data-go="ciclos1">Máquinas térmicas</a> <a class="chip" data-go="curso">Propuestos en el curso</a></nav>
+<section class="seccion" id="ciclos1"><h2>Máquinas térmicas</h2>
+<div class="prob" id="a8">
+<div class="enun"><p><span class="num">1</span><b><font color="#0000FF">Una máquina térmica 
+        absorbe 200 J de calor de un foco caliente, realiza trabajo y cede 160 
+        J a un foco frío ¿Cuál es su rendimiento? </font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a8a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">El trabajo producido será la diferencia entre el 
+        calor tomado y el devuelto:</p><p class="m150"><em><strong>T</strong></em> = 200 J - 160 J = 40 J</p><p class="m50">El rendimiento es la máquina es la relación 
+        entre el trabajo producido y el calor tomado:</p><p class="m150">η = 40 J / 200 J = 0,20</p><p class="m50">La máquina convierte en trabajo el 20% del calor que 
+        toma, el otro 80% se devuelve</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a9">
+<div class="enun"><p><span class="num">2</span><b> <font color="#0000FF">Una máquina de 200 W 
+        trabaja a 10 ciclos por segundo con un rendimiento del 30% ¿Cuánto 
+        trabajo realiza en cada ciclo? ¿Cuánto calor se absorbe 
+        y se cede en cada ciclo?</font></b></p></div>
+<p class="meta"><a class="enlace_texto var" data-go="a10">Variante</a></p>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a9a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Una potencia de 200 W significa que cada segundo produce 
+        200 J de trabajo. Como en un segundo realiza 10 ciclos en cada ciclo producirá 
+        20 J</p><p class="m50">Definición de rendimiento:</p><p class="m150"><img height="92" src="ciclos1/problema9/formulas/9_01.gif" width="196"/></p><p class="m150"> Q<sub>cedido</sub> = 66.7 J - 20 J = 46.7 J</p><p class="m50">En cada ciclo se toman 66, 7 J de calor, se ceden 46,7 J 
+        de calor y se produce un trabajo de 20 J</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a2">
+<div class="enun"><p><span class="num">3</span><strong><font color="#0000FF">0.32 moles de gas monoatómico,  
+        que inicialmente ocupan 2.2 l a 2.4 at, recorren el ciclo:<br/>
+        1 - 2: Calentamiento a presión constante hasta un volumen de 4.4 
+        l<br/>
+        2 - 3: Enfríamiento a volumen constante hasta una presión 
+        de 1.2 at<br/>
+        3 - 1: Compresión isotérmica hasta volver al estado inicial 
+        <br/>
+        Calcula el trabajo y calor intercambiados en cada etapa y rendimiento 
+        del ciclo<br/>
+</font> </strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a2a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3"> <p align="center">n = 0,32 mol</p></td>
+<td width="17%"><p>P<sub>1</sub> = 2,4 at</p></td>
+<td width="17%"><p>P<sub>2</sub> = P<sub>1</sub></p></td>
+<td width="14%">
+<p>P<sub>3</sub> = 1,2 at</p></td>
+<td rowspan="3" width="32%"> </td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub> = 2,2 l</p></td>
+<td><p>V<sub>2</sub> = 4,4 l </p></td>
+<td><p>V<sub>3</sub> = V<sub>2</sub></p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub></p></td>
+<td><p>T<sub>2</sub></p></td>
+<td><p>T<sub>1</sub></p></td>
+</tr>
+</table><p class="m50">En un gas monoatómico: c<sub>p</sub> = 5·R 
+        / 2, c<sub>v</sub> = 3·R / 2</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="14%"><div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_form1" method="post" name="form1">
+<div align="left">
+<legend>Tramo</legend>
+<p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                    Rest </p>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input "="" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 1</p>
+</form>
+</div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen" width="23%">
+<div align="center"><img height="157" src="ciclos1/problema2/imagenes/2_01.png" width="154"/></div></td>
+<td height="170" id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto" width="63%">
+<p align="center">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><strong><em>T</em></strong> = (533 + 0 - 370) J = 163 J</p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150">Q = (1333 - 800 - 370) J = 163 J</p><p class="m50">Observa que el calor intercambiado es igual al trabajo neto</p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150">ΔU = (800 - 800 + 0) J = 0 J</p><p class="m50">Observa que la variación de energía interna 
+        en el ciclo es igual a cero </p><p class="m150"><img height="41" src="ciclos1/problema2/formulas/2_04.gif" width="208"/></p><p class="m50">El 12.2% del calor tomado en el ciclo se convierte en trabajo, 
+        el 87.8% restante se devuelve</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen0" style="display:none" width="40%"> <div align="center"><img height="157" src="ciclos1/problema2/imagenes/2_01.png" width="154"/></div></td>
+<td width="60%"> </td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen1" style="display:none"> <div align="center"><img height="157" src="ciclos1/problema2/imagenes/2_02.png" width="154"/></div></td>
+<td height="170" id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="169" src="ciclos1/problema2/formulas/2_01.gif" style="" width="421"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen2" style="display:none"> <div align="center"><img height="157" src="ciclos1/problema2/imagenes/2_03.png" width="154"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto2" style="display:none"> <div align="center"><img border="0" height="164" src="ciclos1/problema2/formulas/2_02.gif" style="" width="417"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_imagen3" style="display:none"> <div align="center"><img height="157" src="ciclos1/problema2/imagenes/2_04.png" width="154"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema2_2_a_htm_texto3" style="display:none"> <div align="center"><img border="0" height="158" src="ciclos1/problema2/formulas/2_03.gif" style="" width="354"/></div></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a5">
+<div class="enun"><p><span class="num">4</span><strong><font color="#0000FF">Una máquina térmica 
+        que tiene como sustancia de trabajo 1 mol de gas diatómico recorre 
+        el ciclo:<br/>
+        1 - 2:  Expansión adiabática desde un volumen de 10 
+        l a 2.64 at de presión hasta 20 l a 1 at<br/>
+        2 – 3:  Compresión a presión constante hasta 
+        el volumen original de 10 l<br/>
+        3 – 1:  Calentamiento a volumen constante hasta la presión 
+        original<br/>
+        Calcula el trabajo y calor intercambiados en cada etapa y el rendimiento 
+        del ciclo<br/>
+</font> </strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a5a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3"> <p align="center">n = 1 mol</p></td>
+<td width="17%"><p>P<sub>1</sub> = 2,64 at</p></td>
+<td width="17%"><p>P<sub>2</sub> = 1 at</p></td>
+<td width="14%"> <p>P<sub>3</sub> = P<sub>2</sub></p></td>
+<td rowspan="3" width="32%"> </td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub> = 10 l</p></td>
+<td><p>V<sub>2</sub> = 20 l </p></td>
+<td><p>V<sub>3</sub> = V<sub>1</sub></p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub></p></td>
+<td><p>T<sub>2</sub></p></td>
+<td><p>T<sub>3</sub></p></td>
+</tr>
+</table><p class="m50">En un gas diatómico: c<sub>p</sub> = 7·R / 
+        2, c<sub>v</sub> = 5·R / 2, γ = 7/5</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="11%"><div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_form1" method="post" name="form1">
+<div align="left"><p>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                    Rest </p>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input "="" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 1</p>
+</form>
+</div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen" width="25%">
+<div align="center"><img height="173" src="ciclos1/problema5/imagenes/5_01.png" width="160"/></div></td>
+<td height="215" id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto" width="64%">
+<p align="center">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><strong><em>T</em></strong> = (1616 - 1010 +0) J = 6 J</p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150">Q = (0 - 3535 + 4141) J = 6 J</p><p class="m50">Observa que el calor intercambiado es igual al trabajo neto</p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150">ΔU = (-1616 - 2525 + 4141) J = 0 J</p><p class="m50">Observa que la variación de energía interna 
+        en el ciclo es igual a cero </p><p class="m150"><img height="41" src="ciclos1/problema5/formulas/5_04.gif" width="208"/></p><p class="m50">El 14.6% del calor tomado en el ciclo se convierte en trabajo, 
+        el 85.4% restante se devuelve</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen0" style="display:none" width="40%"> <div align="center"><img height="173" src="ciclos1/problema5/imagenes/5_01.png" width="160"/></div></td>
+<td width="60%"><div align="center"></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen1" style="display:none"> <div align="center"><img height="173" src="ciclos1/problema5/imagenes/5_02.png" width="160"/></div></td>
+<td height="220" id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="166" src="ciclos1/problema5/formulas/5_01.gif" style="" width="445"/>
+
+</div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen2" style="display:none"> <div align="center"><img height="173" src="ciclos1/problema5/imagenes/5_03.png" width="160"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto2" style="display:none"> <div align="center"><img border="0" height="174" src="ciclos1/problema5/formulas/5_02.gif" style="" width="426"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_imagen3" style="display:none"> <div align="center"><img height="173" src="ciclos1/problema5/imagenes/5_04.png" width="160"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema5_5_a_htm_texto3" style="display:none"> <div align="center"><img border="0" height="164" src="ciclos1/problema5/formulas/5_03.gif" style="" width="414"/></div></td>
+</tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a1">
+<div class="enun"><p><span class="num">5</span><strong><font color="#0000FF">Un gas monoatómico, 
+        que inicialmente ocupa un volumen de 1 l a una presión de 2 at, 
+        se expande a presión constante hasta que su volumen es 2.5 l, después 
+        de lo cual se enfría a volumen constante hasta que su presión 
+        es de 1 at. Entonces se comprime a presión constante hasta que 
+        su volumen es de nuevo 1 l. Finalmente se calienta a volumen constante 
+        hasta volver a su estado original.<br/>
+        Calcula el trabajo y calor intercambiados en cada etapa y el rendimiento 
+        del ciclo</font></strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a1a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3"> <p align="center">n: Incógnita</p></td>
+<td width="17%"><p>P<sub>1</sub> = 2 at</p></td>
+<td width="17%"><p>P<sub>2</sub> = P<sub>1</sub></p></td>
+<td width="14%"><p>P<sub>3</sub> = 1 at</p></td>
+<td width="32%"><p>P<sub>4</sub> = P<sub>3</sub></p></td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub> = 1 l</p></td>
+<td><p>V<sub>2</sub> = 2,5 l </p></td>
+<td><p>V<sub>3</sub> = V<sub>2</sub></p></td>
+<td><p>V<sub>4</sub> = V<sub>1</sub></p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub></p></td>
+<td><p>T<sub>2</sub></p></td>
+<td><p>T<sub>3</sub></p></td>
+<td><p>T<sub>4</sub></p></td>
+</tr>
+</table><p class="m50">En un gas monoatómico: c<sub>p</sub> = 5·R 
+        / 2, c<sub>v</sub> = 3·R / 2</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="15%">
+<div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_form1" method="post" name="form1">
+<div align="left">
+<legend>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Rest </legend>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 4</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen4;aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto4" name="radiobutton" type="radio" value="radiobutton"/>
+                  4 - 1</p>
+</form>
+</div></td>
+<td height="200" id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen" width="23%">
+<div align="center"><img height="147" src="ciclos1/problema1/imagenes/1_01.png" width="163"/></div></td>
+<td height="220" id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto" width="62%">
+<p align="left">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><strong><em>T</em></strong> = (303 + 0 - 152 + 0) J = 151 
+        J</p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150">Q = (758 - 379 - 379 + 152) J = 152 J</p><p class="m50">Observa que el calor intercambiado es igual (Casi) al trabajo 
+        neto </p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150">ΔU = (455 -379 - 227 + 152) J = 1 J</p><p class="m50">Observa que la variación de energía interna 
+        en el ciclo es igual a cero (Casi)</p><p class="m150"><img height="41" src="ciclos1/problema1/formulas/1_05.gif" width="252"/></p><p class="m50">El 16.6% del calor tomado en el ciclo se convierte en trabajo, 
+        el 83.4% restante se devuelve</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen0" style="display:none" width="40%">
+<div align="center"><img height="147" src="ciclos1/problema1/imagenes/1_01.png" width="163"/></div></td><td width="60%"> </td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen1" style="display:none">
+<div align="center"><img height="147" src="ciclos1/problema1/imagenes/1_02.png" width="163"/></div></td>
+<td height="200" id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="169" src="ciclos1/problema1/formulas/1_01.gif" style="" width="416"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen2" style="display:none">
+<div align="center"><img height="147" src="ciclos1/problema1/imagenes/1_03.png" width="163"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto2" style="display:none">
+<div align="center"><img border="0" height="164" src="ciclos1/problema1/formulas/1_02.gif" style="" width="418"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen3" style="display:none">
+<div align="center"><img height="147" src="ciclos1/problema1/imagenes/1_04.png" width="163"/></div></td>
+<td height="200" id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto3" style="display:none">
+<div align="center"><img border="0" height="174" src="ciclos1/problema1/formulas/1_03.gif" style="" width="420"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_imagen4" style="display:none">
+<div align="center"><img height="147" src="ciclos1/problema1/imagenes/1_05.png" width="163"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema1_1_a_htm_texto4" style="display:none">
+<div align="center"><img border="0" height="164" src="ciclos1/problema1/formulas/1_04.gif" style="" width="409"/></div></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a3">
+<div class="enun"><p><span class="num">6</span><strong><font color="#0000FF">Partiendo de una presión 
+        de 2 at y 360 K, dos moles de un gas monoatómico recorren el ciclo: 
+        <br/>
+        1 – 2: Calentamiento a volumen constante<br/>
+        2 – 3: Expansión isoterma<br/>
+        3 – 4: Enfriamiento a volumen constante<br/>
+        4 - 1: Compresión isoterma. <br/>
+        Calcula la variación de energía interna, el trabajo y calor 
+        intercambiados en cada etapa y rendimiento del ciclo. Datos: P<sub>3</sub> 
+        = 2·P<sub>4 </sub> , V<sub>3</sub> = 3·V<sub>1</sub><br/>
+</font></strong> </p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a3a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="20%"> <p align="center">n = 2 mol</p></td>
+<td width="17%"><p>P<sub>1</sub> = 2 at</p></td>
+<td width="15%"><p>P<sub>2</sub> </p></td>
+<td width="16%"> <p>P<sub>3</sub> = 2 P<sub>4</sub></p></td>
+<td width="32%"><p>P<sub>4</sub></p></td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub> </p></td>
+<td><p>V<sub>2</sub> = V<sub>1</sub> </p></td>
+<td><p>V<sub>3</sub> = 3·V<sub>1</sub></p></td>
+<td width="32%"><p>V<sub>4</sub> = V<sub>3</sub></p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub> = 360 K</p></td>
+<td><p>T<sub>2</sub></p></td>
+<td><p> T<sub>3</sub> = T<sub>2 </sub></p></td>
+<td width="32%"><p>T<sub>4</sub> = T<sub>1</sub></p></td>
+</tr>
+</table><p class="m50">En un gas monoatómico: c<sub>p</sub> = 5·R 
+        / 2, c<sub>v</sub> = 3·R / 2</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="12%">
+<div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_form1" method="post" name="form1">
+<div align="left">
+<legend>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Rest </legend>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 4</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen4;aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto4" name="radiobutton" type="radio" value="radiobutton"/>
+                  4 - 1</p>
+</form>
+</div></td>
+<td height="300" id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen" width="24%">
+<div align="center"><img height="176" src="ciclos1/problema3/imagenes/3_01.png" width="160"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto" width="64%">
+<p align="center">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><strong><em>T</em></strong> = (0 + 13102 +0 - 6551) J = 
+        6551 J</p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150">Q = (8945 + 13102 - 8945 - 6551) J = 6551 J</p><p class="m50">Observa que el calor intercambiado es igual al trabajo neto</p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150">ΔU = (8945 + 0 - 8945 + 0) J = 0 J</p><p class="m50">Observa que la variación de energía interna 
+        en el ciclo es igual a cero </p><p class="m150"><img height="41" src="ciclos1/problema3/formulas/3_05.gif" width="217"/></p><p class="m50">El 29.7% del calor tomado en el ciclo se convierte en trabajo, 
+        el 70.3% restante se devuelve</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen0" style="display:none" width="40%">
+<div align="center"><img height="176" src="ciclos1/problema3/imagenes/3_01.png" width="160"/></div></td>
+<td height="186" width="60%"> </td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen1" style="display:none">
+<div align="center"><img height="176" src="ciclos1/problema3/imagenes/3_02.png" width="160"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="161" src="ciclos1/problema3/formulas/3_01.gif" style="" width="358"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen2" style="display:none">
+<div align="center"><img height="176" src="ciclos1/problema3/imagenes/3_03.png" width="160"/></div></td>
+<td height="260" id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto2" style="display:none">
+<div align="center"><img border="0" height="174" src="ciclos1/problema3/formulas/3_02.gif" style="" width="404"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen3" style="display:none">
+<div align="center"><img height="175" src="ciclos1/problema3/imagenes/3_04.png" width="160"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto3" style="display:none">
+<div align="center"><img border="0" height="161" src="ciclos1/problema3/formulas/3_03.gif" style="" width="369"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_imagen4" style="display:none">
+<div align="center"><img height="175" src="ciclos1/problema3/imagenes/3_05.png" width="160"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema3_3_a_htm_texto4" style="display:none">
+<div align="center"><img border="0" height="172" src="ciclos1/problema3/formulas/3_04.gif" style="" width="418"/></div></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a4">
+<div class="enun"><p><span class="num">7</span><strong><font color="#0000FF">Partiendo de una presión 
+        de 2 at y 360 K dos moles de un gas monoatómico recorren el ciclo:<br/>
+        1 - 2:  Calentamiento a volumen constante<br/>
+        2 - 3:  Expansión adiabática<br/>
+        3 - 4:  Enfriamiento a volumen constante<br/>
+</font></strong><strong><font color="#0000FF">4 - 1:  Compresión 
+        adiabática. <br/>
+</font></strong><strong><font color="#0000FF">Calcula el trabajo y calor 
+        intercambiados en cada etapa y el rendimiento del ciclo<br/>
+        Datos: P<sub>3</sub> = 2·P<sub>4</sub> , V<sub>3</sub> = 3·V<sub>1</sub><sub>
+</sub></font></strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a4a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="20%"> <p align="center">n = 2 mol</p></td>
+<td width="17%"><p>P<sub>1</sub> = 2 at</p></td>
+<td width="15%"><p>P<sub>2</sub> </p></td>
+<td width="16%"> <p>P<sub>3</sub> = 2 P<sub>4</sub></p></td>
+<td width="32%"><p>P<sub>4</sub></p></td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub> </p></td>
+<td><p>V<sub>2</sub> = V<sub>1</sub> </p></td>
+<td><p>V<sub>3</sub> = 3·V<sub>1</sub></p></td>
+<td width="32%"><p>V<sub>4</sub> = V<sub>3</sub></p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub> = 360 K</p></td>
+<td><p>T<sub>2</sub></p></td>
+<td><p> T<sub>3</sub> </p></td>
+<td width="32%"><p>T<sub>4</sub> </p></td>
+</tr>
+</table><p class="m50">En un gas monoatómico: c<sub>p</sub> = 5·R 
+        / 2, c<sub>v</sub> = 3·R / 2, γ = 5/3</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="13%">
+<div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_form1" method="post" name="form1">
+<div align="left">
+<legend>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Rest </legend>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 4</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen4;aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto4" name="radiobutton" type="radio" value="radiobutton"/>
+                  4 - 1</p>
+</form>
+</div></td>
+<td height="240" id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen" width="22%">
+<div align="center"><img height="167" src="ciclos1/problema4/imagenes/4_01.png" width="142"/></div></td>
+<td height="206" id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto" width="65%">
+<p align="center">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><strong><em>T</em></strong> = (0 + 9289 +0 - 4645) J = 4644 
+        J</p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150">Q = (8945 + 0 - 4300 + 0) J = 4645 J</p><p class="m50">Observa que el calor intercambiado es igual (Casi) al trabajo 
+        neto</p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150">ΔU = (8945 - 9289 - 4300 + 4645) J = 1 J</p><p class="m50">Observa que la variación de energía interna 
+        en el ciclo es igual (Casi) a cero </p><p class="m150"><img height="41" src="ciclos1/problema4/formulas/4_05.gif" width="209"/></p><p class="m50">El 51.9% del calor tomado en el ciclo se convierte en trabajo, 
+        el 48.1 % restante se devuelve</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen0" style="display:none" width="26%">
+<div align="center"><img height="167" src="ciclos1/problema4/imagenes/4_01.png" width="142"/></div></td><td width="74%"> </td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen1" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema4/imagenes/4_02.png" width="142"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="161" src="ciclos1/problema4/formulas/4_01.gif" style="" width="401"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen2" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema4/imagenes/4_03.png" width="142"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto2" style="display:none">
+<div align="center"><img border="0" height="177" src="ciclos1/problema4/formulas/4_02.gif" style="" width="441"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen3" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema4/imagenes/4_04.png" width="142"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto3" style="display:none">
+<div align="center"><img border="0" height="174" src="ciclos1/problema4/formulas/4_03.gif" style="" width="414"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_imagen4" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema4/imagenes/4_05.png" width="142"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema4_4_a_htm_texto4" style="display:none">
+<div align="center"><img border="0" height="174" src="ciclos1/problema4/formulas/4_04.gif" style="" width="420"/></div></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a6">
+<div class="enun"><p><span class="num">8</span><strong><font color="#0000FF">Una máquina utiliza 
+        un mol de gas que, partiendo de un volumen de 24.6 l a 400 K, recorre 
+        el ciclo: <br/>
+        1 - 2:   Expansión isotérmica hasta duplicar el 
+        volumen<br/>
+        2 – 3:  Enfriamiento a volumen constante hasta 300 K<br/>
+        3 - 4:  Compresión isotérmica hasta la presión 
+        inicial<br/>
+        4 - 1:  Calentamiento a presión constante hasta la temperatura 
+        inicial<br/>
+</font></strong><strong><font color="#0000FF">Calcula la variación 
+        de energía interna, el trabajo y calor intercambiados en cada etapa 
+        y rendimiento del ciclo. Dato: c<sub>v</sub> = 21 J/mol K<br/>
+</font></strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a6a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="20%"> <p align="center">n = 1 mol</p></td>
+<td width="17%"><p>P<sub>1</sub> </p></td>
+<td width="15%"><p>P<sub>2</sub> </p></td>
+<td width="16%"> <p>P<sub>3</sub> </p></td>
+<td width="32%"><p>P<sub>4</sub> = P<sub>1</sub></p></td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub> = 24,6 l</p></td>
+<td><p>V<sub>2</sub> = 2·V<sub>1</sub> </p></td>
+<td><p>V<sub>3</sub> = V<sub>2</sub></p></td>
+<td width="32%"><p>V<sub>4</sub> </p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub> = 400 K</p></td>
+<td><p>T<sub>2</sub> = T<sub>1</sub></p></td>
+<td><p>T<sub>3</sub> = 300 K </p></td>
+<td width="32%"><p>T<sub>4</sub>  = T<sub>3</sub></p></td>
+</tr>
+</table><p class="m50"> c<sub>v</sub> = 21 J / mol K</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="12%">
+<div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_form1" method="post" name="form1">
+<div align="left">
+<legend>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Rest </legend>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 4</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen4;aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto4" name="radiobutton" type="radio" value="radiobutton"/>
+                  4 - 1</p>
+</form>
+</div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen" width="23%">
+<div align="center"><img height="166" src="ciclos1/problema6/imagenes/6_01.png" width="151"/></div></td>
+<td height="270" id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto" width="65%">
+<p align="center">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><strong><em>T</em></strong> = (2296 + 0 - 1722 + 828) J 
+        = 1402 J</p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150">Q = (2296 - 2100 - 1722 + 2928) J = 1402 J</p><p class="m50">Observa que el calor intercambiado es igual al trabajo neto</p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150">ΔU = (0 - 2100 + 0 + 2100) J = 0 J</p><p class="m50">Observa que la variación de energía interna 
+        en el ciclo es igual a cero </p><p class="m150"><img height="41" src="ciclos1/problema6/formulas/6_05.gif" width="269"/></p><p class="m50">El 13,2% del calor tomado en el ciclo se convierte en trabajo, 
+        el 86,8 % restante se devuelve</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen0" style="display:none" width="26%">
+<div align="center"><img height="166" src="ciclos1/problema6/imagenes/6_01.png" width="151"/></div></td>
+<td height="280" width="74%"> </td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen1" style="display:none">
+<div align="center"><img height="166" src="ciclos1/problema6/imagenes/6_02.png" width="151"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="174" src="ciclos1/problema6/formulas/6_01.gif" style="" width="370"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen2" style="display:none">
+<div align="center"><img height="166" src="ciclos1/problema6/imagenes/6_03.png" width="151"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto2" style="display:none"> <div align="center"><img border="0" height="104" src="ciclos1/problema6/formulas/6_02.gif" style="" width="414"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen3" style="display:none">
+<div align="center"><img height="166" src="ciclos1/problema6/imagenes/6_04.png" width="151"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto3" style="display:none">
+<div align="center"><img border="0" height="174" src="ciclos1/problema6/formulas/6_03.gif" style="" width="389"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_imagen4" style="display:none">
+<div align="center"><img height="166" src="ciclos1/problema6/imagenes/6_05.png" width="151"/></div></td>
+<td height="280" id="aplicada_termo_ciclos_ciclos1_problema6_6_a_htm_texto4" style="display:none">
+<div align="center"><img border="0" height="249" src="ciclos1/problema6/formulas/6_04.gif" style="" width="422"/></div></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a7">
+<div class="enun"><p><span class="num">9</span><strong><font color="#0000FF">Demuestra que el rendimiento 
+        del ciclo de Carnot viene dado por: η = (T<sub>1</sub>– T<sub>2</sub>) 
+        / T<sub>1</sub></font><br/>
+</strong></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a7a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">En el ciclo de Carnot n moles de gas realizan una expansión 
+        isoterma (1 - 2), una expansión adiabática (2 - 3), una 
+        compresión isoterma (3 - 4) y una compresión adiabática 
+        (4 - 1)</p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td rowspan="3" width="20%"> <p align="center">n </p></td>
+<td width="17%"><p>P<sub>1</sub> </p></td>
+<td width="15%"><p>P<sub>2</sub> </p></td>
+<td width="14%"> <p>P<sub>3</sub> </p></td>
+<td width="34%"><p>P<sub>4</sub></p></td>
+</tr>
+<tr>
+<td><p>V<sub>1</sub></p></td>
+<td><p>V<sub>2</sub> </p></td>
+<td><p>V<sub>3</sub> </p></td>
+<td width="34%"><p>V<sub>4</sub> </p></td>
+</tr>
+<tr>
+<td><p>T<sub>1</sub> </p></td>
+<td><p>T<sub>2</sub> = T<sub>1</sub></p></td>
+<td><p>T<sub>3</sub> </p></td>
+<td width="34%"><p>T<sub>4</sub>  = T<sub>3</sub></p></td>
+</tr>
+</table><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="11%">
+<div align="center">
+<form action="" class="formulario" id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_form1" method="post" name="form1">
+<div align="left">
+<legend>
+<input checked="checked" class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen0" name="radiobutton" type="radio" value="radiobutton"/>
+                  Rest </legend>
+</div>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen1;aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto1" name="radiobutton" type="radio" value="radiobutton"/>
+                  1 - 2</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen2;aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto2" name="radiobutton" type="radio" value="radiobutton"/>
+                  2 - 3</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen3;aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto3" name="radiobutton" type="radio" value="radiobutton"/>
+                  3 - 4</p>
+<p align="left">
+<input class="pc-swap" data-pc-swap="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen4;aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto:aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto4" name="radiobutton" type="radio" value="radiobutton"/>
+                  4 - 1</p>
+</form>
+</div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen" width="23%">
+<div align="center"><img height="167" src="ciclos1/problema7/imagenes/7_01.png" width="161"/></div></td>
+<td height="197" id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto" width="66%">
+<p align="center">  </p>
+</td></tr>
+</table><p class="m50">El trabajo neto en el ciclo será:</p><p class="m150"><img height="97" src="ciclos1/problema7/formulas/7_05.gif" width="440"/></p><p class="m50">El calor intercambiado en el ciclo será:</p><p class="m150"><img height="41" src="ciclos1/problema7/formulas/7_06.gif" width="206"/></p><p class="m50">El calor intercambiado es igual al trabajo neto, como debe 
+        ser </p><p class="m50">Y la variación de energía interna en el ciclo 
+        será:</p><p class="m150"><img height="22" src="ciclos1/problema7/formulas/7_07.gif" width="320"/></p><p class="m50">Antes de calcular el rendimiento hay que determinar, en la 
+        expresión del calor, la parte que correspon-de al calor tomado:</p><p class="m100">P<sub>3</sub>·V<sub>3</sub> Ln V<sub>4 </sub>/ V<sub>3</sub> 
+        es negativo (V<sub>4</sub> &lt; V<sub>3</sub>) por tanto este sumando 
+        es Q<sub>cedido</sub></p><p class="m100">P<sub>1</sub>·V<sub>1</sub> Ln V<sub>2 </sub>/ V<sub>1</sub> 
+        es positivo (V<sub>2</sub> &gt; V<sub>1</sub>) por tanto este sumando 
+        es Q<sub>tomado</sub></p><p class="m50">El rendimiento del ciclo será:</p><p class="m150"><img border="0" height="44" src="ciclos1/problema7/formulas/7_08.gif" style="" width="510"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td width="47%"><p class="m50">Y ahora viene el truco de la demostración:</p></td>
+<td width="53%"><img border="0" height="48" src="ciclos1/problema7/formulas/7_09.gif" style="" width="78"/></td>
+</tr>
+</table><p class="m150"><img height="100" src="ciclos1/problema7/formulas/7_10.gif" width="213"/></p><table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen0" style="display:none" width="26%">
+<div align="center"><img height="167" src="ciclos1/problema7/imagenes/7_01.png" width="161"/></div></td><td width="74%"> </td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen1" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema7/imagenes/7_02.png" width="161"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto1" style="display:none">
+<div align="center"><img border="0" height="130" src="ciclos1/problema7/formulas/7_01.gif" style="" width="201"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen2" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema7/imagenes/7_03.png" width="161"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto2" style="display:none"> <div align="center"><img border="0" height="93" src="ciclos1/problema7/formulas/7_02.gif" style="" width="309"/></div></td>
+</tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen3" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema7/imagenes/7_04.png" width="161"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto3" style="display:none">
+<div align="center"><img border="0" height="97" src="ciclos1/problema7/formulas/7_03.gif" style="" width="266"/></div></td></tr>
+<tr>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_imagen4" style="display:none">
+<div align="center"><img height="167" src="ciclos1/problema7/imagenes/7_05.png" width="161"/></div></td>
+<td id="aplicada_termo_ciclos_ciclos1_problema7_7_a_htm_texto4" style="display:none">
+<div align="center"><img border="0" height="92" src="ciclos1/problema7/formulas/7_04.gif" style="" width="308"/></div></td></tr>
+</table></div></section>
+</div></details>
+</div>
+<div class="prob" id="a11">
+<div class="enun"><p><span class="num">10</span><b><font color="#0000FF">Una máquina de Carnot 
+        trabaja entre dos focos a temperaturas 300 K y 200 K ¿Cuál 
+        es el rendimien-to? Si en cada ciclo absorbe 100 J de calor del foco caliente 
+        ¿qué trabajo realiza? ¿cuánto calor cede?</font><br/>
+</b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a11a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">El rendimiento de una máquina de Carnot reversible 
+        viene dado por:</p><p class="m150"><img height="97" src="ciclos1/problema11/formulas/11_01.gif" width="173"/></p><p class="m50">Un rendimiento del 50% significa que el 50% del calor tomado 
+        se convierte en trabajo</p><p class="m50">Si toma 100 J del foco caliente convertirá 50 J en 
+        trabajo y los restantes 50 J los cederá al foco frio</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a12">
+<div class="enun"><p><span class="num">11</span><b><font color="#0000FF">Una máquina de vapor 
+        trabaja entre un foco térmico a 100 ºC y un foco frío 
+        a 0 ºC ¿Cuál es el máximo rendimiento posible 
+        de esta máquina? </font><br/>
+</b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a12a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">El máximo rendimiento de cualquier máquina 
+        térmica es el de una máquina de Carnot que trabaje entre 
+        las mismas temperaturas:</p><p class="m150"><img height="97" src="ciclos1/problema12/formulas/12_01.gif" width="182"/></p><p class="m50">El 26.8% del calor que tomase del foco caliente lo convertiría 
+        en trabajo</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a13">
+<div class="enun"><p><span class="num">12</span><b><font color="#0000FF">¿Qué aumenta más 
+        el rendimiento de una máquina de Carnot: aumentar en 5 K la temperatura 
+        del foco caliente o disminuir en 5 K la temperatura del foco frío?</font><br/>
+</b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a13a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Rendimiento de la máquina de Carnot:</p><p class="m150"><img height="41" src="ciclos1/problema13/formulas/13_01.gif" width="82"/></p><p class="m50">Rendimiento de la máquina al aumentar la temperatura 
+        del foco caliente en ΔT:</p><p class="m150"><img height="44" src="ciclos1/problema13/formulas/13_02.gif" width="126"/></p><p class="m50">Rendimiento de la máquina al disminuir la temperatura 
+        del foco frío en ΔT:</p><p class="m150"><img height="42" src="ciclos1/problema13/formulas/13_03.gif" width="133"/></p><p class="m50">Calculamos la diferencia entre estos rendimientos:</p><p class="m150"><img border="0" height="108" src="ciclos1/problema13/formulas/13_04.gif" width="270"/></p><p class="m50">El resultado negativo indica que η &gt; η', luego 
+        aumentará más el rendimiento si aumentamos la temperatura 
+        del foco caliente</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a14">
+<div class="enun"><p><span class="num">13</span><b><font color="#0000FF">Una máquina consume 200 
+        J de un foco caliente a 373 K, realiza 48 J de trabajo y cede 152 J a 
+        un foco frío a 273 K ¿Cuánto trabajo 'se pierde' 
+        por ciclo debido a la irreversibilidad de la máquina?<br/>
+</font> </b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a14a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">El máximo rnedimiento que podría tener la 
+        máquina es el de una máquina de Carnot trabajando entre 
+        373 k y 273 K:</p><p class="m150"><img height="97" src="ciclos1/problema14/formulas/14_01.gif" width="182"/></p><p class="m50">Con un rendimiento del 26.8% tomando 200 J del foco caliente 
+        se producirían 53.6 J de trabajo. Como en realidad produce se 48 
+        J de trabajo 'se pierden' 5.6 J</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a15">
+<div class="enun"><p><span class="num">14</span><b><font color="#0000FF">Una máquina de vapor 
+        toma vapor sobrecalentado a 270 ºC y descarga de su cilindro vapor 
+        conden-sado a 50 ºC. Su rendimiento es del 30%. a) Comparar este 
+        rendimiento con el mejor posible para estas temperaturas b) Si la potencia 
+        del motor es 200 kW ¿cuánto calor cede la máquina 
+        a su entorno en una hora?</font><br/>
+</b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a15a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">El máximo rendimiento es el de una máquina 
+        de Carnot trabajando entre las mismas temperaturas:</p><p class="m150"><img height="97" src="ciclos1/problema15/formulas/15_01.gif" width="182"/></p><p class="m50">El rendimiento de la máquina es el 74.1% del máximo 
+        posible (0.3/0.405)</p><p class="m50"><strong><font color="#0000FF">b)</font></strong></p><p class="m50">El trabajo que produce el motor en una hora es:</p><p class="m150"><strong><em>T</em></strong> = 200·10<sup>3</sup> 
+        W·3600 s = 7.2·10<sup>8</sup> J </p><p class="m50">Aplicando la definición de rendimiento podemos saber 
+        el calor que ha tomado en 1 hora:</p><p class="m150"><img height="94" src="ciclos1/problema15/formulas/15_02.gif" width="190"/></p><p class="m50">Si cada hora toma 24·10<sup>8</sup> J de calor y produce 
+        7.2·10<sup>8</sup> J de trabajo está claro que devuelve 
+        , por hora, 16.8·10<sup>8</sup> J de calor</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a16">
+<div class="enun"><p><span class="num">15</span><b><font color="#0000FF">En cada ciclo una máquina 
+        absorbe 150 J de un foco a 100 ºC y cede 125 J a un foco a 20 ºC 
+        ¿Cuál es el rendimiento de la máquina? ¿Qué 
+        relación hay entre este rendimiento y el de una máquina 
+        de Car-not que trabajara entre los mismos focos?</font><br/>
+</b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a16a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Si toma 150 J de calor y cede 125 J de calor producirá 
+        25 J de trabajo</p><p class="m50">El rendimiento de la máquina será, por definición:</p><p class="m150"><img height="92" src="ciclos1/problema16/formulas/16_01.gif" width="125"/></p><p class="m50">El rendimiento de una máquina de Carnot que trabajase 
+        entre las mismas temperaturas sería:</p><p class="m150"><img height="97" src="ciclos1/problema16/formulas/16_02.gif" width="182"/></p><p class="m50">El rendimiento de la máquina sería el 78% (0.167 
+        / 0.214) del rendimiento de la de Carnot</p></div></section>
+</div></details>
+</div>
+<div class="prob" id="a10" hidden>
+<div class="enun"><p><span class="num">0</span><b><font color="#0000FF">Una máquina térmica 
+        tiene un rendimiento del 35% ¿Cuánto trabajo realiza por 
+        ciclo si en cada uno absorbe 150 J de calor del foco caliente? ¿Cuánto 
+        calor no se aprovecha en cada ciclo? Si la máquina realiza 30 ciclos 
+        por segundo ¿qué potencia desarrolla?</font></b></p></div>
+<details class="solucion"><summary>Solución</summary><div class="sol">
+<section class="ap" id="a10a"><div class="aph"><span class="ctl"><button data-cmd="pasos">Paso a paso</button><button data-cmd="sig" hidden>Siguiente paso</button><button data-cmd="todo" hidden>Ver todo</button> <button data-ac="ac1" class="ayuda">Ayuda</button></span></div><div class="pasos"><p class="m50">Un rendimiento del 35% significa que el 35% del calor tomado 
+        se convierte en trabajo:</p><p class="m150"><em><strong>T</strong></em> = 0,35·150 J = 52.5 J</p><p class="m50">El calor que no se convierte en trabajo se devuelve:</p><p class="m150">Q<sub>devuelto</sub> = 150 J - 52.5 J = 97.5 J</p><p class="m50">En cada ciclo la máquina produce 52.5 J de trabajo 
+        mecánico. En 1 s realiza 10 ciclos luego producirá 52.5·10 
+        = 525 J. La potencia será entonces:</p><p class="m150">W = 525 J / 1 s = 525 W</p></div></section>
+</div></details>
+</div>
+</section>
+<section class="hojas" id="curso"><h2>Propuestos en el curso</h2>
+<h3>Hoja 1</h3><ol>
+<li><a class="enlace_texto" data-go="a8">Una máquina térmica absorbe 200 J de calor de un foco caliente, realiza trabajo y cede 160 J a un foco frío ¿Cuál es su rendimiento?</a></li>
+<li><a class="enlace_texto" data-go="a9">Una máquina de 200 W trabaja a 10 ciclos por segundo con un rendimiento del 30% ¿Cuánto trabajo realiza en cada ciclo? ¿Cuánto calor se absorbe y se…</a></li>
+<li><a class="enlace_texto" data-go="a2">0.32 moles de gas monoatómico, que inicialmente ocupan 2.2 l a 2.4 at, recorren el ciclo: 1 - 2: Calentamiento a presión constante hasta un volumen…</a></li>
+<li><a class="enlace_texto" data-go="a5">Una máquina térmica que tiene como sustancia de trabajo 1 mol de gas diatómico recorre el ciclo: 1 - 2: Expansión adiabática desde un volumen de 10 l…</a></li>
+<li><a class="enlace_texto" data-go="a1">Un gas monoatómico, que inicialmente ocupa un volumen de 1 l a una presión de 2 at, se expande a presión constante hasta que su volumen es 2.5 l,…</a></li>
+<li><a class="enlace_texto" data-go="a3">Partiendo de una presión de 2 at y 360 K, dos moles de un gas monoatómico recorren el ciclo: 1 – 2: Calentamiento a volumen constante 2 – 3:…</a></li>
+</ol>
+<h3>Hoja 2</h3><ol>
+<li><a class="enlace_texto" data-go="a6">Una máquina utiliza un mol de gas que, partiendo de un volumen de 24.6 l a 400 K, recorre el ciclo: 1 - 2: Expansión isotérmica hasta duplicar el…</a></li>
+<li><a class="enlace_texto" data-go="a7">Demuestra que el rendimiento del ciclo de Carnot viene dado por: η = (T<sub>1</sub>– T<sub>2</sub>) / T<sub>1</sub></a></li>
+<li><a class="enlace_texto" data-go="a11">Una máquina de Carnot trabaja entre dos focos a temperaturas 300 K y 200 K ¿Cuál es el rendimien-to? Si en cada ciclo absorbe 100 J de calor del foco…</a></li>
+<li><a class="enlace_texto" data-go="a12">Una máquina de vapor trabaja entre un foco térmico a 100 ºC y un foco frío a 0 ºC ¿Cuál es el máximo rendimiento posible de esta máquina?</a></li>
+<li><a class="enlace_texto" data-go="a13">¿Qué aumenta más el rendimiento de una máquina de Carnot: aumentar en 5 K la temperatura del foco caliente o disminuir en 5 K la temperatura del foco…</a></li>
+<li><a class="enlace_texto" data-go="a14">Una máquina consume 200 J de un foco caliente a 373 K, realiza 48 J de trabajo y cede 152 J a un foco frío a 273 K ¿Cuánto trabajo &#x27;se pierde&#x27; por…</a></li>
+<li><a class="enlace_texto" data-go="a15">Una máquina de vapor toma vapor sobrecalentado a 270 ºC y descarga de su cilindro vapor conden-sado a 50 ºC. Su rendimiento es del 30%. a) Comparar…</a></li>
+</ol>
+</section>
+<template id="ac1" data-t="Ayuda"><div class="pasos"></div></template>
+<script>
+(function () {
+  var OPT = { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
+              trust: function (c) { return c.command === '\\htmlData'; }, strict: 'ignore' };
+  function render(el) {
+    if (!window.renderMathInElement || !el || el.dataset.r) return;
+    el.dataset.r = 1; renderMathInElement(el, OPT);
+  }
+  // al cargar KaTeX: solo lo visible (enunciados y hojas); cada solución se dibuja al abrirla
+  window.pcKatex = function () {
+    document.querySelectorAll('.enun, .hojas, .cab, details[open]').forEach(render);
+    irAHash(); window.pcFit && pcFit();
+  };
+  document.addEventListener('toggle', function (e) { if (e.target.open) { render(e.target); window.pcFit && pcFit(); } }, true);
+
+  // desplazar la página aunque esté dentro del visor (es el visor quien hace scroll)
+  function verEl(el) {
+    try { var y = el.getBoundingClientRect().top, w = window; while (w.frameElement) { y += w.frameElement.getBoundingClientRect().top; w = w.parent; } w.scrollBy({ top: y - 12, behavior: 'smooth' }); }
+    catch (_) { el.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function ir(id) {
+    var el = document.getElementById(id); if (!el) return;
+    el.hidden = false;
+    for (var p = el; p; p = p.parentElement) if (p.tagName === 'DETAILS') { p.open = true; render(p); }
+    if (el.tagName === 'DETAILS') { el.open = true; render(el); }
+    setTimeout(function () { verEl(el); el.classList.add('nuevo-paso'); }, 30);
+  }
+  function irAHash() { var h = decodeURIComponent(location.hash.slice(1)); if (h) ir(h); }
+  addEventListener('hashchange', irAHash);
+
+  // paso a paso
+  function modo(cont, m) {
+    var ps = cont.querySelector(':scope > .pasos'); if (!ps) return;
+    var hs = [].slice.call(ps.children), b = function (c) { return cont.querySelector(':scope > .aph [data-cmd="' + c + '"], :scope > .ctl [data-cmd="' + c + '"]'); };
+    if (m === 'pasos') { hs.forEach(function (h, i) { h.classList.toggle('oculto', i > 0); }); }
+    else if (m === 'sig') { var o = ps.querySelector(':scope > .oculto'); if (o) { o.classList.remove('oculto'); o.classList.add('nuevo-paso'); } }
+    else { hs.forEach(function (h) { h.classList.remove('oculto'); }); }
+    var quedan = !!ps.querySelector(':scope > .oculto');
+    if (b('sig')) { b('sig').hidden = !quedan; }
+    if (b('todo')) { b('todo').hidden = !quedan; }
+    if (b('pasos')) { b('pasos').hidden = quedan; }
+    window.pcFit && pcFit();
+  }
+
+  // aclaraciones (antes, ventanas): se despliegan debajo del párrafo
+  function aclarar(src, k) {
+    var tpl = document.getElementById(k); if (!tpl) return;
+    var a = src;
+    while (a.parentElement && !a.parentElement.matches('.pasos, .enun, .ac-body, .sol, .aph')) a = a.parentElement;
+    if (a.parentElement && a.parentElement.matches('.aph')) a = a.parentElement;
+    var sig = a.nextElementSibling;
+    if (sig && sig.classList.contains('ac-box') && sig.dataset.k === k) { sig.remove(); window.pcFit && pcFit(); return; }
+    var box = document.createElement('div'); box.className = 'ac-box'; box.dataset.k = k;
+    box.innerHTML = '<div class="ac-h"><span></span><button aria-label="Cerrar">✕</button></div><div class="ac-body"></div>';
+    box.querySelector('span').textContent = tpl.dataset.t;
+    box.querySelector('.ac-body').appendChild(tpl.content.cloneNode(true));
+    a.after(box); render(box);
+    var ps = box.querySelector('.ac-body > .pasos[data-modo="pasos"]'); if (ps) modo(box.querySelector('.ac-body'), 'pasos');
+    window.pcFit && pcFit();
+  }
+
+  document.addEventListener('click', function (e) {
+    var st = e.target.closest('[data-pc-steps]');
+    if (st) {
+      var lista = JSON.parse(st.dataset.pcSteps), i = +(st.dataset.i || 0);
+      (lista[i] || []).forEach(function (op) {
+        var el = document.getElementById(op[1]); if (!el) return;
+        if (op[0] === 'h') { var src = document.getElementById(op[2]); if (src) { el.innerHTML = src.innerHTML; el.style.visibility = 'visible'; } }
+        else if (op[0] === 'i') el.src = op[2];
+        else el.style.visibility = op[2] ? 'visible' : 'hidden';
+      });
+      if (lista.length > 1) {
+        st.dataset.i = (i + 1) % lista.length;
+        if (st.tagName === 'INPUT' && st.type === 'button' && /^\s*\d+\s*$/.test(st.value)) st.value = '    ' + st.dataset.i + '    ';
+      }
+      window.pcFit && pcFit(); return;
+    }
+    var sw = e.target.closest('[data-pc-swap]');
+    if (sw) {
+      sw.dataset.pcSwap.split(';').forEach(function (par) {
+        var p = par.split(':'), dst = document.getElementById(p[0]), src = document.getElementById(p[1]);
+        if (dst && src) { dst.innerHTML = src.innerHTML; dst.style.visibility = 'visible'; }
+      });
+      var grupo = sw.closest('table') || document;
+      grupo.querySelectorAll('.pc-swap.sel').forEach(function (x) { x.classList.remove('sel'); });
+      sw.classList.add('sel'); window.pcFit && pcFit(); return;
+    }
+    var t = e.target.closest('[data-cmd], [data-ac], [data-pc-ac], [data-go], [data-pc-go], .ac-h button');
+    if (!t) return;
+    if (t.matches('.ac-h button')) { t.closest('.ac-box').remove(); window.pcFit && pcFit(); return; }
+    e.preventDefault();
+    if (t.dataset.cmd) return modo(t.closest('.ap, .ac-body'), t.dataset.cmd);
+    if (t.dataset.ac || t.dataset.pcAc) return aclarar(t, t.dataset.ac || t.dataset.pcAc);
+    var id = t.dataset.go || t.dataset.pcGo;
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    ir(id);
+  });
+  try { _pctop.document.title = 'Termodinámica. Máquinas térmicas'; _pctop.archivoAyuda = null; } catch (e) {}
+})();
+</script>
+</body>
+</html>

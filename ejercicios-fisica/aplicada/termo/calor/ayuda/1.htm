@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onLoad="self.resizeTo(480,480)"
+onUnload="cerrarVentanas()">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+<p><b><font color="#0000FF">Equilibrio t&eacute;rmico</font></b></p>
+      <p>Cuando se ponen en contacto cuerpos a diferentes temperatu-ras acaban 
+        quedando todos a la misma temperatura.</p>
+      <p><strong><font color="#FF0000">C&aacute;lculo de la temperatura de equilibrio</font></strong></p>
+      <p align="left">En la <span class="enlace_texto" onClick="abrirVentana('2.htm',1)">escalera</span> correspondiente 
+        a cada cuerpo se marcan el es-tado t&eacute;rmico inicial y el estado 
+        t&eacute;rmico de equilibrio</p>
+      <p align="left">Se calcula el calor ganado o perdido por cada cuerpo al 
+        cambiar su estado t&eacute;rmico. </p>
+      <p align="left">La suma de los calores intercambiados por todos los cuerpos 
+        tiene que ser cero (Principio de conservaci&oacute;n)</p>
+      <p align="left" class="m100">Q<sub>g</sub> + Q<sub>p</sub> = 0</p>
+      <p align="left"><strong><font color="#FF0000">Nota</font></strong></p>
+      <p align="left">El calor&iacute;metro donde se realiza la experiencia tambi&eacute;n 
+        cambia de temperatura y por tanto intercambia calor que habr&aacute; que 
+        tener en cuenta. <br />
+        Los <span class="enlace_texto" onClick="abrirVentana('3.htm',1)">datos 
+        del calor&iacute;metro</span> pueden darse de diferentes formas</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

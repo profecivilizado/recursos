@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../../_pc/compat.js"></script>
+
+<title>Ayuda</title>
+<meta charset="utf-8">
+<meta name="autor" content="Sanz" />
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var ventana
+
+function abrirVentana(URL,barras) {
+	var atributos="resizable=no"
+	if(ventana) ventana.close();
+	if (barras) atributos=atributos+',scrollbars=yes'
+	ventana=window.open(URL,"",atributos)
+}
+
+function cerrarVentanas() {
+	if(ventana) ventana.close();
+}
+
+//-->
+</script>
+<link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+onload="self.resizeTo(480,210)"
+onunload="cerrarVentanas()">
+<table width="450" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="430"><p  > <font color="#0000FF"><strong>Explosiones<br />
+        </strong></font>En una explosi&oacute;n se conserva el momento lineal.<br />
+        La conservaci&oacute;n del momento lineal se aplica entre el instante 
+        inmediatamente anterior a la explosi&oacute;n y el inmediatamente pos-terior 
+        (Gracias a esto se puede despreciar el peso que es una fuerza exterior)<br />
+        En los choques la variaci&oacute;n de energ&iacute;a cin&eacute;tica es 
+        cero o negati-va pero en las explosiones siempre es positiva (La ganancia 
+        de energ&iacute;a proviene de la energ&iacute;a qu&iacute;mica del explosivo)</p>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

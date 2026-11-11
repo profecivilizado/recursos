@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../_pc/compat.js"></script>
+
+<title>Relaci&oacute;n entre tiempos</title>
+<meta charset="utf-8">
+<meta name="Autor" content="Sanz" />
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function mostrarObjetos(){
+	for (var i=1 ; i <arguments.length; i =i+ 2){
+	var estado=arguments[0]+arguments[i]+".style.visibility";
+	switch(arguments[i+1]){
+	case 0:estado=estado+"='hidden'";break
+	case 1:estado=estado+"='visible'";break
+	case 2:estado=estado+"='inherit'"};
+	eval(estado)
+	}
+}
+
+var n =0
+//-->
+</script>
+<link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../_pc/pc.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" link="#0000CC" vlink="#0000CC"  
+onload="self.moveTo(20,20);self.resizeTo(480,360)">
+<table width="451" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td width="431" colspan="3" > <p><b><font color="#0000FF">Relaci&oacute;n 
+        entre tiempos</font></b></p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td width="7%" rowspan="3"><div align="center">
+              <input type="button" name="boton1" value=" " class="boton"
+	  		onclick="switch(n){
+				case 0: imagen.innerHTML=imagen1.innerHTML;mostrarObjetos('celda',1,0,2,2);n=1;break;
+				case 1: imagen.innerHTML=imagen2.innerHTML;mostrarObjetos('celda',2,0,3,2,4,2);n=2;break;
+				case 2: imagen.innerHTML=imagen0.innerHTML;mostrarObjetos('celda',1,2,2,0,3,0,4,0);n=0;break;
+				}" />
+            </div></td>
+          <td width="42%" rowspan="3" id="imagen" ><img src="imagenes/2_01.png"  width="175" height="168"  /></td>
+          <td width="51%" height="33" id="celda1" > <p>El primer m&oacute;vil 
+              empieza a mo-verse </p></td>
+        </tr>
+        <tr> 
+          <td id="celda2" style="visibility:hidden"> 
+            <p>El primer m&oacute;vil 
+              lleva movi&eacute;ndo-se un tiempo &Delta;t. Comienza el movimiento 
+              del segundo</p></td></tr>
+        <tr> 
+          <td id="celda3" style="visibility:hidden"> 
+            <p align="left">Cuando el primer m&oacute;vil lleva movi&eacute;ndose 
+              un tiempo t el segundo m&oacute;vil llevar&aacute; movi&eacute;n-dose 
+              un tiempo t'. Entonces:</p>
+            <p align="center"> t = &Delta;t + t'</p>
+            <p align="center">t' = t - &Delta;t<br />
+            </p>
+            </td></tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td colspan="2" id="celda4" style="visibility:hidden">
+<p align="center">El m&oacute;vil que sale <b>m&aacute;s tarde</b> 
+              circula <b>menos tiempo</b></p></td></tr>
+      </table>  
+      <table width="100%" border="0" cellspacing="0" cellpadding="5" style="visibility:hidden">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr> 
+                <td id="imagen0"> 
+                  <div align="center"><img src="imagenes/2_01.png" width="175" height="168" /></div></td>
+                <td id="imagen1"> 
+                  <div align="center"><img src="imagenes/2_02.png" width="175" height="168" /></div></td></tr>
+              <tr>
+                <td id="imagen2"> 
+                  <div align="center"><img src="imagenes/2_03.png" width="175" height="168" /></div></td><td>&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+ </table>
+</body>
+</html>
