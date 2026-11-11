@@ -13,8 +13,13 @@
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" >
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+
+>
 <table width="450" border="0" cellspacing="0" cellpadding="5">
   <tr> 
     <td width="440"> <p><b><font color="#0000FF">Centro de masas de una distribuci&oacute;n 
@@ -28,9 +33,9 @@
       <p> La media ponderada es la suma de los productos de la coordena-da de 
         cada punto por el porcentaje que representa su masa en el total de la 
         distribuci&oacute;n </p>
-      <p><img src="formulas/1_01.gif" width="425" height="37" /></p>
+      <p>$$x_0=\frac{m_1}{M}\,x_1+\frac{m_2}{M}\,x_2+\frac{m_3}{M}\,x_3,\qquad y_0=\frac{m_1}{M}\,y_1+\frac{m_2}{M}\,y_2+\frac{m_3}{M}\,y_3$$</p>
       <p>A efectos de c&aacute;lculo las formulas anteriores se ponen como:</p>
-      <p><img src="formulas/1_02.gif" width="422" height="41" /></p>
+      <p>$$x_0=\frac{m_1\,x_1+m_2\,x_2+m_3\,x_3}{m_1+m_2+m_3},\qquad y_0=\frac{m_1\,y_1+m_2\,y_2+m_3\,y_3}{m_1+m_2+m_3}$$</p>
       <p>El c.d.m viene a ser el punto donde se puede suponer que est&aacute; 
         concentrada toda la masa de la distribuci&oacute;n</p>
       </td>
