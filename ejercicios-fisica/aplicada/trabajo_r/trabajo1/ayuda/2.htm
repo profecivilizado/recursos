@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,340)"
 onunload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -37,10 +43,10 @@ onunload="cerrarVentanas()">
 <p  ><b><font color="#0000FF">Energ&iacute;a cin&eacute;tica de un cuerpo en rotaci&oacute;n</font></b></p>
       <p>La energ&iacute;a cin&eacute;tica de un cuerpo en rotaci&oacute;n es 
         la suma de las energ&iacute;as cin&eacute;ticas de sus puntos materiales</p>
-      <p align="center"><img src="formulas/2_01.gif" width="274" height="36" /></p>
+      <p align="center">$$E_C=\frac{1}{2}\,m_1\,v_1^2+\frac{1}{2}\,m_2\,v_2^2+\frac{1}{2}\,m_3\,v_3^2+\dots$$</p>
       <p>Poniendo la velocidad de cada punto en funci&oacute;n de la velocidad 
         angular resulta:</p>
-      <p align="center"><img src="formulas/2_02.gif" width="373" height="86" /></p>
+      <p align="center">$$\begin{aligned}&E_C=\frac{1}{2}\,m_1\,(\omega R_1)^2+\frac{1}{2}\,m_2\,(\omega R_2)^2+\frac{1}{2}\,m_3\,(\omega R_3)^2+\dots\\[6pt] &E_C=\frac{1}{2}\left(m_1\,R_1^2+m_2\,R_2^2+m_3\,R_3^2+\dots\right)\omega^2=\frac{1}{2}\,I\,\omega^2\end{aligned}$$</p>
       </td>
   </tr>
 </table>
