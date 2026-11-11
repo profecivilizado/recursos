@@ -39,8 +39,14 @@ function mostrarObjetos(){
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+ 
+
+
 onload="self.resizeTo(480,420);"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellpadding="10" cellspacing="0">
@@ -51,7 +57,7 @@ onUnload="cerrarVentanas()">
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr>
           <td width="56%"><p align="center"><img src="imagenes/1_03.png" name="imagen1" width="181" height="144" id="imagen1" /></p></td>
-          <td width="44%"><p align="center"><img src="formulas/1_01.gif" width="148" height="41" /></p></td>
+          <td width="44%"><p align="center">$$\vec{B}=\frac{\mu_0}{4\pi}\,\frac{q\,v}{r^2}\,(\vec{u}_v\times\vec{u}_r)$$</p></td>
         </tr>
       </table>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">

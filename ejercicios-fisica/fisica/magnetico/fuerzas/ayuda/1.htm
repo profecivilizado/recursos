@@ -25,8 +25,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+ 
+
+
 onload="self.resizeTo(480,480);"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellpadding="10" cellspacing="0">
@@ -35,7 +41,7 @@ onUnload="cerrarVentanas()">
       <p><b><font color="#0000FF">Fuerza sobre un conductor rectil&iacute;neo</font></b></p>
       <p>Un conductor rectil&iacute;neo recorrido por una corriente y colocado dentro 
         de un campo magn&eacute;tico uniforme sufre una fuerza:</p>
-      <p class="m100"><img src="formulas/1_01.gif" width="121" height="24" /></p>
+      <p class="m100">$$\vec{F}=I\,L\,B\,(\vec{u}_I\times\vec{u}_B)$$</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr valign="top"> 
           <td width="10%"> <p align="right">I&nbsp;</p></td>
@@ -58,7 +64,7 @@ onUnload="cerrarVentanas()">
           <td> <p>Vector unitario correspondiente al campo</p></td>
         </tr>
       </table>  <p>La fuerza que experimenta el conductor por unidad de longitud vale:</p>
-      <p class="m100"><img src="formulas/1_02.gif" width="137" height="37" /></p></td>
+      <p class="m100">$$\vec{f}=\frac{\vec{F}}{L}=I\,B\,(\vec{u}_I\times\vec{u}_B)$$</p></td>
   </tr>
 </table>
 </body>
