@@ -14,8 +14,14 @@
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,400 )">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
   <tr>
@@ -24,7 +30,7 @@ onload="self.resizeTo(480,400 )">
       <p><font color="#0000FF">Forma bin&oacute;mica:</font> <br />
         Se expresa el cociente como una fracci&oacute;n, se multiplican nume-rador 
         y denominador por el conjugado del denominador y se sim-plifica</p>
-      <p class="m50"><img src="formulas/1_4_01.gif" width="302" height="162" /></p>
+      <p class="m50">$$\begin{aligned}&\frac{N^*}{M^*}=\frac{1-j\cdot2}{3+j\cdot4}\\[6pt] &\frac{N^*}{M^*}=\frac{(1-j\cdot2)\,(3-j\cdot4)}{(3+j\cdot4)\,(3-j\cdot4)}=\frac{3-j\cdot4-j\cdot6-8}{3^2-(j\cdot4)^2}\\[6pt] &\frac{N^*}{M^*}=\frac{-5-j\cdot10}{25}=-0{,}2-j\cdot0{,}4\end{aligned}$$</p>
       <p><font color="#0000FF">Forma m&oacute;dulo-argumental</font><br />
         Se dividen los m&oacute;dulos y se restan los argumentos</p>
       <p class="m50">N* = (9)<sub>0,72</sub>,&nbsp;&nbsp; M* = (3)<sub>-0,25</sub></p>
