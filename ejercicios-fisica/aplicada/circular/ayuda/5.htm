@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +25,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"   
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+
+ 
 onLoad ="self.resizeTo(480,500)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -41,9 +47,9 @@ onUnload="cerrarVentanas()">
         se obtiene restando a su po-sici&oacute;n angular k&middot;2&pi; siendo 
         k el n&uacute;mero de pasos por el origen. Entonces la condici&oacute;n 
         de choque ser&aacute; una de estas dos:</font></p>
-      <p class="m50"><img src="formulas/2_01.gif" width="194" height="60"> </p>
+      <p class="m50">$$\begin{aligned}&(\varphi-k\,2\pi)-(\varphi'-k'\,2\pi)=0\\[6pt] &(\varphi-k\,2\pi)-(\varphi'-k'\,2\pi)=2\pi\end{aligned}$$ </p>
       <p>Estas dos ecuaciones se pueden combinar en una sola:</p>
-      <p class="m50"><img src="formulas/2_02.gif" width="94" height="20"></p>
+      <p class="m50">$$\varphi-\varphi'=\Delta k\,2\pi$$</p>
       <p>Siendo &Delta;k un entero, positivo o negativo, cuyo valor depende de 
         la diferencia entre los pasos por el origen de cada m&oacute;vil y de 
         los sentidos de giro&nbsp;</p>
