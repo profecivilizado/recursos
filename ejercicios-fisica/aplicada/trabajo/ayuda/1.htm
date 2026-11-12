@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,490)"
 onunload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -46,7 +52,7 @@ onunload="cerrarVentanas()">
         de la fuerza peso y de la fuerza el&aacute;stica no se calculan porque 
         est&aacute;n inclui-dos en los cambios de energ&iacute;a potencial y el&aacute;stica</font></p>
       <p>Se iguala el trabajo con la suma de los cambios de energ&iacute;a</p>
-      <p align="center"><img src="formulas/1_01.gif" width="137" height="20" /></p>
+      <p align="center">$$\mathcal{T}=\Delta E_C+\Delta E_P+\Delta E_E$$</p>
       <p><b><font color="#FF0000">Observaciones<br />
         </font></b><font color="#FF0000">En estos problemas solo puede haber una 
         inc&oacute;gnita<br />
