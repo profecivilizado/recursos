@@ -184,6 +184,11 @@
     "c",
     "Problemas mixtos",
     "aplicada/trabajo/trabajo3"
+   ],
+   [
+    "d",
+    "Preguntas malvadas",
+    "aplicada/trabajo/faq"
    ]
   ],
   "hojas": [
@@ -486,6 +491,11 @@
     "a",
     "Máquinas térmicas",
     "aplicada/termo/ciclos/ciclos1"
+   ],
+   [
+    "b",
+    "Preguntas malvadas",
+    "aplicada/termo/ciclos/faq"
    ]
   ],
   "hojas": [
@@ -505,6 +515,11 @@
     "a",
     "General",
     "aplicada/termo/entropia/entropia1"
+   ],
+   [
+    "b",
+    "Preguntas malvadas",
+    "aplicada/termo/entropia/faq"
    ]
   ],
   "hojas": []
