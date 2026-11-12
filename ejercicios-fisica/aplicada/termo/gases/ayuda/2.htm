@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,540)"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -44,20 +50,20 @@ onUnload="cerrarVentanas()">
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
           <td width="68%"><p>Isobara (Presi&oacute;n constante)</p></td>
-          <td width="32%"><p align="center"><img src="formulas/2_01.gif" width="60" height="41" class="enlace_imagen" onClick="abrirVentana('ecuaciones/1.htm')"/></p></td>
+          <td width="32%"><p align="center"><div class="enlace_imagen" onclick="abrirVentana(&#x27;ecuaciones/1.htm&#x27;)">$$\frac{V_1}{V_2}=\frac{T_1}{T_2}$$</div></p></td>
         </tr>
         <tr> 
           <td><p>Isocora (Volumen constante)</p></td>
-          <td><p align="center"><img src="formulas/2_02.gif" width="58" height="41" class="enlace_imagen" onClick="abrirVentana('ecuaciones/2.htm')"/> 
+          <td><p align="center"><div class="enlace_imagen" onclick="abrirVentana(&#x27;ecuaciones/2.htm&#x27;)">$$\frac{P_1}{P_2}=\frac{T_1}{T_2}$$</div> 
             </p></td>
         </tr>
         <tr> 
           <td><p>Isoterma (Temperatura constante)</p></td>
-          <td><p align="center"><img src="formulas/2_03.gif" width="90" height="20" class="enlace_imagen" onClick="abrirVentana('ecuaciones/3.htm')"/></p></td>
+          <td><p align="center"><div class="enlace_imagen" onclick="abrirVentana(&#x27;ecuaciones/3.htm&#x27;)">$$P_1\,V_1=P_2\,V_2$$</div></p></td>
         </tr>
         <tr> 
           <td><p>Adiab&aacute;tica (Sin intercambio de calor)</p></td>
-          <td><p align="center"> <img src="formulas/2_04.gif" width="93" height="28" /> 
+          <td><p align="center"> $$P_1\,V_1^\gamma=P_2\,V_2^\gamma$$ 
               &nbsp;</p></td>
         </tr>
       </table>
