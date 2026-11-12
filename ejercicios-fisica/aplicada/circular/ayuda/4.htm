@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,8 +26,13 @@ function cerrarVentanas() {
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"  
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+
+ 
 onload ="self.resizeTo(480,650)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -38,14 +44,14 @@ onUnload="cerrarVentanas()">
         </font></strong>Est&aacute; asociada al cambio de direcci&oacute;n<br>
         El vector a<sub>n</sub> tiene la direcci&oacute;n del radio, apunta hacia 
         el centro de la circunferencia y su m&oacute;dulo vale:</p>
-      <p class="m100"><img src="formulas/3_01.gif" width="186" height="49" border="0" usemap="#Map" style="cursor:pointer"> 
+      <p class="m100">$$a_n=\frac{v^2}{R}=\frac{\left(\htmlData{pc-map=Map, pc-area=0}{\boxed{\omega R}}\right)^2}{R}=\omega^2\,R$$ 
       </p>
       <p><strong><font color="#0000FF">Aceleraci&oacute;n tangencial</font><font color="#FF0000"><br>
         </font></strong>Est&aacute; asociada al cambio de rapidez<br>
         El vector at tiene la direcci&oacute;n de la tangente en cada punto y 
         sentido igual o contrario al de la velocidad seg&uacute;n se trate de 
         un movimiento acelerado o frenado. Su m&oacute;dulo vale:</p>
-      <p class="m100"><img src="formulas/3_02.gif" width="74" height="28" border="0" usemap="#Map2" style="cursor:pointer"></p>
+      <p class="m100">$$\htmlData{pc-map=Map2, pc-area=0}{\boxed{a_t=\alpha\,t}}$$</p>
       <p><strong><font color="#0000FF">Aceleraci&oacute;n total</font></strong><br>
         Es la resultante vectorial de las aceleraciones normal y tangen-cial</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
