@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +13,13 @@
 </script>
 <link rel="stylesheet" href="../../comunes/js/estilos.css" type="text/css">
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+
+
 onLoad ="self.resizeTo(480,370)">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
   <tr> 
@@ -26,7 +32,7 @@ onLoad ="self.resizeTo(480,370)">
         quieto la aceleraci&oacute;n es negativa, as&iacute; que la transici&oacute;n 
         entre moverse o estar quieto corresponder&aacute; al caso en que la aceleraci&oacute;n 
         sea cero:</p>
-      <p align="center"><img src="formulas/5_01.gif" width="336" height="57"></p>
+      <p align="center">$$\begin{aligned}&0=g\,(\operatorname{sen}\alpha-\mu\cos\alpha)\;\rightarrow\;0=\operatorname{sen}\alpha-\mu\cos\alpha\\[6pt] &\operatorname{sen}\alpha=\mu\cos\alpha\;\rightarrow\;\operatorname{tg}\alpha=\mu\end{aligned}$$</p>
       <p align="left"><font color="#FF0000">Un bloque colocado sobre un plano 
         inclinado comenzar&aacute; a desli-zar cuando tg &alpha; sea un pelin 
         mayor que &mu;</font></p>
