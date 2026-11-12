@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onLoad="self.resizeTo(480,500)"
 onunload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -38,7 +44,7 @@ onunload="cerrarVentanas()">
         </font></b>La variaci&oacute;n de energ&iacute;a cin&eacute;tica en un 
         choque es la diferencia entre las energ&iacute;as cin&eacute;ticas de 
         ambos cuerpos despu&eacute;s y antes del mismo</p>
-      <p class="m50"><img src="formulas/4_01.gif" width="225" height="22" /></p>
+      <p class="m50">$$\Delta E_C=(E'_{C1}+E'_{C2})-(E_{C1}+E_{C2})$$</p>
       <p>Esta variaci&oacute;n de energ&iacute;a cin&eacute;tica puede ser cero 
         (Choque el&aacute;s-tico: la energ&iacute;a cin&eacute;tica se conserva) 
         o negativa (Choque in-el&aacute;stico: parte de la energ&iacute;a cin&eacute;tica 
@@ -47,13 +53,13 @@ onunload="cerrarVentanas()">
         de energ&iacute;a cin&eacute;tica perdida como el cociente de la variaci&oacute;n 
         de energ&iacute;a cin&eacute;tica entre la energ&iacute;a cin&eacute;tica 
         ini-cial de ambos cuerpos</p>
-      <p class="m100"><img src="formulas/4_02.gif" width="152" height="41" /></p>
+      <p class="m100">$$x_p=\frac{\Delta E_C}{E_{C1}+E_{C2}}=\frac{\Delta E_C}{E_C}$$</p>
       <p><strong><font color="#0000FF"><br />
         </font></strong>Se define fracci&oacute;n de energ&iacute;a cin&eacute;tica 
         conservada como el co-ciente de la energ&iacute;a cin&eacute;tica final 
         de ambos cuerpos entre la la energ&iacute;a cin&eacute;tica inicial de 
         ambos cuerpos</p>
-      <p class="m100"><img src="formulas/4_03.gif" width="158" height="41" /></p>
+      <p class="m100">$$x_c=\frac{E'_{C1}+E'_{C2}}{E_{C1}+E_{C2}}=\frac{E'_C}{E_C}$$</p>
       <p>Evidentemente se cumple que: x<sub>c</sub> - x<sub>p</sub> = 1</p>
       <p><strong><font color="#0000FF">Energ&iacute;a cin&eacute;tica transferida 
         y mantenida</font></strong><br />
@@ -62,16 +68,16 @@ onunload="cerrarVentanas()">
         al cuerpo 2 para que se mueva y el resto queda para &eacute;l (Energ&iacute;a 
         mantenida)</p>
       <p>La fracci&oacute;n de energ&iacute;a cin&eacute;tica perdida ser&aacute;:</p>
-      <p class="m100"><img src="formulas/4_06.gif" width="166" height="42" /></p>
+      <p class="m100">$$x_p=\frac{(E'_{C1}+E'_{C2})-E_{C1}}{E_{C1}}$$</p>
       <p>Se define fracci&oacute;n de energ&iacute;a cin&eacute;tica transferida 
         como el co-ciente de la energ&iacute;a cin&eacute;tica del cuerpo 2 tras 
         el choque entre la energ&iacute;a cin&eacute;tica del cuerpo 1 antes del 
         choque </p>
-      <p class="m100"><img src="formulas/4_04.gif" width="69" height="41" /></p>
+      <p class="m100">$$x_t=\frac{E'_{C2}}{E_{C1}}$$</p>
       <p>Se define fracci&oacute;n de energ&iacute;a cin&eacute;tica mantenida 
         como el co-ciente de la energ&iacute;as cin&eacute;ticas del cuerpo 1 
         despu&eacute;s y antes del choque </p>
-      <p class="m100"><img src="formulas/4_05.gif" width="73" height="41" /></p>
+      <p class="m100">$$x_m=\frac{E'_{C1}}{E_{C1}}$$</p>
       <p>Evidentemente se cumple: x<sub>m</sub> + x<sub>t</sub> - x<sub>p</sub> 
         = 1<br />
       </p>
