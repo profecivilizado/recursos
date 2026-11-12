@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onLoad="self.moveTo(20,0);self.resizeTo(480,450)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -42,7 +48,7 @@ onUnload="cerrarVentanas()">
           <td width="72%" valign="middle"> 
             <p>La polea est&aacute; inicialmente en reposo porque la mano le sujeta. 
               En cada bloque y en la polea m&oacute;vil se cumple:</p>
-            <p align="center"><img src="formulas/3_2_01.gif" width="200" height="92" /></p>
+            <p align="center">$$\left.\begin{array}{l}T_1=m_1\,g\\[6pt] 2\,T_3=T_2\\[6pt] T_2=m_2\,g\end{array}\right\}\;\rightarrow\;\begin{array}{l}T_1=m_1\,g\\[6pt] T_3=\frac{m_2\,g}{2}\end{array}$$</p>
             <p align="left">Al retirar la mano la polea queda sometida a las fuerzas 
               T<sub>1</sub> y T<sub>3</sub> (Iguales a m<sub>1</sub>g y m<sub>2</sub>g/2 
               respectivamente) y girar&aacute; en el sentido de la mayor </p>
