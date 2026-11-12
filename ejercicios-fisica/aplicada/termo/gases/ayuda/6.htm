@@ -28,8 +28,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onLoad="self.resizeTo(480,540)"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellpadding="10" cellspacing="0">
@@ -41,12 +47,12 @@ onUnload="cerrarVentanas()">
         hasta que ambas presiones se igualen</p>
       <p>La presi&oacute;n de equilibrio ser&aacute; la que hacen todos los moles 
         ocu-pando todo el volumen:</p>
-      <p align="center"><img src="formulas/6_01.gif" width="125" height="44" /></p>
+      <p align="center">$$P'=\frac{(n_1+n_2)\,R\,T}{(V_1+V_2)}$$</p>
       <p>En el equilibrio ambos recipientes tendr&aacute;n la misma presi&oacute;n 
         y se puede saber la cantidad de gas que hay en cada uno:</p>
-      <p align="center"><img src="formulas/6_02.gif" width="181" height="40" /></p>
+      <p align="center">$$n'_1=\frac{P'\,V_1}{R\,T},\qquad n'_2=\frac{P'\,V_2}{R\,T}$$</p>
       <p align="left">El cambio en la cantidad de gas de cada recipiente vale:</p>
-      <p align="center"><img src="formulas/6_03.gif" width="236" height="20" /> 
+      <p align="center">$$\Delta n_1=n'_1-n_1\qquad,\qquad\Delta n_2=n'_2-n_2$$ 
       </p>
       <p align="left">Estos cambios tienen que ser iguales y opuestos e indican 
         la cantidad de gas que ha pasado de uno a otro recipiente</p>
@@ -61,7 +67,7 @@ onUnload="cerrarVentanas()">
         mucho, mucho m&aacute;s grande. Resumiendo: la presi&oacute;n de equilibrio 
         ser&aacute; igual a la pre-si&oacute;n atmosf&eacute;rica</font> </p>
       <p>En el equilibrio la cantidad de gas que contiene el recipiente es:</p>
-      <p align="center"><img src="formulas/6_04.gif" width="64" height="38" align="middle" />&nbsp; 
+      <p align="center">$\displaystyle n'=\frac{P'\,V}{R\,T}$&nbsp; 
         (P': Presi&oacute;n atmosf&eacute;rica)</p>
       <p align="left"> El cambio en la cantidad de gas que contiene el recipiente 
         vale:</p>

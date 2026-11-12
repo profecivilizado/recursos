@@ -53,10 +53,15 @@ function siguiente(celda) {
 </script>
 <link href="../../../../js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
 
 <body bgcolor="#FFFFFF" 
-leftmargin="0" topmargin="0" 
+leftmargin="0" topmargin="0" 
+
+
 onload ="self.moveTo(20,20);self.resizeTo(340,220)"
 onunload="cerrarVentanas()">
 <table border="0" cellspacing="0" cellpadding="10" id="tabla" width="108">
@@ -64,17 +69,17 @@ onunload="cerrarVentanas()">
     <td id="celda0" onclick="verHasta(tabla.cells.length)" width="20"> <div align="center"> 
         <input type="button" name="Submit" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td width="125" id="celda1"><img src="formulas/1_01.gif" width="108" height="92" /></td>
+    <td width="125" id="celda1">$$\left.\begin{array}{l}P_1\,V_1=n\,R\,T_1\\[6pt] P_2\,V_2=n\,R\,T_2\\[6pt] P_1=P_2\end{array}\right\}$$</td>
     <td width="6" id="celda2" onclick="siguiente(this.id)"> <div align="center"> 
         <input type="button" name="Submit" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td width="185" id="celda3" style="visibility:hidden"><img src="formulas/1_02.gif" width="108" height="57" /></td>
+    <td width="185" id="celda3" style="visibility:hidden">$$\left.\begin{array}{l}P_1\,V_1=n\,R\,T_1\\[6pt] P_1\,V_2=n\,R\,T_1\end{array}\right\}$$</td>
   </tr>
   <tr> 
     <td id="celda4" style="visibility:hidden" onclick="siguiente(this.id)" width="20"> <div align="center"> 
         <input type="button" name="Submit2" value=" " class="boton" style="cursor:pointer" />
       </div></td>
-    <td colspan="3" id="celda5" style="visibility:hidden" ><img src="formulas/1_03.gif" width="60" height="41" /></td>
+    <td colspan="3" id="celda5" style="visibility:hidden" >$$\frac{V_1}{V_2}=\frac{T_1}{T_2}$$</td>
   </tr>
 </table>
 </body>
