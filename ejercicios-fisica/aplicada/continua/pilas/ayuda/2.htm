@@ -26,8 +26,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,580)"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -38,15 +44,15 @@ onUnload="cerrarVentanas()">
       <p><strong><font color="#FF0000">M&eacute;todo de resoluci&oacute;n</font></strong></p>
       <p>Para empezar se aplica la conservaci&oacute;n de la energ&iacute;a en 
         el cir-cuito (En funci&oacute;n de la intensidad):</p>
-      <p class="m100"><img src="formulas/2_01.gif" width="93" height="20" class="enlace_imagen" onClick="abrirVentana('1.htm',1)"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;1.htm&#x27;,1)">$$\varepsilon=I\,r+I\,R$$</div></p>
       <p>Si faltan ecuaciones habr&aacute; que utilizar alguna de las siguientes 
         dej&aacute;ndolas en funci&oacute;n de la intensidad:</p>
       <p>Tensi&oacute;n en alguna de las resistencias o en bornes del generador</p>
-      <p class="m100"><img src="formulas/2_02.gif" width="245" height="28" border="0" usemap="#Map" onClick="abrirVentana('1.htm',1)" style="cursor:pointer"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;1.htm&#x27;,1)">$$V_R=I\,R,\quad V_r=I\,r,\quad\htmlData{pc-map=Map, pc-area=0}{\boxed{V_b=\varepsilon-I\,r}}$$</div></p>
       <p>Potencia en alguna de las resistencias o en el generador </p>
-      <p class="m100"><img src="formulas/2_03.gif" width="241" height="24" onClick="abrirVentana('1.htm',1)"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;1.htm&#x27;,1)">$$W_R=I^2\,R,\quad W_r=I^2\,r,\quad W_\varepsilon=I\,\varepsilon$$</div></p>
       <p>Rendimiento del circuito:</p>
-      <p class="m100"><img src="formulas/2_04.gif" width="102" height="38" class="enlace_imagen" onClick="abrirVentana('1.htm',1)"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;1.htm&#x27;,1)">$$\eta=\frac{V_R}{\varepsilon}=\frac{I\,R}{\varepsilon}$$</div></p>
       </td>
   </tr>
 </table>
