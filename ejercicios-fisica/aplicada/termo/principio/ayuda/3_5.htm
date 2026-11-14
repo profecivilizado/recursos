@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(440,640)"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -40,7 +46,7 @@ onUnload="cerrarVentanas()">
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
           <td width="50%"><div align="center"><img src="imagenes/3_04.png" width="151" height="138" /></div></td>
-          <td width="50%"> <p><img src="formulas/3_4_03.gif" width="188" height="112" border="0" usemap="#Map" style="cursor:pointer"/></p>
+          <td width="50%"> <p>$$\begin{aligned}&Q=0\\[6pt] &\htmlData{pc-map=Map, pc-area=0}{\boxed{\mathcal{T}=\frac{1}{1-\gamma}\,(P_2\,V_2-P_1\,V_1)}}\\[6pt] &\Delta U=Q-\mathcal{T}\;\rightarrow\;\Delta U=-\mathcal{T}\end{aligned}$$</p>
             </td>
         </tr>
       </table>  

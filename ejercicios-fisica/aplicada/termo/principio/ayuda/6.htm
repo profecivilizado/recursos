@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,560)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -52,7 +58,7 @@ onUnload="cerrarVentanas()">
       </table>
       <p>Los calores molares de un gas solo dependen de la cantidad de &aacute;tomos 
         que tiene su mol&eacute;cula</p>
-      <p class="m50"><img src="formulas/6_01.gif" width="268" height="89" /></p>
+      <p class="m50">$$\begin{aligned}&\text{Monoatómico:}\quad c_p=\frac{5}{2}\,R\qquad c_v=\frac{3}{2}\,R\\[6pt] &\text{Diatómico:}\quad c_p=\frac{7}{2}\,R\qquad c_v=\frac{5}{2}\,R\end{aligned}$$</p>
       <p><strong><font color="#0000FF">Relaci&oacute;n de Mayer</font></strong></p>
       <p class="m100">c<sub>p</sub> - c<sub>v</sub> = R</p>
       <p><strong><font color="#0000FF">Coeficiente adiab&aacute;tico</font></strong></p>

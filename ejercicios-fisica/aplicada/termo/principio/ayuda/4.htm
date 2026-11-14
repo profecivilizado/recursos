@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,620)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -36,7 +42,7 @@ onUnload="cerrarVentanas()">
     <td width="430" height="325"> <p><b><font color="#0000FF">Trabajo</font></b></p>
       <p>Si en una transformaci&oacute;n cambia el volumen que ocupa el gas habr&aacute; 
         un trabajo que viene dado por:</p>
-      <p align="center"><img src="formulas/4_01.gif" width="78" height="68" /></p>
+      <p align="center">$$\mathcal{T}=\int_1^2P\,dV$$</p>
       <p>Para calcular la integral habr&aacute; que expresar la presi&oacute;n 
         en funci&oacute;n del volumen utilizando la ecuaci&oacute;n de la transformaci&oacute;n</p>
       <p><font color="#FF0000"><strong>Importante</strong></font></p>
