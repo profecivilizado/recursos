@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+/* Tema de Profe Civilizado (botón 🌓) y modo incrustado (?embed) */
+(function () {
+  var r = document.documentElement;
+  try { var t = localStorage.getItem("pc-theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+  if (/[?&]embed\b/.test(location.search)) r.classList.add("embed");
+  addEventListener("storage", function (e) {
+    if (e.key === "pc-theme" && (e.newValue === "dark" || e.newValue === "light")) r.setAttribute("data-theme", e.newValue);
+  });
+})();
+</script>
+<title>Amortiguamiento y resonancia: el columpio | Profe Civilizado</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f5f7;--card:#fff;--tx:#1d1d1f;--mu:#6e6e73;--ln:#d2d2d7;--ac:#0071e3;--ca:#ff9f0a;--ok:#1f8f4a;--bad:#d70015;--soft:#f0f0f3}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#1c1c1e;--tx:#f5f5f7;--mu:#a1a1a6;--ln:#3a3a3c;--ac:#2997ff;--soft:#2c2c2e;--ok:#30d158;--bad:#ff453a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#000;--card:#1c1c1e;--tx:#f5f5f7;--mu:#a1a1a6;--ln:#3a3a3c;--ac:#2997ff;--soft:#2c2c2e;--ok:#30d158;--bad:#ff453a}
+:root[data-theme="light"]{color-scheme:light}
+.embed header{display:none}.embed .wrap{padding-top:8px}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 16px 60px}
+header{text-align:center;margin:8px 0 22px}
+.eyebrow{color:var(--ac);font-weight:600;font-size:14px;margin:0 0 4px}
+h1{font-size:clamp(30px,5.5vw,48px);letter-spacing:-.03em;line-height:1.08;margin:0 0 10px}
+.lead{color:var(--mu);max-width:660px;margin:0 auto;font-size:17px}
+.card{background:var(--card);border-radius:20px;padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.05)}
+.card h2{font-size:19px;letter-spacing:-.01em;margin:0 0 10px}
+.stage{padding:0;overflow:hidden;background:#07080b}
+.sg{display:grid;grid-template-columns:5fr 7fr}
+@media(max-width:820px){.sg{grid-template-columns:1fr}}
+#sw{display:block;width:100%;height:340px}#gr{display:block;width:100%;height:340px}
+@media(max-width:820px){#sw{height:300px}#gr{height:260px}}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 14px;background:#111216;color:#e8e8ed;font-size:14px}
+.bar label{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn{border:0;background:var(--soft);color:var(--tx);font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:980px;cursor:pointer}
+.btn:hover{filter:brightness(.96)}.btn.pri,.btn.on{background:var(--ac);color:#fff}
+.bar .btn{background:#2a2b31;color:#f5f5f7}.bar .btn.push{background:var(--ca);color:#1d1d1f}
+.presets{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.lbl{color:var(--mu);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px 28px}
+.ctl{display:block;font-size:14px;color:var(--mu)}
+.ctl span{display:flex;justify-content:space-between;gap:8px;margin-bottom:2px}.ctl b{color:var(--tx);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--ac)}
+.sw{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--tx);cursor:pointer}
+.sw input{width:20px;height:20px;accent-color:var(--ac)}
+.row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--ln);font-size:15px}.row:last-child{border:0}
+.row span:first-child{color:var(--mu)}.row b{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:980px;background:var(--soft)}
+.tag.lo{background:rgba(10,132,255,.15);color:var(--ac)}.tag.ok{background:rgba(48,209,88,.18);color:var(--ok)}.tag.hi{background:rgba(255,55,95,.15);color:#ff375f}.tag.res{background:rgba(255,159,10,.2);color:#c77700}
+.note{background:var(--soft);border-radius:14px;padding:12px 14px;font-size:14.5px}
+.note ul{margin:6px 0 0;padding-left:20px}
+canvas.chart{display:block;width:100%;height:300px}
+canvas.mini{display:block;width:100%;max-width:420px;height:190px}
+.warn{color:var(--bad);font-size:14px;min-height:20px;margin:6px 0 0}
+.q{border-top:1px solid var(--ln);padding-top:14px;margin-top:14px}
+.q label{display:block;padding:6px 0;cursor:pointer}.fb{font-size:14.5px;min-height:22px;margin-top:4px}.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}
+.foot{color:var(--mu);font-size:13px;text-align:center;margin-top:26px}
+sub,sup{line-height:0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--mu);margin-top:6px}
+.legend i{display:inline-block;width:22px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <p class="eyebrow">Profe Civilizado · Física · Oscilaciones</p>
+  <h1>Amortiguamiento y resonancia</h1>
+  <p class="lead">Un columpio que oscila como un MAS. Añade rozamiento, aplícale una fuerza periódica y descubre cuándo entra en resonancia.</p>
+</header>
+
+<section class="card stage">
+  <div class="sg"><canvas id="sw"></canvas><canvas id="gr"></canvas></div>
+  <div class="bar">
+    <button class="btn" id="bPause">⏸ Pausa</button>
+    <button class="btn" id="bRel">↺ Soltar desde θ₀</button>
+    <button class="btn push" id="kL">← Empujar</button>
+    <button class="btn push" id="kR">Empujar →</button>
+    <label>Cámara lenta <input type="range" id="speed" min="0.25" max="2" step="0.05" value="1" style="width:110px"> <b id="o-speed" style="display:inline-block;width:3.6em;text-align:right;font-variant-numeric:tabular-nums">×1</b></label>
+  </div>
+</section>
+
+<section class="card">
+  <div class="presets">
+    <span class="lbl">Elige el tipo y suelta el columpio:</span>
+    <button class="btn" data-z="0">Sin amortiguamiento (MAS)</button>
+    <button class="btn" data-z="0.05">Amortiguamiento ligero (light)</button>
+    <button class="btn" data-z="1">Amortiguamiento crítico (critical)</button>
+    <button class="btn" data-z="2.5">Amortiguamiento fuerte (heavy)</button>
+  </div>
+  <div class="grid">
+    <label class="ctl"><span>Longitud de las cuerdas L <b id="o-L"></b></span><input type="range" id="L" min="1" max="6" step="0.1" value="2.5"></label>
+    <label class="ctl"><span>Ángulo inicial θ₀ <b id="o-th0"></b></span><input type="range" id="th0" min="5" max="40" step="1" value="30"></label>
+  </div>
+  <hr style="border:0;border-top:1px solid var(--ln);margin:16px 0">
+  <label class="sw"><input type="checkbox" id="drive"> <b>Aplicar una fuerza periódica</b> <span class="lbl">F = F₀ cos(2π f<sub>D</sub> t)</span></label>
+  <div class="presets" style="margin:12px 0">
+    <button class="btn" id="bRes">f<sub>D</sub> = f₀ (resonancia)</button>
+    <button class="btn" id="bBad">Mal aplicada: f<sub>D</sub> = 0,6 f₀</button>
+  </div>
+  <div class="grid">
+    <label class="ctl"><span>Fuerza F₀ (relativa) <b id="o-F0"></b></span><input type="range" id="F0" min="0" max="10" step="0.1" value="3"></label>
+    <label class="ctl"><span><em style="font-style:normal">Frecuencia de la fuerza f<sub>D</sub></em> <b id="o-r"></b></span><input type="range" id="r" min="0.1" max="2" step="0.01" value="1"></label>
+  </div>
+  <p class="lbl" style="margin:10px 0 0">Prueba también a empujar tú: cada empuje vale lo mismo, pero si lo das cuando el columpio va en sentido contrario, <b>le quitas amplitud</b>.</p>
+  <p class="warn" id="warn"></p>
+</section>
+
+<section class="card">
+  <h2>Estado del columpio</h2>
+  <div class="grid">
+    <div>
+      <div class="row"><span>Situación</span><b id="s-tipo">—</b></div>
+      <div class="row"><span>Frecuencia natural f₀</span><b id="s-f0">—</b></div>
+      <div class="row"><span>Frecuencia de la fuerza f<sub>D</sub></span><b id="s-fd">—</b></div>
+    </div>
+    <div>
+      <div class="row"><span>Oscila con frecuencia</span><b id="s-fo">—</b></div>
+      <div class="row"><span>Amplitud actual</span><b id="s-a">—</b></div>
+      <div class="row"><span>Amplitud que alcanzará (régimen estacionario)</span><b id="s-ae">—</b></div>
+    </div>
+    <div><div class="row"><span>¿Resonancia?</span><b id="s-res">—</b></div></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Amplitud frente a frecuencia de la fuerza</h2>
+  <canvas id="rc" class="chart"></canvas>
+  <div class="legend"><span><i style="border-color:var(--ac)"></i>amortiguamiento actual</span><span><i style="border-color:#8e8e93"></i>otros niveles (más amortiguamiento, curva más baja)</span><span><i style="border-color:#ff375f;border-top-style:dashed"></i>posición del máximo</span></div>
+  <div class="note" style="margin-top:10px">Qué observar:
+    <ul>
+      <li>Con poco amortiguamiento, el máximo está casi en f₀: es la <b>resonancia</b>, como al empujar un columpio en el momento justo.</li>
+      <li>Al aumentar el amortiguamiento, el pico se hace <b>más bajo y más ancho</b> y se desplaza a frecuencias algo <b>menores que f₀</b>.</li>
+      <li>A frecuencias muy bajas la amplitud es casi constante; a frecuencias altas tiende a cero. En todos los casos el columpio acaba oscilando a la frecuencia de la fuerza.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Los tres tipos de amortiguamiento</h2>
+  <canvas id="tc" class="chart" style="height:260px"></canvas>
+  <div class="legend"><span><i style="border-color:#0a84ff"></i>Amortiguamiento ligero (light): oscila y la amplitud decae poco a poco</span><span><i style="border-color:#30d158"></i>Amortiguamiento crítico (critical): vuelve al equilibrio lo más rápido posible, sin oscilar</span><span><i style="border-color:#ff375f"></i>Amortiguamiento fuerte (heavy, sobreamortiguado): vuelve muy despacio, sin oscilar</span></div>
+</section>
+
+<p class="foot">Simulador del columpio · Tema 15.4: amortiguamiento y resonancia · modelo lineal (MAS amortiguado y forzado)</p>
+</div>
+
+<script>
+"use strict";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const D=Math.PI/180,G=9.81,dpr=Math.min(2,window.devicePixelRatio||1);
+const es=x=>String(x).replace('.',',');
+const f1=x=>es(x.toFixed(1)),f2=x=>es(x.toFixed(2));
+
+/* ---------- estado ---------- */
+const S={L:2.5,z:.05,th0:30,drive:false,F0:3,r:1,speed:1,paused:false};
+const sim={t:0,th:30*D,om:0,ph:0,hist:[],hn:0,env:null};
+const w0=()=>Math.sqrt(G/S.L),f0=()=>w0()/(2*Math.PI),fD=()=>S.r*f0();
+
+/* ---------- física: θ'' + 2ζω₀θ' + ω₀²θ = ω₀² θest cos(ω_D t) ---------- */
+function deriv(th,om,ph){
+  const w=w0(),F=S.drive?S.F0*D*Math.cos(ph):0;
+  return[om,-w*w*th-2*S.z*w*om+w*w*F,2*Math.PI*fD()];
+}
+function step(h){
+  const s=[sim.th,sim.om,sim.ph],add=(a,k,c)=>a.map((v,i)=>v+c*k[i]);
+  const k1=deriv(...s),k2=deriv(...add(s,k1,h/2)),k3=deriv(...add(s,k2,h/2)),k4=deriv(...add(s,k3,h));
+  sim.th+=h/6*(k1[0]+2*k2[0]+2*k3[0]+k4[0]);sim.om+=h/6*(k1[1]+2*k2[1]+2*k3[1]+k4[1]);sim.ph+=h/6*(k1[2]+2*k2[2]+2*k3[2]+k4[2]);
+  sim.t+=h;
+  if(sim.t>=sim.hn){sim.hist.push({t:sim.t,th:sim.th/D,F:S.drive?S.F0*Math.cos(sim.ph):0});sim.hn+=.02;if(sim.hist.length>4000)sim.hist.shift();}
+  if(!isFinite(sim.th)||Math.abs(sim.th)>1e4)release();
+}
+function release(){
+  sim.t=0;sim.th=S.th0*D;sim.om=0;sim.ph=0;sim.hist=[];sim.hn=0;
+  sim.env={A:S.th0,t:0,z:S.z,w:w0(),ok:S.z>0&&S.z<1&&!S.drive};
+}
+function invalidate(){sim.env=null;}
+function kick(dir){sim.om+=dir*10*D*w0();invalidate();}   // un empuje = 10° de amplitud si va en fase
+function regime(z){
+  if(z<.005)return['Sin amortiguamiento (MAS)','tag'];
+  if(z<.98)return['Amortiguamiento ligero (light)','tag lo'];
+  if(z<=1.02)return['Amortiguamiento crítico (critical)','tag ok'];
+  return['Amortiguamiento fuerte (heavy)','tag hi'];
+}
+function steadyA(){ // amplitud estacionaria en grados
+  const r=S.r,d=Math.sqrt((1-r*r)**2+(2*S.z*r)**2);return d<1e-6?Infinity:S.F0/d;
+}
+function maxA(){return S.z<.7071?S.F0/(2*S.z*Math.sqrt(1-S.z*S.z)):S.F0;}
+function curAmp(){
+  const T=1/(S.drive?fD():f0()),t0=sim.t-1.05*T;let m=0;
+  for(let i=sim.hist.length-1;i>=0&&sim.hist[i].t>=t0;i--)m=Math.max(m,Math.abs(sim.hist[i].th));
+  return m;
+}
+
+/* ---------- utilidades de dibujo ---------- */
+function prep(c){
+  const r=c.getBoundingClientRect(),w=r.width,h=r.height;if(!w)return null;
+  if(c.width!==Math.round(w*dpr)||c.height!==Math.round(h*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);}
+  const x=c.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);return{x,w,h};
+}
+const css=()=>{const cs=getComputedStyle(document.body);return{tx:cs.color,mu:cs.getPropertyValue('--mu').trim()||'#888',ln:cs.getPropertyValue('--ln').trim()||'#ccc',ac:cs.getPropertyValue('--ac').trim()||'#07f'};};
+function label(x,t,px,py,col,sz=12,al='left',wt=500){x.fillStyle=col;x.font=`${wt} ${sz}px -apple-system,system-ui,sans-serif`;x.textAlign=al;x.fillText(t,px,py);}
+
+/* ---------- columpio ---------- */
+function drawSwing(){
+  const p=prep($('#sw'));if(!p)return;const{x,w,h}=p;
+  const bg=x.createLinearGradient(0,0,0,h);bg.addColorStop(0,'#14161d');bg.addColorStop(1,'#07080b');x.fillStyle=bg;x.fillRect(0,0,w,h);
+  const cx=w/2,top=34,Lp=Math.min(h-120,86+S.L*22),gy=top+Lp+52;
+  x.strokeStyle='#3a3d48';x.lineWidth=1;x.beginPath();x.moveTo(0,gy);x.lineTo(w,gy);x.stroke();
+  // estructura
+  x.strokeStyle='#8e93a3';x.lineWidth=6;x.lineCap='round';
+  x.beginPath();x.moveTo(cx-120,gy);x.lineTo(cx-60,top);x.lineTo(cx+60,top);x.lineTo(cx+120,gy);x.stroke();
+  x.lineWidth=1;x.setLineDash([3,6]);x.strokeStyle='rgba(255,255,255,.25)';x.beginPath();x.moveTo(cx,top);x.lineTo(cx,top+Lp+30);x.stroke();x.setLineDash([]);
+  // estela
+  const th=Math.max(-85,Math.min(85,sim.th/D))*D;
+  x.fillStyle='rgba(100,210,255,.25)';
+  for(let i=sim.hist.length-1,n=0;i>=0&&n<30;i-=6,n++){const a=Math.max(-85,Math.min(85,sim.hist[i].th))*D;x.beginPath();x.arc(cx+Lp*Math.sin(a),top+Lp*Math.cos(a),4,0,7);x.fill();}
+  // cuerda, asiento, persona
+  const sx=cx+Lp*Math.sin(th),sy=top+Lp*Math.cos(th);
+  x.strokeStyle='#d0d3dc';x.lineWidth=2;x.beginPath();x.moveTo(cx,top);x.lineTo(sx,sy);x.stroke();
+  x.save();x.translate(sx,sy);x.rotate(-th);
+  x.fillStyle='#ffd60a';x.fillRect(-18,-3,36,6);
+  x.fillStyle='#64d2ff';x.beginPath();x.arc(0,-34,9,0,7);x.fill();
+  x.fillStyle='#0a84ff';x.fillRect(-7,-24,14,22);
+  x.restore();
+  // fuerza
+  if(S.drive&&S.F0>0){
+    const F=S.F0*Math.cos(sim.ph),len=F/10*70;
+    if(Math.abs(len)>2){x.strokeStyle=x.fillStyle='#ff9f0a';x.lineWidth=3;const ay=sy+18,d=Math.sign(len);
+      x.beginPath();x.moveTo(sx,ay);x.lineTo(sx+len,ay);x.stroke();x.beginPath();x.moveTo(sx+len,ay);x.lineTo(sx+len-d*9,ay-6);x.lineTo(sx+len-d*9,ay+6);x.fill();label(x,'F',sx+len/2,ay+20,'#ff9f0a',13,'center',700);}
+  }
+  label(x,'L = '+f1(S.L)+' m',12,22,'#a1a1aa',13);
+  label(x,'θ = '+f1(sim.th/D)+'°',w-12,22,'#e8e8ed',13,'right',600);
+  if(Math.abs(sim.th/D)>85)label(x,'¡Amplitud irreal!',cx,gy+26,'#ff453a',14,'center',700);
+}
+
+/* ---------- gráfica x–t ---------- */
+function drawGraph(){
+  const p=prep($('#gr'));if(!p)return;const{x,w,h}=p;
+  x.fillStyle='#0b0c10';x.fillRect(0,0,w,h);
+  const mL=46,mR=16,mT=34,mB=34,pw=w-mL-mR,ph=h-mT-mB;
+  const T=Math.max(10,Math.min(30,5*2*Math.PI/w0())),t1=sim.t,t0=Math.max(0,t1-T),tR=t0+T;
+  let mx=0;for(const d of sim.hist)if(d.t>=t0)mx=Math.max(mx,Math.abs(d.th),S.drive?Math.abs(d.F):0);
+  const sc=Math.min(90,Math.ceil(Math.max(30,mx*1.15)/10)*10);
+  const X=t=>mL+(t-t0)/T*pw,Y=v=>mT+ph/2-Math.max(-sc*1.02,Math.min(sc*1.02,v))/sc*ph/2;
+  x.strokeStyle='rgba(255,255,255,.08)';x.lineWidth=1;
+  for(const v of[-sc,-sc/2,0,sc/2,sc]){x.beginPath();x.moveTo(mL,Y(v));x.lineTo(w-mR,Y(v));x.stroke();label(x,Math.round(v)+'°',mL-6,Y(v)+4,'#8e8e93',11,'right');}
+  const tick=T>18?5:2;for(let t=Math.ceil(t0/tick)*tick;t<=tR;t+=tick){x.beginPath();x.moveTo(X(t),mT);x.lineTo(X(t),mT+ph);x.stroke();label(x,String(Math.round(t)),X(t),h-16,'#8e8e93',11,'center');}
+  label(x,'t (s)',w-mR,h-4,'#8e8e93',11,'right');label(x,'θ (°)',mL-6,mT-12,'#8e8e93',11,'right');
+  x.strokeStyle='rgba(255,255,255,.35)';x.beginPath();x.moveTo(mL,Y(0));x.lineTo(w-mR,Y(0));x.stroke();
+  // envolvente (amortiguamiento ligero sin fuerza)
+  const e=sim.env;
+  if(e&&e.ok){x.setLineDash([2,5]);x.strokeStyle='rgba(255,255,255,.75)';x.lineWidth=2;
+    for(const sg of[1,-1]){x.beginPath();let st=false;for(let i=0;i<=120;i++){const t=Math.max(t0,e.t)+(t1-Math.max(t0,e.t))*i/120;if(t<e.t)continue;const A=sg*e.A*Math.exp(-e.z*e.w*(t-e.t));st?x.lineTo(X(t),Y(A)):(x.moveTo(X(t),Y(A)),st=true);}x.stroke();}x.setLineDash([]);}
+  // fuerza
+  if(S.drive){x.strokeStyle='#ff9f0a';x.lineWidth=1.5;x.setLineDash([6,4]);x.beginPath();let st=false;for(const d of sim.hist){if(d.t<t0)continue;st?x.lineTo(X(d.t),Y(d.F)):(x.moveTo(X(d.t),Y(d.F)),st=true);}x.stroke();x.setLineDash([]);}
+  // posición
+  x.strokeStyle='#64d2ff';x.lineWidth=2.5;x.lineJoin='round';x.beginPath();let st=false;
+  for(const d of sim.hist){if(d.t<t0)continue;st?x.lineTo(X(d.t),Y(d.th)):(x.moveTo(X(d.t),Y(d.th)),st=true);}x.stroke();
+  x.fillStyle='#64d2ff';x.beginPath();x.arc(X(t1),Y(sim.th/D),5,0,7);x.fill();
+  label(x,'— Columpio (ángulo θ)',mL+4,18,'#64d2ff',12,'left',600);
+  if(S.drive)label(x,'- - Fuerza aplicada (escala relativa)',mL+170,18,'#ff9f0a',12,'left',600);
+  else if(e&&e.ok)label(x,'··· Envolvente exponencial',mL+170,18,'#e8e8ed',12,'left',600);
+}
+
+/* ---------- curva de resonancia ---------- */
+function curve(r,z){return 1/Math.sqrt((1-r*r)**2+(2*z*r)**2);}
+function drawRes(c,opts){
+  const p=prep(c);if(!p)return;const{x,w,h}=p,k=css();
+  const mL=44,mR=14,mT=12,mB=34,pw=w-mL-mR,ph=h-mT-mB,small=!!opts;
+  const zs=opts?opts.zs:[.05,.1,.2,.4,.7];let ymax=opts?opts.ymax:Math.max(4,Math.min(12,curve(1,Math.min(...zs,S.z||1))*1.05));
+  const X=r=>mL+r/2*pw,Y=v=>mT+ph-Math.min(v,ymax)/ymax*ph;
+  x.strokeStyle=k.ln;x.lineWidth=1;x.beginPath();x.moveTo(mL,mT);x.lineTo(mL,mT+ph);x.lineTo(w-mR,mT+ph);x.stroke();
+  const f=f0();
+  if(!small){for(let v=0;v<=ymax;v+=ymax>8?4:2){x.strokeStyle=k.ln;x.globalAlpha=.4;x.beginPath();x.moveTo(mL,Y(v));x.lineTo(w-mR,Y(v));x.stroke();x.globalAlpha=1;label(x,String(v),mL-6,Y(v)+4,k.mu,11,'right');}}
+  x.setLineDash([3,4]);x.strokeStyle=k.mu;x.beginPath();x.moveTo(X(1),mT);x.lineTo(X(1),mT+ph);x.stroke();x.setLineDash([]);
+  label(x,small?'f₀':'f₀ = '+f2(f)+' Hz',X(1),h-18,k.mu,11,'center',600);label(x,small?'f_D':'f_D (Hz)',w-mR,h-4,k.mu,11,'right');
+  if(!small){for(const r of[0,.5,1.5,2])label(x,f2(r*f),X(r),h-18,k.mu,11,'center');label(x,'Amplitud relativa (1 = la que habría con una fuerza muy lenta)',mL+6,mT+10,k.mu,11,'left');}
+  const draw=(z,col,lw)=>{x.strokeStyle=col;x.lineWidth=lw;x.beginPath();for(let i=0;i<=300;i++){const r=2*i/300,v=curve(r,z);i?x.lineTo(X(r),Y(v)):x.moveTo(X(r),Y(v));}x.stroke();};
+  if(opts){opts.zs.forEach((z,i)=>{draw(z,i?k.ac:'#8e8e93',2.5);label(x,String(i+1),X(Math.sqrt(1-2*z*z)),Y(curve(Math.sqrt(1-2*z*z),z))-6,k.tx,14,'center',700);});return;}
+  zs.forEach(z=>draw(z,'#8e8e93',1.5));
+  x.setLineDash([5,4]);x.strokeStyle='#ff375f';x.lineWidth=1.8;x.beginPath();let st=false;
+  for(let z=.02;z<.7071;z+=.01){const r=Math.sqrt(1-2*z*z),v=curve(r,z);if(v>ymax*1.2)continue;st?x.lineTo(X(r),Y(v)):(x.moveTo(X(r),Y(v)),st=true);}x.stroke();x.setLineDash([]);
+  draw(S.z,k.ac,3.2);
+  const mv=curve(S.r,S.z);x.beginPath();x.arc(X(S.r),Y(mv),6,0,7);x.fillStyle=S.drive?'#ff9f0a':'transparent';x.fill();x.strokeStyle='#ff9f0a';x.lineWidth=2.5;x.stroke();
+  if(S.z<.005)label(x,'Sin amortiguamiento: A → ∞ en f₀',X(1)+8,mT+14,'#ff375f',12,'left',600);
+}
+
+/* ---------- los tres tipos (solución analítica, soltando desde θ₀ en reposo) ---------- */
+function resp(z,wn,t){
+  if(z<1){const wd=wn*Math.sqrt(1-z*z);return Math.exp(-z*wn*t)*(Math.cos(wd*t)+z*wn/wd*Math.sin(wd*t));}
+  if(z===1)return Math.exp(-wn*t)*(1+wn*t);
+  const wh=wn*Math.sqrt(z*z-1);return Math.exp(-z*wn*t)*(Math.cosh(wh*t)+z*wn/wh*Math.sinh(wh*t));
+}
+function drawThree(){
+  const p=prep($('#tc'));if(!p)return;const{x,w,h}=p,k=css();
+  const mL=44,mR=14,mT=14,mB=30,pw=w-mL-mR,ph=h-mT-mB,wn=w0(),T0=2*Math.PI/wn,Tm=3*T0;
+  const X=t=>mL+t/Tm*pw,Y=v=>mT+ph/2-v*ph/2*.92;
+  x.strokeStyle=k.ln;x.lineWidth=1;x.beginPath();x.moveTo(mL,mT);x.lineTo(mL,mT+ph);x.stroke();
+  x.globalAlpha=.6;x.beginPath();x.moveTo(mL,Y(0));x.lineTo(w-mR,Y(0));x.stroke();x.globalAlpha=1;
+  for(let t=0;t<=Tm;t+=Math.max(1,Math.round(Tm/6))){label(x,String(Math.round(t)),X(t),h-14,k.mu,11,'center');}
+  label(x,'t (s)',w-mR,h-2,k.mu,11,'right');label(x,'θ / θ₀',mL+6,mT+10,k.mu,11,'left');
+  const env=(z,sg)=>{x.beginPath();for(let i=0;i<=200;i++){const t=Tm*i/200,A=sg*Math.exp(-z*wn*t);i?x.lineTo(X(t),Y(A)):x.moveTo(X(t),Y(A));}x.stroke();};
+  x.setLineDash([2,5]);x.strokeStyle='#0a84ff';x.lineWidth=1.6;env(.05,1);env(.05,-1);x.setLineDash([]);
+  [[.05,'#0a84ff'],[1,'#30d158'],[3,'#ff375f']].forEach(([z,c])=>{x.strokeStyle=c;x.lineWidth=2.8;x.beginPath();
+    for(let i=0;i<=600;i++){const t=Tm*i/600,v=resp(z,wn,t);i?x.lineTo(X(t),Y(v)):x.moveTo(X(t),Y(v));}x.stroke();});
+}
+
+/* ---------- panel de estado ---------- */
+function updateUI(){
+  const[tt,cl]=regime(S.z);$('#s-tipo').innerHTML=`<span class="${cl}">${tt}</span>`;
+  $('#s-f0').textContent=f2(f0())+' Hz';
+  $('#s-fd').textContent=S.drive?f2(fD())+' Hz':'— (sin fuerza)';
+  const free=S.z<1?f0()*Math.sqrt(1-S.z*S.z):0;
+  $('#s-fo').textContent=S.drive?f2(fD())+' Hz (la de la fuerza)':S.z<1?f2(free)+' Hz':'no oscila';
+  $('#s-a').textContent=f1(curAmp())+'°';
+  if(S.drive){const A=steadyA();$('#s-ae').textContent=isFinite(A)?f1(A)+'°':'crece sin límite';
+    const pk=S.z<.7071&&S.F0>0&&A>=.9*maxA();$('#s-res').innerHTML=pk?'<span class="tag res">¡En resonancia!</span>':(S.z>=.7071?'no hay pico de resonancia':'no');}
+  else{$('#s-ae').textContent='— (sin fuerza decae)';$('#s-res').textContent='—';}
+  $('#o-L').textContent=f1(S.L)+' m';$('#o-th0').textContent=S.th0+'°';
+  $('#o-F0').textContent=f1(S.F0);$('#o-r').textContent=f2(fD())+' Hz ('+f2(S.r)+' f₀)';
+  $('#warn').textContent=(S.drive&&S.z<.005&&S.F0>0&&Math.abs(S.r-1)<.08)?'Sin amortiguamiento y en resonancia la amplitud crecería sin límite: en la realidad eso es imposible, siempre hay rozamiento.':'';
+}
+
+/* ---------- controles ---------- */
+const bind=(id,key,fn)=>$('#'+id).oninput=e=>{let v=+e.target.value;S[key]=v;invalidate();if(fn)fn();updateUI();redraw();};
+bind('L','L');bind('th0','th0');bind('F0','F0');bind('r','r');
+$('#drive').onchange=e=>{S.drive=e.target.checked;invalidate();updateUI();};
+$('#speed').oninput=e=>{S.speed=+e.target.value;$('#o-speed').textContent='×'+es(S.speed);};
+$('#bPause').onclick=e=>{S.paused=!S.paused;e.target.textContent=S.paused?'▶ Reanudar':'⏸ Pausa';};
+$('#bRel').onclick=()=>release();
+$('#kL').onclick=()=>kick(-1);$('#kR').onclick=()=>kick(1);
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'&&e.target.type!=='range')return;if(e.key==='ArrowLeft'){kick(-1);e.preventDefault();}if(e.key==='ArrowRight'){kick(1);e.preventDefault();}});
+function markZ(){$$('[data-z]').forEach(b=>b.classList.toggle('on',+b.dataset.z===S.z));}
+$$('[data-z]').forEach(b=>b.onclick=()=>{S.z=+b.dataset.z;release();markZ();updateUI();redraw();});
+$('#bRes').onclick=()=>{S.r=1;S.drive=true;$('#drive').checked=true;$('#r').value=1;invalidate();updateUI();redraw();};
+$('#bBad').onclick=()=>{S.r=.6;S.drive=true;$('#drive').checked=true;$('#r').value=.6;invalidate();updateUI();redraw();};
+function redraw(){drawRes($('#rc'));drawThree();}
+
+/* ---------- bucle ---------- */
+let last=performance.now(),acc=0;const HH=1/240;
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(!S.paused){acc+=dt*S.speed;let n=0;while(acc>=HH&&n++<40){step(HH);acc-=HH;}}
+  drawSwing();drawGraph();requestAnimationFrame(frame);
+}
+setInterval(updateUI,150);
+if(window.ResizeObserver)new ResizeObserver(()=>{redraw();}).observe(document.body);
+release();markZ();updateUI();redraw();requestAnimationFrame(frame);
+window.SW={S,sim,step,release,steadyA,maxA,resp,w0,f0,curve};
+</script>
+</body>
+</html>
