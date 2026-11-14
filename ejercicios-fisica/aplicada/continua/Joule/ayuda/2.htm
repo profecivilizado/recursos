@@ -26,8 +26,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,450)"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -38,11 +44,11 @@ onUnload="cerrarVentanas()">
       <p>Se plantea un sistema de ecuaciones, tantas como magnitudes haya que 
         calcular, utilizando algunas de estas:</p>
       <p>Expresi&oacute;n del trabajo o potencia en el conductor:</p>
-      <p class="m100"><img src="formulas/1_02.gif" width="198" height="20" class="enlace_imagen" onClick="abrirVentana('1.htm',1)"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;1.htm&#x27;,1)">$$\mathcal{T}_R=I\,t\,V_R\qquad,\qquad W_R=I\,V_R$$</div></p>
       <p>Ley de Ohm aplicada al conductor:</p>
-      <p class="m100"><img src="formulas/1_04.gif" width="72" height="20" class="enlace_imagen" onClick="abrirVentana('../../Ohm/ayuda/1.htm',1)"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;../../Ohm/ayuda/1.htm&#x27;,1)">$$V_R=I\,R$$</div></p>
       <p>Resistencia del conductor en funci&oacute;n de sus datos f&iacute;sicos:</p>
-      <p class="m100"><img src="formulas/1_03.gif" width="56" height="37" class="enlace_imagen" onClick="abrirVentana('../../Ohm/ayuda/1.htm',1)"/></p>
+      <p class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;../../Ohm/ayuda/1.htm&#x27;,1)">$$R=\rho\,\frac{L}{S}$$</div></p>
       <p>Se resuelve el sistema obtenido<br />
       </p>
       </td>
