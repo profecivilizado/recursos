@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,600)"
 onUnload="cerrarVentanas()">
 <table width="451" border="0" cellspacing="0" cellpadding="10">
@@ -38,7 +44,7 @@ onUnload="cerrarVentanas()">
         en trabajo. La m&aacute;quina utiliza un gas que recorre un ciclo en una 
         parte del cual toma calor y en otras lo cede cede. La diferencia entre 
         el calor tomado y el cedido se convierte en trabajo:</p>
-      <p align="left" class="m50"><img src="formulas/1_01.gif" width="296" height="41" /></p>
+      <p align="left" class="m50">$$\mathcal{T}_{\text{neto}}=Q_{\text{tomado}}+Q_{\text{cedido}}\quad,\quad\eta=\frac{\mathcal{T}_{\text{neto}}}{Q_{\text{tomado}}}$$</p>
       <p>&eta; se denomina rendimiento del ciclo (Siempre es menor que 1) </p>
       <p>Multiplicando el trabajo producido en un ciclo por el n&uacute;mero de 
         ciclos que realiza la m&aacute;quina en un segundo se obtiene el traba-jo 
@@ -50,7 +56,7 @@ onUnload="cerrarVentanas()">
         isoterma y com-presi&oacute;n adiab&aacute;tica hasta el estado de partida</p>
       <p> Si los procesos son reversibles el rendimiento de la m&aacute;quina 
         vie-ne dado por: </p>
-      <p align="left" class="m100"><img src="formulas/1_02.gif" width="82" height="41" onclick="abrirVentana('../problemas.htm#a7',1)"/></p>
+      <p align="left" class="m100"><div class="enlace_imagen" onclick="abrirVentana(&#x27;../problemas.htm#a7&#x27;,1)">$$\eta=\frac{T_1-T_2}{T_1}$$</div></p>
       <p>El rendimiento de la m&aacute;quina de Carnot es el m&aacute;ximo posible 
         pa-ra cualquier m&aacute;quina que trabaje entre las mismas temperaturas</p>
       </td>
