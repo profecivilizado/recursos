@@ -27,8 +27,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onload="self.resizeTo(480,340)"
 onUnload="cerrarVentanas()">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
@@ -39,7 +45,7 @@ onUnload="cerrarVentanas()">
           <td width="48%">
 <div align="center"><img src="imagenes/3_03.png" width="151" height="138" /></div></td>
           <td width="52%"> 
-            <p align="left" class="m50"><img src="formulas/3_3_02.gif" width="174" height="114" border="0" usemap="#Map1" style="cursor:pointer"/></p>
+            <p align="left" class="m50">$$\begin{aligned}&\htmlData{pc-map=Map1, pc-area=0}{\boxed{\mathcal{T}=P_1\,V_1\ln\frac{V_2}{V_1}}}\\[6pt] &\Delta U=0\\[6pt] &\Delta U=Q-\mathcal{T}\;\rightarrow\;Q=\mathcal{T}\end{aligned}$$</p>
             </td>
         </tr>
       </table>
