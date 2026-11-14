@@ -26,8 +26,14 @@ function cerrarVentanas() {
 </script>
 <link href="../../../comunes/js/estilos.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../../../../_pc/pc.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],trust:function(c){return c.command==='\htmlData'},strict:'ignore'});window.pcFit&&pcFit()"></script>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" 
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0"
+ 
+
+
 onLoad="self.resizeTo(480,600)">
 <table width="450" border="0" cellspacing="0" cellpadding="10">
   <tr>
@@ -38,7 +44,7 @@ onLoad="self.resizeTo(480,600)">
       <p> Conservaci&oacute;n del momento lineal (<span style="font-size:8pt;color:0000FF;cursor:pointer" onclick="abrirVentana('../../ayuda/1.htm',1)">&#149;</span>)</p>
       <table width="100%" border="0" cellspacing="0" cellpadding="5">
         <tr> 
-          <td width="60%"><div align="center"><img src="formulas/1_01.gif" width="236" height="60" /></div></td>
+          <td width="60%"><div align="center">$$\left.\begin{array}{l}m_1v_1+m_2v_{2x}=m_1v'_{1x}+m_2v'_{2x}\\[6pt] m_2v_{2y}=m_1v'_{1y}+m_2v'_{2y}\end{array}\right\}$$</div></td>
           <td width="40%"><p class="peque&ntilde;o">(Eje x en la direcci&oacute;n 
               de v1)</p></td>
         </tr>
@@ -62,7 +68,7 @@ onLoad="self.resizeTo(480,600)">
       <p  > <strong><font color="#0000FF">Choque oblicuo totalmente inel&aacute;stico</font></strong><br />
         Se aplica el principio de conservaci&oacute;n teniendo en cuenta que los 
         cuerpos quedan incrustados y tienen la misma velocidad</p>
-      <p class="m100"  ><img src="formulas/1_02.gif" width="218" height="62" /></p>
+      <p class="m100"  >$$\left.\begin{array}{l}m_1v_1+m_2v_{2x}=(m_1+m_2)\,v'_x\\[6pt] m_2v_{2y}=(m_1+m_2)\,v'_y\end{array}\right\}$$</p>
       <p  ><strong><font color="#0000FF">Choque oblicuo con pared o suelo (Masa 
         infinita) </font></strong> <br />
         <font color="#000000">Se conserva la componente de la velocidad paralela 
