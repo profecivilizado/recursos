@@ -342,12 +342,15 @@ $('#bBad').onclick=()=>{S.r=.6;S.drive=true;$('#drive').checked=true;$('#r').val
 function redraw(){drawRes($('#rc'));drawThree();}
 
 /* ---------- bucle ---------- */
-let last=performance.now(),acc=0;const HH=1/240;
-function frame(now){
-  const dt=Math.min(.05,(now-last)/1000);last=now;
+let last=performance.now(),acc=0,lastRaf=0;const HH=1/240;
+function tick(){
+  const now=performance.now(),dt=Math.max(0,Math.min(.05,(now-last)/1000));last=now;
   if(!S.paused){acc+=dt*S.speed;let n=0;while(acc>=HH&&n++<40){step(HH);acc-=HH;}}
-  drawSwing();drawGraph();requestAnimationFrame(frame);
+  drawSwing();drawGraph();
 }
+function frame(){lastRaf=performance.now();tick();requestAnimationFrame(frame);}
+/* Respaldo: algunos navegadores (Safari) no disparan requestAnimationFrame en un iframe dentro de un <details>; un temporizador mantiene viva la animación */
+setInterval(()=>{if(performance.now()-lastRaf>150)tick();},40);
 setInterval(updateUI,150);
 if(window.ResizeObserver)new ResizeObserver(()=>{redraw();}).observe(document.body);
 release();markZ();updateUI();redraw();requestAnimationFrame(frame);
